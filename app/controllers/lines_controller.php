@@ -8,11 +8,6 @@ class LinesController extends KtaiAppController {
 	var $name = 'Lines';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Line->recursive = 0;
 		$this->set('lines', $this->paginate());

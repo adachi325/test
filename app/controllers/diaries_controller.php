@@ -9,11 +9,6 @@ class DiariesController extends KtaiAppController {
 	var $name = 'Diaries';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Diary->recursive = 0;
 		$this->set('diaries', $this->paginate());

@@ -9,11 +9,6 @@ class IssuesController extends KtaiAppController {
 	var $name = 'Issues';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Issue->recursive = 0;
 		$this->set('issues', $this->paginate());

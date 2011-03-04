@@ -8,11 +8,6 @@ class ContentsController extends KtaiAppController {
 	var $name = 'Contents';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Content->recursive = 0;
 		$this->set('contents', $this->paginate());

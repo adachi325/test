@@ -8,11 +8,6 @@ class PresentsController extends KtaiAppController {
 	var $name = 'Presents';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Present->recursive = 0;
 		$this->set('presents', $this->paginate());

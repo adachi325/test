@@ -9,11 +9,6 @@ class ChildPresentsController extends KtaiAppController {
 	var $name = 'ChildPresents';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->ChildPresent->recursive = 0;
 		$this->set('childPresents', $this->paginate());

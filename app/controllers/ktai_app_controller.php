@@ -71,6 +71,11 @@ class KtaiAppController extends AppController {
 	//デフォルトCTP
 	public $layout = 'default';
 
+	public $components = array('Auth');
+	function beforeFilter(){
+		$this->Auth->authError= 'ログインしてください';
+	}
+
 	//----------------------------------------------------------
 	//Redirect override.
 	//If iMODE access or use_redirect_session_id is true,

@@ -8,11 +8,6 @@ class NewsController extends KtaiAppController {
 	var $name = 'News';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->News->recursive = 0;
 		$this->set('news', $this->paginate());

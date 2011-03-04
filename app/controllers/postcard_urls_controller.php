@@ -8,11 +8,6 @@ class PostcardUrlsController extends KtaiAppController {
 	var $name = 'PostcardUrls';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->PostcardUrl->recursive = 0;
 		$this->set('postcardUrls', $this->paginate());

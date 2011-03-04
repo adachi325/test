@@ -8,11 +8,6 @@ class ThemesController extends KtaiAppController {
 	var $name = 'Themes';
 	var $helpers = array('Html', 'Form');
 
-	public $components = array('Auth');
-	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
-	}
-
 	function index() {
 		$this->Theme->recursive = 0;
 		$this->set('themes', $this->paginate());
