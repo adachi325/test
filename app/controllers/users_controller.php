@@ -21,18 +21,15 @@ class UsersController extends KtaiAppController {
 	public $forward_index = 'index';
 
 	function beforeFilter() {
-        $this->Auth->userModel = 'User';
-        $this->Auth->fields = array(
-            'username' => 'loginid',
-            'password' => 'password'
-        );
-        $this->Auth->loginError = 'パスワードが違います。';
-        $this->Auth->authError = '会員用のページです。';
-        $this->Auth->allow('index','register','add','logout');
+            $this->Auth->userModel = 'User';
+            $this->Auth->loginError = 'パスワードが違います。';
+            $this->Auth->allow('index','register','add','logout');
+            parent::beforeFilter();
 	}
 
         function login() {
                     //CTPにデータを渡す用
+            
                     $this->set('login_user',$this->Auth->user());
                     $this->User->recursive = 0;
                     $this->set('users', $this->paginate());
@@ -48,8 +45,6 @@ class UsersController extends KtaiAppController {
 
 	function index() {
 		$this->pageTitle = 'トップページ';
-		//↓絶対消しましょう
-		//pr($this->Auth->user());
 	}
 
 	function view($id = null) {
@@ -61,9 +56,11 @@ class UsersController extends KtaiAppController {
 	}
 
 	function register() {
-                $this->setline();
-                
+                $this->setline();                
                 $this->pageTitle = '会員登録';
+
+                $this->__getUid();
+
 		TransactionManager::begin();
                 try {
                    if( $this->User->register($this->data)){

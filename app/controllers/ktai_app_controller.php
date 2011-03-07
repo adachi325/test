@@ -65,16 +65,44 @@
  */
 class KtaiAppController extends AppController {
 
-	//共通ヘルパ
 	public $helpers = array('Html', 'Form');
-
-	//デフォルトCTP
 	public $layout = 'default';
-
 	public $components = array('Auth');
+        
 	function beforeFilter(){
-		$this->Auth->authError= 'ログインしてください';
+            $this->Auth->authError= 'ログインしてください';
+            ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+            output_add_rewrite_var('guid','ON');
+
+            if($this->__getUid()){
+                //uidが存在すれば
+                if(uidcheck){
+                    $this->Auth->fields = array(
+                        'username' => 'loginid',
+                        'password' => 'password'
+                    );
+                }else {
+                    $this->Auth->fields = array(
+                        'username' => 'loginid',
+                        'password' => 'password'
+                    );
+                }
+            }
+
+            parent::beforeFilter();
 	}
+
+        function __getUid(){
+                if ($this->Ktai->is_imode()) {
+                    return $this->Ktai->get_uid();
+                }else if ($this->Ktai->is_softbank()) {
+                    return $this->Ktai->get_uid();
+                } else if ($this->Ktai->is_ezweb()) {
+                    return $this->Ktai->get_uid();
+                } else {
+                    return 0;
+                }
+        }
 
 	//----------------------------------------------------------
 	//Redirect override.
