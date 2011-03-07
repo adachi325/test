@@ -10,12 +10,12 @@ class PagesController extends KtaiAppController {
 		'privacy' => '個人情報の取り扱い',
 		'guide' => 'ご利用ガイド',
 	);
-        
+
         function beforeFilter() {
             $this->Auth->allow('*');
             parent::beforeFilter();
 	}
-        
+
 	public function display() {
 
 		$path = func_get_args();

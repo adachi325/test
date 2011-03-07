@@ -3,6 +3,7 @@
 </div>
 <?php echo $form->create('User', array('action' => 'register')); ?>
 <?php echo $form->input('new_loginid', array('value' => '', 'label' => 'ログインID')); ?>
+<?php echo $form->error('new_loginid') ?>
 <?php echo $form->input('new_password', array('value' => '', 'label' => 'パスワード','type' => 'password')); ?>
 <?php echo $form->input('row_password', array('value' => '', 'label' => '念の為の再入力','type' => 'password')); ?>
 <?php echo $form->input('Child.nickname', array('value' => '', 'label' => 'お子様のニックネーム')); ?>
@@ -32,5 +33,5 @@
 <?php echo $form->checkbox('Child.benesse_user'); ?>こどもちゃれんじ
 </div>
 <?php echo $form->input('dc_user', array('value' => '', 'label' => 'ドコモコミュニティ')); ?>
-<?php echo $form->submit('会員登録'); ?>
+<?php echo $form->submit('確認画面へ'); ?>
 <?php echo $form->end(); ?>

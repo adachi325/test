@@ -62,7 +62,7 @@ class KtaiComponent extends Object {
 	var $_options = array(
 		'enable_ktai_session' => true, 
 		'use_redirect_session_id' => false, 
-		'imode_session_name' => 'csid', 
+		'imode_session_name' => 'sid', 
 		'session_save' => 'php', 
 		
 		'output_auto_encoding' => false, 

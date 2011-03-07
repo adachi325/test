@@ -195,7 +195,14 @@ class KtaiHelper extends Helper {
 				}
 			}
 		}
-		
+                //guid=onを付加
+                if ( $this->_lib3gk->is_imode() ) {
+                    if ( is_array($url) ) {
+                        $url['?']['guid'] = 'on';
+                    } else {
+                        $url .= '?guid=on';
+                    }
+                }
 		return $str.$this->Html->link($title, $url, $options, $confirmMessage, $escapeTitle);
 	}
 	

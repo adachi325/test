@@ -65,43 +65,95 @@
  */
 class KtaiAppController extends AppController {
 
-	public $helpers = array('Html', 'Form');
-	public $layout = 'default';
-	public $components = array('Auth');
+    	//ktaiライブラリ設定
+	public $ktai = array(
+		'use_img_emoji' => true,
+		'input_encoding' => 'UTF8',
+		'output_encoding' => 'UTF8',
+		'use_xml' => true,
+		'enable_ktai_session' => true, //セッション使用を有効にします
+		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
+		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
+		'iphone_user_agent_belongs_to_softbank' => false,
+		'use_xml' => false,
+	);
+
+	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
+	public $components = array('Ktai','Auth','Session','Transition');
+        public $layout = 'default';
         
 	function beforeFilter(){
-            $this->Auth->authError= 'ログインしてください';
-            ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
-            output_add_rewrite_var('guid','ON');
-
-            if($this->__getUid()){
-                //uidが存在すれば
-                if(uidcheck){
-                    $this->Auth->fields = array(
-                        'username' => 'loginid',
-                        'password' => 'password'
-                    );
-                }else {
-                    $this->Auth->fields = array(
-                        'username' => 'loginid',
-                        'password' => 'password'
-                    );
+            parent::beforeFilter();
+            $this->Auth->loginError = 'パスワードが違います。';
+            $this->Auth->authError =  'ログインしてください';
+            if($this->Ktai->is_imode()){
+                $this->__formActionGuidOn();
+                $this->__checkImodeId();
+            }
+            //キャリア判定＆UID取得
+            if($this->Ktai->is_ktai()) {
+                if( $this->__getCareer() == 0 or
+                    $this->__getCareer() == 1 or
+                    $this->__getCareer() == 2 ){
+                    $uid = $this->Ktai->get_uid();
                 }
             }
-
-            parent::beforeFilter();
 	}
 
-        function __getUid(){
-                if ($this->Ktai->is_imode()) {
-                    return $this->Ktai->get_uid();
-                }else if ($this->Ktai->is_softbank()) {
-                    return $this->Ktai->get_uid();
-                } else if ($this->Ktai->is_ezweb()) {
-                    return $this->Ktai->get_uid();
-                } else {
-                    return 0;
-                }
+        function __formActionGuidOn(){
+            // output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
+            ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+            output_add_rewrite_var('guid','ON');
+        }
+
+	function __checkImodeId()
+	{
+		#-------------------------------------------------
+		# iモードIDがない場合
+		#-------------------------------------------------
+		if (empty($_SERVER["HTTP_X_DCMGUID"]))
+                {
+			#-------------------------------------------------
+			# 「guid=ON」が渡ってこなければ付加してリダイレクト
+			#-------------------------------------------------
+			if (!eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"]))
+			{
+				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"]))
+				{
+					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+					$this->redirect($url);
+				}
+			#-------------------------------------------------
+			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
+			#-------------------------------------------------
+			} else {
+				$this->__showImodeidErrorPage();
+			}
+		}
+	}
+
+	function __showImodeidErrorPage()
+	{
+		$this->render(null, null, VIEWS.'pages'.DS.'imodeid_error.ctp');
+		echo $this->output;
+		exit;
+	}
+
+        //キャリア判定
+        function __getCareer(){
+            if ($this->Ktai->is_imode()) {
+                return 0;
+            } else if ($this->Ktai->is_ezweb()) {
+                return 1;
+            }else if ($this->Ktai->is_softbank()) {
+                return 2;
+            }else if ($this->Ktai->is_iphone()) {
+                return 3;
+            }else if ($this->Ktai->is_android()) {
+                return 4;
+            } else {
+                return 5;
+            }
         }
 
 	//----------------------------------------------------------
@@ -124,11 +176,26 @@ class KtaiAppController extends AppController {
 					$url['?'] = array();
 				}
 				$url['?'][session_name()] = session_id();
+                                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
+                //guid=onを付加
+		if ($this->Ktai->is_imode())
+		{
+			$prefix = ereg("\?", $url) ? "&" : "?";
+			$url = $url.$prefix."guid=ON";
+		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
+	}
+        
+	public function beforeRender() {
+		TransactionManager::destructs();
+	}
+
+	public function beforeRedirect() {
+		TransactionManager::destructs();
 	}
 }

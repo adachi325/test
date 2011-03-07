@@ -12,6 +12,7 @@ class ChildrenController extends KtaiAppController {
 	function index() {
 		$this->Child->recursive = 0;
 		$this->set('children', $this->paginate());
+                $this->setChild();
 	}
 
 	function view($id = null) {
@@ -70,6 +71,19 @@ class ChildrenController extends KtaiAppController {
 		$this->Session->setFlash(__('The Child could not be deleted. Please, try again.', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+        //会員ID取得
+        function getUserId(){
+            $Child = ClassRegistry::init('Child');
+            $this->Auth->user();
+        }
+
+        //子供情報取得
+        function setChild($userid){
+                $Child = ClassRegistry::init('Child');
+                $Child = $Child->find('list');
+                $this->set('children', $Child);
+        }
 
 }
 ?>
