@@ -8,16 +8,13 @@ class UsersController extends KtaiAppController {
     public $name = 'Users';
     public $uses = array('User');
 
-    //forward設定
-    public $forward_index = 'index';
-
     function beforeFilter() {
         $this->Auth->fields = array(
             'username' => 'loginid',
             'password' => 'password'
         );
         $this->Auth->allow('register','register_confirm','register_complete','logout');
-        $this->Auth->redirect('/Children/');
+        $this->Auth->redirect('/children/index');
 
         parent::beforeFilter();
     }
@@ -40,13 +37,13 @@ class UsersController extends KtaiAppController {
     }
 
     function index() {
-            $this->render('login');
+            $this->redirect('/users/login');
     }
 
     function view($id = null) {
             if (!$id) {
                     $this->Session->setFlash(__('Invalid User', true));
-                    $this->redirect(array('action' => $forward_index));
+                    $this->redirect('/users/index');
             }
             $this->set('user', $this->User->read(null, $id));
     }
@@ -54,25 +51,21 @@ class UsersController extends KtaiAppController {
     function register() {
         $this->setline();
         $this->pageTitle = '会員登録情報入力';
-        pr($this->data);
-        if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
-            //バリデーションにエラーがなければリダイレクト処理
-            //$this->redirect('register_confirm');
-        } else {
-            //$this->redirect('register');
+        if (!empty($this->data)) {
+            if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
+                //バリデーションにエラーがなければリダイレクト処理
+                pr('1');
+                $this->redirect('/users/register_confirm');
+            } else {
+                //$this->redirect('users/register');
+                pr('2');
+            }
         }
-
     }
 
     function register_confirm(){
         $this->pageTitle = '会員入力情報確認';
-        $this->Transition->automate(
-                'register_complete', //次
-                null, // カレントモデルで
-                'register', // 前
-                'validateCaptcha' // 架空の画像認証「検証」関数
-         );
-        $this->set('data',$this->Transition->allData());
+        pr($this->data);
         //$this->set('captcha',createCaptcha()); // 架空の画像認証「作成」関数
     }
 
@@ -81,11 +74,8 @@ class UsersController extends KtaiAppController {
         $this->Transition->checkPrev('register_confirm');
 
         //uid設定
-        $request = array();
-        $request = $this->Transition->mergedData();
-        if($this->Ktai->is_ktai()) {
-            $request['User']['uid'] = $this->Ktai->get_uid();
-        }
+        $this->Transition->mergedData();
+
         TransactionManager::begin();
         try {
            if( $this->User->register($request)){
@@ -102,9 +92,11 @@ class UsersController extends KtaiAppController {
     }
 
     function covData(){
-        $data = $this->data;
+        if($this->Ktai->is_ktai()) {
+            $request['User']['uid'] = $this->Ktai->get_uid();
+        }
         $request = array();
-        $request = $data;
+        $request = $this->data;
         //ハッシュ化
         $request['User']['password'] = AuthComponent::password( $data['User']['new_password'] );
         unset ($request['User']['new_password']);
@@ -115,12 +107,12 @@ class UsersController extends KtaiAppController {
     function edit($id = null) {
             if (!$id && empty($this->data)) {
                     $this->Session->setFlash(__('Invalid User', true));
-                    $this->redirect(array('action' => $forward_index));
+                    $this->redirect('users/index');
             }
             if (!empty($this->data)) {
                     if ($this->User->save($this->data)) {
                             $this->Session->setFlash(__('The User has been saved', true));
-                            $this->redirect(array('action' => $forward_index));
+                            $this->redirect('users/index');
                     } else {
                             $this->Session->setFlash(__('The User could not be saved. Please, try again.', true));
                     }

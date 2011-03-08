@@ -1,9 +1,20 @@
 <h2>子どものページ</h2>
 <div>
-	<?php echo $html->link('子供①', "/child/login/",array('escape' => false));?>
-        <?php echo $html->link('子供②', "/child/login/",array('escape' => false));?>
-        <?php echo $html->link('子供③', "/child/login/",array('escape' => false));?>
-    <?php pr($children) ?>
+    <?php
+     //pr($children);
+     // 配列の値を改行しながらすべて出力
+     for( $i = 0; $i < count( $children ); $i++ ){
+         echo '<span>';
+         echo $html->link(__('しま'.($i+1), true) , "/children/home/?kodomo=".$i,array('escape' => false));
+         echo ' </span>';
+     }
+     if ($i < 3) {
+         echo '<span>';
+         echo $html->link('+', "/children/register/",array('escape' => false));
+         echo ' </span>';
+     }
+     
+    ?>
 </div>
 <br>
 <div>

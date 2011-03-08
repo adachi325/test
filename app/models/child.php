@@ -14,7 +14,7 @@ class Child extends AppModel {
 		),
 		'line_id' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -63,8 +63,8 @@ class Child extends AppModel {
 			),
 		),
 		'benesse_user' => array(
-			'boolean' => array(
-				'rule' => array('boolean'),
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

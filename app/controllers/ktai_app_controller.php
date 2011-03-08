@@ -79,7 +79,7 @@ class KtaiAppController extends AppController {
 	);
 
 	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
-	public $components = array('Ktai','Auth','Session','Transition');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar');
         public $layout = 'default';
         
 	function beforeFilter(){
