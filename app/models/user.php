@@ -58,54 +58,6 @@ class User extends AppModel {
                             'message' => '半角英数字で入力してください。',
 			),
 		),
-
-		'nickname' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 32),
-                            'message' => '文字数が多すぎます。',
-			),
-		),
-
-		'birth_year' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 4),
-                            'message' => '日付がおかしいです。。',
-			),
-		),
-
-		'birth_month' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 2),
-                            'message' => '日付がおかしいです。',
-			),
-		),
-
-		'sex' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-		),
-
-		'benesse_user' => array(
-			array(
-                            'rule' => 'numeric',
-                            'message' => '選択された値が不正です。',
-			),
-		),
-
 		'dc_user' => array(
 			array(
                             'rule' => 'numeric',
