@@ -55,11 +55,8 @@ class UsersController extends KtaiAppController {
             if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
                 //バリデーションにエラーがなければリダイレクト処理
                 pr('1');
-                $this->redirect('/users/register_confirm');
-            } else {
-                //$this->redirect('users/register');
-                pr('2');
-            }
+                $this->render('/users/register_confirm');
+            } 
         }
     }
 

@@ -15,8 +15,9 @@
      }
      
     ?>
+    <?php echo $html->link(__('Edit', true), array('action' => 'edit', '1')); ?>
 </div>
 <br>
 <div>
-	<?php echo $html->link('子どもの思い出記録ページ', "/child/login/",array('escape' => false));?>
+    <?php echo $html->link('子どもの思い出記録ページ', "/diaries/?kodomo=".$i ,array('escape' => false));?>
 </div>

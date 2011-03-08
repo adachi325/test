@@ -82,6 +82,8 @@ class KtaiAppController extends AppController {
 	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar');
         public $layout = 'default';
         
+        public $selectedChildId = null;//選択中こどもID
+        
 	function beforeFilter(){
             parent::beforeFilter();
             $this->Auth->loginError = 'パスワードが違います。';
@@ -198,4 +200,5 @@ class KtaiAppController extends AppController {
 	public function beforeRedirect() {
 		TransactionManager::destructs();
 	}
+
 }
