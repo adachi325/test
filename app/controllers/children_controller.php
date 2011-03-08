@@ -72,11 +72,7 @@ class ChildrenController extends KtaiAppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
-        //会員ID取得
-        function getUserId(){
-            $Child = ClassRegistry::init('Child');
-            $this->Auth->user();
-        }
+
 
         //子供情報取得
         function setChild($userid){

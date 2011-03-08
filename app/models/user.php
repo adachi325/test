@@ -12,23 +12,9 @@ class User extends AppModel {
                             'message' => '必須項目です。。',
 			),
 			array(
-                            'rule' => array('maxLength', 20),
-                            'message' => '文字数が多すぎます。',
-			),
-			array(
-                            'rule' => 'alphaNumeric',
-                            'message' => '半角英数字で入力してください。',
-			),
-		),
-
-		'new_loginid' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
                             'rule' => 'isUnique',
                             'message' => '既に存在しているIDです。',
+                            'on'=>'create',
 			),
 			array(
                             'rule' => array('maxLength', 20),
@@ -150,13 +136,13 @@ class User extends AppModel {
 	function register($data)
 	{
                 //登録処理
-                if($this->save($data)){
+                if($this->saveAll($data)){
                     //今登録UserID取得
-                    $request['Child']['user_id'] = $this->getLastInsertId();
+                    //$request['Child']['user_id'] = $this->getLastInsertId();
                     //子供登録
-                    if($this->Child->save($request)){
+                    //if($this->Child->save($request)){
                         return true;
-                    }
+                    //}
                 }
                 return false;
 	}

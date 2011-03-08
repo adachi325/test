@@ -54,16 +54,12 @@ class UsersController extends KtaiAppController {
 	function register() {
             $this->setline();
             $this->pageTitle = '会員登録情報入力';
-            
-            if (!empty($this->data)) {
-                $this->data = $this->covData();
-            }
 
-            //if ($this->User->validates()) {
-                $this->Transition->checkData(array('register_confirm'));
-            //}
+            //$this->getUserId();
 
-            pr($this->data);
+            //$this->data = $this->covData();
+            $this->Transition->checkData(array('register_confirm'));
+
 
 	}
 
@@ -103,13 +99,11 @@ class UsersController extends KtaiAppController {
             $data = $this->data;
             $request = array();
             $request = $data;
-            $request['User']['loginid'] = $data['User']['new_loginid'];
             //ハッシュ化
             $request['User']['password'] = AuthComponent::password( $data['User']['new_password'] );
-            unset ($request['User']['new_loginid']);
             unset ($request['User']['new_password']);
             unset ($request['User']['row_password']);
-            $this->data = $request;
+            return $request;
         }
 
 	function edit($id = null) {
@@ -135,6 +129,12 @@ class UsersController extends KtaiAppController {
                 $Line = ClassRegistry::init('Line');
                 $Line = $Line->find('list');
                 $this->set('lines', $Line);
+        }
+                //会員ID取得
+        function getUserId(){
+            $User = ClassRegistry::init('User');
+            $user2 = $User->find('all');
+            pr($user2);
         }
 }
 ?>
