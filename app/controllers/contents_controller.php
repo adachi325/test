@@ -16,7 +16,7 @@ class ContentsController extends AppController {
 		if ($id == '1006') {
 			//Configure::write('debug', 0);
 			//$this->set('filepath', "ap/{$line}/{$id}/index.html");
-			$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/index.ctp");
+			$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/index.html");
 			$this->layout = null;
 			$this->render('media');
 		} else {
