@@ -1,12 +1,8 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
-
 class ThemesController extends KtaiAppController {
 
 	var $name = 'Themes';
-	var $helpers = array('Html', 'Form');
 
 	function index() {
 		$this->Theme->recursive = 0;

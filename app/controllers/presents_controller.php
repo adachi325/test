@@ -1,12 +1,8 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
-
-class PresentsController extends KtaiAppController {
+class PresentsController extends AppController {
 
 	var $name = 'Presents';
-	var $helpers = array('Html', 'Form');
 
 	function index() {
 		$this->Present->recursive = 0;

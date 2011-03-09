@@ -1,9 +1,8 @@
 <?php
-App::import('Controller', 'KtaiApp');
-class PagesController extends KtaiAppController {
+
+class PagesController extends AppController {
 	public $name = 'Pages';
-	public $uses = array();
-        public $components = array('Auth','Ktai');
+        public $uses = array();
 
 	public $pageTitles = array(
 		'rules' => 'ご利用規約',

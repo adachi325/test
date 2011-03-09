@@ -64,7 +64,23 @@ class User extends AppModel {
                             'message' => '選択された値が不正です。',
 			),
 		),
-
+		'uid' => array(
+                        array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。。',
+			),
+			array(
+                            'rule' => 'isUnique',
+                            'message' => 'この端末は既に登録されています。',
+                            'on'=>'create',
+			),
+		),
+		'carrier' => array(
+                        array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。。',
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -87,17 +103,21 @@ class User extends AppModel {
 	//新規会員登録
 	function register($data)
 	{
-                //登録処理
-                if($this->saveAll($data)){
-                    //今登録UserID取得
-                    //$request['Child']['user_id'] = $this->getLastInsertId();
-                    //子供登録
-                    //if($this->Child->save($request)){
-                        return true;
-                    //}
-                }
+            if (empty($data)) {
                 return false;
+            }
+             //登録処理
+            if($this->save($data)){
+                $request = array();
+                $request['Child'] = $data['Child']['0'];
+                //今登録UserID取得
+                $request['Child']['user_id'] = $this->getLastInsertId();
+                //子供登録
+                if($this->Child->save($request)){
+                    return true;
+                }
+            }
+            return false;
 	}
-
 }
 ?>
