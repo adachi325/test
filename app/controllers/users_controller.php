@@ -104,7 +104,7 @@ class UsersController extends AppController {
                   $this->redirect('/pages/top/');
             }
         } else {
-             $this->Session->setFlash(__('お不正操作です。', true));
+             $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/pages/top/');
         }
     }
@@ -119,6 +119,7 @@ class UsersController extends AppController {
         $request['User']['password'] = AuthComponent::password( $request['User']['new_password'] );
         //uid取得
         $request['User']['uid'] = $this->EasyLogin->_getUid();
+        $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
         $this->data = $request;
