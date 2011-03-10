@@ -71,5 +71,30 @@ class Content extends AppModel {
 			'order' => ''
 		)
 	);
+
+	function isReleased($path = null)
+	{
+		//$dispatch =& ClassRegistry::init('Dispatcher');
+		$dispatch = App::import('Core', 'Dispatcher');
+		$dispatch =& new Dispatcher();
+
+		if ($path) {
+			$params = $dispatch->parseParams($path);
+			extract($params);
+			if (isset($controller) && $controller === 'contentes') {
+				$m = $this->alias;
+				$data = $this->find('first', array('conditions' => array("{$m}.path" => $url)));
+			}
+
+			$m = $this->alias;
+			$data = $this->find('first', array('conditions' => array("{$m}.path" => $url)));
+		}
+
+		unset($dispatch);
+
+		return false;
+	}
+
+
 }
 ?>

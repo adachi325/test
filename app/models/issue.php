@@ -77,5 +77,31 @@ class Issue extends AppModel {
 		)
 	);
 
+	function find($type, $options = array())
+	{
+		$m = $this-alias;
+
+		// add released method
+		switch($type) {
+		case 'released':
+			return parent::find('all', Set::merge(
+				array(
+					'conditions' => array(
+						"{$m}.release_date <=" => date(),
+					),
+					'order' => "{$m}.release_date"
+				),
+				$options
+			));
+
+			break;
+		default:
+			return parent::find($type, $options);
+			break;
+
+		}
+	}
+
+
 }
 ?>
