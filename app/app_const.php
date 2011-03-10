@@ -16,3 +16,5 @@ define('_URL_DOCOMO_COMMUNITY_IMODEID_SETTING', "http://docomo.ne.jp/cp/pubconf.
 #---------------------------------------
 #	定数
 #---------------------------------------
+define('_CONTENTS_BASE_PATH', "ap");
+

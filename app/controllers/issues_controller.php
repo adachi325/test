@@ -1,4 +1,3 @@
-
 <?php
 
 class IssuesController extends AppController {

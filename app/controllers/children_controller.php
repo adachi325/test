@@ -1,4 +1,3 @@
-
 <?php
 
 class ChildrenController extends AppController {

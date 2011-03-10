@@ -1,6 +1,13 @@
 <div class="contents view">
-<h2><?php  __('Content');?></h2>
 
-<p>content view page</p>
+<?php
+$path = (isset($filepath)) ? $filepath : "nocontents.html";
+
+$contents = file_get_contents("{$path}", true);
+
+// todo:convert media specific tag 
+
+echo $contents;
+?>
 
 </div>

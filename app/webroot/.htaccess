@@ -2,7 +2,7 @@
     RewriteEngine On
 
 	RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg|swf)$ [NC]
-	RewriteRule ^(ap/.*)$ index.php?url=$1 [L]
+	RewriteRule ^(ap/.*)$ index.php [QSA,L]
 	
 	RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f

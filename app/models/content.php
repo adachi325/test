@@ -1,4 +1,5 @@
 <?php
+
 class Content extends AppModel {
 	var $name = 'Content';
 	var $validate = array(
@@ -72,20 +73,39 @@ class Content extends AppModel {
 		)
 	);
 
+
 	function find($type, $options = array())
 	{
-		// code...
+		$m = $this->alias;
+
+		// add released method
+		switch($type) {
+		case 'released':
+			return parent::find('all', Set::merge(
+				array(
+					'conditions' => array(
+						"{$m}.release_date <=" => date(),
+					),
+					'order' => "{$m}.release_date"
+				),
+				$options
+			));
+
+			break;
+		default:
+			return parent::find($type, $options);
+			break;
+
+		}
 	}
 
-	function isReleased($path = null)
+	function isReleased($line, $id)
 	{
-		if ($path) {
-			$m = $this->alias;
-			$url = $path;
-			$data = $this->find('first', array('conditions' => array("{$m}.path" => $url)));
-		}
+		$path = _CONTENTS_BASE_PATH.DS.$line.DS.$id;
 
-		return false;
+		$m = $this->alias;
+		$data = $this->find('first', array('conditions' => array("{$m}.path" => $path)));
+		return (!empty($data)) ? $data : false;
 	}
 
 

@@ -25,11 +25,6 @@ class ContentTestCase extends CakeTestCase {
 
 		$this->assertEqual($result, $expected);
 
-		$url = 'http://shimajiromobile.benesse.ne.jp/ap1/step/1101/';
-		$expected = false;
-		$result = $c->isReleased($url);
-
-		$this->assertEqual($result, $expected);
 	}
 
 	function endTest() {

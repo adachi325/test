@@ -79,20 +79,49 @@ class Issue extends AppModel {
 
 	function find($type, $options = array())
 	{
-		$m = $this-alias;
+		$m = $this->alias;
 
 		// add released method
 		switch($type) {
 		case 'released':
+			$cond = array("{$m}.release_date <=" => date('Y-m-d H:i:s'));
+			if (isset($options['line'])) {
+				$cond["Line.category_name"] = $options['line'];
+				unset($options['line']);
+			}
+
+			$this->contain('Line', 'Content');
 			return parent::find('all', Set::merge(
 				array(
-					'conditions' => array(
-						"{$m}.release_date <=" => date(),
-					),
+					'conditions' => $cond, 
 					'order' => "{$m}.release_date"
 				),
 				$options
 			));
+
+			break;
+		case 'month':
+			$categories = Configure::read('Lines.categories');
+			$ret = array();
+
+			$cond = array(
+				"{$m}.release_date <=" => date('Y-m-d H:i:s'),
+			);
+
+			$this->contain('Line', 'Content');
+			foreach($categories as $category) {
+				$cond["Line.category_name"] = $category;
+
+				$ret[] = parent::find('first', set::merge(
+					array(
+						'conditions' => $cond,
+						'limit' => 1,
+						'order' => "${m}.release_date DESC",
+					),
+					$options
+				));
+			}
+			return $ret;
 
 			break;
 		default:
