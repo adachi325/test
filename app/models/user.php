@@ -58,61 +58,29 @@ class User extends AppModel {
                             'message' => '半角英数字で入力してください。',
 			),
 		),
-
-		'nickname' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 32),
-                            'message' => '文字数が多すぎます。',
-			),
-		),
-
-		'birth_year' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 4),
-                            'message' => '日付がおかしいです。。',
-			),
-		),
-
-		'birth_month' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-			array(
-                            'rule' => array('maxLength', 2),
-                            'message' => '日付がおかしいです。',
-			),
-		),
-
-		'sex' => array(
-			array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
-			),
-		),
-
-		'benesse_user' => array(
-			array(
-                            'rule' => 'numeric',
-                            'message' => '選択された値が不正です。',
-			),
-		),
-
 		'dc_user' => array(
 			array(
                             'rule' => 'numeric',
                             'message' => '選択された値が不正です。',
 			),
 		),
-
+		'uid' => array(
+                        array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。。',
+			),
+			array(
+                            'rule' => 'isUnique',
+                            'message' => 'この端末は既に登録されています。',
+                            'on'=>'create',
+			),
+		),
+		'carrier' => array(
+                        array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。。',
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -135,17 +103,21 @@ class User extends AppModel {
 	//新規会員登録
 	function register($data)
 	{
-                //登録処理
-                if($this->saveAll($data)){
-                    //今登録UserID取得
-                    //$request['Child']['user_id'] = $this->getLastInsertId();
-                    //子供登録
-                    //if($this->Child->save($request)){
-                        return true;
-                    //}
-                }
+            if (empty($data)) {
                 return false;
+            }
+             //登録処理
+            if($this->save($data)){
+                $request = array();
+                $request['Child'] = $data['Child']['0'];
+                //今登録UserID取得
+                $request['Child']['user_id'] = $this->getLastInsertId();
+                //子供登録
+                if($this->Child->save($request)){
+                    return true;
+                }
+            }
+            return false;
 	}
-
 }
 ?>

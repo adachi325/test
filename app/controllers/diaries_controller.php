@@ -1,10 +1,7 @@
 
 <?php
 
-//ktaiライブラリインポート
-app::import('Controller', 'KtaiApp');
-
-class DiariesController extends KtaiAppController {
+class DiariesController extends AppController {
 
 	var $name = 'Diaries';
 	var $helpers = array('Html', 'Form');

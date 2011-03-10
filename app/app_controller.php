@@ -63,8 +63,8 @@
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  */
-class KtaiAppController extends AppController {
-
+class AppController extends Controller {
+    
     	//ktaiライブラリ設定
 	public $ktai = array(
 		'use_img_emoji' => true,
@@ -79,7 +79,7 @@ class KtaiAppController extends AppController {
 	);
 
 	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
-	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','AutoLogin');
         public $layout = 'default';
         
         public $selectedChildId = null;//選択中こどもID
@@ -91,14 +91,6 @@ class KtaiAppController extends AppController {
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
                 $this->__checkImodeId();
-            }
-            //キャリア判定＆UID取得
-            if($this->Ktai->is_ktai()) {
-                if( $this->__getCareer() == 0 or
-                    $this->__getCareer() == 1 or
-                    $this->__getCareer() == 2 ){
-                    $uid = $this->Ktai->get_uid();
-                }
             }
 	}
 
@@ -140,23 +132,6 @@ class KtaiAppController extends AppController {
 		echo $this->output;
 		exit;
 	}
-
-        //キャリア判定
-        function __getCareer(){
-            if ($this->Ktai->is_imode()) {
-                return 0;
-            } else if ($this->Ktai->is_ezweb()) {
-                return 1;
-            }else if ($this->Ktai->is_softbank()) {
-                return 2;
-            }else if ($this->Ktai->is_iphone()) {
-                return 3;
-            }else if ($this->Ktai->is_android()) {
-                return 4;
-            } else {
-                return 5;
-            }
-        }
 
 	//----------------------------------------------------------
 	//Redirect override.
@@ -200,5 +175,4 @@ class KtaiAppController extends AppController {
 	public function beforeRedirect() {
 		TransactionManager::destructs();
 	}
-
 }

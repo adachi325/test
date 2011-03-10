@@ -1,12 +1,8 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
-
-class PostcardUrlsController extends KtaiAppController {
+class PostcardUrlsController extends AppController {
 
 	var $name = 'PostcardUrls';
-	var $helpers = array('Html', 'Form');
 
 	function index() {
 		$this->PostcardUrl->recursive = 0;

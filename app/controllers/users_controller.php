@@ -1,140 +1,154 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
+class UsersController extends AppController {
 
-class UsersController extends KtaiAppController {
+    public $name = 'Users';
+    public $uses = array('User');
 
-	public $name = 'Users';
-	public $uses = array('User');
+    function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->fields = array(
+            'username' => 'loginid',
+            'password' => 'password'
+        );
+        $this->Auth->allow('register','register_confirm','register_complete');
+    }
 
-	//forward設定
-	public $forward_index = 'index';
+    function beforeRender() {
+        parent::beforeRender();
+    }
 
-	function beforeFilter() {
-            $this->Auth->fields = array(
-                'username' => 'loginid',
-                'password' => 'password'
-            );
-            $this->Auth->allow('register','register_confirm','register_complete','logout');
-            $this->Auth->redirect('/Children/');
-
-            parent::beforeFilter();
-	}
-
-        function beforeRender() {
-            parent::beforeRender();
+    function login(){
+        //ログイン判定
+        if($this->Auth->user()) {
+                //ログインに成功した場合、自動ログインを有功にする
+                $this->AutoLogin->enable();
+                $this->set('login_user',$this->Auth->user());
+                $this->redirect($this->Auth->redirect());
         }
+        $this->User->recursive = 0;
+    }
 
-        function login(){
-            $this->set('login_user',$this->Auth->user());
-            $this->User->recursive = 0;
-            $this->set('users', $this->paginate());
-        }
+    // 明示的にログアウト
+    public function logout(){
+            $redirectTo = $this->Auth->logout();
+            $this->Session->setFlash('ログアウトしました');
+            $this->redirect('/');
+    }
 
-	// 明示的にログアウト
-	public function logout(){
-		$redirectTo = $this->Auth->logout();
-		$this->Session->setFlash('ログアウトしました');
-		$this->render('/pages/top/');
-	}
+    function index() {
+            $this->redirect('/users/login');
+    }
 
-	function index() {
-		$this->render('login');
-	}
-
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid User', true));
-			$this->redirect(array('action' => $forward_index));
-		}
-		$this->set('user', $this->User->read(null, $id));
-	}
-
-	function register() {
-            $this->setline();
-            $this->pageTitle = '会員登録情報入力';
-
-            //$this->getUserId();
-
-            //$this->data = $this->covData();
-            $this->Transition->checkData(array('register_confirm'));
-
-
-	}
-
-        function register_confirm(){
-            $this->pageTitle = '会員入力情報確認';
-            $this->Transition->automate('register_complete', false, 'register');
-            $this->data = $this->Transition->mergedData();
-            $this->render('/pages/top/');
-        }
-
-        function register_complete() {
-            $this->pageTitle = '会員登録完了';
-            $this->Transition->checkPrev('register_confirm');
-
-            //uid設定
-            $request = array();
-            $request = $this->Transition->mergedData();
-            if($this->Ktai->is_ktai()) {
-                $request['User']['uid'] = $this->Ktai->get_uid();
+    function view($id = null) {
+            if (!$id) {
+                    $this->Session->setFlash(__('Invalid User', true));
+                    $this->redirect('/users/index');
             }
-            TransactionManager::begin();
+            $this->set('user', $this->User->read(null, $id));
+    }
+
+    function register(){
+        $this->_setline();
+
+        $this->pageTitle = '会員登録情報入力';
+        if (!empty($this->data)) {
+            if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
+                //セッションにデータ保持
+                $this->Session->write('userRegisterData', $this->data);
+                //バリデーションにエラーがなければリダイレクト処理
+                $this->redirect('/users/register_confirm');
+            } 
+        }
+        //セッション情報回収、削除
+        $userRegisterData = $this->Session->read('userRegisterData');
+        if(!empty($userRegisterData)){
+            $this->data = $userRegisterData;
+            $this->Session->delete('userRegisterData');
+        }
+    }
+
+    function register_confirm(){
+
+        //セッション情報回収
+        $this->data = $this->Session->read('userRegisterData');
+        if (empty($this->data)) {
+            $this->Session->delete('userRegisterData');
+            $this->Session->setFlash(__('不正操作です。', true));
+            $this->redirect('/');
+        }
+        
+        $this->_setline();
+        $this->pageTitle = '会員入力情報確認';
+    }
+
+    function register_complete() {
+        $this->pageTitle = '会員登録完了';
+
+        //セッション情報回収、削除
+        $this->data = $this->Session->read('userRegisterData');
+        $this->Session->delete('userRegisterData');
+
+        //初回会員登録処理
+        if (!empty($this->data)) {
             try {
-               if( $this->User->register($request)){
+               TransactionManager::begin();
+               $this->_covData();
+               if( $this->User->register($this->data)){
                   TransactionManager::commit();
-                  $this->render('register_complete');
+                  $this->Session->setFlash(__('会員登録完了。', true));
                } else {
                   TransactionManager::rollback();
-                  $this->render('register');
+                  $this->Session->setFlash(__('会員登録失敗。', true));
+                  $this->redirect('/pages/top/');
                }
             } catch(Exception $e) {
                   TransactionManager::rollback();
-                  $this->render('register');
+                  $this->Session->setFlash(__('システムエラー。', true));
+                  $this->redirect('/pages/top/');
             }
+        } else {
+             $this->Session->setFlash(__('お不正操作です。', true));
+             $this->redirect('/pages/top/');
         }
+    }
 
-        function covData(){
-            $data = $this->data;
-            $request = array();
-            $request = $data;
-            //ハッシュ化
-            $request['User']['password'] = AuthComponent::password( $data['User']['new_password'] );
-            unset ($request['User']['new_password']);
-            unset ($request['User']['row_password']);
-            return $request;
+    function _covData(){
+        if($this->Ktai->is_ktai()) {
+            $request['User']['uid'] = $this->Ktai->get_uid();
         }
+        $request = array();
+        $request = $this->data;
+        //ハッシュ化
+        $request['User']['password'] = AuthComponent::password( $request['User']['new_password'] );
+        unset ($request['User']['new_password']);
+        unset ($request['User']['row_password']);
+        $this->data = $request;
+    }
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid User', true));
-			$this->redirect(array('action' => $forward_index));
-		}
-		if (!empty($this->data)) {
-			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('The User has been saved', true));
-				$this->redirect(array('action' => $forward_index));
-			} else {
-				$this->Session->setFlash(__('The User could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->User->read(null, $id);
-		}
-	}
+    function edit($id = null) {
+            if (!$id && empty($this->data)) {
+                    $this->Session->setFlash(__('Invalid User', true));
+                    $this->redirect('users/index');
+            }
+            if (!empty($this->data)) {
+                    if ($this->User->save($this->data)) {
+                            $this->Session->setFlash(__('The User has been saved', true));
+                            $this->redirect('users/index');
+                    } else {
+                            $this->Session->setFlash(__('The User could not be saved. Please, try again.', true));
+                    }
+            }
+            if (empty($this->data)) {
+                    $this->data = $this->User->read(null, $id);
+            }
+    }
 
-        //ライン情報取得
-        function setline(){
-                $Line = ClassRegistry::init('Line');
-                $Line = $Line->find('list');
-                $this->set('lines', $Line);
-        }
-                //会員ID取得
-        function getUserId(){
-            $User = ClassRegistry::init('User');
-            $user2 = $User->find('all');
-            pr($user2);
-        }
+    //ライン情報取得
+    function _setline(){
+            $Line = ClassRegistry::init('Line');
+            $Line = $Line->find('list');
+            $this->set('lines', $Line);
+    }
 }
 ?>

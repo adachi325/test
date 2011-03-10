@@ -1,9 +1,6 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
-
-class NewsController extends KtaiAppController {
+class NewsController extends AppController {
 
 	var $name = 'News';
 	var $helpers = array('Html', 'Form');

@@ -1,9 +1,6 @@
 <?php
 
-//ktaiライブラリインポート
-App::import('Controller', 'KtaiApp');
-
-class LinesController extends KtaiAppController {
+class LinesController extends AppController {
 
 	var $name = 'Lines';
 	var $helpers = array('Html', 'Form');
