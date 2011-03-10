@@ -48,7 +48,6 @@ class EasyLoginComponent extends Object {
 		//簡単ログインに使用する個体番号を初期化
 		$this->mobuid = '';
                 //モデル指定
-                $this->userModel = 'User';
 	}
 
 	/**
@@ -71,29 +70,33 @@ class EasyLoginComponent extends Object {
 	 */
 	function login() {
 
-            pr('わううう');
+            //ログイン済みなら終了
+            if($this->controller->Auth->user()) {
+                //ユーザー情報設定
+                $this->_setUserData();
+                return;
+            }
+
+            //userモデル取得
+            $User = ClassRegistry::init('User');
+
             pr($this->_getUid());
 
-		//ログイン済みなら終了
-		if($this->controller->Auth->user()) {
-			return;
-		}
+            //個体識別番号取得
+            $this->mobuid = $this->_getUid();
 
-                //個体識別番号取得
-                $this->mobuid = $this->_getUid();
-
-		//簡単ログイン個体番号が設定されている場合
-		if($this->mobuid!='') {
-			//簡単ログイン個体番号からユーザー情報を取得
-			$user = $this->userModel->find('first', array(
-				'conditions' => array($this->userModel->name.'.'.$this->field => $this->mobuid)
-			));
-
-			//取得したユーザー情報でログイン
-			if($this->controller->Auth->login($user[$this->userModel->name])) {
-				//なにもしない
-			}
-		}
+            //簡単ログイン個体番号が設定されている場合
+            if($this->mobuid!='') {
+                    //簡単ログイン個体番号からユーザー情報を取得
+                    $user = $User->find('first', array(
+                            'conditions' => array($User->name.'.'.$this->field => $this->mobuid)
+                    ));
+                    //取得したユーザー情報でログイン
+                    if($this->controller->Auth->login($user[$User->name])) {
+                        //ユーザー情報設定
+                        $this->_setUserData();
+                    }
+            }
 	}
 
         /**
@@ -127,6 +130,23 @@ class EasyLoginComponent extends Object {
             } else {
                 return 5;
             }
+        }
+
+        //uidを更新する。
+        function _saveUid(){
+            //userモデル取得
+            $User = ClassRegistry::init('User');
+            
+        }
+
+        //ユーザーログイン情報を設定
+        function _setUserData(){
+            $userdata = array();
+            $userdata = $this->controller->Auth->user();
+            unset ($userdata['User']['uid']);
+            unset ($userdata['User']['created']);
+            unset ($userdata['User']['modified']);
+            $this->controller->set('login_user_data',$userdata);
         }
 }
 ?>

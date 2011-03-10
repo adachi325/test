@@ -21,7 +21,7 @@ class UsersController extends AppController {
     function login(){
         //ログイン判定
         if($this->Auth->user()) {
-            $this->set('login_user',$this->Auth->user());
+            //端末識別ＩＤを保存
             $this->redirect($this->Auth->redirect());
         }
         $this->Auth->loginError = 'パスワードが違います。';
