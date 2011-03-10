@@ -4,6 +4,12 @@ class ContentsController extends AppController {
 	var $name = 'Contents';
 	var $helpers = array('Html', 'Form');
 
+	function beforeFilter()
+	{
+		$this->Auth->allow('*');
+		parent::beforeFilter();
+	}
+
 	function index() {
 		$this->Content->recursive = 0;
 		$this->set('contents', $this->paginate());
@@ -18,9 +24,10 @@ class ContentsController extends AppController {
 			//$this->set('filepath', "ap/{$line}/{$id}/index.html");
 			$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/index.html");
 			$this->layout = null;
-			$this->render('media');
+			//$this->viewPath = '/ap' . DS;
+			$this->render("media");
 		} else {
-			$this->cakeError('error404');
+			//$this->cakeError('error404');
 		}
 	}
 

@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Ktai library, supports Japanese mobile phone sites coding.

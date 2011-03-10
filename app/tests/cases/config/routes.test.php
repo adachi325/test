@@ -23,5 +23,10 @@ class UrlRoutingTestCase extends CakeTestCase {
 		$params = $this->Dispatcher->parseParams($this->url);
 
 		$this->assertIdentical(isset($params['admin']) ,false);
+
+		$this->url = '/ap/baby/1005';
+		$params = $this->Dispatcher->parseParams($this->url);
+
+		pr($params);
 	}
 }
