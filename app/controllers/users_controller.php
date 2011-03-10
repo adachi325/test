@@ -21,19 +21,19 @@ class UsersController extends AppController {
     function login(){
         //ログイン判定
         if($this->Auth->user()) {
-                //ログインに成功した場合、自動ログインを有功にする
-                $this->AutoLogin->enable();
-                $this->set('login_user',$this->Auth->user());
-                $this->redirect($this->Auth->redirect());
+            $this->set('login_user',$this->Auth->user());
+            $this->redirect($this->Auth->redirect());
         }
+        $this->Auth->loginError = 'パスワードが違います。';
+        $this->Auth->authError =  'ログインしてください';
         $this->User->recursive = 0;
     }
 
-    // 明示的にログアウト
+    //明示的にログアウト
     public function logout(){
             $redirectTo = $this->Auth->logout();
             $this->Session->setFlash('ログアウトしました');
-            $this->redirect('/');
+            $this->redirect('/pages/top');
     }
 
     function index() {
@@ -50,7 +50,6 @@ class UsersController extends AppController {
 
     function register(){
         $this->_setline();
-
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
             if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
@@ -69,7 +68,6 @@ class UsersController extends AppController {
     }
 
     function register_confirm(){
-
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');
         if (empty($this->data)) {
@@ -77,7 +75,6 @@ class UsersController extends AppController {
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/');
         }
-        
         $this->_setline();
         $this->pageTitle = '会員入力情報確認';
     }

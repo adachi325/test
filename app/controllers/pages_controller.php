@@ -4,21 +4,19 @@ class PagesController extends AppController {
 	public $name = 'Pages';
         public $uses = array();
 
-	public $pageTitles = array(
-		'rules' => 'ご利用規約',
-		'privacy' => '個人情報の取り扱い',
-		'guide' => 'ご利用ガイド',
-	);
-
         function beforeFilter() {
-            $this->Auth->allow('*');
             parent::beforeFilter();
+            $this->Auth->allow('*');
 	}
 
 	public function display() {
+            
+                if($this->Auth->user()) {
+                    $this->set('login_user',$this->Auth->user());
+                    $this->redirect('/children/');
+                }
 
 		$path = func_get_args();
-
 		$count = count($path);
 		if (!$count) {
 			$this->notFound();

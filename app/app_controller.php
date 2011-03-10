@@ -65,7 +65,11 @@
  */
 class AppController extends Controller {
     
-    	//ktaiライブラリ設定
+	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin');
+        public $layout = 'default';
+
+       	//ktaiライブラリ設定
 	public $ktai = array(
 		'use_img_emoji' => true,
 		'input_encoding' => 'UTF8',
@@ -78,16 +82,10 @@ class AppController extends Controller {
 		'use_xml' => false,
 	);
 
-	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
-	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','AutoLogin');
-        public $layout = 'default';
-        
         public $selectedChildId = null;//選択中こどもID
         
 	function beforeFilter(){
             parent::beforeFilter();
-            $this->Auth->loginError = 'パスワードが違います。';
-            $this->Auth->authError =  'ログインしてください';
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
                 $this->__checkImodeId();
