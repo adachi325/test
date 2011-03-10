@@ -13,7 +13,6 @@
          echo $html->link('+', "/children/register/",array('escape' => false));
          echo ' </span>';
      }
-     pr($login_user_data);
     ?>
     <br><br>
     <?php echo $html->link(__('子供設定', true), array('action' => 'edit', '?c='.$lastChildId)); ?>

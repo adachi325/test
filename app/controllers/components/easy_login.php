@@ -80,8 +80,6 @@ class EasyLoginComponent extends Object {
             //userモデル取得
             $User = ClassRegistry::init('User');
 
-            pr($this->_getUid());
-
             //個体識別番号取得
             $this->mobuid = $this->_getUid();
 
@@ -99,8 +97,23 @@ class EasyLoginComponent extends Object {
             }
 	}
 
+        //uidを更新する。
+        function _saveUid($selectId){
+            if (!empty($selectId)){
+                //userモデル取得
+                $User = ClassRegistry::init('User');
+                $request = array();
+                $request['User']['id'] = $selectId;
+                $request['User']['uid'] = $User->_getUid();
+                if($User->save($request)){
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /**
-	 * uidを取得する。
+	 * 端末からuidを取得する。
 	 */
         function _getUid(){
             //UID取得
@@ -130,13 +143,6 @@ class EasyLoginComponent extends Object {
             } else {
                 return 5;
             }
-        }
-
-        //uidを更新する。
-        function _saveUid(){
-            //userモデル取得
-            $User = ClassRegistry::init('User');
-            
         }
 
         //ユーザーログイン情報を設定
