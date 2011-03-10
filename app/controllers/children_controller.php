@@ -9,26 +9,52 @@ class ChildrenController extends AppController {
         
     }
 
-    function index() {
+    function index($id = null) {
+        //子供データ一覧設定
+        $childrenData = $this->_setChild();
+        $this->set('childrenData', $childrenData);
+        
+        //最終子供ID更新
+        if ($id !== null &&
+            $id >= 0 && $id < count($childrenData)) {
+            $updateId = $childrenData[$id]['Child']['id'];
+            $this->_sevaLastChild($updateId);
+        }
         $this->Child->recursive = 0;
         $this->set('children', $this->paginate());
-        $this->_setChild();
-        $this->_getLastChild();
+        
+        //最終子供ID設定
+        $this->set('lastChildId', $this->_getLastChild());
     }
 
-    //最終子供情報取得
+    //最終子供ID更新
+    function _sevaLastChild($id){
+        $userData = array();
+        $userData = $this->Auth->user();
+        $userData['User']['last_selected_child'] = $id;
+        unset ($userData['User']['loginid']);
+        unset ($userData['User']['carrier']);
+        unset ($userData['User']['dc_user']);
+        unset ($userData['User']['admin_user']);
+        unset ($userData['User']['uid']);
+        unset ($userData['User']['created']);
+        unset ($userData['User']['modified']);
+        $this->Child->sevaLastChild($userData);
+    }
+
+    //最終子供ID取得
     function _getLastChild(){
         $userData = $this->Auth->user();
         $User = ClassRegistry::init('User');
         $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
-        $this->set('lastChildId', $User['User']['last_selected_child']);
+        return $User['User']['last_selected_child'];
     }
 
     //子供情報取得
     function _setChild(){
         $userData = $this->Auth->user();
         $childData = $this->Child->find('all', array('conditions'=>array('user_id'=>$userData['User']['id'])));
-        $this->set('children', $childData);
+        return $childData;
     }
 
     function _setSimaItem(){
@@ -46,7 +72,7 @@ class ChildrenController extends AppController {
             $userData = $this->Auth->user();
             $request['Child']['user_id'] = $userData['User']['id'];
             $this->data = $request;
-            if ($this->Child->saveAll($this->data, array('validate'=>'only'))) {
+            if ($this->Child->save($this->data, array('validate'=>'only'))) {
                 $this->Session->write('childRegisterData', $this->data);
                 $this->redirect('/children/register_confirm');
 
@@ -122,38 +148,106 @@ class ChildrenController extends AppController {
         }
     }
 
-    function edit($id = null) {
-        if (!$id && empty($this->data)) {
-            $this->Session->setFlash(__('Invalid Child', true));
-            $this->redirect('/children/index');
+    //子供の情報を編集する
+    function edit() {
+        //セッション情報回収、削除
+        $childRegisterData = $this->Session->read('childEditData');
+        $this->Session->delete('childEditData');
+        if(!empty($childRegisterData)){
+            $this->data = $childRegisterData;
         }
-        if (!empty($this->data)) {
-            if ($this->Child->save($this->data)) {
-                $this->Session->setFlash(__('The Child has been saved', true));
-                $this->redirect('/children/index');
-            } else {
-                $this->Session->setFlash(__('The Child could not be saved. Please, try again.', true));
-            }
-        }
+
         if (empty($this->data)) {
-            $this->data = $this->Child->read(null, $id);
+            //最終子供ID設定
+            $lastChildId = $this->_getLastChild();
+            //子供情報取得
+            $this->data = $this->Child->read(null, $lastChildId);
+            $lines = $this->Child->Line->find('list');
         }
-        $users = $this->Child->User->find('list');
+        
         $lines = $this->Child->Line->find('list');
-        $this->set(compact('users','lines'));
+        $this->set(compact('lines'));
     }
 
-    function delete($id = null) {
-        if (!$id) {
-            $this->Session->setFlash(__('Invalid id for Child', true));
-            $this->redirect('/children/index');
+    function edit_confirm(){
+        if (!empty($this->data)) {
+            $request = array();
+            $request = $this->data;
+            $userData = $this->Auth->user();
+            $request['Child']['id'] = $this->_getLastChild();
+            $request['Child']['user_id'] = $userData['User']['id'];
+            $this->data = $request;
+            if ($this->Child->save($this->data, array('validate'=>'only'))) {
+                $this->Session->write('childEditData', $this->data);
+            } else {
+                $this->Session->setFlash(__('入力項目に不備があります。', true));
+                $this->Session->write('childEditData', $this->data);
+                $this->redirect('/children/edit');
+            }
         }
-        if ($this->Child->del($id)) {
-            $this->Session->setFlash(__('Child deleted', true));
-            $this->redirect('/children/index');
+        $lines = $this->Child->Line->find('list');
+        $this->set(compact('lines'));
+    }
+
+    function edit_complete(){
+        //セッション情報回収、削除
+        $this->data = $this->Session->read('childEditData');
+        $this->Session->delete('childEditData');
+
+        //子供登録処理
+        if (!empty($this->data)) {
+            TransactionManager::begin();
+            try {
+                $this->Child->create();
+                if ($this->Child->save($this->data)) {
+                    TransactionManager::commit();
+                    $this->Session->setFlash(__('更新完了。', true));
+                } else {
+                    TransactionManager::rollback();
+                    $this->Session->setFlash(__('更新失敗。', true));
+                    $this->redirect('/children/');
+                }
+            } catch(Exception $e) {
+              TransactionManager::rollback();
+              $this->Session->setFlash(__('システムエラー。', true));
+              $this->redirect('/children/');
+            }
+        } else {
+             $this->Session->setFlash(__('不正操作です。', true));
+             $this->redirect('/children/');
         }
-        $this->Session->setFlash(__('The Child could not be deleted. Please, try again.', true));
-        $this->redirect('/children/index');
+    }
+    
+    function delete() {
+
+        if(!empty($this->data)){
+            //削除実行
+            //bigbarnDEHEHE();
+            //最古子供IDで最新子供IDを更新
+            //OLD!OLD!OLD!
+            //完了ページへリダイレクト！
+            pr('わちょい！');
+            $this->redirect('/children/delete_complete');
+        }
+
+        $childrenData = $this->_setChild();
+        //削除する子供がいなければ不正操作
+        if (empty($childrenData)){
+             $this->Session->setFlash(__('不正操作です。', true));
+             $this->redirect('/children/');
+        }
+        //最終子供ID設定
+        $lastChildId = $this->_getLastChild();
+        //最終子供IDの子供がいなければ不正操作
+        if (empty($lastChildId)){
+             $this->Session->setFlash(__('不正操作です。', true));
+             $this->redirect('/children/');
+        }
+        //子供情報取得
+        $this->data = $this->Child->read(null, $lastChildId);
+    }
+
+    function delete_complete(){ 
     }
 }
 ?>

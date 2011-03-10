@@ -1,33 +1,37 @@
-<div class="children form">
-<?php echo $form->create('Child');?>
-	<fieldset>
- 		<legend><?php __('Edit Child');?></legend>
-	<?php
-		echo $form->input('id');
-		echo $form->input('user_id');
-		echo $form->input('line_id');
-		echo $form->input('nickname');
-		echo $form->input('birth_year');
-		echo $form->input('birth_month');
-		echo $form->input('sex');
-		echo $form->input('benesse_user');
-	?>
-	</fieldset>
-<?php echo $form->end('Submit');?>
+<div>
+<?php echo $form->create('Child', array('action' => 'edit_confirm'));?>
+
+<?php echo $form->input('nickname');?>
+<div>
+    <span>お子様の性別</span>
 </div>
-<div class="actions">
-	<ul>
-		<li><?php echo $html->link(__('Delete', true), array('action' => 'delete', $form->value('Child.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $form->value('Child.id'))); ?></li>
-		<li><?php echo $html->link(__('List Children', true), array('action' => 'index'));?></li>
-		<li><?php echo $html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Lines', true), array('controller' => 'lines', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Line', true), array('controller' => 'lines', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Child Presents', true), array('controller' => 'child_presents', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Child Present', true), array('controller' => 'child_presents', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Diaries', true), array('controller' => 'diaries', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Diary', true), array('controller' => 'diaries', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Postcard Urls', true), array('controller' => 'postcard_urls', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Postcard Url', true), array('controller' => 'postcard_urls', 'action' => 'add')); ?> </li>
-	</ul>
+<div>
+    
+<?php
+//pr($this->data);
+
+echo $form->radio('Child.sex', array('1' => '男', '2' => '女'), array('legend' => false)); ?>
+<?php echo $form->error('Child.sex','必須項目です。'); ?>
+</div>
+<div>
+	<span>お子様の生年月</span>
+	<?php echo $form->input('birth_year', array(
+		'label' => '',
+		'options' => $selectOptions->getOption(array('min' => 2000, 'max' => 2011, 'suffix' => ' 年',)),
+		'empty' => __('------ 年', true),
+		'class' => 'f_bir',)) ?>
+	<?php echo $form->input('birth_month', array(
+		'label' => '',
+		'options' => $selectOptions->getOption(array('min' => 1, 'max' => 12, 'suffix' => ' 月',)),
+		'empty' => __('------ 月', true),
+		'class' => 'f_bir',)) ?>
+</div>
+
+<?php echo $form->input('line_id', array($lines,'label' => 'お子様の年齢')) ?>
+
+<?php echo $form->input('benesse_user');?>
+<?php echo $form->end('確認画面へ');?>
+</div>
+<div>
+    <?php echo $html->link(__('マイページTOP', true), array('action' => 'index'));?>
 </div>

@@ -1,7 +1,15 @@
 <?php
 
 class User extends AppModel {
+	/**
+	 * 使用するコンポーネント
+	 * @var array
+	 */
+	var $components = array('ktai');
 
+    	//ktaiライブラリ設定
+	public $ktai;
+        
 	var $name = 'User';
         public $uses = array('User');
     
@@ -101,7 +109,7 @@ class User extends AppModel {
 	);
 
 	//新規会員登録
-	function register($data)
+	function _register($data)
 	{
             if (empty($data)) {
                 return false;
@@ -111,13 +119,16 @@ class User extends AppModel {
                 $request = array();
                 $request['Child'] = $data['Child']['0'];
                 //今登録UserID取得
-                $request['Child']['user_id'] = $this->getLastInsertId();
+                $nowInsertId = $this->getLastInsertId();
+                $request['Child']['user_id'] = $nowInsertId;
                 //子供登録
                 if($this->Child->save($request)){
                     return true;
                 }
+                return false;
             }
             return false;
 	}
+
 }
 ?>

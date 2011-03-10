@@ -21,7 +21,6 @@ class UsersController extends AppController {
     function login(){
         //ログイン判定
         if($this->Auth->user()) {
-            //端末識別ＩＤを保存
             $this->redirect($this->Auth->redirect());
         }
         $this->Auth->loginError = 'パスワードが違います。';
@@ -90,8 +89,8 @@ class UsersController extends AppController {
         if (!empty($this->data)) {
             try {
                TransactionManager::begin();
-               $this->_covData();
-               if( $this->User->register($this->data)){
+               $this->_setRegisterData();
+               if( $this->User->_register($this->data)){
                   TransactionManager::commit();
                   $this->Session->setFlash(__('会員登録完了。', true));
                } else {
@@ -105,12 +104,12 @@ class UsersController extends AppController {
                   $this->redirect('/pages/top/');
             }
         } else {
-             $this->Session->setFlash(__('お不正操作です。', true));
+             $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/pages/top/');
         }
     }
 
-    function _covData(){
+    function _setRegisterData(){
         if($this->Ktai->is_ktai()) {
             $request['User']['uid'] = $this->Ktai->get_uid();
         }
@@ -118,6 +117,9 @@ class UsersController extends AppController {
         $request = $this->data;
         //ハッシュ化
         $request['User']['password'] = AuthComponent::password( $request['User']['new_password'] );
+        //uid取得
+        $request['User']['uid'] = $this->EasyLogin->_getUid();
+        $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
         $this->data = $request;
