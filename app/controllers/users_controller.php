@@ -125,22 +125,70 @@ class UsersController extends AppController {
         $this->data = $request;
     }
 
-    function edit($id = null) {
-            if (!$id && empty($this->data)) {
-                    $this->Session->setFlash(__('Invalid User', true));
-                    $this->redirect('users/index');
+    function edit() {
+        $this->pageTitle = '登録情報変更';
+        if (!empty($this->data)) {
+            $this->_setEditData();
+            if ($this->User->save($this->data, array('validate'=>'only'))) {
+                //セッションにデータ保持
+                $this->Session->write('userEditData', $this->data);
+                //バリデーションにエラーがなければリダイレクト処理
+                $this->redirect('/users/edit_confirm');
             }
-            if (!empty($this->data)) {
-                    if ($this->User->save($this->data)) {
-                            $this->Session->setFlash(__('The User has been saved', true));
-                            $this->redirect('users/index');
-                    } else {
-                            $this->Session->setFlash(__('The User could not be saved. Please, try again.', true));
-                    }
+        }
+        //それでもデータが無ければデータベースから取得
+        if(empty($this->data)){
+            $userData = $this->Auth->user();
+            $this->data = $this->User->read(null, $userData['User']['id']);
+        }
+    }
+
+    function edit_confirm(){
+        $this->pageTitle = '変更確認';
+        //セッション情報回収
+        $this->data = $this->Session->read('userEditData');
+        if (empty($this->data)) {
+            $this->Session->delete('userEditData');
+            $this->Session->setFlash(__('不正操作です。', true));
+            $this->redirect('/');
+        }
+        $this->_setline();
+        $this->pageTitle = '会員入力情報確認';
+    }
+    
+    function edit_complete(){
+        $this->pageTitle = '変更完了';
+        //セッション情報回収、削除
+        $this->data = $this->Session->read('userEditData');
+        $this->Session->delete('userEditData');
+
+        //初回会員登録処理
+        if (!empty($this->data)) {
+            try {
+               if( $this->User->save($this->data)){
+                  $this->Session->setFlash(__('更新完了。', true));
+               } else {
+                  $this->Session->setFlash(__('更新失敗。', true));
+               }
+            } catch(Exception $e) {
+                  $this->Session->setFlash(__('システムエラー。', true));
             }
-            if (empty($this->data)) {
-                    $this->data = $this->User->read(null, $id);
-            }
+        } else {
+             $this->Session->setFlash(__('不正操作です。', true));
+        }
+
+    }
+
+    function _setEditData(){
+        $userData = $this->Auth->user();
+        $editData = array();
+        $editData = $this->data;
+        $editData['User']['id'] = $userData['User']['id'];
+        //ハッシュ化
+        $editData['User']['password'] = AuthComponent::password( $editData['User']['new_password'] );
+        unset ($editData['User']['new_password']);
+        unset ($editData['User']['row_password']);
+        $this->data = $editData;
     }
 
     //ライン情報取得

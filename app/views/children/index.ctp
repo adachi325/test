@@ -24,3 +24,7 @@
 <div>
     <?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false));?>
 </div>
+<br>
+<div>
+    <?php echo $html->link('会員情報変更', '/users/edit' ,array('escape' => false));?>
+</div>
