@@ -101,29 +101,33 @@ class Issue extends AppModel {
 
 			break;
 		case 'month':
-			$categories = Configure::read('Lines.categories');
-			$ret = array();
+			$line_id;
+			if (isset($options['line_id'])) {
+				$line_id = $options['line_id'];
+				unset($options['line_id']);
+			}
 
 			$cond = array(
-				"{$m}.release_date <=" => date('Y-m-d H:i:s'),
+				"{$m}.release_date >=" => date('Y-m-1 0:0:0'),
+				"{$m}.release_date <" => date('Y-m-1 0:0:0', mktime(0, 0, 0, date("m") + 1, date("d"), date("Y")) ),
 			);
 
-			$this->contain('Line', 'Content');
-			foreach($categories as $category) {
-				$cond["Line.category_name"] = $category;
-
-				$ret[] = parent::find('first', set::merge(
-					array(
-						'conditions' => $cond,
-						'limit' => 1,
-						'order' => "${m}.release_date DESC",
-					),
-					$options
-				));
+			$this->contain('Content');
+			if (!empty($line_id)) {
+				$cond["{$m}.line_id"] = $line_id;
 			}
+
+			$ret = parent::find('all', set::merge(
+				array(
+					'conditions' => $cond,
+					'order' => "{$m}.release_date DESC",
+				),
+				$options
+			));
 			return $ret;
 
 			break;
+		
 		default:
 			return parent::find($type, $options);
 			break;

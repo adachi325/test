@@ -123,12 +123,22 @@ class User extends AppModel {
                 $request['Child']['user_id'] = $nowInsertId;
                 //子供登録
                 if($this->Child->save($request)){
-                    return true;
+                    //今登録子供ID取得
+                    $nowInsertChildId = $this->Child->getLastInsertId();
+                    $userData = array();
+                    $userData['User']['id'] = $nowInsertId;
+                    $userData['User']['last_selected_child'] = $nowInsertChildId;
+                    //最終子供ID更新
+                    if($this->Child->sevaLastChild($userData)){
+                        return true;
+                    }
+                    return false;
                 }
                 return false;
             }
             return false;
 	}
+
 
 }
 ?>
