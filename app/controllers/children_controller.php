@@ -20,7 +20,6 @@ class ChildrenController extends AppController {
             $this->_sevaLastChild($updateId);
         }
         $this->Child->recursive = 0;
-        $this->set('children', $this->paginate());
         
         //最終子供ID設定
         $this->set('lastChildId', $this->_getLastChild());
