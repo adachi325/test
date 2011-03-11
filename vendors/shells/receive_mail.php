@@ -4,20 +4,29 @@ App::import('Shell', 'AppShell');
 class ReceiveMailShell extends AppShell {
 	
 	const STOP_FILE_PATH = "../../app/tmp/stop.file";
+	const MAIL_DIR_NEW = "~shimajiro/MailDir/new/";
 	
 	function main() {
+//		if ($this->checkStopFile()) {
+//			$this->removeStopFile();
+//		} else {
+//			$this->createStopFile();
+//		}
 		
-//		echo getmypid();
-//		echo "\n";
-//		echo ReceiveMailShell::STOP_FILE_PATH;
-//		echo "\n";
+		echo ReceiveMailShell::MAIL_DIR_NEW;
+		getFileList();
 		
-		if ($this->checkStopFile()) {
-			$this->removeStopFile();
-		} else {
-			$this->createStopFile();
+	}
+	
+	function getFileList() {
+		if ($dir = opendir(ReceiveMail::MAIL_DIR_NEW)) {
+		    while (($file = readdir($dir)) !== false) {
+		        if ($file != "." && $file != "..") {
+		            echo "$file\n";
+		        }
+		    } 
+		    closedir($dir);
 		}
-		
 	}
 	
 	function checkStopFile() {
