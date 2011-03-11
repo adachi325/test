@@ -11,7 +11,6 @@ class ChildrenController extends AppController {
     function index($id = null) {
         //子供データ一覧設定
         $childrenData = $this->_setChild();
-        $this->set('childrenData', $childrenData);
         
         //最終子供ID更新
         if ($id !== null &&
@@ -19,11 +18,16 @@ class ChildrenController extends AppController {
             $updateId = $childrenData[$id]['Child']['id'];
             $this->_sevaLastChild($updateId);
         }
-        $this->Child->recursive = 0;
-        $this->set('children', $this->paginate());
         
-        //最終子供ID設定
-        $this->set('lastChildId', $this->_getLastChild());
+		//最終子供ID設定
+		$lastChildId = $this->_getLastChild();
+
+		$currentChild = $this->Child->findById($lastChildId);
+
+		$Issue =& ClassRegistry::init('Issue');
+		$issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
+
+		$this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues'));
     }
 
     //最終子供ID更新
