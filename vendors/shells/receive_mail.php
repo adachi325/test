@@ -2,7 +2,6 @@
 
 App::import('Shell', 'AppShell');
 App::import('Vendor', 'QdmailReceiver');
-
 class ReceiveMailShell extends AppShell {
 	
 	const STOP_FILE_PATH = "../../app/tmp/stop.file";
@@ -11,21 +10,21 @@ class ReceiveMailShell extends AppShell {
 	const MAIL_DIR_DONE_ERROR = "/home/iida/Maildir/done/error/";
 	
 	function main() {
-		if ($this->_checkStopFile()) {
+		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
 		}
 		
-		$this->_createStopFile();
+		$this->_createStopfile();
 		$this->_execute();
-		$this->_removeStopFile();
+		$this->_removeStopfile();
 	}
 	
-	function _checkStopFile() {
+	function _stopfileExists() {
 		return file_exists(ReceiveMailShell::STOP_FILE_PATH);
 	}
 	
-	function _createStopFile() {
+	function _createStopfile() {
 		$body = getmypid();
 		$fp = fopen(ReceiveMailShell::STOP_FILE_PATH, "w");
 		flock($fp, LOCK_EX);
@@ -33,24 +32,24 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
-		echo "stop file created.\n";
+		echo "stopfile was created.\n";
 	}
 	
-	function _removeStopFile() {
+	function _removeStopfile() {
 		if (file_exists(ReceiveMailShell::STOP_FILE_PATH)) {
 			unlink(ReceiveMailShell::STOP_FILE_PATH);
 		}
-		echo "\nstop file removed.\n";
+		echo "\nstopfile was removed.\n";
 	}
 	
 	function _execute() {
-		while (($filename = $this->_getOldestFile()) !== false) {
+		while (($filename = $this->_getOldestMail()) !== false) {
 			$is_error = !$this->_processMail($filename);
-			$this->_moveFile($filename, $is_error);
+			$this->_moveMail($filename, $is_error);
 		}
 	}
 	
-	function _getOldestFile() {
+	function _getOldestMail() {
 		if ($dir = opendir(ReceiveMailShell::MAIL_DIR_NEW)) {
 			$oldest_file = null;
 			$oldest_time = null;
@@ -68,17 +67,14 @@ class ReceiveMailShell extends AppShell {
 			closedir($dir);
 			
 			if ($oldest_file == null) {
-				echo "nofile\n";
 				return false;
 			} else {
-				echo "\n".date("F d Y H:i:s.", filemtime(ReceiveMailShell::MAIL_DIR_NEW . $oldest_file));
-				echo "$oldest_file\n";
 				return $oldest_file;
 			}
 		}
 	}
 	
-	function _moveFile($filename, $is_error=false) {
+	function _moveMail($filename, $is_error=false) {
 		$filepath_from = ReceiveMailShell::MAIL_DIR_NEW . $filename;
 		if (is_file($filepath_from) === false) {
 			return;
