@@ -146,14 +146,5 @@ class Present extends AppModel {
 		}
 	}
 
-	function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
-		$conditions[] = "1 = 1 GROUP BY week, away_team_id, home_team_id";
-		$recursive = -1;
-		$fields = array('week', 'away_team_id', 'home_team_id');
-
-		return $this->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive'));
-	}
-	
-
 }
 ?>
