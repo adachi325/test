@@ -4,29 +4,31 @@ App::import('Shell', 'AppShell');
 App::import('Vendor', 'QdmailReceiver');
 class ReceiveMailShell extends AppShell {
 	
-	const STOP_FILE_PATH = "../../app/tmp/stop.file";
-	const MAIL_DIR_NEW = "/home/iida/Maildir/new/";
-	const MAIL_DIR_DONE_NORMAL = "/home/iida/Maildir/done/normal/";
-	const MAIL_DIR_DONE_ERROR = "/home/iida/Maildir/done/error/";
-	
 	function main() {
 		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
 		}
 		
-		$this->_createStopfile();
-		$this->_execute();
-		$this->_removeStopfile();
+		try {
+			$this->_createStopfile();
+			exit();
+			$this->_execute();
+			$this->_removeStopfile();
+		} catch(Exception $e) {
+			$this->sendErrorMail($e->getMessage());
+			$this->_removeStopfile();
+			exit();
+		}
 	}
 	
 	function _stopfileExists() {
-		return file_exists(ReceiveMailShell::STOP_FILE_PATH);
+		return file_exists(Configure::read('ReceiveMail.stopfile_path'));
 	}
 	
 	function _createStopfile() {
 		$body = getmypid();
-		$fp = fopen(ReceiveMailShell::STOP_FILE_PATH, "w");
+		$fp = fopen(Configure::read('ReceiveMail.stopfile_path'), "w");
 		flock($fp, LOCK_EX);
 		fwrite($fp, $body, strlen($body));
 		flock($fp, LOCK_UN);
@@ -36,27 +38,32 @@ class ReceiveMailShell extends AppShell {
 	}
 	
 	function _removeStopfile() {
-		if (file_exists(ReceiveMailShell::STOP_FILE_PATH)) {
-			unlink(ReceiveMailShell::STOP_FILE_PATH);
+		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
+			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
 		echo "\nstopfile was removed.\n";
 	}
 	
 	function _execute() {
 		while (($filename = $this->_getOldestMail()) !== false) {
-			$is_error = !$this->_processMail($filename);
-			$this->_moveMail($filename, $is_error);
+			try {
+				$is_error = !$this->_processMail($filename);
+				$this->_moveMail($filename, $is_error);
+			} catch(Exception $e) {
+				$this->_moveMail($filename, true);
+				throw new Exception($e->getMessage());
+			}
 		}
 	}
 	
 	function _getOldestMail() {
-		if ($dir = opendir(ReceiveMailShell::MAIL_DIR_NEW)) {
+		if ($dir = opendir(Configure::read('ReceiveMail.mail_dir_new'))) {
 			$oldest_file = null;
 			$oldest_time = null;
 			
 			while (($file = readdir($dir)) !== false) {
 				if (!is_dir($file)) {
-					$temp_time = filemtime(ReceiveMailShell::MAIL_DIR_NEW . $file);
+					$temp_time = filemtime(Configure::read('ReceiveMail.mail_dir_new') . $file);
 					if ($oldest_file == null
 							||	$oldest_time > $temp_time) {
 						$oldest_time = $temp_time;
@@ -75,16 +82,16 @@ class ReceiveMailShell extends AppShell {
 	}
 	
 	function _moveMail($filename, $is_error=false) {
-		$filepath_from = ReceiveMailShell::MAIL_DIR_NEW . $filename;
+		$filepath_from = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		if (is_file($filepath_from) === false) {
 			return;
 		}
-		$filepath_to = ($is_error ? ReceiveMailShell::MAIL_DIR_DONE_ERROR : ReceiveMailShell::MAIL_DIR_DONE_NORMAL) . $filename;
+		$filepath_to = ($is_error ? Configure::read('ReceiveMail.mail_dir_done_error') : Configure::read('ReceiveMail.mail_dir_done_normal')) . $filename;
 		rename($filepath_from, $filepath_to);
 	}
 	
 	function _processMail($filename) {
-		$filepath = ReceiveMailShell::MAIL_DIR_NEW . $filename;
+		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		
 		if (!($fp = fopen($filepath, "rb"))) {
 			return false;
@@ -102,7 +109,7 @@ class ReceiveMailShell extends AppShell {
 		$receiver->bodyAutoSelect();
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : null;
 
-		var_dump($params);
+//		var_dump($params);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['image'] = ($images !== null) ? $images[0] : null;
@@ -140,6 +147,22 @@ class ReceiveMailShell extends AppShell {
 			return array($attach['value']);
 		}
 		return null;
+	}
+	
+	function sendErrorMail($message) {
+		App::import('Component', 'Qdmail');
+		
+		echo "error mail send\n";
+		
+		$mail = new Qdmail();
+		$mail->to(Configure::read('Mail.to_addresses.error.address'), Configure::read('Mail.to_addresses.error.signature'));
+		$mail->from(Configure::read('Mail.from_addresses.admin.address'), Configure::read('Mail.from_addresses.admin.signature'));
+		$mail->subject('【しまじろうひろば】障害通知');
+		//$mail->subject(Configure::read('Mail.subjects.error'));
+		
+		$mail->text('メール処理で障害発生しました'."\r\n".$message);
+//		$mail->text(Configure::read('Mail.text.error').$message);
+		$mail->send();
 	}
 
 }

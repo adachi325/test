@@ -1,13 +1,8 @@
 <?php
 
 App::import('Shell', 'AppShell');
+//App::import('Shell', 'ReceiveMailShell');
 class CheckStopfileShell extends AppShell {
-	
-	const STOP_FILE_PATH = "../../app/tmp/stop.file";
-	const MAIL_DIR_NEW = "/home/iida/Maildir/new/";
-	const MAIL_DIR_DONE_NORMAL = "/home/iida/Maildir/done/normal/";
-	const MAIL_DIR_DONE_ERROR = "/home/iida/Maildir/done/error/";
-	const PS_LOG_FILE_PATH = "../../app/tmp/ps_log.txt";
 	
 	function main() {
 		if (!$this->_stopfileExists()) {
@@ -25,25 +20,28 @@ class CheckStopfileShell extends AppShell {
 		
 		$this->_removeStopfile();
 		echo "\nstopfile was removed.\n";
+		
+//		ClassRegistry::init('ReceiveMail')->main();
+//		$receiveMail->main();
 	}
 	
 	function _stopfileExists() {
-		return file_exists(CheckStopfileShell::STOP_FILE_PATH);
+		return file_exists(Configure::read('ReceiveMail.stopfile_path'));
 	}
 	
 	function _readStopfile() {
-		$fp = fopen(CheckStopfileShell::STOP_FILE_PATH, "r");
+		$fp = fopen(Configure::read('ReceiveMail.stopfile_path'), "r");
 		$pid = feof($fp) ? null : fgets($fp);
 		fclose($fp);
 		return $pid;
 	}
 	
 	function _isRunningPid($pid) {
-		$command = 'ps x|grep "shimajiro/cake/console receive_mail" > ' . CheckStopfileShell::PS_LOG_FILE_PATH;
+		$command = 'ps x|grep "shimajiro/cake/console receive_mail" > ' . Configure::read('ReceiveMail.ps_log_path');
 		$result = passthru($command, $ret);
 		
 		$is_running_pid = false;
-		$fp = fopen(CheckStopfileShell::PS_LOG_FILE_PATH, "r");
+		$fp = fopen(Configure::read('ReceiveMail.ps_log_path'), "r");
 		while (!feof($fp)) {
 			$line = fgets($fp);
 			if (ereg(".*$pid.*", $line) && ereg(".*php.*", $line)) {
@@ -56,8 +54,8 @@ class CheckStopfileShell extends AppShell {
 	}
 	
 	function _removeStopfile() {
-		if (file_exists(CheckStopfileShell::STOP_FILE_PATH)) {
-			unlink(CheckStopfileShell::STOP_FILE_PATH);
+		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
+			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
 	}
 	
