@@ -75,8 +75,6 @@ class DiariesController extends AppController {
                 $this->render('post_unknown');
                 return;
             }
-            pr ($diaryData);
-
             //投稿反映画面の表示文言を設定
             $this->_infoStr($diaryData);
 
