@@ -6,9 +6,9 @@
 			<?php echo $present['Present']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Issue'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Theme'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($present['Issue']['title'], array('controller' => 'issues', 'action' => 'view', $present['Issue']['id'])); ?>
+			<?php echo $this->Html->link($present['Theme']['title'], array('controller' => 'themes', 'action' => 'view', $present['Theme']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Present Type'); ?></dt>
@@ -39,15 +39,16 @@
 	</dl>
 </div>
 <div class="actions">
+	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $html->link(__('Edit Present', true), array('action' => 'edit', $present['Present']['id'])); ?> </li>
-		<li><?php echo $html->link(__('Delete Present', true), array('action' => 'delete', $present['Present']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $present['Present']['id'])); ?> </li>
-		<li><?php echo $html->link(__('List Presents', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Present', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Issues', true), array('controller' => 'issues', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Issue', true), array('controller' => 'issues', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Children', true), array('controller' => 'children', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Child', true), array('controller' => 'children', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Present', true), array('action' => 'edit', $present['Present']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Delete Present', true), array('action' => 'delete', $present['Present']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $present['Present']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Presents', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Present', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Themes', true), array('controller' => 'themes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Theme', true), array('controller' => 'themes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Children', true), array('controller' => 'children', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Child', true), array('controller' => 'children', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -87,9 +88,9 @@
 			<td><?php echo $child['created'];?></td>
 			<td><?php echo $child['modified'];?></td>
 			<td class="actions">
-				<?php echo $html->link(__('View', true), array('controller' => 'children', 'action' => 'view', $child['id'])); ?>
-				<?php echo $html->link(__('Edit', true), array('controller' => 'children', 'action' => 'edit', $child['id'])); ?>
-				<?php echo $html->link(__('Delete', true), array('controller' => 'children', 'action' => 'delete', $child['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $child['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'children', 'action' => 'view', $child['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'children', 'action' => 'edit', $child['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'children', 'action' => 'delete', $child['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $child['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -98,7 +99,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $html->link(__('New Child', true), array('controller' => 'children', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Child', true), array('controller' => 'children', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

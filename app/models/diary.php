@@ -22,9 +22,9 @@ class Diary extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'hush_cord' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'hash' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -42,9 +42,9 @@ class Diary extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'description' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'has_image' => array(
+			'boolean' => array(
+				'rule' => array('boolean'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -66,6 +66,13 @@ class Diary extends AppModel {
 		'Theme' => array(
 			'className' => 'Theme',
 			'foreignKey' => 'theme_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Present' => array(
+			'className' => 'Present',
+			'foreignKey' => 'present_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
