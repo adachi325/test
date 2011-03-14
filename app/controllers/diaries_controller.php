@@ -3,62 +3,31 @@
 class DiariesController extends AppController {
 
 	var $name = 'Diaries';
-	var $helpers = array('Html', 'Form');
-
+        
 	function index() {
-		$this->Diary->recursive = 0;
-		$this->set('diaries', $this->paginate());
+
+                
+            //月設定
+            $this->set('month',date('m') + 0);
+
+            //年月を設定
+            $setOptions['year'] = date('Y');
+            $setOptions['month'] = date('m') - 1;
+            $this->Session->write('setOptions', $setOptions);
+
+            $this->Diary->contain();
+            $diaries = $this->Diary->find('all', array('conditions'=>array('child_id' => $this->_getLastChild())));
+            $this->set(compact('diaries'));
+
 	}
 
-
-	function add() {
-		if (!empty($this->data)) {
-			$this->Diary->create();
-			if ($this->Diary->save($this->data)) {
-				$this->Session->setFlash(__('The Diary has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Diary could not be saved. Please, try again.', true));
-			}
-		}
-		$children = $this->Diary->Child->find('list');
-		$themes = $this->Diary->Theme->find('list');
-		$this->set(compact('children', 'themes'));
-	}
-
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid Diary', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			if ($this->Diary->save($this->data)) {
-				$this->Session->setFlash(__('The Diary has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Diary could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Diary->read(null, $id);
-		}
-		$children = $this->Diary->Child->find('list');
-		$themes = $this->Diary->Theme->find('list');
-		$this->set(compact('children','themes'));
-	}
-
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for Diary', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if ($this->Diary->del($id)) {
-			$this->Session->setFlash(__('Diary deleted', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('The Diary could not be deleted. Please, try again.', true));
-		$this->redirect(array('action' => 'index'));
-	}
+        //最終子供ID取得
+        function _getLastChild(){
+            $userData = $this->Auth->user();
+            $User = ClassRegistry::init('User');
+            $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
+            return $User['User']['last_selected_child'];
+        }
 
         function checkPost($hash = null){
             //hashを確認し、データがなければリダイレクト
@@ -75,8 +44,13 @@ class DiariesController extends AppController {
                 $this->render('post_unknown');
                 return;
             }
+
+            $this->set('diaryId',$diaryData['Diary']['id']);
+
             //投稿反映画面の表示文言を設定
-            $this->_infoStr($diaryData);
+            if(!empty($diaryData['Present']['id'])) {
+                $this->_infoStr($diaryData);
+            }
 
         }
 
@@ -84,10 +58,6 @@ class DiariesController extends AppController {
             $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
             $this->set('getStr',$typelist[$data['Present']['present_type']]);
             $this->set('presentId',$data['Present']['id']);
-            
-
-            
         }
-        
 }
 ?>
