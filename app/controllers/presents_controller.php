@@ -5,22 +5,51 @@ class PresentsController extends AppController {
 
 	function index() {
 		$month = $this->Present->find('month');
+		$this->set(compact('month'));
 	}
 
 	function present_list($type = null) {
-		$items = 
+
+		$child_id = $this->Session->read('Auth.User.last_selected_child');
+
+		if ($type === null) {
+			$this->Session->setFlash('プレゼントの種類を指定してください');
+			$this->redirect(array('action' => 'index'));
+		} else {
+			if ($type >= 0) {
+				// Todo: paginateの組み込み
+				$items = $this->Present->find('type', compact('child_id', 'type'));
+				$this->set(compact('items'));
+				
+				$this->render("present_list_{$type}");		
+			} else {
+				// 会員限定コンテンツ
+				$this->render("present_list_member");
+			}
+		}
 	}
 
 	function select($type = null) {
+		$this->Present->contain();
+		$this->set($this->paginate());
+		
+		if ($type == "flash") {
 
+		} else {
+
+		}
 	}
 
 	function complete($type = null) {
-	
+		if ($type == "flash") {
+
+		} else {
+
+		}
 	}
 
 	function error_present() {
-
+		
 	}
 
 	function error_photo() {
@@ -28,7 +57,7 @@ class PresentsController extends AppController {
 	}
 
 	function print_photo() {
-
+		
 	}
 }
 ?>
