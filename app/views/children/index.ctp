@@ -73,9 +73,11 @@ if (count($childrenData) < 3) {
 	echo h($issue['Issue']['title']);
 	if(is_array($issue['Content'])) {
 		foreach($issue['Content'] as $content) {
-			echo "<p>";
-			echo $this->Html->link($content['title'], DS.$content['path'].DS);
-			echo "</p>";
+			if ($content['release_date'] < date('Y-m-d')) {
+				echo "<p>";
+				echo $this->Html->link($content['title'], DS.$content['path'].DS);
+				echo "</p>";
+			}
 		}
 	}
 ?>
