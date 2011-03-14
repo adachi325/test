@@ -26,7 +26,15 @@ class ChildrenController extends AppController {
         $Issue =& ClassRegistry::init('Issue');
         $issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
 
-        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues'));
+        $month =& ClassRegistry::init('month');
+        $options = array();
+        $options['year'] = date('Y');
+        $options['month'] = date('m') + 0;
+        $months = $month->find('all',array('conditions' => $options));
+
+        $lines = $this->Child->Line->find('list');
+        
+        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines'));
     }
 
     //最終子供ID更新

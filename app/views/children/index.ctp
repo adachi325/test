@@ -22,7 +22,7 @@ if (count($childrenData) < 3) {
 <?php echo h($currentChild['Child']['birth_year']); ?>年 
 <?php echo h($currentChild['Child']['birth_month']); ?>月
 </div>
-
+<div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
 </div>
 
 <div>
@@ -40,13 +40,22 @@ if (count($childrenData) < 3) {
 <h3>最新の思い出記録</h3>
 <div>
 	<div>画像ｘ４</div>
-    <?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false));?>
+    <?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false)); ?>
 </div>
 
 <br>
 <h3>最新の思い出テーマ</h3>
+<?php foreach($months as $month): ?>
+    <?php foreach($month['Theme'] as $theme): ?>
+    <?php
+        echo "<p>";
+        echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
+        echo "</p>";
+    ?>
+    <?php endforeach; ?>
+<?php endforeach; ?>
 <div>
-<?php echo $this->Html->link('もっと見る', '/'); ?>
+<?php echo $this->Html->link('もっと見る', '/themes/'); ?>
 </div>
 
 <h3>今月のプレゼント</h3>

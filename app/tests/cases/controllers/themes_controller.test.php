@@ -1,5 +1,5 @@
 <?php
-/* Themes Test cases generated on: 2011-03-08 13:03:15 : 1299559515*/
+/* Themes Test cases generated on: 2011-03-14 13:03:09 : 1300075209*/
 App::import('Controller', 'Themes');
 
 class TestThemesController extends ThemesController {
@@ -11,7 +11,7 @@ class TestThemesController extends ThemesController {
 }
 
 class ThemesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.theme', 'app.issue', 'app.line', 'app.child', 'app.user', 'app.child_present', 'app.present', 'app.diary', 'app.postcard_url', 'app.content');
+	var $fixtures = array('app.theme', 'app.month', 'app.diary', 'app.child', 'app.user', 'app.line', 'app.content', 'app.issue', 'app.present', 'app.child_present', 'app.postcard_url');
 
 	function startTest() {
 		$this->Themes =& new TestThemesController();

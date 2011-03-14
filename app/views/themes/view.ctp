@@ -6,9 +6,9 @@
 			<?php echo $theme['Theme']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Issue'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Month'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($theme['Issue']['title'], array('controller' => 'issues', 'action' => 'view', $theme['Issue']['id'])); ?>
+			<?php echo $this->Html->link($theme['Month']['id'], array('controller' => 'months', 'action' => 'view', $theme['Month']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title'); ?></dt>
@@ -19,11 +19,6 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $theme['Theme']['description']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Release Week'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $theme['Theme']['release_week']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Release Date'); ?></dt>
@@ -44,15 +39,16 @@
 	</dl>
 </div>
 <div class="actions">
+	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $html->link(__('Edit Theme', true), array('action' => 'edit', $theme['Theme']['id'])); ?> </li>
-		<li><?php echo $html->link(__('Delete Theme', true), array('action' => 'delete', $theme['Theme']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $theme['Theme']['id'])); ?> </li>
-		<li><?php echo $html->link(__('List Themes', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Theme', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Issues', true), array('controller' => 'issues', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Issue', true), array('controller' => 'issues', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Diaries', true), array('controller' => 'diaries', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Diary', true), array('controller' => 'diaries', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Theme', true), array('action' => 'edit', $theme['Theme']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Delete Theme', true), array('action' => 'delete', $theme['Theme']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $theme['Theme']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Themes', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Theme', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Months', true), array('controller' => 'months', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Month', true), array('controller' => 'months', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Diaries', true), array('controller' => 'diaries', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Diary', true), array('controller' => 'diaries', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -63,10 +59,12 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Child Id'); ?></th>
 		<th><?php __('Theme Id'); ?></th>
-		<th><?php __('Hush Cord'); ?></th>
+		<th><?php __('Present Id'); ?></th>
+		<th><?php __('Hash'); ?></th>
 		<th><?php __('Title'); ?></th>
-		<th><?php __('Description'); ?></th>
-		<th><?php __('Image Name'); ?></th>
+		<th><?php __('Body'); ?></th>
+		<th><?php __('Has Image'); ?></th>
+		<th><?php __('Error Code'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
@@ -83,16 +81,18 @@
 			<td><?php echo $diary['id'];?></td>
 			<td><?php echo $diary['child_id'];?></td>
 			<td><?php echo $diary['theme_id'];?></td>
-			<td><?php echo $diary['hush_cord'];?></td>
+			<td><?php echo $diary['present_id'];?></td>
+			<td><?php echo $diary['hash'];?></td>
 			<td><?php echo $diary['title'];?></td>
-			<td><?php echo $diary['description'];?></td>
-			<td><?php echo $diary['image_name'];?></td>
+			<td><?php echo $diary['body'];?></td>
+			<td><?php echo $diary['has_image'];?></td>
+			<td><?php echo $diary['error_code'];?></td>
 			<td><?php echo $diary['created'];?></td>
 			<td><?php echo $diary['modified'];?></td>
 			<td class="actions">
-				<?php echo $html->link(__('View', true), array('controller' => 'diaries', 'action' => 'view', $diary['id'])); ?>
-				<?php echo $html->link(__('Edit', true), array('controller' => 'diaries', 'action' => 'edit', $diary['id'])); ?>
-				<?php echo $html->link(__('Delete', true), array('controller' => 'diaries', 'action' => 'delete', $diary['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $diary['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'diaries', 'action' => 'view', $diary['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'diaries', 'action' => 'edit', $diary['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'diaries', 'action' => 'delete', $diary['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $diary['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -101,7 +101,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $html->link(__('New Diary', true), array('controller' => 'diaries', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Diary', true), array('controller' => 'diaries', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

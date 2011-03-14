@@ -1,10 +1,10 @@
 <?php
-class Theme extends AppModel {
-	var $name = 'Theme';
+class Month extends AppModel {
+	var $name = 'Month';
 	var $validate = array(
-		'month_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'year' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -12,7 +12,7 @@ class Theme extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'title' => array(
+		'month' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -25,20 +25,23 @@ class Theme extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
-		'Month' => array(
-			'className' => 'Month',
+	var $hasMany = array(
+		'Present' => array(
+			'className' => 'Present',
 			'foreignKey' => 'month_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
-		)
-	);
-
-	var $hasMany = array(
-		'Diary' => array(
-			'className' => 'Diary',
-			'foreignKey' => 'theme_id',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Theme' => array(
+			'className' => 'Theme',
+			'foreignKey' => 'month_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

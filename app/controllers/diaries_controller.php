@@ -10,13 +10,6 @@ class DiariesController extends AppController {
 		$this->set('diaries', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid Diary', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('diary', $this->Diary->read(null, $id));
-	}
 
 	function add() {
 		if (!empty($this->data)) {
@@ -67,5 +60,34 @@ class DiariesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+        function checkPost($hash = null){
+            //hashを確認し、データがなければリダイレクト
+            if(empty($hash)){
+                $this->Session->setFlash(__('不正操作です。', true));
+                $this->redirect('/children/');
+            }
+            $this->Diary->contain('Present');
+            $diaryData = $this->Diary->find('first', array('conditions'=>array('hash' => $hash)));
+            if(empty($diaryData)){
+                //再チェックボタン用にハッシュタグを設定
+                $this->set('nexthash',$hash);
+                //unknown
+                $this->render('post_unknown');
+                return;
+            }
+            //投稿反映画面の表示文言を設定
+            $this->_infoStr($diaryData);
+
+        }
+
+        function _infoStr($data){
+            $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
+            $this->set('getStr',$typelist[$data['Present']['present_type']]);
+            $this->set('presentId',$data['Present']['id']);
+            
+
+            
+        }
+        
 }
 ?>
