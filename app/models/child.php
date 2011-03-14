@@ -141,7 +141,7 @@ class Child extends AppModel {
 	);
 
         //最後に操作した子供情報を更新する
-        function sevaLastChild($data){
+        function saveLastChild($data){
             if(empty($data)){
                 return false;
             }
