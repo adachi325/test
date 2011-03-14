@@ -129,7 +129,7 @@ class User extends AppModel {
                     $userData['User']['id'] = $nowInsertId;
                     $userData['User']['last_selected_child'] = $nowInsertChildId;
                     //最終子供ID更新
-                    if($this->Child->sevaLastChild($userData)){
+                    if($this->Child->saveLastChild($userData)){
                         return true;
                     }
                     return false;
