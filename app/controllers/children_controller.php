@@ -25,7 +25,8 @@ class ChildrenController extends AppController {
         $currentChild = $this->Child->findById($lastChildId);
 
         $Issue =& ClassRegistry::init('Issue');
-        $issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
+        //$issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
+        $issues = $Issue->find('month');
 
         $month =& ClassRegistry::init('month');
         $options = array();
