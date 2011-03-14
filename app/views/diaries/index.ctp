@@ -1,16 +1,18 @@
 <hr><br>
 <center>
-<div><?php echo $month.'月の思い出アルバム' ?></div>
+<div><?php echo $options['month'].'月の思い出アルバム' ?></div>
 <br>
 <div>
 <?php
 $i=0;
-foreach($diaries as $diary): 
+if(!empty($diaries)) {
+foreach($diaries as $diary):
     if ($diary['Diary']['has_image']) {
         $i++;
         echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '55px', 'height' => '55px'));
     }
 endforeach;
+}
 ?>
 <?php
 while($i < 4) {
@@ -25,18 +27,62 @@ while($i < 4) {
 </center>
 <br><hr><br>
 <div>
-    <?php echo $this->Html->link($month.'月の思い出を投稿する', '/themes/index/diary'); ?>
+    <?php echo $this->Html->link($options['month'].'月の思い出を投稿する', '/themes/index/diary'); ?>
 </div>
 <br>
-<?php foreach($diaries as $diary): ?>
-<div style='vertical-align:top;'>
+<div>
+    <p><?php echo '全'.count($diaries).'件中'; ?>&nbsp;
+       <?php if($page > 1) { echo(($page*5)-4); } else if(count($diaries) == 0) { echo('0'); } else { echo($page); }
+              if(($page*5) < count($diaries)) {echo ('件～'.($page*5).'件を表示'); } else {echo ('件～'.count($diaries).'件を表示');}
+       ?>
+    </p>
+</div>
+<br>
 <?php
-    if ($diary['Diary']['has_image']) {
-        echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '40px', 'height' => '40px'));
-    } else {
-        echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
+$d = 0;$i = 0;$s = 0;
+if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 1; }
+foreach($diaries as $diary):
+    $s++;
+    if($s > $d && $i < 5) { ?>
+        <div style='vertical-align:top;'>
+        <?php
+            if ($diary['Diary']['has_image']) {
+                echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '40px', 'height' => '40px'));
+            } else {
+                echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
+            }
+            echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
+        ?>
+        </div>
+    <?php
+    $i ++;
     }
-    echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
+endforeach;
+?>
+<br>
+<div>
+<?php 
+    if($page > 1) {
+        echo $this->Html->link('前へ', '/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1));
+    }
 ?>
 </div>
-<?php endforeach; ?>
+<div>
+<?php
+    if(count($diaries) > ($page * 5)) {
+        echo $this->Html->link('次へ', '/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1));
+    }
+?>
+</div>
+<br><hr><br>
+<div>
+<?php
+    echo $this->Html->link('前月', '/diaries/index/'.$options['year'].'/'.($options['month']-1));
+?>
+    　　　　　
+<?php
+if($options['year'] >= date('Y') && $options['month'] < date('m')) {
+    echo $this->Html->link('次月', '/diaries/index/'.$options['year'].'/'.($options['month']+1));
+}
+?>
+</div>
