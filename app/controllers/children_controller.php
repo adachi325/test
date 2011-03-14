@@ -18,16 +18,23 @@ class ChildrenController extends AppController {
             $updateId = $childrenData[$id]['Child']['id'];
             $this->_sevaLastChild($updateId);
         }
+        //最終子供ID設定
+        $lastChildId = $this->_getLastChild();
+
+        $currentChild = $this->Child->findById($lastChildId);
+
+        $Issue =& ClassRegistry::init('Issue');
+        $issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
+
+        $month =& ClassRegistry::init('month');
+        $options = array();
+        $options['year'] = date('Y');
+        $options['month'] = date('m') + 0;
+        $months = $month->find('all',array('conditions' => $options));
+
+        $lines = $this->Child->Line->find('list');
         
-		//最終子供ID設定
-		$lastChildId = $this->_getLastChild();
-
-		$currentChild = $this->Child->findById($lastChildId);
-
-		$Issue =& ClassRegistry::init('Issue');
-		$issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
-
-		$this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues'));
+        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines'));
     }
 
     //最終子供ID更新
@@ -72,13 +79,13 @@ class ChildrenController extends AppController {
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
-            $userData = $this->Auth->user();
+            $userData = $this->Auth->user();;
             $request['Child']['user_id'] = $userData['User']['id'];
             $this->data = $request;
-            if ($this->Child->save($this->data, array('validate'=>'only'))) {
+            $this->Child->set($this->data);
+            if($this->Child->validates()){
                 $this->Session->write('childRegisterData', $this->data);
                 $this->redirect('/children/register_confirm');
-
             } else {
                     $this->Session->setFlash(__('入力項目に不備があります。', true));
             }
@@ -159,6 +166,12 @@ class ChildrenController extends AppController {
         if(!empty($childRegisterData)){
             $this->data = $childRegisterData;
         }
+        $childEditValidationErrors = $this->Session->read('childEditValidationErrors');
+        $this->Session->delete('childEditValidationErrors');
+        if(!empty($childEditValidationErrors)){
+            $this->Child->set($this->data);
+            $this->Child->validates();
+        }
 
         if (empty($this->data)) {
             //最終子供ID設定
@@ -180,11 +193,13 @@ class ChildrenController extends AppController {
             $request['Child']['id'] = $this->_getLastChild();
             $request['Child']['user_id'] = $userData['User']['id'];
             $this->data = $request;
-            if ($this->Child->save($this->data, array('validate'=>'only'))) {
+            $this->Child->set($this->data);
+            if($this->Child->validates()){
                 $this->Session->write('childEditData', $this->data);
             } else {
                 $this->Session->setFlash(__('入力項目に不備があります。', true));
                 $this->Session->write('childEditData', $this->data);
+                $this->Session->write('childEditValidationErrors', $this->validateErrors($this->Child));
                 $this->redirect('/children/edit');
             }
         }

@@ -51,12 +51,15 @@ class UsersController extends AppController {
         $this->_setline();
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
+            TransactionManager::begin();
             if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
                 //セッションにデータ保持
+                TransactionManager::rollback();
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm');
-            } 
+            }
+            TransactionManager::rollback();
         }
         //セッション情報回収、削除
         $userRegisterData = $this->Session->read('userRegisterData');
@@ -128,8 +131,8 @@ class UsersController extends AppController {
     function edit() {
         $this->pageTitle = '登録情報変更';
         if (!empty($this->data)) {
-            $this->_setEditData();
-            if ($this->User->save($this->data, array('validate'=>'only'))) {
+            $this->User->set($this->data);
+            if ($this->User->validates()) {
                 //セッションにデータ保持
                 $this->Session->write('userEditData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
@@ -165,6 +168,7 @@ class UsersController extends AppController {
         //初回会員登録処理
         if (!empty($this->data)) {
             try {
+               $this->_setEditData();
                if( $this->User->save($this->data)){
                   $this->Session->setFlash(__('更新完了。', true));
                } else {

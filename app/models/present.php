@@ -2,7 +2,7 @@
 class Present extends AppModel {
 	var $name = 'Present';
 	var $validate = array(
-		'issue_id' => array(
+		'theme_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -46,9 +46,9 @@ class Present extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'Issue' => array(
-			'className' => 'Issue',
-			'foreignKey' => 'issue_id',
+		'Theme' => array(
+			'className' => 'Theme',
+			'foreignKey' => 'theme_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
