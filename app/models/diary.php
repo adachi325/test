@@ -78,5 +78,64 @@ class Diary extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	//Žv‚¢o“o˜^
+	function addByEmail($data) {
+		
+		if (empty($data)) {
+			return false;
+		}
+		
+		//ƒ[ƒ‹—LŒø”»’è
+		if (empty($data['to'])) {
+			return false;
+		}
+		
+		$to_params = split('.', $data['to']);
+		
+		if (count($to_params) != 4) {//user_id, child_id, theme_id, hash
+			return false;
+		}
+		
+		
+		//“o˜^æŒˆ’è
+	}
+	
+	//Žv‚¢o“o˜^
+	function add($data) {
+		
+		if (empty($data)) {
+			return false;
+		}
+/*		
+		//Žv‚¢o“o˜^
+		//“o˜^Œ‹‰Ê–ß‚µ
+
+		//“o˜^ˆ—
+		if($this->save($data)){
+			$request = array();
+			$request['Child'] = $data['Child']['0'];
+			//¡“o˜^UserIDŽæ“¾
+			$nowInsertId = $this->getLastInsertId();
+			$request['Child']['user_id'] = $nowInsertId;
+			//Žq‹Ÿ“o˜^
+			if($this->Child->save($request)){
+				//¡“o˜^Žq‹ŸIDŽæ“¾
+				$nowInsertChildId = $this->Child->getLastInsertId();
+				$userData = array();
+				$userData['User']['id'] = $nowInsertId;
+				$userData['User']['last_selected_child'] = $nowInsertChildId;
+				//ÅIŽq‹ŸIDXV
+				if($this->Child->sevaLastChild($userData)){
+					return true;
+				}
+				return false;
+			}
+			return false;
+		}
+		return false;
+*/
+
+	}
 }
 ?>

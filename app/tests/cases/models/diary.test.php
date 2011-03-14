@@ -14,5 +14,14 @@ class DiaryTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 
+	function testAddByEmail() {
+		$u =& $this->Diary;
+		$data = array(
+			'to' => 'iida_1.2.3.4@shimajiro-dev.com',
+		);
+		$this->assertFalse($u->addByEmail($data));
+	}
+
+
 }
 ?>
