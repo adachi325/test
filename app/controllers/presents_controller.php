@@ -1,5 +1,4 @@
 <?php
-
 class PresentsController extends AppController {
 
 	var $name = 'Presents';
@@ -11,7 +10,7 @@ class PresentsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid Present', true));
+			$this->Session->setFlash(__('Invalid present', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('present', $this->Present->read(null, $id));
@@ -21,50 +20,49 @@ class PresentsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Present->create();
 			if ($this->Present->save($this->data)) {
-				$this->Session->setFlash(__('The Present has been saved', true));
+				$this->Session->setFlash(__('The present has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The Present could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The present could not be saved. Please, try again.', true));
 			}
 		}
+		$themes = $this->Present->Theme->find('list');
 		$children = $this->Present->Child->find('list');
-		$issues = $this->Present->Issue->find('list');
-		$this->set(compact('children', 'issues'));
+		$this->set(compact('themes', 'children'));
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid Present', true));
+			$this->Session->setFlash(__('Invalid present', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Present->save($this->data)) {
-				$this->Session->setFlash(__('The Present has been saved', true));
+				$this->Session->setFlash(__('The present has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The Present could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The present could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Present->read(null, $id);
 		}
+		$themes = $this->Present->Theme->find('list');
 		$children = $this->Present->Child->find('list');
-		$issues = $this->Present->Issue->find('list');
-		$this->set(compact('children','issues'));
+		$this->set(compact('themes', 'children'));
 	}
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for Present', true));
-			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash(__('Invalid id for present', true));
+			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Present->del($id)) {
+		if ($this->Present->delete($id)) {
 			$this->Session->setFlash(__('Present deleted', true));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('The Present could not be deleted. Please, try again.', true));
+		$this->Session->setFlash(__('Present was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-
 }
 ?>

@@ -1,68 +1,148 @@
 <?php
+class ThemesController extends AppController {
 
-class ThemesController extends KtaiAppController {
+    var $name = 'Themes';
 
-	var $name = 'Themes';
+    function index($assign = null) {
+        if (!empty($assign)){
+            //セッション情報回収
+            $setOptions = $this->Session->read('setOptions');
+            $this->Session->delete('setOptions');
+            if (!empty($setOptions)){
+                //前月の場合
+                if($assign === 'before') {
+                    if($setOptions['month'] == 1) {
+                        $setOptions['year'] = $setOptions['year'] - 1;
+                        $setOptions['month'] = 12;
+                    } else {
+                        $setOptions['month'] = $setOptions['month'] - 1;
+                    }
+                    if ($this->_monthsDataFind($setOptions)){
+                        $this->redirect('/themes/');
+                        return;
+                    }
+                //次月の場合
+                } else if ($assign === 'next') {
+                    if($setOptions['month'] == 12) {
+                        $setOptions['year'] = $setOptions['year'] + 1;
+                        $setOptions['month'] = 1;
+                    } else {
+                        $setOptions['month'] = $setOptions['month'] + 1;
+                    }
+                    if ($this->_monthsDataFind($setOptions)){
+                        $this->redirect('/themes/');
+                        return;
+                    }
+                }
+            }
+        }
 
-	function index() {
-		$this->Theme->recursive = 0;
-		$this->set('themes', $this->paginate());
-	}
+        $months = $this->Session->read('monthData');
+        if(!empty($months)){
+            //該当一覧表示
+            $this->set(compact('months'));
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid Theme', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('theme', $this->Theme->read(null, $id));
-	}
+            //前月、次月表示判定フラグセット
+            $this->_beforeNextFlgSet();
 
-	function add() {
-		if (!empty($this->data)) {
-			$this->Theme->create();
-			if ($this->Theme->save($this->data)) {
-				$this->Session->setFlash(__('The Theme has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Theme could not be saved. Please, try again.', true));
-			}
-		}
-		$issues = $this->Theme->Issue->find('list');
-		$this->set(compact('issues'));
-	}
+            //セッション情報削除
+            $this->Session->delete('monthData');
+            return;
+        }
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid Theme', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			if ($this->Theme->save($this->data)) {
-				$this->Session->setFlash(__('The Theme has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The Theme could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Theme->read(null, $id);
-		}
-		$issues = $this->Theme->Issue->find('list');
-		$this->set(compact('issues'));
-	}
+        $options = array();
+        $options['year'] = date('Y');
+        $options['month'] = date('m') + 0;
+        if (!$this->_monthsDataFind($options)){
+            $this->Session->setFlash(__('システムエラー', true));
+            $this->redirect('/children/');
+        }
+        $this->redirect('/themes/');
+    }
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for Theme', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if ($this->Theme->del($id)) {
-			$this->Session->setFlash(__('Theme deleted', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('The Theme could not be deleted. Please, try again.', true));
-		$this->redirect(array('action' => 'index'));
-	}
+    function _monthsDataFind($options){
+        $month =& ClassRegistry::init('Month');
+        $months = $month->find('all',array('conditions' => $options));
+        pr($months);
+        if (!empty($months)){
+            $this->Session->write('setOptions', $options);
+            $this->Session->write('monthData', $months);
+            $this->set(compact('months'));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function _beforeNextFlgSet(){
+
+        $months = $this->Session->read('monthData');
+        
+        //前月フラグ設定
+        $beforeOptions['order'] = array(
+            'Month.year, Month.month'
+        );
+        $month =& ClassRegistry::init('Month');
+        $biforeData = $month->find('first',$beforeOptions);
+
+        if(
+           (
+            $months['0']['Month']['year'] > $biforeData['Month']['year']
+           ) || (
+            $months['0']['Month']['year'] == $biforeData['Month']['year'] &&
+            $months['0']['Month']['month'] > $biforeData['Month']['month']
+           )
+          )
+        {
+            $this->set('beforeFlag', true);
+        } else {
+            $this->set('beforeFlag', false);
+        }
+        
+        //次月フラグ設定
+        $nextOptions['order'] = array(
+            'Month.year, Month.month DESC'
+        );
+        $nextData = $month->find('first',$nextOptions);
+        if(
+            $months['0']['Month']['year'] <= date('Y') &&
+            $months['0']['Month']['month'] < (date('m') + 0)
+          )
+        {
+            $this->set('nextFlag', true);
+        } else {
+            $this->set('nextFlag', false);
+        }
+    }
+
+    //テーマ詳細表示
+    function info($id = null){
+
+         if(empty($id)){
+             $this->Session->setFlash(__('システムエラー', true));
+             $this->redirect('/children/');
+         }
+
+         $this->data = $this->Theme->read(null, $id);
+
+         //会員情報取得
+         $userAuthData = $this->Auth->user();
+         $user =& ClassRegistry::init('User');
+         $user->contain();
+         $userdata = $user->read(null,$userAuthData['User']['id']);
+
+         //現在時刻にてhash作成
+         $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 8);
+
+         //次へボタン用にハッシュタグを設定
+         $this->set('nexthash',$hash);
+
+         //メールアドレス設定
+         $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
+         $this->set('mailStr',$mailStr);
+
+    }
+    
 
 }
 ?>
