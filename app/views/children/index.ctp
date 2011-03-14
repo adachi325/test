@@ -2,11 +2,13 @@
 <div id="tab">
 <?php
 // 配列の値を改行しながらすべて出力
+$i = 0;
 foreach ($childrenData as $child) {
 	extract($child['Child']);
 	echo '<span>';
-	echo $html->link($nickname, "/children/index/".$id);
+	echo $html->link($nickname, "/children/index/".$i);
 	echo '</span> ';
+        $i++;
 }
 if (count($childrenData) < 3) {
 	echo '<span>';
@@ -39,8 +41,30 @@ if (count($childrenData) < 3) {
 
 <h3>最新の思い出記録</h3>
 <div>
-	<div>画像ｘ４</div>
-    <?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false)); ?>
+<center>
+<div>
+<?php
+$i=0;
+foreach($diaries as $diary):
+    if ($diary['Diary']['has_image']) {
+        $i++;
+        echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '55px', 'height' => '55px'));
+    }
+endforeach;
+?>
+<?php
+while($i < 4) {
+    if($i == 2) {
+        echo '<br>';
+    }
+    echo $html->image('photo'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
+    $i++;
+}
+?>
+</div>
+</center>
+<br>
+<?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false)); ?>
 </div>
 
 <br>

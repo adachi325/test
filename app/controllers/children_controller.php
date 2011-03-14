@@ -11,13 +11,14 @@ class ChildrenController extends AppController {
     function index($id = null) {
         //子供データ一覧設定
         $childrenData = $this->_setChild();
-        
+
         //最終子供ID更新
         if ($id !== null &&
             $id >= 0 && $id < count($childrenData)) {
             $updateId = $childrenData[$id]['Child']['id'];
             $this->_saveLastChild($updateId);
         }
+
         //最終子供ID設定
         $lastChildId = $this->_getLastChild();
 
@@ -33,8 +34,12 @@ class ChildrenController extends AppController {
         $months = $month->find('all',array('conditions' => $options));
 
         $lines = $this->Child->Line->find('list');
-        
-        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines'));
+
+        $this->Child->Diary->contain();
+        $diaries = $this->Child->Diary->find('all', array('conditions'=>array('child_id' => $this->_getLastChild())));
+        $this->set(compact('diaries'));
+
+        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines','diaries'));
     }
 
     //最終子供ID更新

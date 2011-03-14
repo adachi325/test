@@ -33,6 +33,11 @@ class ThemesController extends AppController {
                         $this->redirect('/themes/');
                         return;
                     }
+                } else if ($assign === 'diary') {
+                    if ($this->_monthsDataFind($setOptions)){
+                        $this->redirect('/themes/');
+                        return;
+                    }
                 }
             }
         }
