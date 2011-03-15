@@ -1,4 +1,5 @@
 <?php
+App::import('Model', 'Diary');
 class Month extends AppModel {
 	var $name = 'Month';
 	var $validate = array(
@@ -51,7 +52,22 @@ class Month extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		/*
+		'Diary' => array(
+			'className' => 'Diary',
+			'foreignKey' => 'month_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
+		*/
 	);
 
 }

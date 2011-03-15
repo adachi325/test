@@ -3,6 +3,7 @@
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_user' => 'iida',
+	'receive_mail_prefix' => 'diary_',
 );
 
 $config['Mail'] = array(
@@ -28,3 +29,8 @@ $config['ReceiveMail'] = array(
 	'mail_dir_done_normal' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/normal/',
 	'mail_dir_done_error' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/error/',
 );
+
+$config['Diary'] = array(
+	'hash_length' => 4,
+);
+
