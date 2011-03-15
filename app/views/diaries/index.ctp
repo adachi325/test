@@ -77,7 +77,7 @@ endforeach;
 <br><hr><br>
 <div>
 <?php
-if($options['year'] >= 2011 && $options['month'] > 4) {
+if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $beforeFlag['Month']['month']) {
     if($options['month'] == 1) {
         echo $this->Html->link('前月', '/diaries/index/'.($options['year']-1).'/12');
     } else {

@@ -16,8 +16,7 @@ class DiariesController extends AppController {
                 //不正パラメータチェック
                 if(
                      ($year >= date('Y') && (date('m') + 0) < $month) or
-                     ($year > date('Y')) or
-                     ($year <= '2011' &&  $month < 4)
+                     ($year > date('Y'))
                 ) {
                      $this->redirect('/diaries/');
                 }
@@ -47,6 +46,16 @@ class DiariesController extends AppController {
                 //月データが存在しない場合は不正操作
                 $this->redirect('/diaries/');
             }
+
+            //前月表示フラグ設定
+            //前月フラグ設定
+            $beforeOptions['order'] = array(
+                'Month.year, Month.month'
+            );
+            
+            $month->contain();
+            $beforeFlag = $month->find('first',$beforeOptions);
+            $this->set('beforeFlag',$beforeFlag);
 
             //表示データ域設定
             if(empty($page)) {
@@ -93,6 +102,10 @@ class DiariesController extends AppController {
             $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
             $this->set('getStr',$typelist[$data['Present']['present_type']]);
             $this->set('presentId',$data['Present']['id']);
+        }
+
+        function info($id=null){
+            
         }
 }
 ?>
