@@ -1,12 +1,18 @@
 <?php
-App::import('Model', 'Child');
-App::import('Model', 'Theme');
-App::import('Model', 'Present');
-App::import('Model', 'Month');
 class Diary extends AppModel {
 	var $name = 'Diary';
 	var $validate = array(
 		'child_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'month_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -69,7 +75,7 @@ class Diary extends AppModel {
 		),
 		'Month' => array(
 			'className' => 'Month',
-			'foreignKey' => '',
+			'foreignKey' => 'month_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

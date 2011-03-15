@@ -102,15 +102,12 @@ class AppController extends Controller {
 		#-------------------------------------------------
 		# iモードIDがない場合
 		#-------------------------------------------------
-		if (empty($_SERVER["HTTP_X_DCMGUID"]))
-                {
+		if (empty($_SERVER["HTTP_X_DCMGUID"])) {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
-			if (!eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"]))
-			{
-				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"]))
-				{
+			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
+				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 					$this->redirect($url);
 				}
@@ -150,7 +147,7 @@ class AppController extends Controller {
 					$url['?'] = array();
 				}
 				$url['?'][session_name()] = session_id();
-                                $url['?']['guid'] = 'on'; // guid=onを付加
+                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;

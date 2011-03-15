@@ -1,4 +1,29 @@
-<?php
+<?php 
+
+$config['Lines'] = array (
+	'categories' => array(
+		'baby',
+		'petit_f',
+		'petit',
+		'pocket',
+		'hop',
+		'step',
+		'jump',
+	),
+);
+
+$config['Present'] = array(
+	'type' => array(
+		'背景画像' => 0,
+		'教材コンテンツ' => 1, 
+		'待受FLASH' => 2, 
+		'ポストカード' => 3,
+	),
+	'membersonly' => array(
+		'会員限定' => -1,
+	)
+);
+
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
@@ -18,7 +43,7 @@ $config['Mail'] = array(
 		'error' => __('【しまじろうひろば】障害通知', true),
 	),
 	'text' => array(
-		'error' => __('メール処理で障害発生しました'."\r\n", true),
+		'error' => __('メール処理で障害発生しました', true).PHP_EOL,
 	),
 );
 

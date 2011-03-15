@@ -27,6 +27,19 @@ class Month extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
+		'Diary' => array(
+			'className' => 'Diary',
+			'foreignKey' => 'month_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Present' => array(
 			'className' => 'Present',
 			'foreignKey' => 'month_id',
