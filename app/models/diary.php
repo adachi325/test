@@ -90,8 +90,8 @@ class Diary extends AppModel {
 		)
 	);
 	
-	//思い出登録
-	function addByEmail($data) {
+	//メールから登録
+	function importMail($data) {
 
 		if (empty($data)) {
 			return false;
@@ -126,7 +126,7 @@ class Diary extends AppModel {
 			'hash' => $to_splits[3],
 		);
 		if (!empty($data['subject'])) {
-			$request['subject'] = $data['subject'];
+			$request['title'] = $data['subject'];
 		}
 		if (!empty($data['body'])) {
 			$request['body'] = $data['body'];
@@ -140,8 +140,6 @@ class Diary extends AppModel {
 	
 	//思い出登録
 	function add($data) {
-		
-		pr($data);
 		
 		if (empty($data)) {
 			return false;
@@ -174,8 +172,8 @@ class Diary extends AppModel {
 		
 		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
 		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
-		echo $data['present_id'];
 		
+		$this->create();
 		if (!$this->save($data)) {
 			return false;
 		}
@@ -190,12 +188,38 @@ class Diary extends AppModel {
 			$ChildPresent->save($request);
 		}
 		
-		//画像保存
-		
-		
-		
-		
-		
+		//image file
+		if (!empty($data['image'])
+				&& strlen($data['image']) < Configure::read('Diary.image_filesize_max')) {
+			
+			//画像保存(オリジナル)
+			$image_path_original = sprintf(Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
+			$fp = fopen( $image_path_original, "w" );
+			fwrite( $fp, $data['image'], strlen($data['image']) );
+			fclose( $fp );
+			$info = getimagesize($image_path_original);
+			
+			if (!empty($info)
+					&& $info[2] == IMAGETYPE_JPEG) {
+
+				//画像保存(比率保持)
+				$image_path_thumb = sprintf(Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
+				$fp = fopen( $image_path_thumb, "w" );
+				fwrite( $fp, $data['image'], strlen($data['image']) );
+				fclose( $fp );
+				$this->__resize_image($image_path_thumb, false);
+				
+				//画像保存(正方形)
+				$image_path_rect = sprintf(Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
+				$fp = fopen( $image_path_rect, "w" );
+				fwrite( $fp, $data['image'], strlen($data['image']) );
+				fclose( $fp );
+				$this->__resize_image($image_path_rect, true);
+			}
+			
+			//画像削除(オリジナル)
+			unlink($image_path_original);
+		}
 		
 		return true;
 	}
@@ -208,7 +232,6 @@ class Diary extends AppModel {
 			'month' => $month,
 			'order' => 'Present.present_type ASC'
 		));
-		pr($presents);
 		
 		//テーマ月に獲得したプレゼント一覧
 		$child_presents = ClassRegistry::init('Child')->find('present', array(
@@ -218,7 +241,6 @@ class Diary extends AppModel {
 				'Month.month' => $month,
 			)
 		));
-		pr($child_presents);
 		
 		if (count($presents) <= count($child_presents)) {
 			return null;
@@ -232,10 +254,43 @@ class Diary extends AppModel {
 				'Month.month' => $month,
 			)
 		));
-		pr($diaries);
 		
 		$next_present_idx = count($child_presents);
 		return $presents[$next_present_idx]['Present']['id'];
+	}
+
+	function __resize_image($filepath, $is_rect=false) {
+		//写真(JPEG)ならリサイズ処理
+		$type = exif_imagetype($filepath);
+		if ($type == 2) {
+			#-------------------------------------------------------
+			# 画像リサイズ（2KB程度）100*100
+			#-------------------------------------------------------
+			$this->__smart_resize_image(
+				$filepath,		//file
+				Configure::read('Diary.image_rect_size'),	//width
+				Configure::read('Diary.image_rect_size'),	//height
+				true,			//proportional
+				'out',			//fit_type
+				'file',			//output
+				true,			//delete_original
+				false			//use_linux_commands
+			);
+			
+			#-------------------------------------------------------
+			# 画像を中心から正方形にカット
+			#-------------------------------------------------------
+			if ($is_rect) {
+				require_once APP.'vendors/class.image.php';
+				
+				$info = getimagesize($filepath);//サイズ取得
+				$thumb = new Image($filepath);
+				$thumb->width(100); 
+				$thumb->height(100); 
+				$thumb->crop(($info[0] - 100) / 2, ($info[1] - 100) / 2);
+				$thumb->save();
+			}
+		}
 	}
 
 	#*******************************************************************************
@@ -243,8 +298,7 @@ class Diary extends AppModel {
 	#	https://github.com/maxim/smart_resize_image
 	#	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	#*******************************************************************************
-	function smart_resize_image($file,
-	                            $duplicate_file,//add by w.iida
+	function __smart_resize_image($file,
 	                            $width              = 0, 
 	                            $height             = 0, 
 	                            $proportional       = false, 
@@ -335,13 +389,6 @@ class Diary extends AppModel {
 	    case 'return':
 	      return $image_resized;
 	    break;
-	    #-------------------------------------------------------
-	    # add by w.iida
-	    #
-	    case 'duplicate':
-	      $output = $duplicate_file;
-	    break;
-	    #-------------------------------------------------------
 	    default:
 	    break;
 	  }

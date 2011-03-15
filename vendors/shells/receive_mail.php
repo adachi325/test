@@ -12,7 +12,6 @@ class ReceiveMailShell extends AppShell {
 		
 		try {
 			$this->_createStopfile();
-			exit();
 			$this->_execute();
 			$this->_removeStopfile();
 		} catch(Exception $e) {
@@ -20,6 +19,7 @@ class ReceiveMailShell extends AppShell {
 			$this->_removeStopfile();
 			exit();
 		}
+		
 	}
 	
 	function _stopfileExists() {
@@ -103,21 +103,17 @@ class ReceiveMailShell extends AppShell {
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : null;
-
+		
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : null;
-
+		
 		$receiver->bodyAutoSelect();
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : null;
-
-//		var_dump($params);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['image'] = ($images !== null) ? $images[0] : null;
 		
 		//Dirayモデル呼び出し（思い出登録）
-//		return ClassRegistry::init('Diary')->import($params);
-
-		return true;
+		return ClassRegistry::init('Diary')->importMail($params);
 	}
 	
 	function _getImageAttachments(&$receiver) {
@@ -157,11 +153,8 @@ class ReceiveMailShell extends AppShell {
 		$mail = new Qdmail();
 		$mail->to(Configure::read('Mail.to_addresses.error.address'), Configure::read('Mail.to_addresses.error.signature'));
 		$mail->from(Configure::read('Mail.from_addresses.admin.address'), Configure::read('Mail.from_addresses.admin.signature'));
-		$mail->subject('【しまじろうひろば】障害通知');
-		//$mail->subject(Configure::read('Mail.subjects.error'));
-		
-		$mail->text('メール処理で障害発生しました'."\r\n".$message);
-//		$mail->text(Configure::read('Mail.text.error').$message);
+		$mail->subject(Configure::read('Mail.subjects.error'));
+		$mail->text(Configure::read('Mail.text.error').$message);
 		$mail->send();
 	}
 
