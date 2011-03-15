@@ -2,110 +2,308 @@
 
 class DiariesController extends AppController {
 
-	var $name = 'Diaries';
+    var $name = 'Diaries';
 
-	function index($year = null, $month = null, $page = null) {
+    function index($year = null, $month = null, $page = null) {
 
-            $setOptions = array();
-            //表示データ年月設定
-            if(empty($year) or empty($month)) {
-                //年月を設定
-                $setOptions['year'] = date('Y');
-                $setOptions['month'] = date('m') + 0;
-            } else {
-                //不正パラメータチェック
-                if(
-                     ($year >= date('Y') && (date('m') + 0) < $month) or
-                     ($year > date('Y'))
-                ) {
-                     $this->redirect('/diaries/');
-                }
-                //年月を設定
-                $setOptions['year'] = $year;
-                $setOptions['month'] = $month;
+        $setOptions = array();
+        //表示データ年月設定
+        if(empty($year) or empty($month)) {
+            //年月を設定
+            $setOptions['year'] = date('Y');
+            $setOptions['month'] = date('m') + 0;
+        } else {
+            //不正パラメータチェック
+            if(
+                 ($year >= date('Y') && (date('m') + 0) < $month) or
+                 ($year > date('Y'))
+            ) {
+                 $this->redirect('/diaries/');
             }
+            //年月を設定
+            $setOptions['year'] = $year;
+            $setOptions['month'] = $month;
+        }
 
-            //オプションをフィールドに設定
-            $this->set('options',$setOptions);
+        //オプションをフィールドに設定
+        $this->set('options',$setOptions);
 
-            $month =& ClassRegistry::init('Month');
-            $month->contain();
-            $months = $month->find('all',array('conditions' => $setOptions));
+        $month =& ClassRegistry::init('Month');
+        $month->contain();
+        $months = $month->find('all',array('conditions' => $setOptions));
 
-            if(!empty($months)){
-                $conditions = array(
-                    'conditions' => array(
-                        'Diary.child_id' => $this->_getLastChild(),
-                        'Diary.month_id' => $months['0']['Month']['id']
-                    )
-                );
-                //表示データ一覧取得
-                $diaries = $this->Diary->find('all', $conditions);
-                $this->set(compact('diaries'));
-            } else {
-                //月データが存在しない場合は不正操作
-                $this->redirect('/diaries/');
-            }
-
-            //前月表示フラグ設定
-            //前月フラグ設定
-            $beforeOptions['order'] = array(
-                'Month.year, Month.month'
+        if(!empty($months)){
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.month_id' => $months['0']['Month']['id']
+                )
             );
-            
-            $month->contain();
-            $beforeFlag = $month->find('first',$beforeOptions);
-            $this->set('beforeFlag',$beforeFlag);
-
-            //表示データ域設定
-            if(empty($page)) {
-                $this->set('page','1');
-            } else {
-                $this->set('page', $page);
-            }
-	}
-
-        //最終子供ID取得
-        function _getLastChild(){
-            $userData = $this->Auth->user();
-            $User = ClassRegistry::init('User');
-            $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
-            return $User['User']['last_selected_child'];
+            //表示データ一覧取得
+            $diaries = $this->Diary->find('all', $conditions);
+            $this->set(compact('diaries'));
+        } else {
+            //月データが存在しない場合は不正操作
+            $this->redirect('/diaries/');
         }
 
-        function checkPost($hash = null){
-            //hashを確認し、データがなければリダイレクト
-            if(empty($hash)){
-                $this->Session->setFlash(__('不正操作です。', true));
-                $this->redirect('/children/');
-            }
-            $this->Diary->contain('Present');
-            $diaryData = $this->Diary->find('first', array('conditions'=>array('hash' => $hash)));
-            if(empty($diaryData)){
-                //再チェックボタン用にハッシュタグを設定
-                $this->set('nexthash',$hash);
-                //unknown
-                $this->render('post_unknown');
-                return;
-            }
+        //前月表示フラグ設定
+        $beforeOptions['order'] = array(
+            'Month.year, Month.month'
+        );
+        $month->contain();
+        $beforeFlag = $month->find('first',$beforeOptions);
+        $this->set('beforeFlag',$beforeFlag);
 
-            $this->set('diaryId',$diaryData['Diary']['id']);
+        //表示データ域設定
+        if(empty($page)) {
+            $this->set('page','1');
+        } else {
+            $this->set('page', $page);
+        }
+    }
 
-            //投稿反映画面の表示文言を設定
-            if(!empty($diaryData['Present']['id'])) {
-                $this->_infoStr($diaryData);
-            }
+    //最終子供ID取得
+    function _getLastChild(){
+        $userData = $this->Auth->user();
+        $User = ClassRegistry::init('User');
+        $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
+        return $User['User']['last_selected_child'];
+    }
 
+    function checkPost($hash = null){
+        //hashを確認し、データがなければリダイレクト
+        if(empty($hash)){
+            $this->Session->setFlash(__('不正操作です。', true));
+            $this->redirect('/children/');
+        }
+        $this->Diary->contain('Present');
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.hash' => $hash
+            )
+        );
+        $diaryData = $this->Diary->find('first', $conditions);
+        if(empty($diaryData)){
+            //再チェックボタン用にハッシュタグを設定
+            $this->set('nexthash',$hash);
+            //unknown
+            $this->render('post_unknown');
+            return;
         }
 
-        function _infoStr($data){
-            $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
-            $this->set('getStr',$typelist[$data['Present']['present_type']]);
-            $this->set('presentId',$data['Present']['id']);
+        $this->set('diaryId',$diaryData['Diary']['id']);
+
+        //投稿反映画面の表示文言を設定
+        if(!empty($diaryData['Present']['id'])) {
+            $this->_infoStr($diaryData);
         }
 
-        function info($id=null){
-            
+    }
+
+    function _infoStr($data){
+        $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
+        $this->set('getStr',$typelist[$data['Present']['present_type']]);
+        $this->set('presentId',$data['Present']['id']);
+    }
+
+    function info($id=null){
+        if(empty($id)){
+             $this->Session->setFlash(__('エラー', true));
+             $this->redirect('/children/');
         }
+        //データ取得
+        $this->Diary->contain('Month');
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.id' => $id
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+             $this->Session->setFlash(__('エラー', true));
+             $this->redirect('/children/');
+        }
+        $this->set(compact('diary'));
+    }
+
+    function post($id=null){
+        if(empty($id)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/children/');
+        }
+        //データ取得
+        $this->Diary->contain('Month');
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.id' => $id
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+
+        $userData = $this->Auth->user();
+        if(!$userData['User']['dc_user']) {
+            $this->render('//');
+        }
+        
+        if(empty($diary)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/children/');
+        }
+
+        $this->set('id',$diary['Diary']['id']);
+
+    }
+
+    function downlord($id=null){
+
+        if(empty($id)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/children/');
+        }
+
+        //データ取得
+        $this->Diary->contain('Month');
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.id' => $id
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+
+        if(empty($diary)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/children/');
+        }
+
+        $filepath = 'img/photo/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.dmt';
+        $fp = fopen($filepath, "w"); // 新規書き込みモードで開く
+
+        $list = array();
+
+//ファイルへの書き込み処理
+$list[0] = 'Decomail-Template
+MIME-Version: 1.0
+Content-Type: multipart/related;boundary="5000000000"
+
+--5000000000
+Content-Type: text/html; charset=Shift_JIS
+Content-Transfer-Encoding: 8bit
+';
+
+if ($diary['Diary']['has_image']) {
+$list[1] = '
+<html>
+<title>'.$diary['Diary']['title'].'</title>
+<body bgcolor="#FFFF8E">
+
+<div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center"><img src="cid:01"></div>
+<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center"><img src="cid:02" width="50" hight="50"></div>
+
+</body>
+</html>
+
+';
+} else {
+   $list[1] = '
+<html>
+<title>'.$diary['Diary']['title'].'</title>
+<body bgcolor="#FFFF8E">
+
+<div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center"><img src="cid:02" width="50" hight="50"></div>
+
+</body>
+</html>
+
+';
+}
+
+if($diary['Month']['month'] < 10) {
+    $imgMonth = '0'.$diary['Month']['month'];
+}else {
+    $imgMonth = $diary['Month']['month'];
+}
+
+$list[2] = '--5000000000
+Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <00>
+
+';
+$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg');
+$jpeg_enc = base64_encode($img);
+$list[3] = $jpeg_enc;
+
+
+if ($diary['Diary']['has_image']) {
+$list[4] = '
+--5000000000
+Content-Type: image/jpeg; name='.$diary['Diary']['id'].'.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <01>
+
+';
+$img = file_get_contents('img/photo/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg');
+$jpeg_enc = base64_encode($img);
+$list[5] = $jpeg_enc;
+
+$list[6] = '
+--5000000000
+Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <02>
+
+';
+
+$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg');
+$jpeg_enc = base64_encode($img);
+$list[7] = $jpeg_enc;
+
+
+$list[8] ='
+--5000000000--
+';
+} else {
+$list[4] = '
+--5000000000
+Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <02>
+
+';
+
+$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg');
+$jpeg_enc = base64_encode($img);
+$list[5] = $jpeg_enc;
+
+$list[6] ='
+--5000000000--
+';
+}
+        while(list($key,$value) = each($list)){
+                $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
+                @fwrite( $fp, $value, strlen($value) );
+        }
+
+
+        fclose($fp);
+        //ファイルへの書き込みは終了
+
+        $file_length = filesize($filepath);
+        header("Content-Disposition: attachment; filename=$filepath");
+        header("Content-Length:$file_length");
+        header("Content-Type: application/octet-stream");
+        readfile ($filepath);
+
+    }
+
 }
 ?>
