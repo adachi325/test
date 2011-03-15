@@ -142,20 +142,19 @@ class DiariesController extends AppController {
                 'Diary.id' => $id
             )
         );
-        $diary = $this->Diary->find('first', $conditions);
-
-        $userData = $this->Auth->user();
-        if(!$userData['User']['dc_user']) {
-            $this->render('//');
-        }
-        
+        $diary = $this->Diary->find('first', $conditions);        
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
             $this->redirect('/children/');
         }
-
+        $userData = $this->Auth->user();
+        pr($userData);
+        if(!$userData['User']['dc_user']) {
+            $this->set('un_dc_user',true);
+        } else {
+            $this->set('un_dc_user',false);
+        }
         $this->set('id',$diary['Diary']['id']);
-
     }
 
     function downlord($id=null){
