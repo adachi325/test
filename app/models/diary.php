@@ -194,6 +194,7 @@ class Diary extends AppModel {
 			
 			//画像保存(オリジナル)
 			$image_path_original = sprintf(Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
+			$this->__mkdir($image_path_original);
 			$fp = fopen( $image_path_original, "w" );
 			fwrite( $fp, $data['image'], strlen($data['image']) );
 			fclose( $fp );
@@ -204,6 +205,7 @@ class Diary extends AppModel {
 
 				//画像保存(比率保持)
 				$image_path_thumb = sprintf(Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
+				$this->__mkdir($image_path_thumb);
 				$fp = fopen( $image_path_thumb, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
@@ -211,6 +213,7 @@ class Diary extends AppModel {
 				
 				//画像保存(正方形)
 				$image_path_rect = sprintf(Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
+				$this->__mkdir($image_path_rect);
 				$fp = fopen( $image_path_rect, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
@@ -403,5 +406,13 @@ class Diary extends AppModel {
 
 	  return true;
 	}
+	
+	function __mkdir($path) {
+		$dir = dirname($path);
+		if (!file_exists($dir)) {
+			system("mkdir -p $dir");
+		}
+	}
+	
 }
 ?>
