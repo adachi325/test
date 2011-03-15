@@ -3,22 +3,51 @@
 class DiariesController extends AppController {
 
 	var $name = 'Diaries';
-        
-	function index() {
 
-                
-            //月設定
-            $this->set('month',date('m') + 0);
+	function index($year = null, $month = null, $page = null) {
 
-            //年月を設定
-            $setOptions['year'] = date('Y');
-            $setOptions['month'] = date('m') - 1;
-            $this->Session->write('setOptions', $setOptions);
+            pr($year.'/'.$month.'/'.$page);
 
-            $this->Diary->contain();
-            $diaries = $this->Diary->find('all', array('conditions'=>array('child_id' => $this->_getLastChild())));
-            $this->set(compact('diaries'));
+            //不正パラメータチェック
 
+            $setOptions = array();
+
+            //表示データ年月設定
+            if(empty($year) or empty($month)) {
+                //年月を設定
+                $setOptions['year'] = date('Y');
+                $setOptions['month'] = date('m') + 0;
+            } else {
+                //年月を設定
+                $setOptions['year'] = $year;
+                $setOptions['month'] = $month;
+            }
+
+            //オプションをフィールドに設定
+            $this->set('options',$setOptions);
+
+            $month =& ClassRegistry::init('Month');
+            $month->contain();
+            $months = $month->find('all',array('conditions' => $setOptions));
+
+            if(!empty($months)){
+                $conditions = array(
+                    'conditions' => array(
+                        'Diary.child_id' => $this->_getLastChild(),
+                        'Diary.month_id' => $months['0']['Month']['id']
+                    )
+                );
+                //表示データ一覧取得
+                $diaries = $this->Diary->find('all', $conditions);
+                $this->set(compact('diaries'));
+            }
+
+            //表示データ域設定
+            if(empty($page)) {
+                $this->set('page','1');
+            } else {
+                $this->set('page', $page);
+            }
 	}
 
         //最終子供ID取得
