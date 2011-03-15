@@ -15,7 +15,7 @@ $config['Lines'] = array (
 $config['Present'] = array(
 	'type' => array(
 		 0 => '背景画像',
-		 1 => '教材コンテンツ',
+		 1 => 'デコメ絵文字',
 		 2 => '待受FLASH',
 		 3 => 'ポストカード',
 	),
