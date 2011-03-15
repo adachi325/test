@@ -1,4 +1,5 @@
 <?php
+App::import('Model', 'Diary');
 class Child extends AppModel {
 	var $name = 'Child';
 	var $validate = array(
@@ -150,6 +151,82 @@ class Child extends AppModel {
             }
             return false;
         }
+
+	function find($type, $options = array()) {
+		$m = $this->alias;
+
+		// add released method
+		switch($type) {
+		case 'diary':
+		
+			if (!isset($options['conditions']['Child.id'])) {
+				return null;
+			}
+			
+			$Diary =& ClassRegistry::init('Diary');
+			$Diary->contain();
+				
+			$params = array(
+				'conditions' => array(
+					'Diary.child_id' => $options['conditions']['Child.id'],
+				),
+			);
+			
+			if (isset($options['conditions']['Month.year']) && isset($options['conditions']['Month.month'])) {
+				$params['joins'][] = array(
+					'type' => 'INNER',
+					'alias' => 'Month',
+					'table' => 'months',
+					'conditions' => array(
+						'Month.year' => $options['conditions']['Month.year'],
+						'Month.month' => $options['conditions']['Month.month'],
+						'Month.id' => 'Diary.month_id',
+					)
+				);
+			}
+			
+			return $Diary->find('all', $params);
+
+			break;
+		
+		case 'present':
+		
+			if (!isset($options['conditions']['Child.id'])) {
+				return null;
+			}
+			
+			$Present =& ClassRegistry::init('Present');
+				
+			if (isset($options['conditions']['Month.year']) && isset($options['conditions']['Month.month'])) {
+				$Present->contain('Month');
+				$params = array(
+					'conditions' => array(
+						'Month.year' => $options['conditions']['Month.year'],
+						'Month.month' => $options['conditions']['Month.month'],
+					),
+				);
+			}
+			
+			$params['joins'][] = array(
+				'type' => 'INNER',
+				'alias' => 'ChildPresent',
+				'table' => 'child_presents',
+				'conditions' => array(
+					'Present.id = ChildPresent.present_id',
+					'ChildPresent.child_id' => $options['conditions']['Child.id'],
+				)
+			);
+			
+			return $Present->find('all', $params);
+			
+			break;
+		
+		default:
+			return parent::find($type, $options);
+			break;
+
+		}
+	}
 
 }
 ?>

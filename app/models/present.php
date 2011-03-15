@@ -109,6 +109,12 @@ class Present extends AppModel {
 				$cond["{$m}.type"] = $options['type'];
 				unset($options['type']);
 			}
+			if (isset($options['year']) && isset($options['month'])) {
+				$cond['Month.year'] = $options['year'];
+				$cond['Month.month'] = $options['month'];
+				unset($options['year']);
+				unset($options['month']);
+			}
 
 			$this->contain(array('Month'));
 
