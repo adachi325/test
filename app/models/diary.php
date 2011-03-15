@@ -215,7 +215,7 @@ class Diary extends AppModel {
 			'month' => $month,
 			'order' => 'Present.present_type ASC'
 		));
-		pr($presents);
+		//pr($presents);
 		
 		//テーマ月に獲得したプレゼント一覧
 		$child_presents = ClassRegistry::init('Child')->find('present', array(
@@ -225,7 +225,7 @@ class Diary extends AppModel {
 				'Month.month' => $month,
 			)
 		));
-		pr($child_presents);
+		//pr($child_presents);
 		
 		if (count($presents) <= count($child_presents)) {
 			return null;
@@ -239,7 +239,7 @@ class Diary extends AppModel {
 				'Month.month' => $month,
 			)
 		));
-		pr($diaries);
+		//pr($diaries);
 		
 		$next_present_idx = count($child_presents);
 		return $presents[$next_present_idx]['Present']['id'];

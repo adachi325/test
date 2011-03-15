@@ -33,17 +33,17 @@ $config['Defaults'] = array(
 
 $config['Mail'] = array(
 	'from_addresses' => array(
-		'admin' => array('address' => 'admin@' . $config['Defaults']['domain'], 'signature' => __('しまじろうひろば管理者')),
-		'info' => array('address' => 'info@' . $config['Defaults']['domain'], 'signature' => __('しまじろうひろばサポート')),
+		'admin' => array('address' => 'admin@' . $config['Defaults']['domain'], 'signature' => __('しまじろうひろば管理者', true)),
+		'info' => array('address' => 'info@' . $config['Defaults']['domain'], 'signature' => __('しまじろうひろばサポート', true)),
 	),
 	'to_addresses' => array(
-		'error' => array('address' => 'iida@designare.jp', 'signature' => __('しまじろうひろば管理者')),
+		'error' => array('address' => 'iida@designare.jp', 'signature' => __('しまじろうひろば管理者', true)),
 	),
 	'subjects' => array(
-		'error' => __('【しまじろうひろば】障害通知'),
+		'error' => __('【しまじろうひろば】障害通知', true),
 	),
 	'text' => array(
-		'error' => __('メール処理で障害発生しました'."\r\n"),
+		'error' => __('メール処理で障害発生しました', true).PHP_EOL,
 	),
 );
 
