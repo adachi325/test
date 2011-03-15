@@ -22,19 +22,18 @@ $config['Present'] = array(
 	'membersonly' => array(
 		'会員限定' => -1,
 	),
-        'path' => array(
+    'path' => array(
 		'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
-                'diaryback_f' => 'present/template/diaryback/diaryback_%s%s_footer.jpg',
+        'diaryback_f' => 'present/template/diaryback/diaryback_%s%s_footer.jpg',
 		'decome' => 'present/template/decome/%s.gif',
 		'screen' => 'present/template/screen/%s.swf',
-                'screen_thum' => 'present/template/screen/%s_thumb.jpg',
+        'screen_thum' => 'present/template/screen/%s_thumb.jpg',
 		'postcard' => 'present/template/postcard/%s.jpg',
-                'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
-                'member_flash' => 'present/template/member_flash/%s.swf',
-                'member_flash_thum' => 'present/template/member_flash/%s_thumb.jpg'
+        'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
+        'member_flash' => 'present/template/member_flash/%s.swf',
+        'member_flash_thum' => 'present/template/member_flash/%s_thumb.jpg'
 	),
 );
-
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',

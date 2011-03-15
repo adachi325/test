@@ -1,20 +1,28 @@
 <?php 
 if (!isset($type_name)) {
-	$type_name = '待受FLASH';
+	$type_name = 'デコメ絵文字';
 }
 ?>
 
 <div class="presents view">
 <h2><?php  __('Present');?></h2>
 
-<p><?php echo $type_name; ?>テンプレートを選んでください</p>
 
+<?php if (count($items)): ?>
+<p><?php echo $type_name; ?>をダウンロードして使ってね</p>
+<?php else: ?>
+<p><?php echo $type_name; ?>は登録されていません</p>
+<?php endif; ?>
+
+<ul>
 <?php foreach($items as $item): ?>
-<?php echo $this->Form->radio('Present.selected'); ?>
-<?php echo $this->Html->image($item['Present']['present_thumbnail_path'], array('alt' => $type_name)); ?>
+<li><?php echo $this->Html->image($item['Present']['present_thumbnail_path'], array('alt' => $type_name)); ?></li>
 <?php endforeach; ?>
+</ul>
 
+<?php if (count($items)): ?>
 <?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
 <?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+<?php endif; ?>
 
 </div>
