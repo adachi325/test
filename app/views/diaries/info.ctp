@@ -7,8 +7,7 @@
         }else {
             $imgMonth = $diary['Month']['month'];
         }
-        echo $html->image(
-                '/present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg' ,
+        echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_h'), $diary['Month']['year'], $imgMonth),
                 array('width' => '200px', 'height' => '50px'));
         ?>
         </span>
@@ -21,7 +20,7 @@
     <?php if ($diary['Diary']['has_image']) {  ?>
     <div>
         <span>
-           <?php echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '100px', 'height' => '100px')); ?>
+           <?php echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('escape' => false, 'width' => '100px', 'height' => '100px')); ?>
         </span>
     </div>
     <br>
@@ -38,8 +37,7 @@
         }else {
             $imgMonth = $diary['Month']['month'];
         }
-        echo $html->image(
-                '/present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg' ,
+        echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth),
                 array('width' => '200px', 'height' => '50px'));
         ?>
         </span>

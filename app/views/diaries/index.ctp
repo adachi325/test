@@ -9,7 +9,7 @@ if(!empty($diaries)) {
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image']) {
         $i++;
-        echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '55px', 'height' => '55px'));
+        echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
     }
 endforeach;
 }
@@ -47,7 +47,7 @@ foreach($diaries as $diary):
         <div style='vertical-align:top;'>
         <?php
             if ($diary['Diary']['has_image']) {
-                echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '40px', 'height' => '40px'));
+                echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '40px', 'height' => '40px'));
             } else {
                 echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
             }
