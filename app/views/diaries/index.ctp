@@ -77,12 +77,22 @@ endforeach;
 <br><hr><br>
 <div>
 <?php
-    echo $this->Html->link('前月', '/diaries/index/'.$options['year'].'/'.($options['month']-1));
+if($options['year'] >= 2011 && $options['month'] > 4) {
+    if($options['month'] == 1) {
+        echo $this->Html->link('前月', '/diaries/index/'.($options['year']-1).'/12');
+    } else {
+        echo $this->Html->link('前月', '/diaries/index/'.$options['year'].'/'.($options['month']-1));
+    }
+}
 ?>
     　　　　　
 <?php
 if($options['year'] >= date('Y') && $options['month'] < date('m')) {
-    echo $this->Html->link('次月', '/diaries/index/'.$options['year'].'/'.($options['month']+1));
+    if($options['month'] == 12) {
+        echo $this->Html->link('次月', '/diaries/index/'.($options['year']+1).'/1');
+    } else {
+        echo $this->Html->link('次月', '/diaries/index/'.$options['year'].'/'.($options['month']+1));
+    }
 }
 ?>
 </div>

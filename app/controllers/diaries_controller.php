@@ -6,18 +6,21 @@ class DiariesController extends AppController {
 
 	function index($year = null, $month = null, $page = null) {
 
-            pr($year.'/'.$month.'/'.$page);
-
-            //不正パラメータチェック
-
             $setOptions = array();
-
             //表示データ年月設定
             if(empty($year) or empty($month)) {
                 //年月を設定
                 $setOptions['year'] = date('Y');
                 $setOptions['month'] = date('m') + 0;
             } else {
+                //不正パラメータチェック
+                if(
+                     ($year >= date('Y') && (date('m') + 0) < $month) or
+                     ($year > date('Y')) or
+                     ($year <= '2011' &&  $month < 4)
+                ) {
+                     $this->redirect('/diaries/');
+                }
                 //年月を設定
                 $setOptions['year'] = $year;
                 $setOptions['month'] = $month;
@@ -40,6 +43,9 @@ class DiariesController extends AppController {
                 //表示データ一覧取得
                 $diaries = $this->Diary->find('all', $conditions);
                 $this->set(compact('diaries'));
+            } else {
+                //月データが存在しない場合は不正操作
+                $this->redirect('/diaries/');
             }
 
             //表示データ域設定
