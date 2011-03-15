@@ -23,7 +23,8 @@ $config['Present'] = array(
 		'会員限定' => -1,
 	),
         'path' => array(
-		'diaryback' => '/present/template/diaryback/diaryback_%s%s.jpg',
+		'diaryback_h' => '/present/template/diaryback/diaryback_%s%s_header.jpg',
+                'diaryback_f' => '/present/template/diaryback/diaryback_%s%s_footer.jpg',
 		'decome' => '/present/template/decome/%s.gif',
 		'screen' => '/present/template/screen/%s.swf',
                 'screen_thum' => '/present/template/screen/%s_thumb.jpg',
