@@ -21,7 +21,17 @@ $config['Present'] = array(
 	),
 	'membersonly' => array(
 		'会員限定' => -1,
-	)
+	),
+        'path' => array(
+		'diaryback' => '/present/template/diaryback/diaryback_%s%s.jpg',
+		'decome' => '/present/template/decome/%s.gif',
+		'screen' => '/present/template/screen/%s.swf',
+                'screen_thum' => '/present/template/screen/%s_thumb.jpg',
+		'postcard' => '/present/template/postcard/%s.jpg',
+                'postcard_thum' => '/present/template/postcard/%s_thumb.jpg',
+                'member_flash' => '/present/template/member_flash/%s.swf',
+                'member_flash_thum' => '/present/template/member_flash/%s_thumb.jpg'
+	),
 );
 
 
@@ -64,4 +74,3 @@ $config['Diary'] = array(
 	'image_path_thumb' => "photo/%s/%s_thumb.jpg",
 	'image_path_rect' => "photo/%s/%s_rect.jpg",
 );
-
