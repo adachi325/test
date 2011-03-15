@@ -85,7 +85,7 @@ while($i < 4) {
 <h3>今月のプレゼント</h3>
 <div>
 <div>flash x2</div>
-<?php echo $this->Html->link('詳しくはこちら', '/'); ?>
+<?php echo $this->Html->link('詳しくはこちら', '/presents/'); ?>
 </div>
 
 <h3>今月の連動教材</h3>

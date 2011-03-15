@@ -14,5 +14,28 @@ class PresentTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 
+	function testFind() {
+		$p =& $this->Present;
+
+		$type = "month";
+		$options = array();
+		$expected = array();
+
+		$result = $p->find($type, $options);
+		pr($result);
+		$this->assertEqual($result, $expected);
+
+		
+		$type = "type";
+		$options = array(
+			'child_id' => 1,
+		);
+		$expected = array();
+
+		$result = $p->find($type, $options);
+		pr($result);
+		$this->assertEqual($result, $expected);
+
+	}
 }
 ?>

@@ -86,7 +86,7 @@ class Present extends AppModel {
 			$cond = array();
 
 			if (isset($options['type'])) {
-				$cond["{$m}.type"] = $options['type'];
+				$cond["{$m}.present_type"] = $options['type'];
 				unset($options['type']);
 			}
 	
