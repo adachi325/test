@@ -12,6 +12,8 @@ class PresentsController extends AppController {
 
 		$child_id = $this->Session->read('Auth.User.last_selected_child');
 
+		$paging_items = $this->paginate();
+
 		if ($type === null) {
 			$this->Session->setFlash('プレゼントの種類を指定してください');
 			$this->redirect(array('action' => 'index'));
@@ -19,7 +21,7 @@ class PresentsController extends AppController {
 			if ($type >= 0) {
 				// Todo: paginateの組み込み
 				$items = $this->Present->find('type', compact('child_id', 'type'));
-				$this->set(compact('items'));
+				$this->set(compact('items', 'pagind_items'));
 				
 				$this->render("present_list_{$type}");		
 			} else {

@@ -2,16 +2,6 @@
 class Present extends AppModel {
 	var $name = 'Present';
 	var $validate = array(
-		'theme_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'present_type' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -46,13 +36,6 @@ class Present extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'Theme' => array(
-			'className' => 'Theme',
-			'foreignKey' => 'theme_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Month' => array(
 			'className' => 'Month', 
 			'foreignKey' => 'month_id',
@@ -105,7 +88,7 @@ class Present extends AppModel {
 				unset($options['child_id']);
 			}
 
-			$this->contain(array('Month', 'Child'));
+			$this->contain(array('Month'));
 
 			$ret = parent::find('all', set::merge(
 				array(
@@ -125,6 +108,12 @@ class Present extends AppModel {
 			if (isset($options['type'])) {
 				$cond["{$m}.type"] = $options['type'];
 				unset($options['type']);
+			}
+			if (isset($options['year']) && isset($options['month'])) {
+				$cond['Month.year'] = $options['year'];
+				$cond['Month.month'] = $options['month'];
+				unset($options['year']);
+				unset($options['month']);
 			}
 
 			$this->contain(array('Month'));

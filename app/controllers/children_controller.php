@@ -5,7 +5,7 @@ class ChildrenController extends AppController {
     var $name = 'Children';
 
     function beforeFilter() {
-        
+		parent::beforeFilter();
     }
 
     function index($id = null) {
