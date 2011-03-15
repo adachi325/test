@@ -32,6 +32,7 @@ $config['ReceiveMail'] = array(
 
 $config['Diary'] = array(
 	'hash_length' => 4,
+	'image_thumb_size' => 200,
 	'image_rect_size' => 100,
 	'image_filesize_max' => 2000000,
 	'image_path_original' => APP . "webroot/img/photo/%s/%s_original.jpg",

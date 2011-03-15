@@ -209,7 +209,7 @@ class Diary extends AppModel {
 				$fp = fopen( $image_path_thumb, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
-				$this->__resize_image($image_path_thumb, false);
+				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_thumb_size'), false);
 				
 				//画像保存(正方形)
 				$image_path_rect = sprintf(Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
@@ -217,7 +217,7 @@ class Diary extends AppModel {
 				$fp = fopen( $image_path_rect, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
-				$this->__resize_image($image_path_rect, true);
+				$this->__resize_image($image_path_rect, Configure::read('Diary.image_rect_size'), true);
 			}
 			
 			//画像削除(オリジナル)
@@ -262,17 +262,17 @@ class Diary extends AppModel {
 		return $presents[$next_present_idx]['Present']['id'];
 	}
 
-	function __resize_image($filepath, $is_rect=false) {
-		//写真(JPEG)ならリサイズ処理
+	function __resize_image($filepath, $size, $is_rect=false) {
+		
 		$type = exif_imagetype($filepath);
 		if ($type == 2) {
 			#-------------------------------------------------------
-			# 画像リサイズ（2KB程度）100*100
+			# 画像リサイズ
 			#-------------------------------------------------------
 			$this->__smart_resize_image(
 				$filepath,		//file
-				Configure::read('Diary.image_rect_size'),	//width
-				Configure::read('Diary.image_rect_size'),	//height
+				$size,			//width
+				$size,			//height
 				true,			//proportional
 				'out',			//fit_type
 				'file',			//output
@@ -288,9 +288,9 @@ class Diary extends AppModel {
 				
 				$info = getimagesize($filepath);//サイズ取得
 				$thumb = new Image($filepath);
-				$thumb->width(100); 
-				$thumb->height(100); 
-				$thumb->crop(($info[0] - 100) / 2, ($info[1] - 100) / 2);
+				$thumb->width($size); 
+				$thumb->height($size); 
+				$thumb->crop(($info[0] - $size) / 2, ($info[1] - $size) / 2);
 				$thumb->save();
 			}
 		}
