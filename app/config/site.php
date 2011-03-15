@@ -60,8 +60,11 @@ $config['Diary'] = array(
 	'image_thumb_size' => 200,
 	'image_rect_size' => 100,
 	'image_filesize_max' => 2000000,
-	'image_path_original' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_original.jpg",
-	'image_path_thumb' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_thumb.jpg",
-	'image_path_rect' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_rect.jpg",
+//	'image_path_original' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_original.jpg",
+//	'image_path_thumb' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_thumb.jpg",
+//	'image_path_rect' => APP . "webroot" . DS . "img" . DS . "photo" . DS . "%s" . DS . "%s_rect.jpg",
+	'image_path_original' => "photo" . DS . "%s" . DS . "%s_original.jpg",
+	'image_path_thumb' => "photo" . DS . "%s" . DS . "%s_thumb.jpg",
+	'image_path_rect' => "photo" . DS . "%s" . DS . "%s_rect.jpg",
 );
 

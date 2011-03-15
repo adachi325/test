@@ -199,7 +199,7 @@ class Diary extends AppModel {
 				&& strlen($data['image']) < Configure::read('Diary.image_filesize_max')) {
 			
 			//画像保存(オリジナル)
-			$image_path_original = sprintf(Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
+			$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
 			$this->__mkdir($image_path_original);
 			$fp = fopen( $image_path_original, "w" );
 			fwrite( $fp, $data['image'], strlen($data['image']) );
@@ -210,7 +210,7 @@ class Diary extends AppModel {
 					&& $info[2] == IMAGETYPE_JPEG) {
 
 				//画像保存(比率保持)
-				$image_path_thumb = sprintf(Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
+				$image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
 				$this->__mkdir($image_path_thumb);
 				$fp = fopen( $image_path_thumb, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
@@ -218,7 +218,7 @@ class Diary extends AppModel {
 				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_thumb_size'), false);
 				
 				//画像保存(正方形)
-				$image_path_rect = sprintf(Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
+				$image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
 				$this->__mkdir($image_path_rect);
 				$fp = fopen( $image_path_rect, "w" );
 				fwrite( $fp, $data['image'], strlen($data['image']) );
