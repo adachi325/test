@@ -161,6 +161,9 @@ class Diary extends AppModel {
 			return false;
 		}
 		
+		//month_id
+		$data['month_id'] = $theme['Theme']['month_id'];
+		
 		//hash
 		if (strlen($data['hash']) != Configure::read('Diary.hash_length')) {
 			return false;
@@ -169,16 +172,24 @@ class Diary extends AppModel {
 		//has_image
 		$data['has_image'] = !empty($data['image']);
 		
-		//present_id
-		$data['present_id'] = $this->__getNextPresentId($data['child_id']);
-		
+		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
+		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
 		echo $data['present_id'];
-
-//		if (!$this->save($data)) {
-//			return false;
-//		}
-//		
-//		$diary_id = $this->Child->getLastInsertId();
+		
+		if (!$this->save($data)) {
+			return false;
+		}
+		
+		//child_present
+		if (!empty($data['present_id'])) {
+			$request = array();
+			$request['child_id'] = $data['child_id'];
+			$request['present_id'] = $data['present_id'];
+			$ChildPresent =& ClassRegistry::init('ChildPresent');
+			$ChildPresent->save($request);
+		}
+		
+		$diary_id = $this->Child->getLastInsertId();
 		
 		//画像保存
 		
@@ -190,35 +201,39 @@ class Diary extends AppModel {
 		return true;
 	}
 	
-	function __getNextPresentId($child_id) {
+	function __getNextPresentId($child_id, $year, $month) {
 		
-		//今月のプレゼント一覧
-		$presents = ClassRegistry::init('Present')->find('month', array('order' => 'Present.present_type ASC'));
-//		pr($presents);
+		//テーマ月のプレゼント一覧
+		$presents = ClassRegistry::init('Present')->find('month', array(
+			'year' => $year,
+			'month' => $month,
+			'order' => 'Present.present_type ASC'
+		));
+		pr($presents);
 		
-		//今月獲得したプレゼント一覧
+		//テーマ月に獲得したプレゼント一覧
 		$child_presents = ClassRegistry::init('Child')->find('present', array(
 			'conditions' => array(
 				'Child.id' => $child_id,
-				'Month.year' => date('Y'),
-				'Month.month' => date('n'),
+				'Month.year' => $year,
+				'Month.month' => $month,
 			)
 		));
-//		pr($child_presents);
+		pr($child_presents);
 		
 		if (count($presents) <= count($child_presents)) {
 			return null;
 		}
 		
-		//今月投稿した思い出一覧
+		//テーマ月に投稿した思い出一覧
 		$diaries = ClassRegistry::init('Child')->find('diary', array(
 			'conditions' => array(
 				'Child.id' => $child_id,
-				'Month.year' => date('Y'),
-				'Month.month' => date('n'),
+				'Month.year' => $year,
+				'Month.month' => $month,
 			)
 		));
-//		pr($diaries);
+		pr($diaries);
 		
 		$next_present_idx = count($child_presents);
 		return $presents[$next_present_idx]['Present']['id'];
