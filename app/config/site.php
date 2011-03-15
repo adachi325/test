@@ -20,7 +20,7 @@ $config['Present'] = array(
 		 3 => 'ポストカード',
 	),
 	'membersonly' => array(
-		'会員限定' => -1,
+		-1 => '会員限定',
 	),
         'path' => array(
 		'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
