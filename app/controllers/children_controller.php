@@ -167,10 +167,10 @@ class ChildrenController extends AppController {
     //子供の情報を編集する
     function edit() {
         //セッション情報回収、削除
-        $childRegisterData = $this->Session->read('childEditData');
+        $childEditData = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');
-        if(!empty($childRegisterData)){
-            $this->data = $childRegisterData;
+        if(!empty($childEditData)){
+            $this->data = $childEditData;
         }
         $childEditValidationErrors = $this->Session->read('childEditValidationErrors');
         $this->Session->delete('childEditValidationErrors');
