@@ -102,6 +102,27 @@ class DiariesController extends AppController {
 
     }
 
+    function edit($id=null){
+        if(empty($id)){
+             $this->Session->setFlash(__('エラー', true));
+             $this->redirect('/children/');
+        }
+        //データ取得
+        $this->Diary->contain('Month');
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.id' => $id
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+             $this->Session->setFlash(__('エラー', true));
+             $this->redirect('/children/');
+        }
+        $this->data = $diary;
+    }
+
     function _infoStr($data){
         $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
         $this->set('getStr',$typelist[$data['Present']['present_type']]);
@@ -148,7 +169,6 @@ class DiariesController extends AppController {
             $this->redirect('/children/');
         }
         $userData = $this->Auth->user();
-        pr($userData);
         if(!$userData['User']['dc_user']) {
             $this->set('un_dc_user',true);
         } else {

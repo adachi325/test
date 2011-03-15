@@ -53,7 +53,7 @@
 <?php echo $this->Html->link('⇒獲得したプレゼント一覧', '/presents/'); ?>
 </div>
 <div>
-<?php echo $this->Html->link('⇒思い出を編集する', '/diaries/edit/'); ?>
+<?php echo $this->Html->link('⇒思い出を編集する', '/diaries/edit/'.$diary['Diary']['id']); ?>
 </div>
 <div>
 <?php echo $this->Html->link('⇒思い出一覧へ戻る', '/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']); ?>
