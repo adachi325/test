@@ -35,12 +35,13 @@ while($i < 4) {
        <?php if($page > 1) { echo(($page*5)-4); } else if(count($diaries) == 0) { echo('0'); } else { echo($page); }
               if(($page*5) < count($diaries)) {echo ('件～'.($page*5).'件を表示'); } else {echo ('件～'.count($diaries).'件を表示');}
        ?>
+       <?php //pr ($diaries); ?>
     </p>
 </div>
 <br>
 <?php
 $d = 0;$i = 0;$s = 0;
-if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 1; }
+if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 0; }
 foreach($diaries as $diary):
     $s++;
     if($s > $d && $i < 5) { ?>
