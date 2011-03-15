@@ -17,9 +17,12 @@ class DiaryTestCase extends CakeTestCase {
 	function testAddByEmail() {
 		$u =& $this->Diary;
 		$data = array(
-			'to' => 'iida_1.2.3.4@shimajiro-dev.com',
+			'to' => 'diary_1.1.5.abcd@shimajiro-dev.com',
+			'subject' => 'たいとる',
+			'body' => 'ほんぶん本文',
+			'image' => '',
 		);
-		$this->assertFalse($u->addByEmail($data));
+		$this->assertTrue($u->addByEmail($data));
 	}
 
 
