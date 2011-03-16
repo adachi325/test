@@ -4,16 +4,16 @@
 // 配列の値を改行しながらすべて出力
 $i = 0;
 foreach ($childrenData as $child) {
-	extract($child['Child']);
-	echo '<span>';
-	echo $html->link($nickname, "/children/index/".$i);
-	echo '</span> ';
-        $i++;
+    extract($child['Child']);
+    echo '<span>';
+    echo $html->link($html->image(sprintf(Configure::read('Child.icon_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
+    echo '</span> ';
+    $i++;
 }
 if (count($childrenData) < 3) {
-	echo '<span>';
-	echo $html->link('+', "/children/register/");
-	echo '</span> ';
+    echo '<span>';
+    echo $html->link('+', "/children/register/");
+    echo '</span> ';
 }?>
 </div>
 <div id="child_data">
