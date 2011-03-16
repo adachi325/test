@@ -12,16 +12,31 @@ class PresentsController extends AppController {
 
 		$child_id = $this->Session->read('Auth.User.last_selected_child');
 
-		$paging_items = $this->paginate();
-
 		if ($type === null) {
 			$this->Session->setFlash('プレゼントの種類を指定してください');
 			$this->redirect(array('action' => 'index'));
 		} else {
 			if ($type >= 0) {
-				// Todo: paginateの組み込み
-				$items = $this->Present->find('type', compact('child_id', 'type'));
-				$this->set(compact('items', 'pagind_items'));
+
+				$cond = array('Present.present_type' => $type);
+		
+				if ($child_id) {
+					$ChildPresent =& ClassRegistry::init('ChildPresent');
+					$ChildPresent->contain();
+					$present_ids = $ChildPresent->find('all', array(
+						'fields' => array('id', 'present_id'), 
+						'conditions' => array('child_id' => $child_id),
+					));
+					
+					if (is_array($present_ids)) {
+						$cond["Present.id"] = Set::combine($present_ids, '{n}.ChildPresent.id', '{n}.ChildPresent.present_id');
+					}
+				}
+
+				$this->Present->contain(array('Month'));
+				$items = $this->paginate('Present', $cond, array('limit' => 4));
+				
+				$this->set(compact('items'));
 				
 				$this->render("present_list_{$type}");		
 			} else {
@@ -32,22 +47,31 @@ class PresentsController extends AppController {
 	}
 
 	function select($type = null) {
-		$this->Present->contain();
-		$this->set($this->paginate());
-		
-		if ($type == "flash") {
 
-		} else {
-
+		$data = $this->data;
+		if ($data && isset($data['page'])) {
+			if (isset($this->params['form']['create'])) {
+				$this->redirect('complete');
+			}
+			if (isset($this->params['form']['prev'])) {
+				$data['page']--;
+			}
+			if (isset($this->params['form']['next'])) {
+				$data['page']++;
+			}
 		}
+
+		$this->Diary =& ClassRegistry::init('Diary');
+		$this->Diary->contain();
+		
+		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
+		$items = $this->paginate('Diary');
+
+		$this->set(compact('items', 'data'));
 	}
 
 	function complete($type = null) {
-		if ($type == "flash") {
-
-		} else {
-
-		}
+	
 	}
 
 	function error_present() {

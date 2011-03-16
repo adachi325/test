@@ -66,6 +66,7 @@ class Present extends AppModel {
 		// add released method
 		switch($type) {
 		case 'type':
+			// to paginate option //
 			$cond = array();
 
 			if (isset($options['type'])) {
@@ -100,24 +101,29 @@ class Present extends AppModel {
 
 			break;
 		case 'month':
+			// year, monthのデフォルト値（現在の日付を使用）
+			// optionに値が指定された場合、condの値はoptionで指定された値に上書きされます
 			$cond = array(
 				"Month.year" => date('Y'),
 				"Month.month" => date('n'),
 			);
 
+			if (isset($options['year'])) {
+				$cond['Month.year'] = $options['year'];
+				unset($options['year']);
+			}
+
+			if (isset($options['month'])) {
+				$cond['Month.month'] = $options['month'];
+				unset($options['month']);
+			}
+
 			if (isset($options['type'])) {
 				$cond["{$m}.type"] = $options['type'];
 				unset($options['type']);
 			}
-			if (isset($options['year']) && isset($options['month'])) {
-				$cond['Month.year'] = $options['year'];
-				$cond['Month.month'] = $options['month'];
-				unset($options['year']);
-				unset($options['month']);
-			}
 
 			$this->contain(array('Month'));
-
 			$ret = parent::find('all', set::merge(
 				array(
 					'conditions' => $cond,
