@@ -34,5 +34,13 @@ class PostcardUrl extends AppModel {
 			'order' => ''
 		)
 	);
+
+	function isValiable($token) {
+		$m = $this->alias;
+
+		$count = $this->find('count', array('conditions' => array("{$m}.token" => $token)), );
+		return ($count > 0);
+	}
+
 }
 ?>

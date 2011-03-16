@@ -3,6 +3,8 @@ class PresentsController extends AppController {
 
 	var $name = 'Presents';
 
+	var $components = array('Qdmail');
+
 	function index() {
 		$month = $this->Present->find('month');
 		$this->set(compact('month'));
@@ -71,7 +73,24 @@ class PresentsController extends AppController {
 	}
 
 	function complete($type = null) {
-	
+		$selected = array(
+			'diary_id' => array(1, 2, 3, 4),
+			'present_id' => 1,
+			'child_id' => 1,
+		);
+
+		if ($type === "flash") {
+			$this->CreatePresent->createPostcard($selected);
+			$this->render('complete_flash');
+		} else {
+			$this->CreatePresent->createFlash($selected);
+			$this->render('complete_photo');
+		}
+
+        //メールアドレス設定
+        $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
+        $this->set('mailStr',$mailStr);
+
 	}
 
 	function error_present() {
@@ -82,8 +101,18 @@ class PresentsController extends AppController {
 
 	}
 
-	function print_photo() {
-		
+	function print_photo($token = null) {
+		if ($token === null) {
+			$this->cakeError('error404');
+			return;
+		}
+
+		$PostcardUrl =& ClassRegistry::init('PostcardUrl');
+		if (!$PostcardUrl->isValiable($token)) {
+			$this->cakeError('error404');
+		}
+
+		$this->set(compact($token));
 	}
 }
 ?>
