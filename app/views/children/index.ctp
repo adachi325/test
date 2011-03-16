@@ -16,7 +16,6 @@ if (count($childrenData) < 3) {
 	echo '</span> ';
 }?>
 </div>
-
 <div id="child_data">
 
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
@@ -26,7 +25,6 @@ if (count($childrenData) < 3) {
 </div>
 <div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
 </div>
-
 <div>
     <br><br>
     <?php echo $html->link(__('子供設定', true), array('action' => 'edit')); ?>
@@ -46,7 +44,7 @@ if (count($childrenData) < 3) {
 <?php
 $i=0;
 foreach($diaries as $diary):
-    if ($diary['Diary']['has_image']) {
+    if ($diary['Diary']['has_image'] && $i < 4) {
         $i++;
         echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
     }

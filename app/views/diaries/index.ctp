@@ -7,7 +7,7 @@
 $i=0;
 if(!empty($diaries)) {
 foreach($diaries as $diary):
-    if ($diary['Diary']['has_image']) {
+    if ($diary['Diary']['has_image'] && $i < 4) {
         $i++;
         echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
     }
