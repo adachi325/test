@@ -7,8 +7,50 @@ class CreatePresentComponent extends Object {
         if(empty($args)){
             return false;
         }
+        // テンプレートの指定
+        $template = WWW_ROOT.sprintf(Configure::read('Present.path.screen'), $args['present_id']);
 
-        
+        // アサイン用変数の設定
+        $assign = array(
+            // 差し込み文字列
+            'name' => '思い出はおもいで～（仮）',
+            'max' => '3',
+            //'txt_01' => '水中を優雅に泳ぐ熱帯魚',
+            //'txt_02' => '海を眺める2羽の鳥達',
+            //'txt_03' => 'ご飯をねだる猫',
+
+            // 差し込み画像
+            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][0]),
+            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][1]),
+            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][2]),
+        );
+
+        // ステージサイズの設定
+        $assign["width"] = 240;
+        $assign["height"] = 320;
+
+        // Almeidaインスタンスを生成
+        $almeida = new Almeida();
+
+        // Almeidaに変数をアサイン
+        foreach($assign as $name => $value) {
+            // UTF-8でアサイン
+            //$almeida->setVariable($name, mb_convert_encoding($value,"UTF-8","UTF-8"));
+            $almeida->setVariable($name, $value);
+        }
+
+        // 文字コードの設定
+        $almeida->setVariable("Media.Flash.Codepage","SJIS");
+
+        // テンプレートのロード
+        $almeida->load($template);
+
+        //ヘッダー出力
+        header("Content-type: application/x-shockwave-flash");
+        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+
+        // Flash生成
+        $almeida->generateFlash();
     }
 
 
@@ -20,7 +62,7 @@ class CreatePresentComponent extends Object {
 
         /******** ポストカード作成 ********/
 
-        //下地画像読み込み
+        //下地画像生成（はがきサイズ）
 	$new_image = ImageCreateTrueColor(400, 592);
 
         //思い出画像読み込み
