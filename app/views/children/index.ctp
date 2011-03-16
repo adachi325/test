@@ -48,7 +48,7 @@ $i=0;
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image']) {
         $i++;
-        echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '55px', 'height' => '55px'));
+        echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
     }
 endforeach;
 ?>

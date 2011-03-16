@@ -84,21 +84,24 @@ class DiariesController extends AppController {
                 'Diary.hash' => $hash
             )
         );
-        $diaryData = $this->Diary->find('first', $conditions);
-        if(empty($diaryData)){
+        $diary = $this->Diary->find('first', $conditions);
+
+        pr ($diary);
+
+        if(empty($diary)){
             //再チェックボタン用にハッシュタグを設定
             $this->set('nexthash',$hash);
             //unknown
             $this->render('post_unknown');
             return;
         }
-
-        $this->set('diaryId',$diaryData['Diary']['id']);
-
         //投稿反映画面の表示文言を設定
-        if(!empty($diaryData['Present']['id'])) {
-            $this->_infoStr($diaryData);
+        if(!empty($diary['Present']['id'])) {
+            $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
+            $this->set('getStr',$typelist[$diary['Present']['present_type']]);
         }
+
+        $this->set(compact('diary'));
 
     }
 
@@ -187,12 +190,6 @@ class DiariesController extends AppController {
              $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/children/');
         }
-    }
-
-    function _infoStr($data){
-        $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
-        $this->set('getStr',$typelist[$data['Present']['present_type']]);
-        $this->set('presentId',$data['Present']['id']);
     }
 
     function info($id=null){
@@ -331,7 +328,7 @@ Content-Transfer-Encoding: base64
 Content-ID: <00>
 
 ';
-$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg');
+$img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $diary['Month']['year'], $imgMonth));
 $jpeg_enc = base64_encode($img);
 $list[3] = $jpeg_enc;
 
@@ -344,7 +341,7 @@ Content-Transfer-Encoding: base64
 Content-ID: <01>
 
 ';
-$img = file_get_contents('img/photo/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg');
+$img = file_get_contents('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']));
 $jpeg_enc = base64_encode($img);
 $list[5] = $jpeg_enc;
 
@@ -356,7 +353,7 @@ Content-ID: <02>
 
 ';
 
-$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg');
+$img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
 $jpeg_enc = base64_encode($img);
 $list[7] = $jpeg_enc;
 
@@ -373,7 +370,7 @@ Content-ID: <02>
 
 ';
 
-$img = file_get_contents('present/template/diaryback/diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg');
+$img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
 $jpeg_enc = base64_encode($img);
 $list[5] = $jpeg_enc;
 

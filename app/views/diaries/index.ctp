@@ -9,7 +9,7 @@ if(!empty($diaries)) {
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image']) {
         $i++;
-        echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '55px', 'height' => '55px'));
+        echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
     }
 endforeach;
 }
@@ -35,19 +35,20 @@ while($i < 4) {
        <?php if($page > 1) { echo(($page*5)-4); } else if(count($diaries) == 0) { echo('0'); } else { echo($page); }
               if(($page*5) < count($diaries)) {echo ('件～'.($page*5).'件を表示'); } else {echo ('件～'.count($diaries).'件を表示');}
        ?>
+       <?php //pr ($diaries); ?>
     </p>
 </div>
 <br>
 <?php
 $d = 0;$i = 0;$s = 0;
-if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 1; }
+if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 0; }
 foreach($diaries as $diary):
     $s++;
     if($s > $d && $i < 5) { ?>
         <div style='vertical-align:top;'>
         <?php
             if ($diary['Diary']['has_image']) {
-                echo $html->image('photo'.'/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.jpg' ,array('width' => '40px', 'height' => '40px'));
+                echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '40px', 'height' => '40px'));
             } else {
                 echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
             }

@@ -11,7 +11,7 @@
     <?php if ($this->data['Diary']['has_image']) {  ?>
     <div>
         <span>
-           <?php echo $html->image('photo'.'/'.$this->data['Diary']['child_id'].'/'.$this->data['Diary']['id'].'.jpg' ,array('width' => '100px', 'height' => '100px')); ?>
+           <?php echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']) ,array('width' => '100px', 'height' => '100px')); ?>
         </span>
     </div>
     <br>

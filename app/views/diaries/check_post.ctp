@@ -1,23 +1,35 @@
-<?php if(!empty($presentId)) { ?>
+<?php if(!empty($diary['Diary']['present_id'])) { ?>
+<center>
 <div>
-    <?php echo $getStr.'をGET！' ?>
+    <?php echo sprintf(Configure::read('Present.type.'.$diary['Present']['present_type'])).'をGET！' ?>
 </div>
 <br>
 <div>
-    <?php echo $getStr.'サンプル' ?>
+    <?php
+        if ($diary['Present']['present_type'] == 0) {
+            echo '思い出ページがきれいになりました、かくにんしてみてね！';
+        } else {
+            echo $html->image($diary['Present']['present_thumbnail_path']);
+        } 
+    ?>
 </div>
+</center>
 <br>
 <div>
-    <?php echo $this->Html->link('→プレゼントを見る', '/presents/info/'.$presentId); ?>
+<?php
+if ($diary['Present']['present_type'] !== 0) {
+    echo $this->Html->link('→プレゼントを見る', '/presents/present_list/'.$diary['Present']['present_type']);
+}
+?>
 </div>
 <?php }else{ ?>
 <div>
-    <?php echo '投稿が完了しました！'; ?>
+<?php echo '投稿が完了しました！'; ?>
 </div>
 <?php } ?>
 <br>
 <div>
-    <?php echo $this->Html->link('→投稿した思い出をみる', '/diaries/info/'.$diaryId); ?>
+    <?php echo $this->Html->link('→投稿した思い出をみる', '/diaries/info/'.$diary['Diary']['id']); ?>
 </div>
 <br>
 <hr>

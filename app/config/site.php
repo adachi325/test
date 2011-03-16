@@ -14,13 +14,13 @@ $config['Lines'] = array (
 
 $config['Present'] = array(
 	'type' => array(
-		'背景画像' => 0,
-		'教材コンテンツ' => 1, 
-		'待受FLASH' => 2, 
-		'ポストカード' => 3,
+		 0 => '背景画像',
+		 1 => 'デコメ絵文字',
+		 2 => '待受FLASH',
+		 3 => 'ポストカード',
 	),
 	'membersonly' => array(
-		'会員限定' => -1,
+		-1 => '会員限定',
 	),
     'path' => array(
 		'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
