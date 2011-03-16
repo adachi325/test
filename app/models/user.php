@@ -83,12 +83,6 @@ class User extends AppModel {
                             'on'=>'create',
 			),
 		),
-		'carrier' => array(
-                        array(
-                            'rule' => 'notEmpty',
-                            'message' => '必須項目です。。',
-			),
-		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

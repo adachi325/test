@@ -76,3 +76,7 @@ $config['Diary'] = array(
 	'image_path_thumb' => "photo/%s/%s_thumb.jpg",
 	'image_path_rect' => "photo/%s/%s_rect.jpg",
 );
+
+$config['Child'] = array(
+    'icon_path' => 'common/icon_%s.gif'
+);

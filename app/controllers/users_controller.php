@@ -32,7 +32,7 @@ class UsersController extends AppController {
     public function logout(){
             $redirectTo = $this->Auth->logout();
             $this->Session->setFlash('ログアウトしました');
-            $this->redirect('/pages/top');
+            $this->redirect('/');
     }
 
     function index() {
@@ -58,7 +58,11 @@ class UsersController extends AppController {
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm');
+            } else {
+                $this->Session->setFlash(__('入力情報が間違っています。', true));
+                pr($this->data);
             }
+
             TransactionManager::rollback();
         }
         //セッション情報回収、削除
