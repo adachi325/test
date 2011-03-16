@@ -21,10 +21,10 @@ class CreatePresentComponent extends Object {
         $template = ImageCreateFromGif(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));
 
 	//下地画像へ、思い出画像を合成
-	ImageCopy($new_image, $diaryImgA, 20, 20,  30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgB, 220, 120,  30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgC, 40, 290,  30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgD, 230, 390,  30, 30, 200, 200);
+	ImageCopy($new_image, $diaryImgA, 20, 20, 30, 30, 200, 200);
+        ImageCopy($new_image, $diaryImgB, 220, 120, 30, 30, 200, 200);
+        ImageCopy($new_image, $diaryImgC, 40, 290, 30, 30, 200, 200);
+        ImageCopy($new_image, $diaryImgD, 230, 390, 30, 30, 200, 200);
 
         //下地画像へ、テンプレート画像を合成
         ImageCopy($new_image, $template, 0, 0,  0, 0, 400, 592);
