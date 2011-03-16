@@ -68,7 +68,6 @@ class ThemesController extends AppController {
     function _monthsDataFind($options){
         $month =& ClassRegistry::init('Month');
         $months = $month->find('all',array('conditions' => $options));
-        pr($months);
         if (!empty($months)){
             $this->Session->write('setOptions', $options);
             $this->Session->write('monthData', $months);
@@ -137,7 +136,7 @@ class ThemesController extends AppController {
          $userdata = $user->read(null,$userAuthData['User']['id']);
 
          //現在時刻にてhash作成
-         $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 8);
+         $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
 
          //次へボタン用にハッシュタグを設定
          $this->set('nexthash',$hash);

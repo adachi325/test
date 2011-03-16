@@ -28,6 +28,9 @@ class DiariesController extends AppController {
         //オプションをフィールドに設定
         $this->set('options',$setOptions);
 
+        //思い出投稿時用にセッションに設定
+        $this->Session->write('setOptions', $setOptions);
+
         $month =& ClassRegistry::init('Month');
         $month->contain();
         $months = $month->find('all',array('conditions' => $setOptions));
@@ -85,8 +88,6 @@ class DiariesController extends AppController {
             )
         );
         $diary = $this->Diary->find('first', $conditions);
-
-        pr ($diary);
 
         if(empty($diary)){
             //再チェックボタン用にハッシュタグを設定

@@ -27,7 +27,7 @@ while($i < 4) {
 </center>
 <br><hr><br>
 <div>
-    <?php echo $this->Html->link($options['month'].'月の思い出を投稿する', '/themes/index/diary'); ?>
+    <?php echo $this->Html->link($options['month'].'月の思い出を投稿する', '/themes/index/diary/'); ?>
 </div>
 <br>
 <div>
