@@ -33,7 +33,7 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	Router::connect('/ap/:line', array('controller' => 'contents', 'action' => 'index' ));
 	Router::connect('/ap/:line/:id', array('controller' => 'contents', 'action' => 'view' ));
