@@ -5,7 +5,7 @@ class ChildrenController extends AppController {
     var $name = 'Children';
 
     function beforeFilter() {
-		parent::beforeFilter();
+        parent::beforeFilter();
     }
 
     function index($id = null) {
@@ -21,26 +21,35 @@ class ChildrenController extends AppController {
 
         //最終子供ID設定
         $lastChildId = $this->_getLastChild();
-
+        //最終子供情報取得
         $currentChild = $this->Child->findById($lastChildId);
 
+        //月号データ取得
         $Issue =& ClassRegistry::init('Issue');
         //$issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
         $issues = $Issue->find('month');
 
+        //月データ取得
         $month =& ClassRegistry::init('month');
         $options = array();
         $options['year'] = date('Y');
         $options['month'] = date('m') + 0;
         $months = $month->find('all',array('conditions' => $options));
 
+        //ライン情報取得
         $lines = $this->Child->Line->find('list');
 
+        //日記データ取得
         $this->Child->Diary->contain();
         $diaries = $this->Child->Diary->find('all', array('conditions'=>array('child_id' => $this->_getLastChild())));
         $this->set(compact('diaries'));
 
-        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines','diaries'));
+        //ニュース取得
+        $news =& ClassRegistry::init('news');
+        $newslist = $news->find('all',array('conditions' =>
+            array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
+
+        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines','diaries','newslist'));
     }
 
     //最終子供ID更新

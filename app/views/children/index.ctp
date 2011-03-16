@@ -25,10 +25,25 @@ if (count($childrenData) < 3) {
 </div>
 <div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
 </div>
+<br>
+<div>
+    <div>
+        <h3>サイトのお知らせ</h3>
+    </div>
+    <div>
+    <?php foreach($newslist as $news): ?>
+        <?php
+            echo "<p>";
+            echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']);
+            echo "</p>";
+        ?>
+    <?php endforeach; ?>
+    </div>
+</div>
 <div>
     <br><br>
     <?php echo $html->link(__('子供設定', true), array('action' => 'edit')); ?>
-    <br><br>
+    <br>
     <?php echo $html->link(__('子供削除', true), array('action' => 'delete')); ?>
 </div>
 <div>
@@ -46,7 +61,7 @@ $i=0;
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image'] && $i < 4) {
         $i++;
-        echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px'));
+        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
     }
 endforeach;
 ?>
