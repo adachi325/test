@@ -18,6 +18,8 @@ class CreatePresentComponent extends Object {
             return false;
         }
 
+        /******** ポストカード作成 ********/
+
         //下地画像読み込み
 	$new_image = ImageCreateTrueColor(400, 592);
 
@@ -48,7 +50,38 @@ class CreatePresentComponent extends Object {
         //メモリを開放します
         imagedestroy($new_image);
 
-        //ワンタイムURL登録
+
+        /******** サムネイル作成 ********/
+
+        //サムネイル元画像読み込み
+        $image = imagecreatefromjpeg(WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name));
+
+        //画像のサイズを取得
+        $width = ImageSX($image); //横幅（ピクセル）
+        $height = ImageSY($image); //縦幅（ピクセル）
+
+        //サイズ指定
+        $new_width = 100;
+
+        //リサイズの圧縮比
+        $rate = $new_width / $width;
+        $new_height = $rate * $height;
+
+        //空の画像用意
+        $new_thumbnail = ImageCreateTrueColor($new_width, $new_height);
+
+        //リサイズした画像を空の画像にコピー
+        ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
+
+	//画像保存
+	ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+
+        //メモリを開放します
+        imagedestroy($new_thumbnail);
+
+        
+        /******** ワンタイムURL登録 ********/
+
         $postcard_url =& ClassRegistry::init('postcardUrl');
         $options = array(
             'child_id' => 2,
@@ -58,8 +91,10 @@ class CreatePresentComponent extends Object {
         if (!$postcard_url->save($options)) {
             //データ登録に失敗した場合、ファイルを消す。
             unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name) );
             return false;
         }
+
         return true;
 
     }

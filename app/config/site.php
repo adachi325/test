@@ -31,6 +31,7 @@ $config['Present'] = array(
                 'postcard' => 'present/template/postcard/%s.gif',
                 'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
+                'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
                 'member_flash' => 'present/template/member_flash/%s.swf',
                 'member_flash_thum' => 'present/template/member_flash/%s_thumb.jpg',
 	),
