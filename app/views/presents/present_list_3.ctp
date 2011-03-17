@@ -9,11 +9,20 @@ if (!isset($type_name)) {
 
 <p><?php echo $type_name; ?>テンプレートを選んでください</p>
 
+<ul>
 <?php foreach($items as $item): ?>
-<?php echo $this->Html->image($item['Present']['present_thumbnail_path'], array('alt' => $type_name)); ?>
+<li>
+<?php
+extract($item['Present']);
+echo $this->Html->image($present_thumbnail_path, array('alt' => $type_name, 'url' => array('action' => 'select', 'postcard', $id))); 
+?>
+</li>
 <?php endforeach; ?>
+</ul>
 
-<?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
-<?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+<?php if (count($items)): ?>
+	<?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
+	<?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+<?php endif; ?>
 
 </div>
