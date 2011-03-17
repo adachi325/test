@@ -10,7 +10,7 @@ class AppModel extends LazyModel {
 	);
 
         //cent OS 対策
-        function alphaNumeric($check) {
+        function checkIDPassword($check) {
             $_this =& Validation::getInstance();
             $_this->__reset();
             $_this->check = $check;
