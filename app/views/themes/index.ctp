@@ -2,9 +2,20 @@
 <?php foreach($months as $month): ?>
     <?php foreach($month['Theme'] as $theme): ?>
     <?php
-        echo "<p>";
-        echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
-        echo "</p>";
+        if(!$theme['free_theme']){
+            echo "<p>";
+            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
+            echo "</p>";
+        }
+    ?>
+    <?php endforeach; ?>
+    <?php foreach($month['Theme'] as $theme): ?>
+    <?php
+        if($theme['free_theme']){
+            echo "<p>";
+            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
+            echo "</p>";
+        }
     ?>
     <?php endforeach; ?>
 <?php endforeach; ?>

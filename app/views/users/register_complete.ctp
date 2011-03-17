@@ -3,5 +3,5 @@
 	<?php echo "登録完了" ?>
 </h2>
 <br>
-<?php echo $html->link('さっそく使ってみよう！', "/children/",array('escape' => false));?>
+<?php echo $html->link('さっそく使ってみよう！', "/navigations/after1",array('escape' => false));?>
 </div>

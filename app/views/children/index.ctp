@@ -85,16 +85,28 @@ while($i < 4) {
 <?php foreach($months as $month): ?>
     <?php foreach($month['Theme'] as $theme): ?>
     <?php
-        echo "<p>";
-        echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
-        echo "</p>";
+        if(!$theme['free_theme']){
+            echo "<p>";
+            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
+            echo "</p>";
+        }
+    ?>
+    <?php endforeach; ?>
+    <?php foreach($month['Theme'] as $theme): ?>
+    <?php
+        if($theme['free_theme']){
+            echo "<p>";
+            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
+            echo "</p>";
+        }
     ?>
     <?php endforeach; ?>
 <?php endforeach; ?>
+<br>
 <div>
 <?php echo $this->Html->link('もっと見る', '/themes/'); ?>
 </div>
-
+<br>
 <h3>今月のプレゼント</h3>
 <div>
 <div>flash x2</div>
