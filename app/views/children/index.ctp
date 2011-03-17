@@ -109,10 +109,28 @@ while($i < 4) {
 <br>
 <h3>今月のプレゼント</h3>
 <div>
-<div>flash x2</div>
+    <table>
+        <tr>
+            <td>
+<?php foreach($months as $month): ?>
+    <?php foreach($month['Present'] as $present): ?>
+        <?php if($present['present_type'] == 3)
+            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '55px'));
+        ?>
+    <?php endforeach; ?>
+<?php endforeach; ?>
+            </td>
+            <td>
+                思い出を残すと待受けやポストカードテンプレート等がもらえるよ!!
+            </td>
+        </tr>
+     </table>
+</div>
+<br>
+<div>
 <?php echo $this->Html->link('詳しくはこちら', '/presents/'); ?>
 </div>
-
+<br>
 <h3>今月の連動教材</h3>
 <div>
 <ul>
