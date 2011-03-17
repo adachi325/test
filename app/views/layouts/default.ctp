@@ -16,6 +16,7 @@
 
 <div id="footer">
 	<?php echo $this->element('default/footer'); ?>
+	<?php echo $this->element('default/copyright'); ?>
 </div>
 
 <?php if(!$ktai->is_ktai()) { ?></div><?php } ?>
