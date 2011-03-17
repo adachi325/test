@@ -28,7 +28,7 @@ class UsersController extends AppController {
         $this->User->recursive = 0;
     }
 
-    //明示的にログアウト
+    //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
             $redirectTo = $this->Auth->logout();
             $this->Session->setFlash('ログアウトしました');
@@ -48,6 +48,25 @@ class UsersController extends AppController {
     }
 
     function register(){
+
+        //ログイン済みならマイページへ遷移
+        if($this->Auth->user()) {
+            $this->set('login_user',$this->Auth->user());
+            $this->Session->setFlash(__('会員登録済みです。', true));
+            $this->redirect('/children/');
+        }
+
+        //ログイン済みじゃない場合、uidを取得
+        $uid = $this->_getUid();
+        $user =& ClassRegistry::init('User');
+        $user->contain();
+        $users = $user->find('all',array('conditions' => array('uid' => $uid)));
+        //uidが存在する場合、自動ログイン実行
+        if(!empty($users)){
+            $this->Session->setFlash(__('会員登録済みです。', true));
+            $this->redirect('/children/');
+        }
+
         $this->_setline();
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
