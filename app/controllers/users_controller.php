@@ -224,5 +224,38 @@ class UsersController extends AppController {
             $Line = $Line->find('list');
             $this->set('lines', $Line);
     }
+    
+    /**
+     * 端末からuidを取得する。
+     */
+    function _getUid(){
+        //UID取得
+        if($this->Ktai->is_ktai()) {
+            $result = $this->_getCareer();
+            if( $result == 0 or $result == 1 or $result == 2 ){
+                return $this->Ktai->get_uid();
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * キャリア判定
+     */
+    function _getCareer(){
+        if ($this->Ktai->is_imode()) {
+            return 0;
+        } else if ($this->Ktai->is_ezweb()) {
+            return 1;
+        } else if ($this->Ktai->is_softbank()) {
+            return 2;
+        } else if ($this->Ktai->is_iphone()) {
+            return 3;
+        } else if ($this->Ktai->is_android()) {
+            return 4;
+        } else {
+            return 5;
+        }
+    }
 }
 ?>
