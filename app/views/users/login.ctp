@@ -9,3 +9,10 @@ if($session->check('Message.auth')){
 パスワード<br>
 <?php echo $form->password('User.password',array('size'=>'10')); ?>
 <?php echo $form->end('ログイン'); ?>
+<br><hr><br>
+<div>
+    ※パスワードを忘れた方<?php echo $html->link('こちら', "/users/remind/",array('escape' => false));?>
+</div>
+<div>
+    ⇒<?php echo $html->link('新規会員登録', "/users/register/",array('escape' => false));?>
+</div>

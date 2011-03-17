@@ -11,7 +11,7 @@ class UsersController extends AppController {
             'username' => 'loginid',
             'password' => 'password'
         );
-        $this->Auth->allow('register','register_confirm','register_complete');
+        $this->Auth->allow('register','register_confirm','register_complete','remind','remind_password','remind_complete');
     }
 
     function beforeRender() {
@@ -40,14 +40,6 @@ class UsersController extends AppController {
             $this->redirect('/users/login');
     }
 
-    function view($id = null) {
-            if (!$id) {
-                    $this->Session->setFlash(__('Invalid User', true));
-                    $this->redirect('/users/index');
-            }
-            $this->set('user', $this->User->read(null, $id));
-    }
-
     function register(){
 
         //ログイン済みならマイページへ遷移
@@ -59,9 +51,8 @@ class UsersController extends AppController {
 
         //ログイン済みじゃない場合、uidを取得
         $uid = $this->_getUid();
-        $user =& ClassRegistry::init('User');
-        $user->contain();
-        $users = $user->find('all',array('conditions' => array('uid' => $uid)));
+        $this->User->contain();
+        $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
         //uidが存在する場合、自動ログイン実行
         if(!empty($users)){
             $this->Session->setFlash(__('会員登録済みです。', true));
@@ -80,7 +71,6 @@ class UsersController extends AppController {
                 $this->redirect('/users/register_confirm');
             } else {
                 $this->Session->setFlash(__('入力情報が間違っています。', true));
-                pr($this->data);
             }
 
             TransactionManager::rollback();
@@ -189,7 +179,6 @@ class UsersController extends AppController {
         $this->data = $this->Session->read('userEditData');
         $this->Session->delete('userEditData');
 
-        //初回会員登録処理
         if (!empty($this->data)) {
             try {
                $this->_setEditData();
@@ -224,6 +213,119 @@ class UsersController extends AppController {
             $Line = ClassRegistry::init('Line');
             $Line = $Line->find('list');
             $this->set('lines', $Line);
+    }
+
+    //リマインド認証
+    function remind () {
+
+        //ログイン済みならマイページへ遷移
+        if($this->Auth->user()) {
+            $this->set('login_user',$this->Auth->user());
+            $this->Session->setFlash(__('会員登録済みです。', true));
+            $this->redirect('/children/');
+        }
+        //ログイン済みじゃない場合、uidを取得
+        $uid = $this->_getUid();
+        $this->User->contain();
+        $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
+        //uidが存在する場合、自動ログイン実行
+        if(!empty($users)){
+            $this->Session->setFlash(__('会員登録済みです。', true));
+            $this->redirect('/children/');
+        }
+
+        //入力データが存在しない場合
+        if(empty($this->data)){
+            return;
+        }
+
+        //バリデーションチェック
+        $this->User->set($this->data);
+        if (!$this->User->validates()) {
+            $this->Session->setFlash(__('入力情報が間違っています。', true));
+            return;
+        }
+
+        //会員情報検索
+        $conditions = array();
+        $conditions['User.loginid'] = $this->data['User']['remindId'];
+        $conditions['Child.nickname'] = $this->data['User']['nickname'];
+        $conditions['Child.birth_year'] = $this->data['User']['birth_year'];
+        $conditions['Child.birth_month'] = $this->data['User']['birth_month'];
+        $child =& ClassRegistry::init('Child');
+        $child->contain('User');
+        $children = $child->find('all',array('conditions' => $conditions));
+
+        if(empty($children)){
+            $this->Session->setFlash(__('入力された情報は存在しません。', true));
+            return;
+        }
+
+        $this->Session->write('user_data', $children);
+        $this->redirect('/users/remind_password');
+        
+    }
+
+    //パスワード再設定
+    function remind_password () {
+
+        $userData = $this->Session->read('user_data');
+        if(empty($userData)){
+            $this->cakeError('error404');
+            return;
+        }
+        
+        //入力データが存在しない場合
+        if(empty($this->data)){
+            return;
+        }
+        //バリデーションチェック
+        $this->User->set($this->data);
+        if (!$this->User->validates()) {
+            $this->Session->setFlash(__('入力情報が間違っています。', true));
+            return;
+        }
+
+        $this->Session->write('remind_data', $this->data);
+        $this->redirect('/users/remind_complete');
+
+    }
+
+    //パスワード再設定完了
+    function remind_complete () {
+
+        $userData = $this->Session->read('user_data');
+        $this->Session->delete('user_data');
+        if(empty($userData)){
+            $this->cakeError('error404');
+            return;
+        }
+
+        $remindData = $this->Session->read('remind_data');
+        $this->Session->delete('remind_data');
+        if(empty($remindData)){
+            $this->cakeError('error404');
+            return;
+        }
+        
+        //会員情報更新
+        $request = array();
+        $request['User']['id'] = $userData['0']['User']['id'];
+        $request['User']['password'] = AuthComponent::password($remindData['User']['new_password']);
+        $request['User']['uid'] = $this->_getUid();
+        try {
+           if( $this->User->save($request)){
+              $this->Session->setFlash(__('パスワード再設定完了。', true));
+           } else {
+              $this->Session->setFlash(__('パスワード再設定失敗。', true));
+              $this->redirect('/');
+              return;
+           }
+        } catch(Exception $e) {
+              $this->Session->setFlash(__('システムエラー。', true));
+              $this->redirect('/');
+              return;
+        }
     }
     
     /**
