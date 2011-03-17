@@ -78,10 +78,9 @@ $config['Diary'] = array(
 );
 
 $config['Child'] = array(
-    'icon_path' => 'common/icon_%s.gif'
-);
-
-$config['Color'] = array(
+        'icon_path' => 'common/icon_%s.gif',
+        'icon_on_path' => 'common/icon_%s_on.gif',
+        'icon_off_path' => 'common/icon_%s_off.gif',
         'child_tab_color' => array(
             0 => '#FFFA8E',
             1 => '#8EFF8E',

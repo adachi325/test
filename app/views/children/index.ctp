@@ -6,7 +6,12 @@ $i = 0;
 foreach ($childrenData as $child) {
     extract($child['Child']);
     echo '<span>';
-    echo $html->link($html->image(sprintf(Configure::read('Child.icon_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
+    if($child['Child']['id'] == $currentChild['Child']['id']){
+        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $child['Child']['iconId']));
+    }else{
+        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
+
+    }
     echo '</span> ';
     $i++;
 }
@@ -17,7 +22,7 @@ if (count($childrenData) < 3) {
 }?>
 </div>
 
-<?php echo '<div style="background-color:'.sprintf(Configure::read('Color.child_tab_color.'.$currentChild['Child']['iconId'])).'">' ?>
+<?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$currentChild['Child']['iconId'])).'">' ?>
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
 <div>誕生日：
 <?php echo h($currentChild['Child']['birth_year']); ?>年 
