@@ -9,14 +9,16 @@ class AppModel extends LazyModel {
 		'AutoTransaction',
 	);
 
-        function checkIDPassword($data) {
-                $check = is_array($data) ? array_shift($data) : $data;
-                if (preg_match('/[^\\dA-Z]/i',$check)) {
-                        return false;
-                } else {
-                        return true;
-                }
-        }
+	//cent OS 対策
+	function checkIDPassword($data) {
+		
+		$check = is_array($data) ? array_shift($data) : $data;
+		if (preg_match('/[^\\dA-Z]/i',$check)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }
 

@@ -29,7 +29,7 @@ class User extends AppModel {
                             'message' => '文字数が多すぎます。',
 			),
 			array(
-                            'rule' => 'alphaNumeric',
+                            'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください。',
 			),
 		),
@@ -40,7 +40,7 @@ class User extends AppModel {
                             'message' => '必須項目です。',
 			),
 			array(
-                            'rule' => 'alphaNumeric',
+                            'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください。',
 			),
 		),
@@ -51,7 +51,7 @@ class User extends AppModel {
                             'message' => '必須項目です。',
 			),
 			array(
-                            'rule' => 'alphaNumeric',
+                            'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください。',
 			),
 		),
@@ -62,7 +62,7 @@ class User extends AppModel {
                             'message' => '必須項目です。',
 			),
 			array(
-                            'rule' => 'alphaNumeric',
+                            'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください。',
 			),
 		),

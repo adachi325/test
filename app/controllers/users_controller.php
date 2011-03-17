@@ -16,6 +16,10 @@ class UsersController extends AppController {
 
     function beforeRender() {
         parent::beforeRender();
+
+        $this->Auth->loginError = 'パスワードが違います。';
+        $this->Auth->authError =  'ログインしてください';
+        $this->User->recursive = 0;
     }
 
     function login(){
@@ -23,9 +27,6 @@ class UsersController extends AppController {
         if($this->Auth->user()) {
             $this->redirect($this->Auth->redirect());
         }
-        $this->Auth->loginError = 'パスワードが違います。';
-        $this->Auth->authError =  'ログインしてください';
-        $this->User->recursive = 0;
     }
 
     //明示的にログアウト(基本ログアウトは不可能)

@@ -74,6 +74,8 @@ class EasyLoginComponent extends Object {
             if($this->controller->Auth->user()) {
                 //ユーザー情報設定
                 $this->_setUserData();
+                //ログイン成功時にuid更新
+                $this->_saveUid($this->controller->Session->read('Auth.User.id'));
                 return;
             }
 
@@ -104,7 +106,7 @@ class EasyLoginComponent extends Object {
                 $User = ClassRegistry::init('User');
                 $request = array();
                 $request['User']['id'] = $selectId;
-                $request['User']['uid'] = $User->_getUid();
+                $request['User']['uid'] = $this->_getUid();
                 if($User->save($request)){
                     return true;
                 }
