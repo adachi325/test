@@ -16,15 +16,16 @@ if (count($childrenData) < 3) {
     echo '</span> ';
 }?>
 </div>
-<div id="child_data">
 
+<?php echo '<div style="background-color:'.sprintf(Configure::read('Color.child_tab_color.'.$currentChild['Child']['iconId'])).'">' ?>
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
 <div>誕生日：
 <?php echo h($currentChild['Child']['birth_year']); ?>年 
 <?php echo h($currentChild['Child']['birth_month']); ?>月
 </div>
 <div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
-</div>
+<?php echo '</div>' ?>
+
 <br>
 <div>
     <div>
@@ -112,13 +113,13 @@ while($i < 4) {
     <table>
         <tr>
             <td>
-<?php foreach($months as $month): ?>
-    <?php foreach($month['Present'] as $present): ?>
-        <?php if($present['present_type'] == 3)
-            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '55px'));
-        ?>
-    <?php endforeach; ?>
-<?php endforeach; ?>
+            <?php foreach($months as $month): ?>
+                <?php foreach($month['Present'] as $present): ?>
+                    <?php if($present['present_type'] == 3)
+                        echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                    ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
             </td>
             <td>
                 思い出を残すと待受けやポストカードテンプレート等がもらえるよ!!
