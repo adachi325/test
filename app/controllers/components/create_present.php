@@ -13,8 +13,8 @@ class CreatePresentComponent extends Object {
         // アサイン用変数の設定
         $assign = array(
             // 差し込み文字列
-            'name' => '思い出はおもいで～（仮）',
-            'max' => '3',
+            //'name' => '思い出はおもいで～（仮）',
+            //'max' => '3',
             //'txt_01' => '水中を優雅に泳ぐ熱帯魚',
             //'txt_02' => '海を眺める2羽の鳥達',
             //'txt_03' => 'ご飯をねだる猫',

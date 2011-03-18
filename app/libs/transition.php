@@ -199,6 +199,7 @@ class TransitionComponent extends Object {
  */
 	function automate($nextStep, $models = null, $prev = null, $validationMethod = null, $messages = array()) {
 		$c =& $this->_controller;
+
 		$messages = array_merge($this->messages, $messages);
 
 		if ($prev !== null) {

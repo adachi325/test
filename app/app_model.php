@@ -20,5 +20,14 @@ class AppModel extends LazyModel {
 		}
 	}
 
+	//rowパスワードチェック
+	function checkRowPassword() {
+		if ($this->data['User']['new_password'] !== $this->data['User']['row_password']) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 }
 

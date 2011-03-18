@@ -46,11 +46,9 @@ if (count($childrenData) < 3) {
     <?php endforeach; ?>
     </div>
 </div>
+<br>
 <div>
-    <br><br>
-    <?php echo $html->link(__('子供設定', true), array('action' => 'edit')); ?>
-    <br>
-    <?php echo $html->link(__('子供削除', true), array('action' => 'delete')); ?>
+    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
 </div>
 <div>
     <?php echo $html->link('会員情報変更', '/users/edit' ,array('escape' => false));?>

@@ -1,6 +1,4 @@
 <div>
-<?php echo $form->create('Child', array('action' => 'delete'));?>
-
 セーブデータが消えました。<br><br>
-<?php echo $html->link(__('マイページTOP', true), array('action' => 'index'));?>
+<?php echo $html->link(__('マイページへ', true), array('action' => 'index'));?>
 </div>

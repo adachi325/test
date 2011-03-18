@@ -39,10 +39,17 @@ class ChildrenController extends AppController {
         //ライン情報取得
         $lines = $this->Child->Line->find('list');
 
-        //日記データ取得
-        $this->Child->Diary->contain();
-        $diaries = $this->Child->Diary->find('all', array('conditions'=>array('child_id' => $this->_getLastChild())));
-        $this->set(compact('diaries'));
+        if(!empty($months)){
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.month_id' => $months['0']['month']['id']
+                )
+            );
+            //表示データ一覧取得
+            $diary =& ClassRegistry::init('diary');
+            $diaries = $diary->find('all', $conditions);
+        }
 
         //ニュース取得
         $news =& ClassRegistry::init('news');
@@ -145,6 +152,8 @@ class ChildrenController extends AppController {
             try {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
+                    //最終子供IDを更新
+                    $this->_saveLastChild($this->Child->getLastInsertId());
                     TransactionManager::commit();
                     $this->Session->setFlash(__('子供登録完了。', true));
                 } else {
@@ -191,8 +200,14 @@ class ChildrenController extends AppController {
         if (empty($this->data)) {
             //最終子供ID設定
             $lastChildId = $this->_getLastChild();
+
             //子供情報取得
             $this->data = $this->Child->read(null, $lastChildId);
+
+            if(empty($this->data)){
+                $this->cakeError('error404');
+            }
+
             $lines = $this->Child->Line->find('list');
         }
         
@@ -250,16 +265,18 @@ class ChildrenController extends AppController {
              $this->redirect('/children/');
         }
     }
+
+    function edit_menu(){
+        //子供数取得（リンク表示有無情報）
+        $userData = $this->Auth->user();
+        $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
+        $this->set(compact('childData'));
+    }
     
     function delete() {
 
         if(!empty($this->data)){
-            //削除実行
-            //bigbarnDEHEHE();
-            //最古子供IDで最新子供IDを更新
-            //OLD!OLD!OLD!
-            //完了ページへリダイレクト！
-            pr('わちょい！');
+            $this->Session->write('check',$this->data);
             $this->redirect('/children/delete_complete');
         }
 
@@ -280,7 +297,72 @@ class ChildrenController extends AppController {
         $this->data = $this->Child->read(null, $lastChildId);
     }
 
-    function delete_complete(){ 
+    function delete_complete(){
+        $check = $this->Session->read('check');
+        $this->Session->delete('check');
+        if(empty($check)){
+            $this->cakeError('error404');
+            return;
+        }
+
+        //子供データ存在確認
+        $conditions = array();
+        $userData = $this->Auth->user();
+        $conditions['Child.id'] = $check['Child']['check'];
+        $conditions['Child.user_id'] = $userData['User']['id'];
+        
+        $this->Child->contain('Diary','ChildPresent');
+        $childData = $this->Child->find('first', array('conditions' => $conditions));
+
+        if(empty($childData)){
+            $this->cakeError('error404');
+            return;
+        }
+
+        //削除用の配列作成
+        $deleteCondition = array("id" => $childData['Child']['id']);
+        //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
+        TransactionManager::begin();
+        try {
+            $this->Child->contain('Diary','ChildPresent');
+            if ($this->Child->deleteAll($deleteCondition)) {
+                TransactionManager::commit();
+                $this->Session->setFlash(__('削除完了。', true));
+            } else {
+                TransactionManager::rollback();
+                $this->Session->setFlash(__('削除失敗。', true));
+            }
+        } catch(Exception $e) {
+          TransactionManager::rollback();
+          $this->Session->setFlash(__('システムエラー。', true));
+          $this->redirect('/children/');
+        }
+
+        //思い出に紐付く画像を削除
+        foreach($childData['Diary'] as $diary) {
+            if($diary['has_image']) {
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $childData['Child']['id'],$diary['id']) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+            }
+        }
+
+        //最終子供IDを更新
+        $childrenData = $this->_setChild();
+        if (!empty($childrenData)){
+            $updateId = $childrenData['0']['Child']['id'];
+            $this->_saveLastChild($updateId);
+        } else {
+            $updateId = -1;
+            $this->_saveLastChild($updateId);
+        }
+
     }
 }
 ?>
