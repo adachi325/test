@@ -272,6 +272,9 @@ class ChildrenController extends AppController {
         $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
         $this->set(compact('childData'));
     }
+
+    function user_menu(){
+    }
     
     function delete() {
 
