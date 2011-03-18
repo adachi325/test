@@ -6,7 +6,12 @@ $i = 0;
 foreach ($childrenData as $child) {
     extract($child['Child']);
     echo '<span>';
-    echo $html->link($html->image(sprintf(Configure::read('Child.icon_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
+    if($child['Child']['id'] == $currentChild['Child']['id']){
+        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $child['Child']['iconId']));
+    }else{
+        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
+
+    }
     echo '</span> ';
     $i++;
 }
@@ -16,15 +21,16 @@ if (count($childrenData) < 3) {
     echo '</span> ';
 }?>
 </div>
-<div id="child_data">
 
+<?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$currentChild['Child']['iconId'])).'">' ?>
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
 <div>誕生日：
 <?php echo h($currentChild['Child']['birth_year']); ?>年 
 <?php echo h($currentChild['Child']['birth_month']); ?>月
 </div>
 <div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
-</div>
+<?php echo '</div>' ?>
+
 <br>
 <div>
     <div>
@@ -112,13 +118,13 @@ while($i < 4) {
     <table>
         <tr>
             <td>
-<?php foreach($months as $month): ?>
-    <?php foreach($month['Present'] as $present): ?>
-        <?php if($present['present_type'] == 3)
-            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '55px'));
-        ?>
-    <?php endforeach; ?>
-<?php endforeach; ?>
+            <?php foreach($months as $month): ?>
+                <?php foreach($month['Present'] as $present): ?>
+                    <?php if($present['present_type'] == 3)
+                        echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                    ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
             </td>
             <td>
                 思い出を残すと待受けやポストカードテンプレート等がもらえるよ!!

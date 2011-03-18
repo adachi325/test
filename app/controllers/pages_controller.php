@@ -30,7 +30,7 @@ class PagesController extends AppController {
             //それ以外はトップページを表示する
             $this->render('/pages/top/');
 	}
-        
+
         /**
 	 * 端末からuidを取得する。
 	 */
@@ -62,6 +62,15 @@ class PagesController extends AppController {
             } else {
                 return 5;
             }
-        }
+		}
+
+
+	function android_top() { } 
+	function charges() { } 
+	function contact() { } 
+	function help() { } 
+	function list_models() { } 
+	function maintenance() { } 
+	function rules() { } 
 }
 ?>
