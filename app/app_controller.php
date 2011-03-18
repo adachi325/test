@@ -81,7 +81,7 @@ class AppController extends Controller {
 		'use_xml' => false,
 	);
 
-        public $selectedChildId = null;//選択中こどもID
+	public $selectedChildId = null;//選択中こどもID
         
 	function beforeFilter(){
             parent::beforeFilter();

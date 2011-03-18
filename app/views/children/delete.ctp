@@ -4,7 +4,7 @@
 
 ニックネーム<br>
 <?php echo $this->data['Child']['nickname']; ?><br><br>
-<?php echo $form->hidden('check', array('value'=>'1')); ?>
+<?php echo $form->hidden('check', array('value'=> $this->data['Child']['id'])); ?>
 <?php echo $form->end('削除');?>
 
 <?php echo $form->create('Child', array('action' => 'index'));?>
