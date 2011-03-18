@@ -51,9 +51,8 @@ if (count($childrenData) < 3) {
     <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
 </div>
 <div>
-    <?php echo $html->link('会員情報変更', '/users/edit' ,array('escape' => false));?>
+    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
 </div>
-
 <br>
 
 <h3>最新の思い出記録</h3>

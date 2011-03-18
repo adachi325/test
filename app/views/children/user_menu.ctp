@@ -1,7 +1,8 @@
 <div>
-<?php if(count($childData) < 3){echo $html->link(__('ユーザー情報を変更する', true), array('action' => 'register'));}?>
+    <?php echo $html->link('会員情報変更', '/users/edit' ,array('escape' => false));?>
 </div>
+<br>
 <div>
-<?php if(count($childData) > 0){echo $html->link(__('退会する', true), array('action' => 'edit'));}?>
+    <?php echo $ktai->emoji(0x641); ?><?php echo $html->link('退会する', '/users/delete' ,array('escape' => false));?>
 </div>
 
