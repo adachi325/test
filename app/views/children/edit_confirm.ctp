@@ -6,8 +6,8 @@
 <?php echo $this->data['Child']['nickname']; ?><br><br>
 
 性別<br>
-<?php 
-if($this->data['Child']['sex'] == 0){
+<?php
+if($this->data['Child']['sex'] == 1) {
     echo '女';
 } else {
     echo '男';

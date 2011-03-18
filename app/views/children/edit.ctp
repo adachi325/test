@@ -6,13 +6,32 @@
     <span>お子様の性別</span>
 </div>
 <div>
-    
-<?php
-//pr($this->data);
-
-echo $form->radio('Child.sex', array('1' => '男', '2' => '女'), array('legend' => false)); ?>
-<?php echo $form->error('Child.sex','必須項目です。'); ?>
-</div>
+<table>
+<tr>
+<?php if(empty($this->data['Child']['sex'])){?>
+    <td>
+    <?php echo $form->radio('sex', array('1' => ''), array('legend' => false,'value' => 'none')); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('sex', array('2' => ''), array('legend' => false,'value' => 'none')); ?>男の子
+    </td>
+<?php } else if($this->data['Child']['sex'] == 1) {?>
+    <td>
+    <?php echo $form->radio('sex', array('1' => ''), array('legend' => false,'value' => '1')); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('sex', array('2' => ''), array('legend' => false )); ?>男の子
+    </td>
+<?php } else if($this->data['Child']['sex'] == 2) {?>
+    <td>
+    <?php echo $form->radio('sex', array('1' => ''), array('legend' => false)); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('sex', array('2' => ''), array('legend' => false, 'value' => '2' )); ?>男の子
+    </td>
+<?php }?>
+ </tr>
+</table>
 <div>
 	<span>お子様の生年月</span>
 	<?php echo $form->input('birth_year', array(

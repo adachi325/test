@@ -62,8 +62,14 @@ class UsersController extends AppController {
         $this->_setline();
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
+
+            $request = array();
+            $request = $this->data;
+            if(empty($request['Child'][0]['sex'])){
+                $request['Child'][0]['sex'] = null;
+            }
             TransactionManager::begin();
-            if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
+            if ($this->User->saveAll($request, array('validate'=>'only'))) {
                 //セッションにデータ保持
                 TransactionManager::rollback();
                 $this->Session->write('userRegisterData', $this->data);

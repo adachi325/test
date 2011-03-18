@@ -14,7 +14,7 @@
 
 性別<br>
 <?php
-if($this->data['Child']['0']['sex'] == 0) {
+if($this->data['Child']['0']['sex'] == 1) {
     echo '女';
 } else {
     echo '男';

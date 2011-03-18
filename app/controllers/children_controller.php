@@ -113,6 +113,9 @@ class ChildrenController extends AppController {
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
+            if(empty($request['Child']['sex'])){
+                $request['Child']['sex'] = null;
+            }
             $userData = $this->Auth->user();;
             $request['Child']['user_id'] = $userData['User']['id'];
             $this->data = $request;
