@@ -74,7 +74,7 @@ class AppController extends Controller {
 		'EasyLogin',
 		'CreatePresent',
 		'Secured.Ssl' => array(
-			'autoRedirect' => false,
+			'autoRedirect' => true,
 			'secured' => array(
 				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
 				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
@@ -108,6 +108,7 @@ class AppController extends Controller {
             parent::beforeFilter();
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
+				$this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
             }
 	}
