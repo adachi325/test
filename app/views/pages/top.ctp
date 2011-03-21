@@ -1,4 +1,5 @@
 <h2>TOPページ</h2>
+<?php if($ktai->is_ktai()){ ?>
 <div>
 	<?php echo $html->link('さらに詳しく見る', "/navigations/prev/1",array('escape' => false));?>
 </div>
@@ -11,6 +12,7 @@
 	<?php echo $html->link('今すぐ会員登録(無料)', "/navigations/prev/2",array('escape' => false));?>
 </div>
 <br>
+<?php } ?>
 <div>
     <div>
         <h3>サイトのお知らせ</h3>
