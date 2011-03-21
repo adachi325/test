@@ -7,20 +7,23 @@ class NavigationsController extends AppController {
 
         function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow('prev','rule');
+            $this->Auth->allow('prev','rule','register');
 	}
 
         //登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
+
+            $previd = $this->Session->read('previd');
+            $this->Session->delete('previd');
+            if (!empty($previd)){
+                $id = $previd;
+            }
+
             if(empty($id) or $id < 1 or $id > 2){
                 $this->cakeError('error404');
                 return;
             }
             $this->render('prev'.$id);
-        }
-
-        function rule(){
-            
         }
 
 	function after1() {
@@ -84,6 +87,18 @@ class NavigationsController extends AppController {
             $user =& ClassRegistry::init('User');
             $user->contain();
             return $user->read(null,$userAuthData['User']['id']);
+        }
+
+        function register(){
+
+            //同意しているかチェック
+            if(empty($this->data) or
+               $this->data['navigations']['agree'] == 0){
+                $this->Session->setFlash(__('利用規約に同意してください。', true));
+                $this->Session->write('previd' , '2');
+                $this->redirect('/navigations/prev');
+            }
+            $this->redirect('/users/register');
         }
 }
 ?>
