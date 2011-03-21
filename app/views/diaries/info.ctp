@@ -13,10 +13,12 @@
         </span>
     </div>
     <br>
+    <?php if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != ''){ ?>
     <div>
         <span><?php echo $diary['Diary']['title'] ?></span>
     </div>
     <br>
+    <?php } ?>
     <?php if ($diary['Diary']['has_image']) {  ?>
     <div>
         <span>

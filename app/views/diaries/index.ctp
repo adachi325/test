@@ -58,7 +58,11 @@ foreach($diaries as $diary):
             </td>
             <td>
         <?php
-            echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
+            if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != ''){
+                echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
+            } else {
+                echo $this->Html->link('無題', '/diaries/info/'.$diary['Diary']['id']);
+            }
         ?>
             </td>
         </tr>
