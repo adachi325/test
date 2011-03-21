@@ -1,13 +1,15 @@
 <h2>TOPページ</h2>
-
 <div>
-	<?php echo $html->link('会員ログイン', "/users/login/",array('escape' => false));?>
+	<?php echo $html->link('さらに詳しく見る', "/navigations/prev/1",array('escape' => false));?>
 </div>
 <br>
 <div>
-	<?php echo $html->link('新規会員登録', "/users/register/",array('escape' => false));?>
+    <h5>すでに会員の方は<?php echo $html->link('こちら', "/users/login/",array('escape' => false));?></h5>
 </div>
 <br>
+<div>
+	<?php echo $html->link('今すぐ会員登録(無料)', "/navigations/rule",array('escape' => false));?>
+</div>
 <br>
 <div>
     <span>お子様の思い出</span><br>
