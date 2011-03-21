@@ -1,16 +1,18 @@
 <h2>子どものページ</h2>
+<?php if(count($childrenData) > 0) { ?>
 <div id="tab">
 <?php
 // 配列の値を改行しながらすべて出力
 $i = 0;
+$tabColId=0;
 foreach ($childrenData as $child) {
     extract($child['Child']);
     echo '<span>';
     if($child['Child']['id'] == $currentChild['Child']['id']){
-        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $child['Child']['iconId']));
+        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $i));
+        $tabColId = $i;
     }else{
-        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $child['Child']['iconId'])), "/children/index/".$i, array('escape' => false));
-
+        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $i)), "/children/index/".$i, array('escape' => false));
     }
     echo '</span> ';
     $i++;
@@ -21,8 +23,7 @@ if (count($childrenData) < 3) {
     echo '</span> ';
 }?>
 </div>
-
-<?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$currentChild['Child']['iconId'])).'">' ?>
+<?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
 <div>誕生日：
 <?php echo h($currentChild['Child']['birth_year']); ?>年 
@@ -45,13 +46,6 @@ if (count($childrenData) < 3) {
         ?>
     <?php endforeach; ?>
     </div>
-</div>
-<br>
-<div>
-    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
-</div>
-<div>
-    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
 </div>
 <br>
 
@@ -156,4 +150,22 @@ while($i < 4) {
 </ul>
 <?php echo $this->Html->link('先月までの教材を全部見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
 </div>
-
+<br><hr><br>
+<div><span><?php echo $this->Session->read('Auth.User.loginid');  ?>さんの設定</span></div>
+<div>
+    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
+</div>
+<div>
+    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
+</div>
+<?php }  else { ?>
+<div>子供情報を登録してください。</div>
+<br><hr><br>
+<div><span><?php echo $this->Session->read('Auth.User.loginid'); ?>さんの設定</span></div>
+<div>
+    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
+</div>
+<div>
+    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
+</div>
+<?php } ?>

@@ -57,33 +57,6 @@
 ?>
 </div>
 <div>
-アイコン選択<br>
-<table>
-<tr>
-<?php
-for ($i =0; $i < 6 ; $i++){
-    echo '<td>';
-    if(empty($this->data)){
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false,'value' => 'none') ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-    } else {
-        if($this->data['Child']['0']['iconId'] == $i){
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false,'value' => $i) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        } else {
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        }
-    }
-    echo '</td>';
-    if($i == 2){
-        echo '</tr>';
-        echo '<tr>';
-    }
-}
-?>
-</tr>
-</table>
-</div>
-<div><?php echo $form->error('Child.0.iconId','必須項目です。'); ?></div>
-<div>
 <?php echo $form->checkbox('Child.0.benesse_user'); ?>こどもちゃれんじ
 </div>
 <?php echo $form->input('dc_user', array('label' => 'ドコモコミュニティ')); ?>

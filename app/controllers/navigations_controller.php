@@ -7,21 +7,23 @@ class NavigationsController extends AppController {
 
         function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow('prev');
+            $this->Auth->allow('prev','rule');
 	}
 
         //登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
-            if(empty($id) or $id < 1 or $id > 6){
+            if(empty($id) or $id < 1 or $id > 2){
                 $this->cakeError('error404');
                 return;
             }
             $this->render('prev'.$id);
         }
-        
-	function after1() { }
 
-	function after2() {
+        function rule(){
+            
+        }
+
+	function after1() {
 
             //今月の自由テーマＩＤを取得
             $options = array();
@@ -47,7 +49,7 @@ class NavigationsController extends AppController {
 
         }
 
-	function after3($hash = null) {
+	function after2($hash = null) {
 
             if(!empty($hush)){
                 $this->cakeError('error404');
@@ -68,31 +70,13 @@ class NavigationsController extends AppController {
             $this->set('nexthash',$hash);
 
             if(empty($diaries)){
-                $this->render('after3_unknown');
-            }
-            
-        }
-
-	function after4($hash = null) {
-            if(!empty($hush)){
-                $this->cakeError('error404');
-                return;
+                $this->render('after2_unknown');
             }
 
-            //会員情報取得
-            $userdata = $this->getUserData();
-            
-            $options = array();
-            $options['hash'] = $hash;
-            $options['child_id'] = $userdata['User']['last_selected_child'];
-            $diary =& ClassRegistry::init('Diary');
-            $diary->contain();
-            $diaries = $diary->find('first',array('conditions' => $options));
-
+            //日記情報を設定
             $this->set(compact('diaries'));
+            
         }
-        
-	function after5() { }
 
         function getUserData(){
             //会員情報取得
