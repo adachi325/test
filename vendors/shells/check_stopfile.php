@@ -6,7 +6,7 @@ class CheckStopfileShell extends AppShell {
 	
 	function main() {
 		if (!$this->_stopfileExists()) {
-			echo "no stopfile exists.\n";
+//			echo "no stopfile exists.\n";
 			return;
 		}
 		
@@ -14,15 +14,12 @@ class CheckStopfileShell extends AppShell {
 		
 		if ($pid === null
 				|| $this->_isRunningPid($pid) === true) {
-			echo "pid is running.($pid)\n";
+//			echo "pid is running.($pid)\n";
 			return;
 		}
 		
 		$this->_removeStopfile();
 		echo "\nstopfile was removed.\n";
-		
-//		ClassRegistry::init('ReceiveMail')->main();
-//		$receiveMail->main();
 	}
 	
 	function _stopfileExists() {
