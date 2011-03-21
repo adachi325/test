@@ -4,7 +4,7 @@
    しばらくたってから下の「再チェック」ボタンを押してください。
 </p>
 <br>
-<?php echo $this->Html->link('再チェック', '/navigations/after3/'.$nexthash); ?>
+<?php echo $this->Html->link('再チェック', '/navigations/after2/'.$nexthash); ?>
 <br><br>
-<?php echo $this->Html->link('マイページへ行く', '/children/'); ?>
+<?php echo $this->Html->link('ﾄｯﾌﾟﾍﾟｰｼﾞへ', '/children/'); ?>
 </div>

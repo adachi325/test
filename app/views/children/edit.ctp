@@ -48,34 +48,6 @@
 
 <?php echo $form->input('line_id', array($lines,'label' => 'お子様の年齢')) ?>
 
-<div>
-アイコン選択<br>
-<table>
-<tr>
-<?php
-for ($i =0; $i < 6 ; $i++){
-    echo '<td>';
-    if(empty($this->data)){
-            echo $form->radio( 'iconId', array( $i=>'' ) ,array('legend' => false,'value' => 'none') ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-    } else {
-        if($this->data['Child']['iconId'] == $i){
-            echo $form->radio( 'iconId', array( $i=>'' ) ,array('legend' => false,'value' => $i) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        } else {
-            echo $form->radio( 'iconId', array( $i=>'' ) ,array('legend' => false) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        }
-    }
-    echo '</td>';
-    if($i == 2){
-        echo '</tr>';
-        echo '<tr>';
-    }
-}
-?>
-</tr>
-</table>
-<?php echo $form->error('iconId','必須項目です。'); ?>
-</div>
-
 <?php echo $form->input('benesse_user');?>
 <?php echo $form->end('確認画面へ');?>
 </div>

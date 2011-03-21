@@ -27,9 +27,6 @@ if($this->data['Child']['0']['sex'] == 1) {
 年齢<br>
 <?php echo $lines[$this->data['Child']['0']['line_id']]; ?><br><br>
 
-アイコン<br>
-<?php echo $html->image(sprintf(Configure::read('Child.icon_path'), $this->data['Child']['0']['iconId'])); ?><br><br>
-
 こどもちゃれんじ<br>
 <?php
 if($this->data['Child']['0']['benesse_user'] == 1){

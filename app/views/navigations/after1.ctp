@@ -1,8 +1,18 @@
 <div>
-<h2>登録ありがつお</h2>
+    <h3>登録ありがつお！</h2>
 </div>
 <div>
-<?php echo $form->create('navigation', array('action' => 'after2')); ?>
-<?php echo $form->submit('さっそく、試してみよう♪'); ?>
-<?php echo $form->end(); ?>
+◆まずは投稿してみよう！
+</div>
+<br>
+<div>
+    <?php echo $html->link("投稿する", "mailto:".$mailStr); ?>
+</div>
+<br>
+<div>
+    <?php echo $this->Html->link('今は投稿しないで、マイページに進む', '/children/'); ?>
+</div>
+<br>
+<div>
+    <?php echo $this->Html->link('投稿したよ', '/navigations/after2/'.$nexthash); ?>
 </div>

@@ -7,21 +7,26 @@ class NavigationsController extends AppController {
 
         function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow('prev');
+            $this->Auth->allow('prev','rule','register');
 	}
 
         //登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
-            if(empty($id) or $id < 1 or $id > 6){
+
+            $previd = $this->Session->read('previd');
+            $this->Session->delete('previd');
+            if (!empty($previd)){
+                $id = $previd;
+            }
+
+            if(empty($id) or $id < 1 or $id > 2){
                 $this->cakeError('error404');
                 return;
             }
             $this->render('prev'.$id);
         }
-        
-	function after1() { }
 
-	function after2() {
+	function after1() {
 
             //今月の自由テーマＩＤを取得
             $options = array();
@@ -47,7 +52,7 @@ class NavigationsController extends AppController {
 
         }
 
-	function after3($hash = null) {
+	function after2($hash = null) {
 
             if(!empty($hush)){
                 $this->cakeError('error404');
@@ -68,31 +73,13 @@ class NavigationsController extends AppController {
             $this->set('nexthash',$hash);
 
             if(empty($diaries)){
-                $this->render('after3_unknown');
-            }
-            
-        }
-
-	function after4($hash = null) {
-            if(!empty($hush)){
-                $this->cakeError('error404');
-                return;
+                $this->render('after2_unknown');
             }
 
-            //会員情報取得
-            $userdata = $this->getUserData();
-            
-            $options = array();
-            $options['hash'] = $hash;
-            $options['child_id'] = $userdata['User']['last_selected_child'];
-            $diary =& ClassRegistry::init('Diary');
-            $diary->contain();
-            $diaries = $diary->find('first',array('conditions' => $options));
-
+            //日記情報を設定
             $this->set(compact('diaries'));
+            
         }
-        
-	function after5() { }
 
         function getUserData(){
             //会員情報取得
@@ -100,6 +87,18 @@ class NavigationsController extends AppController {
             $user =& ClassRegistry::init('User');
             $user->contain();
             return $user->read(null,$userAuthData['User']['id']);
+        }
+
+        function register(){
+
+            //同意しているかチェック
+            if(empty($this->data) or
+               $this->data['navigations']['agree'] == 0){
+                $this->Session->setFlash(__('利用規約に同意してください。', true));
+                $this->Session->write('previd' , '2');
+                $this->redirect('/navigations/prev');
+            }
+            $this->redirect('/users/register');
         }
 }
 ?>

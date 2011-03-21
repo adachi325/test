@@ -39,27 +39,39 @@ while($i < 4) {
     </p>
 </div>
 <br>
+<table>
 <?php
 $d = 0;$i = 0;$s = 0;
 if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 0; }
 foreach($diaries as $diary):
     $s++;
     if($s > $d && $i < 5) { ?>
-        <div style='vertical-align:top;'>
+        <tr>
+            <td>
         <?php
             if ($diary['Diary']['has_image']) {
                 echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '40px', 'height' => '40px'));
             } else {
                 echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
             }
-            echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
         ?>
-        </div>
+            </td>
+            <td>
+        <?php
+            if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != ''){
+                echo $this->Html->link($diary['Diary']['title'], '/diaries/info/'.$diary['Diary']['id']);
+            } else {
+                echo $this->Html->link('無題', '/diaries/info/'.$diary['Diary']['id']);
+            }
+        ?>
+            </td>
+        </tr>
     <?php
     $i ++;
     }
 endforeach;
 ?>
+</table>
 <br>
 <div>
 <?php 
