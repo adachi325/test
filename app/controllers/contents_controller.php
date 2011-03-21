@@ -10,7 +10,8 @@ class ContentsController extends AppController {
 		parent::beforeFilter();
 	}
 
-	function index() {
+	function index($line = null) {
+
 		extract($this->params);
 
 		$title = 'baby/ぷちファースト教材';

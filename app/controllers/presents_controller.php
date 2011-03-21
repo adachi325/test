@@ -5,9 +5,9 @@ class PresentsController extends AppController {
 
 	var $components = array('Qdmail');
 
-	function index() {
-		$month = $this->Present->find('month');
-		$this->set(compact('month'));
+	function index($year = null, $month = null) {
+		$presents = $this->Present->find('month');
+		$this->set(compact('presents', 'year', 'month'));
 	}
 
 	function present_list($type = null) {
