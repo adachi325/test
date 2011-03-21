@@ -150,14 +150,22 @@ while($i < 4) {
 </ul>
 <?php echo $this->Html->link('先月までの教材を全部見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
 </div>
-
-<?php }  else { ?>
-<div>子供情報を登録してください。</div>
-<?php } ?>
 <br><hr><br>
+<div><span><?php echo $this->Session->read('Auth.User.loginid');  ?>さんの設定</span></div>
 <div>
     <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
 </div>
 <div>
     <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
 </div>
+<?php }  else { ?>
+<div>子供情報を登録してください。</div>
+<br><hr><br>
+<div><span><?php echo $this->Session->read('Auth.User.loginid'); ?>さんの設定</span></div>
+<div>
+    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
+</div>
+<div>
+    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
+</div>
+<?php } ?>
