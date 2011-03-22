@@ -21,9 +21,13 @@
     </div>
     <br>
     <div>
-        <?php echo $this->Html->link('削除', '/diaries/delete_complete/'.$this->data['Diary']['id']); ?>
+        <?php echo $form->create('Diary', array('action' => 'delete_complete'));?>
+        <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
+        <?php echo $form->end('削除');?>
     </div>
     <div>
-        <?php echo $this->Html->link('取消', '/diaries/info/'.$this->data['Diary']['id']); ?>
+        <?php echo $form->create('Diary', array('action' => 'info'));?>
+        <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
+        <?php echo $form->end('取消');?>
     </div>
 </center>
