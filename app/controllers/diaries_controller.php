@@ -364,7 +364,7 @@ $list[1] = '
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<div align="center"><img src="cid:01"></div>
+<div align="center"><img src="cid:01" width="100" hight="100"></div>
 <div align="center">'.$diary['Diary']['body'].'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
