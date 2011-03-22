@@ -29,11 +29,11 @@ if (!isset($type_name)) {
 <ul>
 <li>
 <?php echo $this->Html->image('/files/member_flash/lunch/200906_lunch_thumb.jpg', array('alt' => '')); ?>
-<?php echo $this->Html->link('ランチゲット', '/files/lunch/200906_lunch.swf'); ?>
+<?php echo $this->Html->link('ランチゲット', '/files/member_flash/lunch/200906_lunch.swf'); ?>
 </li>
 <li>
 <?php echo $this->Html->image('/files/member_flash/memorygame/memory_thumb.jpg', array('alt' => '')); ?>
-<?php echo $this->Html->link('メモリーゲーム', '/files/memorygame/memory.swf'); ?>
+<?php echo $this->Html->link('メモリーゲーム', '/files/member_flash/memorygame/memory.swf'); ?>
 </li>
 </ul>
 
