@@ -215,11 +215,14 @@ class DiariesController extends AppController {
             $this->data = $diary;
     }
 
-    function delete_complete($id = null){
-            if(empty($id)){
+    function delete_complete(){
+            if(empty($this->data) or
+               empty($this->data['Diary']['check'])){
                  $this->Session->setFlash(__('不正操作です', true));
                  $this->redirect('/children/');
+
             }
+            $id = $this->data['Diary']['check'];
 
             $child_id = $this->_getLastChild();
 
