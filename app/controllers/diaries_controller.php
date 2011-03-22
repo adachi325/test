@@ -39,8 +39,9 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id']
-                )
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                ),
+                'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
             $diaries = $this->Diary->find('all', $conditions);
@@ -191,6 +192,76 @@ class DiariesController extends AppController {
              $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/children/');
         }
+    }
+
+    function delete($id = null){
+            if(empty($id)){
+                 $this->Session->setFlash(__('不正操作です', true));
+                 $this->redirect('/children/');
+            }
+            //データ取得
+            $this->Diary->contain('Month');
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.id' => $id
+                )
+            );
+            $diary = $this->Diary->find('first', $conditions);
+            if(empty($diary)){
+                 $this->Session->setFlash(__('エラー', true));
+                 $this->redirect('/children/');
+            }
+            $this->data = $diary;
+    }
+
+    function delete_complete($id = null){
+            if(empty($id)){
+                 $this->Session->setFlash(__('不正操作です', true));
+                 $this->redirect('/children/');
+            }
+
+            $child_id = $this->_getLastChild();
+
+            $this->Diary->contain();
+            $diary = $this->Diary->find('first', array( 'conditions' => array( 'id = '.$id , 'child_id = '.$child_id)));
+
+            if(empty($diary)){
+                 $this->Session->setFlash(__('不正操作です。', true));
+                 $this->redirect('/children/');
+            }
+            //削除用の配列作成
+            $deleteCondition = array("id" => $id);
+            
+            //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
+            TransactionManager::begin();
+            try {
+                $this->Diary->contain();
+                if ($this->Diary->deleteAll($deleteCondition)) {
+                    TransactionManager::commit();
+                    $this->Session->setFlash(__('削除完了。', true));
+                } else {
+                    TransactionManager::rollback();
+                    $this->Session->setFlash(__('削除失敗。', true));
+                }
+            } catch(Exception $e) {
+              TransactionManager::rollback();
+              $this->Session->setFlash(__('システムエラー。', true));
+              $this->redirect('/children/');
+            }
+
+            if($diary['Diary']['has_image']) {
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $child_id, $id) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id) )){
+                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+            }
+
     }
 
     function info($id=null){

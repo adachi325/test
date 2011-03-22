@@ -12,12 +12,28 @@
 <div>
 <table>
 <tr>
-<td>
-<?php echo $form->radio('Child.0.sex', array('2' => '女の子'), array('legend' => false)); ?>
-</td>
-<td>
-<?php echo $form->radio('Child.0.sex', array('1' => '男の子'), array('legend' => false)); ?>
-</td>
+<?php if(empty($this->data['Child'][0]['sex'])){?>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => 'none')); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('2' => ''), array('legend' => false,'value' => 'none')); ?>男の子
+    </td>
+<?php } else if($this->data['Child'][0]['sex'] == 1) {?>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => '1')); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('2' => ''), array('legend' => false )); ?>男の子
+    </td>
+<?php } else if($this->data['Child'][0]['sex'] == 2) {?>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('1' => ''), array('legend' => false)); ?>女の子
+    </td>
+    <td>
+    <?php echo $form->radio('Child.0.sex', array('2' => ''), array('legend' => false, 'value' => '2' )); ?>男の子
+    </td>
+<?php }?>
  </tr>
 </table>
 <div><?php echo $form->error('Child.0.sex','必須項目です。'); ?></div>
@@ -40,33 +56,6 @@
     echo $form->error('Child.0.line_id');
 ?>
 </div>
-<div>
-アイコン選択<br>
-<table>
-<tr>
-<?php
-for ($i =0; $i < 6 ; $i++){
-    echo '<td>';
-    if(empty($this->data)){
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false,'value' => 'none') ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-    } else {
-        if($this->data['Child']['0']['iconId'] == $i){
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false,'value' => $i) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        } else {
-            echo $form->radio( 'Child.0.iconId', array( $i=>'' ) ,array('legend' => false) ); echo $html->image(sprintf(Configure::read('Child.icon_path'), $i));
-        }
-    }
-    echo '</td>';
-    if($i == 2){
-        echo '</tr>';
-        echo '<tr>';
-    }
-}
-?>
-</tr>
-</table>
-</div>
-<div><?php echo $form->error('Child.0.iconId','必須項目です。'); ?></div>
 <div>
 <?php echo $form->checkbox('Child.0.benesse_user'); ?>こどもちゃれんじ
 </div>

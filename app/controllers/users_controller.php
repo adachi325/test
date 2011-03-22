@@ -62,8 +62,14 @@ class UsersController extends AppController {
         $this->_setline();
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
+
+            $request = array();
+            $request = $this->data;
+            if(empty($request['Child'][0]['sex'])){
+                $request['Child'][0]['sex'] = null;
+            }
             TransactionManager::begin();
-            if ($this->User->saveAll($this->data, array('validate'=>'only'))) {
+            if ($this->User->saveAll($request, array('validate'=>'only'))) {
                 //セッションにデータ保持
                 TransactionManager::rollback();
                 $this->Session->write('userRegisterData', $this->data);
@@ -360,5 +366,99 @@ class UsersController extends AppController {
             return 5;
         }
     }
+
+    function delete(){
+        pr($this->data);
+        if(!empty($this->data['User']['check'])){
+            $this->Session->write('user_delete_check',$this->data);
+            $this->redirect('/users/delete_complete');
+        }
+        $userData = $this->Auth->user();
+        $user = $this->User->read(null, $userData['User']['id']);
+        if(empty($user)){
+            $this->cakeError('error404');
+            return;
+        }
+        
+    }
+
+    function delete_complete(){
+
+        //セッションチェック
+        $check = $this->Session->read('user_delete_check');
+        $this->Session->delete('user_delete_check');
+        if(empty($check)){
+            $this->cakeError('error404');
+            return;
+        }
+
+        //会員情報取得
+        $userData = $this->Auth->user();
+        $user = $this->User->read(null, $userData['User']['id']);
+
+        $Children =& ClassRegistry::init('Child');
+        foreach($user['Child'] as $child){
+
+            $Children->contain('Diary','ChildPresent');
+            $childData = $Children->read(null, $child['id']);
+
+            //削除用の配列作成
+            $deleteChildCondition = array("id" => $child['id']);
+            //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
+            TransactionManager::begin();
+            try {
+                $Children->contain('Diary','ChildPresent');
+                if ($Children->deleteAll($deleteChildCondition)) {
+                    //会員削除に進む
+                } else {
+                    TransactionManager::rollback();
+                    $this->Session->setFlash(__('退会に失敗しました。２', true));
+                    $this->redirect('/children/');
+                }
+            } catch(Exception $e) {
+              TransactionManager::rollback();
+              $this->Session->setFlash(__('システムエラー。', true));
+              $this->redirect('/children/');
+            }
+
+            
+            //思い出に紐付く画像を削除
+            foreach($childData['Diary'] as $diary) {
+                if($diary['has_image']) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $child['id'],$diary['id']) )){
+                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['id'],$diary['id']) )){
+                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['id'],$diary['id']) )){
+                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
+                }
+            }
+        }
+
+        //削除用の配列作成
+        $deleteUserCondition = array("id" => $userData['User']['id']);
+        try {
+            $this->User->contain();
+            if ($this->User->deleteAll($deleteUserCondition)) {
+                TransactionManager::commit();
+                $this->Session->setFlash(__('削除完了。', true));
+            } else {
+                TransactionManager::rollback();
+                $this->Session->setFlash(__('退会に失敗しました。１', true));
+                $this->redirect('/children/');
+            }
+        } catch(Exception $e) {
+          TransactionManager::rollback();
+          $this->Session->setFlash(__('システムエラー。', true));
+          $this->redirect('/children/');
+        }
+
+        //ログアウト
+        $this->Auth->logout();
+    }
+
 }
 ?>

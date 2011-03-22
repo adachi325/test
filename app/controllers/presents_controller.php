@@ -5,9 +5,17 @@ class PresentsController extends AppController {
 
 	var $components = array('Qdmail');
 
-	function index() {
-		$month = $this->Present->find('month');
-		$this->set(compact('month'));
+	function index($year = null, $month = null) {
+		$opt = array();
+		if ($year) {
+			$opt['year'] = $year;
+		}
+		if ($month) {
+			$opt['month'] = $month;
+		}
+		$presents = $this->Present->find('month', $opt);
+
+		$this->set(compact('presents', 'year', 'month'));
 	}
 
 	function present_list($type = null) {
@@ -43,24 +51,46 @@ class PresentsController extends AppController {
 				$this->render("present_list_{$type}");		
 			} else {
 				// 会員限定コンテンツ
+				$items = array(
+					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
+					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
+					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
+					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
+				);
+
+				$this->set(compact('items'));
+
 				$this->render("present_list_member");
 			}
 		}
 	}
 
 	function select($type = null, $template_id = null) {
-		pr($this->paginate);
-		pr($this->data);
-
 		$data = $this->data;
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
 
-			$this->Session->write("Present.{$page}.selection", $data['Present']);
+			$this->Session->write("Present.{$page}.selection", $data['select_photo']);
 
+			$selection = array();
 			if (isset($this->params['form']['create'])) {
-				$this->redirect("/presents/complete/{$type}/");
+				for($i = 1; $i < $pageCount + 1; $i++) {
+					$sel = $this->Session->read("Present.{$i}.selection");
+					foreach($sel as $key => $value) {
+						if ($value == 1) {
+							$selection[] = $key;
+						}
+					}
+				}
+				if (count($selection) == 4) {
+					$this->Session->write('Present.data', $data['Present']);
+					$this->Session->write('Present.data.selection', $selection);
+					$this->redirect("/presents/complete/{$type}/");
+				} else {
+					$this->Session->setFlash('選択数が不正です');
+					//$this->redirect('/presents/error_photo');
+				}
 			}
 			if (isset($this->params['form']['prev'])) {
 				$page--;
@@ -80,33 +110,39 @@ class PresentsController extends AppController {
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
 		
-		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
-		$items = $this->paginate('Diary');
+		$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
+		//$items = $this->paginate('Diary');
 		
 		$this->set(compact('items', 'data', 'type', 'template_id'));
 	}
 
 	function complete($type = null) {
+		$data = $this->Session->read('Present.data');
+
+		$child_id = $this->Session->read('Auth.User.last_selected_child');
+		$user_id = $this->Session->read('Auth.User.id');
+
 		$selected = array(
-			'diary_id' => array(1, 2, 3, 4),
-			'present_id' => 1,
-			'child_id' => 1,
+			'diary_id' => $data['selection'],
+			'present_id' => $data['template'],
+			'child_id' => $child_id,
 		);
 
-		
-
 		if ($type === "flash") {
-			$this->CreatePresent->createPostcard($selected);
+			$this->CreatePresent->createFlash($selected);
 			$this->render('complete_flash');
 		} else {
-			$this->CreatePresent->createFlash($selected);
+			$this->CreatePresent->createPostcard($selected);
 			$this->render('complete_postcard');
 		}
 
         //メールアドレス設定
-        $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
-        $this->set('mailStr',$mailStr);
+        $mailStr = 'diary_'.$user_id.'.'.$child_id.'.'.$id.'.'.$hash.'@shimajiro-dev.com';
 
+		$path = '';
+		$token = '';
+
+		$this->set(compact('mailStr', 'token', 'path'))
 	}
 
 	function error_present() {

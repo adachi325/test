@@ -12,13 +12,6 @@ class CreatePresentComponent extends Object {
 
         // アサイン用変数の設定
         $assign = array(
-            // 差し込み文字列
-            //'name' => '思い出はおもいで～（仮）',
-            //'max' => '3',
-            //'txt_01' => '水中を優雅に泳ぐ熱帯魚',
-            //'txt_02' => '海を眺める2羽の鳥達',
-            //'txt_03' => 'ご飯をねだる猫',
-
             // 差し込み画像
             'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][0]),
             'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][1]),

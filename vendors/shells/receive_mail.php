@@ -5,6 +5,9 @@ App::import('Vendor', 'QdmailReceiver');
 class ReceiveMailShell extends AppShell {
 	
 	function main() {
+		
+		$this->_saveMail();
+		
 		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
@@ -22,6 +25,18 @@ class ReceiveMailShell extends AppShell {
 		
 	}
 	
+	function _saveMail() {
+		$stdin = file_get_contents('php://stdin');
+		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
+		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
+		$fp = fopen($filepath, "w");
+		flock($fp, LOCK_EX);
+		fwrite($fp, $stdin, strlen($stdin));
+		flock($fp, LOCK_UN);
+		rewind($fp);
+		fclose($fp);
+	}
+	
 	function _stopfileExists() {
 		return file_exists(Configure::read('ReceiveMail.stopfile_path'));
 	}
@@ -34,19 +49,20 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
-		echo "stopfile was created.\n";
+//		echo "stopfile was created.\n";
 	}
 	
 	function _removeStopfile() {
 		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
 			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
-		echo "\nstopfile was removed.\n";
+//		echo "\nstopfile was removed.\n";
 	}
 	
 	function _execute() {
 		while (($filename = $this->_getOldestMail()) !== false) {
 			try {
+//		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
 				$this->_moveMail($filename, $is_error);
 			} catch(Exception $e) {
@@ -147,9 +163,6 @@ class ReceiveMailShell extends AppShell {
 	
 	function sendErrorMail($message) {
 		App::import('Component', 'Qdmail');
-		
-		echo "error mail send\n";
-		
 		$mail = new Qdmail();
 		$mail->to(Configure::read('Mail.to_addresses.error.address'), Configure::read('Mail.to_addresses.error.signature'));
 		$mail->from(Configure::read('Mail.from_addresses.admin.address'), Configure::read('Mail.from_addresses.admin.signature'));

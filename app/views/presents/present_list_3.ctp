@@ -5,7 +5,9 @@ if (!isset($type_name)) {
 ?>
 
 <div class="presents view">
-<h2><?php  __('Present');?></h2>
+<h2><?php  __('Present', true);?></h2>
+
+<?php if (count($items)): ?>
 
 <p><?php echo $type_name; ?>テンプレートを選んでください</p>
 
@@ -20,9 +22,12 @@ echo $this->Html->image($present_thumbnail_path, array('alt' => $type_name, 'url
 <?php endforeach; ?>
 </ul>
 
-<?php if (count($items)): ?>
-	<?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
-	<?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+<?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
+<?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+
+<?php else: ?>
+<p><?php echo $type_name; ?>は登録されていません</p>
 <?php endif; ?>
 
 </div>
+

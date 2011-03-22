@@ -6,8 +6,8 @@
 <?php echo $this->data['Child']['nickname']; ?><br><br>
 
 性別<br>
-<?php 
-if($this->data['Child']['sex'] == 0){
+<?php
+if($this->data['Child']['sex'] == 1) {
     echo '女';
 } else {
     echo '男';
@@ -19,9 +19,6 @@ if($this->data['Child']['sex'] == 0){
 
 年齢<br>
 <?php echo $lines[$this->data['Child']['line_id']]; ?><br><br>
-
-アイコン<br>
-<?php echo $html->image(sprintf(Configure::read('Child.icon_path'), $this->data['Child']['iconId'])); ?><br><br>
 
 こどもちゃれんじ<br>
 <?php

@@ -1,6 +1,5 @@
-<div>
-それでそれで？！
-</div>
-<div>
-    <?php echo $this->Html->link('次へ', '/navigations/prev/3'); ?>
-</div>
+<?php echo $form->create('navigations', array('action' => 'register')); ?>
+<?php echo $form->checkbox('agree'); ?>
+<?php echo $this->Html->link('利用規約', '/pages/rules'); ?>に激しく同意します。
+<?php echo $form->submit('登録'); ?>
+<?php echo $form->end(); ?>

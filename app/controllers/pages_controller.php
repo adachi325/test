@@ -27,6 +27,13 @@ class PagesController extends AppController {
                 $this->redirect('/children/');
             }
 
+            //ニュース取得
+            $news =& ClassRegistry::init('news');
+            $newslist = $news->find('all',array('conditions' =>
+            array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
+
+            $this->set(compact('newslist'));
+
             //それ以外はトップページを表示する
             $this->render('/pages/top/');
 	}
@@ -62,7 +69,7 @@ class PagesController extends AppController {
             } else {
                 return 5;
             }
-		}
+        }
 
 
 	function android_top() { } 
