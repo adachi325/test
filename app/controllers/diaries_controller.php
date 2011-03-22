@@ -254,14 +254,11 @@ class DiariesController extends AppController {
             }
 
             if($diary['Diary']['has_image']) {
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $child_id, $id) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
-                }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
 

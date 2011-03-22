@@ -8,17 +8,17 @@ class ChildrenController extends AppController {
         parent::beforeFilter();
     }
     
-    function test(){
-        $args = array(
-            'diary_id' => array(3,4,5),
-            'child_id' => 2,
-            'present_id' => 2
-        );
-        if(!$this->CreatePresent->createFlash($args)){
-            $this->Session->setFlash(__('画像作成に失敗しました。', true));
-        }
-        $this->redirect('/children');
-    }
+//    function test(){
+//        $args = array(
+//            'diary_id' => array(3,4,5),
+//            'child_id' => 2,
+//            'present_id' => 2
+//        );
+//        if(!$this->CreatePresent->createFlash($args)){
+//            $this->Session->setFlash(__('画像作成に失敗しました。', true));
+//        }
+//        $this->redirect('/children');
+//    }
 
     function index($id = null) {
         //子供データ一覧設定
@@ -359,14 +359,11 @@ class ChildrenController extends AppController {
         //思い出に紐付く画像を削除
         foreach($childData['Diary'] as $diary) {
             if($diary['has_image']) {
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $childData['Child']['id'],$diary['id']) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
-                }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
-                    $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
         }

@@ -13,9 +13,9 @@ class CreatePresentComponent extends Object {
         // アサイン用変数の設定
         $assign = array(
             // 差し込み画像
-            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][0]),
-            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][1]),
-            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][2]),
+            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]),
+            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][1]),
+            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]),
         );
 
         // ステージサイズの設定
@@ -59,10 +59,10 @@ class CreatePresentComponent extends Object {
 	$new_image = ImageCreateTrueColor(400, 592);
 
         //思い出画像読み込み
-	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_original'), $args['child_id'], $args['diary_id'][0]));
-	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_original'), $args['child_id'], $args['diary_id'][1]));
-	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_original'), $args['child_id'], $args['diary_id'][2]));
-        $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_original'), $args['child_id'], $args['diary_id'][3]));
+	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]));
+	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][1]));
+	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]));
+        $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][3]));
 
         //テンプレート画像読み込み
         $template = ImageCreateFromGif(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));

@@ -60,8 +60,11 @@ if (count($childrenData) < 3) {
 $i=0;
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image'] && $i < 4) {
+        if($i == 2) {
+            echo '<br>';
+        }
         $i++;
-        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
     }
 endforeach;
 ?>
@@ -119,8 +122,10 @@ while($i < 4) {
             <td>
             <?php foreach($months as $month): ?>
                 <?php foreach($month['Present'] as $present): ?>
-                    <?php if($present['present_type'] == 3)
-                        echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                    <?php 
+                        if($present['present_type'] == 3) {
+                            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                        }
                     ?>
                 <?php endforeach; ?>
             <?php endforeach; ?>

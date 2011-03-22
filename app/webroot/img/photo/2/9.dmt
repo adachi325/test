@@ -1,0 +1,32 @@
+Decomail-Template
+MIME-Version: 1.0
+Content-Type: multipart/related;boundary="5000000000"
+
+--5000000000
+Content-Type: text/html; charset=Shift_JIS
+Content-Transfer-Encoding: 8bit
+
+<html>
+<title>sisi</title>
+<body bgcolor="#FFFF8E">
+
+<div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center">sisi</div>
+<div align="center"><img src="cid:02" width="50" hight="50"></div>
+
+</body>
+</html>
+
+--5000000000
+Content-Type: image/jpeg; name=diaryback_201102_header.jpg
+Content-Transfer-Encoding: base64
+Content-ID: <00>
+
+
+--5000000000
+Content-Type: image/jpeg; name=diaryback_201102_footer.jpg
+Content-Transfer-Encoding: base64
+Content-ID: <02>
+
+
+--5000000000--
