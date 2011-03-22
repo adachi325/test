@@ -142,7 +142,7 @@ class PresentsController extends AppController {
 		$path = '';
 		$token = '';
 
-		$this->set(compact('mailStr', 'token', 'path'))
+		$this->set(compact('mailStr', 'token', 'path'));
 	}
 
 	function error_present() {
