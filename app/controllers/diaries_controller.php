@@ -462,7 +462,8 @@ $list[6] ='
         $file_length = filesize($filepath);
         header("Content-Disposition: attachment; filename=$filepath");
         header("Content-Length:$file_length");
-        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/x-smaf");
+        //print $data;
         readfile ($filepath);
 
     }
