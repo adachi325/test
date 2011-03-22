@@ -389,7 +389,6 @@ $list[3] = $jpeg_enc;
 $list[4] ='
 --5000000000--
 ';
-}
 
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
