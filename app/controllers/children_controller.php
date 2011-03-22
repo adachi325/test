@@ -8,17 +8,17 @@ class ChildrenController extends AppController {
         parent::beforeFilter();
     }
     
-    function test(){
-        $args = array(
-            'diary_id' => array(3,4,5),
-            'child_id' => 2,
-            'present_id' => 2
-        );
-        if(!$this->CreatePresent->createFlash($args)){
-            $this->Session->setFlash(__('画像作成に失敗しました。', true));
-        }
-        $this->redirect('/children');
-    }
+//    function test(){
+//        $args = array(
+//            'diary_id' => array(3,4,5),
+//            'child_id' => 2,
+//            'present_id' => 2
+//        );
+//        if(!$this->CreatePresent->createFlash($args)){
+//            $this->Session->setFlash(__('画像作成に失敗しました。', true));
+//        }
+//        $this->redirect('/children');
+//    }
 
     function index($id = null) {
         //子供データ一覧設定
