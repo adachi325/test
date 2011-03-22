@@ -5,8 +5,8 @@ $year = (isset($year)) ? $year : date('Y');
 $month = (isset($month)) ? $month : date('n');
 $date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
 
-$next = date("Y-m-d", strtotime("-1 month", strtotime($date)));
-$prev = date("Y/m/d",strtotime("+1 month" ,strtotime($date)));
+$next = date("Y-m-d", strtotime("+1 month", strtotime($date)));
+$prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 ?>
 
 <h2><?php __('Presents');?></h2>
@@ -28,10 +28,13 @@ foreach($present_types as $key => $value):
 <?php endif; ?>
 
 <?php endforeach; ?>
-<dl>
-<?php echo $this->Html->link('前の月', array('action' => 'index', date('Y/m', strtotime($prev)).'/' )); ?>
-<?php echo $this->Html->link('次の月', array('action' => 'index', date('Y/m', strtotime($next)).'/' )); ?>
+</dl>
 
+<div>
+<?php echo $this->Html->link('前の月', array('action' => 'index', date('Y/n', strtotime($prev)).'/' )); ?>
+&nbsp;
+<?php echo $this->Html->link('次の月', array('action' => 'index', date('Y/n', strtotime($next)).'/' )); ?>
+</div>
 
 <h3>テーマに投稿してプレゼントをもらおう</h3>
 <ul>
