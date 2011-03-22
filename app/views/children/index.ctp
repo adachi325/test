@@ -38,6 +38,9 @@ if (count($childrenData) < 3) {
         <h3>サイトのお知らせ</h3>
     </div>
     <div>
+    <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))) { ?>
+        <?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
+    <?php } ?>
     <?php foreach($newslist as $news): ?>
         <?php
             echo "<p>";
