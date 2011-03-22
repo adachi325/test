@@ -35,6 +35,10 @@ $config['Present'] = array(
                 'member_flash' => 'present/template/member_flash/%s.swf',
                 'member_flash_thum' => 'present/template/member_flash/%s_thumb.jpg',
 	),
+	'postcard' => array(
+		'valid_hours' => 72,
+		'output_dir' => 'present/output/postcard/',
+	),
 );
 
 $config['Defaults'] = array(

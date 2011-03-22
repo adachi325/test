@@ -169,9 +169,9 @@ class Diary extends AppModel {
 		$data['month_id'] = $theme['Theme']['month_id'];
 		
 		//hash
-		if (strlen($data['hash']) != Configure::read('Diary.hash_length')) {
-			return false;
-		}
+//		if (strlen($data['hash']) != Configure::read('Diary.hash_length')) {
+//			return false;
+//		}
 		
 		//has_image
 		$data['has_image'] = !empty($data['image']);
