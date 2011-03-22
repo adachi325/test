@@ -43,7 +43,7 @@ $config['Present'] = array(
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
-	'receive_mail_user' => 'iida',
+	'receive_mail_user' => 'shimajiro',
 	'receive_mail_prefix' => 'diary_',
 );
 
