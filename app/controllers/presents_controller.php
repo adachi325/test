@@ -51,15 +51,6 @@ class PresentsController extends AppController {
 				$this->render("present_list_{$type}");		
 			} else {
 				// 会員限定コンテンツ
-				$items = array(
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-				);
-
-				$this->set(compact('items'));
-
 				$this->render("present_list_member");
 			}
 		}

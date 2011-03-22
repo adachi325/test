@@ -83,6 +83,7 @@ class AppController extends Controller {
 				'users' => array('login'),
 			),
 		),
+ 		
 	);
 	
 

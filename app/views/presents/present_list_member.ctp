@@ -7,8 +7,6 @@ if (!isset($type_name)) {
 <div class="presents view">
 <h2><?php  __('Present');?></h2>
 
-<?php if (count($items)): ?>
-
 <p>会員登録ありがとう♪</p>
 <p>好きなゲームで遊んでね。</p>
 
@@ -36,10 +34,5 @@ if (!isset($type_name)) {
 <?php echo $this->Html->link('メモリーゲーム', '/files/member_flash/memorygame/memory.swf'); ?>
 </li>
 </ul>
-
-
-<?php else: ?>
-<p><?php echo $type_name; ?>は登録されていません</p>
-<?php endif; ?>
 
 </div>
