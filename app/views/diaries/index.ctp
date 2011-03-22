@@ -9,7 +9,7 @@ if(!empty($diaries)) {
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image'] && $i < 4) {
         $i++;
-        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
     }
 endforeach;
 }
@@ -50,7 +50,7 @@ foreach($diaries as $diary):
             <td>
         <?php
             if ($diary['Diary']['has_image']) {
-                echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '40px', 'height' => '40px'));
+                echo $html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '40px', 'height' => '40px'));
             } else {
                 echo $html->image('photo/dummy.jpg' ,array('width' => '40px', 'height' => '40px'));
             }
