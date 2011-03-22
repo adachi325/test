@@ -10,9 +10,6 @@ if (!isset($type_name)) {
 
 <?php if (count($items)): ?>
 <p><?php echo $type_name; ?>をダウンロードして使ってね</p>
-<?php else: ?>
-<p><?php echo $type_name; ?>は登録されていません</p>
-<?php endif; ?>
 
 <ul>
 <?php foreach($items as $item): ?>
@@ -23,6 +20,10 @@ if (!isset($type_name)) {
 <?php if (count($items)): ?>
 <?php echo $paginator->prev('前へ', array(), null, array('class' => 'disabled')); ?>
 <?php echo $paginator->next('次へ', array(), null, array('class' => 'disabled')); ?>
+<?php endif; ?>
+
+<?php else: ?>
+<p><?php echo $type_name; ?>は登録されていません</p>
 <?php endif; ?>
 
 </div>

@@ -22,7 +22,7 @@ if (!isset($max_count)) {
 <?php $path = sprintf(Configure::read('Diary.image_path_thumb'), $child_id, $id); ?>
 
 <?php //echo $this->Form->radio('select_photo', array($id => $this->Html->image($path, array('alt' => $title)) ), array('escape' => false)); ?>
-<?php echo $this->Form->input('select_photo', array('type' => 'checkbox', 'label' => $this->Html->image($path, array('alt' => $title)), 'escape' => false)); ?>
+<?php echo $this->Form->input("select_photo.{$id}", array('type' => 'checkbox', 'label' => $this->Html->image($path, array('alt' => $title)), 'escape' => false)); ?>
 </li>
 <?php endforeach; ?>
 </ul>
