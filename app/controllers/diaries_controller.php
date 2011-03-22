@@ -363,7 +363,9 @@ $list[1] = '
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center"><img src="cid:01" width="100" hight="100"></div>
 <div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
 </html>
@@ -386,7 +388,31 @@ $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $d
 $jpeg_enc = base64_encode($img);
 $list[3] = $jpeg_enc;
 
-$list[4] ='
+$list[4] = '
+--5000000000
+Content-Type: image/jpeg; name='.$diary['Diary']['id'].'.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <01>
+
+';
+$img = file_get_contents('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']));
+$jpeg_enc = base64_encode($img);
+$list[5] = $jpeg_enc;
+
+$list[6] = '
+--5000000000
+Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
+Content-Transfer-Encoding: base64
+Content-ID: <02>
+
+';
+
+$img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
+$jpeg_enc = base64_encode($img);
+$list[7] = $jpeg_enc;
+
+
+$list[8] ='
 --5000000000--
 ';
 
