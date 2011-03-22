@@ -357,6 +357,7 @@ Content-Type: text/html; charset=Shift_JIS
 Content-Transfer-Encoding: 8bit
 ';
 
+if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
 <title>'.$diary['Diary']['title'].'</title>
@@ -371,6 +372,22 @@ $list[1] = '
 </html>
 
 ';
+
+} else {
+$list[1] = '
+<html>
+<title>'.$diary['Diary']['title'].'</title>
+<body bgcolor="#FFFF8E">
+
+<div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center"><img src="cid:02" width="50" hight="50"></div>
+
+</body>
+</html>
+
+';
+}
 
 if($diary['Month']['month'] < 10) {
     $imgMonth = '0'.$diary['Month']['month'];
