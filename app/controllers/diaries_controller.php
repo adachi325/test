@@ -39,8 +39,9 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id']
-                )
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                ),
+                'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
             $diaries = $this->Diary->find('all', $conditions);
