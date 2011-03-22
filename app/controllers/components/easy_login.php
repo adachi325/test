@@ -4,15 +4,6 @@
  *
  */
 class EasyLoginComponent extends Object {
-    
-	/**
-	 * 使用するコンポーネント
-	 * @var array
-	 */
-	var $components = array('ktai');
-
-    	//ktaiライブラリ設定
-	public $ktai;
 
 	/**
 	 * 呼び出し元コントローラーインスタンスの参照
@@ -119,10 +110,10 @@ class EasyLoginComponent extends Object {
 	 */
         function _getUid(){
             //UID取得
-            if($this->ktai->is_ktai()) {
+            if($this->controller->Ktai->is_ktai()) {
                 $result = $this->_getCareer();
                 if( $result == 0 or $result == 1 or $result == 2 ){
-                    return $this->ktai->get_uid();
+                    return $this->controller->Ktai->get_uid();
                 }
             }
             return 0;
@@ -132,15 +123,15 @@ class EasyLoginComponent extends Object {
 	 * キャリア判定
 	 */
         function _getCareer(){
-            if ($this->ktai->is_imode()) {
+            if ($this->controller->Ktai->is_imode()) {
                 return 0;
-            } else if ($this->ktai->is_ezweb()) {
+            } else if ($this->controller->Ktai->is_ezweb()) {
                 return 1;
-            } else if ($this->ktai->is_softbank()) {
+            } else if ($this->controller->Ktai->is_softbank()) {
                 return 2;
-            } else if ($this->ktai->is_iphone()) {
+            } else if ($this->controller->Ktai->is_iphone()) {
                 return 3;
-            } else if ($this->ktai->is_android()) {
+            } else if ($this->controller->Ktai->is_android()) {
                 return 4;
             } else {
                 return 5;
