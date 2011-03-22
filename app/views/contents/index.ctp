@@ -1,4 +1,3 @@
-<div class="contents index">
 <h1><?php echo h($title); ?></h1>
 <ul>
 <?php foreach ($issues as $issue): ?>
@@ -12,7 +11,6 @@
 	</li>
 <?php endforeach; ?>
 </ul>
-</div>
 
 <?php 
 if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1):
