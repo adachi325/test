@@ -38,6 +38,9 @@ if (count($childrenData) < 3) {
         <h3>サイトのお知らせ</h3>
     </div>
     <div>
+    <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))) { ?>
+        <?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
+    <?php } ?>
     <?php foreach($newslist as $news): ?>
         <?php
             echo "<p>";
@@ -57,8 +60,11 @@ if (count($childrenData) < 3) {
 $i=0;
 foreach($diaries as $diary):
     if ($diary['Diary']['has_image'] && $i < 4) {
+        if($i == 2) {
+            echo '<br>';
+        }
         $i++;
-        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
     }
 endforeach;
 ?>
@@ -116,8 +122,10 @@ while($i < 4) {
             <td>
             <?php foreach($months as $month): ?>
                 <?php foreach($month['Present'] as $present): ?>
-                    <?php if($present['present_type'] == 3)
-                        echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                    <?php 
+                        if($present['present_type'] == 3) {
+                            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                        }
                     ?>
                 <?php endforeach; ?>
             <?php endforeach; ?>
