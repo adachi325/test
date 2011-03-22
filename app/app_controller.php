@@ -70,11 +70,11 @@ class AppController extends Controller {
 		'Auth',
 		'Session',
 		'Transition',
-		'DebugKit.Toolbar',
-		'EasyLogin',
+		//'DebugKit.Toolbar',
+                'EasyLogin',
 		'CreatePresent',
 		'Secured.Ssl' => array(
-			'autoRedirect' => true,
+			'autoRedirect' => false,
 			'secured' => array(
 				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
 				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
@@ -84,8 +84,6 @@ class AppController extends Controller {
 			),
 		),
 	);
-	
-
 
 	public $layout = 'default';
 
