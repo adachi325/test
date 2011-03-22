@@ -386,6 +386,10 @@ $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $d
 $jpeg_enc = base64_encode($img);
 $list[3] = $jpeg_enc;
 
+$list[4] ='
+--5000000000--
+';
+}
 
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
