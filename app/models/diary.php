@@ -96,29 +96,29 @@ class Diary extends AppModel {
 		)
 	);
 	
-	//ÉÅÅ[ÉãÇ©ÇÁìoò^
+	//„É°„Éº„É´„Åã„ÇâÁôªÈå≤
 	function importMail($data) {
 
 		if (empty($data)) {
 			return false;
 		}
 		
-		//ÉÅÅ[ÉãóLå¯îªíË
+		//„É°„Éº„É´ÊúâÂäπÂà§ÂÆö
 		if (empty($data['to'])) {
 			return false;
 		}
 		
-		//ÉÅÅ[ÉãÉvÉåÉtÉBÉbÉNÉXèúãé
+		//„É°„Éº„É´„Éó„É¨„Éï„Ç£„ÉÉ„ÇØ„ÇπÈô§Âéª
 		$to = $data['to'];
 		if (!ereg("^".Configure::read('Defaults.receive_mail_prefix'), $to)) {
 			return false;
 		}
 		$to = ereg_replace("^".Configure::read('Defaults.receive_mail_prefix'), "", $to);
 		
-		//@à»ç~èúãé
+		//@‰ª•ÈôçÈô§Âéª
 		$to = ereg_replace("@.*", "", $to);
 		
-		//à∂êÊÉAÉhÉåÉXóLå¯îªíË
+		//ÂÆõÂÖà„Ç¢„Éâ„É¨„ÇπÊúâÂäπÂà§ÂÆö
 		$to_splits = split('\.', $to);
 		if (count($to_splits) != 4) {//user_id, child_id, theme_id, hash
 			return false;
@@ -144,7 +144,7 @@ class Diary extends AppModel {
 		return $this->add($request);
 	}
 	
-	//évÇ¢èoìoò^
+	//ÊÄù„ÅÑÂá∫ÁôªÈå≤
 	function add($data) {
 		
 		if (empty($data)) {
@@ -176,7 +176,7 @@ class Diary extends AppModel {
 		//has_image
 		$data['has_image'] = !empty($data['image']);
 		
-		//present_id:ÉeÅ[É}ÇÃåéÇ…ïRÇ√Ç≠ÉvÉåÉ[ÉìÉgÇéÊìæÇµÇ»ÇØÇÍÇŒÇ¢ÇØÇ»Ç¢ÅI
+		//present_id:„ÉÜ„Éº„Éû„ÅÆÊúà„Å´Á¥ê„Å•„Åè„Éó„É¨„Çº„É≥„Éà„ÇíÂèñÂæó„Åó„Å™„Åë„Çå„Å∞„ÅÑ„Åë„Å™„ÅÑÔºÅ
 		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
 		
 		$this->create();
@@ -198,7 +198,7 @@ class Diary extends AppModel {
 		if (!empty($data['image'])
 				&& strlen($data['image']) < Configure::read('Diary.image_filesize_max')) {
 			
-			//âÊëúï€ë∂(ÉIÉäÉWÉiÉã)
+			//ÁîªÂÉè‰øùÂ≠ò(„Ç™„É™„Ç∏„Éä„É´)
 			$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
 			$this->__mkdir($image_path_original);
 			$fp = fopen( $image_path_original, "w" );
@@ -209,7 +209,7 @@ class Diary extends AppModel {
 			if (!empty($info)
 					&& $info[2] == IMAGETYPE_JPEG) {
 
-				//âÊëúï€ë∂(î‰ó¶ï€éù)
+				//ÁîªÂÉè‰øùÂ≠ò(ÊØîÁéá‰øùÊåÅ)
 				$image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
 				$this->__mkdir($image_path_thumb);
 				$fp = fopen( $image_path_thumb, "w" );
@@ -218,7 +218,7 @@ class Diary extends AppModel {
 				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_thumb_size'), false);
 				chmod($image_path_thumb, 0644);
 				
-				//âÊëúï€ë∂(ê≥ï˚å`)
+				//ÁîªÂÉè‰øùÂ≠ò(Ê≠£ÊñπÂΩ¢)
 				$image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
 				$this->__mkdir($image_path_rect);
 				$fp = fopen( $image_path_rect, "w" );
@@ -228,7 +228,7 @@ class Diary extends AppModel {
 				chmod($image_path_rect, 0644);
 			}
 			
-			//âÊëúçÌèú(ÉIÉäÉWÉiÉã)
+			//ÁîªÂÉèÂâäÈô§(„Ç™„É™„Ç∏„Éä„É´)
 			unlink($image_path_original);
 		}
 		
@@ -237,14 +237,14 @@ class Diary extends AppModel {
 	
 	function __getNextPresentId($child_id, $year, $month) {
 		
-		//ÉeÅ[É}åéÇÃÉvÉåÉ[ÉìÉgàÍóó
+		//„ÉÜ„Éº„ÉûÊúà„ÅÆ„Éó„É¨„Çº„É≥„Éà‰∏ÄË¶ß
 		$presents = ClassRegistry::init('Present')->find('month', array(
 			'year' => $year,
 			'month' => $month,
 			'order' => 'Present.present_type ASC'
 		));
 		
-		//ÉeÅ[É}åéÇ…älìæÇµÇΩÉvÉåÉ[ÉìÉgàÍóó
+		//„ÉÜ„Éº„ÉûÊúà„Å´Áç≤Âæó„Åó„Åü„Éó„É¨„Çº„É≥„Éà‰∏ÄË¶ß
 		$child_presents = ClassRegistry::init('Child')->find('present', array(
 			'conditions' => array(
 				'Child.id' => $child_id,
@@ -257,7 +257,7 @@ class Diary extends AppModel {
 			return null;
 		}
 		
-		//ÉeÅ[É}åéÇ…ìäçeÇµÇΩévÇ¢èoàÍóó
+		//„ÉÜ„Éº„ÉûÊúà„Å´ÊäïÁ®ø„Åó„ÅüÊÄù„ÅÑÂá∫‰∏ÄË¶ß
 		$diaries = ClassRegistry::init('Child')->find('diary', array(
 			'conditions' => array(
 				'Child.id' => $child_id,
@@ -275,7 +275,7 @@ class Diary extends AppModel {
 		$type = exif_imagetype($filepath);
 		if ($type == 2) {
 			#-------------------------------------------------------
-			# âÊëúÉäÉTÉCÉY
+			# ÁîªÂÉè„É™„Çµ„Ç§„Ç∫
 			#-------------------------------------------------------
 			$this->__smart_resize_image(
 				$filepath,		//file
@@ -289,12 +289,12 @@ class Diary extends AppModel {
 			);
 			
 			#-------------------------------------------------------
-			# âÊëúÇíÜêSÇ©ÇÁê≥ï˚å`Ç…ÉJÉbÉg
+			# ÁîªÂÉè„Çí‰∏≠ÂøÉ„Åã„ÇâÊ≠£ÊñπÂΩ¢„Å´„Ç´„ÉÉ„Éà
 			#-------------------------------------------------------
 			if ($is_rect) {
 				require_once APP.'vendors/class.image.php';
 				
-				$info = getimagesize($filepath);//ÉTÉCÉYéÊìæ
+				$info = getimagesize($filepath);//„Çµ„Ç§„Ç∫ÂèñÂæó
 				$thumb = new Image($filepath);
 				$thumb->width($size); 
 				$thumb->height($size); 
@@ -305,7 +305,7 @@ class Diary extends AppModel {
 	}
 
 	#*******************************************************************************
-	#	âÊëúÉäÉTÉCÉY
+	#	ÁîªÂÉè„É™„Çµ„Ç§„Ç∫
 	#	https://github.com/maxim/smart_resize_image
 	#	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	#*******************************************************************************
@@ -418,7 +418,8 @@ class Diary extends AppModel {
 	function __mkdir($path) {
 		$dir = dirname($path);
 		if (!file_exists($dir)) {
-			system("mkdir -p $dir");
+                        mkdir($dir,0777);
+                        system("chmod 777 ".$dir);
 		}
 	}
 	
