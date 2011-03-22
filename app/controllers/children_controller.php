@@ -12,7 +12,7 @@ class ChildrenController extends AppController {
         $args = array(
             'diary_id' => array(3,4,5),
             'child_id' => 2,
-            'present_id' => 2
+            'present_id' => 3
         );
         if(!$this->CreatePresent->createFlash($args)){
             $this->Session->setFlash(__('画像作成に失敗しました。', true));
