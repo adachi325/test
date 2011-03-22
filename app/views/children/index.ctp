@@ -119,8 +119,10 @@ while($i < 4) {
             <td>
             <?php foreach($months as $month): ?>
                 <?php foreach($month['Present'] as $present): ?>
-                    <?php if($present['present_type'] == 3)
-                        echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                    <?php 
+                        if($present['present_type'] == 3) {
+                            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                        }
                     ?>
                 <?php endforeach; ?>
             <?php endforeach; ?>
