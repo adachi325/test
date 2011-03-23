@@ -6,7 +6,7 @@
 </div>
 <?php } ?>
 <div>
-<?php echo $form->create('Diary', array('action' => 'edit_confirm'));?>
+<?php echo $form->create('Diary', array('url' => '/diaries/edit_confirm?guid=ON'));?>
     <?php echo $this->Form->input('title');?>
     <?php echo $this->Form->input('body');?>
     <?php echo $this->Form->hidden('id');?>

@@ -25,13 +25,21 @@ if (count($childrenData) < 3) {
 </div>
 <?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
 <div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
-<div>誕生日：
-<?php echo h($currentChild['Child']['birth_year']); ?>年 
-<?php echo h($currentChild['Child']['birth_month']); ?>月
+<?php
+//歳計算
+$yy = $currentChild['Child']['birth_year'];
+$mm = $currentChild['Child']['birth_month'];
+$yyy = date('Y')-$yy;
+$mmm = date('m')-$mm;
+if($mmm < 0) {
+    $mmm = $mmm + 12;
+    $yyy = $yyy -1;
+}
+?>
+<div>生後：<?php echo $yyy.'才'.$mmm.'ヶ月'; ?>
 </div>
-<div>コース：<?php echo $lines[$currentChild['Child']['line_id']]; ?>  </div>
+<div>コース：<?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></div>
 <?php echo '</div>' ?>
-
 <br>
 <div>
     <div>
@@ -85,7 +93,7 @@ while($i < 4) {
 <br>
 <h3>思い出を形に残す</h3>
 <div>
-    <?php echo $this->Html->link('世界に1つの待受画面を作る', '/presents/present_list/2'); ?>
+    <?php echo $this->Html->link('世界に1つの待受画面を作る', '/presents/present_list/2'); ?><br>
     <?php echo $this->Html->link('お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る', '/presents/present_list/3'); ?>
 </div>
 <br>

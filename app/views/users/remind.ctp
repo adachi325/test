@@ -1,7 +1,7 @@
 <div>
 <h1>パスワード再設定認証</h1>
 </div>
-<?php echo $form->create('User', array('action' => 'remind')); ?>
+<?php echo $form->create('User', array('url' => '/users/remind?guid=ON'));?>
 <?php echo $form->input('remindId', array('label' => 'ログインID')); ?>
 <?php echo $form->input('nickname', array('label' => 'お子様のニックネーム')); ?>
 <div>
