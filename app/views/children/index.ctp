@@ -23,23 +23,49 @@ if (count($childrenData) < 3) {
     echo '</span> ';
 }?>
 </div>
-<?php echo '<div style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
-<div>ニックネーム：<?php echo $currentChild['Child']['nickname']; ?> </div>
-<?php
-//歳計算
-$yy = $currentChild['Child']['birth_year'];
-$mm = $currentChild['Child']['birth_month'];
-$yyy = date('Y')-$yy;
-$mmm = date('m')-$mm;
-if($mmm < 0) {
-    $mmm = $mmm + 12;
-    $yyy = $yyy -1;
-}
-?>
-<div>生後：<?php echo $yyy.'才'.$mmm.'ヶ月'; ?>
-</div>
-<div>コース：<?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></div>
-<?php echo '</div>' ?>
+<?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
+    <tr>
+        <td>
+            <?php
+            $i=0;
+            foreach($diaries as $diary):
+                if ($diary['Diary']['has_image'] && $i < 1) {
+                    $i++;
+                    echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+                }
+            endforeach;
+
+            if ($i == 0) {
+                echo $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+            }
+
+            ?>
+        </td>
+        <td>
+            <div>
+            <?php
+                echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
+                echo $currentChild['Child']['nickname'];
+            ?>
+            </div>
+            <?php
+            //歳計算
+            $yy = $currentChild['Child']['birth_year'];
+            $mm = $currentChild['Child']['birth_month'];
+            $yyy = date('Y')-$yy;
+            $mmm = date('m')-$mm;
+            if($mmm < 0) {
+                $mmm = $mmm + 12;
+                $yyy = $yyy -1;
+            }
+            ?>
+            <div>･<?php echo $yyy.'才'.$mmm.'ヶ月'; ?>
+            </div>
+            <div>･ｺｰｽ:<?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></div>
+            <div><?php echo $this->Html->link('･獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></div>
+        </td>
+    </tr>
+<?php echo '</table>' ?>
 <br>
 <div>
     <div>
@@ -81,7 +107,7 @@ while($i < 4) {
     if($i == 2) {
         echo '<br>';
     }
-    echo $html->image('photo'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
+    echo $html->image('common'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
     $i++;
 }
 ?>
