@@ -36,13 +36,18 @@ if (count($childrenData) < 3) {
             endforeach;
 
             if ($i == 0) {
-                echo $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+                echo $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
             }
 
             ?>
         </td>
         <td>
-            <div>･<?php echo $currentChild['Child']['nickname']; ?> </div>
+            <div>
+            <?php
+                echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
+                echo $currentChild['Child']['nickname'];
+            ?>
+            </div>
             <?php
             //歳計算
             $yy = $currentChild['Child']['birth_year'];
@@ -102,7 +107,7 @@ while($i < 4) {
     if($i == 2) {
         echo '<br>';
     }
-    echo $html->image('photo'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
+    echo $html->image('common'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
     $i++;
 }
 ?>

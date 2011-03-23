@@ -48,8 +48,11 @@ class NavigationsController extends AppController {
 
             //メールアドレス設定
             $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['free_theme'].'.'.$hash.'@shimajiro-dev.com';
-            $this->set('mailStr',$mailStr);
 
+            //メールタイトル
+            $mailTitle = rawurlencode((date('m')+0).'月'.(date('d')+0).'日の思い出');
+
+            $this->set('mailStr','mailto:'.$mailStr.'?subject='.$mailTitle);
         }
 
 	function after2($hash = null) {
@@ -81,7 +84,7 @@ class NavigationsController extends AppController {
             if(!empty($diaries['Diary']['error_code'])){
                 $this->render('after2_failure');
             }
-            
+
         }
 
         function getUserData(){

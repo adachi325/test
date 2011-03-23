@@ -132,7 +132,7 @@ class CreatePresentComponent extends Object {
             return false;
         }
 
-        return true;
+        return $new_file_name;
 
     }
 
