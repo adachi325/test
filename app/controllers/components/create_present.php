@@ -43,7 +43,9 @@ class CreatePresentComponent extends Object {
         header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
 
         // Flash生成
-        $almeida->generateFlash();
+		$almeida->generateFlash();
+
+		return true;
     }
 
 

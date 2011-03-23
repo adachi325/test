@@ -3,7 +3,7 @@
 class NewsController extends AppController {
 
 	var $name = 'News';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Wikiformat.Wikiformat');
 
         function index(){
             $this->cakeError('error404');

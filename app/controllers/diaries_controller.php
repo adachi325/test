@@ -90,6 +90,7 @@ class DiariesController extends AppController {
             )
         );
         $diary = $this->Diary->find('first', $conditions);
+        $this->set(compact('diary'));
 
         if(empty($diary)){
             //再チェックボタン用にハッシュタグを設定
@@ -101,17 +102,13 @@ class DiariesController extends AppController {
 
         if(!empty($diary['Diary']['error_code'])){
             $this->render('post_failure');
-            return;
+        } else {
+            //投稿反映画面の表示文言を設定
+            if(!empty($diary['Present']['id'])) {
+                $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
+                $this->set('getStr',$typelist[$diary['Present']['present_type']]);
+            }
         }
-
-        //投稿反映画面の表示文言を設定
-        if(!empty($diary['Present']['id'])) {
-            $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
-            $this->set('getStr',$typelist[$diary['Present']['present_type']]);
-        }
-
-        $this->set(compact('diary'));
-
     }
 
     function edit($id=null){

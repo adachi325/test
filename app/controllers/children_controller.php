@@ -49,7 +49,8 @@ class ChildrenController extends AppController {
         $months = $month->find('all',array('conditions' => $options));
 
         //ライン情報取得
-        $lines = $this->Child->Line->find('list');
+		$lines = $this->Child->Line->find('list');
+		$currentLine = $this->Child->Line->findById($currentChild['Child']['line_id']);
 
         if(!empty($months)){
             $conditions = array(
@@ -69,7 +70,7 @@ class ChildrenController extends AppController {
         $newslist = $news->find('all',array('conditions' =>
             array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
 
-        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines','diaries','newslist'));
+        $this->set(compact('childrenData', 'lastChildId', 'currentChild', 'issues','months','lines','currentLine','diaries','newslist'));
     }
 
     //最終子供ID更新
