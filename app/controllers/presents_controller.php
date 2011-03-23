@@ -58,6 +58,8 @@ class PresentsController extends AppController {
 
 	function select($type = null, $template_id = null) {
 		$data = $this->data;
+		$this->paginate = array('limit' => 10);
+		
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -100,9 +102,10 @@ class PresentsController extends AppController {
 
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
-		
-		$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
-		//$items = $this->paginate('Diary');
+
+
+		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
+		$items = $this->paginate('Diary');
 		
 		$this->set(compact('items', 'data', 'type', 'template_id'));
 	}
@@ -155,7 +158,7 @@ class PresentsController extends AppController {
 			$this->cakeError('error404');
 		}
 
-		$this->set(compact($token));
+		$this->set(compact('token'));
 	}
 }
 ?>
