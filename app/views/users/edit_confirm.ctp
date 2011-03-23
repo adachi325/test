@@ -1,7 +1,7 @@
 <div>
 <h1>入力項目確認</h1>
 </div>
-<?php echo $form->create('User', array('action' => 'edit_complete?guid=ON')); ?>
+<?php echo $form->create('User', array('url' => '/users/edit_complete?guid=ON'));?>
 
 パスワード<br>
 *********<br><br>
@@ -17,8 +17,6 @@ if($this->data['User']['dc_user'] == 1) {
 
 <?php echo $form->submit('会員登録実行'); ?>
 <?php echo $form->end(); ?>
-
-
-<?php echo $form->create('User', array('action' => 'edit?guid=ON')); ?>
+<?php echo $form->create('User', array('url' => '/users/edit?guid=ON'));?>
 <?php echo $form->submit('入力項目修正'); ?>
 <?php echo $form->end(); ?>

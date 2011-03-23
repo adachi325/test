@@ -1,5 +1,5 @@
 
-<?php echo $form->create('Child', array('action' => 'edit_confirm/?guid=ON'));?>
+<?php echo $form->create('Child', array('url' => '/children/edit_confirm?guid=ON'));?>
 
 <?php echo $form->input('nickname');?>
 <div>

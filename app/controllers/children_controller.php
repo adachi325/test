@@ -245,8 +245,6 @@ class ChildrenController extends AppController {
 
     function edit_confirm(){
 
-        pr($this->data);
-
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
@@ -308,6 +306,9 @@ class ChildrenController extends AppController {
     }
     
     function delete() {
+
+        pr ($this->data);
+
         if(!empty($this->data)){
             $this->Session->write('check',$this->data);
             $this->redirect('/children/delete_complete');
