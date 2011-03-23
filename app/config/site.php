@@ -12,6 +12,18 @@ $config['Lines'] = array (
 	),
 );
 
+$config['LinesString'] = array (
+	'strings' => array(
+		1 => 'baby/ぷちﾌｧｰｽﾄ',
+		2 => 'ぷち',
+		3 => 'ぽけっと',
+		4 => 'ほっぷ',
+		5 => 'すてっぷ',
+		6 => 'じゃんぷ',
+	),
+);
+
+
 $config['Present'] = array(
 	'type' => array(
 		 0 => '背景画像',

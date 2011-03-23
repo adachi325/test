@@ -1,5 +1,5 @@
 <div>
-<?php echo $form->create('Child', array('action' => 'delete'));?>
+<?php echo $form->create('Child', array('action' => 'delete?guid=ON'));?>
 本当にニックを消すんですか？<br><br>
 
 ニックネーム<br>

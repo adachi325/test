@@ -33,7 +33,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 0);
+	Configure::write('debug', 2);
 
 /**
  * CakePHP Log Level:
@@ -301,3 +301,7 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+
+        //メモリー不足対策
+        ini_set( 'memory_limit', '64M' );
+        

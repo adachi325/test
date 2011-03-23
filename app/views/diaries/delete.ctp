@@ -21,12 +21,12 @@
     </div>
     <br>
     <div>
-        <?php echo $form->create('Diary', array('action' => 'delete_complete'));?>
+        <?php echo $form->create('Diary', array('action' => 'delete_complete?guid=ON'));?>
         <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
         <?php echo $form->end('削除');?>
     </div>
     <div>
-        <?php echo $form->create('Diary', array('action' => 'info'));?>
+        <?php echo $form->create('Diary', array('action' => 'info?guid=ON'));?>
         <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
         <?php echo $form->end('取消');?>
     </div>

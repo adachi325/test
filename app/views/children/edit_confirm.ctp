@@ -1,5 +1,5 @@
 <div>
-<?php echo $form->create('Child', array('action' => 'edit_complete'));?>
+<?php echo $form->create('Child', array('action' => 'edit_complete?guid=ON'));?>
 確認画面です<br><br>
 
 ニックネーム<br>
@@ -32,7 +32,7 @@ if($this->data['Child']['benesse_user'] == 1){
 <?php echo $form->end('変更');?>
 
 
-<?php echo $form->create('Child', array('action' => 'edit'));?>
+<?php echo $form->create('Child', array('action' => 'edit?guid=ON'));?>
 <?php echo $form->end('修正');?>
 </div>
 <div>
