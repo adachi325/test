@@ -1,14 +1,13 @@
 <div>
-    <h3>登録ありがつお！</h2>
+    <h3>登録ありがつお！</h3>
 </div>
 <div>
 ◆まずは投稿してみよう！
 </div>
 <br>
 <div>
-    <?php echo $html->link("投稿する", "mailto:".$mailStr); ?>
+<?php echo $html->link("投稿する", $mailStr); ?><br><br>
 </div>
-<br>
 <div>
     <?php echo $this->Html->link('今は投稿しないで、マイページに進む', '/children/'); ?>
 </div>

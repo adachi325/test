@@ -55,7 +55,4 @@
 <div>
 <?php echo $this->Html->link('⇒思い出を編集する', '/diaries/edit/'.$diary['Diary']['id']); ?>
 </div>
-<div>
-<?php echo $this->Html->link('⇒思い出一覧へ戻る', '/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']); ?>
-</div>
 

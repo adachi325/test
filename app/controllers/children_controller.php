@@ -55,8 +55,7 @@ class ChildrenController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['month']['id'],
-                    'Diary.error_code' => null
+                    'Diary.month_id' => $months['0']['month']['id']
                 )
             );
             //表示データ一覧取得
