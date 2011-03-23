@@ -127,7 +127,8 @@ class ThemesController extends AppController {
              $this->redirect('/children/');
          }
 
-         $this->data = $this->Theme->read(null, $id);
+         $theme = $this->Theme->read(null, $id);
+         $this->set(compact('theme'));
 
          //会員情報取得
          $userAuthData = $this->Auth->user();
@@ -141,9 +142,17 @@ class ThemesController extends AppController {
          //次へボタン用にハッシュタグを設定
          $this->set('nexthash',$hash);
 
-         //メールアドレス設定
+         //メールアドレス生成
          $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
-         $this->set('mailStr',$mailStr);
+
+         //タイトルエンコード
+         if($theme['Theme']['free_theme']){
+            $mailTitle = rawurlencode((date('m')+0).'月'.(date('d')+0).'日の思い出');
+         } else {
+            $mailTitle = rawurlencode($theme['Theme']['title']);
+         }
+
+         $this->set('mailStr','mailto:'.$mailStr.'?subject='.$mailTitle);
 
     }
     
