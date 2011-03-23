@@ -170,6 +170,8 @@ class ChildrenController extends AppController {
                 if ($this->Child->save($this->data)) {
                     //最終子供IDを更新
                     $this->_saveLastChild($this->Child->getLastInsertId());
+                    //初回登録プレゼント
+                    $this->_initialRegistrationPresents($this->Child->getLastInsertId());
                     TransactionManager::commit();
                     $this->Session->setFlash(__('子供登録完了。', true));
                 } else {
@@ -186,6 +188,16 @@ class ChildrenController extends AppController {
              $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/children/');
         }
+    }
+
+    function _initialRegistrationPresents($id){
+        $presentIds = Configure::read('Child.Initial_registration_presents');
+        $request = array();
+        for ($i=0;$i<count($presentIds);$i++) {
+            $request[$i]['ChildPresent']['child_id'] = $id;
+            $request[$i]['ChildPresent']['present_id'] = $presentIds[$i];
+        }
+        $this->Child->ChildPresent->saveAll($request);
     }
 
     //子供が３人以上存在する場合はその有無を表示する。
