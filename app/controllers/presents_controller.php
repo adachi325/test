@@ -122,21 +122,26 @@ class PresentsController extends AppController {
 			'child_id' => $child_id,
 		);
 
+		$render = "";
+
 		if ($type === "flash") {
 			$this->CreatePresent->createFlash($selected);
-			$this->render('complete_flash');
+			$render = 'complete_flash';
 		} else {
-			$this->CreatePresent->createPostcard($selected);
-			$this->render('complete_postcard');
+			$token = $this->CreatePresent->createPostcard($selected);
+			if ($token === false) {
+				$this->cakeError('error502');
+				return;
+			}
+			$render = 'complete_postcard';
 		}
 
-        //メールアドレス設定
-        $mailStr = 'diary_'.$user_id.'.'.$child_id.'.'.$id.'.'.$hash.'@shimajiro-dev.com';
+		//メールアドレス設定
+		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
+		$mailStr = "?subject=ポストカード印刷用URL&body={$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
 
-		$path = '';
-		$token = '';
-
-		$this->set(compact('mailStr', 'token', 'path'));
+		$this->set(compact('mailStr', 'token'));
+		$this->render($render);
 	}
 
 	function error_present() {
