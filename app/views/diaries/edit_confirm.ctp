@@ -21,11 +21,11 @@
     </div>
     <br>
     <div>
-        <?php echo $form->create('Diary', array('action' => 'edit_complete?guid=ON'));?>
+        <?php echo $form->create('Diary', array('url' => '/diaries/edit_complete?guid=ON'));?>
         <?php echo $form->end('変更');?>
     </div>
     <div>
-        <?php echo $form->create('Diary', array('action' => 'edit?guid=ON'));?>
+        <?php echo $form->create('Diary', array('url' => '/diaries/edit?guid=ON'));?>
         <?php echo $form->end('戻る');?>
     </div>
 </center>
