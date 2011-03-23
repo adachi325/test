@@ -40,6 +40,7 @@ class DiariesController extends AppController {
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
@@ -97,6 +98,12 @@ class DiariesController extends AppController {
             $this->render('post_unknown');
             return;
         }
+
+        if(!empty($diary['Diary']['error_code'])){
+            $this->render('post_failure');
+            return;
+        }
+
         //投稿反映画面の表示文言を設定
         if(!empty($diary['Present']['id'])) {
             $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');
@@ -364,7 +371,7 @@ $list[1] = '
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<div align="center"><img src="cid:01"></div>
+<div align="center"><img src="cid:01" width="100" hight="100"></div>
 <div align="center">'.$diary['Diary']['body'].'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
@@ -372,8 +379,9 @@ $list[1] = '
 </html>
 
 ';
+
 } else {
-   $list[1] = '
+$list[1] = '
 <html>
 <title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
@@ -404,7 +412,6 @@ $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $d
 $jpeg_enc = base64_encode($img);
 $list[3] = $jpeg_enc;
 
-
 if ($diary['Diary']['has_image']) {
 $list[4] = '
 --5000000000
@@ -433,6 +440,7 @@ $list[7] = $jpeg_enc;
 $list[8] ='
 --5000000000--
 ';
+
 } else {
 $list[4] = '
 --5000000000
@@ -449,13 +457,16 @@ $list[5] = $jpeg_enc;
 $list[6] ='
 --5000000000--
 ';
+
 }
+
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
                 @fwrite( $fp, $value, strlen($value) );
         }
 
 
+        
         fclose($fp);
         //ファイルへの書き込みは終了
 
@@ -463,6 +474,7 @@ $list[6] ='
         header("Content-Disposition: attachment; filename=$filepath");
         header("Content-Length:$file_length");
         header("Content-Type: application/octet-stream");
+
         readfile ($filepath);
 
     }

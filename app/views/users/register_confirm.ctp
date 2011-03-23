@@ -1,7 +1,7 @@
 <div>
 <h1>入力項目確認</h1>
 </div>
-<?php echo $form->create('User', array('action' => 'register_complete')); ?>
+<?php echo $form->create('User', array('action' => 'register_complete?guid=ON')); ?>
 
 会員ID<br>
 <?php echo $this->data['User']['loginid']; ?><br><br>
@@ -49,6 +49,6 @@ if($this->data['User']['dc_user'] == 1) {
 <?php echo $form->end(); ?>
 
 
-<?php echo $form->create('User', array('action' => 'register')); ?>
+<?php echo $form->create('User', array('action' => 'register?guid=ON')); ?>
 <?php echo $form->submit('入力項目修正'); ?>
 <?php echo $form->end(); ?>

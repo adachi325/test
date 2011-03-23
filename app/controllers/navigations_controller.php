@@ -74,6 +74,12 @@ class NavigationsController extends AppController {
 
             if(empty($diaries)){
                 $this->render('after2_unknown');
+                return;
+            }
+
+            if(!empty($diary['Diary']['error_code'])){
+                $this->render('after2_failure');
+                return;
             }
 
             //日記情報を設定
