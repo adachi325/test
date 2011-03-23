@@ -68,6 +68,7 @@ class NavigationsController extends AppController {
             $diary =& ClassRegistry::init('Diary');
             $diary->contain();
             $diaries = $diary->find('first',array('conditions' => $options));
+            $this->set(compact('diaries'));
 
             //ハッシュタグを設定
             $this->set('nexthash',$hash);
@@ -77,13 +78,9 @@ class NavigationsController extends AppController {
                 return;
             }
 
-            if(!empty($diary['Diary']['error_code'])){
+            if(!empty($diaries['Diary']['error_code'])){
                 $this->render('after2_failure');
-                return;
             }
-
-            //日記情報を設定
-            $this->set(compact('diaries'));
             
         }
 
