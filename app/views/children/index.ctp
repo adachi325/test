@@ -129,13 +129,15 @@ while($i < 4) {
         <tr>
             <td>
             <?php foreach($months as $month): ?>
-                <?php foreach($month['Present'] as $present): ?>
-                    <?php 
-                        if($present['present_type'] == 3) {
-                            echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
-                        }
-                    ?>
-                <?php endforeach; ?>
+                <?php if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
+                    <?php foreach($month['Present'] as $present): ?>
+                        <?php
+                            if($present['present_type'] == 3) {
+                                echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+                            }
+                        ?>
+                    <?php endforeach; ?>
+                <?php } ?>
             <?php endforeach; ?>
             </td>
             <td>
