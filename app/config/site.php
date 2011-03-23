@@ -12,6 +12,18 @@ $config['Lines'] = array (
 	),
 );
 
+$config['LinesString'] = array (
+	'strings' => array(
+		1 => 'baby/ぷちﾌｧｰｽﾄ',
+		2 => 'ぷち',
+		3 => 'ぽけっと',
+		4 => 'ほっぷ',
+		5 => 'すてっぷ',
+		6 => 'じゃんぷ',
+	),
+);
+
+
 $config['Present'] = array(
 	'type' => array(
 		 0 => '背景画像',
@@ -82,15 +94,15 @@ $config['Diary'] = array(
 );
 
 $config['Child'] = array(
-//        'icon_path' => 'common/icon_%s.gif',
         'icon_on_path' => 'common/icon_%s_on.gif',
         'icon_off_path' => 'common/icon_%s_off.gif',
         'child_tab_color' => array(
             0 => '#FFFA8E',
             1 => '#8EFF8E',
             2 => '#FFB7B7',
-//            3 => '#00DB00',
-//            4 => '#FFB7FF',
-//            5 => '#ECECFF',
-            ),
+        ),
+        'Initial_registration_presents' => array(
+            0 => '4',
+            1 => '5',
+        ),
 );

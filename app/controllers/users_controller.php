@@ -41,7 +41,6 @@ class UsersController extends AppController {
     }
 
     function register(){
-
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
             $this->set('login_user',$this->Auth->user());
@@ -114,6 +113,8 @@ class UsersController extends AppController {
                TransactionManager::begin();
                $this->_setRegisterData();
                if( $this->User->_register($this->data)){
+                  //初回登録プレゼント
+                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
                   TransactionManager::commit();
                   $this->Session->setFlash(__('会員登録完了。', true));
                } else {
@@ -131,7 +132,18 @@ class UsersController extends AppController {
              $this->redirect('/');
         }
     }
-
+    
+    function _initialRegistrationPresents($id){
+        $presentIds = Configure::read('Child.Initial_registration_presents');
+        $request = array();
+        for ($i=0;$i<count($presentIds);$i++) {
+            $request[$i]['ChildPresent']['child_id'] = $id;
+            $request[$i]['ChildPresent']['present_id'] = $presentIds[$i];
+        }
+        $ChildPresent =& ClassRegistry::init('ChildPresent');
+        $ChildPresent->saveAll($request);
+    }
+    
     function _setRegisterData(){
         if($this->Ktai->is_ktai()) {
             $request['User']['uid'] = $this->Ktai->get_uid();

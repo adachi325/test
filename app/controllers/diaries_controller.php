@@ -40,6 +40,7 @@ class DiariesController extends AppController {
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
@@ -97,6 +98,12 @@ class DiariesController extends AppController {
             $this->render('post_unknown');
             return;
         }
+
+        if(!empty($diary['Diary']['error_code'])){
+            $this->render('post_failure');
+            return;
+        }
+
         //投稿反映画面の表示文言を設定
         if(!empty($diary['Present']['id'])) {
             $typelist = array('壁紙','デコメ絵文字','待受けFLASH','ポストカード');

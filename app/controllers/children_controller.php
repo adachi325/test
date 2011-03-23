@@ -55,7 +55,8 @@ class ChildrenController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['month']['id']
+                    'Diary.month_id' => $months['0']['month']['id'],
+                    'Diary.error_code' => null
                 )
             );
             //表示データ一覧取得
@@ -169,6 +170,8 @@ class ChildrenController extends AppController {
                 if ($this->Child->save($this->data)) {
                     //最終子供IDを更新
                     $this->_saveLastChild($this->Child->getLastInsertId());
+                    //初回登録プレゼント
+                    $this->_initialRegistrationPresents($this->Child->getLastInsertId());
                     TransactionManager::commit();
                     $this->Session->setFlash(__('子供登録完了。', true));
                 } else {
@@ -185,6 +188,16 @@ class ChildrenController extends AppController {
              $this->Session->setFlash(__('不正操作です。', true));
              $this->redirect('/children/');
         }
+    }
+
+    function _initialRegistrationPresents($id){
+        $presentIds = Configure::read('Child.Initial_registration_presents');
+        $request = array();
+        for ($i=0;$i<count($presentIds);$i++) {
+            $request[$i]['ChildPresent']['child_id'] = $id;
+            $request[$i]['ChildPresent']['present_id'] = $presentIds[$i];
+        }
+        $this->Child->ChildPresent->saveAll($request);
     }
 
     //子供が３人以上存在する場合はその有無を表示する。
@@ -231,6 +244,7 @@ class ChildrenController extends AppController {
     }
 
     function edit_confirm(){
+
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
@@ -245,7 +259,7 @@ class ChildrenController extends AppController {
                 $this->Session->setFlash(__('入力項目に不備があります。', true));
                 $this->Session->write('childEditData', $this->data);
                 $this->Session->write('childEditValidationErrors', $this->validateErrors($this->Child));
-                $this->redirect('/children/edit');
+                //$this->redirect('/children/edit');
             }
         }
         $lines = $this->Child->Line->find('list');
@@ -293,6 +307,8 @@ class ChildrenController extends AppController {
     
     function delete() {
 
+        pr ($this->data);
+
         if(!empty($this->data)){
             $this->Session->write('check',$this->data);
             $this->redirect('/children/delete_complete');
@@ -312,7 +328,9 @@ class ChildrenController extends AppController {
              $this->redirect('/children/');
         }
         //子供情報取得
+        $this->Child->contain();
         $this->data = $this->Child->read(null, $lastChildId);
+
     }
 
     function delete_complete(){
