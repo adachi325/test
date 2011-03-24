@@ -1,49 +1,67 @@
-<h2>子どものページ</h2>
+<div style="background:#339933;">
+
+<?php echo $this->element('default/logo'); ?>
+
 <?php if(count($childrenData) > 0) { ?>
-<div id="tab">
 <?php
 // 配列の値を改行しながらすべて出力
 $i = 0;
 $tabColId=0;
+
+$opt = array('border' => '0', 'style' => 'margin:0 1px;', 'class' => 'test');
+
 foreach ($childrenData as $child) {
     extract($child['Child']);
-    echo '<span>';
+	$tab_index = $i + 1;
     if($child['Child']['id'] == $currentChild['Child']['id']){
-        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $i));
+        echo $html->image("top/tab_btn0{$tab_index}.gif", $opt);
         $tabColId = $i;
-    }else{
-        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $i)), "/children/index/".$i, array('escape' => false));
+	}else{
+		echo $html->image("top/tab_btn0{$tab_index}.gif", array_merge($opt, array('url' => "/children/index/{$i}/")));
     }
-    echo '</span> ';
     $i++;
 }
+
 if (count($childrenData) < 3) {
-    echo '<span>';
-    echo $html->link('+', "/children/register/");
-    echo '</span> ';
+    // echo '<span>';
+    // echo $html->link('+', "/children/register/");
+    // echo '</span> ';
 }?>
 </div>
-<?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
-    <tr>
-        <td>
-            <?php
-            $i=0;
-            foreach($diaries as $diary):
-                if ($diary['Diary']['has_image'] && $i < 1) {
-                    $i++;
-                    echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
-                }
-            endforeach;
 
-            if ($i == 0) {
-                echo $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
-            }
+<div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0">
+<tr>
+<td width="75" rowspan="5">
+	<?php
+	$img = '';
+	foreach($diaries as $diary) {
+		if ($diary['Diary']['has_image']) {
+			$img = $html->image(
+				sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']),
+				array('url'=>'/diaries/info/'.$diary['Diary']['id'], 'width' => '55px', 'height' => '55px'));
+			break;
+		}
+	}
 
-            ?>
-        </td>
-        <td>
-            <div>･<?php echo $currentChild['Child']['nickname']; ?> </div>
-            <?php
+	if (empty($img)) {
+		$img = $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+	}
+	echo $img;
+	?>
+</td>
+<td> <?php echo $this->Html->image('spacer.gif'); ?> </td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_name.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;"><?php echo $currentChild['Child']['nickname']; ?></span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_birth.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;">
+	<?php
             //歳計算
             $yy = $currentChild['Child']['birth_year'];
             $mm = $currentChild['Child']['birth_month'];
@@ -52,16 +70,28 @@ if (count($childrenData) < 3) {
             if($mmm < 0) {
                 $mmm = $mmm + 12;
                 $yyy = $yyy -1;
-            }
-            ?>
-            <div>･<?php echo $yyy.'才'.$mmm.'ヶ月'; ?>
-            </div>
-            <div>･ｺｰｽ:<?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></div>
-            <div><?php echo $this->Html->link('･獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></div>
-        </td>
-    </tr>
-<?php echo '</table>' ?>
+			} 
+			echo $yyy.'才'.$mmm.'ヶ月'; ?>
+	</span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_course.gif', array('style'=>'margin-right:2px;')); ?>
+<span style="font-size:x-small;">ｺｰｽ:<?php echo $html->link(
+	Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']), 
+	'/ap/'.$currentLine['Line']['category_name'].'/');?></span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_present.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;"><?php echo $this->Html->link('･獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></span></td>
+</tr>
+</table>
+<div style="background:#ff9900;"><?php echo $this->Html->image('spacer.gif', array('width' => '1', 'height' => '1')); ?></div>
+</div>
+
 <br>
+
 <div>
     <div>
         <h3>サイトのお知らせ</h3>
@@ -79,6 +109,8 @@ if (count($childrenData) < 3) {
     <?php endforeach; ?>
     </div>
 </div>
+
+
 <br>
 
 <h3>思い出記録</h3>

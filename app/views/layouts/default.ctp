@@ -12,13 +12,16 @@ echo $this->element('default/meta');
 <body>
 <a name="top" id="top"></a>
 
-<?php echo $this->element('default/header'); ?> 
+<div align="center" style="text-align:center;">
+<div style="width:240px; font-size:x-small; text-align:left;">
 
 <?php echo $content_for_layout; ?>
 
 <?php echo $this->element('default/footer'); ?>
-
 <?php echo $this->element('default/copyright'); ?>
+
+</div>
+</div>
 
 </body>
 </html>
