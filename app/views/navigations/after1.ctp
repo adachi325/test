@@ -11,7 +11,10 @@ if(!$this->tk->is_imode_browser()){ ?>
 <a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>">投稿する</a>
 <?php } else { ?>
     <?php if(!$this->Ktai->is_ezweb()){ ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>">投稿する</a>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, 'sjis-win'));?>">投稿する</a>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, 'sjis'));?>">投稿する</a>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, 'utf8'));?>">投稿する</a>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, 'JIS'));?>">投稿する</a>
     <?php } else { ?>
 <?php $this->Ktai->mailto("投稿する",$mailStr,$mailTitle); ?>
     <?php } ?>
