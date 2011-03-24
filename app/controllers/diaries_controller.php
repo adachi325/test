@@ -336,7 +336,7 @@ class DiariesController extends AppController {
 
         if(!$this->Ktai->is_imode()){
             if(strlen($diary['Diary']['body']) > 250){
-                $mailBody = substr($diary['Diary']['body'],0,250);
+                $mailBody = mb_substr($diary['Diary']['body'],0,250);
             } else {
                 $mailBody = $diary['Diary']['body'];
             }
