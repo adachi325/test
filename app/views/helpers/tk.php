@@ -6,7 +6,7 @@ class tkHelper extends Helper {
      * ver1.0 : true
      * ver2.0 : false
      */
-    function imode_browser_v1(){
+    function is_imode_browser(){
 
         $ua = $_SERVER['HTTP_USER_AGENT'];
 
