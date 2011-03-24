@@ -15,7 +15,7 @@ if($this->data['User']['dc_user'] == 1) {
 }
 ?><br><br>
 
-<?php echo $form->submit('会員登録実行'); ?>
+<?php echo $form->submit('変更'); ?>
 <?php echo $form->end(); ?>
 <?php echo $form->create('User', array('url' => '/users/edit?guid=ON'));?>
 <?php echo $form->submit('入力項目修正'); ?>

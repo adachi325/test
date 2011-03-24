@@ -330,7 +330,7 @@ class DiariesController extends AppController {
         if(!$userData['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
-            $this->render('un_dc_user');
+            $this->render('post_info');
             return;
         }
 
@@ -344,6 +344,11 @@ class DiariesController extends AppController {
             $this->render('post_sb_au');
             return;
         }
+    }
+
+    function post_info(){
+        $this->set('yyy',date('Y')+0);
+        $this->set('mmm',date('m')+0);
     }
 
     function downlord($id=null){
