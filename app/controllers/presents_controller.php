@@ -103,7 +103,6 @@ class PresentsController extends AppController {
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
 
-
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary');
 		
