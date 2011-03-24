@@ -259,7 +259,7 @@ class DiariesController extends AppController {
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
-
+            $this->redirect('/diaries/index');
     }
 
     function info($id=null){
@@ -331,7 +331,6 @@ class DiariesController extends AppController {
             $this->render('post_sb_au');
             return;
         }
-        
     }
 
     function downlord($id=null){
