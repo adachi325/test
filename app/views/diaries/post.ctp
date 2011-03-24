@@ -1,21 +1,13 @@
-<?php
-if($un_dc_user) { ?>
-<div>
-    <?php echo 'どこもこみゅにてぃに入ってから再度サクセスしてください。'; ?>
-</div>
-<?php } else {?>
+
 <center>
     <div>
         <span>ドコモコミュニティにメールで投稿しよう。</span>
     </div>
     <div>
-        <?php echo $this->Html->link('投稿する', '/diaries/downlord/'.$id); ?>
+        <?php echo $this->Html->link('投稿する', '/diaries/downlord/'.$diary['Diary']['id']); ?>
     </div>
 </center>
-<?php } ?>
+<br>
 <div>
-<?php echo $this->Html->link('⇒日記に戻る','/diaries/info/'.$id); ?>
-</div>
-<div>
-<?php echo $this->Html->link('⇒思い出一覧へ戻る', '/diaries/index/'); ?>
+･<?php echo $this->Html->link('今月の思い出記録ﾍﾟｰｼﾞへ戻る', '/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']); ?>
 </div>

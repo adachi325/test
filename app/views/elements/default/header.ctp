@@ -1,3 +1,2 @@
-
-<p>logo, menu or something.</p>
+<?php echo $this->Html->image('top_main.gif', array('alt'=>'header', 'height'=>'77', 'width'=>'240')); ?>
 

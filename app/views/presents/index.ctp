@@ -1,5 +1,3 @@
-<div class="presents index">
-
 <?php
 $year = (isset($year)) ? $year : date('Y');
 $month = (isset($month)) ? $month : date('n');
@@ -48,4 +46,3 @@ foreach($present_types as $key => $value):
 <?php echo $this->Html->link("{$month}月の思い出テーマ一覧", array('controller' => 'themes', 'action' => 'index')); ?>
 </p>
 
-</div>

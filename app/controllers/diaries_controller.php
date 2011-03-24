@@ -293,8 +293,10 @@ class DiariesController extends AppController {
 
     function post($id=null){
         if(empty($id)){
-            $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->set('yyy',date('Y')+0);
+            $this->set('mmm',date('m')+0);
+            $this->render('un_dc_user');
+            return;
         }
         //データ取得
         $this->Diary->contain('Month');
@@ -304,18 +306,32 @@ class DiariesController extends AppController {
                 'Diary.id' => $id
             )
         );
-        $diary = $this->Diary->find('first', $conditions);        
+        $diary = $this->Diary->find('first', $conditions);    
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
             $this->redirect('/children/');
         }
+        $this->set(compact('diary'));
+        
         $userData = $this->Auth->user();
         if(!$userData['User']['dc_user']) {
-            $this->set('un_dc_user',true);
-        } else {
-            $this->set('un_dc_user',false);
+            $this->set('yyy',$diary['Month']['year']);
+            $this->set('mmm',$diary['Month']['month']);
+            $this->render('un_dc_user');
+            return;
         }
-        $this->set('id',$diary['Diary']['id']);
+
+        if(!$this->Ktai->is_imode()){
+            if(strlen($diary['Diary']['body']) > 250){
+                $mailBody = substr($diary['Diary']['body'],0,250);
+            } else {
+                $mailBody = $diary['Diary']['body'];
+            }
+            $this->set('mailBody',$mailBody);
+            $this->render('post_sb_au');
+            return;
+        }
+        
     }
 
     function downlord($id=null){
