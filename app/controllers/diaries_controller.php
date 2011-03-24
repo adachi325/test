@@ -10,8 +10,16 @@ class DiariesController extends AppController {
         //表示データ年月設定
         if(empty($year) or empty($month)) {
             //年月を設定
-            $setOptions['year'] = date('Y');
-            $setOptions['month'] = date('m') + 0;
+            //セッション情報回収、削除
+            $deleteDiaryReturn = $this->Session->read('deleteDiaryReturn');
+            $this->Session->delete('deleteDiaryReturn');
+            if(!empty($deleteDiaryReturn)) {
+                $setOptions['year'] = $deleteDiaryReturn['year'];
+                $setOptions['month'] = $deleteDiaryReturn['month'];
+            } else {
+                $setOptions['year'] = date('Y');
+                $setOptions['month'] = date('m') + 0;
+            }
         } else {
             //不正パラメータチェック
             if(
@@ -224,15 +232,15 @@ class DiariesController extends AppController {
 
             $child_id = $this->_getLastChild();
 
-            $this->Diary->contain();
-            $diary = $this->Diary->find('first', array( 'conditions' => array( 'id = '.$id , 'child_id = '.$child_id)));
+            $this->Diary->contain('Month');
+            $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id = '.$id , 'Diary.child_id = '.$child_id)));
 
             if(empty($diary)){
                  $this->Session->setFlash(__('不正操作です。', true));
                  $this->redirect('/children/');
             }
             //削除用の配列作成
-            $deleteCondition = array("id" => $id);
+            $deleteCondition = array("Diary.id" => $id);
             
             //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
             TransactionManager::begin();
@@ -246,9 +254,9 @@ class DiariesController extends AppController {
                     $this->Session->setFlash(__('削除失敗。', true));
                 }
             } catch(Exception $e) {
-              TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+                TransactionManager::rollback();
+                $this->Session->setFlash(__('システムエラー。', true));
+                $this->redirect('/children/');
             }
 
             if($diary['Diary']['has_image']) {
@@ -259,7 +267,12 @@ class DiariesController extends AppController {
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
-            $this->redirect('/diaries/index');
+            //削除した思い出の月へ戻る
+            $setOptions = array();
+            $setOptions['year'] = $diary['Month']['year'];
+            $setOptions['month'] = $diary['Month']['month'];
+            $this->Session->write('deleteDiaryReturn', $setOptions);
+            parent::redirect('/diaries/index/');
     }
 
     function info($id=null){
