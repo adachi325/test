@@ -314,7 +314,6 @@ class DiariesController extends AppController {
         $this->set(compact('diary'));
         
         $userData = $this->Auth->user();
-
         if(!$userData['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
@@ -323,6 +322,12 @@ class DiariesController extends AppController {
         }
 
         if(!$this->Ktai->is_imode()){
+            if(strlen($diary['Diary']['body']) > 250){
+                $mailBody = substr($diary['Diary']['body'],0,250);
+            } else {
+                $mailBody = $diary['Diary']['body'];
+            }
+            $this->set('mailBody',$mailBody);
             $this->render('post_sb_au');
             return;
         }

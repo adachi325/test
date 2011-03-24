@@ -23,7 +23,7 @@
     メール送信して完成!
 </div>
 <center>
-<?php $this->Ktai->mailto("投稿する",Configure::read('Defaults.docomo_community'),$diary['Diary']['title'],$diary['Diary']['body']); ?>
+<?php $this->Ktai->mailto("投稿する",Configure::read('Defaults.docomo_community'),$diary['Diary']['title'],$mailBody); ?>
 </center>
 <br>
 <div>
