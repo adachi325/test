@@ -1,28 +1,34 @@
-<h2>子どものページ</h2>
+<div style="background:#339933;">
+
+<?php echo $this->element('default/logo'); ?>
+
 <?php if(count($childrenData) > 0) { ?>
-<div id="tab">
 <?php
 // 配列の値を改行しながらすべて出力
 $i = 0;
 $tabColId=0;
+
+$opt = array('border' => '0', 'style' => 'margin:0 1px;', 'class' => 'test');
+
 foreach ($childrenData as $child) {
     extract($child['Child']);
-    echo '<span>';
+	$tab_index = $i + 1;
     if($child['Child']['id'] == $currentChild['Child']['id']){
-        echo $html->image(sprintf(Configure::read('Child.icon_on_path'), $i));
+        echo $html->image("top/tab_btn0{$tab_index}.gif", $opt);
         $tabColId = $i;
-    }else{
-        echo $html->link($html->image(sprintf(Configure::read('Child.icon_off_path'), $i)), "/children/index/".$i, array('escape' => false));
+	}else{
+		echo $html->image("top/tab_btn0{$tab_index}.gif", array_merge($opt, array('url' => "/children/index/{$i}/")));
     }
-    echo '</span> ';
     $i++;
 }
+
 if (count($childrenData) < 3) {
-    echo '<span>';
-    echo $html->link('+', "/children/register/");
-    echo '</span> ';
+    // echo '<span>';
+    // echo $html->link('+', "/children/register/");
+    // echo '</span> ';
 }?>
 </div>
+<<<<<<< HEAD
 <?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
     <tr>
         <td>
@@ -49,6 +55,42 @@ if (count($childrenData) < 3) {
             ?>
             </div>
             <?php
+=======
+
+<div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0">
+<tr>
+<td width="75" rowspan="5">
+	<?php
+	$img = '';
+	foreach($diaries as $diary) {
+		if ($diary['Diary']['has_image']) {
+			$img = $html->image(
+				sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']),
+				array('url'=>'/diaries/info/'.$diary['Diary']['id'], 'width' => '55px', 'height' => '55px'));
+			break;
+		}
+	}
+
+	if (empty($img)) {
+		$img = $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+	}
+	echo $img;
+	?>
+</td>
+<td> <?php echo $this->Html->image('spacer.gif'); ?> </td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_name.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;"><?php echo $currentChild['Child']['nickname']; ?></span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_birth.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;">
+	<?php
+>>>>>>> d8945f714b34f43e0dc7468d9189e2e14b113c5a
             //歳計算
             $yy = $currentChild['Child']['birth_year'];
             $mm = $currentChild['Child']['birth_month'];
@@ -57,52 +99,68 @@ if (count($childrenData) < 3) {
             if($mmm < 0) {
                 $mmm = $mmm + 12;
                 $yyy = $yyy -1;
-            }
-            ?>
-            <div>･<?php echo $yyy.'才'.$mmm.'ヶ月'; ?>
-            </div>
-            <div>･ｺｰｽ:<?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></div>
-            <div><?php echo $this->Html->link('･獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></div>
-        </td>
-    </tr>
-<?php echo '</table>' ?>
-<br>
-<div>
-    <div>
-        <h3>サイトのお知らせ</h3>
-    </div>
-    <div>
-    <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))) { ?>
-        <?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
-    <?php } ?>
-    <?php foreach($newslist as $news): ?>
-        <?php
-            echo "<p>";
-            echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']);
-            echo "</p>";
-        ?>
-    <?php endforeach; ?>
-    </div>
+			} 
+			echo $yyy.'才'.$mmm.'ヶ月'; ?>
+	</span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_course.gif', array('style'=>'margin-right:2px;')); ?>
+<span style="font-size:x-small;">ｺｰｽ:<?php echo $html->link(
+	Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']), 
+	'/ap/'.$currentLine['Line']['category_name'].'/');?></span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<?php echo $this->Html->image('top/icn_present.gif', array('style'=>'margin-right:2px;')); ?>
+	<span style="font-size:x-small;"><?php echo $this->Html->link('･獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></span></td>
+</tr>
+</table>
+<div style="background:#ff9900;"><?php echo $this->Html->image('spacer.gif', array('width' => '1', 'height' => '1')); ?></div>
 </div>
+
 <br>
 
-<h3>思い出記録</h3>
-<div>
-<center>
-<div>
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+<?php echo $this->Html->image('top/txt_info.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+
+<?php foreach($newslist as $news): ?>
+<tr>
+<td width="45" valign="top"><span style="font-size:x-small;"><span style="color:#ff9900;">･</span>
+<?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
+</span></td>
+<td width="185" align="left">
+<span style="font-size:x-small;"> <?php echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']); ?> </span>
+</td>
+</tr>
+<?php endforeach; ?>
+
+</table>
+</div>
+
+<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))) { ?>
+	<?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
+<?php } ?>
+
+<br>
+
+
+<?php echo $this->Html->image('top/ttl_memory.gif'); ?><br />
 <?php
-$i=0;
-foreach($diaries as $diary):
-    if ($diary['Diary']['has_image'] && $i < 4) {
-        if($i == 2) {
-            echo '<br>';
-        }
-        $i++;
-        echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
-    }
-endforeach;
-?>
+   	$m = date('n');
+	echo $this->Html->image("top/album_{$m}.gif"); 
+?><br />
+<div align="center" style="background:#e9f7ff; text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td width="78">
 <?php
+<<<<<<< HEAD
 while($i < 4) {
     if($i == 2) {
         echo '<br>';
@@ -111,17 +169,104 @@ while($i < 4) {
     $i++;
 }
 ?>
+=======
+	$i = 0;
+	if (isset($diaries[$i])) {
+		$diary = $diaries[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	} else {
+		$i++;
+		echo $this->Html->image("top/album_pic0{$i}.jpg");
+	}
+	?>
+</td>
+<td width="78">
+<?php
+	$i = 1;
+	if (isset($diaries[$i])) {
+		$diary = $diaries[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	} else {
+		$i++;
+		echo $this->Html->image("top/album_pic0{$i}.jpg");
+	}
+	?>
+</td>
+<td><?php echo $this->Html->image('top/obj01.gif'); ?></td>
+</tr>
+</table>
+
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td><?php echo $this->Html->image('top/obj02.gif'); ?></td>
+<td width="78">
+<?php
+	$i = 2;
+	if (isset($diaries[$i])) {
+		$diary = $diaries[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	} else {
+		$i++;
+		echo $this->Html->image("top/album_pic0{$i}.jpg");
+	}
+	?>
+</td>
+<td width="78">
+<?php
+	$i = 3;
+	if (isset($diaries[$i])) {
+		$diary = $diaries[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	} else {
+		$i++;
+		echo $this->Html->image("top/album_pic0{$i}.jpg");
+	}
+	?>
+</td>
+</tr>
+</table>
+>>>>>>> d8945f714b34f43e0dc7468d9189e2e14b113c5a
 </div>
-</center>
-<br>
-<?php echo $html->link('思い出記録をもっと見る', '/diaries/' ,array('escape' => false)); ?>
+<?php echo $this->Html->image('top/album_btm.gif'); ?><br />
+<br />
+
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+	<?php echo $this->Html->image('top/txt_look.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/diaries/');?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">思い出記録をもっと見る</span></a></td>
+</tr>
+</table>
 </div>
-<br>
-<h3>思い出を形に残す</h3>
-<div>
-    <?php echo $this->Html->link('世界に1つの待受画面を作る', '/presents/present_list/2'); ?><br>
-    <?php echo $this->Html->link('お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る', '/presents/present_list/3'); ?>
+
+<?php echo $this->Html->image('top/dot_line.gif', array('style'=>'margin:10px 0;')); ?><br />
+
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+<?php echo $this->Html->image('top/txt_leave.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">世界に1つ!待受画面を作る</span></a></td>
+</tr>
+<tr>
+<td valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td align="left"><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る</span></a></td>
+</tr>
+</table>
 </div>
+
+
 <br>
 <h3>思い出を書く</h3>
 <?php foreach($months as $month): ?>

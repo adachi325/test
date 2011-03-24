@@ -64,7 +64,11 @@
  */
 class AppController extends Controller {
     
+<<<<<<< HEAD
 	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions','tk');
+=======
+	public $helpers = array('Ktai','Html', 'Time', 'Form','Session','SelectOptions');
+>>>>>>> d8945f714b34f43e0dc7468d9189e2e14b113c5a
 	public $components = array(
 		'Ktai',
 		'Auth',
