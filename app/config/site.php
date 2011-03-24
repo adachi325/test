@@ -57,6 +57,7 @@ $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_user' => 'iida',
 	'receive_mail_prefix' => 'diary_',
+        'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(

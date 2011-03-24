@@ -145,14 +145,15 @@ class ThemesController extends AppController {
          //メールアドレス生成
          $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
 
-         //タイトルエンコード
+         //タイトル設定
          if($theme['Theme']['free_theme']){
-            $mailTitle = rawurlencode((date('m')+0).'月'.(date('d')+0).'日の思い出');
+            $mailTitle = (date('m')+0).'月'.(date('d')+0).'日の思い出';
          } else {
-            $mailTitle = rawurlencode($theme['Theme']['title']);
+            $mailTitle = $theme['Theme']['title'];
          }
 
-         $this->set('mailStr','mailto:'.$mailStr.'?subject='.$mailTitle);
+         $this->set('mailStr',$mailStr);
+         $this->set('mailTitle',$mailTitle);
 
     }
     
