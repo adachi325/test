@@ -1,10 +1,9 @@
 <div style="background:#339933;">
 
 <?php echo $this->element('default/logo'); ?>
-
+<!-- タブ -->
 <?php if(count($childrenData) > 0) { ?>
 <?php
-// 配列の値を改行しながらすべて出力
 $i = 0;
 $tabColId=0;
 
@@ -29,6 +28,7 @@ if (count($childrenData) < 3) {
 }?>
 </div>
 
+<!-- 子供情報 -->
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0">
 <tr>
@@ -54,6 +54,10 @@ if (count($childrenData) < 3) {
 </tr>
 <tr>
 <td align="left" valign="top">
+
+<?php
+//echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
+?>
 <?php echo $this->Html->image('top/icn_name.gif', array('style'=>'margin-right:2px;')); ?>
 	<span style="font-size:x-small;"><?php echo $currentChild['Child']['nickname']; ?></span></td>
 </tr>
@@ -92,6 +96,8 @@ if (count($childrenData) < 3) {
 
 <br>
 
+<!-- お知らせ -->
+
 <div align="center" style="text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -120,6 +126,7 @@ if (count($childrenData) < 3) {
 
 <br>
 
+<!-- 思い出記録 -->
 
 <?php echo $this->Html->image('top/ttl_memory.gif'); ?><br />
 <?php
@@ -190,6 +197,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image('top/album_btm.gif'); ?><br />
 <br />
 
+<!-- 思い出を見る -->
 
 <div align="center" style="text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0" align="center">
@@ -207,6 +215,7 @@ if (count($childrenData) < 3) {
 
 <?php echo $this->Html->image('top/dot_line.gif', array('style'=>'margin:10px 0;')); ?><br />
 
+<!-- 思い出を形に残す -->
 
 <div align="center" style="text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0" align="center">
@@ -226,33 +235,67 @@ if (count($childrenData) < 3) {
 </table>
 </div>
 
+<?php echo $this->Html->image('top/dot_line.gif', array('style'=>'margin:10px 0;')); ?><br />
 
-<br>
-<h3>思い出を書く</h3>
+<!-- 思い出を書く -->
+
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+	<?php echo $this->Html->image('top/txt_write.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+
 <?php foreach($months as $month): ?>
-    <?php foreach($month['Theme'] as $theme): ?>
-    <?php
-        if(!$theme['free_theme']){
-            echo "<p>【ﾃｰﾏ】";
-            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
-            echo "</p>";
-        }
-    ?>
-    <?php endforeach; ?>
-    <?php foreach($month['Theme'] as $theme): ?>
-    <?php
-        if($theme['free_theme']){
-            echo "<p>【自由】";
-            echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
-            echo "</p>";
-        }
-    ?>
-    <?php endforeach; ?>
+
+<?php foreach($month['Theme'] as $theme): ?>
+<?php if (!$theme['free_theme']): ?>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾃｰﾏ】<?php echo $theme['title'];?></span></a></td>
+</tr>
+<?php endif; ?>
 <?php endforeach; ?>
-<br>
-<div>
-<?php echo $this->Html->link('もっと見る', '/themes/'); ?>
+
+<?php foreach($month['Theme'] as $theme): ?>
+<?php if ($theme['free_theme']): ?>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾌﾘｰ】<?php echo $theme['title'];?></span></a></td>
+</tr>
+<?php endif; ?>
+<?php endforeach; ?>
+
+<?php endforeach; ?>
+</table>
 </div>
+
+<?php echo $this->Html->image('top/line_obj01.gif', array('style'=>'margin:10px 0;')); ?><br />
+
+
+<!-- 今月のプレゼント -->
+
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left"> <?php echo $this->Html->image('top/txt_present.gif'); ?> </td>
+</tr>
+
+<tr>
+<td width="65">
+
+<img src="img/top/pic_present.jpg" />
+</td><td width="165" valign="top" align="left"><span style="font-size:x-small;">思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞやﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!</span><br />
+<img src="img/spacer.gif" width="1" height="5" /><br />
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><!--#include virtual="/emoji/trans.php?emoji=84"--><a href="#" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div></td>
+</tr>
+</table>
+</div>
+
+<!--
 <br>
 <h3>今月のプレゼント</h3>
 <div>
@@ -280,6 +323,7 @@ if (count($childrenData) < 3) {
         </tr>
      </table>
 </div>
+-->
 <br>
 <div>
 <?php echo $this->Html->link('詳しくはこちら', '/presents/'); ?>

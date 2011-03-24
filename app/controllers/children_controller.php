@@ -56,7 +56,8 @@ class ChildrenController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['month']['id'],
+					'Diary.month_id' => $months['0']['month']['id'],
+					'Diary.has_image' => 1,
                     'Diary.error_code' => null
                 )
             );
