@@ -205,13 +205,28 @@ if (count($childrenData) < 3) {
 </table>
 </div>
 
+<?php echo $this->Html->image('top/dot_line.gif', array('style'=>'margin:10px 0;')); ?><br />
 
 
-<h3>思い出を形に残す</h3>
-<div>
-    <?php echo $this->Html->link('世界に1つの待受画面を作る', '/presents/present_list/2'); ?><br>
-    <?php echo $this->Html->link('お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る', '/presents/present_list/3'); ?>
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+<?php echo $this->Html->image('top/txt_leave.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">世界に1つ!待受画面を作る</span></a></td>
+</tr>
+<tr>
+<td valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
+<td align="left"><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る</span></a></td>
+</tr>
+</table>
 </div>
+
+
 <br>
 <h3>思い出を書く</h3>
 <?php foreach($months as $month): ?>
