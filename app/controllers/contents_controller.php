@@ -12,16 +12,32 @@ class ContentsController extends AppController {
 
 	function index($line = null) {
 
-		extract($this->params);
+		extract($this->params);	
 
 		$title = 'baby/ぷちファースト教材';
 
 		if (isset($line)) {
+			
+			$Line =& ClassRegistry::init('Line');
+			
+			$data = $Line->find('first', array(
+				'conditions' => array('category_name' => $line),
+				'fields' => array('title', 'category_name'),
+			));
+
+			if (!empty($data)) {
+				$title = $data['Line']['title'];
+			}
+
 			$Issue =& ClassRegistry::init('Issue');
 			$issues = $Issue->find('released', array('line' => $line));
+
+			$lines = $Line->find('all', array(
+				'fields' => array('title', 'category_name'),
+			));
 		}
 		
-		$this->set(compact('issues', 'title'));
+		$this->set(compact('issues', 'title', 'lines'));
 	}
 
 

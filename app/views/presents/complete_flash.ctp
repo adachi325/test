@@ -14,5 +14,4 @@
 
 <?php echo $this->Html->link('待受FLASHを作り直す', array('/')); ?>
 
-
 </div>

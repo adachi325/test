@@ -181,27 +181,11 @@ while($i < 4) {
 </div>
 <br>
 <h3>こどもちゃれんじ</h3>
-<div>
-<ul>
-<?php foreach($issues as $issue): ?>
-<li>
+
 <?php
-	echo h($issue['Issue']['title']);
-	if(is_array($issue['Content'])) {
-		foreach($issue['Content'] as $content) {
-			if ($content['release_date'] < date('Y-m-d')) {
-				echo "<p>";
-				echo $this->Html->link($content['title'], DS.$content['path'].DS);
-				echo "</p>";
-			}
-		}
-	}
+echo $this->element('lines'.DS.$currentLine['Line']['category_name']);
 ?>
-</li>
-<?php endforeach; ?>
-</ul>
-<?php echo $this->Html->link('もっと見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
-</div>
+
 <br><hr><br>
 <div><span><?php echo $this->Session->read('Auth.User.loginid');  ?>さんの設定</span></div>
 <div>
