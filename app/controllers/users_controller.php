@@ -32,7 +32,6 @@ class UsersController extends AppController {
     //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
             $redirectTo = $this->Auth->logout();
-            $this->Session->setFlash('ログアウトしました');
             $this->redirect('/');
     }
 
@@ -212,7 +211,8 @@ class UsersController extends AppController {
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
         }
-
+        //ログアウト
+        $this->Auth->logout();
     }
 
     function _setEditData(){
