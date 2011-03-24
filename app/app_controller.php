@@ -91,17 +91,16 @@ class AppController extends Controller {
        	//ktaiライブラリ設定
 	public $ktai = array(
 		'use_img_emoji' => true,
-		'input_encoding' => 'UTF8',
-		'output_encoding' => 'UTF8',
+		//'input_encoding' => 'UTF8',
+		//'output_encoding' => 'UTF8',
 		'use_xml' => true,
-		'enable_ktai_session' => true, //セッション使用を有効にします
+		'enable_ktai_session' => true, 		//セッション使用を有効にします
 		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
-		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
+		'imode_session_name' => 'csid', 	//iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
-		'use_xml' => false,
 	);
 
-	public $selectedChildId = null;//選択中こどもID
+	public $selectedChildId = null;			//選択中こどもID
         
 	function beforeFilter(){
             parent::beforeFilter();
