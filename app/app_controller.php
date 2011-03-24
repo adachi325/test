@@ -70,7 +70,7 @@ class AppController extends Controller {
 		'Auth',
 		'Session',
 		'Transition',
-		'DebugKit.Toolbar',
+		//'DebugKit.Toolbar',
                 'EasyLogin',
 		'CreatePresent',
 		'Secured.Ssl' => array(
