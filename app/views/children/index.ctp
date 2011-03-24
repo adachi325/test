@@ -92,6 +92,29 @@ if (count($childrenData) < 3) {
 
 <br>
 
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+<?php echo $this->Html->image('top/txt_info.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+
+<?php foreach($newslist as $news): ?>
+<tr>
+<td width="45" valign="top"><span style="font-size:x-small;"><span style="color:#ff9900;">･</span>
+<?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
+</span></td>
+<td width="185" align="left">
+<span style="font-size:x-small;"> <?php echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']); ?> </span>
+</td>
+</tr>
+<?php endforeach; ?>
+
+</table>
+</div>
+
+
 <div>
     <div>
         <h3>サイトのお知らせ</h3>
