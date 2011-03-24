@@ -28,35 +28,6 @@ if (count($childrenData) < 3) {
     // echo '</span> ';
 }?>
 </div>
-<<<<<<< HEAD
-<?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
-    <tr>
-        <td>
-            <?php
-            $i=0;
-            foreach($diaries as $diary):
-                if ($diary['Diary']['has_image'] && $i < 1) {
-                    $i++;
-                    echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
-                }
-            endforeach;
-
-            if ($i == 0) {
-                echo $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
-            }
-
-            ?>
-        </td>
-        <td>
-            <div>
-            <?php
-                echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
-                echo $currentChild['Child']['nickname'];
-            ?>
-            </div>
-            <?php
-=======
-
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0">
 <tr>
@@ -73,7 +44,7 @@ if (count($childrenData) < 3) {
 	}
 
 	if (empty($img)) {
-		$img = $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+		$img = $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
 	}
 	echo $img;
 	?>
@@ -90,7 +61,6 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image('top/icn_birth.gif', array('style'=>'margin-right:2px;')); ?>
 	<span style="font-size:x-small;">
 	<?php
->>>>>>> d8945f714b34f43e0dc7468d9189e2e14b113c5a
             //歳計算
             $yy = $currentChild['Child']['birth_year'];
             $mm = $currentChild['Child']['birth_month'];
@@ -160,16 +130,6 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="78">
 <?php
-<<<<<<< HEAD
-while($i < 4) {
-    if($i == 2) {
-        echo '<br>';
-    }
-    echo $html->image('common'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
-    $i++;
-}
-?>
-=======
 	$i = 0;
 	if (isset($diaries[$i])) {
 		$diary = $diaries[$i];
@@ -225,7 +185,6 @@ while($i < 4) {
 </td>
 </tr>
 </table>
->>>>>>> d8945f714b34f43e0dc7468d9189e2e14b113c5a
 </div>
 <?php echo $this->Html->image('top/album_btm.gif'); ?><br />
 <br />
