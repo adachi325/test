@@ -70,6 +70,9 @@ class PresentsController extends AppController {
 			if (isset($this->params['form']['create'])) {
 				for($i = 1; $i < $pageCount + 1; $i++) {
 					$sel = $this->Session->read("Present.{$i}.selection");
+					if (!is_array($sel)) {
+						continue;
+					}
 					foreach($sel as $key => $value) {
 						if ($value == 1) {
 							$selection[] = $key;
