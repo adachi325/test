@@ -53,12 +53,6 @@ class NavigationsController extends AppController {
             $mailTitle = (date('m')+0).'月'.(date('d')+0).'日の思い出';
             
             $ua = $_SERVER['HTTP_USER_AGENT'];
-
-            if (preg_match("/^DoCoMo\/2\.0/i", $ua)) {
-              pr('2.0:'.$ua);
-            } else if (preg_match("/^DoCoMo\/1\.0/i", $ua)) {
-              pr('1.0:'.$ua);
-            }
             
             $this->set('mailStr',$mailStr);
             $this->set('mailTitle',$mailTitle);

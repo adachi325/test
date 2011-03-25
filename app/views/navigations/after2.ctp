@@ -37,6 +37,11 @@
         ?>
         </span>
     </div>
+    <br>
+    <div align="right">
+        <span><?php echo date('n月d日', strtotime($diaries['Diary']['created'])); ?></span>
+    </div>
+    <br>
     <div>
         <span>
             思い出記録を渡航していくと、色々とハッピーでグッドなアイテムをゲッツ。
