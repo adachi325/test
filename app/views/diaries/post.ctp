@@ -11,7 +11,7 @@
     <div>
         <div>そしてメールを起動して↑でダウンロードしたテンプレートを挿入してメールするんだ！</div>
         <div>
-            <textarea rows="1"><?php echo Configure::read('Defaults.docomo_community') ?></textarea>
+            <input type="text" value="<?php echo Configure::read('Defaults.docomo_community') ?>">
         </div>
     </div>
 </center>
