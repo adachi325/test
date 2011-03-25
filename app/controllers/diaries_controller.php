@@ -46,7 +46,7 @@ class DiariesController extends AppController {
         if(!empty($months)){
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id']
                 ),
                 'order'=>array('Diary.created DESC')
@@ -75,24 +75,16 @@ class DiariesController extends AppController {
         }
     }
 
-    //最終子供ID取得
-    function _getLastChild(){
-        $userData = $this->Auth->user();
-        $User = ClassRegistry::init('User');
-        $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
-        return $User['User']['last_selected_child'];
-    }
-
     function checkPost($hash = null){
         //hashを確認し、データがなければリダイレクト
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
         }
-        $this->Diary->contain('Present');
+        $this->Diary->contain('Present','Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.hash' => $hash
             )
         );
@@ -137,7 +129,7 @@ class DiariesController extends AppController {
             $this->Diary->contain('Month');
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.id' => $id
                 )
             );
@@ -158,7 +150,7 @@ class DiariesController extends AppController {
         $request = array();
         $request = $this->data;
         $userData = $this->Auth->user();
-        $request['Diary']['child_id'] = $this->_getLastChild();
+        $request['Diary']['child_id'] = $this->Tk->_getLastChild();
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
@@ -209,7 +201,7 @@ class DiariesController extends AppController {
             $this->Diary->contain('Month');
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.id' => $id
                 )
             );
@@ -230,7 +222,7 @@ class DiariesController extends AppController {
             }
             $id = $this->data['Diary']['check'];
 
-            $child_id = $this->_getLastChild();
+            $child_id = $this->Tk->_getLastChild();
 
             $this->Diary->contain('Month');
             $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id = '.$id , 'Diary.child_id = '.$child_id)));
@@ -292,7 +284,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -315,7 +307,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -369,7 +361,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
