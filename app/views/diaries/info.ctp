@@ -22,7 +22,7 @@
     <?php if ($diary['Diary']['has_image']) {  ?>
     <div>
         <span>
-           <?php echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('escape' => false, 'width' => '100px', 'height' => '100px')); ?>
+           <?php echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('escape' => false, 'width' => '50%', 'height' => '50%')); ?>
         </span>
     </div>
     <br>
