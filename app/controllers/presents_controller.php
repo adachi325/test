@@ -20,7 +20,7 @@ class PresentsController extends AppController {
 
 	function present_list($type = null) {
 
-		$child_id = $this->Session->read('Auth.User.last_selected_child');
+		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
 			$this->Session->setFlash('プレゼントの種類を指定してください');
@@ -85,7 +85,7 @@ class PresentsController extends AppController {
 					$this->redirect("/presents/complete/{$type}/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-					//$this->redirect('/presents/error_photo');
+					$this->redirect('/presents/error_photo');
 				}
 			}
 			if (isset($this->params['form']['prev'])) {
@@ -106,8 +106,13 @@ class PresentsController extends AppController {
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
 
+		$cond = array(
+			'child_id' => $this->Tk->_getLastChild(),
+			'has_image' => 1,
+		);
+
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
-		$items = $this->paginate('Diary');
+		$items = $this->paginate('Diary', $cond);
 		
 		$this->set(compact('items', 'data', 'type', 'template_id'));
 	}
