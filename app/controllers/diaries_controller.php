@@ -81,7 +81,7 @@ class DiariesController extends AppController {
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
         }
-        $this->Diary->contain('Present');
+        $this->Diary->contain('Present','Month');
         $conditions = array(
             'conditions' => array(
                 'Diary.child_id' => $this->Tk->_getLastChild(),
