@@ -5,11 +5,11 @@ if (!isset($max_count)) {
 ?>
 
 <div class="presents view">
-<h2><?php  __('Present');?></h2>
+<h2><?php  __('Present', true);?></h2>
 
 <p>投稿写真から<?php echo $max_count; ?>枚選んで、「作成する」ボタンを押してください。</p>
 
-<?php echo $this->Form->create('Present', array('url' => "/presents/select/{$type}/{$template_id}/"))); ?>
+<?php echo $this->Form->create('Present', array('url' => "/presents/select/{$type}/{$template_id}/")); ?>
 
 <?php echo $this->Form->hidden('page', array('value' => $this->params['paging']['Diary']['page'])); ?>
 <?php echo $this->Form->hidden('pageCount', array('value' => $this->params['paging']['Diary']['pageCount'])); ?>
