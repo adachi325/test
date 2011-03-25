@@ -29,6 +29,10 @@
         <span><?php echo $diaries['Diary']['body'] ?></span>
     </div>
     <br>
+    <div align="right">
+        <span><?php echo date('n月d日', strtotime($diaries['Diary']['created'])); ?></span>
+    </div>
+    <br>
     <div>
         <span>
         <?php
@@ -36,10 +40,6 @@
                 array('width' => '200px', 'height' => '50px'));
         ?>
         </span>
-    </div>
-    <br>
-    <div align="right">
-        <span><?php echo date('n月d日', strtotime($diaries['Diary']['created'])); ?></span>
     </div>
     <br>
     <div>
