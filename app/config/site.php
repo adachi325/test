@@ -40,7 +40,7 @@ $config['Present'] = array(
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_thum' => 'present/template/screen/%s_thumb.jpg',
-                'postcard' => 'present/template/postcard/%s.gif',
+                'postcard' => 'present/template/postcard/%s.png',
                 'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
                 'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
@@ -57,6 +57,7 @@ $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_user' => 'shimajiro',
 	'receive_mail_prefix' => 'diary_',
+        'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(

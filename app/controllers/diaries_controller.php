@@ -10,8 +10,16 @@ class DiariesController extends AppController {
         //表示データ年月設定
         if(empty($year) or empty($month)) {
             //年月を設定
-            $setOptions['year'] = date('Y');
-            $setOptions['month'] = date('m') + 0;
+            //セッション情報回収、削除
+            $deleteDiaryReturn = $this->Session->read('deleteDiaryReturn');
+            $this->Session->delete('deleteDiaryReturn');
+            if(!empty($deleteDiaryReturn)) {
+                $setOptions['year'] = $deleteDiaryReturn['year'];
+                $setOptions['month'] = $deleteDiaryReturn['month'];
+            } else {
+                $setOptions['year'] = date('Y');
+                $setOptions['month'] = date('m') + 0;
+            }
         } else {
             //不正パラメータチェック
             if(
@@ -224,15 +232,15 @@ class DiariesController extends AppController {
 
             $child_id = $this->_getLastChild();
 
-            $this->Diary->contain();
-            $diary = $this->Diary->find('first', array( 'conditions' => array( 'id = '.$id , 'child_id = '.$child_id)));
+            $this->Diary->contain('Month');
+            $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id = '.$id , 'Diary.child_id = '.$child_id)));
 
             if(empty($diary)){
                  $this->Session->setFlash(__('不正操作です。', true));
                  $this->redirect('/children/');
             }
             //削除用の配列作成
-            $deleteCondition = array("id" => $id);
+            $deleteCondition = array("Diary.id" => $id);
             
             //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
             TransactionManager::begin();
@@ -246,9 +254,9 @@ class DiariesController extends AppController {
                     $this->Session->setFlash(__('削除失敗。', true));
                 }
             } catch(Exception $e) {
-              TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+                TransactionManager::rollback();
+                $this->Session->setFlash(__('システムエラー。', true));
+                $this->redirect('/children/');
             }
 
             if($diary['Diary']['has_image']) {
@@ -259,7 +267,12 @@ class DiariesController extends AppController {
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
-
+            //削除した思い出の月へ戻る
+            $setOptions = array();
+            $setOptions['year'] = $diary['Month']['year'];
+            $setOptions['month'] = $diary['Month']['month'];
+            $this->Session->write('deleteDiaryReturn', $setOptions);
+            parent::redirect('/diaries/index/');
     }
 
     function info($id=null){
@@ -293,8 +306,10 @@ class DiariesController extends AppController {
 
     function post($id=null){
         if(empty($id)){
-            $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->set('yyy',date('Y')+0);
+            $this->set('mmm',date('m')+0);
+            $this->render('un_dc_user');
+            return;
         }
         //データ取得
         $this->Diary->contain('Month');
@@ -304,18 +319,36 @@ class DiariesController extends AppController {
                 'Diary.id' => $id
             )
         );
-        $diary = $this->Diary->find('first', $conditions);        
+        $diary = $this->Diary->find('first', $conditions);    
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
             $this->redirect('/children/');
         }
+        $this->set(compact('diary'));
+        
         $userData = $this->Auth->user();
         if(!$userData['User']['dc_user']) {
-            $this->set('un_dc_user',true);
-        } else {
-            $this->set('un_dc_user',false);
+            $this->set('yyy',$diary['Month']['year']);
+            $this->set('mmm',$diary['Month']['month']);
+            $this->render('post_info');
+            return;
         }
-        $this->set('id',$diary['Diary']['id']);
+
+        if(!$this->Ktai->is_imode()){
+            if(strlen($diary['Diary']['body']) > 250){
+                $mailBody = mb_substr($diary['Diary']['body'],0,250);
+            } else {
+                $mailBody = $diary['Diary']['body'];
+            }
+            $this->set('mailBody',$mailBody);
+            $this->render('post_sb_au');
+            return;
+        }
+    }
+
+    function post_info(){
+        $this->set('yyy',date('Y')+0);
+        $this->set('mmm',date('m')+0);
     }
 
     function downlord($id=null){

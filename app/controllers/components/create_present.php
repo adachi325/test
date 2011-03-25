@@ -58,7 +58,7 @@ class CreatePresentComponent extends Object {
         /******** ポストカード作成 ********/
 
         //下地画像生成（はがきサイズ）
-	$new_image = ImageCreateTrueColor(400, 592);
+	$new_image = ImageCreateTrueColor(567, 839);
 
         //思い出画像読み込み
 	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]));
@@ -67,7 +67,7 @@ class CreatePresentComponent extends Object {
         $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][3]));
 
         //テンプレート画像読み込み
-        $template = ImageCreateFromGif(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));
+        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));
 
 	//下地画像へ、思い出画像を合成
 	ImageCopy($new_image, $diaryImgA, 20, 20, 30, 30, 200, 200);
@@ -76,7 +76,7 @@ class CreatePresentComponent extends Object {
         ImageCopy($new_image, $diaryImgD, 230, 390, 30, 30, 200, 200);
 
         //下地画像へ、テンプレート画像を合成
-        ImageCopy($new_image, $template, 0, 0,  0, 0, 400, 592);
+        ImageCopy($new_image, $template, 0, 0,  0, 0, 567, 839);
 
         //画像名生成
         $new_file_name = substr(md5($args['child_id'].time()),0,20);

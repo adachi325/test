@@ -63,14 +63,14 @@
  * @subpackage    cake.cake.libs.controller
  */
 class AppController extends Controller {
-    
-	public $helpers = array('Ktai','Html', 'Time', 'Form','Session','SelectOptions');
+
+	public $helpers = array('Ktai','Html', 'Time', 'Form','Session','SelectOptions','tk');
 	public $components = array(
 		'Ktai',
 		'Auth',
 		'Session',
 		'Transition',
-		'DebugKit.Toolbar',
+		//'DebugKit.Toolbar',
                 'EasyLogin',
 		'CreatePresent',
 		'Secured.Ssl' => array(

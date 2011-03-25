@@ -26,7 +26,6 @@ if (count($childrenData) < 3) {
     // echo '</span> ';
 }?>
 </div>
-<<<<<<< HEAD
 <?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
     <tr>
         <td>
@@ -53,8 +52,6 @@ if (count($childrenData) < 3) {
             ?>
             </div>
             <?php
-=======
-
 <!-- 子供情報 -->
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0">
@@ -72,7 +69,7 @@ if (count($childrenData) < 3) {
 	}
 
 	if (empty($img)) {
-		$img = $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+		$img = $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
 	}
 	echo $img;
 	?>
@@ -93,7 +90,6 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image('top/icn_birth.gif', array('style'=>'margin-right:2px;')); ?>
 	<span style="font-size:x-small;">
 	<?php
->>>>>>> ac959258b2b743e0d79e15ae495c73302ad03834
             //歳計算
             $yy = $currentChild['Child']['birth_year'];
             $mm = $currentChild['Child']['birth_month'];
@@ -166,16 +162,6 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="78">
 <?php
-<<<<<<< HEAD
-while($i < 4) {
-    if($i == 2) {
-        echo '<br>';
-    }
-    echo $html->image('common'.'/nophoto'.($i+1).'.jpg' ,array('width' => '55px', 'height' => '55px'));
-    $i++;
-}
-?>
-=======
 	$i = 0;
 	if (isset($diaries[$i])) {
 		$diary = $diaries[$i];
@@ -231,7 +217,6 @@ while($i < 4) {
 </td>
 </tr>
 </table>
->>>>>>> ac959258b2b743e0d79e15ae495c73302ad03834
 </div>
 <?php echo $this->Html->image('top/album_btm.gif'); ?><br />
 <br />

@@ -6,7 +6,14 @@
 </div>
 <br>
 <div>
-<?php echo $html->link("投稿する", $mailStr); ?><br><br>
+<?php
+if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()){ ?>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>">投稿する</a>
+<?php } else { ?>
+<?php $this->Ktai->mailto("投稿する",$mailStr,$mailTitle); ?>
+<?php } ?>
+<br>
+<br>
 </div>
 <div>
     <?php echo $this->Html->link('今は投稿しないで、マイページに進む', '/children/'); ?>

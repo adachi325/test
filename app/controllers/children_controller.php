@@ -10,11 +10,11 @@ class ChildrenController extends AppController {
     
     function test(){
         $args = array(
-            'diary_id' => array(3,4,5),
+            'diary_id' => array(3,4,5,6),
             'child_id' => 2,
             'present_id' => 3
         );
-        if(!$this->CreatePresent->createFlash($args)){
+        if(!$this->CreatePresent->createPostCard($args)){
             $this->Session->setFlash(__('画像作成に失敗しました。', true));
         }
         $this->redirect('/children');
@@ -56,13 +56,9 @@ class ChildrenController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-<<<<<<< HEAD
-                    'Diary.month_id' => $months['0']['month']['id']
-=======
 					'Diary.month_id' => $months['0']['month']['id'],
 					'Diary.has_image' => 1,
                     'Diary.error_code' => null
->>>>>>> ac959258b2b743e0d79e15ae495c73302ad03834
                 )
             );
             //表示データ一覧取得
