@@ -309,6 +309,8 @@ if (count($childrenData) < 3) {
 </table>
 </div>
 
+
+<!-- 非会員だけの案内 -->
 <?php if (true): ?>
 
 <?php echo $this->Html->image('top/line_obj01.gif', array('style'=>'margin:10px 0;')); ?><br />
