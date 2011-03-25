@@ -45,6 +45,11 @@
         </span>
     </div>
 </center>
+<br>
+<div align="right">
+    <span><?php echo date('n月d日', strtotime($diary['Diary']['created'])); ?></span>
+</div>
+<br>
 <br><hr><br>
 <div>
 <?php echo $this->Html->link('⇒ドコモコミュニティへ投稿する', '/diaries/post/'.$diary['Diary']['id']); ?>
