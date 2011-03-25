@@ -468,6 +468,9 @@ class UsersController extends AppController {
 
         //ログアウト
         $this->Auth->logout();
+
+        //トライアルトップへ遷移
+        $this->redirect('/');
     }
 
 }
