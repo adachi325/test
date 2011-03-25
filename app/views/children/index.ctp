@@ -26,7 +26,6 @@ if (count($childrenData) < 3) {
     // echo '</span> ';
 }?>
 </div>
-
 <!-- 子供情報 -->
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0">
@@ -44,7 +43,7 @@ if (count($childrenData) < 3) {
 	}
 
 	if (empty($img)) {
-		$img = $html->image('photo'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
+		$img = $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
 	}
 	echo $img;
 	?>
