@@ -391,11 +391,15 @@ if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
 <body bgcolor="#FFFF8E">
-
-<div align="center">'.$diary['Diary']['title'].'</div>
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
+<br>
 <div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="rigth">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
@@ -407,12 +411,14 @@ $list[1] = '
 $list[1] = '
 <html>
 <body bgcolor="#FFFF8E">
-
-<div align="center">'.$diary['Diary']['title'].'</div>
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
 <div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="rigth">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
-
 </body>
 </html>
 
