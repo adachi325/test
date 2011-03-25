@@ -104,12 +104,14 @@ class AppController extends Controller {
 	public $selectedChildId = null;			//選択中こどもID
         
 	function beforeFilter(){
-            parent::beforeFilter();
+		parent::beforeFilter();
+		if ($this->ktai['enable_ktai_session'] == true) {
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
 				$this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
-            }
+			}
+		}
 	}
 
         function __formActionGuidOn(){
