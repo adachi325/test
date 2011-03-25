@@ -56,7 +56,13 @@ class ChildrenController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
+<<<<<<< HEAD
                     'Diary.month_id' => $months['0']['month']['id']
+=======
+					'Diary.month_id' => $months['0']['month']['id'],
+					'Diary.has_image' => 1,
+                    'Diary.error_code' => null
+>>>>>>> ac959258b2b743e0d79e15ae495c73302ad03834
                 )
             );
             //表示データ一覧取得

@@ -32,7 +32,6 @@ class IssueTestCase extends CakeTestCase {
 		}
 
 		$lines = $Line->find('all');
-
 	}
 
 	function createIssueData()

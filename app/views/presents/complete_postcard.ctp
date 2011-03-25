@@ -15,5 +15,4 @@
 
 <?php echo $this->Html->link('ポストカードを作り直す', array('/')); ?>
 
-
 </div>
