@@ -32,7 +32,7 @@ class ChildrenController extends AppController {
         }
 
         //最終子供ID設定
-        $lastChildId = $this->_getLastChild();
+        $lastChildId = $this->Tk->_getLastChild();
         //最終子供情報取得
         $currentChild = $this->Child->findById($lastChildId);
 
@@ -55,7 +55,7 @@ class ChildrenController extends AppController {
         if(!empty($months)){
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.month_id' => $months['0']['month']['id'],
                     'Diary.has_image' => 1,
                     'Diary.error_code' => null
@@ -87,14 +87,6 @@ class ChildrenController extends AppController {
         unset ($userData['User']['created']);
         unset ($userData['User']['modified']);
         $this->Child->saveLastChild($userData);
-    }
-
-    //最終子供ID取得
-    function _getLastChild(){
-        $userData = $this->Auth->user();
-        $User = ClassRegistry::init('User');
-        $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
-        return $User['User']['last_selected_child'];
     }
 
     //子供情報取得
@@ -229,7 +221,7 @@ class ChildrenController extends AppController {
 
         if (empty($this->data)) {
             //最終子供ID設定
-            $lastChildId = $this->_getLastChild();
+            $lastChildId = $this->Tk->_getLastChild();
 
             //子供情報取得
             $this->data = $this->Child->read(null, $lastChildId);
@@ -251,7 +243,7 @@ class ChildrenController extends AppController {
             $request = array();
             $request = $this->data;
             $userData = $this->Auth->user();
-            $request['Child']['id'] = $this->_getLastChild();
+            $request['Child']['id'] = $this->Tk->_getLastChild();
             $request['Child']['user_id'] = $userData['User']['id'];
             $this->data = $request;
             $this->Child->set($this->data);
@@ -323,7 +315,7 @@ class ChildrenController extends AppController {
              $this->redirect('/children/');
         }
         //最終子供ID設定
-        $lastChildId = $this->_getLastChild();
+        $lastChildId = $this->Tk->_getLastChild();
         //最終子供IDの子供がいなければ不正操作
         if (empty($lastChildId)){
              $this->Session->setFlash(__('不正操作です。', true));
