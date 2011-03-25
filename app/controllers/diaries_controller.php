@@ -417,7 +417,7 @@ $list[1] = '
 <br>
 <div align="center">'.$diary['Diary']['body'].'</div>
 <br>
-<div align="rigth">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
+<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 </body>
 </html>
