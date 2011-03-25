@@ -7,7 +7,7 @@ foreach($issue['Content'] as $content):
 <?php if ($content['release_date'] < date('Y-m-d')): ?>
 
 <tr>
-<?php if($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day")): ?>
+<?php if($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
 <td valign="top"><span style="font-size:x-small; color:#cc0000;"><?php $this->Ktai->emoji(0xE6DD); ?></span></td>
 <?php else:?>
 <td width="1" valign="top"><span style="font-size:x-small; color:#cc0000;">･</span></td>
