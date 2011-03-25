@@ -13,9 +13,9 @@
         <div>
         <?php
         if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()){ ?>
-        <a href="mailto:<?php echo Configure::read('Defaults.docomo_community') ?>?subject=<?php echo urlencode(mb_convert_encoding($diary['Diary']['title'], "utf8"));?>">投稿する</a>
+        <a href="mailto:<?php echo Configure::read('Defaults.docomo_community') ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>">投稿する</a>
         <?php } else { ?>
-        <?php $this->Ktai->mailto("投稿する",Configure::read('Defaults.docomo_community'),$diary['Diary']['title']); ?>
+        <?php $this->Ktai->mailto("投稿する",Configure::read('Defaults.docomo_community'),$mailTitle); ?>
         <?php } ?>
         </div>
     </div>

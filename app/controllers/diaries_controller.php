@@ -334,9 +334,16 @@ class DiariesController extends AppController {
             return;
         }
 
+        if(strlen($diary['Diary']['title']) > 9){
+            $mailTitle = mb_substr($diary['Diary']['title'],0,9);
+        }else {
+            $mailTitle = $diary['Diary']['title'];
+        }
+        $this->set('mailTitle',$mailTitle);
+
         if(!$this->Ktai->is_imode()){
-            if(strlen($diary['Diary']['body']) > 250){
-                $mailBody = mb_substr($diary['Diary']['body'],0,250);
+            if(strlen($diary['Diary']['body']) > 100){
+                $mailBody = mb_substr($diary['Diary']['body'],0,100);
             } else {
                 $mailBody = $diary['Diary']['body'];
             }
