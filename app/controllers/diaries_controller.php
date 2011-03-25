@@ -319,7 +319,7 @@ class DiariesController extends AppController {
         $this->set(compact('diary'));
 
         $userData = $this->Auth->user();
-        if($userData['User']['dc_user']) {
+        if(!$userData['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
             $this->render('post_info');
