@@ -57,7 +57,7 @@ if (count($childrenData) < 3) {
 //echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
 ?>
 <?php echo $this->Html->image('top/icn_name.gif', array('style'=>'margin-right:2px;')); ?>
-	<span style="font-size:x-small;"><?php echo $currentChild['Child']['nickname']; ?></span></td>
+	<span style="font-size:x-small;"><?php echo h($currentChild['Child']['nickname']); ?></span></td>
 </tr>
 <tr>
 <td align="left" valign="top">
@@ -252,7 +252,7 @@ if (count($childrenData) < 3) {
 <?php if (!$theme['free_theme']): ?>
 <tr>
 <td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
-<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾃｰﾏ】<?php echo $theme['title'];?></span></a></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a></td>
 </tr>
 <?php endif; ?>
 <?php endforeach; ?>
@@ -261,7 +261,7 @@ if (count($childrenData) < 3) {
 <?php if ($theme['free_theme']): ?>
 <tr>
 <td width="1" valign="top"><span style="font-size:x-small; color:#339900;">･</span></td>
-<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾌﾘｰ】<?php echo $theme['title'];?></span></a></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a></td>
 </tr>
 <?php endif; ?>
 <?php endforeach; ?>
@@ -329,9 +329,62 @@ if (count($childrenData) < 3) {
 
 <?php endif; ?>
 
-<?php
-echo $this->element('lines'.DS.$currentLine['Line']['category_name']);
-?>
+<!-- こどもちゃれんじ -->
+
+<?php echo $this->Html->image('top/ttl_challenge.gif', array('style'=>'margin-bottom:5px;')); ?><br />
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+<?php echo $this->Html->image('top/txt_challenge.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+
+<!-- ライン別の内容 -->
+
+<?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
+
+<!-- ライン別ここまで -->
+
+</table>
+</div>
+<br />
+
+<div align="center" style="text-align:center;"><a href="#"><img src="img/top/bnr_melmaga.gif" border="0" style="margin:5px 0 0;" /></a></div>
+
+<?php echo $this->Html->image('top/line_obj02.gif', array('style'=>'margin:10px 0;')); ?><br />
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left"> <?php echo $this->Html->image('top/txt_tv.gif', array('style'=>'margin-bottom:5px;')); ?> </td>
+</tr>
+<tr>
+<td width="65" valign="top"> <?php echo $this->Html->image('top/pic_tv.gif', array('style'=>'margin-bottom:5px;')); ?> </td>
+<td width="165" align="left" valign="top"><span style="font-size:x-small;">
+<a href="#" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
+毎週月曜、朝7:30～<br />
+8:00放送！新ｶﾝｶｸ☆<br />
+ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ。</span><br />
+<?php echo $this->Html->image('spacer.gif', array('width'=>'1', 'height'=>'10')); ?>
+</td>
+</tr>
+<tr>
+<td width="65" valign="top">
+<?php echo $this->Html->image('top/pic_connert.jpg'); ?>
+</td>
+<td width="165" align="left" valign="top"><span style="font-size:x-small;">
+<a href="#" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
+&lt;こどもちゃんれんじ&gt;<br />
+ｺﾝｻｰﾄの楽しい情報がいっぱい！</span></td>
+</tr>
+</table>
+</div>
+<br />
+
+
+<!-- 設定 -->
 
 <?php echo $this->Html->image('top/ttl_setting.gif', array('style'=>'margin-bottom:5px;')); ?><br />
 
@@ -340,16 +393,16 @@ echo $this->element('lines'.DS.$currentLine['Line']['category_name']);
 <tr>
 <td colspan="2" align="left">
 	<?php echo $this->Html->image('top/icn_spana.gif'); ?>
-<span style="font-size:x-small;"><?php echo $this->Session->read('Auth.User.loginid'); ?>さんの設定</span><br />
+<span style="font-size:x-small;"><?php echo h($this->Session->read('Auth.User.loginid')); ?>さんの設定</span><br />
 <?php echo $this->Html->image('spacer.gif', array('alt'=>'', 'width' => '1', 'height' => '5')); ?></td>
 </tr>
 <tr>
 <td width="1" valign="top"><span style="font-size:x-small;">･</span></td>
-<td width="229" align="left"><a href="<?php echo $this->Html->url('/childlen/edit_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">子ども情報の追加/変更/削除</span></a></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/children/edit_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">子ども情報の追加/変更/削除</span></a></td>
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small;">･</span></td>
-<td align="left"><a href="<?php echo $this->Html->url('/childlen/user_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">ﾕｰｻﾞｰ情報を設定する</span></a></td>
+<td align="left"><a href="<?php echo $this->Html->url('/children/user_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">ﾕｰｻﾞｰ情報を設定する</span></a></td>
 </tr>
 </table>
 </div>
