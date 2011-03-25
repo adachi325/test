@@ -26,32 +26,6 @@ if (count($childrenData) < 3) {
     // echo '</span> ';
 }?>
 </div>
-<?php echo '<table style="background-color:'.sprintf(Configure::read('Child.child_tab_color.'.$tabColId)).'">' ?>
-    <tr>
-        <td>
-            <?php
-            $i=0;
-            foreach($diaries as $diary):
-                if ($diary['Diary']['has_image'] && $i < 1) {
-                    $i++;
-                    echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array('width' => '55px', 'height' => '55px')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
-                }
-            endforeach;
-
-            if ($i == 0) {
-                echo $html->image('common'.'/dummy_2.jpg' ,array('width' => '55px', 'height' => '55px'));
-            }
-
-            ?>
-        </td>
-        <td>
-            <div>
-            <?php
-                echo $html->image('common'.'/sex'.$currentChild['Child']['sex'].'.jpg' ,array('width' => '20px', 'height' => '20px'));
-                echo $currentChild['Child']['nickname'];
-            ?>
-            </div>
-            <?php
 <!-- 子供情報 -->
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0">
