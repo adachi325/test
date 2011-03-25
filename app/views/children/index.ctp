@@ -2,7 +2,6 @@
 
 <?php echo $this->element('default/logo'); ?>
 <!-- タブ -->
-<?php if(count($childrenData) > 0) { ?>
 <?php
 $i = 0;
 $tabColId=0;
@@ -119,9 +118,9 @@ if (count($childrenData) < 3) {
 </table>
 </div>
 
-<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))) { ?>
+<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
 	<?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
-<?php } ?>
+<?php endif; ?>
 
 <br>
 
@@ -286,70 +285,77 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="65">
 
-<img src="img/top/pic_present.jpg" />
+<?php foreach($months as $month): ?>
+	<?php
+	$f = true;
+	if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
+		<?php foreach($month['Present'] as $present): ?>
+			<?php
+				if($present['present_type'] == 3 and $f) {
+					echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
+					$f = false;
+					break;
+				}
+			?>
+		<?php endforeach; ?>
+	<?php } ?>
+<?php endforeach; ?>
+
 </td><td width="165" valign="top" align="left"><span style="font-size:x-small;">思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞやﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!</span><br />
-<img src="img/spacer.gif" width="1" height="5" /><br />
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><!--#include virtual="/emoji/trans.php?emoji=84"--><a href="#" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div></td>
+<?php echo $this->Html->image('spacer.gif', array('alt'=>'', 'width' => '1', 'height' => '5')); ?><br />
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?>
+<a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div></td>
 </tr>
 </table>
 </div>
 
-<!--
-<br>
-<h3>今月のプレゼント</h3>
-<div>
-    <table>
-        <tr>
-            <td>
-            <?php foreach($months as $month): ?>
-                <?php
-                $f = true;
-                if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
-                    <?php foreach($month['Present'] as $present): ?>
-                        <?php
-                            if($present['present_type'] == 3 and $f) {
-                                echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']) ,array('width' => '55px', 'height' => '80px'));
-                                $f = false;
-                            }
-                        ?>
-                    <?php endforeach; ?>
-                <?php } ?>
-            <?php endforeach; ?>
-            </td>
-            <td>
-                思い出を残すと待受けやポストカードテンプレート等がもらえるよ!!
-            </td>
-        </tr>
-     </table>
+<?php if (true): ?>
+
+<?php echo $this->Html->image('top/line_obj01.gif', array('style'=>'margin:10px 0;')); ?><br />
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="left">
+<?php echo $this->Html->image('top/txt_comunity.gif', array('style'=>'margin-bottom:5px;')); ?>
+</td>
+</tr>
+<tr>
+<td align="left"><span style="font-size:x-small;">お子様の思い出を家族や友達と共有できます。詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/');?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span></td></td>
+</tr>
+</table>
 </div>
--->
-<br>
-<div>
-<?php echo $this->Html->link('詳しくはこちら', '/presents/'); ?>
-</div>
-<br>
-<h3>こどもちゃれんじ</h3>
+<br />
+
+<?php endif; ?>
 
 <?php
 echo $this->element('lines'.DS.$currentLine['Line']['category_name']);
 ?>
 
-<br><hr><br>
-<div><span><?php echo $this->Session->read('Auth.User.loginid');  ?>さんの設定</span></div>
-<div>
-    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
+<?php echo $this->Html->image('top/ttl_setting.gif', array('style'=>'margin-bottom:5px;')); ?><br />
+
+<div align="center" style="text-align:center;">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td colspan="2" align="left">
+	<?php echo $this->Html->image('top/icn_spana.gif'); ?>
+<span style="font-size:x-small;"><?php echo $this->Session->read('Auth.User.loginid'); ?>さんの設定</span><br />
+<?php echo $this->Html->image('spacer.gif', array('alt'=>'', 'width' => '1', 'height' => '5')); ?></td>
+</tr>
+<tr>
+<td width="1" valign="top"><span style="font-size:x-small;">･</span></td>
+<td width="229" align="left"><a href="<?php echo $this->Html->url('/childlen/edit_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">子ども情報の追加/変更/削除</span></a></td>
+</tr>
+<tr>
+<td valign="top"><span style="font-size:x-small;">･</span></td>
+<td align="left"><a href="<?php echo $this->Html->url('/childlen/user_menu/'); ?>" style="color:#666666;"><span style="font-size:x-small; color:#666666;">ﾕｰｻﾞｰ情報を設定する</span></a></td>
+</tr>
+</table>
 </div>
-<div>
-    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
-</div>
-<?php }  else { ?>
-<div>子供情報を登録してください。</div>
-<br><hr><br>
-<div><span><?php echo $this->Session->read('Auth.User.loginid'); ?>さんの設定</span></div>
-<div>
-    <?php echo $html->link(__('子供情報を追加/変更/削除する', true), array('action' => 'edit_menu')); ?>
-</div>
-<div>
-    <?php echo $html->link(__('ユーザー情報を設定する', true), array('action' => 'user_menu')); ?>
-</div>
-<?php } ?>
+<br />
+
+<div align="right" style="text-align:right;"><span style="font-size:x-small;">
+<?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<br />
+
