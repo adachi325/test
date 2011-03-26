@@ -216,6 +216,7 @@ class Diary extends AppModel {
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
 				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_thumb_size'), false);
+				chmod($image_path_thumb, 0644);
 				
 				//画像保存(正方形)
 				$image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
@@ -224,6 +225,7 @@ class Diary extends AppModel {
 				fwrite( $fp, $data['image'], strlen($data['image']) );
 				fclose( $fp );
 				$this->__resize_image($image_path_rect, Configure::read('Diary.image_rect_size'), true);
+				chmod($image_path_rect, 0644);
 			}
 			
 			//画像削除(オリジナル)

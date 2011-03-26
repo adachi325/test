@@ -49,7 +49,7 @@ if (count($childrenData) < 3) {
 </div>
 <br>
 
-<h3>最新の思い出記録</h3>
+<h3>思い出記録</h3>
 <div>
 <center>
 <div>
@@ -74,16 +74,21 @@ while($i < 4) {
 </div>
 </center>
 <br>
-<?php echo $html->link('子どもの思い出記録ページ', '/diaries/' ,array('escape' => false)); ?>
+<?php echo $html->link('思い出記録をもっと見る', '/diaries/' ,array('escape' => false)); ?>
 </div>
-
 <br>
-<h3>最新の思い出テーマ</h3>
+<h3>思い出を形に残す</h3>
+<div>
+    <?php echo $this->Html->link('世界に1つの待受画面を作る', '/presents/present_list/2'); ?>
+    <?php echo $this->Html->link('お部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る', '/presents/present_list/3'); ?>
+</div>
+<br>
+<h3>思い出を書く</h3>
 <?php foreach($months as $month): ?>
     <?php foreach($month['Theme'] as $theme): ?>
     <?php
         if(!$theme['free_theme']){
-            echo "<p>";
+            echo "<p>【ﾃｰﾏ】";
             echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
             echo "</p>";
         }
@@ -92,7 +97,7 @@ while($i < 4) {
     <?php foreach($month['Theme'] as $theme): ?>
     <?php
         if($theme['free_theme']){
-            echo "<p>";
+            echo "<p>【自由】";
             echo $this->Html->link($theme['title'], '/themes/info/'.$theme['id']);
             echo "</p>";
         }
@@ -128,7 +133,7 @@ while($i < 4) {
 <?php echo $this->Html->link('詳しくはこちら', '/presents/'); ?>
 </div>
 <br>
-<h3>今月の連動教材</h3>
+<h3>こどもちゃれんじ</h3>
 <div>
 <ul>
 <?php foreach($issues as $issue): ?>
@@ -148,7 +153,7 @@ while($i < 4) {
 </li>
 <?php endforeach; ?>
 </ul>
-<?php echo $this->Html->link('先月までの教材を全部見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
+<?php echo $this->Html->link('もっと見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
 </div>
 <br><hr><br>
 <div><span><?php echo $this->Session->read('Auth.User.loginid');  ?>さんの設定</span></div>

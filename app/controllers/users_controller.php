@@ -119,16 +119,16 @@ class UsersController extends AppController {
                } else {
                   TransactionManager::rollback();
                   $this->Session->setFlash(__('会員登録失敗。', true));
-                  $this->redirect('/pages/top/');
+                  $this->redirect('/');
                }
             } catch(Exception $e) {
                   TransactionManager::rollback();
                   $this->Session->setFlash(__('システムエラー。', true));
-                  $this->redirect('/pages/top/');
+                  $this->redirect('/');
             }
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/pages/top/');
+             $this->redirect('/');
         }
     }
 

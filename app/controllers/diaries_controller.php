@@ -39,8 +39,9 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id']
-                )
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                ),
+                'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
             $diaries = $this->Diary->find('all', $conditions);
@@ -214,11 +215,14 @@ class DiariesController extends AppController {
             $this->data = $diary;
     }
 
-    function delete_complete($id = null){
-            if(empty($id)){
+    function delete_complete(){
+            if(empty($this->data) or
+               empty($this->data['Diary']['check'])){
                  $this->Session->setFlash(__('不正操作です', true));
                  $this->redirect('/children/');
+
             }
+            $id = $this->data['Diary']['check'];
 
             $child_id = $this->_getLastChild();
 
