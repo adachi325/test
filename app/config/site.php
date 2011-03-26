@@ -85,12 +85,18 @@ $config['ReceiveMail'] = array(
 
 $config['Diary'] = array(
 	'hash_length' => 4,
-	'image_thumb_size' => 200,
-	'image_rect_size' => 100,
 	'image_filesize_max' => 2000000,
-	'image_path_original' => "photo/%s/%s_original.jpg",
-	'image_path_thumb' => "photo/%s/%s_thumb.jpg",
-	'image_path_rect' => "photo/%s/%s_rect.jpg",
+	'image_size_thumb' => 200,		//このサイズ内に元の比率で収まるようにリサイズ
+	'image_size_rect' => 100,		//正方形
+	'image_size_postcard' => 252,	//正方形
+	'image_path_original' => "photo/%s/%s_original.jpg",	//一時保存用
+	'image_path_thumb' => "photo/%s/%s_thumb.jpg",			//比率保持サムネイル
+	'image_path_rect' => "photo/%s/%s_rect.jpg",			//正方形サムネイル
+	'image_path_postcard' => "photo/%s/%s_postcard.jpg",	//ポストカード用
+	'title_len_max' => 20,
+	'body_len_max' => 5000,
+	'error_filesize_over' => 'E001',
+	'error_out_of_jpeg' => 'E002',
 );
 
 $config['Child'] = array(
