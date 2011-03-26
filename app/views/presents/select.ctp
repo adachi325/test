@@ -5,11 +5,11 @@ if (!isset($max_count)) {
 ?>
 
 <div class="presents view">
-<h2><?php  __('Present');?></h2>
+<h2><?php  __('Present', true);?></h2>
 
 <p>投稿写真から<?php echo $max_count; ?>枚選んで、「作成する」ボタンを押してください。</p>
 
-<?php echo $this->Form->create('Present', array('url' => array('action' => 'select', $type))); ?>
+<?php echo $this->Form->create('Present', array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON")); ?>
 
 <?php echo $this->Form->hidden('page', array('value' => $this->params['paging']['Diary']['page'])); ?>
 <?php echo $this->Form->hidden('pageCount', array('value' => $this->params['paging']['Diary']['pageCount'])); ?>
@@ -21,7 +21,6 @@ if (!isset($max_count)) {
 <?php extract($item['Diary']); ?>
 <?php $path = sprintf(Configure::read('Diary.image_path_thumb'), $child_id, $id); ?>
 
-<?php //echo $this->Form->radio('select_photo', array($id => $this->Html->image($path, array('alt' => $title)) ), array('escape' => false)); ?>
 <?php echo $this->Form->input("select_photo.{$id}", array('type' => 'checkbox', 'label' => $this->Html->image($path, array('alt' => $title)), 'escape' => false)); ?>
 </li>
 <?php endforeach; ?>

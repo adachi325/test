@@ -32,7 +32,6 @@ class UsersController extends AppController {
     //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
             $redirectTo = $this->Auth->logout();
-            $this->Session->setFlash('ログアウトしました');
             $this->redirect('/');
     }
 
@@ -41,7 +40,6 @@ class UsersController extends AppController {
     }
 
     function register(){
-
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
             $this->set('login_user',$this->Auth->user());
@@ -114,8 +112,11 @@ class UsersController extends AppController {
                TransactionManager::begin();
                $this->_setRegisterData();
                if( $this->User->_register($this->data)){
+                  //初回登録プレゼント
+                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
                   TransactionManager::commit();
                   $this->Session->setFlash(__('会員登録完了。', true));
+                  $this->redirect('/navigations/after1');
                } else {
                   TransactionManager::rollback();
                   $this->Session->setFlash(__('会員登録失敗。', true));
@@ -131,7 +132,18 @@ class UsersController extends AppController {
              $this->redirect('/');
         }
     }
-
+    
+    function _initialRegistrationPresents($id){
+        $presentIds = Configure::read('Child.Initial_registration_presents');
+        $request = array();
+        for ($i=0;$i<count($presentIds);$i++) {
+            $request[$i]['ChildPresent']['child_id'] = $id;
+            $request[$i]['ChildPresent']['present_id'] = $presentIds[$i];
+        }
+        $ChildPresent =& ClassRegistry::init('ChildPresent');
+        $ChildPresent->saveAll($request);
+    }
+    
     function _setRegisterData(){
         if($this->Ktai->is_ktai()) {
             $request['User']['uid'] = $this->Ktai->get_uid();
@@ -199,7 +211,8 @@ class UsersController extends AppController {
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
         }
-
+        //ログアウト
+        $this->Auth->logout();
     }
 
     function _setEditData(){
@@ -425,14 +438,11 @@ class UsersController extends AppController {
             //思い出に紐付く画像を削除
             foreach($childData['Diary'] as $diary) {
                 if($diary['has_image']) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_original'), $child['id'],$diary['id']) )){
-                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
-                    }
                     if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['id'],$diary['id']) )){
-                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                     if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['id'],$diary['id']) )){
-                        $this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
             }
@@ -458,6 +468,9 @@ class UsersController extends AppController {
 
         //ログアウト
         $this->Auth->logout();
+
+        //トライアルトップへ遷移
+        $this->redirect('/');
     }
 
 }

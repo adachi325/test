@@ -24,7 +24,6 @@ class ContentTestCase extends CakeTestCase {
 		$result = $c->isReleased($url);
 
 		$this->assertEqual($result, $expected);
-
 	}
 
 	function endTest() {

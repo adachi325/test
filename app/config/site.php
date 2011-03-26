@@ -12,6 +12,18 @@ $config['Lines'] = array (
 	),
 );
 
+$config['LinesString'] = array (
+	'strings' => array(
+		1 => 'baby/ぷちﾌｧｰｽﾄ',
+		2 => 'ぷち',
+		3 => 'ぽけっと',
+		4 => 'ほっぷ',
+		5 => 'すてっぷ',
+		6 => 'じゃんぷ',
+	),
+);
+
+
 $config['Present'] = array(
 	'type' => array(
 		 0 => '背景画像',
@@ -28,7 +40,7 @@ $config['Present'] = array(
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_thum' => 'present/template/screen/%s_thumb.jpg',
-                'postcard' => 'present/template/postcard/%s.gif',
+                'postcard' => 'present/template/postcard/%s.png',
                 'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
                 'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
@@ -45,6 +57,7 @@ $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_user' => 'shimajiro',
 	'receive_mail_prefix' => 'diary_',
+        'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(
@@ -82,15 +95,15 @@ $config['Diary'] = array(
 );
 
 $config['Child'] = array(
-//        'icon_path' => 'common/icon_%s.gif',
         'icon_on_path' => 'common/icon_%s_on.gif',
         'icon_off_path' => 'common/icon_%s_off.gif',
         'child_tab_color' => array(
             0 => '#FFFA8E',
             1 => '#8EFF8E',
             2 => '#FFB7B7',
-//            3 => '#00DB00',
-//            4 => '#FFB7FF',
-//            5 => '#ECECFF',
-            ),
+        ),
+        'Initial_registration_presents' => array(
+            0 => '4',
+            1 => '5',
+        ),
 );

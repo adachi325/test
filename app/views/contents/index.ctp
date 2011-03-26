@@ -1,4 +1,3 @@
-<div class="contents index">
 <h1><?php echo h($title); ?></h1>
 <ul>
 <?php foreach ($issues as $issue): ?>
@@ -12,7 +11,6 @@
 	</li>
 <?php endforeach; ?>
 </ul>
-</div>
 
 <?php 
 if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1):
@@ -24,12 +22,10 @@ if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1):
 
 <h3>各コースの部屋</h3>
 <div>
-<!-- Todo: データベースから出したい -->
-<?php echo $this->Html->link('baby/ぷちファースト', '/'); ?>
-<?php echo $this->Html->link('ぷち', '/'); ?>
-<?php echo $this->Html->link('ぽけっと', '/'); ?>
-<?php echo $this->Html->link('ぽっぷ', '/'); ?>
-<?php echo $this->Html->link('すてっぷ', '/'); ?>
-<?php echo $this->Html->link('じゃんぷ', '/'); ?>
+
+<?php foreach($lines as $line): ?>
+<?php echo $this->Html->link($line['Line']['title'], '/ap/'.$line['Line']['category_name'].'/'); ?> | 
+<?php endforeach; ?>
+
 </div>
 
