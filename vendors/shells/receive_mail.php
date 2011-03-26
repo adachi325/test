@@ -127,7 +127,6 @@ class ReceiveMailShell extends AppShell {
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : null;
 
 		$images = $this->_getImageAttachments($receiver);
-//		$params['image'] = ($images !== null) ? $images[0] : null;
 		$params['images'] = ($images !== null) ? $images : null;
 		
 		//Dirayモデル呼び出し（思い出登録）
