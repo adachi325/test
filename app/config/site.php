@@ -55,7 +55,6 @@ $config['Present'] = array(
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
-	'receive_mail_user' => 'shimajiro',
 	'receive_mail_prefix' => 'diary_',
         'docomo_community' => 'diary@docomo-community.ne.jp',
 );
@@ -77,11 +76,11 @@ $config['Mail'] = array(
 );
 
 $config['ReceiveMail'] = array(
-	'stopfile_path' => APP . "tmp/stop.file",
-	'ps_log_path' => APP . "app/tmp/ps.log",
-	'mail_dir_new' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/new/',
-	'mail_dir_done_normal' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/normal/',
-	'mail_dir_done_error' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/error/',
+	'stopfile_path' => APP . "tmp/receive_mail/stop.file",
+	'ps_log_path' => APP . "tmp/receive_mail/ps.log",
+	'mail_dir_new' => APP . "tmp/receive_mail/new/",
+	'mail_dir_done_normal' => APP . "tmp/receive_mail/done/normal/",
+	'mail_dir_done_error' => APP . "tmp/receive_mail/done/error/",
 );
 
 $config['Diary'] = array(
