@@ -20,7 +20,7 @@ class PresentsController extends AppController {
 
 	function present_list($type = null) {
 
-		$child_id = $this->Session->read('Auth.User.last_selected_child');
+		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
 			$this->Session->setFlash('プレゼントの種類を指定してください');
@@ -51,15 +51,6 @@ class PresentsController extends AppController {
 				$this->render("present_list_{$type}");		
 			} else {
 				// 会員限定コンテンツ
-				$items = array(
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-					array('title' => 'テスト', 'thumbnail_path' => '/', 'url' => '/'),
-				);
-
-				$this->set(compact('items'));
-
 				$this->render("present_list_member");
 			}
 		}
@@ -67,6 +58,8 @@ class PresentsController extends AppController {
 
 	function select($type = null, $template_id = null) {
 		$data = $this->data;
+		$this->paginate = array('limit' => 10);
+		
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -77,6 +70,9 @@ class PresentsController extends AppController {
 			if (isset($this->params['form']['create'])) {
 				for($i = 1; $i < $pageCount + 1; $i++) {
 					$sel = $this->Session->read("Present.{$i}.selection");
+					if (!is_array($sel)) {
+						continue;
+					}
 					foreach($sel as $key => $value) {
 						if ($value == 1) {
 							$selection[] = $key;
@@ -89,7 +85,7 @@ class PresentsController extends AppController {
 					$this->redirect("/presents/complete/{$type}/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-					//$this->redirect('/presents/error_photo');
+					$this->redirect('/presents/error_photo');
 				}
 			}
 			if (isset($this->params['form']['prev'])) {
@@ -109,9 +105,14 @@ class PresentsController extends AppController {
 
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
-		
-		$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
-		//$items = $this->paginate('Diary');
+
+		$cond = array(
+			'child_id' => $this->Tk->_getLastChild(),
+			'has_image' => 1,
+		);
+
+		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
+		$items = $this->paginate('Diary', $cond);
 		
 		$this->set(compact('items', 'data', 'type', 'template_id'));
 	}
@@ -128,21 +129,27 @@ class PresentsController extends AppController {
 			'child_id' => $child_id,
 		);
 
+		$render = "";
+
 		if ($type === "flash") {
 			$this->CreatePresent->createFlash($selected);
-			$this->render('complete_flash');
+			$render = 'complete_flash';
 		} else {
-			$this->CreatePresent->createPostcard($selected);
-			$this->render('complete_postcard');
+			$token = $this->CreatePresent->createPostcard($selected);
+			if ($token === false) {
+				$this->cakeError('error502');
+				return;
+			}
+			$render = 'complete_postcard';
 		}
 
-        //メールアドレス設定
-        $mailStr = 'diary_'.$user_id.'.'.$child_id.'.'.$id.'.'.$hash.'@shimajiro-dev.com';
+		//メールアドレス設定
+		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
+		$mailSubject = "ポストカード印刷用URL";
+                $mailBody = "{$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
 
-		$path = '';
-		$token = '';
-
-		$this->set(compact('mailStr', 'token', 'path'));
+		$this->set(compact('mailSubject','mailBody','token'));
+		$this->render($render);
 	}
 
 	function error_present() {
@@ -164,7 +171,7 @@ class PresentsController extends AppController {
 			$this->cakeError('error404');
 		}
 
-		$this->set(compact($token));
+		$this->set(compact('token'));
 	}
 }
 ?>

@@ -29,12 +29,22 @@
         <span><?php echo $diaries['Diary']['body'] ?></span>
     </div>
     <br>
+    <div align="right">
+        <span><?php echo date('n月d日', strtotime($diaries['Diary']['created'])); ?></span>
+    </div>
+    <br>
     <div>
         <span>
         <?php
         echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), date('Y'), date('m')),
                 array('width' => '200px', 'height' => '50px'));
         ?>
+        </span>
+    </div>
+    <br>
+    <div>
+        <span>
+            思い出記録を渡航していくと、色々とハッピーでグッドなアイテムをゲッツ。
         </span>
     </div>
 </center>

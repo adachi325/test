@@ -1,0 +1,7 @@
+#AuthType Basic
+#AuthName "Please press password"
+#AuthUserFile "/home/kantjp/.htpasswds/public_html/shimajiro/passwd"
+#require valid-user
+
+AddType application/xhtml+xml .html
+AddHandler server-parsed html
