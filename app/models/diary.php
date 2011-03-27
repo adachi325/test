@@ -137,8 +137,8 @@ class Diary extends AppModel {
 		if (!empty($data['body'])) {
 			$request['body'] = $data['body'];
 		}
-		if (!empty($data['image'])) {
-			$request['image'] = $data['image'];
+		if (!empty($data['images'])) {
+			$request['images'] = $data['images'];
 		}
 		
 		return $this->add($request);
@@ -168,14 +168,12 @@ class Diary extends AppModel {
 		//month_id
 		$data['month_id'] = $theme['Theme']['month_id'];
 		
-		//hash
-//		if (strlen($data['hash']) != Configure::read('Diary.hash_length')) {
-//			return false;
-//		}
-		
-		//has_image
-		$data['has_image'] = !empty($data['image']);
-		
+		//title
+		$data['title'] = isset($data['title']) ? mb_substr($data['title'], 0, Configure::read('Diary.title_len_max')) : null;
+
+		//body
+		$data['body'] = isset($data['body']) ? mb_substr($data['body'], 0, Configure::read('Diary.body_len_max')) : null;
+
 		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
 		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
 		
@@ -194,40 +192,71 @@ class Diary extends AppModel {
 			$ChildPresent->save($request);
 		}
 		
-		//image file
-		if (!empty($data['image'])
-				&& strlen($data['image']) < Configure::read('Diary.image_filesize_max')) {
+		
+		//image
+		$has_image = false;
+		$error_code = null;
+		
+		foreach ($data['images'] as $image) {
+			
+			if (strlen($image) > Configure::read('Diary.image_filesize_max')) {
+				$error_code = Configure::read('Diary.error_filesize_over');
+				break;
+			}
 			
 			//画像保存(オリジナル)
 			$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
 			$this->__mkdir($image_path_original);
 			$fp = fopen( $image_path_original, "w" );
-			fwrite( $fp, $data['image'], strlen($data['image']) );
+			fwrite( $fp, $image, strlen($image) );
 			fclose( $fp );
 			$info = getimagesize($image_path_original);
 			
 			if (!empty($info)
 					&& $info[2] == IMAGETYPE_JPEG) {
-
+				
 				//画像保存(比率保持)
 				$image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
-				$this->__mkdir($image_path_thumb);
-				$fp = fopen( $image_path_thumb, "w" );
-				fwrite( $fp, $data['image'], strlen($data['image']) );
-				fclose( $fp );
-				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_thumb_size'), false);
+				$this->__saveImageFile($image, $image_path_thumb);
+				$this->__resize_image($image_path_thumb, Configure::read('Diary.image_size_thumb'), false);
+				chmod($image_path_thumb, 0644);
 				
 				//画像保存(正方形)
 				$image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
-				$this->__mkdir($image_path_rect);
-				$fp = fopen( $image_path_rect, "w" );
-				fwrite( $fp, $data['image'], strlen($data['image']) );
-				fclose( $fp );
-				$this->__resize_image($image_path_rect, Configure::read('Diary.image_rect_size'), true);
+				$this->__saveImageFile($image, $image_path_rect);
+				$this->__resize_image($image_path_rect, Configure::read('Diary.image_size_rect'), true);
+				chmod($image_path_rect, 0644);
+				
+				//画像保存(ポストカード)
+				$image_path_postcard = sprintf(IMAGES . Configure::read('Diary.image_path_postcard'), $data['child_id'], $diary_id);
+				$this->__saveImageFile($image, $image_path_postcard);
+				$this->__resize_image($image_path_postcard, Configure::read('Diary.image_size_postcard'), true);
+				chmod($image_path_postcard, 0777);//ポストカード用は777
+				
+				$has_image = true;
+				unlink($image_path_original);
+				break;
 			}
-			
+
 			//画像削除(オリジナル)
 			unlink($image_path_original);
+
+		}
+		
+		if ($error_code === null
+				&& count($data['images']) > 0
+				&& $has_image === false) {
+			$error_code = Configure::read('Diary.error_out_of_jpeg');
+		}
+		
+		//has_image, error_code更新
+		if ($has_image === true || $error_code !== null) {
+			$this->set(array(
+				'id' => $diary_id,
+				'has_image' => $has_image,
+				'error_code' => $error_code,
+			));
+			$this->save();
 		}
 		
 		return true;
@@ -267,7 +296,14 @@ class Diary extends AppModel {
 		$next_present_idx = count($child_presents);
 		return $presents[$next_present_idx]['Present']['id'];
 	}
-
+	
+	function __saveImageFile($image_data, $image_path) {
+		$this->__mkdir($image_path);
+		$fp = fopen( $image_path, "w" );
+		fwrite( $fp, $image_data, strlen($image_data) );
+		fclose( $fp );
+	}
+	
 	function __resize_image($filepath, $size, $is_rect=false) {
 		
 		$type = exif_imagetype($filepath);
