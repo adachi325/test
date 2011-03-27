@@ -59,7 +59,13 @@ class PresentsController extends AppController {
 	function select($type = null, $template_id = null) {
 		$data = $this->data;
 		$this->paginate = array('limit' => 10);
-		
+
+		if($type == 'flash') {
+			$max_count = 3;
+		} else {
+			$max_count = 4;
+		}
+
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -79,13 +85,13 @@ class PresentsController extends AppController {
 						}
 					}
 				}
-				if (count($selection) == 4) {
+				if (count($selection) == $max_count) {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
 					$this->redirect("/presents/complete/{$type}/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-					$this->redirect('/presents/error_photo');
+					$this->redirect("/presents/error_photo/{$type}/{$template_id}/");
 				}
 			}
 			if (isset($this->params['form']['prev'])) {
@@ -114,7 +120,7 @@ class PresentsController extends AppController {
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary', $cond);
 		
-		$this->set(compact('items', 'data', 'type', 'template_id'));
+		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
 	function complete($type = null) {
@@ -156,7 +162,14 @@ class PresentsController extends AppController {
 		
 	}
 
-	function error_photo() {
+	function error_photo($type = null, $template_id = null) {
+
+		if($type == 'flash') {
+			$max_count = 3;
+		} else {
+			$max_count = 4;
+		}
+		$this->set(compact('type', 'template_id', 'max_count'));
 		
 	}
 
