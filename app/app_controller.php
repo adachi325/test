@@ -186,7 +186,7 @@ class AppController extends Controller {
 		$r = Router::getInstance();
 		$namedSeparator = $r->named['separator'];
 
-		if (isset($aUrl['named']) {
+		if (isset($aUrl['named'])) {
 			foreach($aUrl['named'] as $name => $value) {
 				$url .= $name.$namedSeparator.$value.DS;
 			}
