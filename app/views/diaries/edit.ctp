@@ -13,6 +13,3 @@
 <?php echo $this->Form->hidden('has_image');?>
 <?php echo $this->Form->end(__('確認', true));?>
 </div>
-<div>
-    <?php echo $this->Html->link('思い出を削除する', '/diaries/delete/'.$this->data['Diary']['id']); ?>
-</div>
