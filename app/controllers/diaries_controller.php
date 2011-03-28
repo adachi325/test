@@ -415,7 +415,7 @@ $list[1] = '
 <br>
 <div align="center">'.$diary['Diary']['title'].'</div>
 <br>
-<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center">'.nl2br($diary['Diary']['body']).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>

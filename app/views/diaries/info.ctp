@@ -28,7 +28,7 @@
     <br>
     <?php } ?>
     <div>
-        <span><?php echo $diary['Diary']['body'] ?></span>
+        <span><?php echo nl2br($diary['Diary']['body']); ?></span>
     </div>
     <br>
     <div align="right">
