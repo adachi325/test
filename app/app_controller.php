@@ -84,7 +84,7 @@ class AppController extends Controller {
 				'users' => array('login'),
 			),
 		),
- 		
+
 	);
 
 	public $layout = 'default';
@@ -102,7 +102,7 @@ class AppController extends Controller {
 	);
 
 	public $selectedChildId = null;			//選択中こどもID
-        
+
 	function beforeFilter(){
 		parent::beforeFilter();
 		if ($this->ktai['enable_ktai_session'] == true) {
@@ -192,7 +192,7 @@ class AppController extends Controller {
 				$url .= $aUrl['action'].DS;
 			}
 		}
-		
+
 		$r = Router::getInstance();
 		$namedSeparator = $r->named['separator'];
 
@@ -219,7 +219,7 @@ class AppController extends Controller {
 		return parent::redirect($url, $status, $exit);
 
 	}
-        
+
 	public function beforeRender() {
 		TransactionManager::destructs();
 	}
