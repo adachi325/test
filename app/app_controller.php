@@ -180,6 +180,8 @@ class AppController extends Controller {
 	}
 	function redirect($url, $status = null, $exit = true){
 
+		//return parent::redirect($this->__redirect_url($url), $status, $exit);
+		
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
@@ -215,9 +217,8 @@ class AppController extends Controller {
 			}
 			$url .= "?".implode('&', $params);
 		}
-
-		return parent::redirect($url, $status, $exit);
-
+		return parent::redirect(Router::url($url, true), $status, $exit);
+		
 	}
         
 	public function beforeRender() {
