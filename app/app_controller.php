@@ -177,14 +177,18 @@ class AppController extends Controller {
 	}
 	function redirect($url, $status = null, $exit = true){
 		
-		//$url = Router::reverse($this->__redirect_url($url));
-
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
 		}
 
-		$url = DS.$aUrl['controller'].DS.$aUrl['action'].DS;
+		$url = DS;
+		if (isset($aUrl['controller'])) {
+			$url .= $aUrl['controller'].DS;
+			if (isset($aUrl['action'])) {
+				$url .= $aUrl['action'].DS;
+			}
+		}
 		
 		$r = Router::getInstance();
 		$namedSeparator = $r->named['separator'];
@@ -210,6 +214,7 @@ class AppController extends Controller {
 		}
 
 		return parent::redirect($url, $status, $exit);
+
 	}
         
 	public function beforeRender() {
