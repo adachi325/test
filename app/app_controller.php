@@ -180,6 +180,9 @@ class AppController extends Controller {
 		//$url = Router::reverse($this->__redirect_url($url));
 
 		$aUrl = $this->__redirect_url($url);
+		if(!is_array($aUrl)) {
+			$aUrl = Router::parse($aUrl);
+		}
 
 		$url = DS.$aUrl['controller'].DS.$aUrl['action'].DS;
 		
