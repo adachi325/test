@@ -131,9 +131,11 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
-					//$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-					//$this->redirect($url);
-					$this->redirect('/');
+					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+					$base = Router::url('/', true);
+					$url = substr($url, strlen($base));
+
+					$this->redirect($url);
 				}
 			#-------------------------------------------------
 			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
@@ -177,7 +179,7 @@ class AppController extends Controller {
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
-		
+
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
