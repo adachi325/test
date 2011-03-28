@@ -132,6 +132,9 @@ class AppController extends Controller {
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+					$base = Router::url('/', true);
+					$url = substr($url, strlen($base));
+
 					$this->redirect($url);
 				}
 			#-------------------------------------------------
@@ -176,13 +179,45 @@ class AppController extends Controller {
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
-                //guid=onを付加
-		if ($this->Ktai->is_imode())
-		{
-			$prefix = ereg("\?", $url) ? "&" : "?";
-			$url = $url.$prefix."guid=ON";
+
+		$aUrl = $this->__redirect_url($url);
+		if(!is_array($aUrl)) {
+			$aUrl = Router::parse($aUrl);
 		}
-		return parent::redirect($this->__redirect_url($url), $status, $exit);
+
+		$url = DS;
+		if (isset($aUrl['controller'])) {
+			$url .= $aUrl['controller'].DS;
+			if (isset($aUrl['action'])) {
+				$url .= $aUrl['action'].DS;
+			}
+		}
+		
+		$r = Router::getInstance();
+		$namedSeparator = $r->named['separator'];
+
+		if (isset($aUrl['named'])) {
+			foreach($aUrl['named'] as $name => $value) {
+				$url .= $name.$namedSeparator.$value.DS;
+			}
+		}
+
+		if (isset($aUrl['pass'])) {
+			foreach($aUrl['pass'] as $param) {
+				$url .= $param.DS;
+			}
+		}
+
+		if (isset($aUrl['?'])) {
+			$params = array();
+			foreach($aUrl['?'] as $key => $value) {
+				$params[] = $key.'='.$value;
+			}
+			$url .= "?".implode('&', $params);
+		}
+
+		return parent::redirect($url, $status, $exit);
+
 	}
         
 	public function beforeRender() {

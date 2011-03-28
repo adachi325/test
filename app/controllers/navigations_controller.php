@@ -47,7 +47,7 @@ class NavigationsController extends AppController {
             $this->set('nexthash',$hash);
 
             //メールアドレス設定
-            $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['free_theme'].'.'.$hash.'@shimajiro-dev.com';
+            $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@shimajiro-dev.com';
 
             //メールタイトル設定
             $mailTitle = (date('m')+0).'月'.(date('d')+0).'日の思い出';
