@@ -131,8 +131,9 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
-					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-					$this->redirect($url);
+					//$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+					//$this->redirect($url);
+					$this->redirect('/');
 				}
 			#-------------------------------------------------
 			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
@@ -177,14 +178,18 @@ class AppController extends Controller {
 	}
 	function redirect($url, $status = null, $exit = true){
 		
-		//$url = Router::reverse($this->__redirect_url($url));
-
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
 		}
 
-		$url = DS.$aUrl['controller'].DS.$aUrl['action'].DS;
+		$url = DS;
+		if (isset($aUrl['controller'])) {
+			$url .= $aUrl['controller'].DS;
+			if (isset($aUrl['action'])) {
+				$url .= $aUrl['action'].DS;
+			}
+		}
 		
 		$r = Router::getInstance();
 		$namedSeparator = $r->named['separator'];
@@ -210,6 +215,7 @@ class AppController extends Controller {
 		}
 
 		return parent::redirect($url, $status, $exit);
+
 	}
         
 	public function beforeRender() {
