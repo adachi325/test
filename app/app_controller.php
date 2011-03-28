@@ -176,13 +176,33 @@ class AppController extends Controller {
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
-                //guid=onを付加
-		if ($this->Ktai->is_imode())
-		{
-			$prefix = ereg("\?", $url) ? "&" : "?";
-			$url = $url.$prefix."guid=ON";
+		
+		//$url = Router::reverse($this->__redirect_url($url));
+
+		$aUrl = $this->__redirect_url($url);
+
+		$url = DS.$aUrl['controller'].DS.$aUrl['action'].DS;
+		
+		$r = Router::getInstance();
+		$namedSeparator = $r->named['separator'];
+
+		foreach($aUrl['named'] as $name => $value) {
+			$url .= $name.$namedSeparator.$value.DS;
 		}
-		return parent::redirect($this->__redirect_url($url), $status, $exit);
+
+		foreach($aUrl['pass'] as $param) {
+			$url .= $param.DS;
+		}
+
+		if (isset($aUrl['?'])) {
+			$params = array();
+			foreach($aUrl['?'] as $key => $value) {
+				$params[] = $key.'='.$value;
+			}
+			$url .= "?".implode('&', $params);
+		}
+
+		return parent::redirect($url, $status, $exit);
 	}
         
 	public function beforeRender() {
