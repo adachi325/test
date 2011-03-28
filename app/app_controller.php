@@ -180,18 +180,25 @@ class AppController extends Controller {
 		//$url = Router::reverse($this->__redirect_url($url));
 
 		$aUrl = $this->__redirect_url($url);
+		if(!is_array($aUrl)) {
+			$aUrl = Router::parse($aUrl);
+		}
 
 		$url = DS.$aUrl['controller'].DS.$aUrl['action'].DS;
 		
 		$r = Router::getInstance();
 		$namedSeparator = $r->named['separator'];
 
-		foreach($aUrl['named'] as $name => $value) {
-			$url .= $name.$namedSeparator.$value.DS;
+		if (isset($aUrl['named'])) {
+			foreach($aUrl['named'] as $name => $value) {
+				$url .= $name.$namedSeparator.$value.DS;
+			}
 		}
 
-		foreach($aUrl['pass'] as $param) {
-			$url .= $param.DS;
+		if (isset($aUrl['pass'])) {
+			foreach($aUrl['pass'] as $param) {
+				$url .= $param.DS;
+			}
 		}
 
 		if (isset($aUrl['?'])) {
