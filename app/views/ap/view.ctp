@@ -5,7 +5,8 @@
 $path = (isset($filepath)) ? $filepath : "nocontents.html";
 
 $contents = file_get_contents("{$path}", true);
-$contents = mb_convert_encoding($contents, "UTF-8", "SJIS, sjis-win, EUC-JP");
+
+//$contents = mb_convert_encoding($contents, "UTF-8", "SJIS, sjis-win, EUC-JP");
 
 echo $contents;
 ?>

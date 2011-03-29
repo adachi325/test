@@ -117,11 +117,9 @@ class ApController extends AppController {
 			} elseif ($this->Ktai->is_softbank()) {
 				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
 			} elseif ($this->Ktai->is_ezweb()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/au.html";
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
 			}
 			
-			pr($filepath);
-
 			$this->set(compact('release_date', 'filepath'));
 			$this->layout = 'contents';
 			$this->render("view");
