@@ -222,7 +222,9 @@ class AppController extends Controller {
 			}
 			$url .= "?".implode('&', $params);
 		}
-
+		if (substr($url, 0, 1) != DS) {
+			$url = DS.$url;
+		}
 		$url = Router::url($url, true);
 		return parent::redirect($url, $status, $exit);
 	}
