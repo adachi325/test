@@ -35,8 +35,8 @@
  */
 	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	Router::connect('/ap/:line', array('controller' => 'contents', 'action' => 'index' ));
-	Router::connect('/ap/:line/:id', array('controller' => 'contents', 'action' => 'view' ));
-	Router::connect('/ap/:line/:id/*', array('controller' => 'contents', 'action' => 'view' ));
+	//Router::connect('/ap/*/:id', array('controller' => 'contents', 'action' => '"index"' ));
+	//Router::connect('/ap/:line/:id', array('controller' => 'contents', 'action' => 'view' ));
+	//Router::connect('/ap/:line/:id/*', array('controller' => 'contents', 'action' => 'view' ));
 
 ?>

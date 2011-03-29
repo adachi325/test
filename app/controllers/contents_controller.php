@@ -62,12 +62,15 @@ class ContentsController extends AppController {
 
 		if ($release_date <= date('Y-m-d')) {
 			if ($this->Ktai->is_imode()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/dcm.html";
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
 			} elseif ($this->Ktai->is_softbank()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/sb.html";
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
 			} elseif ($this->Ktai->is_ezweb()) {
 				$filepath = WWW_ROOT."ap/{$line}/{$id}/au.html";
 			}
+			
+			pr($filepath);
+
 			$this->set(compact('release_date', 'filepath'));
 			$this->layout = 'contents';
 		} else {

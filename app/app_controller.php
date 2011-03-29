@@ -167,7 +167,12 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 						return $url;
 					}
-					$url = Router::parse($url);
+					if (preg_match('|\?|', $url)) {
+						$url .= "&guid=ON";
+					} else {
+						$url .= "?guid=ON";
+					}
+					return;	
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
@@ -217,8 +222,9 @@ class AppController extends Controller {
 			}
 			$url .= "?".implode('&', $params);
 		}
-		return parent::redirect(Router::url($url, true), $status, $exit);
-		
+
+		$url = Router::url($url, true);
+		return parent::redirect($url, $status, $exit);
 	}
         
 	public function beforeRender() {
