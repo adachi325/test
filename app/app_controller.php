@@ -132,8 +132,8 @@ class AppController extends Controller {
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-					$base = Router::url('/', true);
-					$url = substr($url, strlen($base));
+					//$base = Router::url('/', true);
+					//$url = substr($url, strlen($base));
 
 					$this->redirect($url);
 				}
@@ -167,7 +167,12 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 						return $url;
 					}
-					$url = Router::parse($url);
+					if (preg_match('|\?|', $url)) {
+						$url .= "&guid=ON";
+					} else {
+						$url .= "?guid=ON";
+					}
+					return;	
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
@@ -181,7 +186,7 @@ class AppController extends Controller {
 	function redirect($url, $status = null, $exit = true){
 
 		//return parent::redirect($this->__redirect_url($url), $status, $exit);
-		
+		/*
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
@@ -217,8 +222,13 @@ class AppController extends Controller {
 			}
 			$url .= "?".implode('&', $params);
 		}
-		return parent::redirect(Router::url($url, true), $status, $exit);
-		
+		if (substr($url, 0, 1) != DS) {
+			$url = DS.$url;
+		}
+		$url = Router::url($url, true);
+		*/
+		//pr($url);
+		//return parent::redirect($url, $status, $exit);
 	}
 
 	public function beforeRender() {
