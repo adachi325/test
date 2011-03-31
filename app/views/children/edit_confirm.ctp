@@ -1,40 +1,87 @@
-<div>
-<?php echo $form->create('Child', array('url' => '/children/edit_complete?guid=ON'));?>
-ç¢ºèªç”»é¢ã§ã™<br><br>
+<?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-ãƒ‹ãƒƒã‚¯ãƒãƒ¼ãƒ <br>
-<?php echo $this->data['Child']['nickname']; ?><br><br>
+“à—e‚ð‚²Šm”F‚Ìã¤¢“o˜^£ÎÞÀÝ‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢¡<br />
+<?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
 
-æ€§åˆ¥<br>
+<?php echo $this->Form->create('Child', array('inputDefaults' => array('url' => '/children/edit_complete?guid=ON', 'div' => false, 'label' => false))); ?>
+
+<?php extract($this->data['Child']); ?>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+¡Žq‚Ç‚à‚ÌÆ¯¸È°Ñ<br />
+<?php echo h($nickname); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div></td>
+</tr>
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+¡Žq‚Ç‚à‚Ì«•Ê<br />
 <?php
-if($this->data['Child']['sex'] == 1) {
-    echo 'å¥³';
+$sex_label = '';
+if($sex == 1) {
+    $sex_label = '—';
 } else {
-    echo 'ç”·';
+    $sex_label = '’j';
 }
-?><br><br>
+echo "{$sex_label}‚ÌŽq";
+?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div></td>
+</tr>
 
-ç”Ÿå¹´æœˆ<br>
-<?php echo $this->data['Child']['birth_year']; ?>å¹´ <?php echo $this->data['Child']['birth_month']; ?>æœˆ<br><br>
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+¡Žq‚Ç‚à‚Ì¶”NŒŽ<br />
+<?php echo "$birth_year”N $birth_monthŒŽ"; ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div></td>
+</tr>
 
-å¹´é½¢<br>
-<?php echo $lines[$this->data['Child']['line_id']]; ?><br><br>
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+¡Žq‚Ç‚à‚Ì”N—î<br />
+<?php echo $lines[$line_id]; ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div></td>
+</tr>
 
-ã“ã©ã‚‚ã¡ã‚ƒã‚Œã‚“ã˜<br>
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+¡‚±‚Ç‚à‚¿‚á‚ê‚ñ‚¶‚²—˜—p’†<br />
 <?php
-if($this->data['Child']['benesse_user'] == 1){
-    echo 'ç™»éŒ²æ¸ˆã¿';
+if($benesse_user == 1){
+    echo '‚Í‚¢';
 } else {
-    echo 'æœªç™»éŒ²';
+    echo '‚¢‚¢‚¦';
 }
-?><br><br>
+?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+</div></td>
+</tr>
 
-<?php echo $form->end('å¤‰æ›´');?>
-
-
+<tr>
+<td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $form->end('•ÏX');?>
+<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $form->create('Child', array('url' => '/children/edit?guid=ON'));?>
-<?php echo $form->end('ä¿®æ­£');?>
-</div>
-<div>
-    <?php echo $html->link(__('ãƒžã‚¤ãƒšãƒ¼ã‚¸TOP', true), array('action' => 'index'));?>
-</div>
+<?php echo $form->end('–ß‚é');?>
+<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</td>
+</tr>
+
+</table>
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
