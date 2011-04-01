@@ -183,9 +183,9 @@ class AppController extends Controller {
 	}
 	function redirect($url, $status = null, $exit = true){
 
-		$url = $this->__redirect_url($url);
-		pr($url);
-		parent::redirect($this->__redirect_url($url), $status, $exit);
+		$url_full = $this->__redirect_url($url);
+		pr($url_full);
+		parent::redirect($url_full, $status, $exit);
 		//return parent::redirect($this->__redirect_url($url), $status, $exit);
 		/*
 		$aUrl = $this->__redirect_url($url);
