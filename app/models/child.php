@@ -9,8 +9,8 @@ class Child extends AppModel {
                             'message' => '必須項目です',
 			),
                         array(
-                            'rule' => array('custom', '[012345]'),
-                            'message' => '不正な値です'
+                            'rule' => array('custom', '[0|1|2|3|4|5]'),
+                            'message' => '必須項目です'
                         ),
 		),
 		'nickname' => array(
@@ -49,13 +49,13 @@ class Child extends AppModel {
                             'message' => '必須項目です',
                         ),
                         array(
-                            'rule' => array('custom', '[01]'),
+                            'rule' => array('custom', '[0|1]'),
                             'message' => '不正な値です'
                         ),
 		),
 		'benesse_user' => array(
                         array(
-                            'rule' => array('custom', '[01]'),
+                            'rule' => array('custom', '[0|1]'),
                             'message' => '不正な値です'
                         ),
 		),
