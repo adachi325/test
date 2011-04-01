@@ -81,7 +81,7 @@ class DiariesController extends AppController {
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
         }
-        $this->Diary->contain('Present');
+        $this->Diary->contain('Present','Month');
         $conditions = array(
             'conditions' => array(
                 'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -319,7 +319,7 @@ class DiariesController extends AppController {
         $this->set(compact('diary'));
 
         $userData = $this->Auth->user();
-        if($userData['User']['dc_user']) {
+        if(!$userData['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
             $this->render('post_info');
@@ -390,12 +390,16 @@ Content-Transfer-Encoding: 8bit
 if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
-<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
-
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
+<br>
 <div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
@@ -406,13 +410,15 @@ $list[1] = '
 } else {
 $list[1] = '
 <html>
-<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
-
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
+<div align="center">'.nl2br($diary['Diary']['body']).'</div>
+<br>
+<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
-
 </body>
 </html>
 

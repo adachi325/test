@@ -123,11 +123,17 @@ class ThemesController extends AppController {
     function info($id = null){
 
          if(empty($id)){
-             $this->Session->setFlash(__('システムエラー', true));
+             $this->Session->setFlash(__('不正操作', true));
              $this->redirect('/children/');
          }
 
          $theme = $this->Theme->read(null, $id);
+
+         if(empty($theme)){
+             $this->Session->setFlash(__('不正操作', true));
+             $this->redirect('/children/');
+         }
+
          $this->set(compact('theme'));
 
          //会員情報取得
@@ -136,6 +142,11 @@ class ThemesController extends AppController {
          $user->contain();
          $userdata = $user->read(null,$userAuthData['User']['id']);
 
+         if(empty($userdata)){
+             $this->Session->setFlash(__('ログイン有効期限切れです。', true));
+             $this->redirect('/children/');
+         }
+         
          //現在時刻にてhash作成
          $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
 
