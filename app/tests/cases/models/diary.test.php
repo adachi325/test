@@ -1,9 +1,9 @@
 <?php
-/* Diary Test cases generated on: 2011-03-10 14:03:59 : 1299733319*/
+/* Diary Test cases generated on: 2011-03-31 14:03:11 : 1301550071*/
 App::import('Model', 'Diary');
 
 class DiaryTestCase extends CakeTestCase {
-	var $fixtures = array('app.diary', 'app.child', 'app.user', 'app.line', 'app.content', 'app.issue', 'app.present', 'app.child_present', 'app.theme', 'app.postcard_url');
+	var $fixtures = array('app.diary', 'app.child', 'app.user', 'app.line', 'app.content', 'app.issue', 'app.present', 'app.month', 'app.theme', 'app.child_present', 'app.postcard_url');
 
 	function startTest() {
 		$this->Diary =& ClassRegistry::init('Diary');
@@ -14,17 +14,27 @@ class DiaryTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 
-	function testAddByEmail() {
-		$u =& $this->Diary;
-		$data = array(
-			'to' => 'diary_1.1.5.abcd@shimajiro-dev.com',
-			'subject' => 'たいとる',
-			'body' => 'ほんぶん本文',
-			'image' => '',
-		);
-		$this->assertTrue($u->addByEmail($data));
+	function testImportMail() {
+                $d =& $this->Diary;
+
+                //正常系
+//                $result = true;
+//                $type='diary';
+//                $data = array('to' => 'hogehoge@tangit.jp','subject' => 'hogehoge', 'title' => 'hogehoge', 'body' => 'hogehoge' , 'images' => 'hogehoge');
+//                pr($d->ImportMail($data));
+//		$this->assertTrue($d->ImportMail($data), '正常系');
+
+                //異常系
+
 	}
 
+	function testAdd() {
+                $d =& $this->Diary;
+//                $result = true;
+//                $data = array('to' => 'hogehoge@tangit.jp','subject' => 'hogehoge', 'title' => 'hogehoge', 'body' => 'hogehoge' , 'images' => 'hogehoge');
+//                $this->assertTrue($d->testAdd($data), '正常系');
+                
+	}
 
 }
 ?>

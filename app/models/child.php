@@ -4,90 +4,60 @@ class Child extends AppModel {
 	var $name = 'Child';
 	var $validate = array(
 		'line_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です',
 			),
+                        array(
+                            'rule' => array('custom', '[012345]'),
+                            'message' => '不正な値です'
+                        ),
 		),
 		'nickname' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です',
+			),
+			array(
+                            'rule' => array('maxLength', 20),
+                            'message' => '6文字以内で入力してください',
 			),
 		),
 		'birth_year' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です',
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength',12),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => array('maxLength', 4),
+                            'message' => '不正な値です',
 			),
 		),
 		'birth_month' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です',
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength',2),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => array('maxLength', 2),
+                            'message' => '不正な値です',
 			),
 		),
 		'sex' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'iconId' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です',
+                        ),
+                        array(
+                            'rule' => array('custom', '[01]'),
+                            'message' => '不正な値です'
+                        ),
 		),
 		'benesse_user' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+                        array(
+                            'rule' => array('custom', '[01]'),
+                            'message' => '不正な値です'
+                        ),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
