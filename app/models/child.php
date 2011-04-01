@@ -9,7 +9,7 @@ class Child extends AppModel {
                             'message' => '必須項目です',
 			),
                         array(
-                            'rule' => array('custom', '[0|1|2|3|4|5]'),
+                            'rule' => array('custom', '/^[0|1|2|3|4|5]{1,}$/'),
                             'message' => '必須項目です'
                         ),
 		),
@@ -49,14 +49,14 @@ class Child extends AppModel {
                             'message' => '必須項目です',
                         ),
                         array(
-                            'rule' => array('custom', '[0|1]'),
-                            'message' => '不正な値です'
+                            'rule' => array('custom', '/^[0|1]{1,}$/'),
+                            'message' => '必須項目です'
                         ),
 		),
 		'benesse_user' => array(
                         array(
-                            'rule' => array('custom', '[0|1]'),
-                            'message' => '不正な値です'
+                            'rule' => array('custom', '/^[0|1]{1,}$/'),
+                            'message' => '必須項目です'
                         ),
 		),
 	);

@@ -97,23 +97,23 @@ class UserTestCase extends CakeTestCase {
             //異常系(dc_user)
             $datasf = array();
             $datasf['0'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => null,'password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'User'  => Array ('loginid' => '1234','dc_user' => null,'password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2004','birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
             );
             $datasf['1'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => 'うへへ','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'User'  => Array ('loginid' => '11234','dc_user' => 'うへへ','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 0,'birth_year' => '2004','birth_month' => '4','line_id' => 4,'benesse_user' => 1,))
             );
             $datasf['2'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => 'aaaaa','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'User'  => Array ('loginid' => '112341','dc_user' => 'aa1aaa','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 0,'birth_year' => '2004','birth_month' => '4','line_id' => 4,'benesse_user' => 1,))
             );
             $datasf['3'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => 'aa1aaa','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'User'  => Array ('loginid' => '111234','dc_user' => 'aa1aaa','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 0,'birth_year' => '2004','birth_month' => '4','line_id' => 4,'benesse_user' => 1,))
             );
             $datasf['4'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => '2','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'User'  => Array ('loginid' => '112341','dc_user' => '2','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 0,'birth_year' => '2004','birth_month' => '4','line_id' => 4,'benesse_user' => 1,))
             );
             $i=1;

@@ -81,7 +81,7 @@ class User extends AppModel {
 		),
 		'dc_user' => array(
                         array(
-                            'rule' => array('custom', '[0|1]'),
+                            'rule' => array('custom', '/^[0|1]{1,}$/'),
                             'message' => '不正な値です'
                         ),
 		),
@@ -188,10 +188,8 @@ class User extends AppModel {
                     if($this->Child->saveLastChild($userData)){
                         return true;
                     }
-                    return false;
                 }
-                return false;
-            } 
+            }
             return false;
         }
 
