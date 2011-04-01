@@ -164,28 +164,32 @@ class AppController extends Controller {
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
-					if(preg_match('|^http[s]?://|', $url)){
-						return $url;
-					}
-					if (preg_match('|\?|', $url)) {
+					//if(preg_match('|^http[s]?://|', $url)){
+					//	return $url;
+					//}
+					$url = Router::url($url, true);
+					if (preg_match('/\?/', $url)) {
 						$url .= "&guid=ON";
 					} else {
 						$url .= "?guid=ON";
 					}
-					return;	
+				} else {
+					if(!isset($url['?'])){
+						$url['?'] = array();
+					}
+					$url['?'][session_name()] = session_id();
+					$url['?']['guid'] = 'on'; // guid=onを付加
 				}
-				if(!isset($url['?'])){
-					$url['?'] = array();
-				}
-				$url['?'][session_name()] = session_id();
-                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
 
-		return parent::redirect($this->__redirect_url($url), $status, $exit);
+		$url = $this->__redirect_url($url);
+		pr($url);
+
+		//return parent::redirect($this->__redirect_url($url), $status, $exit);
 		/*
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
