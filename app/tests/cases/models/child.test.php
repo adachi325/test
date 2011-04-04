@@ -29,7 +29,15 @@ class ChildTestCase extends CakeTestCase {
                 //異常系
 		$this->assertFalse($c->SaveLastChild(null), '異常系');
 
+
 	}
+
+        function testFind(){
+                $c =& $this->Child;
+
+                
+            
+        }
 
 }
 ?>

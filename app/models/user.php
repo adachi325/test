@@ -216,14 +216,6 @@ class User extends AppModel {
                     }
                 }
             }
-                $this->Child->set($data);
-                if (!$this->Child->validates()) {
-                    pr($this->Child->validationErrors);
-                }
-                $this->set($data);
-                if (!$this->validates()) {
-                    pr($this->validationErrors);
-                }
             return false;
         }
 
