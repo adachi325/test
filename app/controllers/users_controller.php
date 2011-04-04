@@ -116,8 +116,7 @@ class UsersController extends AppController {
                   $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
                   TransactionManager::commit();
                   $this->Session->setFlash(__('会員登録完了。', true));
-                  pr($this->data);
-                  //$this->redirect('/navigations/after1');
+                  $this->redirect('/navigations/after1');
                } else {
                   TransactionManager::rollback();
                   $this->Session->setFlash(__('会員登録失敗。', true));
