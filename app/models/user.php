@@ -25,7 +25,7 @@ class User extends AppModel {
                             'on'=>'create',
 			),
 			array(
-                            'rule' => array('between', 4, 20),
+                            'rule' => array('between', 4, 12),
                             'message' => '4～20文字で入力してください',
 			),
 			array(
@@ -39,7 +39,7 @@ class User extends AppModel {
                             'message' => '必須項目です',
 			),
 			array(
-                            'rule' => array('between', 4, 16),
+                            'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
 			),
 			array(
@@ -53,7 +53,7 @@ class User extends AppModel {
                             'message' => '必須項目です',
 			),
 			array(
-                            'rule' => array('between', 4, 16),
+                            'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
 			),
 			array(
@@ -67,7 +67,7 @@ class User extends AppModel {
                             'message' => '必須項目です',
 			),
 			array(
-                            'rule' => array('between', 4, 16),
+                            'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
 			),
 			array(
@@ -103,7 +103,7 @@ class User extends AppModel {
                             'message' => '必須項目です。',
 			),
 			array(
-                            'rule' => array('between', 4, 20),
+                            'rule' => array('between', 4, 12),
                             'message' => '4～20文字で入力してください',
 			),
 			array(
