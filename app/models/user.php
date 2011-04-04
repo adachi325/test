@@ -21,16 +21,16 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => 'isUnique',
-                            'message' => '既に使用されているIDです',
+                            'message' => 'このIDは既に登録されています',
                             'on'=>'create',
 			),
 			array(
                             'rule' => array('between', 4, 20),
-                            'message' => '4文字から20文字以内で入力してください',
+                            'message' => '4～20文字で入力してください',
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字以外ご利用できません',
+                            'message' => '半角英数字で入力してください',
 			),
 		),
 		'loginpassword' => array(
@@ -40,11 +40,11 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => array('between', 4, 16),
-                            'message' => 'ﾊﾟｽﾜｰﾄﾞは4文字から16文字以内です',
+                            'message' => '4～16文字で入力してください',
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字以外ご利用できません',
+                            'message' => '半角英数字で入力してください',
 			),
 		),
 		'new_password' => array(
@@ -54,11 +54,11 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => array('between', 4, 16),
-                            'message' => 'ﾊﾟｽﾜｰﾄﾞは4文字から16文字以内です',
+                            'message' => '4～16文字で入力してください',
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字以外ご利用できません',
+                            'message' => '半角英数字で入力してください',
 			),
 		),
 		'row_password' => array(
@@ -68,20 +68,20 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => array('between', 4, 16),
-                            'message' => 'ﾊﾟｽﾜｰﾄﾞは4文字から16文字以内です',
+                            'message' => '4～16文字で入力してください',
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字以外ご利用できません',
+                            'message' => '半角英数字で入力してください',
 			),
 			array(
                             'rule' => 'checkRowPassword',
-                            'message' => 'パスワードが一致しません。',
+                            'message' => 'ﾊﾟｽﾜｰﾄﾞが一致しません',
 			),
 		),
 		'dc_user' => array(
                         array(
-                            'rule' => array('custom', '/^[0|1]{1,}$/'),
+                            'rule' => array('custom', '/^[0-1]{1}$/'),
                             'message' => '不正な値です'
                         ),
 		),
@@ -104,11 +104,11 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => array('between', 4, 20),
-                            'message' => '4文字から20文字以内で入力してください',
+                            'message' => '4～20文字で入力してください',
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字以外ご利用できません',
+                            'message' => '半角英数字で入力してください',
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
@@ -118,7 +118,7 @@ class User extends AppModel {
                             'message' => '必須項目です。',
 			),
 			array(
-                            'rule' => array('maxLength', 20),
+                            'rule' => array('maxLength', 6),
                             'message' => '6文字以内で入力してください',
 			),
 		),
@@ -190,6 +190,14 @@ class User extends AppModel {
                     }
                 }
             }
+                $this->Child->set($data);
+                if (!$this->Child->validates()) {
+                    pr($this->Child->validationErrors);
+                }
+                $this->set($data);
+                if (!$this->validates()) {
+                    pr($this->validationErrors);
+                }
             return false;
         }
 

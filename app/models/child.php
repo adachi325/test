@@ -19,7 +19,7 @@ class Child extends AppModel {
                             'message' => '必須項目です',
 			),
 			array(
-                            'rule' => array('maxLength', 20),
+                            'rule' => array('maxLength', 6),
                             'message' => '6文字以内で入力してください',
 			),
 		),
