@@ -64,8 +64,8 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
-	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin','CreatePresent');
+	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions','tk');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin','CreatePresent','Tk');
         public $layout = 'default';
 
        	//ktaiライブラリ設定
