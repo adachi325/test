@@ -1,5 +1,5 @@
 <div>
-<?php echo $form->create('User', array('action' => 'delete?guid=ON'));?>
+<?php echo $form->create('User', array('url' => '/users/delete?guid=ON'));?>
 退会するとこれまでに投稿した思い出がすべて削除されます。<br><br>
 
 Really ? . Are you ok?<br>

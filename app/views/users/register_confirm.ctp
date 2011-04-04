@@ -1,7 +1,7 @@
 <div>
 <h1>入力項目確認</h1>
 </div>
-<?php echo $form->create('User', array('action' => 'register_complete?guid=ON')); ?>
+<?php echo $form->create('User', array('url' => '/users/register_complete?guid=ON')); ?>
 
 会員ID<br>
 <?php echo $this->data['User']['loginid']; ?><br><br>

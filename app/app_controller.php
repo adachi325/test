@@ -64,29 +64,9 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Html','Time', 'Form','Session','SelectOptions','Tk');
-	public $components = array(
-		'Ktai',
-                'Tk',
-		'Auth',
-		'Session',
-		'Transition',
-		//'DebugKit.Toolbar',
-                'EasyLogin',
-		'CreatePresent',
-		'Secured.Ssl' => array(
-			'autoRedirect' => false,
-			'secured' => array(
-				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
-				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
-			),
-			'allowed' => array(
-				'users' => array('login'),
-			),
-		),
-	);
-
-	public $layout = 'default';
+	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin','CreatePresent');
+        public $layout = 'default';
 
        	//ktaiライブラリ設定
 	public $ktai = array(
@@ -101,11 +81,12 @@ class AppController extends Controller {
 		'use_xml' => false,
 	);
 
+	public $selectedChildId = null;//選択中こどもID
+
 	function beforeFilter(){
             parent::beforeFilter();
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
-                $this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
             }
 	}
@@ -157,43 +138,28 @@ class AppController extends Controller {
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
-					//if(preg_match('|^http[s]?://|', $url)){
-					//	return $url;
-					//}
-					$url = Router::url($url, true);
-					if (preg_match('/\?/', $url)) {
-						$url .= "&guid=ON";
-					} else {
-						$url .= "?guid=ON";
+					if(preg_match('|^http[s]?://|', $url)){
+						return $url;
 					}
-				} else {
-					if(!isset($url['?'])){
-						$url['?'] = array();
-					}
-					$url['?'][session_name()] = session_id();
-					$url['?']['guid'] = 'on'; // guid=onを付加
 					$url = Router::parse($url);
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
+				$url['?'][session_name()] = session_id();
+                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
-
-		$url_full = $this->__redirect_url($url);
-		pr($url_full);
-		parent::redirect($url_full, $status, $exit);
-		//return parent::redirect($this->__redirect_url($url), $status, $exit);
-		/*
-		$aUrl = $this->__redirect_url($url);
-		if(!is_array($aUrl)) {
-			$aUrl = Router::parse($aUrl);
+                //guid=onを付加
+		if ($this->Ktai->is_imode())
+		{
+			$prefix = ereg("\?", $url) ? "&" : "?";
+			$url = $url.$prefix."guid=ON";
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
- 		*/
 	}
 
 	public function beforeRender() {

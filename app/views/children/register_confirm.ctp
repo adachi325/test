@@ -1,5 +1,5 @@
 <div>
-<?php echo $form->create('Child', array('action' => 'register_complete?guid=ON'));?>
+<?php echo $form->create('Child', array('url' => '/children/register_complete?guid=ON'));?>
 確認画面です<br><br>
 
 ニックネーム<br>
@@ -32,7 +32,8 @@ if($this->data['Child']['benesse_user'] == 1){
 <?php echo $form->end('登録');?>
 
 
-<?php echo $form->create('Child', array('action' => 'register?guid=ON'));?>
+<?php echo $form->create('Child', array('url' => '/children/register?guid=ON'));?>
+
 <?php echo $form->end('修正');?>
 </div>
 <div>
