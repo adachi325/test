@@ -3,6 +3,24 @@
 かわいい日記が作れちゃったよ♪
 </div>
 <br>
+<div>
+<?php if(!empty($diaries['Diary']['error_code'])) { ?>
+<p>
+以下の理由により、写真を保存できませんでした。
+<br>
+<?php if($diaries['Diary']['error_code'] === 'E001') { ?>
+・ファイルサイズが2MB以上
+<?php } else if ($diaries['Diary']['error_code'] === 'E002'){ ?>
+・ファイル形式がJPEG以外
+<?php }?>
+<br><br>
+写真をつけて思い出記録を残したい場合は、JPG形式で容量が2MB以内の写真を添付して、再度投稿し直してください。
+</p>
+<?php }?>
+<br>
+<?php echo $this->Html->link('ﾄｯﾌﾟﾍﾟｰｼﾞへ', '/children/'); ?>
+</div>
+<br>
 <center>
     <div>
         <span>

@@ -1,16 +1,17 @@
 <?php echo '投稿が完了しました!'; ?>
 <br>
-<?php if($diary['Diary']['error_code'] === 'E001') { ?>
-<p>思い出作成に失敗しました。<br>
-   投稿された画像サイズが大きすぎます。<br>
-   ご確認の上、再度ご投稿お願いします。<br>
-</p>
-<?php } else if ($diary['Diary']['error_code'] === 'E002'){ ?>
-<p>思い出作成に失敗しました。<br>
-   投稿された画像がjpeg形式でない為、日記の登録が出来ませんでした。<br>
-   ご確認の上、再度ご投稿お願いします。<br>
-</p>
+<?php if(!empty($diaries['Diary']['error_code'])) { ?>
+<p>
+以下の理由により、写真を保存できませんでした。
 <br>
+<?php if($diaries['Diary']['error_code'] === 'E001') { ?>
+・ファイルサイズが2MB以上
+<?php } else if ($diaries['Diary']['error_code'] === 'E002'){ ?>
+・ファイル形式がJPEG以外
+<?php }?>
+<br><br>
+写真をつけて思い出記録を残したい場合は、JPG形式で容量が2MB以内の写真を添付して、再度投稿し直してください。
+</p>
 <?php }?>
 <?php if(!empty($diary['Diary']['present_id'])) { ?>
 <br>
