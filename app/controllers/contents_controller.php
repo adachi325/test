@@ -51,6 +51,8 @@ class ContentsController extends AppController {
 
 		$data = $this->Content->isReleased($line, $id);
 
+		$this->ktai['enable_ktai_session'] = false;
+
 		if ($data === false) {
 			$this->cakeError('error404');
 			return;
@@ -58,17 +60,21 @@ class ContentsController extends AppController {
 
 		$release_date = $data['Content']['release_date'];
 
-		$this->set(compact('release_date'));
-
 		if ($release_date <= date('Y-m-d')) {
-			// Todo: キャリアごとに表示するテンプレートを振り分ける?
-			$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/body.html");
-			//$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/docomo.html");
-			//$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/softbank.html");
-			//$this->set('filepath', WWW_ROOT."ap/{$line}/{$id}/au.html");
+			if ($this->Ktai->is_imode()) {
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
+			} elseif ($this->Ktai->is_softbank()) {
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
+			} elseif ($this->Ktai->is_ezweb()) {
+				$filepath = WWW_ROOT."ap/{$line}/{$id}/au.html";
+			}
+			
+			pr($filepath);
 
+			$this->set(compact('release_date', 'filepath'));
 			$this->layout = 'contents';
 		} else {
+			$this->set(compact('release_date'));
 			$this->render("error");	
 		}
 	}

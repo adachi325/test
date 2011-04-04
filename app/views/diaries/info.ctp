@@ -28,7 +28,11 @@
     <br>
     <?php } ?>
     <div>
-        <span><?php echo $diary['Diary']['body'] ?></span>
+        <span><?php echo nl2br($diary['Diary']['body']); ?></span>
+    </div>
+    <br>
+    <div align="right">
+        <span><?php echo date('n月d日', strtotime($diary['Diary']['created'])); ?></span>
     </div>
     <br>
     <div>
@@ -45,6 +49,7 @@
         </span>
     </div>
 </center>
+<br>
 <br><hr><br>
 <div>
 <?php echo $this->Html->link('⇒ドコモコミュニティへ投稿する', '/diaries/post/'.$diary['Diary']['id']); ?>
@@ -55,4 +60,6 @@
 <div>
 <?php echo $this->Html->link('⇒思い出を編集する', '/diaries/edit/'.$diary['Diary']['id']); ?>
 </div>
-
+<div>
+<?php echo $this->Html->link('⇒思い出を削除する', '/diaries/delete/'.$diary['Diary']['id']); ?>
+</div>

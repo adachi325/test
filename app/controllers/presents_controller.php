@@ -20,7 +20,7 @@ class PresentsController extends AppController {
 
 	function present_list($type = null) {
 
-		$child_id = $this->Session->read('Auth.User.last_selected_child');
+		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
 			$this->Session->setFlash('プレゼントの種類を指定してください');
@@ -59,7 +59,13 @@ class PresentsController extends AppController {
 	function select($type = null, $template_id = null) {
 		$data = $this->data;
 		$this->paginate = array('limit' => 10);
-		
+
+		if($type == 'flash') {
+			$max_count = 3;
+		} else {
+			$max_count = 4;
+		}
+
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -70,19 +76,22 @@ class PresentsController extends AppController {
 			if (isset($this->params['form']['create'])) {
 				for($i = 1; $i < $pageCount + 1; $i++) {
 					$sel = $this->Session->read("Present.{$i}.selection");
+					if (!is_array($sel)) {
+						continue;
+					}
 					foreach($sel as $key => $value) {
 						if ($value == 1) {
 							$selection[] = $key;
 						}
 					}
 				}
-				if (count($selection) == 4) {
+				if (count($selection) == $max_count) {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
 					$this->redirect("/presents/complete/{$type}/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-					//$this->redirect('/presents/error_photo');
+					$this->redirect("/presents/error_photo/{$type}/{$template_id}/");
 				}
 			}
 			if (isset($this->params['form']['prev'])) {
@@ -103,10 +112,15 @@ class PresentsController extends AppController {
 		$this->Diary =& ClassRegistry::init('Diary');
 		$this->Diary->contain();
 
+		$cond = array(
+			'child_id' => $this->Tk->_getLastChild(),
+			'has_image' => 1,
+		);
+
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
-		$items = $this->paginate('Diary');
+		$items = $this->paginate('Diary', $cond);
 		
-		$this->set(compact('items', 'data', 'type', 'template_id'));
+		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
 	function complete($type = null) {
@@ -137,8 +151,10 @@ class PresentsController extends AppController {
 
 		//メールアドレス設定
 		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
-		$mailStr = "?subject=ポストカード印刷用URL&body={$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
-		$this->set(compact('mailStr', 'token'));
+		$mailSubject = "ポストカード印刷用URL";
+                $mailBody = "{$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
+
+		$this->set(compact('mailSubject','mailBody','token'));
 		$this->render($render);
 	}
 
@@ -146,7 +162,14 @@ class PresentsController extends AppController {
 		
 	}
 
-	function error_photo() {
+	function error_photo($type = null, $template_id = null) {
+
+		if($type == 'flash') {
+			$max_count = 3;
+		} else {
+			$max_count = 4;
+		}
+		$this->set(compact('type', 'template_id', 'max_count'));
 		
 	}
 

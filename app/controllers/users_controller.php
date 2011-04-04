@@ -382,7 +382,6 @@ class UsersController extends AppController {
     }
 
     function delete(){
-        pr($this->data);
         if(!empty($this->data['User']['check'])){
             $this->Session->write('user_delete_check',$this->data);
             $this->redirect('/users/delete_complete');

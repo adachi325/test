@@ -3,33 +3,25 @@ class Present extends AppModel {
 	var $name = 'Present';
 	var $validate = array(
 		'present_type' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'last' => true,
+			),
+			array(
+                            'rule' => 'numeric',
+                            'last' => true,
 			),
 		),
 		'present_path' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'last' => true,
 			),
 		),
 		'present_thumbnail_path' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'last' => true,
 			),
 		),
 	);

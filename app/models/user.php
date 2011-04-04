@@ -17,138 +17,157 @@ class User extends AppModel {
 		'loginid' => array(
 			array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。。',
+                            'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'isUnique',
-                            'message' => '既に存在しているIDです。',
+                            'message' => 'このIDは既に登録されています',
                             'on'=>'create',
+                            'last' => true,
 			),
 			array(
-                            'rule' => array('maxLength', 20),
-                            'message' => '文字数が多すぎます。',
+                            'rule' => array('between', 4, 12),
+                            'message' => '4～12文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字で入力してください。',
+                            'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
-
 		'loginpassword' => array(
 			array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
+                            'message' => '必須項目です',
+                            'last' => true,
+			),
+			array(
+                            'rule' => array('between', 6, 12),
+                            'message' => '6～12文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字で入力してください。',
+                            'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
-
 		'new_password' => array(
 			array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
+                            'message' => '必須項目です',
+                            'last' => true,
+			),
+			array(
+                            'rule' => array('between', 6, 12),
+                            'message' => '6～12文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字で入力してください。',
+                            'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
-
 		'row_password' => array(
 			array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。',
+                            'message' => '必須項目です',
+                            'last' => true,
+			),
+			array(
+                            'rule' => array('between', 6, 12),
+                            'message' => '6～12文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字で入力してください。',
+                            'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkRowPassword',
-                            'message' => '入力されたパスワードが一致しません。',
+                            'message' => 'ﾊﾟｽﾜｰﾄﾞが一致しません',
+                            'last' => true,
 			),
 		),
 		'dc_user' => array(
-			array(
-                            'rule' => 'numeric',
-                            'message' => '選択された値が不正です。',
-			),
+                        array(
+                            'rule' => array('custom', '/^[0-1]{1}$/'),
+                            'message' => '不正な値です',
+                            'last' => true,
+                        ),
 		),
 		'uid' => array(
                         array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。。',
+                            'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'isUnique',
                             'message' => 'この端末は既に登録されています。',
                             'on'=>'create',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'remindId' => array(
 			array(
                             'rule' => 'notEmpty',
-                            'message' => '必須項目です。。',
+                            'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
-                            'rule' => array('maxLength', 20),
-                            'message' => '文字数が多すぎます。',
+                            'rule' => array('between', 4, 12),
+                            'message' => '4～12文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
-                            'message' => '半角英数字で入力してください。',
+                            'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'nickname' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。',
+                            'last' => true,
+			),
+			array(
+                            'rule' => array('maxLength', 6),
+                            'message' => '6文字以内で入力してください',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'birth_year' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。',
+                            'last' => true,
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength',12),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => array('between', 4, 4),
+                            'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'birth_month' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            'message' => '必須項目です。',
+                            'last' => true,
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength',2),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => array('between', 1, 2),
+                            'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
 	);
@@ -176,6 +195,7 @@ class User extends AppModel {
             if (empty($data)) {
                 return false;
             }
+
              //登録処理
             if($this->save($data)){
                 $request = array();
@@ -194,13 +214,18 @@ class User extends AppModel {
                     if($this->Child->saveLastChild($userData)){
                         return true;
                     }
-                    return false;
                 }
-                return false;
             }
+                $this->Child->set($data);
+                if (!$this->Child->validates()) {
+                    pr($this->Child->validationErrors);
+                }
+                $this->set($data);
+                if (!$this->validates()) {
+                    pr($this->validationErrors);
+                }
             return false;
-	}
-
+        }
 
 }
 ?>

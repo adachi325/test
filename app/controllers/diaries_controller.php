@@ -46,7 +46,7 @@ class DiariesController extends AppController {
         if(!empty($months)){
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id']
                 ),
                 'order'=>array('Diary.created DESC')
@@ -75,24 +75,16 @@ class DiariesController extends AppController {
         }
     }
 
-    //最終子供ID取得
-    function _getLastChild(){
-        $userData = $this->Auth->user();
-        $User = ClassRegistry::init('User');
-        $User = $User->find('first', array('conditions'=>array('id'=>$userData['User']['id'])));
-        return $User['User']['last_selected_child'];
-    }
-
     function checkPost($hash = null){
         //hashを確認し、データがなければリダイレクト
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
         }
-        $this->Diary->contain('Present');
+        $this->Diary->contain('Present','Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.hash' => $hash
             )
         );
@@ -137,7 +129,7 @@ class DiariesController extends AppController {
             $this->Diary->contain('Month');
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.id' => $id
                 )
             );
@@ -158,7 +150,7 @@ class DiariesController extends AppController {
         $request = array();
         $request = $this->data;
         $userData = $this->Auth->user();
-        $request['Diary']['child_id'] = $this->_getLastChild();
+        $request['Diary']['child_id'] = $this->Tk->_getLastChild();
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
@@ -209,7 +201,7 @@ class DiariesController extends AppController {
             $this->Diary->contain('Month');
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.id' => $id
                 )
             );
@@ -230,7 +222,7 @@ class DiariesController extends AppController {
             }
             $id = $this->data['Diary']['check'];
 
-            $child_id = $this->_getLastChild();
+            $child_id = $this->Tk->_getLastChild();
 
             $this->Diary->contain('Month');
             $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id = '.$id , 'Diary.child_id = '.$child_id)));
@@ -292,7 +284,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -315,7 +307,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -325,7 +317,7 @@ class DiariesController extends AppController {
             $this->redirect('/children/');
         }
         $this->set(compact('diary'));
-        
+
         $userData = $this->Auth->user();
         if(!$userData['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
@@ -334,9 +326,16 @@ class DiariesController extends AppController {
             return;
         }
 
+        if(strlen($diary['Diary']['title']) > 9){
+            $mailTitle = mb_substr($diary['Diary']['title'],0,9);
+        }else {
+            $mailTitle = $diary['Diary']['title'];
+        }
+        $this->set('mailTitle',$mailTitle);
+
         if(!$this->Ktai->is_imode()){
-            if(strlen($diary['Diary']['body']) > 250){
-                $mailBody = mb_substr($diary['Diary']['body'],0,250);
+            if(strlen($diary['Diary']['body']) > 100){
+                $mailBody = mb_substr($diary['Diary']['body'],0,100);
             } else {
                 $mailBody = $diary['Diary']['body'];
             }
@@ -362,7 +361,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -391,12 +390,16 @@ Content-Transfer-Encoding: 8bit
 if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
-<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
-
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
+<br>
 <div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
@@ -407,13 +410,15 @@ $list[1] = '
 } else {
 $list[1] = '
 <html>
-<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
-
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<div align="center">'.$diary['Diary']['body'].'</div>
+<br>
+<div align="center">'.$diary['Diary']['title'].'</div>
+<br>
+<div align="center">'.nl2br($diary['Diary']['body']).'</div>
+<br>
+<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
-
 </body>
 </html>
 

@@ -1,5 +1,5 @@
 <div>
-<?php echo $form->create('Child', array('action' => 'register?guid=ON'));?>
+<?php echo $form->create('Child', array('url' => '/children/register?guid=ON'));?>
 
 <?php echo $form->input('nickname');?>
 <div>

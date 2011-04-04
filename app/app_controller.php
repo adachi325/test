@@ -64,49 +64,29 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Html', 'Time', 'Form','Session','SelectOptions','tk');
-	public $components = array(
-		'Ktai',
-		'Auth',
-		'Session',
-		'Transition',
-		//'DebugKit.Toolbar',
-                'EasyLogin',
-		'CreatePresent',
-		'Secured.Ssl' => array(
-			'autoRedirect' => false,
-			'secured' => array(
-				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
-				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
-			),
-			'allowed' => array(
-				'users' => array('login'),
-			),
-		),
- 		
-	);
-
-	public $layout = 'default';
+	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions','tk');
+	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin','CreatePresent','Tk');
+        public $layout = 'default';
 
        	//ktaiライブラリ設定
 	public $ktai = array(
 		'use_img_emoji' => true,
-		//'input_encoding' => 'UTF8',
-		//'output_encoding' => 'UTF8',
+		'input_encoding' => 'UTF8',
+		'output_encoding' => 'UTF8',
 		'use_xml' => true,
-		'enable_ktai_session' => true, 		//セッション使用を有効にします
+		'enable_ktai_session' => true, //セッション使用を有効にします
 		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
-		'imode_session_name' => 'csid', 	//iMODE時のセッション名を変更します
+		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
+		'use_xml' => false,
 	);
 
-	public $selectedChildId = null;			//選択中こどもID
-        
+	public $selectedChildId = null;//選択中こどもID
+
 	function beforeFilter(){
             parent::beforeFilter();
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
-				$this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
             }
 	}
@@ -181,7 +161,7 @@ class AppController extends Controller {
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
-        
+
 	public function beforeRender() {
 		TransactionManager::destructs();
 	}

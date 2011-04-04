@@ -4,7 +4,15 @@
         <span>ドコモコミュニティにメールで投稿しよう。</span>
     </div>
     <div>
-        <?php echo $this->Html->link('投稿する', '/diaries/downlord/'.$diary['Diary']['id']); ?>
+        <div>ﾃﾞｺﾚｰｼｮﾝﾒｰﾙﾃﾝﾌﾟﾚｰﾄをﾀﾞｳﾝﾛｰﾄﾞ下↓下↓</div>
+        <div><?php echo $this->Html->link('ﾀﾞｳﾝﾛｰﾄﾞ', '/diaries/downlord/'.$diary['Diary']['id']); ?></div>
+    </div>
+    <br>
+    <div>
+        <div>そしてメールを起動して↑でダウンロードしたテンプレートを挿入してメールするんだ！</div>
+        <div>
+            <input type="text" value="<?php echo Configure::read('Defaults.docomo_community') ?>">
+        </div>
     </div>
 </center>
 <br>
