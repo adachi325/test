@@ -152,7 +152,7 @@ class User extends AppModel {
                             'last' => true,
 			),
 			array(
-                            'rule' => array('maxLength', 4),
+                            'rule' => array('between', 4, 4),
                             'message' => '不正な値です',
                             'last' => true,
 			),
@@ -165,7 +165,7 @@ class User extends AppModel {
                             'last' => true,
 			),
 			array(
-                            'rule' => array('maxLength', 2),
+                            'rule' => array('between', 1, 2),
                             'message' => '不正な値です',
                             'last' => true,
 			),

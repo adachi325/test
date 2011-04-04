@@ -151,11 +151,11 @@ class UserTestCase extends CakeTestCase {
             //異常系(uid)
             $datasf = array();
             $datasf['0'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f', 'uid' => null,'carrier' => 0,),
+                'User'  => Array ('loginid' => '187001','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f', 'uid' => null,'carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2004','birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
             );
             $datasf['1'] = Array(
-                'User'  => Array ('loginid' => '1','dc_user' => '1','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '','carrier' => 0,),
+                'User'  => Array ('loginid' => '1870011','dc_user' => '1','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 0,'birth_year' => '2004','birth_month' => '2','line_id' => 4,'benesse_user' => 1,))
             );
             $i=1;
@@ -186,7 +186,88 @@ class UserTestCase extends CakeTestCase {
                 $this->assertFalse($u->_register($data), '異常系【nickname】'.$i);
                 $i++;
             }
+            
+            //異常系(sex)
+            $datasf = array();
+            $datasf['0'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => null,'birth_year' => '2004','birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
+            );
 
+            $i=1;
+            foreach($datasf as $data) {
+                //pr($data);
+                $this->assertFalse($u->_register($data), '異常系【sex】'.$i);
+                $i++;
+            }
+
+            //異常系(birth_year)
+            $datasf = array();
+            $datasf['0'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '200','birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
+            );
+            $datasf['1'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => null,'birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
+            );
+            $i=1;
+            foreach($datasf as $data) {
+                //pr($data);
+                $this->assertFalse($u->_register($data), '異常系【birth_year】'.$i);
+                $i++;
+            }
+            
+            //異常系(birth_month)
+            $datasf = array();
+            $datasf['0'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '333','line_id' => 4,'benesse_user' => 1,))
+            );
+            $datasf['1'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2011','birth_month' => null,'line_id' => 4,'benesse_user' => 1,))
+            );
+            $i=1;
+            foreach($datasf as $data) {
+                //pr($data);
+                $this->assertFalse($u->_register($data), '異常系【birth_month】'.$i);
+                $i++;
+            }
+
+            //異常系(line_id)
+            $datasf = array();
+            $datasf['0'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '9','line_id' => 6,'benesse_user' => 1,))
+            );
+            $datasf['1'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2011','birth_month' => '11','line_id' => null,'benesse_user' => 1,))
+            );
+            $i=1;
+            foreach($datasf as $data) {
+                //pr($data);
+                $this->assertFalse($u->_register($data), '異常系【line_id】'.$i);
+                $i++;
+            }
+            
+            //異常系(benesse_user)
+            $datasf = array();
+            $datasf['0'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '9','line_id' => 5,'benesse_user' => 2,))
+            );
+            $datasf['1'] = Array(
+                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2011','birth_month' => '11','line_id' => 1,'benesse_user' => null,))
+            );
+            $i=1;
+            foreach($datasf as $data) {
+                //pr($data);
+                $this->assertFalse($u->_register($data), '異常系【benesse_user】'.$i);
+                $i++;
+            }
         }
 
 }
