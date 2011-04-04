@@ -5,23 +5,23 @@ class Present extends AppModel {
 		'present_type' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'numeric',
-                            //'message' => '半角数字以外ご利用できません',
+                            'last' => true,
 			),
 		),
 		'present_path' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 		'present_thumbnail_path' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 	);

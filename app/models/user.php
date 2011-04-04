@@ -18,82 +18,99 @@ class User extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'isUnique',
                             'message' => 'このIDは既に登録されています',
                             'on'=>'create',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('between', 4, 12),
                             'message' => '4～20文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
 		'loginpassword' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
 		'new_password' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
 		'row_password' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('between', 6, 12),
                             'message' => '4～16文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkRowPassword',
                             'message' => 'ﾊﾟｽﾜｰﾄﾞが一致しません',
+                            'last' => true,
 			),
 		),
 		'dc_user' => array(
                         array(
                             'rule' => array('custom', '/^[0-1]{1}$/'),
-                            'message' => '不正な値です'
+                            'message' => '不正な値です',
+                            'last' => true,
                         ),
 		),
 		'uid' => array(
                         array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'isUnique',
                             'message' => 'この端末は既に登録されています。',
                             'on'=>'create',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
@@ -101,14 +118,17 @@ class User extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('between', 4, 12),
                             'message' => '4～20文字で入力してください',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
@@ -116,10 +136,12 @@ class User extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('maxLength', 6),
                             'message' => '6文字以内で入力してください',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
@@ -127,10 +149,12 @@ class User extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('maxLength', 4),
                             'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
             //リマインド時に利用するためのダミーフィールド
@@ -138,10 +162,12 @@ class User extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
+                            'last' => true,
 			),
 			array(
                             'rule' => array('maxLength', 2),
                             'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
 	);
