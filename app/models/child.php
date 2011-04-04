@@ -57,11 +57,6 @@ class Child extends AppModel {
                             'message' => '必須項目です',
                             'last' => true,
                         ),
-                        array(
-                            'rule' => array('custom', '/^[0|1]{1,}$/'),
-                            'message' => '必須項目です',
-                            'last' => true,
-                        ),
 		),
 		'benesse_user' => array(
                         array(
