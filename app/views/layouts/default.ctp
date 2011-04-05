@@ -12,9 +12,9 @@ echo $this->element('default/meta');
 
 <body>
 <a name="top" id="top"></a>
+<div style="font-size:x-small; color:#333333;">
 
-<div align="center" style="text-align:center;">
-<div style="width:240px; font-size:x-small; text-align:left;">
+<?php echo $this->Session->flash(); ?>
 
 <?php echo $content_for_layout; ?>
 

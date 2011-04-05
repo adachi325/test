@@ -1,7 +1,7 @@
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-┬х┴╨┌П┌╡⌠Э≈м┌л▐Ц╓╒┼m■Fёнчющ┌П┴÷┌╣┌д┌╜┌╬┌Ё┌╒║<br />
+Д╩╔Д╦▀Ц┌▓Ц│■Е┘╔Е┼⌡Ц│╝Д╦┼О╫╓О╫╒Г╒╨Х╙█О╫ёО╬▌О╬·О╬─О╬²Ц┌▓Ф┼╪Ц│≈Ц│╕Ц│▐Ц│═Ц│∙Ц│└О╫║<br />
 <?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
 
 <?php echo $form->create('Child', array('url' => '/children/edit_confirm?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false)));?>
@@ -10,8 +10,8 @@
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-│║▌q┌г┌Ю┌лф╞╦х╟я<span style="color:#ff0000;">(∙K░{)</span><br />
-<span style="color:#ff6600;">▒S┼p6∙╤▌ ┬х⌠Ю</span><br />
+Б√═Е╜░Ц│╘Ц┌┌Ц│╝О╬├О╫╞О╫╦О╬┬О╫╟О╬▒<span style="color:#ff0000;">(Е©┘И═┬)</span><br />
+<span style="color:#ff6600;">Е┘╗Х╖▓6Ф√┤Е╜≈Д╩╔Е├┘</span><br />
 
 <?php echo $this->Form->input("nickname", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -21,13 +21,13 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-│║▌q┌г┌Ю┌л░╚∙й<span style="color:#ff0000;">(∙K░{)</span><br />
+Б√═Е╜░Ц│╘Ц┌┌Ц│╝Ф─╖Е┬╔<span style="color:#ff0000;">(Е©┘И═┬)</span><br />
 <?php
 $value1 = ($this->data['Child']['sex'] == 1) ? '1' : 'none';
 $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
-<?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>▐≈┌л▌q
-<?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>▓j┌л▌q
+<?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>Е╔ЁЦ│╝Е╜░
+<?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>Г■╥Ц│╝Е╜░
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -36,7 +36,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-│║▌q┌г┌Ю┌л░╤■N▄▌<span style="color:#ff0000;">(∙K░{)</span><br />
+Б√═Е╜░Ц│╘Ц┌┌Ц│╝Г■÷Е╧╢Ф°┬<span style="color:#ff0000;">(Е©┘И═┬)</span><br />
 <?php echo $this->Form->input('birth_year', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => date('Y'), 
@@ -46,7 +46,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'empty' => '------',
 		'class' => 'f_bir',
 		'style' => 'font-size:x-small;',
-	)) ?>■N
+	)) ?>Е╧╢
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -55,7 +55,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'empty' => '------',
 		'class' => 'f_bir',
 		'style' => 'font-size:x-small;',
-	)) ?>▄▌<br />
+	)) ?>Ф°┬<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -63,8 +63,8 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-│║▌q┌г┌Ю┌л■N≈Н<span style="color:#ff0000;">(∙K░{)</span><br />
-▌q┌г┌Ю┌л■N≈Н┌и█┤┌а┌╫╨╟╫┌П┌╗▒I┌я┌╜┌╬┌Ё┌╒║<br />
+Б√═Е╜░Ц│╘Ц┌┌Ц│╝Е╧╢И╫╒<span style="color:#ff0000;">(Е©┘И═┬)</span><br />
+Е╜░Ц│╘Ц┌┌Ц│╝Е╧╢И╫╒Ц│╚Е░┬Ц│ёЦ│÷О╫╨О╫╟О╫╫Ц┌▓Ц│┼И│╦Ц│ЁЦ│▐Ц│═Ц│∙Ц│└О╫║<br />
 <?php echo $this->Form->input('line_id', array('style' => 'font-size:x-small;')); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -73,8 +73,8 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-│║┴╨▀L┌П┌╡≈≤≈p▓├┌л▐Й█┤┌ма╙╞╦┌П⌠Э┌Й┌д┌╜┌╬┌Ё┌╒║<br />
-<?php echo $this->Form->input("benesse_user", array("type" => "checkbox")); ?>┌╠┌г┌Ю┌©┌А┌Й┌Я┌╤<br />
+Б√═Д╦▀Х╗≤Ц┌▓Ц│■Е┬╘Г■╗Д╦╜Ц│╝Е═╢Е░┬Ц│╞О╬│О╫╙О╫╞О╫╦Ц┌▓Е┘╔Ц┌▄Ц│╕Ц│▐Ц│═Ц│∙Ц│└О╫║<br />
+<?php echo $this->Form->input("benesse_user", array("type" => "checkbox")); ?>Ц│⌠Ц│╘Ц┌┌Ц│║Ц┌┐Ц┌▄Ц┌⌠Ц│≤<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -82,7 +82,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Form->submit('┼m■F'); ?>
+<?php echo $this->Form->submit('Г╒╨Х╙█'); ?>
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>

@@ -1,7 +1,7 @@
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-���e�����m�F�̏㤢�o�^����݂������Ă��������<br />
+内容をご確認の上､｢登録｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
 
 <?php echo $form->create('Child', array('action' => 'register_complete?guid=ON'));?>
@@ -13,7 +13,7 @@
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-���q�ǂ���Ư�Ȱ�<br />
+■子どものﾆｯｸﾈｰﾑ<br />
 <?php echo $nickname; ?><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -23,12 +23,12 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-���q�ǂ��̐���<br />
+■子どもの性別<br />
 <?php
 if($sex == 1) {
-    echo '���̎q';
+    echo '女の子';
 } else {
-    echo '�j�̎q';
+    echo '男の子';
 }
 ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -38,8 +38,8 @@ if($sex == 1) {
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-���q�ǂ��̐��N��<br />
-<?php echo $birth_year; ?>�N <?php echo $birth_month; ?>��<br />
+■子どもの生年月<br />
+<?php echo $birth_year; ?>年 <?php echo $birth_month; ?>月<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -47,7 +47,7 @@ if($sex == 1) {
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-���q�ǂ��̔N��<br />
+■子どもの年齢<br />
 <?php echo $lines[$line_id]; ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -56,12 +56,12 @@ if($sex == 1) {
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-�����ǂ������񂶂����p��<br />
+■こどもちゃれんじご利用中<br />
 <?php
 if($benesse_user == 1){
-    echo '�͂�';
+    echo 'はい';
 } else {
-    echo '������';
+    echo 'いいえ';
 } ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -70,13 +70,13 @@ if($benesse_user == 1){
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Form->submit('�o�^'); ?>
+<?php echo $this->Form->submit('登録'); ?>
 <?php echo $this->Form->end(); ?>
 <br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->create('Child', array('action' => 'register?guid=ON'));?>
-<?php echo $this->Form->end('�߂�');?>
+<?php echo $this->Form->end('戻る');?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>

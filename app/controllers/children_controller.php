@@ -27,12 +27,20 @@ class ChildrenController extends AppController {
         //最終子供ID更新
         if ($id !== null &&
             $id >= 0 && $id < count($childrenData)) {
-            $updateId = $childrenData[$id]['Child']['id'];
+			   
+			$updateId = $childrenData[$id]['Child']['id'];
             $this->_saveLastChild($updateId);
         }
 
         //最終子供ID設定
-        $lastChildId = $this->Tk->_getLastChild();
+		$lastChildId = $this->Tk->_getLastChild();
+		if ($lastChildId == 0) {
+			if (count($childrenData)) {
+				$lastChildId = $childrenData[0]['Child']['id'];
+				$updateId = $lastChildId;
+				$this->_saveLastChild($updateId);
+			}
+		}
         //最終子供情報取得
         $currentChild = $this->Child->findById($lastChildId);
 
@@ -121,8 +129,8 @@ class ChildrenController extends AppController {
             if($this->Child->validates()){
                 $this->Session->write('childRegisterData', $this->data);
                 $this->redirect('/children/register_confirm');
-            } else {
-                    $this->Session->setFlash(__('入力項目に不備があります。', true));
+			} else {
+                $this->Session->setFlash(__('入力項目に不備があります。', true));
             }
         }
         $lines = $this->Child->Line->find('list');

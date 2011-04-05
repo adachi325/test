@@ -12,9 +12,7 @@
 <?php endforeach; ?>
 </ul>
 
-<?php 
-if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1):
-?>
+<?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
 <?php else: ?>
 <p>会員登録すると、他の教材コンテンツやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
 <?php echo $this->Html->link('サービスイメージを見る', array('controller' => 'pages', 'action' => 'display')); ?>
@@ -24,8 +22,7 @@ if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1):
 <div>
 
 <?php foreach($lines as $line): ?>
-<?php echo $this->Html->link($line['Line']['title'], '/ap/'.$line['Line']['category_name'].'/'); ?> | 
+<?php echo $this->Html->link($line['Line']['title'], '/ap/'.$line['Line']['category_name'].'/'); ?> |
 <?php endforeach; ?>
 
 </div>
-

@@ -125,14 +125,15 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
+
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 					$this->redirect($url);
 				}
-			#-------------------------------------------------
-			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
-			#-------------------------------------------------
+				#-------------------------------------------------
+				# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
+				#-------------------------------------------------
 			} else {
 				$this->__showImodeidErrorPage();
 			}
@@ -160,6 +161,9 @@ class AppController extends Controller {
 					//if(preg_match('|^http[s]?://|', $url)){
 					//	return $url;
 					//}
+					if (preg_match('/guid=/', $url)) {
+						return $url;
+					}
 					$url = Router::url($url, true);
 					if (preg_match('/\?/', $url)) {
 						$url .= "&guid=ON";
@@ -184,8 +188,11 @@ class AppController extends Controller {
 	function redirect($url, $status = null, $exit = true){
 
 		$url_full = $this->__redirect_url($url);
-		pr($url_full);
-		parent::redirect($url_full, $status, $exit);
+		//pr($url);
+		//pr($url_full);
+		if ($url_full != $url) {
+			//parent::redirect($url_full, $status, $exit);
+		}
 		//return parent::redirect($this->__redirect_url($url), $status, $exit);
 		/*
 		$aUrl = $this->__redirect_url($url);
