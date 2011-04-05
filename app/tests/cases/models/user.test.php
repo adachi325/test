@@ -58,6 +58,7 @@ class UserTestCase extends CakeTestCase {
             $i=1;
             foreach($datas as $data) {
                 $this->assertTrue($u->_register($data), '正常系'.$i);
+                pr($data);
                 $i++;
             }
 
@@ -89,8 +90,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【loginId】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【loginId】'.$i);
                 $i++;
             }
 
@@ -130,8 +130,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【dc_user】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【dc_user】'.$i);
                 $i++;
             }
 
@@ -143,8 +142,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【password】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【password】'.$i);
                 $i++;
             }
 
@@ -160,8 +158,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【uid】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【uid】'.$i);
                 $i++;
             }
 
@@ -182,8 +179,7 @@ class UserTestCase extends CakeTestCase {
 
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【nickname】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【nickname】'.$i);
                 $i++;
             }
             
@@ -196,8 +192,7 @@ class UserTestCase extends CakeTestCase {
 
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【sex】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【sex】'.$i);
                 $i++;
             }
 
@@ -213,8 +208,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【birth_year】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【birth_year】'.$i);
                 $i++;
             }
             
@@ -230,8 +224,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【birth_month】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【birth_month】'.$i);
                 $i++;
             }
 
@@ -247,8 +240,7 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【line_id】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【line_id】'.$i);
                 $i++;
             }
             
@@ -264,10 +256,21 @@ class UserTestCase extends CakeTestCase {
             );
             $i=1;
             foreach($datasf as $data) {
-                //pr($data);
-                $this->assertFalse($u->_register($data), '異常系【benesse_user】'.$i);
+                $this->asserdFalseChecker($u,$data,'異常系【benesse_user】'.$i);
                 $i++;
             }
+        }
+
+        function asserdFalseChecker($u,$data,$m){
+                $this->User->Child->set($data);
+                if (!$this->User->Child->validates()) {
+                    pr($this->User->Child->validationErrors);
+                }
+                $this->User->set($data);
+                if (!$this->User->validates()) {
+                    pr($this->User->validationErrors);
+                }
+                $this->assertFalse($u->_register($data), $m);
         }
 
 }
