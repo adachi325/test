@@ -16,6 +16,10 @@ class PostcardUrlTestCase extends CakeTestCase {
 
 	function testIsValiable() {
 
+            $p =& $this->PostcardUrl;
+
+            
+
 	}
 
 }
