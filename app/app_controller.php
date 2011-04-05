@@ -64,9 +64,29 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Html', 'Form','Session','SelectOptions','tk');
-	public $components = array('Ktai','Auth','Session','Transition','DebugKit.Toolbar','EasyLogin','CreatePresent','Tk');
-        public $layout = 'default';
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk');
+	public $components = array(
+		'Ktai',
+                'Tk',
+		'Auth',
+		'Session',
+		'Transition',
+		//'DebugKit.Toolbar',
+                'EasyLogin',
+		'CreatePresent',
+		'Secured.Ssl' => array(
+			'autoRedirect' => false,
+			'secured' => array(
+				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
+				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+			),
+			'allowed' => array(
+				'users' => array('login'),
+			),
+		),
+	);
+
+	public $layout = 'default';
 
        	//ktaiライブラリ設定
 	public $ktai = array(
@@ -106,14 +126,15 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
+
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 					$this->redirect($url);
 				}
-			#-------------------------------------------------
-			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
-			#-------------------------------------------------
+				#-------------------------------------------------
+				# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
+				#-------------------------------------------------
 			} else {
 				$this->__showImodeidErrorPage();
 			}
@@ -138,8 +159,17 @@ class AppController extends Controller {
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
-					if(preg_match('|^http[s]?://|', $url)){
+					//if(preg_match('|^http[s]?://|', $url)){
+					//	return $url;
+					//}
+					if (preg_match('/guid=/', $url)) {
 						return $url;
+					}
+					$url = Router::url($url, true);
+					if (preg_match('/\?/', $url)) {
+						$url .= "&guid=ON";
+					} else {
+						$url .= "?guid=ON";
 					}
 					$url = Router::parse($url);
 				}
@@ -153,11 +183,18 @@ class AppController extends Controller {
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
-                //guid=onを付加
-		if ($this->Ktai->is_imode())
-		{
-			$prefix = ereg("\?", $url) ? "&" : "?";
-			$url = $url.$prefix."guid=ON";
+
+		$url_full = $this->__redirect_url($url);
+		//pr($url);
+		//pr($url_full);
+		if ($url_full != $url) {
+			//parent::redirect($url_full, $status, $exit);
+		}
+		//return parent::redirect($this->__redirect_url($url), $status, $exit);
+		
+		$aUrl = $this->__redirect_url($url);
+		if(!is_array($aUrl)) {
+			$aUrl = Router::parse($aUrl);
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}

@@ -14,7 +14,7 @@ class SelectOptionsHelper extends AppHelper {
 		extract($settings);
 		
 		$options = array();
-		
+
 		for ($i = $min; $i <= $max; $i = $i + $interval) {
 			$options += array($i => $i.$settings['suffix']);
 		}

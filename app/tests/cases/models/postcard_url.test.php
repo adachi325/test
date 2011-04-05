@@ -33,7 +33,7 @@ class PostcardUrlTestCase extends CakeTestCase {
             
             //異常系
             $options = array();
-            $options['0'] = 'あっじょじょ';
+            $options['0'] = 'てすとー';
             $options['1'] = 'h98ohofwh';
             $options['2'] = '';
             $options['3'] = null;

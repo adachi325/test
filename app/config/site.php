@@ -56,7 +56,7 @@ $config['Present'] = array(
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
-        'docomo_community' => 'diary@docomo-community.ne.jp',
+    'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(
@@ -110,5 +110,6 @@ $config['Child'] = array(
         'Initial_registration_presents' => array(
             0 => '4',
             1 => '5',
-        ),
+		),
+		'birthday_years' => 8,
 );

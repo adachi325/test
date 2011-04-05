@@ -35,8 +35,12 @@ class UsersController extends AppController {
             $this->redirect('/');
     }
 
-    function index() {
-            $this->redirect('/users/login');
+	function index() {
+		if ($this->Ktai->is_imode()) {
+			$this->redirect('/users/login/?guid=ON');
+		} else {
+			$this->redirect('/users/login');
+		}
     }
 
     function register(){

@@ -1,37 +1,96 @@
+<<<<<<< HEAD
 <div>
 <?php echo $form->create('Child', array('url' => '/children/register_complete?guid=ON'));?>
 確認画面です<br><br>
+=======
 
-ニックネーム<br>
-<?php echo $this->data['Child']['nickname']; ?><br><br>
+<?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-性別<br>
+内容をご確認の上､｢登録｣ﾎﾞﾀﾝを押してください｡<br />
+<?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
+
+<?php echo $form->create('Child', array('action' => 'register_complete?guid=ON'));?>
+>>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9
+
+<?php extract($this->data['Child']); ?>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+■子どものﾆｯｸﾈｰﾑ<br />
+<?php echo $nickname; ?><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+■子どもの性別<br />
 <?php
-if($this->data['Child']['sex'] == 1) {
-    echo '女';
+if($sex == 1) {
+    echo '女の子';
 } else {
-    echo '男';
+    echo '男の子';
 }
-?><br><br>
+?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
 
-生年月<br>
-<?php echo $this->data['Child']['birth_year']; ?>年 <?php echo $this->data['Child']['birth_month']; ?>月<br><br>
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+■子どもの生年月<br />
+<?php echo $birth_year; ?>年 <?php echo $birth_month; ?>月<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
 
-年齢<br>
-<?php echo $lines[$this->data['Child']['line_id']]; ?><br><br>
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+■子どもの年齢<br />
+<?php echo $lines[$line_id]; ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
 
-こどもちゃれんじ<br>
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+■こどもちゃれんじご利用中<br />
 <?php
-if($this->data['Child']['benesse_user'] == 1){
-    echo '登録済み';
+if($benesse_user == 1){
+    echo 'はい';
 } else {
-    echo '未登録';
-}
-?><br><br>
+    echo 'いいえ';
+} ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
 
-<?php echo $form->end('登録');?>
+<tr>
+<td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Form->submit('登録'); ?>
+<?php echo $this->Form->end(); ?>
+<br />
 
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Form->create('Child', array('action' => 'register?guid=ON'));?>
+<?php echo $this->Form->end('戻る');?>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</td>
+</tr>
 
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+<<<<<<< HEAD
 <?php echo $form->create('Child', array('url' => '/children/register?guid=ON'));?>
 
 <?php echo $form->end('修正');?>
@@ -39,3 +98,5 @@ if($this->data['Child']['benesse_user'] == 1){
 <div>
     <?php echo $html->link(__('マイページTOP', true), array('action' => 'index'));?>
 </div>
+=======
+>>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9
