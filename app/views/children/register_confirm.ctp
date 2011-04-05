@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-<div>
-<?php echo $form->create('Child', array('url' => '/children/register_complete?guid=ON'));?>
-確認画面です<br><br>
-=======
-
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 内容をご確認の上､｢登録｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
 
 <?php echo $form->create('Child', array('action' => 'register_complete?guid=ON'));?>
->>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9
 
 <?php extract($this->data['Child']); ?>
 
@@ -90,13 +83,3 @@ if($benesse_user == 1){
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<<<<<<< HEAD
-<?php echo $form->create('Child', array('url' => '/children/register?guid=ON'));?>
-
-<?php echo $form->end('修正');?>
-</div>
-<div>
-    <?php echo $html->link(__('マイページTOP', true), array('action' => 'index'));?>
-</div>
-=======
->>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9

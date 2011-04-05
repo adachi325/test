@@ -151,22 +151,12 @@ class User extends AppModel {
                             'message' => '必須項目です。',
                             'last' => true,
 			),
-			array(
-                            'rule' => array('between', 4, 4),
-                            'message' => '不正な値です',
-                            'last' => true,
-			),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'birth_month' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です。',
-                            'last' => true,
-			),
-			array(
-                            'rule' => array('between', 1, 2),
-                            'message' => '不正な値です',
                             'last' => true,
 			),
 		),
