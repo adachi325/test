@@ -32,22 +32,6 @@ class ChildTestCase extends CakeTestCase {
 
 	}
 
-        function testFind(){
-                $c =& $this->Child;
-
-                //正常系DIARY
-		$type = "diary";
-                $options = array();
-		$options['0']['conditions'] = array('Child.id' => '1', 'Month.year' => 2011, 'Month.month' => 3,);
-                $i=1;
-                foreach($options as $option) {
-                    $result = $c->find($type,$option);
-                    $this->assertNotEqual(count($result), 0, '[diary]正常系'.$i);
-                    pr(count($result));
-                    pr($type.','.$option['conditions']['Child.id'].','.$option['conditions']['Month.year'].','.$option['conditions']['Month.month']);
-                    $i++;
-                }
-        }
 
 }
 ?>
