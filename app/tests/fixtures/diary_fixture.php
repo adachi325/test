@@ -35,6 +35,20 @@ class DiaryFixture extends CakeTestFixture {
 			'created' => '2011-03-31 14:32:10',
 			'modified' => '2011-03-31 14:32:10'
 		),
+		array(
+			'id' => 2,
+			'child_id' => 1,
+			'month_id' => 2,
+			'theme_id' => 1,
+			'present_id' => 1,
+			'hash' => 'Lorem ipsum do',
+			'title' => 'Lorem ipsum dolor ',
+			'body' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'has_image' => 1,
+			'error_code' => 'Lo',
+			'created' => '2011-03-31 14:32:10',
+			'modified' => '2011-03-31 14:32:10'
+		),
 	);
 }
 ?>

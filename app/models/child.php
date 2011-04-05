@@ -144,6 +144,8 @@ class Child extends AppModel {
 		// add released method
 		switch($type) {
 		case 'diary':
+
+                    
 		
 			if (!isset($options['conditions']['Child.id'])) {
 				return null;
@@ -171,6 +173,8 @@ class Child extends AppModel {
 				);
 			}
 			
+                        pr($params);
+
 			return $Diary->find('all', $params);
 
 			break;

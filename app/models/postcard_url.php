@@ -35,6 +35,7 @@ class PostcardUrl extends AppModel {
 		$m = $this->alias;
 
 		$count = $this->find('count', array('conditions' => array("{$m}.token" => $token)) );
+
 		return ($count > 0);
 	}
 
