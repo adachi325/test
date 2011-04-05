@@ -261,6 +261,7 @@ class UserTestCase extends CakeTestCase {
             }
         }
 
+        //$u model , $data data , $m messege
         function asserdFalseChecker($u,$data,$m){
                 $this->User->Child->set($data);
                 if (!$this->User->Child->validates()) {
