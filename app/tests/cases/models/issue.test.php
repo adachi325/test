@@ -109,9 +109,9 @@ class IssueTestCase extends CakeTestCase {
 //                    $result = $i->find($type, $option);
 //                    $this->assertNotNull($result, '正常系[month]'.$r);
 //                    pr($result);
-////                    pr($option);
+//                    pr($option);
 //                    $r++;
-                }
+//                }
 
 
 	}
