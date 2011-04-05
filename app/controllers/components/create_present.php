@@ -61,19 +61,19 @@ class CreatePresentComponent extends Object {
 	$new_image = ImageCreateTrueColor(567, 839);
 
         //思い出画像読み込み
-	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]));
-	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][1]));
-	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]));
-        $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][3]));
+	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][0]));
+	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][1]));
+	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]));
+        $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][3]));
 
         //テンプレート画像読み込み
         $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));
 
 	//下地画像へ、思い出画像を合成
-	ImageCopy($new_image, $diaryImgA, 20, 20, 30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgB, 220, 120, 30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgC, 40, 290, 30, 30, 200, 200);
-        ImageCopy($new_image, $diaryImgD, 230, 390, 30, 30, 200, 200);
+	ImageCopy($new_image, $diaryImgA, 70, 88, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgB, 280, 88, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgC, 70, 300, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgD, 280, 300, 0, 0, 210, 210);
 
         //下地画像へ、テンプレート画像を合成
         ImageCopy($new_image, $template, 0, 0,  0, 0, 567, 839);
