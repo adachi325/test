@@ -34,7 +34,7 @@ class ContentFixture extends CakeTestFixture {
 		array(
 			'id' => 2,
 			'line_id' => 1,
-			'issue_id' => 1,
+			'issue_id' => 2,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\hop\1006',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
@@ -45,7 +45,7 @@ class ContentFixture extends CakeTestFixture {
 		),
 		array(
 			'id' => 3,
-			'line_id' => 1,
+			'line_id' => 2,
 			'issue_id' => 1,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\petit\1009',
@@ -57,8 +57,8 @@ class ContentFixture extends CakeTestFixture {
 		),
 		array(
 			'id' => 4,
-			'line_id' => 1,
-			'issue_id' => 1,
+			'line_id' => 2,
+			'issue_id' => 2,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\pocket\1011',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
@@ -69,8 +69,8 @@ class ContentFixture extends CakeTestFixture {
 		),
 		array(
 			'id' => 5,
-			'line_id' => 1,
-			'issue_id' => 1,
+			'line_id' => 3,
+			'issue_id' => 4,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\step\1013',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
@@ -81,8 +81,8 @@ class ContentFixture extends CakeTestFixture {
 		),
 		array(
 			'id' => 6,
-			'line_id' => 1,
-			'issue_id' => 1,
+			'line_id' => 3,
+			'issue_id' => 2,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\hop\1007',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
@@ -94,7 +94,7 @@ class ContentFixture extends CakeTestFixture {
 		array(
 			'id' => 7,
 			'line_id' => 1,
-			'issue_id' => 1,
+			'issue_id' => 3,
 			'title' => 'Lorem ipsum dolor sit amet',
 			'path' => 'ap\jump\1007_2',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
