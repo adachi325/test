@@ -197,11 +197,6 @@ class UserTestCase extends CakeTestCase {
             }
 
             //異常系(birth_year)
-            $datasf = array();
-            $datasf['0'] = Array(
-                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
-                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '200','birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
-            );
             $datasf['1'] = Array(
                 'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => null,'birth_month' => '3','line_id' => 4,'benesse_user' => 1,))
@@ -213,11 +208,6 @@ class UserTestCase extends CakeTestCase {
             }
             
             //異常系(birth_month)
-            $datasf = array();
-            $datasf['0'] = Array(
-                'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
-                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '333','line_id' => 4,'benesse_user' => 1,))
-            );
             $datasf['1'] = Array(
                 'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
                 'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2011','birth_month' => null,'line_id' => 4,'benesse_user' => 1,))
