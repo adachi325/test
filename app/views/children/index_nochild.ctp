@@ -1,6 +1,6 @@
 <div style="background:#339933;">
-
 <?php echo $this->element('default/logo'); ?>
+</div>
 
 <p>
 子供が登録されていません。

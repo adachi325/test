@@ -55,9 +55,8 @@ $config['Present'] = array(
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
-	'receive_mail_user' => 'shimajiro',
 	'receive_mail_prefix' => 'diary_',
-        'docomo_community' => 'diary@docomo-community.ne.jp',
+    'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(
@@ -77,21 +76,27 @@ $config['Mail'] = array(
 );
 
 $config['ReceiveMail'] = array(
-	'stopfile_path' => APP . "tmp/stop.file",
-	'ps_log_path' => APP . "app/tmp/ps.log",
-	'mail_dir_new' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/new/',
-	'mail_dir_done_normal' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/normal/',
-	'mail_dir_done_error' => '/home/'.$config['Defaults']['receive_mail_user'].'/Maildir/done/error/',
+	'stopfile_path' => APP . "tmp/receive_mail/stop.file",
+	'ps_log_path' => APP . "tmp/receive_mail/ps.log",
+	'mail_dir_new' => APP . "tmp/receive_mail/new/",
+	'mail_dir_done_normal' => APP . "tmp/receive_mail/done/normal/",
+	'mail_dir_done_error' => APP . "tmp/receive_mail/done/error/",
 );
 
 $config['Diary'] = array(
 	'hash_length' => 4,
-	'image_thumb_size' => 200,
-	'image_rect_size' => 100,
 	'image_filesize_max' => 2000000,
-	'image_path_original' => "photo/%s/%s_original.jpg",
-	'image_path_thumb' => "photo/%s/%s_thumb.jpg",
-	'image_path_rect' => "photo/%s/%s_rect.jpg",
+	'image_size_thumb' => 200,		//このサイズ内に元の比率で収まるようにリサイズ
+	'image_size_rect' => 100,		//正方形
+	'image_size_postcard' => 252,	//正方形
+	'image_path_original' => "photo/%s/%s_original.jpg",	//一時保存用
+	'image_path_thumb' => "photo/%s/%s_thumb.jpg",			//比率保持サムネイル
+	'image_path_rect' => "photo/%s/%s_rect.jpg",			//正方形サムネイル
+	'image_path_postcard' => "photo/%s/%s_postcard.jpg",	//ポストカード用
+	'title_len_max' => 20,
+	'body_len_max' => 5000,
+	'error_filesize_over' => 'E001',
+	'error_out_of_jpeg' => 'E002',
 );
 
 $config['Child'] = array(
@@ -105,5 +110,6 @@ $config['Child'] = array(
         'Initial_registration_presents' => array(
             0 => '4',
             1 => '5',
-        ),
+		),
+		'birthday_years' => 8,
 );

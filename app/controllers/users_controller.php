@@ -35,8 +35,12 @@ class UsersController extends AppController {
             $this->redirect('/');
     }
 
-    function index() {
-            $this->redirect('/users/login');
+	function index() {
+		if ($this->Ktai->is_imode()) {
+			$this->redirect('/users/login/?guid=ON');
+		} else {
+			$this->redirect('/users/login');
+		}
     }
 
     function register(){
@@ -381,7 +385,6 @@ class UsersController extends AppController {
     }
 
     function delete(){
-        pr($this->data);
         if(!empty($this->data['User']['check'])){
             $this->Session->write('user_delete_check',$this->data);
             $this->redirect('/users/delete_complete');

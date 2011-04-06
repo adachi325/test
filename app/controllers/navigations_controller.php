@@ -5,109 +5,109 @@ class NavigationsController extends AppController {
 	var $name = 'Navigations';
 	var $uses = null;
 
-        function beforeFilter() {
-            parent::beforeFilter();
-            $this->Auth->allow('prev','rule','register');
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('*');
 	}
 
-        //登録前ページ(prev)に制御は特に無し。
+	//登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
 
-            $previd = $this->Session->read('previd');
-            $this->Session->delete('previd');
-            if (!empty($previd)){
-                $id = $previd;
-            }
+		$previd = $this->Session->read('previd');
+		$this->Session->delete('previd');
+		if (!empty($previd)){
+			$id = $previd;
+		}
 
-            if(empty($id) or $id < 1 or $id > 2){
-                $this->cakeError('error404');
-                return;
-            }
-            $this->render('prev'.$id);
-        }
+		if(empty($id) or $id < 1 or $id > 2){
+			$this->cakeError('error404');
+			return;
+		}
+		$this->render('prev'.$id);
+	}
 
 	function after1() {
 
-            //今月の自由テーマＩＤを取得
-            $options = array();
-            $options['Theme.free_theme'] = true;
-            $options['Month.year'] = date('Y');
-            $options['Month.month'] = date('m') + 0;            
-            $theme =& ClassRegistry::init('Theme');
-            $theme->contain('Month');
-            $themes = $theme->find('all',array('conditions' => $options));
+		//今月の自由テーマＩＤを取得
+		$options = array();
+		$options['Theme.free_theme'] = true;
+		$options['Month.year'] = date('Y');
+		$options['Month.month'] = date('m') + 0;            
+		$theme =& ClassRegistry::init('Theme');
+		$theme->contain('Month');
+		$themes = $theme->find('all',array('conditions' => $options));
 
-            //会員情報取得
-            $userdata = $this->getUserData();
+		//会員情報取得
+		$userdata = $this->getUserData();
 
-            //現在時刻にてhash作成
-            $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
+		//現在時刻にてhash作成
+		$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
 
-            //ハッシュタグを設定
-            $this->set('nexthash',$hash);
+		//ハッシュタグを設定
+		$this->set('nexthash',$hash);
 
-            //メールアドレス設定
-            $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['free_theme'].'.'.$hash.'@shimajiro-dev.com';
+		//メールアドレス設定
+		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@shimajiro-dev.com';
 
-            //メールタイトル設定
-            $mailTitle = (date('m')+0).'月'.(date('d')+0).'日の思い出';
-            
-            $ua = $_SERVER['HTTP_USER_AGENT'];
-            
-            $this->set('mailStr',$mailStr);
-            $this->set('mailTitle',$mailTitle);
-        }
+		//メールタイトル設定
+		$mailTitle = (date('m')+0).'月'.(date('d')+0).'日の思い出';
+
+		$ua = $_SERVER['HTTP_USER_AGENT'];
+
+		$this->set('mailStr',$mailStr);
+		$this->set('mailTitle',$mailTitle);
+	}
 
 	function after2($hash = null) {
 
-            if(!empty($hush)){
-                $this->cakeError('error404');
-                return;
-            }
+		if(!empty($hush)){
+			$this->cakeError('error404');
+			return;
+		}
 
-            //会員情報取得
-            $userdata = $this->getUserData();
+		//会員情報取得
+		$userdata = $this->getUserData();
 
-            $options = array();
-            $options['hash'] = $hash;
-            $options['child_id'] = $userdata['User']['last_selected_child'];
-            $diary =& ClassRegistry::init('Diary');
-            $diary->contain();
-            $diaries = $diary->find('first',array('conditions' => $options));
-            $this->set(compact('diaries'));
+		$options = array();
+		$options['hash'] = $hash;
+		$options['child_id'] = $userdata['User']['last_selected_child'];
+		$diary =& ClassRegistry::init('Diary');
+		$diary->contain();
+		$diaries = $diary->find('first',array('conditions' => $options));
+		$this->set(compact('diaries'));
 
-            //ハッシュタグを設定
-            $this->set('nexthash',$hash);
+		//ハッシュタグを設定
+		$this->set('nexthash',$hash);
 
-            if(empty($diaries)){
-                $this->render('after2_unknown');
-                return;
-            }
+		if(empty($diaries)){
+			$this->render('after2_unknown');
+			return;
+		}
 
-            if(!empty($diaries['Diary']['error_code'])){
-                $this->render('after2_failure');
-            }
+		if(!empty($diaries['Diary']['error_code'])){
+			$this->render('after2_failure');
+		}
 
-        }
+	}
 
-        function getUserData(){
-            //会員情報取得
-            $userAuthData = $this->Auth->user();
-            $user =& ClassRegistry::init('User');
-            $user->contain();
-            return $user->read(null,$userAuthData['User']['id']);
-        }
+	function getUserData(){
+		//会員情報取得
+		$userAuthData = $this->Auth->user();
+		$user =& ClassRegistry::init('User');
+		$user->contain();
+		return $user->read(null,$userAuthData['User']['id']);
+	}
 
-        function register(){
+	function register(){
 
-            //同意しているかチェック
-            if(empty($this->data) or
-               $this->data['navigations']['agree'] == 0){
-                $this->Session->setFlash(__('利用規約に同意してください。', true));
-                $this->Session->write('previd' , '2');
-                $this->redirect('/navigations/prev');
-            }
-            $this->redirect('/users/register');
-        }
+		//同意しているかチェック
+		if(empty($this->data) or
+			$this->data['navigations']['agree'] == 0){
+				$this->Session->setFlash(__('利用規約に同意してください。', true));
+				$this->Session->write('previd' , '2');
+				$this->redirect('/navigations/prev');
+			}
+		$this->redirect('/users/register');
+	}
 }
 ?>
