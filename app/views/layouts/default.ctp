@@ -19,6 +19,7 @@ echo $this->element('default/meta');
 <?php echo $content_for_layout; ?>
 
 <?php echo $this->element('default/footer'); ?>
+<?php echo $this->element('default/copyright'); ?>
 
 </div>
 </div>
