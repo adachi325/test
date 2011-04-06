@@ -21,6 +21,27 @@ class ChildPresentFixture extends CakeTestFixture {
 			'created' => '2011-03-31 14:31:32',
 			'modified' => '2011-03-31 14:31:32'
 		),
+		array(
+			'id' => 21,
+			'child_id' => 1,
+			'present_id' => 2,
+			'created' => '2011-03-31 14:31:32',
+			'modified' => '2011-03-31 14:31:32'
+		),
+		array(
+			'id' => 3,
+			'child_id' => 2,
+			'present_id' => 1,
+			'created' => '2011-03-31 14:31:32',
+			'modified' => '2011-03-31 14:31:32'
+		),
+		array(
+			'id' => 4,
+			'child_id' => 3,
+			'present_id' => 1,
+			'created' => '2011-03-31 14:31:32',
+			'modified' => '2011-03-31 14:31:32'
+		),
 	);
 }
 ?>

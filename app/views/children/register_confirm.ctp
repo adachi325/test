@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 内容をご確認の上､｢登録｣ﾎﾞﾀﾝを押してください｡<br />

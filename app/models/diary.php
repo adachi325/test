@@ -5,47 +5,45 @@ class Diary extends AppModel {
 		'child_id' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 		'month_id' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 		'theme_id' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 		'hash' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 		'title' => array(
 			array(
                             'rule' => array('maxLength', 20),
                             'message' => '20文字以内で入力してください',
+                            'last' => true,
 			),
 		),
 		'body' => array(
 			array(
                             'rule' => array('maxLength', 5000),
                             'message' => '5000文字以内で入力してください',
+                            'last' => true,
 			),
 		),
 		'has_image' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'last' => true,
 			),
 		),
 	);

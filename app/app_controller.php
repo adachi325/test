@@ -102,11 +102,12 @@ class AppController extends Controller {
 		'use_xml' => false,
 	);
 
+	public $selectedChildId = null;//選択中こどもID
+
 	function beforeFilter(){
             parent::beforeFilter();
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
-                $this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
             }
 	}
@@ -171,17 +172,13 @@ class AppController extends Controller {
 					} else {
 						$url .= "?guid=ON";
 					}
-				} else {
-					if(!isset($url['?'])){
-						$url['?'] = array();
-					}
-					$url['?'][session_name()] = session_id();
-					$url['?']['guid'] = 'on'; // guid=onを付加
 					$url = Router::parse($url);
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
+				$url['?'][session_name()] = session_id();
+                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;
@@ -195,13 +192,12 @@ class AppController extends Controller {
 			//parent::redirect($url_full, $status, $exit);
 		}
 		//return parent::redirect($this->__redirect_url($url), $status, $exit);
-		/*
+		
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
- 		*/
 	}
 
 	public function beforeRender() {

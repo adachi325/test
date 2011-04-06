@@ -17,7 +17,42 @@ class PostcardUrlFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'child_id' => 1,
-			'token' => 'Lorem ipsum dolor ',
+			'token' => '1234 ',
+			'created' => '2011-03-31 14:32:43',
+			'modified' => '2011-03-31 14:32:43'
+		),
+		array(
+			'id' => 2,
+			'child_id' => 1,
+			'token' => '1232234 ',
+			'created' => '2011-03-31 14:32:43',
+			'modified' => '2011-03-31 14:32:43'
+		),
+		array(
+			'id' => 3,
+			'child_id' => 2,
+			'token' => '8902345',
+			'created' => '2011-03-31 14:32:43',
+			'modified' => '2011-03-31 14:32:43'
+		),
+		array(
+			'id' => 4,
+			'child_id' => 3,
+			'token' => '9898212314 ',
+			'created' => '2011-03-31 14:32:43',
+			'modified' => '2011-03-31 14:32:43'
+		),
+		array(
+			'id' => 5,
+			'child_id' => 3,
+			'token' => '222222222',
+			'created' => '2011-03-31 14:32:43',
+			'modified' => '2011-03-31 14:32:43'
+		),
+		array(
+			'id' => 6,
+			'child_id' => 3,
+			'token' => '222222222',
 			'created' => '2011-03-31 14:32:43',
 			'modified' => '2011-03-31 14:32:43'
 		),

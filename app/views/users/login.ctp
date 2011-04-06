@@ -3,7 +3,7 @@ if($session->check('Message.auth')){
 	echo $session->flash('auth');
 }
 ?>
-<?php echo $form->create('User',array('action'=>'login?guid=ON')); ?>
+<?php echo $form->create('User',array('url'=>'/users/login?guid=ON')); ?>
 ログインID<br>
 <?php echo $form->text('User.loginid',array('size'=>'10')); ?>
 パスワード<br>

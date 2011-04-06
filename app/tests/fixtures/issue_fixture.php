@@ -18,7 +18,31 @@ class IssueFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'line_id' => 1,
-			'title' => 'Lorem ipsum dolor sit amet',
+			'title' => '一月号',
+			'release_date' => '2011-03-31 14:32:14',
+			'created' => '2011-03-31 14:32:14',
+			'modified' => '2011-03-31 14:32:14'
+		),
+		array(
+			'id' => 2,
+			'line_id' => 1,
+			'title' => '2月号',
+			'release_date' => '2011-03-31 14:32:14',
+			'created' => '2011-03-31 14:32:14',
+			'modified' => '2011-03-31 14:32:14'
+		),
+		array(
+			'id' => 3,
+			'line_id' => 2,
+			'title' => '3月号',
+			'release_date' => '2011-03-31 14:32:14',
+			'created' => '2011-03-31 14:32:14',
+			'modified' => '2011-03-31 14:32:14'
+		),
+		array(
+			'id' => 4,
+			'line_id' => 3,
+			'title' => '12月号',
 			'release_date' => '2011-03-31 14:32:14',
 			'created' => '2011-03-31 14:32:14',
 			'modified' => '2011-03-31 14:32:14'

@@ -16,10 +16,24 @@ class MonthFixture extends CakeTestFixture {
 	var $records = array(
 		array(
 			'id' => 1,
-			'year' => 'Lo',
-			'month' => '',
+			'year' => '2011',
+			'month' => '3',
 			'created' => '2011-03-31 14:32:20',
 			'modified' => '2011-03-31 14:32:20'
+		),
+		array(
+			'id' => 2,
+			'year' => '2011',
+			'month' => '4',
+			'created' => '2011-04-01 14:32:20',
+			'modified' => '2011-04-01 14:32:20'
+		),
+		array(
+			'id' => 3,
+			'year' => '2011',
+			'month' => '5',
+			'created' => '2011-05-01 14:32:20',
+			'modified' => '2011-05-01 14:32:20'
 		),
 	);
 }

@@ -7,56 +7,52 @@ class Child extends AppModel {
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
                         array(
                             'rule' => array('custom', '/^[0|1|2|3|4|5]{1,}$/'),
-                            'message' => '必須項目です'
+                            'message' => '必須項目です',
+                            'last' => true,
                         ),
 		),
 		'nickname' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
-                            'rule' => array('maxLength', 20),
+                            'rule' => array('maxLength', 6),
                             'message' => '6文字以内で入力してください',
+                            'last' => true,
 			),
 		),
 		'birth_year' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
-			),
-			array(
-                            'rule' => array('maxLength', 4),
-                            'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
 		'birth_month' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
-			),
-			array(
-                            'rule' => array('maxLength', 2),
-                            'message' => '不正な値です',
+                            'last' => true,
 			),
 		),
 		'sex' => array(
 			array(
                             'rule' => 'notEmpty',
                             'message' => '必須項目です',
-                        ),
-                        array(
-                            'rule' => array('custom', '/^[0|1]{1,}$/'),
-                            'message' => '必須項目です'
+                            'last' => true,
                         ),
 		),
 		'benesse_user' => array(
                         array(
                             'rule' => array('custom', '/^[0|1]{1,}$/'),
-                            'message' => '必須項目です'
+                            'message' => '必須項目です',
+                            'last' => true,
                         ),
 		),
 	);
@@ -138,6 +134,8 @@ class Child extends AppModel {
 		// add released method
 		switch($type) {
 		case 'diary':
+
+                    
 		
 			if (!isset($options['conditions']['Child.id'])) {
 				return null;
@@ -165,6 +163,8 @@ class Child extends AppModel {
 				);
 			}
 			
+                        pr($params);
+
 			return $Diary->find('all', $params);
 
 			break;

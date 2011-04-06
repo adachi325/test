@@ -95,7 +95,6 @@ class Content extends AppModel {
 		default:
 			return parent::find($type, $options);
 			break;
-
 		}
 	}
 
