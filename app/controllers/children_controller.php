@@ -10,9 +10,9 @@ class ChildrenController extends AppController {
     
     function test(){
         $args = array(
-            'diary_id' => array(3,4,5,6),
-            'child_id' => 2,
-            'present_id' => 3
+            'diary_id' => array(1,2,3,4),
+            'child_id' => 30,
+            'present_id' => 11
         );
         if(!$this->CreatePresent->createPostCard($args)){
             $this->Session->setFlash(__('画像作成に失敗しました。', true));

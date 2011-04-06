@@ -17,9 +17,49 @@ class LineFixture extends CakeTestFixture {
 	var $records = array(
 		array(
 			'id' => 1,
-			'title' => 'Lorem ipsum dolor sit amet',
+			'title' => '1歳',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-			'category_name' => 'Lorem ipsum dolor sit amet',
+			'category_name' => 'baby',
+			'created' => '2011-03-31 14:32:17',
+			'modified' => '2011-03-31 14:32:17'
+		),
+		array(
+			'id' => 2,
+			'title' => '2歳',
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'category_name' => 'petit',
+			'created' => '2011-03-31 14:32:17',
+			'modified' => '2011-03-31 14:32:17'
+		),
+		array(
+			'id' => 3,
+			'title' => '3歳',
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'category_name' => 'pocket',
+			'created' => '2011-03-31 14:32:17',
+			'modified' => '2011-03-31 14:32:17'
+		),
+		array(
+			'id' => 4,
+			'title' => '4歳',
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'category_name' => 'hop',
+			'created' => '2011-03-31 14:32:17',
+			'modified' => '2011-03-31 14:32:17'
+		),
+		array(
+			'id' => 5,
+			'title' => '5歳',
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'category_name' => 'step',
+			'created' => '2011-03-31 14:32:17',
+			'modified' => '2011-03-31 14:32:17'
+		),
+		array(
+			'id' => 6,
+			'title' => '6歳',
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'category_name' => 'jump',
 			'created' => '2011-03-31 14:32:17',
 			'modified' => '2011-03-31 14:32:17'
 		),

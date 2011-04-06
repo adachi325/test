@@ -13,17 +13,62 @@ class ContentTestCase extends CakeTestCase {
 	{
 		$c =& $this->Content;
 
-		$url = 'ap/baby/1006';
+                //正常系
+		$expected = true;
+
+                $options = array();
+                $options['0']['line'] = 'baby';
+                $options['0']['month'] = '1007';
+
+                $options['1']['line'] = 'hop';
+                $options['1']['month'] = '1006';
+
+                $options['2']['line'] = 'petit';
+                $options['2']['month'] = '1009';
+
+                $options['3']['line'] = 'pocket';
+                $options['3']['month'] = '1011';
+
+                $options['4']['line'] = 'step';
+                $options['4']['month'] = '1013';
+
+                $options['5']['line'] = 'hop';
+                $options['5']['month'] = '1007';
+
+                $options['6']['line'] = 'jump';
+                $options['6']['month'] = '1007_2';
+
+                $i=1;
+                foreach($options as $option) {
+                    $result = $c->isReleased($option['line'],$option['month']);
+                    $this->assertEqual($result, $expected, '正常系'.$i);
+                    pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
+                    $i++;
+                }
+
+                //異常系
+
 		$expected = false;
-		$result = $c->isReleased($url);
+                $options = array();
+                $options['0']['line'] = 'baby';
+                $options['0']['month'] = '1005';
 
-		$this->assertEqual($result, $expected);
+                $options['1']['line'] = 'hop';
+                $options['1']['month'] = '1005';
 
-		$url = 'ap/baby/';
-		$expected = false;
-		$result = $c->isReleased($url);
+                $options['2']['line'] = 'petit';
+                $options['2']['month'] = '1005';
 
-		$this->assertEqual($result, $expected);
+                $options['3'] = null;
+
+                $i=1;
+                foreach($options as $option) {
+                    $result = $c->isReleased($option['line'],$option['month']);
+                    $this->assertEqual($result, $expected, '異常系'.$i);
+                    pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
+                    $i++;
+                }
+                
 	}
 
 	function endTest() {

@@ -1,7 +1,7 @@
 <div>
 <h1>新会員登録</h1>
 </div>
-<?php echo $form->create('User', array('action' => 'register?guid=ON')); ?>
+<?php echo $form->create('User', array('url' => '/users/register?guid=ON')); ?>
 <?php echo $form->input('loginid', array('label' => 'ログインID')); ?>
 <?php echo $form->input('new_password', array('label' => 'パスワード','type' => 'password')); ?>
 <?php echo $form->input('row_password', array('label' => '念の為の再入力','type' => 'password')); ?>
