@@ -1,16 +1,15 @@
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
-<?php echo $this->Html->image("dot_line_gray.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('Child', array('action' => 'register?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false)));?>
-
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-■子どものﾆｯｸﾈｰﾑ<span style="color:#ff0000;">(必須)</span><br />
+<span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">全角6文字以内</span><br />
 <?php echo $this->Form->input("nickname", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -20,7 +19,7 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-■子どもの性別<span style="color:#ff0000;">(必須)</span><br />
+<span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 <?php
 $value1 = ($this->data['Child']['sex'] == 1) ? '1' : 'none';
 $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
@@ -35,7 +34,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-■子どもの生年月<span style="color:#ff0000;">(必須)</span><br />
+<span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('birth_year', array(
 		'options' => array_reverse($this->SelectOptions->getOption(array(
 			'min' => date('Y') - Configure::read('Child.birthday_years'), 
@@ -44,7 +43,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'empty' => '------',
 		'class' => 'f_bir',
 		'style' => 'font-size:x-small;',
-	)) ?>年
+	)) ?>年 <br />
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -61,8 +60,8 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-■子どもの年齢<span style="color:#ff0000;">(必須)</span><br />
-子どもの年齢に合ったｺｰｽをお選びください｡<br />
+<span style="color:#333333;">■子どもの年齢</span><span style="color:#ff0000;">(必須)</span><br />
+子どもの年齢に合ったｺｰｽをお選びください｡</span><br />
 <?php echo $this->Form->input('line_id', array('style' => 'font-size:x-small;')); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -71,7 +70,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-■下記をご利用中の場合はﾁｪｯｸを入れてください｡<br />
+<span style="color:#333333;">■下記の会員の場合はﾁｪｯｸを入れてください｡</span><br />
 <?php echo $this->Form->input("benesse_user", array("type" => "checkbox")); ?>こどもちゃれんじ<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -86,7 +85,6 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 </tr>
 
 </table>
-
-<?php echo $this->Form->end(); ?>
+</form>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
