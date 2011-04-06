@@ -61,5 +61,5 @@
 <?php echo $this->Html->link('⇒思い出を編集する', '/diaries/edit/'.$diary['Diary']['id']); ?>
 </div>
 <div>
-    <?php echo $this->Html->link('⇒思い出を削除する', '/diaries/delete/'.$this->data['Diary']['id']); ?>
+<?php echo $this->Html->link('⇒思い出を削除する', '/diaries/delete/'.$diary['Diary']['id']); ?>
 </div>

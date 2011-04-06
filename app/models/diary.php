@@ -3,53 +3,39 @@ class Diary extends AppModel {
 	var $name = 'Diary';
 	var $validate = array(
 		'child_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 		'month_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 		'theme_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 		'hash' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 		'title' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => array('maxLength', 20),
+                            'message' => '20文字以内で入力してください',
+			),
+		),
+		'body' => array(
+			array(
+                            'rule' => array('maxLength', 5000),
+                            'message' => '5000文字以内で入力してください',
 			),
 		),
 		'has_image' => array(

@@ -64,9 +64,10 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Html', 'Time', 'Form','Session','SelectOptions','tk');
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk');
 	public $components = array(
 		'Ktai',
+                'Tk',
 		'Auth',
 		'Session',
 		'Transition',
@@ -84,7 +85,6 @@ class AppController extends Controller {
 				'users' => array('login'),
 			),
 		),
-
 	);
 
 	public $layout = 'default';
@@ -92,26 +92,23 @@ class AppController extends Controller {
        	//ktaiライブラリ設定
 	public $ktai = array(
 		'use_img_emoji' => true,
-		//'input_encoding' => 'UTF8',
-		//'output_encoding' => 'UTF8',
+		'input_encoding' => 'UTF8',
+		'output_encoding' => 'UTF8',
 		'use_xml' => true,
-		'enable_ktai_session' => true, 		//セッション使用を有効にします
+		'enable_ktai_session' => true, //セッション使用を有効にします
 		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
-		'imode_session_name' => 'csid', 	//iMODE時のセッション名を変更します
+		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
+		'use_xml' => false,
 	);
 
-	public $selectedChildId = null;			//選択中こどもID
-
 	function beforeFilter(){
-		parent::beforeFilter();
-		if ($this->ktai['enable_ktai_session'] == true) {
+            parent::beforeFilter();
             if($this->Ktai->is_imode()){
                 $this->__formActionGuidOn();
-				$this->Ssl->autoRedirect = false;
+                $this->Ssl->autoRedirect = false;
                 $this->__checkImodeId();
-			}
-		}
+            }
 	}
 
         function __formActionGuidOn(){
@@ -129,17 +126,15 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
+
 			if (!isset($_SERVER["REDIRECT_QUERY_STRING"]) || !eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"])) {
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"])) {
 					$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-					$base = Router::url('/', true);
-					$url = substr($url, strlen($base));
-
 					$this->redirect($url);
 				}
-			#-------------------------------------------------
-			# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
-			#-------------------------------------------------
+				#-------------------------------------------------
+				# 「guid=ON」が渡っているのにiモードIDがなければ(通知しない設定の場合)、エラーページ表示
+				#-------------------------------------------------
 			} else {
 				$this->__showImodeidErrorPage();
 			}
@@ -164,61 +159,49 @@ class AppController extends Controller {
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
-					if(preg_match('|^http[s]?://|', $url)){
+					//if(preg_match('|^http[s]?://|', $url)){
+					//	return $url;
+					//}
+					if (preg_match('/guid=/', $url)) {
 						return $url;
 					}
+					$url = Router::url($url, true);
+					if (preg_match('/\?/', $url)) {
+						$url .= "&guid=ON";
+					} else {
+						$url .= "?guid=ON";
+					}
+				} else {
+					if(!isset($url['?'])){
+						$url['?'] = array();
+					}
+					$url['?'][session_name()] = session_id();
+					$url['?']['guid'] = 'on'; // guid=onを付加
 					$url = Router::parse($url);
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
-				$url['?'][session_name()] = session_id();
-                $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
 
+		$url_full = $this->__redirect_url($url);
+		//pr($url);
+		//pr($url_full);
+		if ($url_full != $url) {
+			//parent::redirect($url_full, $status, $exit);
+		}
 		//return parent::redirect($this->__redirect_url($url), $status, $exit);
-		
+		/*
 		$aUrl = $this->__redirect_url($url);
 		if(!is_array($aUrl)) {
 			$aUrl = Router::parse($aUrl);
 		}
-
-		$url = DS;
-		if (isset($aUrl['controller'])) {
-			$url .= $aUrl['controller'].DS;
-			if (isset($aUrl['action'])) {
-				$url .= $aUrl['action'].DS;
-			}
-		}
-
-		$r = Router::getInstance();
-		$namedSeparator = $r->named['separator'];
-
-		if (isset($aUrl['named'])) {
-			foreach($aUrl['named'] as $name => $value) {
-				$url .= $name.$namedSeparator.$value.DS;
-			}
-		}
-
-		if (isset($aUrl['pass'])) {
-			foreach($aUrl['pass'] as $param) {
-				$url .= $param.DS;
-			}
-		}
-
-		if (isset($aUrl['?'])) {
-			$params = array();
-			foreach($aUrl['?'] as $key => $value) {
-				$params[] = $key.'='.$value;
-			}
-			$url .= "?".implode('&', $params);
-		}
-		return parent::redirect(Router::url($url, true), $status, $exit);
-		
+		return parent::redirect($this->__redirect_url($url), $status, $exit);
+ 		*/
 	}
 
 	public function beforeRender() {

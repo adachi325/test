@@ -3,33 +3,25 @@ class Present extends AppModel {
 	var $name = 'Present';
 	var $validate = array(
 		'present_type' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
+			),
+			array(
+                            'rule' => 'numeric',
+                            //'message' => '半角数字以外ご利用できません',
 			),
 		),
 		'present_path' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 		'present_thumbnail_path' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
 			),
 		),
 	);

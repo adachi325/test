@@ -3,23 +3,23 @@ class ChildPresent extends AppModel {
 	var $name = 'ChildPresent';
 	var $validate = array(
 		'child_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
+			),
+			array(
+                            'rule' => 'numeric',
+                            //'message' => '半角数字以外ご利用できません',
 			),
 		),
 		'present_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			array(
+                            'rule' => 'notEmpty',
+                            //'message' => '必須項目です',
+			),
+			array(
+                            'rule' => 'numeric',
+                            //'message' => '半角数字以外ご利用できません',
 			),
 		),
 	);

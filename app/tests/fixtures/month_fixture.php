@@ -1,5 +1,5 @@
 <?php
-/* Month Fixture generated on: 2011-03-14 13:03:17 : 1300075217 */
+/* Month Fixture generated on: 2011-03-31 14:03:20 : 1301549540 */
 class MonthFixture extends CakeTestFixture {
 	var $name = 'Month';
 
@@ -18,8 +18,8 @@ class MonthFixture extends CakeTestFixture {
 			'id' => 1,
 			'year' => 'Lo',
 			'month' => '',
-			'created' => '2011-03-14 13:00:17',
-			'modified' => '2011-03-14 13:00:17'
+			'created' => '2011-03-31 14:32:20',
+			'modified' => '2011-03-31 14:32:20'
 		),
 	);
 }
