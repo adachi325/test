@@ -10,7 +10,7 @@ class Child extends AppModel {
                             'last' => true,
 			),
                         array(
-                            'rule' => array('custom', '/^[0|1|2|3|4|5]{1,}$/'),
+                            'rule' => array('custom', '/^[1|2|3|4|5|6]{1,}$/'),
                             'message' => '必須項目です',
                             'last' => true,
                         ),

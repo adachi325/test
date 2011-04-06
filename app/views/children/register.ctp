@@ -36,10 +36,10 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('birth_year', array(
-		'options' => array_reverse($this->SelectOptions->getOption(array(
+		'options' => $this->SelectOptions->getOption(array(
 			'min' => date('Y') - Configure::read('Child.birthday_years'), 
 			'max' => date('Y'), 
-			'suffix' => '',))),
+			'suffix' => '',)),
         'empty' => '------',
 		'class' => 'f_bir',
 		'style' => 'font-size:x-small;',
