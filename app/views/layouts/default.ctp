@@ -6,7 +6,7 @@
 echo $this->element('default/meta');
 ?>
 
-<title><?php echo $title_for_layout; ?></title>
+<title><?php echo "しまじろうひろばxﾄﾞｺﾓｺﾐｭﾆﾃｨ"; //$title_for_layout; ?></title>
 
 </head>
 
