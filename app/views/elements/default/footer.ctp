@@ -1,5 +1,5 @@
 
-<?php echo $this->Html->image('top/main_btm.gif'); ?><br />
+<?php echo $this->Html->image('footer_pic.gif'); ?><br />
 
 <div align="center" style="background:#996633; text-align:center;">
 <?php echo $this->Html->image('spacer.gif', array('alt'=>'', 'width'=>'1', 'height'=>'10')); ?>
