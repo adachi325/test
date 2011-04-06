@@ -1,41 +1,7 @@
-<<<<<<< HEAD
-<?php echo '投稿が完了しました!'; ?>
-<br>
-<?php if(!empty($diaries['Diary']['error_code'])) { ?>
-<p>
-以下の理由により、写真を保存できませんでした。
-<br>
-<?php if($diaries['Diary']['error_code'] === 'E001') { ?>
-・ファイルサイズが2MB以上
-<?php } else if ($diaries['Diary']['error_code'] === 'E002'){ ?>
-・ファイル形式がJPEG以外
-<?php }?>
-<br><br>
-写真をつけて思い出記録を残したい場合は、JPG形式で容量が2MB以内の写真を添付して、再度投稿し直してください。
-</p>
-<?php }?>
-<?php if(!empty($diary['Diary']['present_id'])) { ?>
-<br>
-<center>
-<div>
-    <?php 
-    if($diary['Present']['present_type'] == 0){
-        echo '思い出記録の背景をﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 1){
-        echo 'ﾃﾞｺﾒ絵文字をﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 2){
-        echo '待受FLASHをﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 3){
-        echo 'ﾎﾟｽﾄｶｰﾄﾞをﾌﾟﾚｾﾞﾝﾄ!';
-    }
-    ?>
-=======
-
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 <div style="text-align:center;" align="center">
 投稿が完了しました!<br />
->>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9
 </div>
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 

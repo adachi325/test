@@ -87,6 +87,23 @@ class EasyLoginComponent extends Object {
                         //ユーザー情報設定
                         $this->_setUserData();
                     }
+            } else {
+                //SSL接続だったらやらないでね処理追加！(2次対応)
+//                if($_SERVER['HTTPS']=='on'){
+//                        print "SSL接続ですよ";
+//                }else{
+//                        print "通常接続ですよ";
+//                }
+                
+                if($this->controller->Ktai->is_ktai()) {
+                    $result = $this->_getCareer();
+                    if( $result == 0 or $result == 1 or $result == 2 ){
+                        //【追加対応】ログイン処理にきてuidが取れない端末はエラー画面でその内容を表示
+                        $this->cakeError('error404');
+                        return;
+                    }
+                }
+                
             }
 	}
 

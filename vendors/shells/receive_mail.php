@@ -35,6 +35,8 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
+		
+//		chmod($filepath, 0777);
 	}
 	
 	function _stopfileExists() {
@@ -49,24 +51,26 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
-//		echo "stopfile was created.\n";
+		echo "stopfile was created.\n";
 	}
 	
 	function _removeStopfile() {
 		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
 			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
-//		echo "\nstopfile was removed.\n";
+		echo "\nstopfile was removed.\n";
 	}
 	
 	function _execute() {
 		while (($filename = $this->_getOldestMail()) !== false) {
 			try {
-//		echo "_execute _processMail\n";
+		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-				$this->_moveMail($filename, $is_error);
+//				$this->_moveMail($filename, $is_error);
+				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
-				$this->_moveMail($filename, true);
+//				$this->_moveMail($filename, true);
+				$this->_deleteMail($filename);//ログは残さない
 				throw new Exception($e->getMessage());
 			}
 		}
@@ -106,6 +110,14 @@ class ReceiveMailShell extends AppShell {
 		rename($filepath_from, $filepath_to);
 	}
 	
+	function _deleteMail($filename) {
+		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
+		if (is_file($filepath) === false) {
+			return;
+		}
+		unlink($filepath);
+	}
+	
 	function _processMail($filename) {
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		
@@ -119,15 +131,15 @@ class ReceiveMailShell extends AppShell {
 		$header = $receiver->header();
 
 		$params = array();
-		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : null;
+		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
 		
-		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : null;
+		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
-		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : null;
+		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
-		$params['images'] = ($images !== null) ? $images : null;
+		$params['images'] = ($images !== null) ? $images : array();
 		
 		//Dirayモデル呼び出し（思い出登録）
 		return ClassRegistry::init('Diary')->importMail($params);

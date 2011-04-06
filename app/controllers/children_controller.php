@@ -8,17 +8,17 @@ class ChildrenController extends AppController {
         parent::beforeFilter();
     }
     
-    function test(){
-        $args = array(
-            'diary_id' => array(1,2,3,4),
-            'child_id' => 30,
-            'present_id' => 11
-        );
-        if(!$this->CreatePresent->createPostCard($args)){
-            $this->Session->setFlash(__('画像作成に失敗しました。', true));
-        }
-        $this->redirect('/children');
-    }
+//    function test(){
+//        $args = array(
+//            'diary_id' => array(1,2,3,4),
+//            'child_id' => 30,
+//            'present_id' => 11
+//        );
+//        if(!$this->CreatePresent->createPostCard($args)){
+//            $this->Session->setFlash(__('画像作成に失敗しました。', true));
+//        }
+//        $this->redirect('/children');
+//    }
 
     function index($id = null) {
         //子供データ一覧設定
@@ -67,7 +67,8 @@ class ChildrenController extends AppController {
                     'Diary.month_id' => $months['0']['month']['id'],
                     'Diary.has_image' => 1,
                     'Diary.error_code' => null
-                )
+                ),
+                'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
             $diary =& ClassRegistry::init('diary');
