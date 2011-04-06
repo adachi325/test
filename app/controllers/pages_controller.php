@@ -35,7 +35,7 @@ class PagesController extends AppController {
             $this->set(compact('newslist'));
 
             //それ以外はトップページを表示する
-            $this->render('/pages/top/');
+            $this->render('/pages/index');
 	}
 
         /**

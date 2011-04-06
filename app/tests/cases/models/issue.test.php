@@ -60,32 +60,60 @@ class IssueTestCase extends CakeTestCase {
 
 	function testAll()
 	{
-		//$this->createIssueData();
-		//return;
+                $i = $this->Issue;
+                $type = "released";
 
-		$i = $this->Issue;
+                //正常系[released]
+                $options = array();
+                $options['0'] = array('line' => 'baby');
+                $options['1'] = array('line' => 'petit');
+                $options['2'] = array('line' => 'pocket');
 
-		$type = "released";
-		$options = array();
-		$expected = array('Issue' => array('id' => ''));
+                $r=1;
+                foreach($options as $option) {
+                    $result = $i->find($type, $option);
+                    $this->assertNotNull($result, '正常系[released]'.$r);
+                    pr($result);
+                    pr($option);
+                    $r++;
+                }
 
-		$result = $i->find($type, $options);
-		//$this->assertEqual($result, $expected);
-		
-		$options = array('line' => 'baby');
-		$expected = array();
+                //異常系[released]
+                $options = array();
+                $options['0'] = array('line' => 'ベイビー');
+                $options['1'] = array('line' => '');
 
-		$result = $i->find($type, $options);
-		//$this->assertEqual($result, $expected);
+                $r=1;
+                foreach($options as $option) {
+                    $result = $i->find($type, $option);
+                    if(empty($result['0'])){
+                        $this->assertNull(null, '異常系[released]'.$r);
+                    } else {
+                        $this->assertNull($result, '異常系[released]'.$r);
+                    }
+                    pr($result);
+                    pr($option);
+                    $r++;
+                }
+
+                $type = "month";
+
+                //正常系[month]
+//                $options = array();
+//                $options['0'] = array('line_id' => '1');
+//                $options['1'] = array('line_id' => '2');
+//                $options['2'] = array('line_id' => '3');
+//
+//                $r=1;
+//                foreach($options as $option) {
+//                    $result = $i->find($type, $option);
+//                    $this->assertNotNull($result, '正常系[month]'.$r);
+//                    pr($result);
+//                    pr($option);
+//                    $r++;
+//                }
 
 
-		$type = "month";
-		$options = array('conditions' => array('line_id' => '3'));
-		$expected = array();
-
-		$result = $i->find($type, $options);
-		//$this->assertEqual($result, $expected);
-		//pr($result);
 	}
 }
 ?>

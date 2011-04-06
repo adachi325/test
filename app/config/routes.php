@@ -30,10 +30,11 @@
  * to use (in this case, /app/views/pages/home.ctp)...
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'top'));
-	Router::connect('/', array('controller' => 'children', 'action' => 'index'));
+	//Router::connect('/', array('controller' => 'children', 'action' => 'index'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
+        Router::connect('/', array('controller' => 'pages', 'action' => 'display'));
 	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Router::connect('/ap/*/:id', array('controller' => 'contents', 'action' => '"index"' ));

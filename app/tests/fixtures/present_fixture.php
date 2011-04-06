@@ -19,7 +19,61 @@ class PresentFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'month_id' => 1,
-			'present_type' => 'Lorem ipsum dolor sit ame',
+			'present_type' => '1',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 2,
+			'month_id' => 2,
+			'present_type' => '2',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 3,
+			'month_id' => 1,
+			'present_type' => '2',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 4,
+			'month_id' => 1,
+			'present_type' => '3',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 5,
+			'month_id' => 2,
+			'present_type' => '3',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 6,
+			'month_id' => 3,
+			'present_type' => '1',
+			'present_path' => 'Lorem ipsum dolor sit amet',
+			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
+			'created' => '2011-03-31 14:32:46',
+			'modified' => '2011-03-31 14:32:46'
+		),
+		array(
+			'id' => 7,
+			'month_id' => 3,
+			'present_type' => '3',
 			'present_path' => 'Lorem ipsum dolor sit amet',
 			'present_thumbnail_path' => 'Lorem ipsum dolor sit amet',
 			'created' => '2011-03-31 14:32:46',

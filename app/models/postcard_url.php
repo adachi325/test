@@ -5,17 +5,17 @@ class PostcardUrl extends AppModel {
 		'child_id' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 			array(
                             'rule' => 'numeric',
-                            //'message' => '半角数字以外ご利用できません',
+                            'last' => true,
 			),
 		),
 		'token' => array(
 			array(
                             'rule' => 'notEmpty',
-                            //'message' => '必須項目です',
+                            'last' => true,
 			),
 		),
 	);
@@ -35,6 +35,7 @@ class PostcardUrl extends AppModel {
 		$m = $this->alias;
 
 		$count = $this->find('count', array('conditions' => array("{$m}.token" => $token)) );
+
 		return ($count > 0);
 	}
 

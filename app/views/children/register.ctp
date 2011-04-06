@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
@@ -27,10 +26,11 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子
 <?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子
+<br />
+<div><?php echo $form->error('sex','必須項目です'); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
