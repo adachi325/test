@@ -23,6 +23,6 @@ endforeach;
 echo '</table>';
 endif;
 ?>
-<?php echo $this->Html->link('もっと見る', 'http://shimajiromobile.benesse.ne.jp/ap1/'); ?>
+<div align="right" style="text-align:right;"><span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a></div>
 </div>
 
