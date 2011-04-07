@@ -98,7 +98,7 @@ foreach($diaries as $diary):
         ?>
             </td>
             <td width="75%" align="left" valign="top">
-			<?php $title = (!empty($diary['Diary']['title']) ? $diary['Diary']['title'] : '無題'; ?>
+			<?php $title = (!empty($diary['Diary']['title'])) ? $diary['Diary']['title'] : '無題'; ?>
 	<a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
 
 			</td>
@@ -125,9 +125,11 @@ endforeach;
 <?php if(count($diaries) > ($page * 5)): ?>
 <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
 <?php endif; ?>
-    if(count($diaries) > ($page * 5)) {
+<?php
+if(count($diaries) > ($page * 5)) {
         echo $this->Html->link('次へ', '/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1));
     }
+?>
 </div>
 
 <div style="text-align:right;" align="right">

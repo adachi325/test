@@ -1,4 +1,5 @@
 <?php
+
 $year = (isset($year)) ? $year : date('Y');
 $month = (isset($month)) ? $month : date('n');
 $date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
@@ -13,11 +14,10 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <h3><?php echo $month; ?>月のプレゼント一覧</h3>
 
 <dl>
-<?php 
+<?php
 $present_types = Configure::read('Present.type');
 foreach($present_types as $key => $value):
 ?>
-
 <?php if (isset($presents[$key])): ?>
 <dt>★<?php echo $key +1; ?>回投稿で<?php echo $value; ?>がもらえる♪</dt>
 <dd>
@@ -29,9 +29,18 @@ foreach($present_types as $key => $value):
 </dl>
 
 <div>
-<?php echo $this->Html->link('前の月', array('action' => 'index', date('Y/n', strtotime($prev)).'/' )); ?>
-&nbsp;
-<?php echo $this->Html->link('次の月', array('action' => 'index', date('Y/n', strtotime($next)).'/' )); ?>
+<?php
+if(date('Y-m-d', mktime(0, 0, 0, ($beforeFlag['month']['month']-1), 1, $beforeFlag['month']['year'])) != date('Y-m-d', strtotime($prev))){
+echo $this->Html->link('前の月', array('action' => 'index', date('Y/n', strtotime($prev)).'/' ));
+echo '&nbsp;';
+}
+?>
+
+<?php
+if(date('Y-m-d') > date('Y-m-d', strtotime($next))){
+echo $this->Html->link('次の月', array('action' => 'index', date('Y/n', strtotime($next)).'/' ));
+}
+?>
 </div>
 
 <h3>テーマに投稿してプレゼントをもらおう</h3>

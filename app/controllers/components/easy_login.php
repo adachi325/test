@@ -90,9 +90,9 @@ class EasyLoginComponent extends Object {
             } else {
                 //SSL接続だったらやらないでね処理追加！(2次対応)
 //                if($_SERVER['HTTPS']=='on'){
-//                        print "SSL接続ですよ";
+//                        print "SSL接続";
 //                }else{
-//                        print "通常接続ですよ";
+//                        print "通常接続";
 //                }
                 
                 if($this->controller->Ktai->is_ktai()) {

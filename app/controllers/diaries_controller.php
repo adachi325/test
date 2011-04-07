@@ -61,7 +61,7 @@ class DiariesController extends AppController {
 
         //前月表示フラグ設定
         $beforeOptions['order'] = array(
-            'Month.year, Month.month'
+            '(Month.year+0), (Month.month+0)'
         );
         $month->contain();
         $beforeFlag = $month->find('first',$beforeOptions);
