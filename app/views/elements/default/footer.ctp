@@ -1,4 +1,6 @@
 
+<?php echo $this->Html->image('footer_pic.gif'); ?><br />
+
 <div align="center" style="background:#996633; text-align:center;">
 <?php echo $this->Html->image("footer_pic.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
