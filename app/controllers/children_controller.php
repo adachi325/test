@@ -8,17 +8,17 @@ class ChildrenController extends AppController {
         parent::beforeFilter();
     }
     
-//    function test(){
-//        $args = array(
-//            'diary_id' => array(1,2,3,4),
-//            'child_id' => 30,
-//            'present_id' => 11
-//        );
-//        if(!$this->CreatePresent->createPostCard($args)){
-//            $this->Session->setFlash(__('画像作成に失敗しました。', true));
-//        }
-//        $this->redirect('/children');
-//    }
+    function test(){
+        $args = array(
+            'diary_id' => array(1,2,3,4),
+            'child_id' => 30,
+            'present_id' => 5
+        );
+        if(!$this->CreatePresent->createPostCard($args)){
+            $this->Session->setFlash(__('画像作成に失敗しました。', true));
+        }
+        $this->redirect('/children');
+    }
 
     function index($id = null) {
         //子供データ一覧設定
@@ -27,20 +27,20 @@ class ChildrenController extends AppController {
         //最終子供ID更新
         if ($id !== null &&
             $id >= 0 && $id < count($childrenData)) {
-			   
-			$updateId = $childrenData[$id]['Child']['id'];
+
+            $updateId = $childrenData[$id]['Child']['id'];
             $this->_saveLastChild($updateId);
         }
 
         //最終子供ID設定
-		$lastChildId = $this->Tk->_getLastChild();
-		if ($lastChildId == 0) {
-			if (count($childrenData)) {
-				$lastChildId = $childrenData[0]['Child']['id'];
-				$updateId = $lastChildId;
-				$this->_saveLastChild($updateId);
-			}
-		}
+        $lastChildId = $this->Tk->_getLastChild();
+        if ($lastChildId == 0) {
+                if (count($childrenData)) {
+                        $lastChildId = $childrenData[0]['Child']['id'];
+                        $updateId = $lastChildId;
+                        $this->_saveLastChild($updateId);
+                }
+        }
         //最終子供情報取得
         $currentChild = $this->Child->findById($lastChildId);
 
@@ -54,11 +54,15 @@ class ChildrenController extends AppController {
         $options = array();
         $options['year'] = date('Y');
         $options['month'] = date('m') + 0;
-        $months = $month->find('all',array('conditions' => $options));
+        $months = $month->find('all', array('conditions' => $options));
+
+        //テーマ要素作成日順に入れ替える
+        $result = array_reverse($months['0']['Theme']);
+        $months['0']['Theme'] = $result;
 
         //ライン情報取得
-		$lines = $this->Child->Line->find('list');
-		$currentLine = $this->Child->Line->findById($currentChild['Child']['line_id']);
+        $lines = $this->Child->Line->find('list');
+        $currentLine = $this->Child->Line->findById($currentChild['Child']['line_id']);
 
         if(!empty($months)){
             $conditions = array(
@@ -80,10 +84,10 @@ class ChildrenController extends AppController {
         $newslist = $news->find('all',array('conditions' =>
             array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
 
-		$this->set(compact('childrenData','lastChildId','currentChild','issues','months','lines','currentLine','diaries','newslist'));
-		if (count($childrenData) == 0) {
-			$this->render('index_nochild');
-		}
+        $this->set(compact('childrenData','lastChildId','currentChild','issues','months','lines','currentLine','diaries','newslist'));
+        if (count($childrenData) == 0) {
+                $this->render('index_nochild');
+        }
     }
 
     //最終子供ID更新
@@ -265,7 +269,7 @@ class ChildrenController extends AppController {
                 $this->Session->setFlash(__('入力項目に不備があります。', true));
                 $this->Session->write('childEditData', $this->data);
                 $this->Session->write('childEditValidationErrors', $this->validateErrors($this->Child));
-                //$this->redirect('/children/edit');
+                $this->redirect('/children/edit');
             }
         }
         $lines = $this->Child->Line->find('list');
