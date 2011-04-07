@@ -46,8 +46,21 @@ class ChildrenController extends AppController {
 
         //月号データ取得
         $Issue =& ClassRegistry::init('Issue');
-        //$issues = $Issue->find('month', array('line_id' => $currentChild['Child']['line_id']));
-        $issues = $Issue->find('month');
+        $conditions = array(
+                'conditions' => array(
+                    'Issue.line_id' => $currentChild['Child']['line_id'],
+                    'Issue.release_date <= '. date('YmdHis'),
+                ),
+                'order'=>array('Issue.release_date DESC')
+            );
+        $Issue->contain('Content');
+        $issues = $Issue->find('first', $conditions);
+        
+        //コンテンツをリリース日でソート
+        if(count($issues['Content']) > 0) {
+            foreach ($issues['Content'] as $key => $row) { $sort_key[$key] = $row['release_date']; }
+            array_multisort( $sort_key, SORT_ASC, $issues['Content'] );
+        }
 
         //月データ取得
         $month =& ClassRegistry::init('month');
