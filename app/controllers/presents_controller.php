@@ -43,6 +43,7 @@ class PresentsController extends AppController {
                 }
                 $this->set('beforeFlag',$beforeFlag);
 
+                $opt['order'] = array('Present.present_type');
                 $presents = $this->Present->find('month', $opt);
 
 		$this->set(compact('presents', 'year', 'month'));
