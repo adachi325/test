@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 <div style="text-align:center;" align="center">

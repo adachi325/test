@@ -1,4 +1,3 @@
-
 <div style="background:#339933;">
 <?php echo $this->Html->image("top_nypage_main.gif", array("width" => "100%")); ?><br />
 
@@ -54,7 +53,7 @@ if (count($childrenData) < 3) {
 <td align="left" valign="top">
 <?php
 	$image_file = ($currentChild['Child']['sex'] == 1) ? 'icn_name_girl' : 'icn_name_boy';
-	echo $this->Html->image($image_file, array("style" => "margin-right:2px;"));
+	echo $this->Html->image($image_file.'.gif', array("style" => "margin-right:2px;"));
 ?>
 <span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']); ?></span></td>
 </tr>
@@ -89,7 +88,7 @@ if (count($childrenData) < 3) {
 </tr>
 
 </table>
-
+</div>
 <!-- お知らせ -->
 
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
@@ -104,7 +103,8 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
-<?php echo ($news['News']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day")) ? $this->Ktai->emoji(0xE6DD, false); ?></span>
+<?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : ''; ?>
+</span>
 <?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
 </span></td>
 <td align="left">
@@ -225,13 +225,14 @@ if (count($childrenData) < 3) {
 
 <?php foreach($months as $month): ?>
 	<?php
+       
 	$f = true;
 	if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
 		<?php foreach($month['Present'] as $present): ?>
 			<?php
 				if($present['present_type'] == 3 and $f) {
-					echo $html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']),
-						array("align" => "left", "style" => "float:left; margin-right:10px;"));
+					echo $this->Html->image('/'.sprintf(Configure::read('Present.path.postcard_thum'), $present['id']),
+                                        array("align" => "left", "style" => "float:left; margin-right:10px;"));
 					$f = false;
 					break;
 				}
