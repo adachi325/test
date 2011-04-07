@@ -1,41 +1,8 @@
-<<<<<<< HEAD
-<?php echo '投稿が完了しました!'; ?>
-<br>
-<?php if(!empty($diaries['Diary']['error_code'])) { ?>
-<p>
-以下の理由により、写真を保存できませんでした。
-<br>
-<?php if($diaries['Diary']['error_code'] === 'E001') { ?>
-・ファイルサイズが2MB以上
-<?php } else if ($diaries['Diary']['error_code'] === 'E002'){ ?>
-・ファイル形式がJPEG以外
-<?php }?>
-<br><br>
-写真をつけて思い出記録を残したい場合は、JPG形式で容量が2MB以内の写真を添付して、再度投稿し直してください。
-</p>
-<?php }?>
-<?php if(!empty($diary['Diary']['present_id'])) { ?>
-<br>
-<center>
-<div>
-    <?php 
-    if($diary['Present']['present_type'] == 0){
-        echo '思い出記録の背景をﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 1){
-        echo 'ﾃﾞｺﾒ絵文字をﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 2){
-        echo '待受FLASHをﾌﾟﾚｾﾞﾝﾄ!';
-    } else if($diary['Present']['present_type'] == 3){
-        echo 'ﾎﾟｽﾄｶｰﾄﾞをﾌﾟﾚｾﾞﾝﾄ!';
-    }
-    ?>
-=======
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 <div style="text-align:center;" align="center">
 投稿が完了しました!<br />
->>>>>>> 48e0f0de9c05b070dd41a74dabf77989e74cdca9
 </div>
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
@@ -74,7 +41,7 @@ case 2:
 	$desc = '待受FLASHをﾌﾟﾚｾﾞﾝﾄ';
 	break;
 case 3:
-	$desc = 'ﾎﾟｽﾄｶｰﾄﾞをﾌﾟﾚｾﾞﾝﾄ';
+	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
 	break;
 default:
 	$desc = '不正なﾌﾟﾚｾﾞﾝﾄIDが指定されました';
@@ -84,7 +51,7 @@ default:
 	
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#FF3399"><?php echo $desc; ?><?php $this->Ktai->emoji(0xE685); ?></span><br />
+<span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
 
 <?php if ($type === 0): ?>
         <div>
@@ -117,9 +84,9 @@ default:
 <?php 
 $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 if ($type === 2) {
-	$text = 'このﾃﾝﾌﾟﾚｰﾄを使って待受FLASHを作成する';
+	$text = 'さっそくこの待受FLASHを作成';
 } elseif ($type === 3) {
-	$text = 'このﾎﾟｽﾄｶｰﾄﾞを作成する';
+	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
 }
 ?>
 
@@ -128,12 +95,11 @@ if ($type === 2) {
 
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-	<span style="color:#339933;">・</span>
-	<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
+<span style="color:#339933;">・</span>
+<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">投稿した写真を見る</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">送信した思い出を見る</span></a><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

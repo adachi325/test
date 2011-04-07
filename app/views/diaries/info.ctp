@@ -1,3 +1,41 @@
+
+<div style="background:#e9f7ff; text-align:center;" align="center">
+<?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("memory_top.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
+<table width="90%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="center">
+<span style="color:#ff6666;font-size:x-small;">初めてのハイハイ!</span><br />
+</td>
+</tr>
+<tr>
+<td align="center">
+<?php echo $this->Html->image("memory_pic.jpg", array("style" => "margin:10px 0;")); ?><br />
+</td>
+</tr>
+<tr>
+<td align="left"><span style="font-size:x-small; color:#333333;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span></td>
+</tr>
+<tr>
+<td align="right"><span style="font-size:x-small; color:#666666;">5月10日</span></td>
+</tr>
+</table><br />
+<?php echo $this->Html->image("memory_btm_obj.gif", array("width" => "100%")); ?></div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+<span style="color:#339933;">・</span><a href="#" style="color:#339900;"><span style="color:#339900;">家族や友達に共有する</span></a><br />
+(ﾄﾞｺﾓｺﾐｭﾆﾃｨへ送信)<span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨ会員登録が必要です</span><br />
+<span style="color:#339933;">・</span><a href="#" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
+<span style="color:#339933;">・</span><a href="#" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
+
+<?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+
+<?php echo $this->Html->image("txt_leave.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<span style="color:#339933;">・</span><a href="#" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
+<span style="color:#339933;">・</span><a href="#" style="color:#339900;"><span style="color:#339900;">印刷して送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+
 <center>
     <div>
         <span>
