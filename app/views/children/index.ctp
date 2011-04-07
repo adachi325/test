@@ -1,4 +1,3 @@
-
 <div style="background:#339933;">
 <?php echo $this->Html->image("top_nypage_main.gif", array("width" => "100%")); ?><br />
 
@@ -89,7 +88,7 @@ if (count($childrenData) < 3) {
 </tr>
 
 </table>
-
+</div>
 <!-- お知らせ -->
 
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
@@ -104,7 +103,8 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
-<?php echo ($news['News']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day")) ? $this->Ktai->emoji(0xE6DD, false); ?></span>
+<?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : ''; ?>
+</span>
 <?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
 </span></td>
 <td align="left">
