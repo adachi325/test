@@ -40,7 +40,7 @@ case 2:
 	$desc = '待受FLASHをﾌﾟﾚｾﾞﾝﾄ';
 	break;
 case 3:
-	$desc = 'ﾎﾟｽﾄｶｰﾄﾞをﾌﾟﾚｾﾞﾝﾄ';
+	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
 	break;
 default:
 	$desc = '不正なﾌﾟﾚｾﾞﾝﾄIDが指定されました';
@@ -50,7 +50,7 @@ default:
 	
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#FF3399"><?php echo $desc; ?><?php $this->Ktai->emoji(0xE685); ?></span><br />
+<span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
 
 <?php if ($type === 0): ?>
         <div>
@@ -83,9 +83,9 @@ default:
 <?php 
 $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 if ($type === 2) {
-	$text = 'このﾃﾝﾌﾟﾚｰﾄを使って待受FLASHを作成する';
+	$text = 'さっそくこの待受FLASHを作成';
 } elseif ($type === 3) {
-	$text = 'このﾎﾟｽﾄｶｰﾄﾞを作成する';
+	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
 }
 ?>
 
@@ -94,12 +94,11 @@ if ($type === 2) {
 
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-	<span style="color:#339933;">・</span>
-	<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
+<span style="color:#339933;">・</span>
+<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">投稿した写真を見る</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">送信した思い出を見る</span></a><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
