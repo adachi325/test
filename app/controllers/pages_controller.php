@@ -6,8 +6,7 @@ class PagesController extends AppController {
 
         function beforeFilter() {
             parent::beforeFilter();
-            unset($this->components["Auth"]);
-            //$this->Auth->allow('*');
+            $this->Auth->allow('*');
 	}
 
 	function display() {
