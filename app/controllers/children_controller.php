@@ -45,22 +45,23 @@ class ChildrenController extends AppController {
         $currentChild = $this->Child->findById($lastChildId);
 
         //月号データ取得
-        $Issue =& ClassRegistry::init('Issue');
+        $content =& ClassRegistry::init('Content');
         $conditions = array(
                 'conditions' => array(
-                    'Issue.line_id' => $currentChild['Child']['line_id'],
-                    'Issue.release_date <= '. date('YmdHis'),
+                    'Content.line_id' => $currentChild['Child']['line_id'],
                 ),
-                'order'=>array('Issue.release_date DESC')
+                'order'=>array('Content.release_date DESC')
             );
-        $Issue->contain('Content');
-        $issues = $Issue->find('first', $conditions);
+        $content->contain('Issue');
+        $contents = $content->find('all', $conditions);
         
-        //コンテンツをリリース日でソート
-        if(count($issues['Content']) > 0) {
-            foreach ($issues['Content'] as $key => $row) { $sort_key[$key] = $row['release_date']; }
-            array_multisort( $sort_key, SORT_ASC, $issues['Content'] );
-        }
+        //babyのやつはコンテンツをリリース日で降順ソート
+//        if($currentChild['Child']['line_id']='0' and count($contents) > 0) {
+//            foreach ($contents['Content'] as $key => $row) { $sort_key[$key] = $row['release_date']; }
+//            array_multisort( $sort_key, SORT_DESC, $contents['Content'] );
+//        }
+
+        pr($contents);
 
         //月データ取得
         $month =& ClassRegistry::init('month');
@@ -97,7 +98,7 @@ class ChildrenController extends AppController {
         $newslist = $news->find('all',array('conditions' =>
             array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
 
-        $this->set(compact('childrenData','lastChildId','currentChild','issues','months','lines','currentLine','diaries','newslist'));
+        $this->set(compact('childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
         if (count($childrenData) == 0) {
                 $this->render('index_nochild');
         }
