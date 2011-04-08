@@ -13,9 +13,9 @@ class CreatePresentComponent extends Object {
         // アサイン用変数の設定
         $assign = array(
             // 差し込み画像
-            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][0]),
-            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][1]),
-            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_thumb'), $args['child_id'], $args['diary_id'][2]),
+            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]),
+            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][1]),
+            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]),
         );
 
         // ステージサイズの設定
