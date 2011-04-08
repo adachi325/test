@@ -32,7 +32,7 @@ class PresentsController extends AppController {
                 //手入力防止（過去年月チェック）
                 $monthModel =& ClassRegistry::init('month');
                 $beforeOptions['order'] = array(
-                    '(Month.year+0), (Month.month+0) ASC'
+                    '(month.year+0), (month.month+0) ASC'
                 );
                 $monthModel->contain();
                 $beforeFlag = $monthModel->find('first',$beforeOptions);
