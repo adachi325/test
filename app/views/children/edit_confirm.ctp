@@ -1,6 +1,8 @@
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
+<?php extract($this->data['Child']); ?>
+
 内容をご確認の上､｢変更｣ﾎﾞﾀﾝを押してください｡<br />内容修正の場合は｢戻る｣ﾎﾞﾀﾝを押して前の画面に戻って行ってください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
@@ -29,7 +31,7 @@
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの生年月</span><br />
-<?php echo "$birth_year年 $birth_month月"; ?><br />
+<?php echo "{$birth_year}年 {$birth_month}月"; ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
