@@ -25,15 +25,9 @@
 $value1 = ($this->data['Child']['sex'] == 1) ? '1' : 'none';
 $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
-<<<<<<< HEAD
-<?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子
-<?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子
-<br />
-<div><?php echo $form->error('sex','必須項目です'); ?></div>
-=======
 <?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子<br />
->>>>>>> f7be1817b31f42566eb40623c876af1fdfa48d7c
+<div><?php echo $form->error('sex','必須項目です'); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -48,18 +42,20 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
+	)) ?> 年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
+	)) ?> 月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
