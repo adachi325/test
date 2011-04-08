@@ -25,8 +25,15 @@
 $value1 = ($this->data['Child']['sex'] == 1) ? '1' : 'none';
 $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
+<<<<<<< HEAD
+<?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子
+<?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子
+<br />
+<div><?php echo $form->error('sex','必須項目です'); ?></div>
+=======
 <?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子<br />
+>>>>>>> f7be1817b31f42566eb40623c876af1fdfa48d7c
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

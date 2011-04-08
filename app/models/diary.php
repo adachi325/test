@@ -115,15 +115,9 @@ class Diary extends AppModel {
 			'theme_id' => $to_splits[2],
 			'hash' => $to_splits[3],
 		);
-		if (!empty($data['subject'])) {
-			$request['title'] = $data['subject'];
-		}
-		if (!empty($data['body'])) {
-			$request['body'] = $data['body'];
-		}
-		if (!empty($data['images'])) {
-			$request['images'] = $data['images'];
-		}
+		$request['title'] = isset($data['subject']) ? $data['subject'] : "";
+		$request['body'] = isset($data['body']) ? $data['body'] : "";
+		$request['images'] = isset($data['images']) ? $data['images'] : array();
 		
 		return $this->add($request);
 	}
@@ -153,10 +147,10 @@ class Diary extends AppModel {
 		$data['month_id'] = $theme['Theme']['month_id'];
 		
 		//title
-		$data['title'] = isset($data['title']) ? mb_substr($data['title'], 0, Configure::read('Diary.title_len_max')) : null;
+		$data['title'] = isset($data['title']) ? mb_substr($data['title'], 0, Configure::read('Diary.title_len_max')) : "";
 
 		//body
-		$data['body'] = isset($data['body']) ? mb_substr($data['body'], 0, Configure::read('Diary.body_len_max')) : null;
+		$data['body'] = isset($data['body']) ? mb_substr($data['body'], 0, Configure::read('Diary.body_len_max')) : "";
 
 		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
 		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
@@ -180,6 +174,8 @@ class Diary extends AppModel {
 		//image
 		$has_image = false;
 		$error_code = null;
+		
+		pr($data['images']);
 		
 		foreach ($data['images'] as $image) {
 			
