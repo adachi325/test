@@ -95,6 +95,7 @@ class PresentsController extends AppController {
 	}
 
 	function select($type = null, $template_id = null) {
+
 		$data = $this->data;
 		$this->paginate = array('limit' => 10);
 
@@ -160,7 +161,12 @@ class PresentsController extends AppController {
 
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary', $cond);
-		
+
+                //思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
+                if(count($items) < $max_count){
+                    $this->redirect("/presents/error_present/");
+                }
+
 		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
