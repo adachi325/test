@@ -25,23 +25,19 @@ class CreatePresentComponent extends Object {
         foreach($assign as $name => $value) {
             // UTF-8でアサイン
             $almeida->setVariable($name, mb_convert_encoding($value,"UTF-8","UTF-8"));
-            //$almeida->setVariable($name, $value);
         }
-
-        // 文字コードの設定
-        $almeida->setVariable("Media.Flash.Codepage","SJIS");
 
         // テンプレートのロード
         $almeida->load($template);
 
         //ヘッダー出力
         header("Content-type: application/x-shockwave-flash");
-        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+        //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
 
         // Flash生成
-		$almeida->generateFlash();
+        $almeida->generateFlash();
 
-		return true;
+        return true;
     }
 
 

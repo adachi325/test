@@ -41,18 +41,20 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
+	)) ?> 年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
+	)) ?> 月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
