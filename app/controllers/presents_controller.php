@@ -166,8 +166,6 @@ class PresentsController extends AppController {
 			return;
                 }
 
-                pr($data['selection']);
-
 		$selected = array(
 			'diary_id' => $data['selection'],
 			'present_id' => $data['template'],
