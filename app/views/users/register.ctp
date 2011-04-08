@@ -90,6 +90,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 		'class' => 'f_bir',
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('Child.0.birth_month','必須項目です'); ?>
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
