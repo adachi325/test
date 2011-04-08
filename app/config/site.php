@@ -108,8 +108,8 @@ $config['Child'] = array(
             2 => '#FFB7B7',
         ),
         'Initial_registration_presents' => array(
-            0 => '4',
-            1 => '5',
+            0 => '1',
+            1 => '2',
 		),
 		'birthday_years' => 8,
 );
