@@ -433,6 +433,7 @@ class Diary extends AppModel {
 		$dir = dirname($path);
 		if (!file_exists($dir)) {
                         mkdir($dir,0777);
+                        chmod($dir, 0777);
                         system("chmod 777 ".$dir);
 		}
 	}

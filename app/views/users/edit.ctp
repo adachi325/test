@@ -1,9 +1,58 @@
-<div>
-<h1>登録情報変更</h1>
-</div>
-<?php echo $form->create('User', array('url' => '/users/edit?guid=ON'));?>
-<?php echo $form->input('new_password', array('label' => 'パスワード','type' => 'password')); ?>
-<?php echo $form->input('row_password', array('label' => '念の為の再入力','type' => 'password')); ?>
-<?php echo $form->input('dc_user', array('label' => 'ドコモコミュニティ')); ?>
-<?php echo $form->submit('確認画面へ'); ?>
-<?php echo $form->end(); ?>
+
+<?php
+extract($this->data['User']);
+?>
+
+
+<?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
+
+<?php echo $loginid; ?>さん<br /><br />
+以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
+
+<?php echo $this->Form->create('User', array("url" => "/users/edit?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<table width="100%" cellpadding="0" cellspacing="0">
+
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+  <p><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
+  <span style="color:#ff6600;">半角英数字6-12文字</span><br />
+    <?php echo $this->Form->input("new_password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
+</div></td>
+</tr>
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ確認</span><br />
+  <span style="color:#ff6600;">半角英数字6-12文字</span><br />
+<?php echo $this->Form->input("row_password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
+<td bgcolor="#eeeeee"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">■下記の会員の場合はﾁｪｯｸを入れてください｡</span><br />
+<?php echo $this->Form->input("dc_user", array("type" => "checkbox")); ?>ﾄﾞｺﾓｺﾐｭﾆﾃｨ<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
+<td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Form->submit("確認"); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</td>
+</tr>
+
+</table>
+<?php echo $this->Form->end(); ?>
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+

@@ -94,9 +94,11 @@ if ($type === 2) {
 
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
+<?php if (isset($text)): ?>
 <span style="color:#339933;">・</span>
 <a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<?php endif; ?>
 
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">送信した思い出を見る</span></a><br />
 
