@@ -150,10 +150,10 @@ if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-<?php if(empty($prev)): ?>
+<?php if(isset($prev)): ?>
 <td align="left"><a href="<?php echo $prev; ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">前月</span></a></td>
 <?php endif; ?>
-<?php if(empty($next)): ?>
+<?php if(isset($next)): ?>
 <td align="right"><a href="<?php echo $next; ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次月</span></a></td>
 <?php endif; ?>
 </tr>
