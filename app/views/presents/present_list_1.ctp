@@ -1,6 +1,5 @@
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
-
 <?php echo $this->Html->image("txt_decome.gif", array("width" => "100%")); ?><br />
 
 <?php if (count($items)): ?>
