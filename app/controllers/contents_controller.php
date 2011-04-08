@@ -61,16 +61,24 @@ class ContentsController extends AppController {
 		$release_date = $data['Content']['release_date'];
 
 		if ($release_date <= date('Y-m-d')) {
-			if ($this->Ktai->is_imode()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
-			} elseif ($this->Ktai->is_softbank()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
-			} elseif ($this->Ktai->is_ezweb()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/au.html";
+			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
+			if (!file_exists($filepath)) {
+				$this->cakeError('error404');
 			}
 			
-			pr($filepath);
-
+			// auかsoftbankだった場合、独自テンプレートがあればそちらを使用する
+			$_path = '';
+			if ($this->Ktai->is_softbank()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
+			} elseif ($this->Ktai->is_ezweb()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+			} elseif ($this->Ktai->is_android()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
+			}
+			if (file_exists($_path)) {
+				$filepath = $_path;
+			}
+			
 			$this->set(compact('release_date', 'filepath'));
 			$this->layout = 'contents';
 		} else {
