@@ -119,10 +119,13 @@ class PresentsController extends AppController {
 				if (count($selection) == $max_count) {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
-					$this->redirect("/presents/complete/{$type}/");
+                                        $this->Session->write('Present.data.type', $type);
+					$this->redirect("/presents/complete/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-					$this->redirect("/presents/error_photo/{$type}/{$template_id}/");
+                                        $this->Session->write('Present.error.type', $type);
+                                        $this->Session->write('Present.error.template_id', $template_id);
+					$this->redirect("/presents/error_photo/");
 				}
 			}
 			if (isset($this->params['form']['prev'])) {
@@ -155,30 +158,42 @@ class PresentsController extends AppController {
 	}
 
 	function complete($type = null) {
+            
 		$data = $this->Session->read('Present.data');
 
-		$child_id = $this->Tk->_getLastChild();
-		$user_id = $this->Session->read('Auth.User.id');
+                if(empty($data)){
+			$this->cakeError('error404');
+			return;
+                }
 
 		$selected = array(
 			'diary_id' => $data['selection'],
 			'present_id' => $data['template'],
-			'child_id' => $child_id,
+			'child_id' => $this->Tk->_getLastChild(),
 		);
 
 		$render = "";
 
+                $type = $this->Session->read('Present.data.type');
+                if(empty($type)){
+			$this->cakeError('error404');
+			return;
+                }
+
 		if ($type === "flash") {
 			$this->CreatePresent->createFlash($selected);
 			$render = 'complete_flash';
-		} else {
+		} else if ($type === "postcard") {
 			$token = $this->CreatePresent->createPostcard($selected);
 			if ($token === false) {
 				$this->cakeError('error502');
 				return;
 			}
 			$render = 'complete_postcard';
-		}
+		} else {
+			$this->cakeError('error404');
+			return;
+                }
 
 		//メールアドレス設定
 		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
@@ -194,13 +209,25 @@ class PresentsController extends AppController {
 		
 	}
 
-	function error_photo($type = null, $template_id = null) {
+	function error_photo() {
+
+            $type=$this->Session->read('Present.error.type');
+            $template_id=$this->Session->read('Present.error.template_id');
 
 		if($type == 'flash') {
 			$max_count = 3;
-		} else {
+		} else if ($type === "postcard") {
 			$max_count = 4;
-		}
+		} else {
+			$this->cakeError('error404');
+			return;
+                }
+
+                if(empty($template_id)){
+			$this->cakeError('error404');
+			return;
+                }
+
 		$this->set(compact('type', 'template_id', 'max_count'));
 		
 	}
