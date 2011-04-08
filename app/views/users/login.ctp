@@ -1,18 +1,51 @@
-<?php
-if($session->check('Message.auth')){
-	echo $session->flash('auth');
-}
-?>
-<?php echo $form->create('User',array('url'=>'/users/login?guid=ON')); ?>
-ログインID<br>
-<?php echo $form->text('User.loginid',array('size'=>'10')); ?>
-パスワード<br>
-<?php echo $form->password('User.password',array('size'=>'10')); ?>
-<?php echo $form->end('ログイン'); ?>
-<br><hr><br>
-<div>
-    ※パスワードを忘れた方<?php echo $html->link('こちら', "/users/remind/",array('escape' => false));?>
+
+<div style="background:#ff6600;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="font-size:small;font-weight:bold; color:#ffffff;">ﾛｸﾞｲﾝ</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
-<div>
-    ⇒<?php echo $html->link('新規会員登録', "/users/register/",array('escape' => false));?>
-</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してくだい｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+<?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td bgcolor="#ffecd9"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><br />
+<span style="color:#666666;">半角英数字4-12文字</span><br />
+<?php echo $this->Form->input("loginid", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div></td>
+</tr>
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
+<span style="color:#666666;">半角英数字6-12文字</span><br />
+<?php echo $this->Form->input("password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
+<td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Form->submit("ﾛｸﾞｲﾝ"); ?>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</td>
+</tr>
+</table>
+<?php echo $this->Form->end(); ?>
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
+
+※ﾊﾟｽﾜｰﾄﾞを忘れた方は<a href="/users/remind/"><span style="color:#ff6600;">こちら</span></a><br />
+→　<a href="/users/register/"><span style="color:#ff6600;">新規ﾌﾟﾛﾌｨｰﾙ登録</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+
