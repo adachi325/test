@@ -1,6 +1,6 @@
 <div class="presents view">
 
-<?php $path = sprintf(Configure::read('Present.path.postcard_output'), $token); ?>
+<?php $path = sprintf(Configure::read('Present.path.postcard_output_thum'), $token); ?>
 
 <p>
 ポストカードを作成しました。
