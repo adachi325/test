@@ -142,7 +142,7 @@ if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $befo
 }
 
 if($options['year'] >= date('Y') && $options['month'] < date('m')) {
-	$next = () ?
+	$next = ($options['month'] == 12) ?
 		$this->Html->link('/diaries/index/'.($options['year']+1).'/1') :
 		$this->Html->link('/diaries/index/'.$options['year'].'/'.($options['month']+1));
 }
@@ -164,6 +164,7 @@ if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 </tr>
 </table>
 
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month_label; ?>月の思い出を書く</span></a><br />
+<span style="color:#339933;">・</span>
+<a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month_label; ?>月の思い出を書く</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
