@@ -5,6 +5,11 @@ class PresentsController extends AppController {
 
 	var $components = array('Qdmail');
 
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('print_postcard');
+	}
+
 	function index($year = null, $month = null) {
 
                 if(empty($year)){
@@ -198,9 +203,8 @@ class PresentsController extends AppController {
                 }
 
 		//メールアドレス設定
-		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
+		$url = Router::url('/'.'presents/print_postcard/'.$token, true);
 		$mailSubject = "ポストカード印刷用URL";
-                //$mailBody = "{$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
                 $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
 
 		$this->set(compact('mailSubject','mailBody','token'));
