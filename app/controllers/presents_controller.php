@@ -51,6 +51,8 @@ class PresentsController extends AppController {
 
 	function present_list($type = null) {
 
+		// 0＝壁紙、1＝デコメ絵文字、2＝待受けflash、3＝ポストカード	
+
 		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
