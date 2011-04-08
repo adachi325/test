@@ -18,6 +18,10 @@ class CreatePresentComponent extends Object {
             'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]),
         );
 
+        // ステージサイズの設定
+        $assign["width"] = 240;
+        $assign["height"] = 320;
+
         // Almeidaインスタンスを生成
         $almeida = new Almeida();
 
@@ -28,17 +32,18 @@ class CreatePresentComponent extends Object {
             //$almeida->setVariable($name, $value);
         }
 
+        // 文字コードの設定
+        $almeida->setVariable("Media.Flash.Codepage","SJIS");
+
         // テンプレートのロード
         $almeida->load($template);
 
         //ヘッダー出力
         header("Content-type: application/x-shockwave-flash");
-        //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
 
         // Flash生成
         $almeida->generateFlash();
-
-        return true;
     }
 
 
