@@ -50,7 +50,7 @@ class NavigationsController extends AppController {
 		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@shimajiro-dev.com';
 
 		//メールタイトル設定
-		$mailTitle = $themes[0]['Theme']['title'];
+		$mailTitle = 'ベストショット';
 
 		$ua = $_SERVER['HTTP_USER_AGENT'];
 
