@@ -130,6 +130,7 @@ endforeach;
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <span style="color:#339933;">・</span>他の月の思い出を見る<br />
