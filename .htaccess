@@ -1,5 +1,19 @@
+AddType application/x-decomail-template .dmt
+
+AuthType Basic
+AuthName 'Input ID/Password'
+AuthUserFile /var/www/html/.htpasswd
+require valid-user
+
 <IfModule mod_rewrite.c>
    RewriteEngine on
    RewriteRule    ^$ app/webroot/    [L]
    RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>
+
+AddType application/x-smaf .mmf
+AddType application/x-mpeg .amc
+AddType video/3gpp2 .3g2
+#AddType audio/3gpp2 .3g2
+AddType video/3gpp .3gp
+#AddType audio/3gpp .3gp
