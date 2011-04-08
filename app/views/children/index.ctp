@@ -116,7 +116,7 @@ if (count($childrenData) < 3) {
 </table>
 
 <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
-	<?php echo $this->Html->link('会員限定プレゼント', '/presents/user_only'); ?>
+	<?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
 <?php endif; ?>
 <br />
 
