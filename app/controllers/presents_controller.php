@@ -6,14 +6,45 @@ class PresentsController extends AppController {
 	var $components = array('Qdmail');
 
 	function index($year = null, $month = null) {
+
+                if(empty($year)){
+                    $year = date('Y');
+                }
+                if(empty($month)){
+                    $month = date('m')+0;
+                }
+
 		$opt = array();
 		if ($year) {
-			$opt['year'] = $year;
+                    $opt['year'] = $year;
 		}
 		if ($month) {
-			$opt['month'] = $month;
+                    $opt['month'] = $month;
 		}
-		$presents = $this->Present->find('month', $opt);
+
+                //手入力防止（未来年月チェック）
+                if ($year > date('Y') or 
+                   ($year == date('Y') and $month > (date('m')+0))) {
+                    //未来月のページを表示時リダイレクト
+                    $this->redirect('/presents/');
+                }
+
+                //手入力防止（過去年月チェック）
+                $monthModel =& ClassRegistry::init('month');
+                $beforeOptions['order'] = array(
+                    '(month.year+0), (month.month+0) ASC'
+                );
+                $monthModel->contain();
+                $beforeFlag = $monthModel->find('first',$beforeOptions);
+                if ($year < $beforeFlag['month']['year'] or
+                   ($year == $beforeFlag['month']['year'] and $month < $beforeFlag['month']['month'])) {
+                    //未来月のページを表示時リダイレクト
+                    $this->redirect('/presents/');
+                }
+                $this->set('beforeFlag',$beforeFlag);
+
+                $opt['order'] = array('Present.present_type');
+                $presents = $this->Present->find('month', $opt);
 
 		$this->set(compact('presents', 'year', 'month'));
 	}

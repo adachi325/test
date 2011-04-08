@@ -68,6 +68,11 @@ class ThemesController extends AppController {
     function _monthsDataFind($options){
         $month =& ClassRegistry::init('Month');
         $months = $month->find('all',array('conditions' => $options));
+
+        //テーマ要素作成日順に入れ替える
+        $result = array_reverse($months['0']['Theme']);
+        $months['0']['Theme'] = $result;
+
         if (!empty($months)){
             $this->Session->write('setOptions', $options);
             $this->Session->write('monthData', $months);
