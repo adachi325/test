@@ -70,6 +70,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <div align="center" style="background:#e9f7ff; text-align:center;">
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
 <?php echo '全'.count($diaries).'件 '; ?>&nbsp;
@@ -159,7 +160,7 @@ if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 </tr>
 </table>
 
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array("width" => "228", "height" => "35")); ?></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array("width" => "228")); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
