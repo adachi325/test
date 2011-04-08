@@ -54,7 +54,7 @@ class PresentsController extends AppController {
 		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
-			$this->Session->setFlash('プレゼントの種類を指定してください');
+			//$this->Session->setFlash('プレゼントの種類を指定してください');
 			$this->redirect(array('action' => 'index'));
 		} else {
 			if ($type >= 0) {

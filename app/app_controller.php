@@ -64,9 +64,30 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai','Time','tk','Html', 'Form','Session','SelectOptions');
-	public $components = array('Ktai','Auth','Tk','Session','Transition','EasyLogin','CreatePresent');
-        public $layout = 'default';
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk');
+	public $components = array(
+		'Ktai',
+                'Tk',
+		'Auth',
+		'Session',
+		'Transition',
+		//'DebugKit.Toolbar',
+        'EasyLogin',
+        'Tk',
+		'CreatePresent',
+		'Secured.Ssl' => array(
+			'autoRedirect' => false,
+			'secured' => array(
+				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
+				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+			),
+			'allowed' => array(
+				'users' => array('login'),
+			),
+		),
+	);
+
+	public $layout = 'default';
 
        	//ktaiライブラリ設定
 	public $ktai = array(
