@@ -157,7 +157,7 @@ class PresentsController extends AppController {
 	function complete($type = null) {
 		$data = $this->Session->read('Present.data');
 
-		$child_id = $this->Session->read('Auth.User.last_selected_child');
+		$child_id = $this->Tk->_getLastChild();
 		$user_id = $this->Session->read('Auth.User.id');
 
 		$selected = array(
