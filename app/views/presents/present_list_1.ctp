@@ -11,12 +11,12 @@
 
 <tr>
 <td align="center" width="50%" height="30">
-<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("width" => "20", "height" => "20", "style" => "margin:5px 0;")); ?>
+<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
 </td>
 <td align="center" width="50%" height="30">
 <?php $i++; ?>
 <?php if (isset($items[$i])): ?>
-<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("width" => "20", "height" => "20", "style" => "margin:5px 0;")); ?>
+<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
 <?php endif; ?>
 </td>
 </tr>

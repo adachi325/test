@@ -16,7 +16,7 @@
 <td align="center" width="50%">
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/")));
+echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/"));
 ?>
 </td>
 
@@ -25,7 +25,7 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height"
 <?php if (isset($items[$i])): ?>
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/")));
+echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/"));
 ?>
 <?php endif; ?>
 </td>

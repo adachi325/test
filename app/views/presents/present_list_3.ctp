@@ -16,7 +16,7 @@
 <td align="center" width="50%">
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height" => "132", "style" => "margin:5px 0;", "url" => "/presents/select/postcard/{$id}/")));
+echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height" => "132", "style" => "margin:5px 0;", "url" => "/presents/select/postcard/{$id}/"));
 ?>
 </td>
 
@@ -25,7 +25,7 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height"
 <?php if (isset($items[$i])): ?>
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height" => "132", "style" => "margin:5px 0;", "url" => "/presents/select/postcard/{$id}/")));
+echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height" => "132", "style" => "margin:5px 0;", "url" => "/presents/select/postcard/{$id}/"));
 ?>
 <?php endif; ?>
 </td>
@@ -46,5 +46,10 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height"
 </td>
 </tr>
 </table>
+
+<?php else: ?>
+<p>登録されていません</p>
+<?php endif; ?>
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
