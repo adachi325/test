@@ -100,9 +100,9 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap">
 <?php $this->Ktai->emoji(0xE6DD); ?>
-</tr>
+</td>
 <td align="left">
-<span style="color:#ff9900;">･</span><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
+<?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
 </td>
 </tr>
 <?php endif; ?>
