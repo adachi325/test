@@ -85,7 +85,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
 <?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
 
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
