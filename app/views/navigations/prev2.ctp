@@ -8,7 +8,7 @@
 ご利用規約の内容をご確認の上､登録画面へお進み下さい｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
-<?php echo $this->Form->create('Navigation', array("url" => "/navigations/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Navigation', array("url" => "/navigations/register/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%">
 <tr>
 <td align="center">
