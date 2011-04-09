@@ -264,6 +264,8 @@ class ChildrenController extends AppController {
         
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
+
+        pr($this->data);
     }
 
     function edit_confirm(){
@@ -407,6 +409,9 @@ class ChildrenController extends AppController {
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']) )){
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
