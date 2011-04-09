@@ -175,6 +175,18 @@ class UsersController extends AppController {
                 $this->redirect('/users/edit_confirm');
             }
         }
+
+        //セッッション回収と削除
+        $data = $this->Session->read('userEditData');
+        if(!empty($data)){
+            $userData = $this->Auth->user();
+            $data['User']['loginid'] = $userData['User']['loginid'];
+            $data['User']['new_password'] = '';
+            $data['User']['row_password'] = '';
+            $this->data = $data;
+            $this->Session->delete('userEditData');
+        }
+
         //それでもデータが無ければデータベースから取得
         if(empty($this->data)){
             $userData = $this->Auth->user();
