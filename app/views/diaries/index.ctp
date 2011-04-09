@@ -27,12 +27,16 @@
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
 	}
 	?></td>
-<td width="33%"><?php echo $this->Html->image("obj01.gif", array("width" => "100%")); ?></td>
+<td width="33%">
+<?php echo $this->Html->image("album_obj1_{$month_label}.gif", array("width" => "100%")); ?>
+</td>
 </tr>
 </table>
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td width="33%" align="right"><?php echo $this->Html->image("obj02.gif", array("width" => "100%")); ?></td>
+<td width="33%" align="right">
+<?php echo $this->Html->image("album_obj2_{$month_label}.gif", array("width" => "100%")); ?>
+</td>
 <td width="33%"><?php
 	$i = 2;
 	if (isset($diaries[$i])) {
