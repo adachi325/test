@@ -175,6 +175,18 @@ class UsersController extends AppController {
                 $this->redirect('/users/edit_confirm');
             }
         }
+
+        //セッッション回収と削除
+        $data = $this->Session->read('userEditData');
+        if(!empty($data)){
+            $userData = $this->Auth->user();
+            $data['User']['loginid'] = $userData['User']['loginid'];
+            $data['User']['new_password'] = '';
+            $data['User']['row_password'] = '';
+            $this->data = $data;
+            $this->Session->delete('userEditData');
+        }
+
         //それでもデータが無ければデータベースから取得
         if(empty($this->data)){
             $userData = $this->Auth->user();
@@ -429,13 +441,15 @@ class UsersController extends AppController {
                     //会員削除に進む
                 } else {
                     TransactionManager::rollback();
-                    $this->Session->setFlash(__('退会に失敗しました。２', true));
-                    $this->redirect('/children/');
+                    //ログアウト
+                    $this->Auth->logout();
+                    $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+              //ログアウト
+              $this->Auth->logout();
+              $this->redirect('/');
             }
 
             
@@ -466,16 +480,18 @@ class UsersController extends AppController {
             TransactionManager::begin();
             if ($this->User->deleteAll($deleteUserCondition)) {
                 TransactionManager::commit();
-                $this->Session->setFlash(__('削除完了。', true));
+                //$this->Session->setFlash(__('削除完了。', true));
             } else {
                 TransactionManager::rollback();
-                $this->Session->setFlash(__('退会に失敗しました。１', true));
-                $this->redirect('/children/');
+                //ログアウト
+                $this->Auth->logout();
+                $this->redirect('/');
             }
         } catch(Exception $e) {
           TransactionManager::rollback();
-          $this->Session->setFlash(__('システムエラー。', true));
-          $this->redirect('/children/');
+          //ログアウト
+          $this->Auth->logout();
+          $this->redirect('/');
         }
 
         //ログアウト

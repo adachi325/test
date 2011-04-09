@@ -11,6 +11,7 @@ extract($this->data['User']);
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/edit?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $form->hidden('loginid', array('value'=> $loginid)); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>
