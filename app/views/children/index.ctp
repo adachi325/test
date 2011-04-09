@@ -92,10 +92,20 @@ if (count($childrenData) < 3) {
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Html->image("txt_info.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
-<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
-<span style="color:#ff9900;">･</span><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
-<?php endif; ?>
+
+
 <table width="100%" cellpadding="0" cellspacing="0">
+
+<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
+<tr>
+<td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap">
+<?php $this->Ktai->emoji(0xE6DD); ?>
+</tr>
+<td align="left">
+<span style="color:#ff9900;">･</span><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
+</td>
+</tr>
+<?php endif; ?>
 
 <?php foreach($newslist as $news): ?>
 <tr>
@@ -107,7 +117,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
 </span></td>
 <td align="left">
-<span style="font-size:x-small;"> <?php echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']); ?> </span>
+<span style="font-size:x-small;"><?php echo  $this->Wikiformat->makeLink($news['news']['title']); ?></span>
 </td>
 </tr>
 <?php endforeach; ?>

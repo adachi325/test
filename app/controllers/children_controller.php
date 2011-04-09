@@ -3,6 +3,7 @@
 class ChildrenController extends AppController {
 
     var $name = 'Children';
+	var $helpers = array('Wikiformat.Wikiformat');
 
     function beforeFilter() {
         parent::beforeFilter();
