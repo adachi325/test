@@ -109,11 +109,6 @@ class ApController extends AppController {
 
 		$this->ktai['enable_ktai_session'] = false;
 
-		if ($data === false) {
-			$this->cakeError('error404');
-			return;
-		}
-
 		if ($this->Ktai->is_imode()) {
 			$filepath = WWW_ROOT."ap/member/{$id}/index.html";
 		} elseif ($this->Ktai->is_softbank()) {
