@@ -37,14 +37,15 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('birth_year', array(
 		'options' => $this->SelectOptions->getOption(array(
-			'min' => date('Y') - Configure::read('Child.birthday_years'), 
+			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
 		'div' => false,
 		'label' => false,
+                'error' => false,
 		'style' => 'font-size:x-small;',
-	)) ?> 年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
+	)) ?> 年 <br /><?php echo $form->error('birth_year'); ?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -53,8 +54,9 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'empty' => '------',
 		'div' => false,
 		'label' => false,
+                'error' => false,
 		'style' => 'font-size:x-small;',
-	)) ?> 月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
+	)) ?> 月<br /><?php echo $form->error('birth_month'); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
