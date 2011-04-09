@@ -84,10 +84,6 @@ class NavigationsController extends AppController {
 			return;
 		}
 
-		if(!empty($diaries['Diary']['error_code'])){
-			$this->render('after2_failure');
-		}
-
 	}
 
 	function getUserData(){
