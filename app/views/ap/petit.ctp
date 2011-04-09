@@ -63,5 +63,5 @@
 </tr>
 </table>
 
-<?php $this->element('room'); ?>
+<?php echo $this->element('default/room'); ?>
 
