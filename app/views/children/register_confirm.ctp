@@ -59,7 +59,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $form->end('登録');?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $form->create('Child', array('url' => '/children/edit?guid=ON'));?>
+<?php echo $form->create('Child', array('url' => '/children/register?guid=ON'));?>
 <?php echo $form->end('戻る');?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
