@@ -47,7 +47,9 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id']
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.has_image' => 1,
+                    'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
