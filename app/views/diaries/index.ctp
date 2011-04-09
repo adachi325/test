@@ -9,8 +9,8 @@
 <tr>
 <td width="33%"><?php
 	$i = 0;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
@@ -19,8 +19,8 @@
 	?></td>
 <td width="33%"><?php
 	$i = 1;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
@@ -39,8 +39,8 @@
 </td>
 <td width="33%"><?php
 	$i = 2;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
@@ -49,8 +49,8 @@
 	?></td>
 <td width="33%"><?php
 	$i = 3;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;

@@ -44,6 +44,21 @@ class DiariesController extends AppController {
         $months = $month->find('all',array('conditions' => $setOptions));
 
         if(!empty($months)){
+            $conditions;
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.has_image' => 1,
+                    'Diary.error_code' => null
+                ),
+                'order'=>array('Diary.created DESC')
+            );
+            //表示データ一覧取得
+            $diariesTop = $this->Diary->find('all', $conditions);
+            $this->set(compact('diariesTop'));
+
+            $conditions;
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -76,7 +91,12 @@ class DiariesController extends AppController {
     }
 
     function checkPost($hash = null){
+
         //hashを確認し、データがなければリダイレクト
+        if(!empty($this->data['Diary']['nexthash'])){
+            $hash=$this->data['Diary']['nexthash'];
+        }
+
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
@@ -86,7 +106,8 @@ class DiariesController extends AppController {
             'conditions' => array(
                 'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.hash' => $hash
-            )
+            ),
+            'order'=>array('Diary.created DESC')
         );
         $diary = $this->Diary->find('first', $conditions);
         $this->set(compact('diary'));

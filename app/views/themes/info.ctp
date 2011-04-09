@@ -49,7 +49,7 @@ if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<a href="<?php echo $this->Html->url('/diaries/checkPost/'); ?>" style="color:#339900;"><span style="color:#339900;font-size:medium">②思い出記録を確認する</span></a><br />
+<a href="<?php echo $this->Html->url('/diaries/checkPost/'.$nexthash); ?>" style="color:#339900;"><span style="color:#339900;font-size:medium">②思い出記録を確認する</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
