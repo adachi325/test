@@ -26,7 +26,7 @@ echo $this->Session->flash('auth');;
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
-
+<?php echo $form->text('loginid', array('istyle'=>'3')) ?>
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
