@@ -13,7 +13,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
 
-<?php echo $this->Form->create('Navigation', array("url" => "/navigation/after2/".$nexthash, "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Navigation', array("url" => "/navigation/after2/".$nexthash.'/?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="center">
