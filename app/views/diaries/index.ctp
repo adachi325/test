@@ -28,14 +28,14 @@
 	}
 	?></td>
 <td width="33%">
-<?php echo $this->Html->image("album_obj1_{$month_label}.gif", array("width" => "100%")); ?>
+<?php echo $this->Html->image("album_obj01_{$month_label}.gif", array("width" => "100%")); ?>
 </td>
 </tr>
 </table>
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td width="33%" align="right">
-<?php echo $this->Html->image("album_obj2_{$month_label}.gif", array("width" => "100%")); ?>
+<?php echo $this->Html->image("album_obj02_{$month_label}.gif", array("width" => "100%")); ?>
 </td>
 <td width="33%"><?php
 	$i = 2;
