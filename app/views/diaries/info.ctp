@@ -44,7 +44,7 @@ if ($diary['Diary']['has_image']) {
 </tr>
 <tr>
 <td align="right"><span style="font-size:x-small; color:#666666;">
-<?php echo $this->Time->format('n月d日', $diary['Diary']['created']); ?>
+<?php echo $this->Time->format('n月j日', $diary['Diary']['created']); ?>
 </span></td>
 </tr>
 </table><br />
