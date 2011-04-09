@@ -18,11 +18,11 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="15%"><?php echo $this->Html->image("sample/first/60pic_pingpong-hello.gif", array("style" => "margin:5px 0;")); ?></td>
-<td><a href="<?php echo $this->Html->url('/files/member_flash/pingpong-hello/200907_pingpong-hello.swf'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾋﾟﾝﾎﾟｰﾝでこんにちは</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/0-3_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾋﾟﾝﾎﾟｰﾝでこんにちは</span></a></td>
 </tr>
 <tr>
 <td width="15%"><?php echo $this->Html->image("sample/first/60pic_one_button.gif", array("style" => "margin:5px 0;")); ?></td>
-<td><a href="<?php echo $this->Html->url('/files/member_flash/one_button/one_button_game.swf'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾜﾝﾎﾞﾀﾝｹﾞｰﾑ</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/0-3_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾜﾝﾎﾞﾀﾝｹﾞｰﾑ</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -31,11 +31,11 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="15%"><?php echo $this->Html->image("sample/first/60pic_lunch.gif", array("style" => "margin:5px 0;")); ?></td>
-<td><a href="<?php echo $this->Html->url('/files/member_flash/lunch/200906_lunch.swf'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾗﾝﾁをｹﾞｯﾄ大作戦</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/4-6_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾗﾝﾁをｹﾞｯﾄ大作戦</span></a></td>
 </tr>
 <tr>
 <td width="15%"><?php echo $this->Html->image("sample/first/60pic_memorygame.gif", array("style" => "margin:5px 0;")); ?></td>
-<td><a href="<?php echo $this->Html->url('/files/member_flash/memorygame/memory.swf'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾒﾓﾘｰｹﾞｰﾑ</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/4-6_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">【Flash】ﾒﾓﾘｰｹﾞｰﾑ</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

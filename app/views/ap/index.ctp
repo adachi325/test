@@ -1,3 +1,6 @@
+
+
+
 <h1><?php echo h($title); ?></h1>
 <ul>
 <?php foreach ($issues as $issue): ?>

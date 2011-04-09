@@ -21,9 +21,13 @@ class ApController extends AppController {
 
 	function petit($id = null) {
 		if ($id) {
-			$this->__view($this->params['action'], $id);
+			if ($id === 'index') {
+				$this->__index($this->params['action']);
+			} else {
+				$this->__view($this->params['action'], $id);
+			}
 		} else {
-			$this->__index($this->params['action']);
+			$this->render("petit");
 		}
 	}
 
@@ -58,7 +62,15 @@ class ApController extends AppController {
 			$this->__index($this->params['action']);
 		}
 	}
-	
+
+	function member($id = null) {
+		if ($id) {
+			$this->__member_view($id);
+		} else {
+			$this->cakeError('error404');
+		}
+	}
+
 	function __index($line = null) {
 
 		extract($this->params);	
@@ -89,6 +101,26 @@ class ApController extends AppController {
 		$this->render('index');		
 	}
 
+	function __member_view($id = null) {
+
+		if(empty($id)) {
+			$this->cakeError('error404');
+		}
+
+		$this->ktai['enable_ktai_session'] = false;
+
+		if ($this->Ktai->is_imode()) {
+			$filepath = WWW_ROOT."ap/member/{$id}/index.html";
+		} elseif ($this->Ktai->is_softbank()) {
+			$filepath = WWW_ROOT."ap/member/{$id}/index.softbank.html";
+		} elseif ($this->Ktai->is_ezweb()) {
+			$filepath = WWW_ROOT."ap/member/{$id}/index.au.html";
+		}
+		
+		$this->set(compact('filepath'));
+		$this->layout = 'contents';
+		$this->render("view");
+	}
 
 	function __view($line = null, $id = null) {
 
