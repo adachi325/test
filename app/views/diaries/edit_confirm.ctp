@@ -28,6 +28,7 @@ if ($this->data['Diary']['has_image']) {
 <td align="center">
 <?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_complete?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->submit("変更"); ?><br />
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->create('Diary', array("url" => "/diaries/edit?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->submit("戻る"); ?>
