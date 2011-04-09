@@ -82,7 +82,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■下記の会員の場合はﾁｪｯｸを入れてください｡</span><br />
-<?php echo $this->Form->input("benesse_user", array("type" => "checkbox")); ?>こどもちゃれんじ<br />
+<?php echo $this->Form->input("benesse_user", array("type" => "checkbox", 'div' => false, 'label' => false)); ?>こどもちゃれんじ<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
