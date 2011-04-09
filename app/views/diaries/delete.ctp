@@ -7,16 +7,22 @@
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center">
-<span style="color:#ff6666;font-size:x-small;">初めてのハイハイ!</span><br />
+<span style="color:#ff6666;font-size:x-small;"><?php echo h($this->data['Diary']['title']); ?></span><br />
 </td>
 </tr>
 <tr>
 <td align="center">
-<?php echo $this->Html->image("memory_pic.jpg", array("style" => "margin:10px 0;")); ?><br />
+<?php 
+if ($this->data['Diary']['has_image']) {
+	echo $this->Html->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']), array("style" => "margin:10px 0;"));
+} else {
+	echo $this->Html->image("memory_pic.jpg", array("style" => "margin:10px 0;")); 
+}
+?><br />
 </td>
 </tr>
 <tr>
-<td align="left"><span style="font-size:x-small; color:#333333;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span></td>
+<td align="left"><span style="font-size:x-small; color:#333333;"><?php echo h($this->data['Diary']['body']); ?></span></td>
 </tr>
 <tr>
 <td align="center">

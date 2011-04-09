@@ -7,7 +7,7 @@
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center">
-<span style="color:#ff6666;font-size:x-small;">初めてのハイハイ!</span><br />
+<span style="color:#ff6666;font-size:x-small;"> <?php echo h($this->data['Diary']['title']); ?> </span><br />
 </td>
 </tr>
 <tr>

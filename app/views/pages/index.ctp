@@ -25,31 +25,45 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <?php foreach($newslist as $news): ?>
-        <?php
-            echo "<p>";
-            echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']);
-            echo "</p>";
-        ?>
- 
 <tr>
-<td width="50" valign="top"><span style="font-size:x-small;"><span style="color:#ff9900;">・</span>5/1</span></td>
-<td align="left"><a href="#" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">おしらせおしらせおしらせおしらせ</span></a></td>
+<td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
+<span style="color:#ff9900;">
+<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+</span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
+</td>
+<td align="left">
+<span style="font-size:x-small;"><?php echo  $this->Wikiformat->makeLink($news['news']['title']); ?></span>
+</td>
 </tr>
-
 <?php endforeach; ?>
+
 </table>
 
-<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
-<?php echo $this->Html->image("txt_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_challenge.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
+
 <?php echo $this->Html->image("dummy.gif", array("width" => "58", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
-&lt;こどもちゃれんじ&gt;教材と連動したｺﾝﾃﾝﾂが楽しめる!<br clear="all" />
+&lt;こどもちゃれんじ&gt;教材と連動した年齢別ｺﾝﾃﾝﾂが楽しめる!<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
-<?php echo $this->Html->image("dot_line_orrange.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
-<?php echo $this->Html->image("txt_memory.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "58", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>子どもの成長がかわいく残せる!写真を撮って思い出記録を書こう♪<br clear="all" />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
+
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_album.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_memory.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
+<?php echo $this->Html->image("dummy.gif", array("width" => "58", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>お子さんの成長がかわいく残せる!写真がたまるとﾎﾟｽﾄｶｰﾄﾞに♪<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></div>
 
 <div align="center" style="text-align:center;"><a href="<?php echo $this->Html->url('/navigations/prev/1');?>"><span style="color:#ff6600;">更に詳しく見る</span></a><span style="color:#cc0000;"><?php $this->Ktai->emoji(0xE6F5); ?></span></div>
@@ -61,8 +75,14 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
 
-<?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
-<?php echo $this->Html->image("txt_course.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 <span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/baby/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">0～1歳向け baby/ぷちﾌｧｰｽﾄ</span></a><br />
 <span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">1～2歳向け ぷち</span></a><br />
 <span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">2～3歳向け ぽけっと</span></a><br />
@@ -70,16 +90,23 @@
 <span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">4～5歳向け すてっぷ</span></a><br />
 <span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">5～6歳向け じゃんぷ</span></a>
 
-<div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
-<?php echo $this->Html->image("line_obj02.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0")); ?></a></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array()); ?></div>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
+<span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
 毎週月曜､朝7:30～8:00放送!<br />
 新ｶﾝｶｸ☆ｷｯｽﾞ・ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
-&lt;こどもちゃんれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
+<span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
+&lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <br />
