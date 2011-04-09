@@ -95,11 +95,10 @@ class NavigationsController extends AppController {
 	}
 
 	function register(){
-
 		//同意しているかチェック
 		if(empty($this->data) or
-			$this->data['navigations']['agree'] == 0){
-				$this->Session->setFlash(__('利用規約に同意してください。', true));
+			$this->data['Navigation']['agree'] == 0){
+				//$this->Session->setFlash(__('利用規約に同意してください。', true));
 				$this->Session->write('previd' , '2');
 				$this->redirect('/navigations/prev');
 			}

@@ -425,6 +425,7 @@ class UsersController extends AppController {
             try {
                 $Children->contain('Diary','ChildPresent');
                 if ($Children->deleteAll($deleteChildCondition)) {
+                    TransactionManager::commit();
                     //会員削除に進む
                 } else {
                     TransactionManager::rollback();
@@ -447,6 +448,9 @@ class UsersController extends AppController {
                     if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['id'],$diary['id']) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
             }
         }
@@ -455,6 +459,7 @@ class UsersController extends AppController {
         $deleteUserCondition = array("id" => $userData['User']['id']);
         try {
             $this->User->contain();
+            TransactionManager::begin();
             if ($this->User->deleteAll($deleteUserCondition)) {
                 TransactionManager::commit();
                 $this->Session->setFlash(__('削除完了。', true));
