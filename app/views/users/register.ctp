@@ -79,7 +79,7 @@ if ($this->data) {
 <span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('Child.0.birth_year', array(
 		'options' => $this->SelectOptions->getOption(array(
-			'min' => date('Y') - Configure::read('Child.0.birthday_years'),
+			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
