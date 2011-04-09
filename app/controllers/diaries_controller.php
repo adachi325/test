@@ -273,11 +273,20 @@ class DiariesController extends AppController {
             }
 
             if($diary['Diary']['has_image']) {
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id) )){
-                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id) )){
-                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
+                }
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child_id,$id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child_id,$id) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
             }
             //削除した思い出の月へ戻る
