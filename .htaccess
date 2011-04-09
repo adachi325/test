@@ -1,4 +1,6 @@
 AddType application/x-decomail-template .dmt
+AddType application/x-kddi-htmlmail .khm
+AddType application/x-htmlmail-template .hmt
 
 AuthType Basic
 AuthName 'Input ID/Password'
