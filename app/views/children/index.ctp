@@ -222,6 +222,8 @@ if (count($childrenData) < 3) {
 
 <?php endforeach; ?>
 
+<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
+
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
 <!-- 今月のプレゼント -->
