@@ -264,8 +264,6 @@ class ChildrenController extends AppController {
         
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
-
-        pr($this->data);
     }
 
     function edit_confirm(){
@@ -333,8 +331,6 @@ class ChildrenController extends AppController {
     }
     
     function delete() {
-
-        pr ($this->data);
 
         if(!empty($this->data)){
             $this->Session->write('check',$this->data);

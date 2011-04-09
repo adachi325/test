@@ -39,6 +39,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
+			'reverse' => true,
 			'suffix' => '')),
         'empty' => '------',
 		'div' => false,
