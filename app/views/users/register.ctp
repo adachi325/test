@@ -84,7 +84,7 @@ if (!empty($this->data['Child'][0]['sex'])) {
 			'suffix' => '')),
         'empty' => '------',
 		'class' => 'f_bir',
-                'error' => false,
+        'error' => false,
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
@@ -96,12 +96,11 @@ if (!empty($this->data['Child'][0]['sex'])) {
 			'suffix' => '',)),
         'empty' => '------',
 		'class' => 'f_bir',
-                'error' => false,
+        'error' => false,
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('Child.0.birth_month'); ?>
-
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
