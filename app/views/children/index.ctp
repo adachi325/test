@@ -1,6 +1,5 @@
 <div style="background:#339933;">
 <?php echo $this->Html->image("top_nypage_main.gif", array("width" => "100%")); ?><br />
-
 <!-- タブ -->
 <?php
 $i = 0;
@@ -23,9 +22,11 @@ if (count($childrenData) < 3) {
 	echo $html->image('tab_btn0'.(count($childrenData) + 1).'_plus.gif', array_merge($opt, array('url' => "/children/register/")));
 }
 ?>
+</div>
 
 <!-- 子供情報 -->
 <div align="center" style="background:<?php echo sprintf(Configure::read('Child.child_tab_color.'.$tabColId)); ?>; text-align:center;">
+
 <table width="95%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="30%" rowspan="5">
@@ -85,14 +86,20 @@ if (count($childrenData) < 3) {
 </tr>
 
 </table>
-</div>
+
 <!-- お知らせ -->
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
+
 </div>
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php echo $this->Html->image("txt_info.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
 
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_info.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_info.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 
@@ -124,13 +131,13 @@ if (count($childrenData) < 3) {
 <br />
 
 <!-- 思い出記録 -->
-
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
 
+<div align="center" style="background:#e9f7ff; text-align:center;">
 <?php $month_label = date('n'); ?>
 <?php echo $this->Html->image("album_{$month_label}.gif", array("width" => "100%")); ?><br />
 
-<div align="center" style="background:#e9f7ff; text-align:center;">
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 
@@ -192,22 +199,37 @@ if (count($childrenData) < 3) {
 
 <!-- 思い出を見る -->
 
-<?php echo $this->Html->image("txt_look.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_album.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_look.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/');?>" style="color:#339900;"><span style="color:#339900;">思い出記録をもっと見る</span></a><br />
 
 <!-- 思い出を形に残す -->
 
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<?php echo $this->Html->image("txt_leave.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_leave.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_leave.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <!-- 思い出を書く -->
 
-<?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_write.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_write.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 
 <?php foreach($months as $month): ?>
 
@@ -224,17 +246,19 @@ if (count($childrenData) < 3) {
 <?php endforeach; ?>
 
 <?php endforeach; ?>
-
 <div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
 
-<?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array("width" => "228", "height" => "35")); ?></div>
 
 <!-- 今月のプレゼント -->
-<?php echo $this->Html->image("txt_present.gif"); ?><br />
-
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 <?php foreach($months as $month): ?>
 	<?php
-       
 	$f = true;
 	if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
 		<?php foreach($month['Present'] as $present): ?>
@@ -251,24 +275,35 @@ if (count($childrenData) < 3) {
 <?php endforeach; ?>
 思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞ､ﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?>
 <a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div><br clear="all" />
-
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <!-- 非会員限定のご案内 -->
 <?php if (true): ?>
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<?php echo $this->Html->image("txt_comunity.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
-
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_comunity.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_comunity.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 <span style="font-size:x-small;">お子様の思い出を､家族や友達と共有できます｡詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/'); ?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
 <a name="all" id="all"></a>
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
-<?php echo $this->Html->image("txt_challenge_more.gif", array("style" => "margin-bottom:5px;")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_challenge_more.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 
 <!-- ライン別の内容 -->
 <?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
@@ -278,7 +313,12 @@ if (count($childrenData) < 3) {
 
 <?php echo $this->Html->image("line_obj02.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 <span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
 毎週月曜､朝7:30～8:00放送!<br />
 新ｶﾝｶｸ☆ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ｡<br />
@@ -291,6 +331,7 @@ if (count($childrenData) < 3) {
 <!-- 設定 -->
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("icn_spana.gif"); ?><span style="font-size:x-small;"><?php echo h($this->Session->read('Auth.User.loginid')); ?>さんの設定</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
