@@ -16,7 +16,7 @@
 <?php echo $this->Form->end(); ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Form->create('User', array("url" => "/users/index?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('User', array("url" => "/children/index?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->submit("ﾌﾟﾛﾌｨｰﾙを削除しない"); ?><br />
 <?php echo $this->Form->end(); ?>
 </td>
