@@ -43,6 +43,15 @@
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
+<?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
+<?php else: ?>
+<p>会員登録すると、他の教材ｺﾝﾃﾝﾂやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
+<?php echo $this->Form->create('Page', array('url' => '/pages/display/?guid=ON')); ?>
+<div align="center" style="text-align:center;"><?php echo $this->Form->submit('ｻｰﾋﾞｽｲﾒｰｼﾞを見る'); ?></div>
+<?php echo $this->Form->end(); ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+<?php endif; ?>
+
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
@@ -50,14 +59,6 @@
 </tr>
 </table>
 
-<?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
-<?php else: ?>
-
-<p>会員登録すると、他の教材ｺﾝﾃﾝﾂやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
-<?php echo $this->Form->create('Page', array('url' => '/pages/display/?guid=ON')); ?>
-<div align="center" style="text-align:center;"><?php echo $this->Form->submit('ｻｰﾋﾞｽｲﾒｰｼﾞを見る'); ?></div>
-<?php echo $this->Form->end(); ?>
-<?php endif; ?>
 
 <?php echo $this->element('default/room'); ?>
 
