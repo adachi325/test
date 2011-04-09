@@ -83,7 +83,8 @@ if ($this->data) {
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>年 <br /><?php echo $form->error('Child.0.birth_year','必須項目です'); ?>
 <?php echo $this->Form->input('Child.0.birth_month', array(
@@ -92,7 +93,8 @@ if ($this->data) {
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('Child.0.birth_month','必須項目です'); ?>
 
