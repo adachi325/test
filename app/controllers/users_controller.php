@@ -16,9 +16,6 @@ class UsersController extends AppController {
 
     function beforeRender() {
         parent::beforeRender();
-
-        $this->Auth->loginError = 'パスワードが違います。';
-        $this->Auth->authError =  'ログインしてください';
         $this->User->recursive = 0;
     }
 

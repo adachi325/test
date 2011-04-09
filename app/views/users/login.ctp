@@ -1,4 +1,3 @@
-
 <div style="background:#ff6600;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:small;font-weight:bold; color:#ffffff;">ﾛｸﾞｲﾝ</span><br />
@@ -8,6 +7,12 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してくだい｡<br />
+<font color="#dd0000">
+<?php
+echo $this->Session->flash();
+echo $this->Session->flash('auth');
+?>
+</font>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
