@@ -22,11 +22,10 @@ echo $this->Session->flash('auth');;
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><br />
 <span style="color:#666666;">半角英数字4-12文字</span><br />
-<?php echo $this->Form->input("loginid", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("loginid", array("type" => "text", "style" => "font-size:x-small;", $this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
-<?php echo $form->text('loginid', array('istyle'=>'3')) ?>
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
