@@ -43,10 +43,16 @@ class PresentsController extends AppController {
                 $beforeFlag = $monthModel->find('first',$beforeOptions);
                 if ($year < $beforeFlag['month']['year'] or
                    ($year == $beforeFlag['month']['year'] and $month < $beforeFlag['month']['month'])) {
-                    //未来月のページを表示時リダイレクト
+                    //過去年月のページを表示時リダイレクト
                     $this->redirect('/presents/');
                 }
                 $this->set('beforeFlag',$beforeFlag);
+
+                //年月を設定
+                $setOptions['year'] = $year;
+                $setOptions['month'] = $month;
+                //思い出投稿時用にセッションに設定
+                $this->Session->write('setOptions', $setOptions);
 
                 $opt['order'] = array('Present.present_type');
                 $presents = $this->Present->find('month', $opt);
