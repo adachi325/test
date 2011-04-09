@@ -429,13 +429,15 @@ class UsersController extends AppController {
                     //会員削除に進む
                 } else {
                     TransactionManager::rollback();
-                    $this->Session->setFlash(__('退会に失敗しました。２', true));
-                    $this->redirect('/children/');
+                    //ログアウト
+                    $this->Auth->logout();
+                    $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+              //ログアウト
+              $this->Auth->logout();
+              $this->redirect('/');
             }
 
             
@@ -466,16 +468,18 @@ class UsersController extends AppController {
             TransactionManager::begin();
             if ($this->User->deleteAll($deleteUserCondition)) {
                 TransactionManager::commit();
-                $this->Session->setFlash(__('削除完了。', true));
+                //$this->Session->setFlash(__('削除完了。', true));
             } else {
                 TransactionManager::rollback();
-                $this->Session->setFlash(__('退会に失敗しました。１', true));
-                $this->redirect('/children/');
+                //ログアウト
+                $this->Auth->logout();
+                $this->redirect('/');
             }
         } catch(Exception $e) {
           TransactionManager::rollback();
-          $this->Session->setFlash(__('システムエラー。', true));
-          $this->redirect('/children/');
+          //ログアウト
+          $this->Auth->logout();
+          $this->redirect('/');
         }
 
         //ログアウト
