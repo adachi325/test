@@ -92,7 +92,11 @@ if ($type === 2) {
 </div>
 <?php endif; ?>
 
+<?php if(!empty($diary['Diary']['present_id'])) : ?>
+
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+
+<?php endif; ?>
 
 <?php if (isset($text)): ?>
 <span style="color:#339933;">・</span>

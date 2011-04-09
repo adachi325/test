@@ -78,11 +78,11 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#all" style="color:#cc6600;"><span style="color:#cc6600;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></span></a></span></td>
+<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#contents" style="color:#cc6600;"><span style="color:#cc6600;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></span></a></span></td>
 </tr>
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_present.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></span></td>
+<span style="font-size:x-small;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span></td>
 </tr>
 
 </table>
@@ -235,7 +235,8 @@ if (count($childrenData) < 3) {
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if (!$theme['free_theme']): ?>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
+<span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 <?php endforeach; ?>
 
@@ -294,7 +295,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
-<a name="all" id="all"></a>
+<a name="contents" id="contents"></a>
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
