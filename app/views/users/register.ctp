@@ -78,25 +78,27 @@ if ($this->data) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('Child.0.birth_year', array(
-		'options' => $this->SelectOptions->getOption(array(
-			'min' => date('Y') - Configure::read('Child.0.birthday_years'),
-			'max' => date('Y'), 
-			'suffix' => '')),
-        'empty' => '------',
-		'class' => 'f_bir',
-                'error' => false,
-		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><?php echo $form->error('Child.0.birth_year'); ?>
+			'options' => $this->SelectOptions->getOption(array(
+					'min' => date('Y') - Configure::read('Child.0.birthday_years'),
+					'max' => date('Y'), 
+					'suffix' => '')),
+			'empty' => '------',
+			'error' => false,
+			'div' => false,
+			'label' => false,
+			'style' => 'font-size:x-small;',
+			)) ?>年 <br /><?php echo $form->error('Child.0.birth_year'); ?>
 <?php echo $this->Form->input('Child.0.birth_month', array(
-		'options' => $this->SelectOptions->getOption(array(
-			'min' => 1, 
-			'max' => 12, 
-			'suffix' => '',)),
-        'empty' => '------',
-		'class' => 'f_bir',
-                'error' => false,
-		'style' => 'font-size:x-small;',
-	)) ?>月<br /><?php echo $form->error('Child.0.birth_month'); ?>
+			'options' => $this->SelectOptions->getOption(array(
+					'min' => 1, 
+					'max' => 12, 
+					'suffix' => '',)),
+			'empty' => '------',
+			'error' => false,
+			'div' => false,
+			'label' => false,
+			'style' => 'font-size:x-small;',
+			)) ?>月<br /><?php echo $form->error('Child.0.birth_month'); ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
