@@ -91,7 +91,12 @@ class DiariesController extends AppController {
     }
 
     function checkPost($hash = null){
+
         //hashを確認し、データがなければリダイレクト
+        if(!empty($this->data['Diary']['nexthash'])){
+            $hash=$this->data['Diary']['nexthash'];
+        }
+
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
             $this->redirect('/children/');
@@ -101,7 +106,8 @@ class DiariesController extends AppController {
             'conditions' => array(
                 'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.hash' => $hash
-            )
+            ),
+            'order'=>array('Diary.created DESC')
         );
         $diary = $this->Diary->find('first', $conditions);
         $this->set(compact('diary'));
