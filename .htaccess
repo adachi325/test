@@ -1,4 +1,5 @@
 AddType application/x-decomail-template .dmt
+AddType application/xhtml+xml .html
 
 AuthType Basic
 AuthName 'Input ID/Password'
