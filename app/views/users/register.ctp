@@ -58,8 +58,13 @@
 <span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 
 <?php
-$value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
-$value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
+if ($this->data) {
+	$value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
+	$value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
+} else {
+	$value1 = 'none';
+	$value2 = 'none';
+}
 ?>
 <?php echo $this->Form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('Child.0.sex', array('2' => ''), array('legend' => false,'value' => $value2)); ?>男の子<br /> 
@@ -78,7 +83,8 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 			'max' => date('Y'), 
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>年 <br /><?php echo $form->error('Child.0.birth_year','必須項目です'); ?>
 <?php echo $this->Form->input('Child.0.birth_month', array(
@@ -87,7 +93,8 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('Child.0.birth_month','必須項目です'); ?>
 
