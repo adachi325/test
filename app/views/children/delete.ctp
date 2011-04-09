@@ -12,12 +12,12 @@
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit('削除', array('div' => false, 'label' => false)); ?>
-<?php $this->Form->end(); ?>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
 <?php echo $this->Form->create('Child', array('url' => '/children/index?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false))); ?>
 <?php echo $this->Form->submit('ｷｬﾝｾﾙ', array('div' => false, 'label' => false)); ?>
-<?php $this->Form->end(); ?>
+<?php echo $this->Form->end(); ?>
 </td>
 </tr>
 </table>
