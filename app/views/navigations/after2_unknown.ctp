@@ -12,8 +12,8 @@
 2､3の場合は､しばらく経ってから下の｢更新する｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
-
-<?php echo $this->Form->create('Navigation', array("url" => "/navigation/after2/".$nexthash.'/?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Navigation', array("url" => '/navigations/after2/?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $form->hidden('nexthash', array('value'=> $nexthash)); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="center">
