@@ -59,12 +59,10 @@
 
 <?php
 if (!empty($this->data['Child'][0]['sex'])) {
-	$value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
-	$value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
-} else {
-	$value1 = 'none';
-	$value2 = 'none';
+	$this->data['Child'][0]['sex'] = 0;
 }
+$value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
+$value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('Child.0.sex', array('2' => ''), array('legend' => false,'value' => $value2)); ?>男の子<br /> 
@@ -81,9 +79,9 @@ if (!empty($this->data['Child'][0]['sex'])) {
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
+			'reverse' => true,			
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
         'error' => false,
 		'div' => false,
 		'label' => false,
@@ -95,7 +93,6 @@ if (!empty($this->data['Child'][0]['sex'])) {
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
         'error' => false,
 		'div' => false,
 		'label' => false,
