@@ -3,7 +3,7 @@
 
 <?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?>
 
-<span style="color:#339933;">・</span>5月の思い出ﾃｰﾏに沿って書く<br />
+<span style="color:#339933;">・</span><?php echo $months['0']['Month']['month'] ?>月の思い出ﾃｰﾏに沿って書く<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php foreach($months as $month): ?>
