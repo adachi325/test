@@ -44,6 +44,21 @@ class DiariesController extends AppController {
         $months = $month->find('all',array('conditions' => $setOptions));
 
         if(!empty($months)){
+            $conditions;
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.has_image' => 1,
+                    'Diary.error_code' => null
+                ),
+                'order'=>array('Diary.created DESC')
+            );
+            //表示データ一覧取得
+            $diariesTop = $this->Diary->find('all', $conditions);
+            $this->set(compact('diariesTop'));
+
+            $conditions;
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
