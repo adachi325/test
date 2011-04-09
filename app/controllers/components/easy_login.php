@@ -99,7 +99,7 @@ class EasyLoginComponent extends Object {
                     $result = $this->_getCareer();
                     if( $result == 0 or $result == 1 or $result == 2 ){
                         //【追加対応】ログイン処理にきてuidが取れない端末はエラー画面でその内容を表示
-                        //$this->cakeError('error404');
+                        $this->cakeError('error404');
                         return;
                     }
                 }
