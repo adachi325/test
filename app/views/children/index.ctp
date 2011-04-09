@@ -111,11 +111,9 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
-<span style="color:#ff9900;">･</span>
-<?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : ''; ?>
-</span>
-<?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
-</span></td>
+<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+</span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
+</td>
 <td align="left">
 <span style="font-size:x-small;"><?php echo  $this->Wikiformat->makeLink($news['news']['title']); ?></span>
 </td>
@@ -276,7 +274,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
 <!-- ライン別ここまで -->
 
-<div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:5px 0 0;")); ?></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:5px 0 0;")); ?></a></div>
 
 <?php echo $this->Html->image("line_obj02.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
