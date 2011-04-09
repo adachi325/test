@@ -24,7 +24,7 @@ echo '</table>';
 endif;
 ?>
 
-<div align="right" style="text-align:right;"><span style="color:#cc0000;">・</span><a href="<?php echo $this->Html->url('/ap/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a><br /></div>
+<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/ap/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a><br /></div>
 </div>
 
 <div>

@@ -6,9 +6,10 @@ class SelectOptionsHelper extends AppHelper {
 
 	function getOption($options = array()) {
 		$defaultOption = array(
-			'min' => $this->min_year, 
-			'max' => date('Y'), 
-			'suffix' => '年', 
+			'min' => $this->min_year,
+			'max' => date('Y'),
+			'suffix' => '年',
+			'reverse' => false,
 			'interval' => 1);
 		$settings = array_merge($defaultOption, $options);
 		extract($settings);
@@ -19,6 +20,10 @@ class SelectOptionsHelper extends AppHelper {
 			$options += array($i => $i.$settings['suffix']);
 		}
 		
+		if ($settings['reverse']) {
+			$options = array_reverse($options, true);
+		}
+
 		return $options;
 	}
 

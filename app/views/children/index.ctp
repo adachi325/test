@@ -42,7 +42,7 @@ if (count($childrenData) < 3) {
 		}
 	}
 	if (empty($img)) {
-		$img = $this->Html->image("album_pic01.jpg", $opt);
+		$img = $this->Html->image("profile.gif", $opt);
 	}
 	echo $img;
 	?>
@@ -77,11 +77,8 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">ｺｰｽ:<?php echo $html->link(
-	Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']), 
-	'/ap/'.$currentLine['Line']['category_name'].'/');?></span></td>
+<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#all" style="color:#cc6600;"><span style="color:#cc6600;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></span></a></span></td>
 </tr>
-
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_present.gif", array("style" => "margin-right:2px;")); ?>
 <span style="font-size:x-small;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></span></td>
@@ -90,34 +87,42 @@ if (count($childrenData) < 3) {
 </table>
 </div>
 <!-- お知らせ -->
-
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
-
 </div>
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Html->image("txt_info.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+
+
 <table width="100%" cellpadding="0" cellspacing="0">
+
+<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
+<tr>
+<td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap">
+<?php $this->Ktai->emoji(0xE6DD); ?>
+</tr>
+<td align="left">
+<span style="color:#ff9900;">･</span><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
+</td>
+</tr>
+<?php endif; ?>
 
 <?php foreach($newslist as $news): ?>
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
+<span style="color:#ff9900;">･</span>
 <?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : ''; ?>
 </span>
 <?php echo $this->Time->format('n/d', $news['news']['start_at']); ?>
 </span></td>
 <td align="left">
-<span style="font-size:x-small;"> <?php echo $this->Html->link($news['news']['title'], '/news/info/'.$news['news']['id']); ?> </span>
+<span style="font-size:x-small;"><?php echo  $this->Wikiformat->makeLink($news['news']['title']); ?></span>
 </td>
 </tr>
 <?php endforeach; ?>
 
 </table>
-
-<?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
-	<?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
-<?php endif; ?>
 <br />
 
 <!-- 思い出記録 -->
@@ -222,6 +227,8 @@ if (count($childrenData) < 3) {
 
 <?php endforeach; ?>
 
+<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
+
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
 <!-- 今月のプレゼント -->
@@ -261,6 +268,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
+<a name="all" id="all"></a>
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
 <?php echo $this->Html->image("txt_challenge_more.gif", array("style" => "margin-bottom:5px;")); ?><br />
 
