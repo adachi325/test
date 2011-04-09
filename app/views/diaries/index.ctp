@@ -130,7 +130,6 @@ endforeach;
 <?php if(count($diaries) > ($page * 5)): ?>
 <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
 <?php endif; ?>
-
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -149,8 +148,8 @@ if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $befo
 
 if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 	$next = ($options['month'] == 12) ?
-		$this->Html->link('/diaries/index/'.($options['year']+1).'/1') :
-		$this->Html->link('/diaries/index/'.$options['year'].'/'.($options['month']+1));
+		$this->Html->url('/diaries/index/'.($options['year']+1).'/1') :
+		$this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']+1));
 }
 ?>
 
