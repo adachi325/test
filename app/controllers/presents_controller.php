@@ -5,6 +5,11 @@ class PresentsController extends AppController {
 
 	var $components = array('Qdmail');
 
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('print_postcard');
+	}
+
 	function index($year = null, $month = null) {
 
                 if(empty($year)){
@@ -51,10 +56,12 @@ class PresentsController extends AppController {
 
 	function present_list($type = null) {
 
+		// 0＝壁紙、1＝デコメ絵文字、2＝待受けflash、3＝ポストカード	
+
 		$child_id = $this->Tk->_getLastChild();
 
 		if ($type === null) {
-			$this->Session->setFlash('プレゼントの種類を指定してください');
+			//$this->Session->setFlash('プレゼントの種類を指定してください');
 			$this->redirect(array('action' => 'index'));
 		} else {
 			if ($type >= 0) {
@@ -88,6 +95,7 @@ class PresentsController extends AppController {
 	}
 
 	function select($type = null, $template_id = null) {
+
 		$data = $this->data;
 		$this->paginate = array('limit' => 10);
 
@@ -153,7 +161,12 @@ class PresentsController extends AppController {
 
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary', $cond);
-		
+
+                //思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
+                if(count($items) < $max_count){
+                    $this->redirect("/presents/error_present/");
+                }
+
 		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
@@ -196,9 +209,8 @@ class PresentsController extends AppController {
                 }
 
 		//メールアドレス設定
-		$url = Router::url('/'.sprintf(Configure::read('Present.path.postcard_output'), $token), true);
+		$url = Router::url('/'.'presents/print_postcard/'.$token, true);
 		$mailSubject = "ポストカード印刷用URL";
-                //$mailBody = "{$url}%0D%0A※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）%0D%0A※URLの有効期限は3日間です";
                 $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
 
 		$this->set(compact('mailSubject','mailBody','token'));

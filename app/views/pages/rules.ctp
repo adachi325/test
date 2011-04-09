@@ -1,13 +1,12 @@
-<div id="contents2">
-
-<h2>ご利用規約</h2>
-
-<div class="single_page">
-<div id="rules">
-
-利用規約
-
+<div style="background:#996633;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="font-size:small; font-weight:bold; color:#ffffff;">利用規約</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
-<!-- / #single_page --></div>
-<!-- / #contents --></div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+利用規約利用規約利用規約利用規約利用規約<br />
+利用規約利用規約利用規約利用規約利用規約<br />
+利用規約利用規約利用規約利用規約利用規約<br />
+利用規約利用規約利用規約利用規約利用規約<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

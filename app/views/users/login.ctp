@@ -44,8 +44,8 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
-※ﾊﾟｽﾜｰﾄﾞを忘れた方は<a href="/users/remind/"><span style="color:#ff6600;">こちら</span></a><br />
-→　<a href="/users/register/"><span style="color:#ff6600;">新規ﾌﾟﾛﾌｨｰﾙ登録</span></a><br />
+※ﾊﾟｽﾜｰﾄﾞを忘れた方は<a href="<?php echo Router::url('/'.'users/remind/', true) ?>"><span style="color:#ff6600;">こちら</span></a><br />
+→　<a href="<?php echo Router::url('/'.'users/register/', true) ?>"><span style="color:#ff6600;">新規ﾌﾟﾛﾌｨｰﾙ登録</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 

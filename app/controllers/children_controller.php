@@ -264,6 +264,8 @@ class ChildrenController extends AppController {
         
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
+
+        pr($this->data);
     }
 
     function edit_confirm(){
@@ -284,6 +286,8 @@ class ChildrenController extends AppController {
                 $this->Session->write('childEditValidationErrors', $this->validateErrors($this->Child));
                 $this->redirect('/children/edit');
             }
+        } else {
+            $this->redirect('/children/index');
         }
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
@@ -386,15 +390,16 @@ class ChildrenController extends AppController {
             $this->Child->contain('Diary','ChildPresent');
             if ($this->Child->deleteAll($deleteCondition)) {
                 TransactionManager::commit();
-                $this->Session->setFlash(__('削除完了。', true));
             } else {
                 TransactionManager::rollback();
-                $this->Session->setFlash(__('削除失敗。', true));
+                //$this->Session->setFlash(__('削除失敗。', true));
+                $this->cakeError('error404');
+                return;
             }
         } catch(Exception $e) {
           TransactionManager::rollback();
-          $this->Session->setFlash(__('システムエラー。', true));
-          $this->redirect('/children/');
+          $this->cakeError('error404');
+          return;
         }
 
         //思い出に紐付く画像を削除
@@ -404,6 +409,9 @@ class ChildrenController extends AppController {
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
                 if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
+                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                }
+                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']) )){
                     //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                 }
             }
@@ -418,6 +426,8 @@ class ChildrenController extends AppController {
             $updateId = -1;
             $this->_saveLastChild($updateId);
         }
+
+        $this->redirect('/children/');
 
     }
 }
