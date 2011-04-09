@@ -77,11 +77,8 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">ｺｰｽ:<?php echo $html->link(
-	Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']), 
-	'/ap/'.$currentLine['Line']['category_name'].'/');?></span></td>
+<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#all" style="color:#cc6600;"><span style="color:#cc6600;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></span></a></span></td>
 </tr>
-
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_present.gif", array("style" => "margin-right:2px;")); ?>
 <span style="font-size:x-small;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/'); ?></span></td>
@@ -263,6 +260,7 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
+<a name="all" id="all"></a>
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
 <?php echo $this->Html->image("txt_challenge_more.gif", array("style" => "margin-bottom:5px;")); ?><br />
 
