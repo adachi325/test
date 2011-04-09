@@ -77,7 +77,7 @@ default:
 
 <?php else: ?>
 		<?php echo $html->image($diary['Present']['present_thumbnail_path'], 
-				array("width" => "89", "height" => "132", "style" => "margin:10px 0;")); ?>
+				array("style" => "margin:10px 0;")); ?>
 <?php endif;?>
 
 <?php 
