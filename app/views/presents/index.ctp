@@ -90,7 +90,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
 <?php echo $this->Html->image("txt_presentlist.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
- 
+<a name="presents" id="presents"></a>
 獲得したﾌﾟﾚｾﾞﾝﾄを確認しよう!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/1');?>" style="color:#339900;"><span style="color:#339900;">ﾃﾞｺﾒ絵文字</span></a><br />
