@@ -2,3 +2,6 @@
 /.DS_Store
 /app/config
 /app/tmp
+/app/webroot/files
+/app/webroot/img/photo
+/app/webroot/present
