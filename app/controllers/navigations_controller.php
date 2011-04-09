@@ -60,7 +60,12 @@ class NavigationsController extends AppController {
 
 	function after2($hash = null) {
 
-		if(!empty($hush)){
+                //hashを確認し、データがなければリダイレクト
+                if(!empty($this->data['Navigation']['nexthash'])){
+                    $hash=$this->data['Navigation']['nexthash'];
+                }
+
+		if(empty($hash)){
 			$this->cakeError('error404');
 			return;
 		}
