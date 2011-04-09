@@ -35,7 +35,7 @@
 <td align="left"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 本文<span style="color:#ff6600;"> 全角5000文字以内</span><br />
-<?php echo $this->Form->input("body", array("type" => "text", "style" => "font-size:x-small;width:100%")); ?><br />
+<?php echo $this->Form->input("body", array("type" => "texterea", "style" => "font-size:x-small;width:100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

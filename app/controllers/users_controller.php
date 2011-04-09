@@ -90,12 +90,12 @@ class UsersController extends AppController {
 
     function register_confirm(){
         //セッション情報回収
-        $this->data = $this->Session->read('userRegisterData');
-        if (empty($this->data)) {
-            $this->Session->delete('userRegisterData');
-            $this->Session->setFlash(__('不正操作です。', true));
-            $this->redirect('/');
-        }
+//        $this->data = $this->Session->read('userRegisterData');
+//        if (empty($this->data)) {
+//            $this->Session->delete('userRegisterData');
+//            $this->Session->setFlash(__('不正操作です。', true));
+//            $this->redirect('/');
+//        }
         $this->_setline();
         $this->pageTitle = '会員入力情報確認';
     }
