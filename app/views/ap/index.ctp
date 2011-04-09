@@ -39,7 +39,9 @@
 
 </table>
 
+<?php if ($this->params['path'][0] === 'pocket'): ?>
 <?php echo $this->element('default/pocket'); ?>
+<?php endif; ?>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
