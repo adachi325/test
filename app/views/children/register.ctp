@@ -22,6 +22,9 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 <?php
+if (!isset($this->data['Child']['sex'])) {
+	$this->data['Child']['sex'] = 0;
+}
 $value1 = ($this->data['Child']['sex'] == 1) ? '1' : 'none';
 $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
@@ -40,11 +43,12 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => date('Y') - Configure::read('Child.birthday_years'), 
 			'max' => date('Y'), 
+			'reverse' => true,
 			'suffix' => '')),
         'empty' => '------',
 		'div' => false,
 		'label' => false,
-                'error' => false,
+        'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 年 <br />
         <?php echo $form->error('birth_month'); ?>
@@ -56,7 +60,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'empty' => '------',
 		'div' => false,
 		'label' => false,
-                'error' => false,
+        'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 月<br />
         <?php echo $form->error('birth_month'); ?>
