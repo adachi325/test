@@ -21,13 +21,13 @@
 <td width="50%" align="center"><span style="font-size:x-small; color:#333333;">(例)1～2歳向け<br />
     ぷち</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "90", "height" => "120")); ?><br />
+<?php echo $this->Html->image("contents_thumb/90pic_tabemono.gif"); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 <td width="50%" align="center"><span style="font-size:x-small; color:#333333;">(例)4～5歳向け<br />
 すてっぷ</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "90", "height" => "120")); ?><br />
+<?php echo $this->Html->image("contents_thumb/90pic_otetsudaitai.gif"); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
@@ -52,22 +52,17 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <div align="center" style="text-align:center;">
-<table width="100%" cellpadding="0" cellspacing="0" align="center">
+<table width="230" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td width="50%" align="center"><span style="font-size:x-small; color:#333333;">(例)0歳の場合</span><br />
+<td align="center"><span style="font-size:x-small; color:#333333;">4月のｲﾒｰｼﾞ</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "90", "height" => "120")); ?><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</td>
-<td width="50%" align="center"><span style="font-size:x-small; color:#333333;">(例)5歳の場合</span><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "90", "height" => "120")); ?><br />
+<?php echo $this->Html->image("sample/90pic_omoide_april.gif", array()); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
 </table>
 </div>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj03.gif", array()); ?></div><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj03.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -84,7 +79,7 @@
 <tr>
 <td align="center"><span style="font-size:x-small; color:#333333;">0～3歳向け</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("dummy.gif", array("width" => "90", "height" => "120")); ?><br />
+<?php echo $this->Html->image("sample/first/90pic_memorygame.gif", array()); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
