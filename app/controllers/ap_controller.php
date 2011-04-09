@@ -144,12 +144,22 @@ class ApController extends AppController {
 		$release_date = $data['Content']['release_date'];
 
 		if ($release_date <= date('Y-m-d')) {
-			if ($this->Ktai->is_imode()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
-			} elseif ($this->Ktai->is_softbank()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
+			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
+
+			if ($this->Ktai->is_softbank()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
 			} elseif ($this->Ktai->is_ezweb()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+			} elseif ($this->Ktai->is_android()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
+				if (!file_exists($_path)) {
+					$this->render('android');
+					return;
+				}
+			}
+
+			if (isset($_path) && file_exists($_path)) {
+				$filepath = $_path;
 			}
 			
 			$this->set(compact('release_date', 'filepath'));
