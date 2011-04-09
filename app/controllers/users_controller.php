@@ -61,7 +61,7 @@ class UsersController extends AppController {
         $this->_setline();
         $this->pageTitle = '会員登録情報入力';
         if (!empty($this->data)) {
-
+            $this->Session->write('userRegisterData', $this->data);
             $request = array();
             $request = $this->data;
             if(empty($request['Child'][0]['sex'])){
@@ -71,7 +71,7 @@ class UsersController extends AppController {
             if ($this->User->saveAll($request, array('validate'=>'only'))) {
                 //セッションにデータ保持
                 TransactionManager::rollback();
-                $this->Session->write('userRegisterData', $this->data);
+                //$this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm');
             } else {
@@ -90,12 +90,12 @@ class UsersController extends AppController {
 
     function register_confirm(){
         //セッション情報回収
-//        $this->data = $this->Session->read('userRegisterData');
-//        if (empty($this->data)) {
-//            $this->Session->delete('userRegisterData');
-//            $this->Session->setFlash(__('不正操作です。', true));
-//            $this->redirect('/');
-//        }
+        $this->data = $this->Session->read('userRegisterData');
+        if (empty($this->data)) {
+            $this->Session->delete('userRegisterData');
+            $this->Session->setFlash(__('不正操作です。', true));
+            $this->redirect('/');
+        }
         $this->_setline();
         $this->pageTitle = '会員入力情報確認';
     }
