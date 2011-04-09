@@ -72,13 +72,16 @@ class NavigationsController extends AppController {
 
 		//会員情報取得
 		$userdata = $this->getUserData();
-
-		$options = array();
-		$options['hash'] = $hash;
-		$options['child_id'] = $userdata['User']['last_selected_child'];
+                $conditions = array(
+                    'conditions' => array(
+                        'Diary.child_id' => $userdata['User']['last_selected_child'],
+                        'Diary.hash' => $hash
+                    ),
+                    'order'=>array('Diary.created DESC')
+                );
 		$diary =& ClassRegistry::init('Diary');
 		$diary->contain();
-		$diaries = $diary->find('first',array('conditions' => $options));
+		$diaries = $diary->find('first',$conditions);
 		$this->set(compact('diaries'));
 
 		//ハッシュタグを設定
