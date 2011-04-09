@@ -284,6 +284,8 @@ class ChildrenController extends AppController {
                 $this->Session->write('childEditValidationErrors', $this->validateErrors($this->Child));
                 $this->redirect('/children/edit');
             }
+        } else {
+            $this->redirect('/children/index');
         }
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
