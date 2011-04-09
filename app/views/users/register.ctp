@@ -85,6 +85,8 @@ if ($this->data) {
         'empty' => '------',
 		'class' => 'f_bir',
                 'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>年 <br /><?php echo $form->error('Child.0.birth_year'); ?>
 <?php echo $this->Form->input('Child.0.birth_month', array(
@@ -95,6 +97,8 @@ if ($this->data) {
         'empty' => '------',
 		'class' => 'f_bir',
                 'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('Child.0.birth_month'); ?>
 
