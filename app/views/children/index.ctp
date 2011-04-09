@@ -42,7 +42,7 @@ if (count($childrenData) < 3) {
 		}
 	}
 	if (empty($img)) {
-		$img = $this->Html->image("album_pic01.jpg", $opt);
+		$img = $this->Html->image("profile.gif", $opt);
 	}
 	echo $img;
 	?>
