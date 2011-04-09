@@ -1,31 +1,62 @@
 
+<?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_pocket.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_pocket.gif", array("width" => "100%")); ?></td>
+</tr>
+<tr>
+<td width="10%">&nbsp;</td>
+<td width="85%"><span style="font-size:x-small; color:#fcb800;"><?php echo h($title); ?></span></td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
-<h1><?php echo h($title); ?></h1>
-<ul>
+<table width="100%" cellpadding="0" cellspacing="0">
+
 <?php foreach ($issues as $issue): ?>
-	<li>
-		<?php echo h($issue['Issue']['title']); ?>
+
 <?php foreach ($issue['Content'] as $content): ?>
-	<?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
-	<p><?php echo $this->Html->link($content['title'], DS.$content['path'].DS); ?></p>
-	<?php endif; ?>
+<!--<?php echo h($issue['Issue']['title']); ?>-->	
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
+<a href="<?php echo $this->Html->url(DS.$content['path'].DS); ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
+<?php else: ?>
+<?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
+<?php endif; ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
 <?php endforeach; ?>
-	</li>
+
 <?php endforeach; ?>
-</ul>
+
+</table>
+
+<?php echo $this->elements('pocket'); ?>
+
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 
 <?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
 <?php else: ?>
-<p>会員登録すると、他の教材コンテンツやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
-<?php echo $this->Html->link('サービスイメージを見る', array('controller' => 'pages', 'action' => 'display')); ?>
+<p>会員登録すると、他の教材ｺﾝﾃﾝﾂやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
+<?php echo $this->Form->create('Page', array('url' => '/pages/display/?guid=ON')); ?>
+<?php echo $this->Form->submit('ｻｰﾋﾞｽｲﾒｰｼﾞを見る'); ?>
+<?php echo $this->Form->end(); ?>
 <?php endif; ?>
 
-<h3>各コースの部屋</h3>
-<div>
+<?php echo $this->element('room'); ?>
 
-<?php foreach($lines as $line): ?>
-<?php echo $this->Html->link($line['Line']['title'], '/ap/'.$line['Line']['category_name'].'/'); ?> |
-<?php endforeach; ?>
-
-</div>
