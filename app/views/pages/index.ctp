@@ -20,7 +20,12 @@
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Html->image("txt_info.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_info.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_info.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 
