@@ -58,7 +58,7 @@
 <span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 
 <?php
-if ($this->data) {
+if (!empty($this->data['Child'][0]['sex'])) {
 	$value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
 	$value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 } else {
