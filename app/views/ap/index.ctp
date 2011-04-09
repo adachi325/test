@@ -39,7 +39,7 @@
 
 </table>
 
-<?php if ($this->params['path'][0] === 'pocket'): ?>
+<?php if ($this->params['action'] === 'pocket'): ?>
 <?php echo $this->element('default/pocket'); ?>
 <?php endif; ?>
 
