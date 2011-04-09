@@ -69,14 +69,14 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left">
-<?php if (date('Y-m-d', mktime(0, 0, 0, ($beforeFlag['month']['month']-1), 1, $beforeFlag['month']['year'])) != date('Y-m-d', strtotime($prev))) :?>
+<?php if (date('Y-m-d', mktime(0, 0, 0, ($beforeFlag['month']['month'] - 1), 1, $beforeFlag['month']['year'])) != date('Y-m-d', strtotime($prev))) :?>
 <a href="<?php echo $this->Html->url('/presents/index/'.date('Y/n', strtotime($prev)).'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">前月</span></a>
 <?php endif; ?>
 </td>
 
 <td align="right">
 <?php if (date('Y-m-d') > date('Y-m-d', strtotime($next))): ?>
-<a href="<?php echo $this->Html->url('/presents/index/'.date('Y/n', strtotime($next)).'/' );?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次月</span></a>
+<a href="<?php echo $this->Html->url('/presents/index/'.date('Y/n', strtotime($next)).'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次月</span></a>
 <?php endif; ?>
 </td>
 
