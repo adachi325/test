@@ -441,18 +441,18 @@ class UsersController extends AppController {
             
             //思い出に紐付く画像を削除
             foreach($childData['Diary'] as $diary) {
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['Child']['id'],$diary['id']))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['Child']['id'],$diary['id']) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['Child']['id'],$diary['id']))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['Child']['id'],$diary['id']) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['Child']['id'],$diary['id']))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['Child']['id'],$diary['id']) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
