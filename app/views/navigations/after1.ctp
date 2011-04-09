@@ -1,24 +1,41 @@
-<div>
-    <h3>登録ありがつお！</h3>
-</div>
-<div>
-◆まずは投稿してみよう！
-</div>
-<br>
-<div>
+<?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
+ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
+<?php echo $this->Html->image("dot_line_orrange.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<span style="color:#339933">・</span>思い出記録とは<br />
+毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝにｽﾃｷな思い出が残せます｡まずはお子さんの思い出を記録してみよう!
+ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
+<div align="center" style="background:#ffff99; text-align:center;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
 <?php
-if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()){ ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>">投稿する</a>
-<?php } else { ?>
-<?php $this->Ktai->mailto("投稿する",$mailStr,$mailTitle); ?>
-<?php } ?>
-<br>
-<br>
+if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo urlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
+<?php else: ?>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("①思い出を記録に残す",$mailStr,$mailTitle); ?></span>
+<?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </div>
-<div>
-    <?php echo $this->Html->link('今は投稿しないで、マイページに進む', '/children/'); ?>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<span style="color:#CC0000">
+※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡<br /></span>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#666666">※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※ﾀｲﾄﾙは自由に変更できます｡<br /></span>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
+<div align="center" style="background:#ffff99; text-align:center;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<a href="<?php echo $this->Html->url('/navigations/after2/'.$nexthash); ?>" style="color:#339900;"><span style="color:#339900;font-size:medium">②思い出記録を確認する</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </div>
-<br>
-<div>
-    <?php echo $this->Html->link('投稿したよ', '/navigations/after2/'.$nexthash); ?>
-</div>
+<?php echo $this->Html->image("dot_line_orrange.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+
+今は送信しないで<a href="<?php echo $this->Html->url('/children/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
