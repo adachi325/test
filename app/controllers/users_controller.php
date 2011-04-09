@@ -441,14 +441,18 @@ class UsersController extends AppController {
             
             //思い出に紐付く画像を削除
             foreach($childData['Diary'] as $diary) {
-                if($diary['has_image']) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['id'],$diary['id']) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['id'],$diary['id']) )){
+                }
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['id'],$diary['id']) )){
+                }
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child['Child']['id'],$diary['id']) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
