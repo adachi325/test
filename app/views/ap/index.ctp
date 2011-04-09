@@ -24,7 +24,7 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<span style="color:#cc0000;"><?php echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
 <?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
 <a href="<?php echo $this->Html->url(DS.$content['path'].DS); ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
 <?php else: ?>
@@ -39,7 +39,7 @@
 
 </table>
 
-<?php echo $this->elements('pocket'); ?>
+<?php echo $this->element('pocket'); ?>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
