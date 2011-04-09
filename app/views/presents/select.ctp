@@ -1,41 +1,82 @@
+
 <?php
 if (!isset($max_count)) {
 	$max_count = 4;
 }
+
+pr($this->params);
+
+if (!isset($this->params['path'][0])) {
+	
+}
 ?>
 
-<div class="presents view">
-<h2><?php  __('Present', true);?></h2>
 
-<p>投稿写真から<?php echo $max_count; ?>枚選んで、「作成する」ボタンを押してください。</p>
+ﾎﾟｽﾄｶｰﾄﾞ作成
 
-<?php echo $this->Form->create('Present', array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON")); ?>
+<?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
+<div style="text-align:left;" align="center">
+<span style="color:#339933;">・</span>待受Flash作成<br />
+</div>
+投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
+<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
+<?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->hidden('page', array('value' => $this->params['paging']['Diary']['page'])); ?>
 <?php echo $this->Form->hidden('pageCount', array('value' => $this->params['paging']['Diary']['pageCount'])); ?>
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
-<ul>
-<?php foreach($items as $item): ?>
-<li>
-<?php extract($item['Diary']); ?>
-<?php $path = sprintf(Configure::read('Diary.image_path_thumb'), $child_id, $id); ?>
+<div style="text-align:center;" align="center">全●件 1件～10件を表示</div>
 
-<?php echo $this->Form->input("select_photo.{$id}", array('type' => 'checkbox', 'label' => $this->Html->image($path, array('alt' => $title)), 'escape' => false)); ?>
-</li>
-<?php endforeach; ?>
-</ul>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<table cellpadding="0" cellspacing="0" width="100%">
 
-<?php if (count($items)): ?>
-<?php echo $this->Form->button('前へ', array('name' => 'prev')); ?>
+
+<?php for($i = 0; $i < count($items);  $i++): ?>
+<?php extract($items[$i]['Diary']); ?>
+<tr>
+<td width="5%"><?php echo $this->Form->input("select_photo.{$id}", array("type" => "checkbox")); ?></td>
+<td width="45%" align="center">
+<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
+</td>
+
+<?php $i++; ?>
+<?php if (isset($items[$i])): ?>
+<td width="5%"><?php echo $this->Form->input("select_photo.{$id}", array("type" => "checkbox")); ?></td>
+<td width="45%" align="center">
+<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
+</td>
+
+<?php else: ?>
+<td width="5%"></td>
+<td width="45%" align="center"></td>
+
 <?php endif; ?>
 
-<?php echo $this->Form->submit('作成する', array('div' => false, 'label' => false, 'name' => 'create')); ?>
+</tr>
 
-<?php if (count($items)): ?>
-<?php echo $this->Form->button('次へ', array('name' => 'next')); ?>
-<?php endif; ?>
+<?php endfor; ?>
 
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="left"><span style="font-size:x-small">
+<?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
+</span></td>
+<td align="right"><span style="font-size:x-small">
+<?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
+</span></td>
+</tr>
+
+<tr>
+<td align="center" colspan="2">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<?php echo $this->Form->submit('作成する', array('div' => false, 'label' => false, 'name' => 'create')); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+</td>
+</table>
 <?php echo $this->Form->end(); ?>
 
-</div>
+
