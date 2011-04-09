@@ -25,4 +25,6 @@ if (!$user['dc_user']) {
 
 <?php endif; ?>
 
+<?php echo $this->element('default/footer_ap'); ?>
+
 </div>
