@@ -72,8 +72,8 @@ class AppController extends Controller {
 		'Session',
 		'Transition',
 		//'DebugKit.Toolbar',
-        'EasyLogin',
-        'Tk',
+                'EasyLogin',
+                'Tk',
 		'CreatePresent',
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
@@ -115,7 +115,7 @@ class AppController extends Controller {
                     $this->log($keys,LOG_DEBUG);
                     if(isset($this->data[$keys[0]]['session_id'])){
                         $this->set('sessionid', $this->data[$keys[0]]['session_id'] );
-                        $this->params['form'] = array(session_name() => $this->data[$keys[0]]['session_id']);
+                        $this->params['form'] = array('csid' => $this->data[$keys[0]]['session_id']);
                     }
                 }
             }
