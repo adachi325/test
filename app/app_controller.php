@@ -115,11 +115,10 @@ class AppController extends Controller {
                     $this->log($keys,LOG_DEBUG);
                     if(isset($this->data[$keys[0]]['session_id'])){
                         $this->params['form'] = array(session_name() => $this->data[$keys[0]]['session_id']);
-                        $this->log('-----3-----',LOG_DEBUG);
-                        $this->log($this->data[session_name()]['session_id'],LOG_DEBUG);
                     }
                 }
             }
+            $this->log('-----3-----',LOG_DEBUG);
             $this->log($this->params,LOG_DEBUG);
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
