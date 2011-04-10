@@ -2,6 +2,8 @@ AddType application/x-decomail-template .dmt
 AddType application/x-kddi-htmlmail .khm
 AddType application/x-htmlmail-template .hmt
 
+AddType application/xhtml+xml .html
+
 AuthType Basic
 AuthName 'Input ID/Password'
 AuthUserFile /var/www/html/.htpasswd
