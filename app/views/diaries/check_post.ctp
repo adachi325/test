@@ -1,15 +1,15 @@
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 <div style="text-align:center;" align="center">
-投稿が完了しました!<br />
+送信が完了しました!<br />
 </div>
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php if($diary['Diary']['error_code'] === 'E001') : ?>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
 ・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
-<span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度投稿し直してください｡</span><br />
+<span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--写真サイズエラーの場合-->
 
@@ -17,7 +17,7 @@
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
 ・ﾌｧｲﾙ形式が非対応ﾌｫｰﾏｯﾄ<br /><br />
-<span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度投稿し直してください｡</span><br />
+<span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--形式エラーの場合-->
 <?php endif; ?>
@@ -37,7 +37,7 @@ case 1:
 	$desc = 'ﾃﾞｺﾒ絵文字をﾌﾟﾚｾﾞﾝﾄ';
 	break;
 case 2:
-	$desc = '待受FLASHをﾌﾟﾚｾﾞﾝﾄ';
+	$desc = '待受Flashをﾌﾟﾚｾﾞﾝﾄ';
 	break;
 case 3:
 	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
@@ -74,7 +74,7 @@ default:
 <?php 
 $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 if ($type === 2) {
-	$text = 'さっそくこの待受FLASHを作成';
+	$text = 'さっそくこの待受Flashを作成';
 } elseif ($type === 3) {
 	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
 }
