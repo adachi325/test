@@ -16,11 +16,11 @@ extract($this->data['User']);
 
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
-  <p><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
   <span style="color:#ff6600;">半角英数字6-12文字</span><br />
     <?php echo $this->Form->input("new_password", array("type" => "password", "style" => "font-size:x-small;")); ?><br />
-    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
 
