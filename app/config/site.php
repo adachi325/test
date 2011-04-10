@@ -41,6 +41,7 @@ $config['Present'] = array(
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_thum' => 'present/template/screen/%s_thumb.jpg',
+                'screen_output' => 'img/photo/%s/%s.swf',
                 'postcard' => 'present/template/postcard/%s.png',
                 'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
@@ -57,7 +58,7 @@ $config['Present'] = array(
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
-    'docomo_community' => 'diary@docomo-community.ne.jp',
+        'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(
@@ -112,5 +113,5 @@ $config['Child'] = array(
             0 => '1',
             1 => '2',
 		),
-		'birthday_years' => 8,
+        'birthday_years' => 8,
 );
