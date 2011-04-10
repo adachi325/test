@@ -113,8 +113,6 @@ class AppController extends Controller {
                 $this->log($this->data,LOG_DEBUG);
                 if(!isset($this->params['form']['csid'])){
                     $this->log('-----2-----',LOG_DEBUG);
-                    $this->log($this->params['form']['csid'],LOG_DEBUG);
-
                     $this->log('-----3-----',LOG_DEBUG);
                     $keys = array_keys($this->data);
                     $this->log($keys,LOG_DEBUG);
@@ -125,7 +123,7 @@ class AppController extends Controller {
                     }
                 }
             }
-            
+            $this->log($this->params,LOG_DEBUG);
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
             if($this->Ktai->is_imode()){
