@@ -520,6 +520,7 @@ $list[6] ='--5000000000--
 
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
+                $value = str_replace("\n","\r\n",$value);//WindowsのCRLF改行に変更
                 @fwrite( $fp, $value, strlen($value) );
         }
 
