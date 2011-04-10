@@ -539,6 +539,7 @@ $list[6] ='--5000000000--
         $this->log($filepath,LOG_DEBUG);
 
 //        readfile ($filepath);
+        $this->redirect('/');
 
     }
 
