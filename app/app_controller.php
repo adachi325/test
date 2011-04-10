@@ -117,7 +117,7 @@ class AppController extends Controller {
                 if($this->_needs_session_renew){
                     $this->Session->renew();
                 } 
-                $this->params['form'] = array(session_name() => session_id());
+                $this->params['form'] = array('csid' => session_id());
             }
 
             $this->log($this->params,LOG_DEBUG);
