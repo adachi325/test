@@ -474,7 +474,7 @@ Content-ID: <00>
 
 ';
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = chunk_split(base64_encode($img),76,PHP_EOL);
 $list[3] = $jpeg_enc;
 
 if ($diary['Diary']['has_image']) {
@@ -485,7 +485,7 @@ Content-ID: <01>
 
 ';
 $img = file_get_contents('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = chunk_split(base64_encode($img),76,PHP_EOL);
 $list[5] = $jpeg_enc;
 
 $list[6] = '--5000000000
@@ -496,7 +496,7 @@ Content-ID: <02>
 ';
 
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = chunk_split(base64_encode($img),76,PHP_EOL);
 $list[7] = $jpeg_enc;
 
 
@@ -511,7 +511,7 @@ Content-ID: <02>
 ';
 
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = chunk_split(base64_encode($img),76,PHP_EOL);
 $list[5] = $jpeg_enc;
 
 $list[6] ='--5000000000--
@@ -520,7 +520,7 @@ $list[6] ='--5000000000--
 
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
-                $value = str_replace(array("\r\n","\r","\n"), '\r\n', $str);
+                $value = str_replace('\n', '\r\n', $str);
                 @fwrite( $fp, $value, strlen($value) );
         }
 
