@@ -108,7 +108,6 @@ class AppController extends Controller {
 
 	function beforeFilter(){
             parent::beforeFilter();
-            $this->log(phpinfo(),LOG_DEBUG);
             if(!empty($this->data)){
                 $this->log('-----1-----',LOG_DEBUG);
                 $this->log($this->data,LOG_DEBUG);
