@@ -254,7 +254,7 @@ class DiariesController extends AppController {
             }
             //削除用の配列作成
             $deleteCondition = array("Diary.id" => $id);
-            
+
             //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
             TransactionManager::begin();
             try {
@@ -341,7 +341,7 @@ class DiariesController extends AppController {
                 'Diary.id' => $id
             )
         );
-        $diary = $this->Diary->find('first', $conditions);    
+        $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
             $this->redirect('/children/');
@@ -384,6 +384,7 @@ class DiariesController extends AppController {
         $this->set('mmm',date('m')+0);
     }
 
+
     function downlord($id=null){
 
         if(empty($id)){
@@ -424,16 +425,12 @@ Content-Transfer-Encoding: 8bit
 if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
+<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
+
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<br>
-<div align="center">'.$diary['Diary']['title'].'</div>
-<br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
-<br>
 <div align="center">'.$diary['Diary']['body'].'</div>
-<br>
-<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
@@ -444,15 +441,13 @@ $list[1] = '
 } else {
 $list[1] = '
 <html>
+<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
+
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<br>
-<div align="center">'.$diary['Diary']['title'].'</div>
-<br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
-<br>
-<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
+<div align="center">'.$diary['Diary']['body'].'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
+
 </body>
 </html>
 
@@ -529,7 +524,7 @@ $list[6] ='
         }
 
 
-        
+
         fclose($fp);
         //ファイルへの書き込みは終了
 
