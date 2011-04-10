@@ -91,7 +91,7 @@ class ApController extends AppController {
 			);
 
 			if ($line != "baby") {
-				$opt['order'] = 'release_date DESC';
+				$opt['order'] = 'created DESC';
 			}
 
 			$data = $Line->find('first', $opt);
