@@ -419,9 +419,7 @@ Content-Type: multipart/related;boundary="5000000000"
 --5000000000
 Content-Type: text/html; charset=Shift_JIS
 Content-Transfer-Encoding: 8bit
-';
 
-$list[1] = '
 <html>
 <head></head>
 <body bgcolor="#FFFF8E">
@@ -437,16 +435,6 @@ $list[1] = '
 </body>
 </html>
 
-';
-
-if($diary['Month']['month'] < 10) {
-    $imgMonth = '0'.$diary['Month']['month'];
-}else {
-    $imgMonth = $diary['Month']['month'];
-}
-
-
-$list[2] ='
 --5000000000--
 ';
 
