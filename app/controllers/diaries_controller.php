@@ -425,18 +425,18 @@ if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
 <head></head>
-<body bgcolor="#FFFF8E">
+<body bgcolor="#e9f7ff">
 
-<div align="center"><img src="cid:00" width="50" hight="50"></div>
+<div align="center"><img src="cid:00"></div>
 <br>
 <div align="center">'.$diary['Diary']['title'].'</div>
 <br>
-<div align="center"><img src="cid:01" width="100" hight="100"></div>
+<div align="center"><img src="cid:01"></div>
 <br>
 <div align="center">'.nl2br($diary['Diary']['body']).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
-<div align="center"><img src="cid:02" width="50" hight="50"></div>
+<div align="center"><img src="cid:02"></div>
 
 </body>
 </html>
@@ -520,7 +520,7 @@ $list[6] ='--5000000000--
 
         while(list($key,$value) = each($list)){
                 $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
-                $value = str_replace("\n","\r\n",$value);//WindowsのCRLF改行に変更
+                $value = str_replace(array("\r\n","\r","\n"), '\r\n', $str);
                 @fwrite( $fp, $value, strlen($value) );
         }
 
