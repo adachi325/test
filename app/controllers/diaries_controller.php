@@ -384,6 +384,7 @@ class DiariesController extends AppController {
         $this->set('mmm',date('m')+0);
     }
 
+
     function downlord($id=null){
 
         if(empty($id)){
@@ -395,7 +396,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.child_id' => $this->_getLastChild(),
                 'Diary.id' => $id
             )
         );
@@ -424,40 +425,32 @@ Content-Transfer-Encoding: 8bit
 if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
-<head></head>
+<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<br>
-<div align="center">'.$diary['Diary']['title'].'</div>
-<br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
-<br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
-<br>
-<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
+<div align="center">'.$diary['Diary']['body'].'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
 </html>
+
 ';
 
 } else {
 $list[1] = '
 <html>
+<title>'.$diary['Diary']['title'].'</title>
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
-<br>
-<div align="center">'.$diary['Diary']['title'].'</div>
-<br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
-<br>
-<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
+<div align="center">'.$diary['Diary']['body'].'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
 
 </body>
 </html>
+
 ';
 }
 
@@ -474,21 +467,23 @@ Content-ID: <00>
 
 ';
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_h'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = base64_encode($img);
 $list[3] = $jpeg_enc;
 
 if ($diary['Diary']['has_image']) {
-$list[4] = '--5000000000
+$list[4] = '
+--5000000000
 Content-Type: image/jpeg; name='.$diary['Diary']['id'].'.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <01>
 
 ';
 $img = file_get_contents('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = base64_encode($img);
 $list[5] = $jpeg_enc;
 
-$list[6] = '--5000000000
+$list[6] = '
+--5000000000
 Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
@@ -496,13 +491,17 @@ Content-ID: <02>
 ';
 
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = base64_encode($img);
 $list[7] = $jpeg_enc;
 
 
-$list[8] ='--5000000000--';
+$list[8] ='
+--5000000000--
+';
+
 } else {
-$list[4] = '--5000000000
+$list[4] = '
+--5000000000
 Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
@@ -510,10 +509,13 @@ Content-ID: <02>
 ';
 
 $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
-$jpeg_enc = chunk_split(base64_encode($img));
+$jpeg_enc = base64_encode($img);
 $list[5] = $jpeg_enc;
 
-$list[6] ='--5000000000--';
+$list[6] ='
+--5000000000--
+';
+
 }
 
         while(list($key,$value) = each($list)){
@@ -526,15 +528,10 @@ $list[6] ='--5000000000--';
         fclose($fp);
         //ファイルへの書き込みは終了
 
-        chmod($filepath, 0777);
-
         $file_length = filesize($filepath);
         header("Content-Disposition: attachment; filename=$filepath");
         header("Content-Length:$file_length");
         header("Content-Type: application/octet-stream");
-
-        $this->log($file_length,LOG_DEBUG);
-        $this->log($filepath,LOG_DEBUG);
 
         readfile ($filepath);
 
