@@ -78,10 +78,10 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#contents" style="color:#cc6600;"><span style="color:#cc6600;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></span></a></span></td>
+<span style="font-size:x-small; color:#333333;">ｺｰｽ:<a href="#contents"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']); ?></a></span></td>
 </tr>
 <tr>
-<td align="left" valign="top"><?php echo $this->Html->image("icn_present.gif", array("style" => "margin-right:2px;")); ?>
+<td align="left" valign="top"><?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?>
 <span style="font-size:x-small;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span></td>
 </tr>
 
@@ -91,7 +91,6 @@ if (count($childrenData) < 3) {
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 </div>
-<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -106,10 +105,10 @@ if (count($childrenData) < 3) {
 <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap">
-<?php $this->Ktai->emoji(0xE6DD); ?>
+<span style="font-size:x-small;color:#ff9900;"><?php $this->Ktai->emoji(0xE6DD); ?></span>
 </td>
 <td align="left">
-<?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?>
+<span style="font-size:x-small;"><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?></span>
 </td>
 </tr>
 <?php endif; ?>
@@ -128,7 +127,6 @@ if (count($childrenData) < 3) {
 <?php endforeach; ?>
 
 </table>
-<br />
 
 <!-- 思い出記録 -->
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -209,8 +207,7 @@ if (count($childrenData) < 3) {
 
 <!-- 思い出を形に残す -->
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
-
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="10%"><?php echo $this->Html->image("icn_leave.gif", array("width" => "100%")); ?></td>
@@ -249,7 +246,7 @@ if (count($childrenData) < 3) {
 <?php endforeach; ?>
 <div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
 
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array("width" => "228", "height" => "35")); ?></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
 <!-- 今月のプレゼント -->
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -283,7 +280,7 @@ if (count($childrenData) < 3) {
 
 <!-- 非会員限定のご案内 -->
 <?php if (true): ?>
-<?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -310,9 +307,9 @@ if (count($childrenData) < 3) {
 <?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
 <!-- ライン別ここまで -->
 
-<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:5px 0 0;")); ?></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
 
-<?php echo $this->Html->image("line_obj02.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>

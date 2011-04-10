@@ -16,8 +16,7 @@
 ※別途ﾊﾟｹｯﾄ通信料がかかります<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="right" style="text-align:right;">登録済みの方は<a href="<?php echo $this->Html->url("/users/login/"); ?>">こちら</a></div>
-<?php echo $this->Html->image("img_obj.gif", array("width" => "100%")); ?><br />
-<div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
+<div style="background:#ff9900;"><?php echo $this->Html->image("img_obj.gif", array("width" => "100%", "style" => "margin-bottom:1px;")); ?><br /></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -55,7 +54,7 @@
 </tr>
 </table>
 
-<?php echo $this->Html->image("dummy.gif", array("width" => "58", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
+<?php echo $this->Html->image("60pic_kodomo101.gif", array( "align" => "left", "style" => "float:left; margin-right:2px;")); ?>
 &lt;こどもちゃれんじ&gt;教材と連動した年齢別ｺﾝﾃﾝﾂが楽しめる!<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
@@ -68,7 +67,7 @@
 <td width="85%"><?php echo $this->Html->image("txt_memory.gif", array("width" => "100%")); ?></td>
 </tr>
 </table>
-<?php echo $this->Html->image("dummy.gif", array("width" => "58", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>お子さんの成長がかわいく残せる!写真がたまるとﾎﾟｽﾄｶｰﾄﾞに♪<br clear="all" />
+<?php echo $this->Html->image("60pic_omoide101.gif", array("align" => "left", "style" => "float:left; margin-right:2px;")); ?>お子さんの成長がかわいく残せる!写真がたまるとﾎﾟｽﾄｶｰﾄﾞに♪<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></div>
 
 <div align="center" style="text-align:center;"><a href="<?php echo $this->Html->url('/navigations/prev/1');?>"><span style="color:#ff6600;">更に詳しく見る</span></a><span style="color:#cc0000;"><?php $this->Ktai->emoji(0xE6F5); ?></span></div>
@@ -97,7 +96,7 @@
 
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0")); ?></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">

@@ -31,7 +31,7 @@
 <div align="center" style="background:#ffff99;text-align:center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000;">月額使用料は無料</span><br />
-(別途ﾊﾟｹｯﾄ通信料がかかります｡)<br />
+※別途ﾊﾟｹｯﾄ通信料がかかります<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:medium;color:#ff6600;">さあ､今すぐ登録しよう!</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
