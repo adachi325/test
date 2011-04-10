@@ -109,7 +109,7 @@ class AppController extends Controller {
 	function beforeFilter(){
             parent::beforeFilter();
             if(!isset($this->params['form']['csid'])){
-                $keys = array_keys($this->params['data']);
+                $keys = array_keys($this->data);
                 if(isset($keys[0])){
                     $this->params['form'] = array('csid' => $this->data[$keys[0]]['session_id']);
                     $this->log($this->data[$keys[0]]['session_id'],LOG_DEBUG);
