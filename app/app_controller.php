@@ -105,6 +105,10 @@ class AppController extends Controller {
         public $selectedChildId = null;//選択中こどもID
 
 	function beforeFilter(){
+            $this->log('------------------app01------------------',LOG_DEBUG);
+            $this->log($this->parames,LOG_DEBUG);
+            $this->log('------------------/app01------------------',LOG_DEBUG);
+
             parent::beforeFilter();
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
