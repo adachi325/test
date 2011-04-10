@@ -72,7 +72,7 @@ class UsersController extends AppController {
                 TransactionManager::rollback();
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
-                $this->redirect('/users/register_confirm?guid=on');
+                parent::redirect('/users/register_confirm?guid=on');
             } else {
                 $this->Session->setFlash(__('入力情報が間違っています。', true));
             }
