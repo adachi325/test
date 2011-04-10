@@ -1,0 +1,276 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------------------------
+	全体
+----------------------------------------------------*/
+
+#wrap{
+	color:#333;
+	line-height:1em;
+	text-shadow:none;
+}
+
+#orangeDot {
+	background:url(../img/dot_line_orrange.gif) repeat-x;
+	height:20px;
+}
+
+#brownDot {
+	background:url(../img/dot_line_brown.gif) repeat-x;
+	height:20px;
+}
+
+h1, h2, h3 {
+	margin:0 0 10px 0 !important;
+}
+
+/*----------------------------------------------------
+	footer
+----------------------------------------------------*/
+#copy {
+	font-size:small;
+	color:#FFF;
+	padding:10px 0;
+	background:#663300;
+	text-shadow:none;
+}
+
+#copy a:link {
+	color:#FFF;
+}
+
+#copy a:visited {
+	color:#FFF;
+}
+
+#footWrap {
+	text-align:center;
+	background:#996633;
+	text-shadow:none;
+}
+
+#footText{
+	text-shadow:none;
+	color:#FFF;
+	text-align:center;
+	padding:10px 0 10px 0;
+	margin:-3px 0 0 0;
+}
+
+#footText p {
+	text-align:left;
+}
+
+#footText ul {
+	line-height:2.5em;
+	text-align:left;
+	margin:10px 0;
+	clear:both;
+	overflow:hidden;
+	_zoom:1;
+}
+
+#footText li {
+	color:#FFF;
+	float:left;
+	list-style-type:disc;
+	margin-left:10px;
+	list-style-position:inside
+}
+
+#footText li a{
+    color:#fff;
+    text-decoration:underline;
+}
+
+#footText li a:link {
+    color:#fff;
+	text-decoration:underline;
+}
+
+/*----------------------------------------------------
+	header
+----------------------------------------------------*/
+#header {
+	margin:0;
+	text-align:left;
+}
+
+#top #header {
+	margin:10px auto 0;
+	text-align:center;
+}
+
+#header h2{
+	padding:0 10px;
+}
+
+
+/*----------------------------------------------------
+	main
+----------------------------------------------------*/
+
+#main {
+	padding:10px 10px 42px 10px;
+	line-height:1.5em;
+	background: url(../img/footer_pic.gif) repeat-x bottom;
+}
+
+#contents dl {
+	margin:10px 0 0 0;
+}
+
+#contents dt {
+	margin-top:20px;
+	line-height:1;
+}
+
+
+#contents dt span {
+	font-size:small;
+	padding-left:30px;
+}
+
+#contents dt span.petit {
+	color:#e61953;
+}
+
+#contents dt span.pocket {
+	color:#ffcc00;
+}
+
+#contents dt span.step {
+	color:#009933;
+}
+
+#contents  dd a {
+	line-height:1.0em;
+}
+
+#challenge h2 {
+	background:url(../img/ttl_pink.gif) repeat-x;
+	padding:2px 0 0 10px;
+	height:29px;
+}
+
+#main h2 {
+	background:url(../img/ttl_orange.gif) repeat-x;
+	padding:5px 0 0 10px;
+}
+
+#kodomoChallenge h3 {
+	background:url(../img/icn_mobile.gif) no-repeat left top;
+	text-shadow:none;
+	padding-left:30px;
+}
+
+#memory h3 {
+	background:url(../img/icn_album.gif) no-repeat left top;
+	height:30px;
+	padding-left:30px;
+}
+
+#faq h3.question {
+	background:url(../img/icn_faq.gif) no-repeat left top;
+	height:30px;
+	padding-left:30px;
+}
+
+#faq h3.inquiry {
+	background:url(../img/icn_inquiry.gif) no-repeat left top;
+	height:30px;
+	padding-left:30px;
+}
+
+#kodomoChallenge,#memory {
+	overflow:hidden;
+	_zoom:1;
+	margin-bottom:10px;
+}
+
+#kodomoChallenge dt ,#memory dt {
+	float:left;
+}
+#kodomoChallenge dt img ,#memory dt img {
+	padding-right:10px;
+}
+
+#kyouzai {
+	width:90%;
+	text-align:center;
+	margin:0 auto;
+}
+
+#kyouzai p{
+	text-align:left;
+	margin:0;
+	padding:0;
+	line-height:160%;
+}
+
+#kyouzai div{
+	text-align:center;
+}
+
+#main h4 span{
+	color:#996633;
+}
+
+
+/*----------------------------------------------------
+	対応機種 model
+----------------------------------------------------*/
+#model #main {
+	font-size:small;
+}
+
+#model a {
+	font-size:medium;
+}
+
+#model h2, #faq h2, #rule h2, #cost h2  {
+	color:#FFF;
+	background:#996633;
+	height:32px;
+	vertical-align:middle;
+	padding-top:18px;
+}
+
+#model dt {
+	margin-top:10px;
+	font-weight:bold;
+}
+
+#model dd {
+	margin-left:10px;
+}
+
+#model h3 {
+	margin-bottom:0 !important;
+}
+
+/*----------------------------------------------------
+	利用規約 rule
+----------------------------------------------------*/
+/*----------------------------------------------------
+	通信料の目安 cost
+----------------------------------------------------*/
+#cost ul {
+	margin:10px 0;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
+/*----------------------------------------------------
+	よくある質問 faq
+----------------------------------------------------*/
+#faq h4 {
+	font-weight:bold;
+	padding-top:10px;
+}
+
+#faq div.inq {
+	padding-top:20px;
+}
+	

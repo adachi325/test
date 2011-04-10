@@ -153,6 +153,7 @@ class ApController extends AppController {
 			} elseif ($this->Ktai->is_android()) {
 				$_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
 				if (!file_exists($_path)) {
+					$this->layout = null;
 					$this->render('android');
 					return;
 				}

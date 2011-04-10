@@ -267,7 +267,7 @@ class PresentsController extends AppController {
 		if (!$PostcardUrl->isValiable($token)) {
 			$this->cakeError('error404');
 		}
-
+		$this->layout = null;
 		$this->set(compact('token'));
 	}
 }
