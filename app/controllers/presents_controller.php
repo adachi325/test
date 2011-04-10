@@ -12,50 +12,50 @@ class PresentsController extends AppController {
 
 	function index($year = null, $month = null) {
 
-                if(empty($year)){
-                    $year = date('Y');
-                }
-                if(empty($month)){
-                    $month = date('m')+0;
-                }
+		if(empty($year)){
+			$year = date('Y');
+		}
+		if(empty($month)){
+			$month = date('m')+0;
+		}
 
 		$opt = array();
 		if ($year) {
-                    $opt['year'] = $year;
+			$opt['year'] = $year;
 		}
 		if ($month) {
-                    $opt['month'] = $month;
+			$opt['month'] = $month;
 		}
 
-                //手入力防止（未来年月チェック）
-                if ($year > date('Y') or 
-                   ($year == date('Y') and $month > (date('m')+0))) {
-                    //未来月のページを表示時リダイレクト
-                    $this->redirect('/presents/');
-                }
+		//手入力防止（未来年月チェック）
+		if ($year > date('Y') or 
+			($year == date('Y') and $month > (date('m')+0))) {
+				//未来月のページを表示時リダイレクト
+				$this->redirect('/presents/');
+			}
 
-                //手入力防止（過去年月チェック）
-                $monthModel =& ClassRegistry::init('month');
-                $beforeOptions['order'] = array(
-                    '(month.year+0), (month.month+0) ASC'
-                );
-                $monthModel->contain();
-                $beforeFlag = $monthModel->find('first',$beforeOptions);
-                if ($year < $beforeFlag['month']['year'] or
-                   ($year == $beforeFlag['month']['year'] and $month < $beforeFlag['month']['month'])) {
-                    //過去年月のページを表示時リダイレクト
-                    $this->redirect('/presents/');
-                }
-                $this->set('beforeFlag',$beforeFlag);
+		//手入力防止（過去年月チェック）
+		$monthModel =& ClassRegistry::init('month');
+		$beforeOptions['order'] = array(
+			'(month.year+0), (month.month+0) ASC'
+		);
+		$monthModel->contain();
+		$beforeFlag = $monthModel->find('first',$beforeOptions);
+		if ($year < $beforeFlag['month']['year'] or
+			($year == $beforeFlag['month']['year'] and $month < $beforeFlag['month']['month'])) {
+				//過去年月のページを表示時リダイレクト
+				$this->redirect('/presents/');
+			}
+		$this->set('beforeFlag',$beforeFlag);
 
-                //年月を設定
-                $setOptions['year'] = $year;
-                $setOptions['month'] = $month;
-                //思い出投稿時用にセッションに設定
-                $this->Session->write('setOptions', $setOptions);
+		//年月を設定
+		$setOptions['year'] = $year;
+		$setOptions['month'] = $month;
+		//思い出投稿時用にセッションに設定
+		$this->Session->write('setOptions', $setOptions);
 
-                $opt['order'] = array('Present.present_type');
-                $presents = $this->Present->find('month', $opt);
+		$opt['order'] = array('Present.present_type');
+		$presents = $this->Present->find('month', $opt);
 
 		$this->set(compact('presents', 'year', 'month'));
 	}
@@ -115,6 +115,10 @@ class PresentsController extends AppController {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
 
+			if (!isset($data['select_photo'])) {
+				$data['select_photo'] = array();
+			}
+
 			$this->Session->write("Present.{$page}.selection", $data['select_photo']);
 
 			$selection = array();
@@ -133,12 +137,12 @@ class PresentsController extends AppController {
 				if (count($selection) == $max_count) {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
-                                        $this->Session->write('Present.data.type', $type);
+					$this->Session->write('Present.data.type', $type);
 					$this->redirect("/presents/complete/");
 				} else {
 					$this->Session->setFlash('選択数が不正です');
-                                        $this->Session->write('Present.error.type', $type);
-                                        $this->Session->write('Present.error.template_id', $template_id);
+					$this->Session->write('Present.error.type', $type);
+					$this->Session->write('Present.error.template_id', $template_id);
 					$this->redirect("/presents/error_photo/");
 				}
 			}
@@ -168,10 +172,10 @@ class PresentsController extends AppController {
 		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary', $cond);
 
-                //思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
-                if(count($items) < $max_count){
-                    $this->redirect("/presents/error_present/");
-                }
+		//思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
+		if(count($items) < $max_count){
+			$this->redirect("/presents/error_present/");
+		}
 
 		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
