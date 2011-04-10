@@ -3,9 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ポストカード印刷</title>
-<style type="text/css">
-@import url(css/311.css);
-</style>
+<?php echo $this->Html->css('311.css'); ?>
 </head>
 
 <body>
