@@ -98,7 +98,7 @@ class AppController extends Controller {
 		'output_encoding' => 'UTF8',
 		'use_xml' => true,
 		'enable_ktai_session' => true, //セッション使用を有効にします
-		'use_redirect_session_id' => true, //リダイレクトに必ずセッションIDをつけます
+		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
 		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
 		'use_xml' => false,
