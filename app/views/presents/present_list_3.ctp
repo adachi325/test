@@ -40,12 +40,12 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height"
 <tr>
 <td align="left">
 <?php if ($this->Paginator->hasPrev()): ?>
-<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
 <?php endif; ?>
 </td>
 <td align="right">
 <?php if ($this->Paginator->hasPrev()): ?>
-<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
 <?php endif; ?>
 </td>
 </tr>
