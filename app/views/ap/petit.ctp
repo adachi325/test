@@ -17,7 +17,7 @@
 <a href="#check" style="color:#ff3333;"><span style="color:#ff3333;">ﾁｪｯｸ&amp;ｱﾄﾞﾊﾞｲｽ</span></a> / <a href="#diary" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a> / <a href="#community" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<a href=""><?php echo $this->Html->image("bnr_otasuke.gif", array("width" => "100%", "border" => "0")); ?></a><br />
+<?php echo $this->Html->image("bnr_otasuke.gif", array("width" => "100%", "border" => "0", 'url' => 'http://shimajiromobile.benesse.ne.jp/ap1/petit/navi/')); ?><br />
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
@@ -27,7 +27,7 @@
 <?php echo $this->Html->image("petit_maganeimg.gif", array("width" => "30%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
 ご一緒に､こどもの気持ちがわかる｢こどもﾒｶﾞﾈ｣で見てみませんか?<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div>
-<div align="center" style="text-align:center;"><a href="" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
 
@@ -39,7 +39,7 @@
 <?php echo $this->Html->image("petit_kirokuimg.gif", array("width" => "30%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
 お子さんの成長を記念に残していきませんか?<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div>
-<div align="center" style="text-align:center;"><a href="" style="color:#ff3333;"><span style="color:#ff3333;">きろくをみる</span></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/reflection/" style="color:#ff3333;"><span style="color:#ff3333;">きろくをみる</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
 
@@ -50,7 +50,7 @@
 <?php echo $this->Html->image("petit_taiken.gif", array("width" => "100%")); ?><br />
 子育てのｱｲﾃﾞｨｱやﾜｻﾞを共有できるひろば!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<div align="center" style="text-align:center;"><a href="" style="color:#ff3333;"><span style="color:#ff3333;">みんなの体験談へ</span></a></div>
+<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/" style="color:#ff3333;"><span style="color:#ff3333;">みんなの体験談へ</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
 
