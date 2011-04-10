@@ -4,8 +4,8 @@
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-<td width="10%"><?php echo $this->Html->image("icn_pocket.gif", array("width" => "100%")); ?></td>
-<td width="85%"><?php echo $this->Html->image("txt_pocket.gif", array("width" => "100%")); ?></td>
+<td width="10%"><?php echo $this->Html->image("icn_{$line}.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_{$line}.gif", array("width" => "100%")); ?></td>
 </tr>
 <tr>
 <td width="10%">&nbsp;</td>
