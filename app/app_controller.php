@@ -113,10 +113,6 @@ class AppController extends Controller {
             $this->log($this->params,LOG_DEBUG);
 
             if(!isset($this->params['form']['csid'])){
-                //for Session Fixation
-                if($this->_needs_session_renew){
-                    $this->Session->renew();
-                } 
                 $this->params['form'] = array('csid' => session_id());
             }
 
