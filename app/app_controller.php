@@ -87,6 +87,8 @@ class AppController extends Controller {
 		),
 	);
 
+        var $_needs_session_renew=false; //for Session Fixation 
+
 	public $layout = 'default';
 
        	//ktaiライブラリ設定
@@ -105,20 +107,23 @@ class AppController extends Controller {
         public $selectedChildId = null;//選択中こどもID
 
 	function beforeFilter(){
+            parent::beforeFilter();
+
             $this->log('------------------app01------------------',LOG_DEBUG);
             $this->log($this->params,LOG_DEBUG);
-            if(isset($this->params['form']['guid'])){
-                unset($this->params['form']['guid']);
-            }
 
             if(!isset($this->params['form']['csid'])){
-                $this->params['form'] = array('csid' => session_id());
+                //for Session Fixation
+                if($this->_needs_session_renew){
+                    $this->Session->renew();
+                } 
+                $this->params['form'] = array(session_name() => session_id());
             }
 
             $this->log($this->params,LOG_DEBUG);
             $this->log('------------------/app01------------------',LOG_DEBUG);
 
-            parent::beforeFilter();
+            
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
             if($this->Ktai->is_imode()){
