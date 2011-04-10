@@ -1,3 +1,5 @@
+せっしょんIDIDIDIDIDID</br>
+<?php pr(session_id()); ?>
 <div style="background:#ff6600;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:small;font-weight:bold; color:#ffffff;">ﾛｸﾞｲﾝ</span><br />
