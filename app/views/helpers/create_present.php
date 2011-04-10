@@ -43,12 +43,14 @@ class CreatePresentHelper extends Helper {
         // テンプレートのロード
         $almeida->load($template);
 
-        //ヘッダー出力
-        header("Content-type: application/x-shockwave-flash");
-        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+        // ファイルへ出力する場合
+        $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id']);
 
+        //ヘッダー出力
+        //header("Content-type: application/x-shockwave-flash");
+        //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
         // Flash生成
-        $almeida->generateFlash();
+        //$almeida->generateFlash();
     }
 }
 ?>
