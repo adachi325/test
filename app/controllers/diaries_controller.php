@@ -526,6 +526,8 @@ $list[6] ='--5000000000--';
         fclose($fp);
         //ファイルへの書き込みは終了
 
+        chmod($filepath, 0777);
+
         $file_length = filesize($filepath);
         header("Content-Disposition: attachment; filename=$filepath");
         header("Content-Length:$file_length");
