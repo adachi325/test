@@ -7,7 +7,7 @@
 <?php
 echo $this->Html->css('android_reset.css');
 echo $this->Html->css('android_style.css');
-echo $this->html->css('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css');
+echo $this->Html->css('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css');
 
 echo $this->Html->Script('http://code.jquery.com/jquery-1.4.3.min.js');
 echo $this->Html->Script('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js');
