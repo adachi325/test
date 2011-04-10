@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ポストカード印刷</title>
-<?php echo $this->->url('311.css'); ?>
+<?php echo $this->Html->url('311.css'); ?>
 </head>
 
 <body>
