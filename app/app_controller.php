@@ -109,8 +109,12 @@ class AppController extends Controller {
             $this->log($this->params,LOG_DEBUG);
             if(isset($this->params['form']['guid'])){
                 unset($this->params['form']['guid']);
+            }
+
+            if(!isset($this->params['form']['csid'])){
                 $this->params['form'] = array('csid' => session_id());
             }
+
             $this->log($this->params,LOG_DEBUG);
             $this->log('------------------/app01------------------',LOG_DEBUG);
 
