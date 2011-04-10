@@ -68,6 +68,7 @@ class AppController extends Controller {
 	public $components = array(
 		'Ktai',
                 'Tk',
+                'CreatePresent',
 		'Auth',
 		'Session',
 		'Transition',
