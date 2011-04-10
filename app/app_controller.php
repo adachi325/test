@@ -106,7 +106,7 @@ class AppController extends Controller {
 
 	function beforeFilter(){
             $this->log('------------------app01------------------',LOG_DEBUG);
-            $this->log($this->parames,LOG_DEBUG);
+            //$this->log($this->parames,LOG_DEBUG);
             $this->log('------------------/app01------------------',LOG_DEBUG);
 
             parent::beforeFilter();
