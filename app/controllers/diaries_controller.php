@@ -425,12 +425,8 @@ Content-Transfer-Encoding: 8bit
 <body bgcolor="#FFFF8E">
 
 <br>
-<div align="center">'.$diary['Diary']['title'].'</div>
+<div align="center">aaaaaaa</div>
 <br>
-<br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
-<br>
-<div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 
 </body>
 </html>
