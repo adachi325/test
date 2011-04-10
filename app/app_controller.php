@@ -156,6 +156,9 @@ class AppController extends Controller {
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
+                                $this->log('------------------app03-1------------------',LOG_DEBUG);
+                                $this->log($url,LOG_DEBUG);
+                                $this->log('------------------/app03-1------------------',LOG_DEBUG);
 					if(preg_match('|^http[s]?://|', $url)){
 						return $url;
 					}
@@ -164,8 +167,16 @@ class AppController extends Controller {
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
+                                $this->log('------------------app03-2------------------',LOG_DEBUG);
+                                $this->log(session_id(),LOG_DEBUG);
+                                $this->log($url,LOG_DEBUG);
+                                $this->log('------------------/app03-2------------------',LOG_DEBUG);
 				$url['?'][session_name()] = session_id();
                                 $url['?']['guid'] = 'on'; // guid=onを付加
+                                $this->log('------------------app03-3------------------',LOG_DEBUG);
+                                $this->log(session_id(),LOG_DEBUG);
+                                $this->log($url,LOG_DEBUG);
+                                $this->log('------------------/app03-3------------------',LOG_DEBUG);
 			}
 		}
 		return $url;
