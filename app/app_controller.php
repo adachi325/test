@@ -115,9 +115,9 @@ class AppController extends Controller {
                     $keys = array_keys($this->data);
                     $this->log($keys,LOG_DEBUG);
                     if(isset($this->data[$keys[0]]['session_id'])){
-                        $this->params['form'] = array('csid' => $this->data[$keys[0]]['session_id']);
+                        $this->params['form'] = array(session_name() => $this->data[$keys[0]]['session_id']);
                         $this->log('-----4-----',LOG_DEBUG);
-                        $this->log($this->data[$keys[0]]['session_id'],LOG_DEBUG);
+                        $this->log($this->data[session_name()]['session_id'],LOG_DEBUG);
                     }
                 }
             }
