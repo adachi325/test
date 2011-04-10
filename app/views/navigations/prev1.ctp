@@ -39,7 +39,7 @@
 <span style="font-size:medium;"><span style="color:#ff00ff;"><?php $this->Ktai->emoji(0xE6FA); ?></span><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><span style="color:#ff00ff;"><?php $this->Ktai->emoji(0xE6FA); ?></span></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj03.gif", array()); ?></div><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj03.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
