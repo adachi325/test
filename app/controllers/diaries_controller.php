@@ -415,7 +415,6 @@ class DiariesController extends AppController {
 $list[0] = 'Decomail-Template
 MIME-Version: 1.0
 Content-Type: multipart/related;boundary="5000000000"
-
 --5000000000
 Content-Type: text/html; charset=Shift_JIS
 Content-Transfer-Encoding: 8bit
