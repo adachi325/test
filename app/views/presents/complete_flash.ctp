@@ -8,7 +8,7 @@
 
 <?php $path = sprintf(Configure::read('Present.path.flash_output'), $token); ?>
 
-<object declare id="preview" data="<?php echo $path; ?>" type="application/x-shockwave-flash" width="200" height="250">
+<object declare id="preview" data="<?php echo $this->CreatePresent->createFlash($selected); ?>" type="application/x-shockwave-flash" width="200" height="250">
 <param name="bgcolor" value="ffffff">
 <param name="loop" value="on">
 <param name="quality" value="high">
