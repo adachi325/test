@@ -109,13 +109,16 @@ class ApController extends AppController {
 
 		$this->ktai['enable_ktai_session'] = false;
 
-		if ($this->Ktai->is_imode()) {
-			$filepath = WWW_ROOT."ap/member/{$id}/index.html";
-		} elseif ($this->Ktai->is_softbank()) {
-			$filepath = WWW_ROOT."ap/member/{$id}/index.softbank.html";
+	  $filepath = WWW_ROOT."ap/member/{$id}/index.html";
+		if ($this->Ktai->is_softbank()) {
+			$_path = WWW_ROOT."ap/member/{$id}/index.softbank.html";
 		} elseif ($this->Ktai->is_ezweb()) {
-			$filepath = WWW_ROOT."ap/member/{$id}/index.au.html";
+			$_path = WWW_ROOT."ap/member/{$id}/index.au.html";
 		}
+
+    if (isset($_path) && file_exists($_path)) {
+      $filepath = $_path;
+    }
 		
 		$this->set(compact('filepath'));
 		$this->layout = 'contents';
