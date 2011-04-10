@@ -87,8 +87,6 @@ class AppController extends Controller {
 		),
 	);
 
-        var $_needs_session_renew=false; //for Session Fixation 
-
 	public $layout = 'default';
 
        	//ktaiライブラリ設定
@@ -189,8 +187,8 @@ class AppController extends Controller {
 				$url['?'][session_name()] = session_id();
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 //                                $this->log('------------------app03-3------------------',LOG_DEBUG);
-//                                $this->log(session_id(),LOG_DEBUG);
-//                                $this->log($url,LOG_DEBUG);
+                                $this->log(session_id(),LOG_DEBUG);
+                                $this->log($url,LOG_DEBUG);
 //                                $this->log('------------------/app03-3------------------',LOG_DEBUG);
 			}
 		}
