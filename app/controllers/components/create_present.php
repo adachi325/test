@@ -35,11 +35,11 @@ class CreatePresentComponent extends Object {
         $almeida->load($template);
 
         //ヘッダー出力
-        header("Content-type: application/x-shockwave-flash");
-        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+//        header("Content-type: application/x-shockwave-flash");
+//        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
 
         // Flash生成
-        $almeida->generateFlash();
+        pr($almeida->generateFlash());
     }
 
 
