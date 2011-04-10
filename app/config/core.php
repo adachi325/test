@@ -182,7 +182,7 @@
  * in the session. You might want to set the value to false, when dealing with
  * older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
  */
-	Configure::write('Session.checkAgent', true);
+	Configure::write('Session.checkAgent', false);
 
 /**
  * The level of CakePHP security. The session timeout time defined
@@ -196,7 +196,7 @@
  * CakePHP session IDs are also regenerated between requests if
  * 'Security.level' is set to 'high'.
  */
-	Configure::write('Security.level', 'low');
+	Configure::write('Security.level', 'medium');
 
 /**
  * A random string used in security hashing methods.

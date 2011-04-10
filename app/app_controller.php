@@ -72,8 +72,8 @@ class AppController extends Controller {
 		'Session',
 		'Transition',
 		//'DebugKit.Toolbar',
-        'EasyLogin',
-        'Tk',
+                'EasyLogin',
+                'Tk',
 		'CreatePresent',
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
@@ -105,10 +105,6 @@ class AppController extends Controller {
         public $selectedChildId = null;//選択中こどもID
 
 	function beforeFilter(){
-            $this->log('------------------app01------------------',LOG_DEBUG);
-            $this->log($this->params,LOG_DEBUG);
-            $this->log('------------------/app01------------------',LOG_DEBUG);
-
             parent::beforeFilter();
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
@@ -178,12 +174,6 @@ class AppController extends Controller {
 			$prefix = ereg("\?", $url) ? "&" : "?";
 			$url = $url.$prefix."guid=ON";
 		}
-            $this->log('------------------app02------------------',LOG_DEBUG);
-            $this->log($url,LOG_DEBUG);
-            $this->log($status,LOG_DEBUG);
-            $this->log($exit,LOG_DEBUG);
-            $this->log($this->__redirect_url($url), $status, $exit,LOG_DEBUG);
-            $this->log('------------------/app02------------------',LOG_DEBUG);
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
 
