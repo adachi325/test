@@ -479,8 +479,7 @@ $jpeg_enc = chunk_split(base64_encode($img));
 $list[3] = $jpeg_enc;
 
 if ($diary['Diary']['has_image']) {
-$list[4] = '
---5000000000
+$list[4] = '--5000000000
 Content-Type: image/jpeg; name='.$diary['Diary']['id'].'.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <01>
@@ -490,8 +489,7 @@ $img = file_get_contents('img/'.sprintf(Configure::read('Diary.image_path_thumb'
 $jpeg_enc = chunk_split(base64_encode($img));
 $list[5] = $jpeg_enc;
 
-$list[6] = '
---5000000000
+$list[6] = '--5000000000
 Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
@@ -503,12 +501,9 @@ $jpeg_enc = chunk_split(base64_encode($img));
 $list[7] = $jpeg_enc;
 
 
-$list[8] ='
---5000000000--
-';
+$list[8] ='--5000000000--';
 } else {
-$list[4] = '
---5000000000
+$list[4] = '--5000000000
 Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
@@ -519,9 +514,7 @@ $img = file_get_contents(sprintf(Configure::read('Present.path.diaryback_f'), $d
 $jpeg_enc = chunk_split(base64_encode($img));
 $list[5] = $jpeg_enc;
 
-$list[6] ='
---5000000000--
-';
+$list[6] ='--5000000000--';
 }
 
         while(list($key,$value) = each($list)){
