@@ -73,6 +73,10 @@ class ApController extends AppController {
 
 	function __index($line = null) {
 
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
+		}
+
 		extract($this->params);	
 
 		$title = '';
@@ -80,11 +84,17 @@ class ApController extends AppController {
 		if (isset($line)) {
 			
 			$Line =& ClassRegistry::init('Line');
-			
-			$data = $Line->find('first', array(
+
+			$opt = array(
 				'conditions' => array('category_name' => $line),
 				'fields' => array('title', 'category_name'),
-			));
+			);
+
+			if ($line != "baby") {
+				$opt['order'] = 'release_date DESC';
+			}
+
+			$data = $Line->find('first', $opt);
 
 			if (!empty($data)) {
 				$title = $data['Line']['title'];
@@ -107,6 +117,10 @@ class ApController extends AppController {
 			$this->cakeError('error404');
 		}
 
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
+		}
+
 		$this->ktai['enable_ktai_session'] = false;
 
 	  $filepath = WWW_ROOT."ap/member/{$id}/index.html";
@@ -126,8 +140,6 @@ class ApController extends AppController {
 	}
 
 	function __view($line = null, $id = null) {
-
-		//extract($this->params);
 
 		if(empty($line) || empty($id)) {
 			$this->redirect(array('action' => 'index'));
