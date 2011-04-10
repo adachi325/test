@@ -425,6 +425,7 @@ if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
 <body bgcolor="#FFFF8E">
+
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
 <br>
 <div align="center">'.$diary['Diary']['title'].'</div>
@@ -445,6 +446,7 @@ $list[1] = '
 $list[1] = '
 <html>
 <body bgcolor="#FFFF8E">
+
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
 <br>
 <div align="center">'.$diary['Diary']['title'].'</div>
@@ -453,6 +455,7 @@ $list[1] = '
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
+
 </body>
 </html>
 
@@ -503,7 +506,6 @@ $list[7] = $jpeg_enc;
 $list[8] ='
 --5000000000--
 ';
-
 } else {
 $list[4] = '
 --5000000000
@@ -520,7 +522,6 @@ $list[5] = $jpeg_enc;
 $list[6] ='
 --5000000000--
 ';
-
 }
 
         while(list($key,$value) = each($list)){
