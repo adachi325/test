@@ -415,6 +415,7 @@ class DiariesController extends AppController {
 $list[0] = 'Decomail-Template
 MIME-Version: 1.0
 Content-Type: multipart/related;boundary="5000000000"
+
 --5000000000
 Content-Type: text/html; charset=Shift_JIS
 Content-Transfer-Encoding: 8bit
@@ -423,6 +424,7 @@ Content-Transfer-Encoding: 8bit
 if ($diary['Diary']['has_image']) {
 $list[1] = '
 <html>
+<head></head>
 <body bgcolor="#FFFF8E">
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
@@ -538,6 +540,7 @@ $list[6] ='
         header("Content-Length:$file_length");
         header("Content-Type: application/octet-stream");
 
+        $this->log($file_length,LOG_DEBUG);
         $this->log($filepath,LOG_DEBUG);
 
         readfile ($filepath);
