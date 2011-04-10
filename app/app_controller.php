@@ -107,6 +107,11 @@ class AppController extends Controller {
 	function beforeFilter(){
             $this->log('------------------app01------------------',LOG_DEBUG);
             $this->log($this->params,LOG_DEBUG);
+            if(isset($this->params['form']['guid'])){
+                unset($this->params['form']['guid']);
+                $this->params['form']['csid'] = session_id();
+            }
+            $this->log($this->params,LOG_DEBUG);
             $this->log('------------------/app01------------------',LOG_DEBUG);
 
             parent::beforeFilter();
