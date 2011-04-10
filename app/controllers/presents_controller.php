@@ -110,7 +110,7 @@ class PresentsController extends AppController {
 		} else {
 			$max_count = 4;
 		}
-
+		
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -159,6 +159,7 @@ class PresentsController extends AppController {
 				}
 			}
 			$this->paginate['page'] = $page;
+			$this->data['select_photo'] = $this->Session->read("Present.{$page}.selection");
 		}
 
 		$this->Diary =& ClassRegistry::init('Diary');
