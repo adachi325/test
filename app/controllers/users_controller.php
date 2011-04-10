@@ -75,7 +75,7 @@ class UsersController extends AppController {
                 $this->log($this->data,LOG_DEBUG);
                 $this->log('------------------/01------------------',LOG_DEBUG);
                 //バリデーションにエラーがなければリダイレクト処理
-                $this->redirect('/users/register_confirm?guid=on');
+                $this->redirect('/users/register_confirm');
             } else {
                 $this->Session->setFlash(__('入力情報が間違っています。', true));
             }
