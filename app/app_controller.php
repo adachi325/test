@@ -108,17 +108,13 @@ class AppController extends Controller {
 
 	function beforeFilter(){
             parent::beforeFilter();
-
-            $this->log('------------------app01------------------',LOG_DEBUG);
-            $this->log($this->params,LOG_DEBUG);
-
             if(!isset($this->params['form']['csid'])){
-                $this->params['form'] = array('csid' => session_id());
+                $keys = array_keys($this->params['data']);
+                if(isset($keys[0])){
+                    $this->params['form'] = array('csid' => $this->data[$keys[0]]['session_id']);
+                    $this->log($this->data[$keys[0]]['session_id'],LOG_DEBUG);
+                }
             }
-
-            $this->log($this->params,LOG_DEBUG);
-            $this->log('------------------/app01------------------',LOG_DEBUG);
-
             
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
