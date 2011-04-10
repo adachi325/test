@@ -177,6 +177,12 @@ class AppController extends Controller {
 			$prefix = ereg("\?", $url) ? "&" : "?";
 			$url = $url.$prefix."guid=ON";
 		}
+            $this->log('------------------app02------------------',LOG_DEBUG);
+            $this->log($url,LOG_DEBUG);
+            $this->log($status,LOG_DEBUG);
+            $this->log($exit,LOG_DEBUG);
+            $this->log($this->__redirect_url($url), $status, $exit,LOG_DEBUG);
+            $this->log('------------------/app02------------------',LOG_DEBUG);
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
 
