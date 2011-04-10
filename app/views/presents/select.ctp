@@ -36,14 +36,15 @@ if ($max_count == 4) {
 <tr>
 <td width="5%"><?php echo $this->Form->input("select_photo.{$id}", array("type" => "checkbox")); ?></td>
 <td width="45%" align="center">
-<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
+<?php echo $this->Html->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
 </td>
 
 <?php $i++; ?>
 <?php if (isset($items[$i])): ?>
+<?php extract($items[$i]['Diary']); ?>
 <td width="5%"><?php echo $this->Form->input("select_photo.{$id}", array("type" => "checkbox")); ?></td>
 <td width="45%" align="center">
-<?php echo $this->Html->image($items[$i]['Present']['present_thumbnail_path'], array("style" => "margin:5px 0;")); ?>
+<?php echo $this->Html->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
 </td>
 
 <?php else: ?>

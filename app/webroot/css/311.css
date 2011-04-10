@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+
+html { 
+		filter: expression(document.execCommand("BackgroundImageCache", false, true));	/*IE6hover背景画像チラツキ回避*/
+	     height:100%;	/*footer下合わせ*/
+} 
+
+body {
+	font:13px/1.231 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',arial,helvetica,clean,sans-serif;
+	*font-size:small;*font:x-small;
+	color:#444;
+	background: #666;
+	padding: 0;
+	text-align: center; /*IE 5*/
+	margin:0 auto;
+	
+}
+
+div.container{
+	margin:0 auto;
+	width:800px;
+	background: #fff;
+	border-left:6px solid #333;	
+	border-right:6px solid #333;
+}
+
+div.container h1{
+	padding:10px 0;
+	margin:0;
+}
+
+
+div.container h2{
+	text-align:left;
+	font-size:100%;
+	padding:0;
+	margin:0;
+}
+
+
+div.box{
+	width:650px;
+	margin:0 auto;
+	text-align:center;
+	line-height:1.8em;
+}
+
+div.box h2{
+	font-size:116%;
+	padding:0;
+	margin:0;
+	color:#F36;
+	text-align:center;
+}
+
+
+div.description{
+	text-align:left;
+	width:600px;
+	margin:20px auto;
+	border:solid 1px #99CCCC;
+	padding:20px;
+	background:#E9F7FF;
+	font-size:92%;
+}
+
+div.description ol{
+	margin-bottom:30px;
+}
+
+div.description p{
+	color:#366;
+}
+
+div.footer{
+	background:#630;
+	margin:0 auto;
+	font-size:85%;
+	color:#fff;
+	text-align:center;
+	padding:20px;
+}
+
+div.container img{
+	margin:0;
+	padding:0;
+	vertical-align:bottom;
+}

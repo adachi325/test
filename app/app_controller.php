@@ -109,6 +109,7 @@ class AppController extends Controller {
             $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
             $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
             if($this->Ktai->is_imode()){
+		header('Content-Type: application/xhtml+xml');
                 $this->__formActionGuidOn();
                 $this->__checkImodeId();
             }

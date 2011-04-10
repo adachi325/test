@@ -110,7 +110,7 @@ class PresentsController extends AppController {
 		} else {
 			$max_count = 4;
 		}
-
+		
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -159,6 +159,7 @@ class PresentsController extends AppController {
 				}
 			}
 			$this->paginate['page'] = $page;
+			$this->data['select_photo'] = $this->Session->read("Present.{$page}.selection");
 		}
 
 		$this->Diary =& ClassRegistry::init('Diary');
@@ -266,7 +267,7 @@ class PresentsController extends AppController {
 		if (!$PostcardUrl->isValiable($token)) {
 			$this->cakeError('error404');
 		}
-
+		$this->layout = null;
 		$this->set(compact('token'));
 	}
 }
