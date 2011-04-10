@@ -106,8 +106,8 @@ $config['Child'] = array(
         'icon_off_path' => 'common/icon_%s_off.gif',
         'child_tab_color' => array(
             0 => '#FFFA8E',
-            1 => '#8EFF8E',
-            2 => '#FFB7B7',
+            1 => '#CCFFFF',
+            2 => '#FFCCFF',
         ),
         'Initial_registration_presents' => array(
             0 => '1',
