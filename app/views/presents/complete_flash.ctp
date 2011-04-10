@@ -6,7 +6,7 @@
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php pr($selected); ?>
-<object declare id="preview" data="<?php $this->CreatePresent->createFlash($selected); ?>" type="application/x-shockwave-flash" width="200" height="250">
+<object declare id="preview" data="<?php //$this->CreatePresent->createFlash($selected); ?>" type="application/x-shockwave-flash" width="200" height="250">
 <param name="bgcolor" value="ffffff">
 <param name="loop" value="on">
 <param name="quality" value="high">
