@@ -432,7 +432,7 @@ $list[1] = '
 <br>
 <div align="center"><img src="cid:01" width="100" hight="100"></div>
 <br>
-<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center">'.nl2br($diary['Diary']['body']).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
@@ -451,7 +451,7 @@ $list[1] = '
 <br>
 <div align="center">'.$diary['Diary']['title'].'</div>
 <br>
-<div align="center">'.$diary['Diary']['body'].'</div>
+<div align="center">'.nl2br($diary['Diary']['body']).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
@@ -538,6 +538,8 @@ $list[6] ='
         header("Content-Disposition: attachment; filename=$filepath");
         header("Content-Length:$file_length");
         header("Content-Type: application/octet-stream");
+
+        $this->log($filepath,LOG_DEBUG);
 
         readfile ($filepath);
 
