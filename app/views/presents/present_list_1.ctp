@@ -33,10 +33,14 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left">
-<?php echo $paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php if ($this->Paginator->hasPrev()): ?>
+<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php endif; ?>
 </td>
 <td align="right">
-<?php echo $paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php if ($this->Paginator->hasNext()): ?>
+<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php endif; ?>
 </td>
 </tr>
 </table>

@@ -205,7 +205,8 @@ class PresentsController extends AppController {
                 }
 
 		if ($type === "flash") {
-			$this->CreatePresent->createFlash($selected);
+                        $this->CreatePresent->createPostcard($selected);
+			//$this->set(compact('selected'));
 			$render = 'complete_flash';
 		} else if ($type === "postcard") {
 			$token = $this->CreatePresent->createPostcard($selected);
@@ -219,14 +220,17 @@ class PresentsController extends AppController {
 			return;
                 }
 
-		//メールアドレス設定
-		$url = Router::url('/'.'presents/print_postcard/'.$token, true);
-		$mailSubject = "ポストカード印刷用URL";
-                $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
+                if($render == 'postcard') {
+                    //メールアドレス設定
+                    $url = Router::url('/'.'presents/print_postcard/'.$token, true);
+                    $mailSubject = "ポストカード印刷用URL";
+                    $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
 
-                $present_id = $data['template'];
+                    $present_id = $data['template'];
 
-		$this->set(compact('mailSubject','mailBody','token','present_id'));
+                    $this->set(compact('mailSubject','mailBody','token','present_id'));
+                }
+                
 		$this->render($render);
 	}
 

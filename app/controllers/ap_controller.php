@@ -73,6 +73,10 @@ class ApController extends AppController {
 
 	function __index($line = null) {
 
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
+		}
+
 		extract($this->params);	
 
 		$title = '';
@@ -80,11 +84,17 @@ class ApController extends AppController {
 		if (isset($line)) {
 			
 			$Line =& ClassRegistry::init('Line');
-			
-			$data = $Line->find('first', array(
+
+			$opt = array(
 				'conditions' => array('category_name' => $line),
 				'fields' => array('title', 'category_name'),
-			));
+			);
+
+			if ($line != "baby") {
+				$opt['order'] = 'created DESC';
+			}
+
+			$data = $Line->find('first', $opt);
 
 			if (!empty($data)) {
 				$title = $data['Line']['title'];
@@ -97,14 +107,19 @@ class ApController extends AppController {
 				'fields' => array('title', 'category_name'),
 			));
 		}
-		$this->set(compact('issues', 'title', 'lines'));
-		$this->render('index');		
+
+		$this->set(compact('issues', 'title', 'lines', 'line'));
+		$this->render('index');
 	}
 
 	function __member_view($id = null) {
 
 		if(empty($id)) {
 			$this->cakeError('error404');
+		}
+
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
 		}
 
 		$this->ktai['enable_ktai_session'] = false;
@@ -126,8 +141,6 @@ class ApController extends AppController {
 	}
 
 	function __view($line = null, $id = null) {
-
-		//extract($this->params);
 
 		if(empty($line) || empty($id)) {
 			$this->redirect(array('action' => 'index'));

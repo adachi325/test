@@ -4,8 +4,8 @@
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-<td width="10%"><?php echo $this->Html->image("icn_pocket.gif", array("width" => "100%")); ?></td>
-<td width="85%"><?php echo $this->Html->image("txt_pocket.gif", array("width" => "100%")); ?></td>
+<td width="10%"><?php echo $this->Html->image("icn_{$line}.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_{$line}.gif", array("width" => "100%")); ?></td>
 </tr>
 <tr>
 <td width="10%">&nbsp;</td>
@@ -26,7 +26,14 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#cc0000;"><?php echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
 <?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
-<a href="<?php echo $this->Html->url(DS.$content['path'].DS); ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
+<?php
+$url = $content['path'];
+if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
+} else {
+	$url = $this->Html->url(DS.$url.DS);
+}
+?>
+<a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
 <?php else: ?>
 <?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
 <?php endif; ?><br />

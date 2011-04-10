@@ -9,6 +9,8 @@ if ($max_count == 4) {
 } else {
 	$text = '待受Flash作成';
 }
+$page = isset($this->params['paging']['Diary']['page']) ? $this->params['paging']['Diary']['page'] : 1;
+$pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->params['paging']['Diary']['pageCount'] : 1;
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
@@ -19,8 +21,8 @@ if ($max_count == 4) {
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
 <?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
-<?php echo $this->Form->hidden('page', array('value' => $this->params['paging']['Diary']['page'])); ?>
-<?php echo $this->Form->hidden('pageCount', array('value' => $this->params['paging']['Diary']['pageCount'])); ?>
+<?php echo $this->Form->hidden('page', array('value' => $page)); ?>
+<?php echo $this->Form->hidden('pageCount', array('value' => $pageCount)); ?>
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
 <div style="text-align:center;" align="center">
@@ -63,10 +65,14 @@ if ($max_count == 4) {
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left"><span style="font-size:x-small">
+<?php if ($this->Paginator->hasPrev()): ?>
 <?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
+<?php endif; ?>
 </span></td>
 <td align="right"><span style="font-size:x-small">
+<?php if ($this->Paginator->hasNext()): ?>
 <?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
+<?php endif; ?>
 </span></td>
 </tr>
 
