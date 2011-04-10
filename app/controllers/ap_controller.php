@@ -107,8 +107,9 @@ class ApController extends AppController {
 				'fields' => array('title', 'category_name'),
 			));
 		}
-		$this->set(compact('issues', 'title', 'lines'));
-		$this->render('index');		
+
+		$this->set(compact('issues', 'title', 'lines', 'line'));
+		$this->render('index');
 	}
 
 	function __member_view($id = null) {
