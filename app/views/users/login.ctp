@@ -15,7 +15,7 @@ echo $this->Session->flash('auth');;
 </font>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON"."&scid=".session_id(), "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
