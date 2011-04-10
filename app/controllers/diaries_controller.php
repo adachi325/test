@@ -419,6 +419,7 @@ Content-Type: multipart/related;boundary="5000000000"
 --5000000000
 Content-Type: text/html; charset=Shift_JIS
 Content-Transfer-Encoding: 8bit
+
 ';
 
 if ($diary['Diary']['has_image']) {
@@ -440,7 +441,6 @@ $list[1] = '
 
 </body>
 </html>
-
 ';
 
 } else {
@@ -459,7 +459,6 @@ $list[1] = '
 
 </body>
 </html>
-
 ';
 }
 
