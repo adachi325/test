@@ -103,14 +103,13 @@ class PresentsController extends AppController {
 	function select($type = null, $template_id = null) {
 
 		$data = $this->data;
-		$this->paginate = array('limit' => 10);
 
 		if($type == 'flash') {
 			$max_count = 3;
 		} else {
 			$max_count = 4;
 		}
-		
+	
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -134,6 +133,7 @@ class PresentsController extends AppController {
 						}
 					}
 				}
+
 				if (count($selection) == $max_count) {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
@@ -169,8 +169,8 @@ class PresentsController extends AppController {
 			'child_id' => $this->Tk->_getLastChild(),
 			'has_image' => 1,
 		);
+		$this->paginate = array('conditions' => $cond, 'order' => 'Diary.created DESC', 'limit' => 10);
 
-		//$items = $this->paginate('Diary', array('Dialy.has_image' => 1));
 		$items = $this->paginate('Diary', $cond);
 
 		//思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
