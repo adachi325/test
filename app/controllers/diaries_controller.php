@@ -530,15 +530,15 @@ $list[6] ='--5000000000--
 
         chmod($filepath, 0777);
 
-        $file_length = filesize($filepath);
-        header("Content-Disposition: attachment; filename=$filepath");
-        header("Content-Length:$file_length");
-        header("Content-Type: application/octet-stream");
+//        $file_length = filesize($filepath);
+//        header("Content-Disposition: attachment; filename=$filepath");
+//        header("Content-Length:$file_length");
+//        header("Content-Type: application/octet-stream");
 
         $this->log($file_length,LOG_DEBUG);
         $this->log($filepath,LOG_DEBUG);
 
-        readfile ($filepath);
+//        readfile ($filepath);
 
     }
 
