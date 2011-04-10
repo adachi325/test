@@ -71,6 +71,9 @@ class UsersController extends AppController {
                 //セッションにデータ保持
                 TransactionManager::rollback();
                 $this->Session->write('userRegisterData', $this->data);
+                $this->log('------------------01------------------',LOG_DEBUG);
+                $this->log($this->data,LOG_DEBUG);
+                $this->log('------------------/01------------------',LOG_DEBUG);
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm?guid=on');
             } else {
@@ -90,6 +93,9 @@ class UsersController extends AppController {
     function register_confirm(){
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');
+        $this->log('------------------02------------------',LOG_DEBUG);
+        $this->log($this->data,LOG_DEBUG);
+        $this->log('------------------/02------------------',LOG_DEBUG);
         if (empty($this->data)) {
             $this->Session->delete('userRegisterData');
             $this->Session->setFlash(__('不正操作です。', true));
