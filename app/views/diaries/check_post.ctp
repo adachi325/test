@@ -56,20 +56,11 @@ default:
         <div>
             <span>
             <?php
-			$imgMonth = sprintf('%02d', $$diary['Month']['month']);
-            echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_h'), $diary['Month']['year'], $imgMonth));
+            $imgMonth = sprintf('%02d', $$diary['Month']['month']);
+            echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_t'), $diary['Month']['year'], $imgMonth));
             ?>
             </span>
         </div>
-        <br />
-        <div>
-            <span>
-			<?php
-            echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diary['Month']['year'], $imgMonth));
-            ?>
-            </span>
-		</div>
-
 <?php elseif ($type === 1): ?>
 		<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
         <br>

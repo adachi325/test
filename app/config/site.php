@@ -37,6 +37,7 @@ $config['Present'] = array(
         'path' => array(
                 'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
                 'diaryback_f' => 'present/template/diaryback/diaryback_%s%s_footer.jpg',
+                'diaryback_t' => 'present/template/diaryback/diaryback_%s%s_thumb.gif',
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_thum' => 'present/template/screen/%s_thumb.jpg',
