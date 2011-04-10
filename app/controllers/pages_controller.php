@@ -20,17 +20,14 @@ class PagesController extends AppController {
 
 		//ログイン済みじゃない場合、uidを取得
 		$uid = $this->_getUid();
-                $this->log($uid,LOG_DEBUG);
 		if(!empty($uid)) {
 			$user =& ClassRegistry::init('User');
 			$user->contain();
 			$users = $user->find('all',array('conditions' => array('uid' => $uid)));
-                        $this->log($users,LOG_DEBUG);
 			//uidが存在する場合、自動ログイン実行
 			if(!empty($users)){
 				$this->redirect('/children/');
 			}
-                        $this->log($users,LOG_DEBUG);
 		}
 
 		//ニュース取得
