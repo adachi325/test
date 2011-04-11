@@ -34,11 +34,14 @@
 
 <?php echo $this->Form->input('birth_year', array(
 		'options' => $this->SelectOptions->getOption(array(
-			'min' => date('Y') - Configure::read('Child.birthday_years'), 
+			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
+			'reverse' => true,			
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+        'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
 <?php echo $this->Form->input('birth_month', array(
@@ -47,10 +50,11 @@
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+        'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
 	)) ?>月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
-
 </span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>

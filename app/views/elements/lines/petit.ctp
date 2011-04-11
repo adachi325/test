@@ -28,21 +28,8 @@ endif;
 </div>
 
 <div>
+<!--
 <?php echo $this->Html->image('bunner.jpg', array('alt'=>'banner', 'url' => '/')); ?>
-
-<p>
-<?php echo $this->Html->link('text', ''); ?><br />
-text
-</p>
-
-<p>
-<?php echo $this->Html->link('text', ''); ?><br />
-text
-</p>
-
-<p>
-<?php echo $this->Html->link('text', ''); ?><br />
-text
-</p>
+-->
 
 </div>
