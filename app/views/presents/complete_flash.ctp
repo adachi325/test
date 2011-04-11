@@ -5,7 +5,7 @@
 
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<object id="preview" data="/dev.test.sjimajiro/<?php echo (sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="200" height="250">
+<object id="preview" data="/dev.test.shimajiro/<?php echo (sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="200" height="250">
 <param name="bgcolor" value="ffffff">
 <param name="loop" value="on">
 <param name="quality" value="high">
