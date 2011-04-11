@@ -15,7 +15,7 @@
 	</dl>
   </div>
 
-  <a href="<?php echo $this->Html->url('/navigations/prev1/')?>" data-role="button" data-theme="e">更に詳しく見る</a><br />
+  <a href="<?php echo $this->Html->url('/navigations/prev/1/')?>" data-role="button" data-theme="e">更に詳しく見る</a><br />
  <a href="<?php echo $this->Html->url('/users/register/')?>" data-role="button" data-icon="forward" data-theme="e">今すぐ登録!(無料)</a>
 
 

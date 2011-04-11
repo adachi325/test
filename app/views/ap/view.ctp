@@ -16,10 +16,7 @@ echo $contents;
 $user = $this->Session->read('Auth.User');
 if (!$user['dc_user']) {
 	echo $this->element('invitation');
-} else {
-	echo $this->Html->link('トップページへ', '/');
 }
-
 ?>
 
 <?php endif; ?>
