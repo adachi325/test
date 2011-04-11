@@ -220,7 +220,7 @@ class PresentsController extends AppController {
 			return;
                 }
 
-                if($render == 'postcard') {
+                if($type == 'postcard') {
                     //メールアドレス設定
                     $url = Router::url('/'.'presents/print_postcard/'.$token, true);
                     $mailSubject = "ポストカード印刷用URL";
