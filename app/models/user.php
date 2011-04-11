@@ -151,6 +151,11 @@ class User extends AppModel {
                             'message' => '必須項目です。',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDay',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'birth_month' => array(
@@ -159,6 +164,11 @@ class User extends AppModel {
                             'message' => '必須項目です。',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDay',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
 	);
 

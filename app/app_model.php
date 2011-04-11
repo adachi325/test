@@ -31,13 +31,14 @@ class AppModel extends LazyModel {
 
 	//未来日生年月日チェック
 	function checkBirthDay() {
-		if ($this->data['Child']['birth_year'] >= date('Y') AND
-                    $this->data['Child']['birth_month'] > (date('m')+0)) {
+		if (($this->data['Child']['birth_year'] > date('Y')) OR (
+                     $this->data['Child']['birth_year'] >= date('Y') AND
+                     $this->data['Child']['birth_month'] > (date('m')+0))) {
 			return false;
 		} else {
 			return true;
 		}
-	}
+        }
 
 }
 
