@@ -24,14 +24,6 @@
 
 
 <?php if(!empty($diary['Diary']['present_id'])) : ?>
-<?php
-$url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
-if ($type === 2) {
-	$text = 'さっそくこの待受Flashを作成';
-} elseif ($type === 3) {
-	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
-}
-?>
 <?php 
 $desc = '';
 $type = $diary['Present']['present_type'];
@@ -52,6 +44,14 @@ case 3:
 default:
 	$desc = '不正なﾌﾟﾚｾﾞﾝﾄIDが指定されました';
 	break;
+}
+?>
+<?php
+$url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
+if ($type === 2) {
+	$text = 'さっそくこの待受Flashを作成';
+} elseif ($type === 3) {
+	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
 }
 ?>
 	
