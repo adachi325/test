@@ -27,6 +27,6 @@
 <span style="color:#CC0000;">※URLの有効期限は発行から3日間です｡</span><br />
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $this->Html->url(Router::url('/'.'presents/select/postcard/'.$present_id, true)); ?>">ﾎﾟｽﾄｶｰﾄﾞを作り直す</a></span><br />
+<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $this->Html->url('/'.'presents/select/postcard/'.$present_id); ?>">ﾎﾟｽﾄｶｰﾄﾞを作り直す</a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
