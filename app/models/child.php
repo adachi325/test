@@ -34,7 +34,7 @@ class Child extends AppModel {
                             'last' => true,
 			),
                         array(
-                            'rule' => 'checkBirthDay',
+                            'rule' => 'checkBirthDayChild',
                             'message' => '正しい生年月を入力してください。',
                             'last' => true,
                         ),
@@ -46,7 +46,7 @@ class Child extends AppModel {
                             'last' => true,
 			),
                         array(
-                            'rule' => 'checkBirthDay',
+                            'rule' => 'checkBirthDayChild',
                             'message' => '正しい生年月を入力してください。',
                             'last' => true,
                         ),

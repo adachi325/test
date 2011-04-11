@@ -152,7 +152,7 @@ class User extends AppModel {
                             'last' => true,
 			),
                         array(
-                            'rule' => 'checkBirthDay',
+                            'rule' => 'checkBirthDayUser',
                             'message' => '正しい生年月を入力してください。',
                             'last' => true,
                         ),
@@ -165,7 +165,7 @@ class User extends AppModel {
                             'last' => true,
 			),
                         array(
-                            'rule' => 'checkBirthDay',
+                            'rule' => 'checkBirthDayUser',
                             'message' => '正しい生年月を入力してください。',
                             'last' => true,
                         ),
