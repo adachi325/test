@@ -6,7 +6,7 @@
 </div>
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php echo $this->Html->image($path, array("width" => "200", "height" => "250")); ?></div>
+<?php echo $this->Html->image($path); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <ol>
 <li>下のﾎﾞﾀﾝから印刷用URLをﾊﾟｿｺﾝ用ﾒｰﾙｱﾄﾞﾚｽに送信</li>
