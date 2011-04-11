@@ -199,34 +199,19 @@ class TransitionComponent extends Object {
  */
 	function automate($nextStep, $models = null, $prev = null, $validationMethod = null, $messages = array()) {
 		$c =& $this->_controller;
-
-                pr('$nextStep:'.$nextStep);
-                pr('$models:'.$models);
-                pr('$prev:'.$prev);
-                pr('$validationMethod:'.$validationMethod);
-                pr('$messages:'.$messages);
-
 		$messages = array_merge($this->messages, $messages);
 
 		if ($prev !== null) {
-                    pr('a');
 			if (!$this->checkPrev($prev, $messages['prev'])) {
-                            pr('b');
 				return false;
 			}
 		}
-
-                pr('1');
 
 		if ($nextStep !== null) {
-                    pr('c');
                             if (!$this->checkData($nextStep, $models, $validationMethod, $messages['invalid'])) {
-                                pr('d');
 				return false;
 			}
 		}
-
-                pr('2');
 
 		return true;
 	}
