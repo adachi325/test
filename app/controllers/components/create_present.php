@@ -37,6 +37,9 @@ class CreatePresentComponent extends Object {
         // ファイルへ出力する場合
         $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
 
+        chmod(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf', 0777);
+        system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+
         //ヘッダー出力
         //header("Content-type: application/x-shockwave-flash");
         //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
