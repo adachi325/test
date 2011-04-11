@@ -63,6 +63,10 @@ class EasyLoginComponent extends Object {
 
             //ログイン済みなら終了
             if($this->controller->Auth->user()) {
+                $this->log('---uid1---' ,LOG_DEBUG);
+                $this->log($this->_getUid() ,LOG_DEBUG);
+                $this->log('---/uid1---' ,LOG_DEBUG);
+
                 //ユーザー情報設定
                 $this->_setUserData();
                 //ログイン成功時にuid更新
@@ -75,6 +79,10 @@ class EasyLoginComponent extends Object {
 
             //個体識別番号取得
             $this->mobuid = $this->_getUid();
+
+            $this->log('---uid2---' ,LOG_DEBUG);
+            $this->log($this->mobuid ,LOG_DEBUG);
+            $this->log('---/uid2---' ,LOG_DEBUG);
 
             //簡単ログイン個体番号が設定されている場合
             if($this->mobuid!='') {
