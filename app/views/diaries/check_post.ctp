@@ -89,7 +89,7 @@ if ($type === 2) {
 
 <?php if (isset($text)): ?>
 <span style="color:#339933;">・</span>
-<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
+<span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
