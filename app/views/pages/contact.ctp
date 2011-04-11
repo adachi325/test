@@ -14,7 +14,7 @@
 ※音声ｶﾞｲﾀﾞﾝｽでご案内いたします｡<br />
 ※会員番号をお手元にご用意のうえ､おかけください｡<br />
 ※間違い電話が増えておりますので､番号はよくお確かめのうえ､おかけください｡</span><br />
-<?php echo $this->Html->image("dot_line_brown.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array()); ?></div>
 
 <span style="color:#996633;">・</span>操作方法およびﾄﾞｺﾓｺﾐｭﾆﾃｨに関するお問い合わせについて<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -22,5 +22,6 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#996633;">・</span>au､ｿﾌﾄﾊﾞﾝｸの方は<a href="http://docomo-community.com/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">・</span>Androidに関するお問い合わせは<a href="https://docomo-community.com/djs/inquire_open.html" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a>
+<span style="color:#996633;">・</span>Androidに関するお問い合わせは<a href="https://docomo-community.com/djs/inquire_open.html" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

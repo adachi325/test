@@ -18,7 +18,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <span style="color:#339933;">・</span><?php echo $text; ?><br />
 </div>
 投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->hidden('page', array('value' => $page)); ?>
@@ -26,7 +26,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
 <div style="text-align:center;" align="center">
-<?php echo $paginator->counter(array('format' => '全%count%件 %start% %end%件~%current%件を表示')); ?>
+<?php echo $paginator->counter(array('format' => '全%count%件 %start% %end%件～%current%件を表示')); ?>
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

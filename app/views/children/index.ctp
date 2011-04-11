@@ -215,7 +215,7 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れる!ﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 

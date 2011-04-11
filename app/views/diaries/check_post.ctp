@@ -3,9 +3,9 @@
 <div style="text-align:center;" align="center">
 送信が完了しました!<br />
 </div>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php if($diary['Diary']['error_code'] === 'E001') : ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
 ・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
@@ -85,7 +85,7 @@ if ($type === 2) {
 
 <?php if(!empty($diary['Diary']['present_id'])) : ?>
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php endif; ?>
 
