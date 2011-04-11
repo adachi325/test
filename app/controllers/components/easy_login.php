@@ -144,9 +144,8 @@ class EasyLoginComponent extends Object {
 
                 if($User->save($request)){
                     return true;
-                } else {
-                    
                 }
+                
                 //ログアウト
                 $this->controller->Auth->logout();
                 //セッション削除

@@ -109,7 +109,7 @@ class User extends AppModel {
 			array(
                             'rule' => 'isUnique',
                             'message' => 'この端末は既に登録されています。',
-                            'on'=>'create',
+                            //'on'=>'create',
                             'last' => true,
 			),
 		),
