@@ -89,6 +89,14 @@ if ($type === 2) {
 
 <?php endif; ?>
 
+<?php
+$url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
+if ($type === 2) {
+	$text = 'さっそくこの待受Flashを作成';
+} elseif ($type === 3) {
+	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
+}
+?>
 <?php if (isset($text)): ?>
 <span style="color:#339933;">・</span>
 <a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
