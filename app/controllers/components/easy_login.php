@@ -63,14 +63,14 @@ class EasyLoginComponent extends Object {
 
             //ログイン済みなら終了
             if($this->controller->Auth->user()) {
-                $this->log('---uid1---' ,LOG_DEBUG);
-                $this->log($this->_getUid() ,LOG_DEBUG);
-                $this->log('---/uid1---' ,LOG_DEBUG);
 
-                //ユーザー情報設定
-                $this->_setUserData();
                 //ログイン成功時にuid更新
-                $this->_saveUid($this->controller->Session->read('Auth.User.id'));
+                $setUidReturn = $this->_saveUid($this->controller->Session->read('Auth.User.id'));
+
+                //成功したらユーザー情報を設定
+                if($setUidReturn){
+                    $this->_setUserData();
+                }
                 return;
             }
 
@@ -80,16 +80,13 @@ class EasyLoginComponent extends Object {
             //個体識別番号取得
             $this->mobuid = $this->_getUid();
 
-            $this->log('---uid2---' ,LOG_DEBUG);
-            $this->log($this->mobuid ,LOG_DEBUG);
-            $this->log('---/uid2---' ,LOG_DEBUG);
-
             //簡単ログイン個体番号が設定されている場合
             if($this->mobuid!='') {
                     //簡単ログイン個体番号からユーザー情報を取得
                     $user = $User->find('first', array(
                             'conditions' => array($User->name.'.'.$this->field => $this->mobuid)
                     ));
+
                     //取得したユーザー情報でログイン
                     if($this->controller->Auth->login($user[$User->name])) {
                         //ユーザー情報設定
@@ -108,6 +105,8 @@ class EasyLoginComponent extends Object {
                     if( $result == 0 or $result == 1 or $result == 2 ){
                         //【追加対応】ログイン処理にきてuidが取れない端末はエラー画面でその内容を表示
                         $this->cakeError('error404');
+                        //セッション削除
+                        $this->Session->destroy();
                         return;
                     }
                 }
@@ -123,9 +122,35 @@ class EasyLoginComponent extends Object {
                 $request = array();
                 $request['User']['id'] = $selectId;
                 $request['User']['uid'] = $this->_getUid();
+
+                //$selectidがnullならログアウト
+                if(empty($selectId) or !isset($selectId)){
+                    //ログアウト
+                    $this->controller->Auth->logout();
+                    //セッション削除
+                    $this->controller->Session->destroy();
+                    return false;
+                }
+
+                //$selectidがデータベースに存在しないならログアウト
+                $userdata = $User->read(null, $selectId);
+                if(empty($userdata) or !isset($userdata) or count($userdata) < 1){
+                    //ログアウト
+                    $this->controller->Auth->logout();
+                    //セッション削除
+                    $this->controller->Session->destroy();
+                    return false;
+                }
+
                 if($User->save($request)){
                     return true;
+                } else {
+                    
                 }
+                //ログアウト
+                $this->controller->Auth->logout();
+                //セッション削除
+                $this->controller->Session->destroy();
             }
             return false;
         }

@@ -431,18 +431,21 @@ class UsersController extends AppController {
             try {
                 $Children->contain('Diary','ChildPresent');
                 if ($Children->deleteAll($deleteChildCondition)) {
-                    TransactionManager::commit();
                     //会員削除に進む
                 } else {
                     TransactionManager::rollback();
                     //ログアウト
                     $this->Auth->logout();
+                    //セッション全削除
+                    $this->Session->destroy();
                     $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
               //ログアウト
               $this->Auth->logout();
+              //セッション全削除
+              $this->Session->destroy();
               $this->redirect('/');
             }
 
@@ -471,7 +474,6 @@ class UsersController extends AppController {
         $deleteUserCondition = array("id" => $userData['User']['id']);
         try {
             $this->User->contain();
-            TransactionManager::begin();
             if ($this->User->deleteAll($deleteUserCondition)) {
                 TransactionManager::commit();
                 //$this->Session->setFlash(__('削除完了。', true));
@@ -479,17 +481,24 @@ class UsersController extends AppController {
                 TransactionManager::rollback();
                 //ログアウト
                 $this->Auth->logout();
+                //セッション全削除
+                $this->Session->destroy();
                 $this->redirect('/');
             }
         } catch(Exception $e) {
           TransactionManager::rollback();
           //ログアウト
           $this->Auth->logout();
+          //セッション全削除
+          $this->Session->destroy();
           $this->redirect('/');
         }
 
         //ログアウト
         $this->Auth->logout();
+
+        //セッション全削除
+        $this->Session->destroy();
 
         //トライアルトップへ遷移
         $this->redirect('/');
