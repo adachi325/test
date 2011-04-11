@@ -205,8 +205,8 @@ class PresentsController extends AppController {
                 }
 
 		if ($type === "flash") {
-                        $this->CreatePresent->createPostcard($selected);
-			//$this->set(compact('selected'));
+                        $this->CreatePresent->createFlash($selected);
+			$this->set(compact('selected'));
 			$render = 'complete_flash';
 		} else if ($type === "postcard") {
 			$token = $this->CreatePresent->createPostcard($selected);
@@ -220,7 +220,7 @@ class PresentsController extends AppController {
 			return;
                 }
 
-                if($render == 'postcard') {
+                if($type == 'postcard') {
                     //メールアドレス設定
                     $url = Router::url('/'.'presents/print_postcard/'.$token, true);
                     $mailSubject = "ポストカード印刷用URL";
