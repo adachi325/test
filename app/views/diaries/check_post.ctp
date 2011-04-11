@@ -86,7 +86,7 @@ if ($type === 2) {
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php endif; ?>
-
+<?php pr('----'.$text.'----'); ?>
 <?php if (isset($text)): ?>
 <span style="color:#339933;">・</span>
 <span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
