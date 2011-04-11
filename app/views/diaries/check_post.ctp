@@ -83,8 +83,7 @@ default:
 <?php endif; ?>
 
 <?php if (isset($text)): ?>
-<span style="color:#339933;">・</span>
-<span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
+<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
