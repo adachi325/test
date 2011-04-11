@@ -5,7 +5,7 @@
 
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<object data="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="150%" height="150%">
+<object data="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="100%" height="100%">
 <param name="bgcolor" value="000000">
 <param name="loop" value="off">
 <param name="quality" value="high">
