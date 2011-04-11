@@ -206,7 +206,10 @@ class PresentsController extends AppController {
 
 		if ($type === "flash") {
                         $this->CreatePresent->createFlash($selected);
-			$this->set(compact('selected'));
+
+                        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+
+			$this->set(compact('selected','urlItem'));
 			$render = 'complete_flash';
 		} else if ($type === "postcard") {
 			$token = $this->CreatePresent->createPostcard($selected);
