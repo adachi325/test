@@ -175,8 +175,6 @@ class Diary extends AppModel {
 		$has_image = false;
 		$error_code = null;
 		
-		pr($data['images']);
-		
 		foreach ($data['images'] as $image) {
 			
 			if (strlen($image) > Configure::read('Diary.image_filesize_max')) {
