@@ -2,7 +2,7 @@
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 この思い出を削除してよろしいですか｡<br />
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0")); ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -26,7 +26,7 @@ if ($this->data['Diary']['has_image']) {
 </tr>
 <tr>
 <td align="center">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Form->create('Diary', array('url' => '/diaries/delete_complete?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
 <?php echo $this->Form->end("削除"); ?><br />

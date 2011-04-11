@@ -1,6 +1,11 @@
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
-<?php echo $this->Html->image("txt_postcard.gif", array("width" => "100%")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_postcard.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 
 <?php if (count($items)): ?>
 
@@ -39,10 +44,14 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "89", "height"
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left">
-<?php echo $paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php if ($this->Paginator->hasPrev()): ?>
+<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php endif; ?>
 </td>
 <td align="right">
-<?php echo $paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false), null, array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php if ($this->Paginator->hasPrev()): ?>
+<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php endif; ?>
 </td>
 </tr>
 </table>

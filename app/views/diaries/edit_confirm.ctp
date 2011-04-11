@@ -2,7 +2,7 @@
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 この内容に変更してよろしいですか｡<br />内容修正の場合は｢戻る｣ﾎﾞﾀﾝを押して前の画面に戻って行ってください｡<br />
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0")); ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -26,6 +26,7 @@ if ($this->data['Diary']['has_image']) {
 </tr>
 <tr>
 <td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_complete?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->submit("変更"); ?><br />
 <?php echo $this->Form->end(); ?>

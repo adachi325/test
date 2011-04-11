@@ -4,9 +4,14 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
-
-<?php echo $this->Html->image("txt_faq.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?>
-<span style="color:#996633;">・</span>よくある質問<br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_faq.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_faq.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+<span style="color:#996633;">・よくある質問</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q1.</span></td>
@@ -18,7 +23,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">・</span>思い出記録について<br />
+<span style="color:#996633;">・思い出記録について</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
   <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q3.</span></td>
@@ -34,7 +39,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">・</span>こどもちゃれんじについて<br />
+<span style="color:#996633;">・こどもちゃれんじについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
   <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q6.</span></td>
@@ -51,9 +56,8 @@
 </table>
 
 
-
-<?php echo $this->Html->image("dot_line_brown.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
-<span style="color:#996633;">・</span>よくある質問<br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array()); ?></div>
+<span style="color:#996633;">・よくある質問</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -77,7 +81,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
-<span style="color:#996633;">・</span>思い出記録について<br />
+<span style="color:#996633;">・思い出記録について</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -116,7 +120,7 @@
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
-<span style="color:#996633;">・</span>こどもちゃれんじについて<br />
+<span style="color:#996633;">・こどもちゃれんじについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><a name="Q6" id="Q6"></a><span style="font-size:x-small; white-space:nowrap;">Q6.</span></td>
@@ -152,10 +156,13 @@
 </tr>
 </table>
 
-
-
-<?php echo $this->Html->image("line_obj04.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
-
-<?php echo $this->Html->image("txt_inquiry.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj04.gif"); ?></div>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_inquiry.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_inquiry.gif", array("width" => "100%")); ?></td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 以上の質問に該当しない場合は､<a href="<?php echo $this->Html->url("/pages/contact/"); ?>" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a>よりお問い合わせください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
