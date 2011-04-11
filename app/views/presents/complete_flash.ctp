@@ -5,20 +5,12 @@
 
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
-<?php if($this->Ktai->is_ezweb()){ ?>
-<object data="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="266" height="320">
-<param name="bgcolor" value="#FFFFFF">
-<param name="loop" value="on">
+<object data="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash" width="240" height="150">
+<param name="bgcolor" value="000000">
+<param name="loop" value="off">
 <param name="quality" value="high">
+<embed src="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" width="240" height="150" loop="on" quality="high" bgcolor="#000000"></embed>
 </object>
-<?php } else { ?>
-<object data="/<?php echo $urlItem[1].'/'.(sprintf(Configure::read('Present.path.screen_output'), $selected['child_id'], $selected['child_id'])); ?>" type="application/x-shockwave-flash">
-<param name="bgcolor" value="#FFFFFF">
-<param name="loop" value="on">
-<param name="quality" value="high">
-</object>
-<?php } ?>
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
