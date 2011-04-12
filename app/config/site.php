@@ -21,6 +21,15 @@ $config['LinesString'] = array (
 		5 => 'すてっぷ',
 		6 => 'じゃんぷ',
 	),
+	'age' => array(
+		'baby' => array('0～1歳向けｺｰｽ', '#ee86b4'),
+		'petit_f' => array('1歳前後向けｺｰｽ', '#e61953'),
+		'petit' => array('1～2歳向けｺｰｽ', '#e61953'),
+		'pocket' => array('2～3歳向けｺｰｽ', '#ffcc00'),
+		'hop' => array('3～4歳向けｺｰｽ', '#00b0ec'),
+                'step' => array('4～5歳向けｺｰｽ', '#009933'),
+		'jump' => array('5～6歳向けｺｰｽ', '#0066cc'),
+	),
 );
 
 
