@@ -14,7 +14,7 @@
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 <td width="33%"><?php
@@ -44,7 +44,7 @@
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 <td width="33%"><?php
@@ -54,7 +54,7 @@
 		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 </tr>
