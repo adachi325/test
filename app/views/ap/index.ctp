@@ -9,8 +9,18 @@
 </tr>
 <tr>
 <td width="10%">&nbsp;</td>
-<td width="85%"><span style="font-size:x-small; color:#fcb800;"><?php echo h($title); ?></span></td>
+<td width="85%"><span style="font-size:x-small; color:<?php echo Configure::read('LinesString.age.'.$line.'.1'); ?>;"><?php echo Configure::read('LinesString.age.'.$line.'.0'); ?></span></td>
 </tr>
+<?php if($line === 'baby'){ ?>
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_first.gif", array("width" => "100%")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_first.gif", array("width" => "100%")); ?></td>
+</tr>
+<tr>
+<td width="10%">&nbsp;</td>
+<td width="85%"><span style="font-size:x-small; color:<?php echo Configure::read('LinesString.age.petit_f.1'); ?>;"><?php echo Configure::read('LinesString.age.petit_f.0'); ?></span></td>
+</tr>
+<?php }?>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
