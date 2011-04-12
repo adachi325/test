@@ -289,19 +289,6 @@ class Diary extends AppModel {
 			
 			$fit_type = ($is_rect === false) ? 'in' : 'out';
 			
-			#-------------------------------------------------------
-			# 画像リサイズ
-			#-------------------------------------------------------
-			$this->__smart_resize_image(
-				$filepath,		//file
-				$size,			//width
-				$size,			//height
-				true,			//proportional
-				$fit_type,		//fit_type
-				'file',			//output
-				true,			//delete_original
-				false			//use_linux_commands
-			);
 			
 			#-------------------------------------------------------
 			# 画像を中心から正方形にカット
@@ -315,6 +302,20 @@ class Diary extends AppModel {
 				$thumb->height($size); 
 				$thumb->crop(($info[0] - $size) / 2, ($info[1] - $size) / 2);
 				$thumb->save();
+			} else {
+				#-------------------------------------------------------
+				# 画像リサイズ
+				#-------------------------------------------------------
+				$this->__smart_resize_image(
+					$filepath,		//file
+					$size,			//width
+					$size,			//height
+					true,			//proportional
+					$fit_type,		//fit_type
+					'file',			//output
+					true,			//delete_original
+					false			//use_linux_commands
+				);
 			}
 		}
 	}
