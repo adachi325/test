@@ -172,8 +172,6 @@ class Child extends AppModel {
 					)
 				);
 			}
-			
-                        pr($params);
 
 			return $Diary->find('all', $params);
 
