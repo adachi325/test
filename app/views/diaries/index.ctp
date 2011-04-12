@@ -98,7 +98,7 @@ foreach($diaries as $diary):
 	if ($diary['Diary']['has_image']) {
 		echo $html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array("width" => "60", "height" => "60", "style" => "margin:0 5px 5px 0;"));
 	} else {
-		echo $this->Html->image("omoide_nophoto.gif", array("width" => "99%", "style" => "margin:0 5px 5px 0;"));
+		echo $this->Html->image("omoide_nophoto.gif", array("width" => "60", "height" => "60", "style" => "margin:0 5px 5px 0;"));
 	}
 	echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5"));
 	?>
