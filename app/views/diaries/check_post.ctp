@@ -24,7 +24,6 @@
 
 
 <?php if(!empty($diary['Diary']['present_id'])) : ?>
-
 <?php 
 $desc = '';
 $type = $diary['Present']['present_type'];
@@ -38,16 +37,19 @@ case 1:
 	break;
 case 2:
 	$desc = '待受Flashをﾌﾟﾚｾﾞﾝﾄ';
+        $text = 'さっそくこの待受Flashを作成';
+        $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 	break;
 case 3:
 	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
+        $text = 'さっそくこの待受Flashを作成';
+        $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 	break;
 default:
 	$desc = '不正なﾌﾟﾚｾﾞﾝﾄIDが指定されました';
 	break;
 }
-?>
-	
+?>	
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
@@ -71,15 +73,6 @@ default:
 				array("style" => "margin:10px 0;")); ?>
 <?php endif;?>
 
-<?php 
-$url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
-if ($type === 2) {
-	$text = 'さっそくこの待受Flashを作成';
-} elseif ($type === 3) {
-	$text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
-}
-?>
-
 </div>
 <?php endif; ?>
 
@@ -90,8 +83,7 @@ if ($type === 2) {
 <?php endif; ?>
 
 <?php if (isset($text)): ?>
-<span style="color:#339933;">・</span>
-<a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $text; ?></span></a><br />
+<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 

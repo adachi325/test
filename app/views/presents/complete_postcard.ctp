@@ -6,7 +6,7 @@
 </div>
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php echo $this->Html->image($path, array("width" => "200", "height" => "250")); ?></div>
+<?php echo $this->Html->image($path); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <ol>
 <li>下のﾎﾞﾀﾝから印刷用URLをﾊﾟｿｺﾝ用ﾒｰﾙｱﾄﾞﾚｽに送信</li>
@@ -27,6 +27,6 @@
 <span style="color:#CC0000;">※URLの有効期限は発行から3日間です｡</span><br />
 <?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
 
-<span style="color:#339933;">・</span><a href="<?php echo Router::url('/'.'presents/present_list/'.$present_id, true) ?>"><span style="color:#339900;">ﾎﾟｽﾄｶｰﾄﾞを作り直す</span></a><br />
+<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $this->Html->url('/'.'presents/select/postcard/'.$present_id); ?>">ﾎﾟｽﾄｶｰﾄﾞを作り直す</a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

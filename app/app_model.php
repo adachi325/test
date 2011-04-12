@@ -29,15 +29,27 @@ class AppModel extends LazyModel {
 		}
 	}
 
-	//未来日生年月日チェック
-	function checkBirthDay() {
-		if ($this->data['Child']['birth_year'] >= date('Y') AND
-                    $this->data['Child']['birth_month'] > (date('m')+0)) {
+	//未来日生年月日チェック(Child用)
+	function checkBirthDayChild() {
+		if (($this->data['Child']['birth_year'] > date('Y')) OR (
+                     $this->data['Child']['birth_year'] >= date('Y') AND
+                     $this->data['Child']['birth_month'] > (date('m')+0))) {
 			return false;
 		} else {
 			return true;
 		}
-	}
+        }
+
+	//未来日生年月日チェック(User用)
+	function checkBirthDayUser() {
+		if (($this->data['User']['birth_year'] > date('Y')) OR (
+                     $this->data['User']['birth_year'] >= date('Y') AND
+                     $this->data['User']['birth_month'] > (date('m')+0))) {
+			return false;
+		} else {
+			return true;
+		}
+        }
 
 }
 

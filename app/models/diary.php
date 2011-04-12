@@ -175,8 +175,6 @@ class Diary extends AppModel {
 		$has_image = false;
 		$error_code = null;
 		
-		pr($data['images']);
-		
 		foreach ($data['images'] as $image) {
 			
 			if (strlen($image) > Configure::read('Diary.image_filesize_max')) {
@@ -288,6 +286,9 @@ class Diary extends AppModel {
 		
 		$type = exif_imagetype($filepath);
 		if ($type == 2) {
+			
+			$fit_type = ($is_rect === false) ? 'in' : 'out';
+			
 			#-------------------------------------------------------
 			# 画像リサイズ
 			#-------------------------------------------------------
@@ -296,7 +297,7 @@ class Diary extends AppModel {
 				$size,			//width
 				$size,			//height
 				true,			//proportional
-				'out',			//fit_type
+				$fit_type,		//fit_type
 				'file',			//output
 				true,			//delete_original
 				false			//use_linux_commands

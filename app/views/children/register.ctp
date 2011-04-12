@@ -51,7 +51,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 年 <br />
-        <?php echo $form->error('birth_month'); ?>
+        <?php echo $form->error('birth_year'); ?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 

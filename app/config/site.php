@@ -21,6 +21,15 @@ $config['LinesString'] = array (
 		5 => 'すてっぷ',
 		6 => 'じゃんぷ',
 	),
+	'age' => array(
+		'baby' => array('0～1歳向けｺｰｽ', '#ee86b4'),
+		'petit_f' => array('1歳前後向けｺｰｽ', '#e61953'),
+		'petit' => array('1～2歳向けｺｰｽ', '#e61953'),
+		'pocket' => array('2～3歳向けｺｰｽ', '#ffcc00'),
+		'hop' => array('3～4歳向けｺｰｽ', '#00b0ec'),
+                'step' => array('4～5歳向けｺｰｽ', '#009933'),
+		'jump' => array('5～6歳向けｺｰｽ', '#0066cc'),
+	),
 );
 
 
@@ -41,6 +50,7 @@ $config['Present'] = array(
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_thum' => 'present/template/screen/%s_thumb.jpg',
+                'screen_output' => 'img/photo/%s/%s.swf',
                 'postcard' => 'present/template/postcard/%s.png',
                 'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
@@ -57,7 +67,7 @@ $config['Present'] = array(
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
-    'docomo_community' => 'diary@docomo-community.ne.jp',
+        'docomo_community' => 'diary@docomo-community.ne.jp',
 );
 
 $config['Mail'] = array(
@@ -87,7 +97,7 @@ $config['ReceiveMail'] = array(
 $config['Diary'] = array(
 	'hash_length' => 4,
 	'image_filesize_max' => 2000000,
-	'image_size_thumb' => 200,		//このサイズ内に元の比率で収まるようにリサイズ
+	'image_size_thumb' => 220,		//このサイズ内に元の比率で収まるようにリサイズ
 	'image_size_rect' => 75,		//正方形
 	'image_size_postcard' => 210,	//正方形
 	'image_path_original' => "photo/%s/%s_original.jpg",	//一時保存用
@@ -112,5 +122,5 @@ $config['Child'] = array(
             0 => '1',
             1 => '2',
 		),
-		'birthday_years' => 8,
+        'birthday_years' => 8,
 );

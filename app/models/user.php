@@ -109,7 +109,7 @@ class User extends AppModel {
 			array(
                             'rule' => 'isUnique',
                             'message' => 'この端末は既に登録されています。',
-                            'on'=>'create',
+                            //'on'=>'create',
                             'last' => true,
 			),
 		),
@@ -151,6 +151,11 @@ class User extends AppModel {
                             'message' => '必須項目です。',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDayUser',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
             //リマインド時に利用するためのダミーフィールド
 		'birth_month' => array(
@@ -159,6 +164,11 @@ class User extends AppModel {
                             'message' => '必須項目です。',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDayUser',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
 	);
 

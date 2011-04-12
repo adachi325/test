@@ -1,7 +1,7 @@
 
 
 <div style="background:#996633;">
-<img src="img/spacer.gif" width="1" height="5" /><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:small; font-weight:bold; color:#ffffff;">対応機種</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
@@ -23,7 +23,7 @@
 </div>
 <br />
 
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array("width" => "1", "height" => "10")); ?></div>
 <a name="all" id="all"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼全体</span><br />
 以下の端末でご利用になれます｡（ただし一部機種を除く）<br />
@@ -44,8 +44,8 @@ SoftBank 3G端末 (海外端末､ｽﾏｰﾄﾌｫﾝ､旧Vodafone端末､�
 【Android】<br />
 AndroidOS2.1以降（ただし一部機種を除く。教材コンテンツのみ）<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="flash" id="flash"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼Flash対応機種</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -85,8 +85,8 @@ AndroidOS2.0以前端末<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="flash_sound" id="flash_sound"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼Flash（音付き）</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -126,8 +126,8 @@ W11H/W11K/W21H<br />
 AndroidOS2.0以前端末<br />
 
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="movie" id="movie"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼動画</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -146,8 +146,8 @@ T2101V<br />
 【au】<br />
 A1101S A1302SA A3000/C3000ｼﾘｰｽﾞ 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="melody" id="melody"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼着ﾒﾛ</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -169,8 +169,8 @@ NM705i/NM706i/NM850iG<br />
 【Android】<br />
 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="voice" id="voice"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼着うた・着ﾎﾞｲｽ</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -205,8 +205,8 @@ A5301T/A5302CA/A5304T<br />
 【Android】<br />
 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="screen" id="screen"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼待受</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -254,8 +254,8 @@ W21H<br />
 【Android】<br />
 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="photoframe" id="photoframe"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼ﾌｫﾄﾌﾚｰﾑ</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -299,8 +299,8 @@ C5001T<br />
 【Android】<br />
 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="decome" id="decome"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼ﾃﾞｺﾒ・ﾃﾞｺﾚﾒ</span><br />
 以下の端末以外でご利用になれます｡<br />
@@ -336,8 +336,8 @@ W43K/W43S/W43T/W44K/W44KII/W44KII ｶﾒﾗなしﾓﾃﾞﾙ/W44T/W44TII(TiMo)/
 【Android】<br />
 全機種<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
-<div align="center" style="text-align:center"><img src="img/dot_line_brown.gif" /></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="shimajiro" id="shimajiro"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
 <span style="color:#996633">▼しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span><br />
 以下の端末でご利用になれます｡<br />
@@ -354,5 +354,5 @@ CDMA 1X WIN端末 (W2x､W31S､ｽﾏｰﾄﾌｫﾝを除く)<br />
 【SoftBank】<br />
 SoftBank 3G端末 (海外端末､ｽﾏｰﾄﾌｫﾝ､旧Vodafone端末､旧J-Phone端末を除く)<br />
 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><img src="emoji/images/123.gif" width="12" height="12" border="0" alt="" /><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 

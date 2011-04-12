@@ -159,7 +159,7 @@ class ThemesController extends AppController {
          $this->set('nexthash',$hash);
 
          //メールアドレス生成
-         $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@shimajiro-dev.com';
+         $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@'.Configure::read('Defaults.domain');
 
          //タイトル設定
          if($theme['Theme']['free_theme']){
