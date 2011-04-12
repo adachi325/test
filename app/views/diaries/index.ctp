@@ -21,7 +21,7 @@
 	$i = 1;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -41,7 +41,7 @@
 	$i = 2;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "60", "height" => "60")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -51,7 +51,7 @@
 	$i = 3;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "60", "height" => "60")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
