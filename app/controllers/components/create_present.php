@@ -97,7 +97,7 @@ class CreatePresentComponent extends Object {
         $height = ImageSY($image); //縦幅（ピクセル）
 
         //サイズ指定
-        $new_width = 100;
+        $new_width = 150;
 
         //リサイズの圧縮比
         $rate = $new_width / $width;
