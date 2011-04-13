@@ -58,11 +58,9 @@ class AppModel extends LazyModel {
                     return false;
                 }
 
-                pr($this->data);
-
                 $id='';
-                if(isset($this->Auth)) {
-                    $id = $this->Session->read('Auth.User.id');
+                if(isset($_SESSION['Auth']['User']['loginid'])) {
+                    $id = $_SESSION['Auth']['User']['loginid'];
                 }else if(isset($this->data['User']['loginid'])) {
                     $id = $this->data['User']['loginid'];
                 } else {
