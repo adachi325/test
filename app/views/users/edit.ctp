@@ -38,7 +38,7 @@ extract($this->data['User']);
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■下記の会員の場合はﾁｪｯｸを入れてください｡</span><br />
-<?php echo $this->Form->input("dc_user", array("type" => "checkbox")); ?>ﾄﾞｺﾓｺﾐｭﾆﾃｨ<br />
+<?php echo $this->Form->input("dc_user",  array("type" => "checkbox", 'div' => false, 'label' => false)); ?>ﾄﾞｺﾓｺﾐｭﾆﾃｨ<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
