@@ -28,7 +28,6 @@ if ($this->data['Diary']['has_image']) {
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Form->submit("変更"); ?><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </td>
 </tr>
 </table>
@@ -38,9 +37,9 @@ if ($this->data['Diary']['has_image']) {
 <tr>
 <td align="center">
 <?php echo $this->Form->submit("戻る"); ?>
-<?php echo $this->Form->end(); ?>
 </td>
 </tr>
 </table>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
