@@ -5,19 +5,20 @@ class PagesController extends AppController {
 	public $uses = array();
 	public $helpers = array('Wikiformat.Wikiformat');
 
-	//public $allow_android = array();
+	/*
+	public $allow_android = array(
+		'list_model', 'charge', 'help', 'rule',
+	);
+	 */
+	public $allow_android = true;
 
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('*');
 
-		/*
 		if ($this->Ktai->is_android()) {
-			if (empty($this->allow_android)) {
-				$this->redirect('/');
-			}
+			$this->layout = 'android';
 		}
-		*/
 	}
 
 	function display() {
