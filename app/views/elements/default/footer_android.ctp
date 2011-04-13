@@ -2,6 +2,11 @@
 <!-- footer -->
 <div id="footWrap">
 <div id="footText">
+
+<?php if (! (($this->params['controller'] == 'pages') && ($htis->params['action'] == 'index')) ) : ?>
+<div id="btnTop"><a href="/" data-role="button" data-icon="arrow-u">トップページへ戻る</a></div>
+<?php endif; ?>
+
 <ul>
 <li><a href="<?php echo $this->Html->url('/pages/list_models/'); ?>" data-ajax="false">対応機種</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/charge/'); ?>" data-ajax="false">通信料の目安</a></li>
