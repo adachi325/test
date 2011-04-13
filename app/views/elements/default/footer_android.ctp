@@ -3,13 +3,13 @@
 <div id="footWrap">
 <div id="footText">
 
-<?php if (! (($this->params['controller'] == 'pages') && ($htis->params['action'] == 'index')) ) : ?>
+<?php if (! (($this->params['controller'] == 'pages') && ($this->params['action'] == 'display')) ) : ?>
 <div id="btnTop"><a href="/" data-role="button" data-icon="arrow-u">トップページへ戻る</a></div>
 <?php endif; ?>
 
 <ul>
 <li><a href="<?php echo $this->Html->url('/pages/list_models/'); ?>" data-ajax="false">対応機種</a></li>
-  <li><a href="<?php echo $this->Html->url('/pages/charge/'); ?>" data-ajax="false">通信料の目安</a></li>
+  <li><a href="<?php echo $this->Html->url('/pages/charges/'); ?>" data-ajax="false">通信料の目安</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/help/'); ?>" data-ajax="false">よくある質問・問い合わせ</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/rules/'); ?>" data-ajax="false">利用規約</a></li>
 </ul>

@@ -11,6 +11,7 @@ class PagesController extends AppController {
 	);
 	 */
 	public $allow_android = true;
+	public $view_prefix = '';
 
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -18,6 +19,7 @@ class PagesController extends AppController {
 
 		if ($this->Ktai->is_android()) {
 			$this->layout = 'android';
+			$this->view_prefix = 'android_';
 		}
 	}
 
@@ -91,13 +93,22 @@ class PagesController extends AppController {
 	}
 
 
-	function android_top() { } 
-        function charges() { }
-        function contact() { }
-        function help() { }
-        function list_models() { }
-        function maintenance() { }
-        function rules() { }
+	function charges() { 
+		$this->render($this->view_prefix.$this->params['action']);   
+	}
+	function contact() { 
+	}
+	function help() {
+		$this->render($this->view_prefix.$this->params['action']);   
+   	}
+	function list_models() {
+		$this->render($this->view_prefix.$this->params['action']);   
+   	}
+	function maintenance() { 
+	}
+	function rules() {
+		$this->render($this->view_prefix.$this->params['action']);   
+   	}
 
         //uid取得不可時にエラーページを表示させる処理
         function errorMobileId(){
