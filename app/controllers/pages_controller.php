@@ -5,12 +5,27 @@ class PagesController extends AppController {
 	public $uses = array();
 	public $helpers = array('Wikiformat.Wikiformat');
 
+	//public $allow_android = array();
+
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('*');
+
+		/*
+		if ($this->Ktai->is_android()) {
+			if (empty($this->allow_android)) {
+				$this->redirect('/');
+			}
+		}
+		*/
 	}
 
 	function display() {
+
+		if ($this->Ktai->is_android()) {
+			$this->render('android_top');
+			return;
+		}
 
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
