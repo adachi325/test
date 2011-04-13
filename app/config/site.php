@@ -124,3 +124,12 @@ $config['Child'] = array(
 		),
         'birthday_years' => 8,
 );
+
+$config['Error'] = array(
+        'nothingUid' => array(
+            'dc' => '「iMENU」→「お客様サポート」→「各種設定(確認・変更・利用)」→「iモードID通知設定」',
+            'ez' => '「EZメニュー」→「機能」→「時間/料金/申込」→「各種申込」→「EZ番号通知設定」',
+            'sb' => '「Yahoo!ケータイ」→「設定・申込」→「端末・サービス設定」→「ユーザーID通知設定」',
+        ),
+);
+ 
