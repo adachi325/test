@@ -30,6 +30,7 @@ if ($this->data['Diary']['has_image']) {
 
 <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
 <?php echo $this->Form->submit("削除"); ?>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
 </table>
