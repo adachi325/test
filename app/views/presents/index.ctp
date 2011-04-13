@@ -9,11 +9,16 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
 
-<?php echo $this->Html->image("txt_present.gif", array("width" => "100%")); ?><br />
 <span style="font-size:x-small;">思い出を記録に残すと､毎月ｽﾃｷなﾌﾟﾚｾﾞﾝﾄがもらえます♪</span><br />
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -28,7 +33,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <span style="font-size:medium;">【<span style="color:#ff3366;">思い出背景</span>】</span></span></td>
 </tr>
 </table>
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -39,7 +44,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <span style="font-size:medium;">【<span style="color:#ff3366;">ﾃﾞｺﾒ絵文字</span>】</span></span></td>
 </tr>
 </table>
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -50,7 +55,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <span style="font-size:medium;">【<span style="color:#ff3366;">待受Flash</span>】</span></span></td>
 </tr>
 </table>
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -61,7 +66,7 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <span style="font-size:medium;">【<span style="color:#ff3366;">ﾎﾟｽﾄｶｰﾄﾞ</span>】</span></span></td>
 </tr>
 </table>
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <span style="color:#339933;">・</span>他の月のﾌﾟﾚｾﾞﾝﾄを見る<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -82,15 +87,24 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 
 </tr>
 </table>
-<?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
-<?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
 
-<?php echo $this->Html->image("line_obj01.gif", array("width" => "100%", "style" => "margin:10px 0;")); ?><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
-<?php echo $this->Html->image("txt_presentlist.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
- 
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_presentlist.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table><a name="presents" id="presents"></a>
 獲得したﾌﾟﾚｾﾞﾝﾄを確認しよう!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/1');?>" style="color:#339900;"><span style="color:#339900;">ﾃﾞｺﾒ絵文字</span></a><br />

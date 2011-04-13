@@ -4,4 +4,5 @@
 /app/tmp
 /app/webroot/files
 /app/webroot/img/photo
-/app/webroot/present
+/app/webroot/present/output/postcard
+.htaccess

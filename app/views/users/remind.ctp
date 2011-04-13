@@ -12,7 +12,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><br />
 <span style="color:#666666;">半角英数字4-12文字</span><br />
-<?php echo $this->Form->input("remindId", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("remindId", array("type" => "text", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -34,23 +34,27 @@
 
 <?php echo $this->Form->input('birth_year', array(
 		'options' => $this->SelectOptions->getOption(array(
-			'min' => date('Y') - Configure::read('Child.birthday_years'), 
+			'min' => date('Y') - Configure::read('Child.birthday_years'),
 			'max' => date('Y'), 
+			'reverse' => true,			
 			'suffix' => '')),
         'empty' => '------',
-		'class' => 'f_bir',
+        'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><?php echo $form->error('birth_year','必須項目です'); ?>
+	)) ?>年 <br /><?php echo $form->error('birth_year'); ?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
 			'max' => 12, 
 			'suffix' => '',)),
         'empty' => '------',
-		'class' => 'f_bir',
+        'error' => false,
+		'div' => false,
+		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><?php echo $form->error('birth_month','必須項目です'); ?>
-
+	)) ?>月<br /><?php echo $form->error('birth_month'); ?>
 </span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>

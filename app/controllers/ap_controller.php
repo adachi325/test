@@ -21,9 +21,13 @@ class ApController extends AppController {
 
 	function petit($id = null) {
 		if ($id) {
-			$this->__view($this->params['action'], $id);
+			if ($id === 'index') {
+				$this->__index($this->params['action']);
+			} else {
+				$this->__view($this->params['action'], $id);
+			}
 		} else {
-			$this->__index($this->params['action']);
+			$this->render("petit");
 		}
 	}
 
@@ -58,8 +62,20 @@ class ApController extends AppController {
 			$this->__index($this->params['action']);
 		}
 	}
-	
+
+	function member($id = null) {
+		if ($id) {
+			$this->__member_view($id);
+		} else {
+			$this->cakeError('error404');
+		}
+	}
+
 	function __index($line = null) {
+
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
+		}
 
 		extract($this->params);	
 
@@ -68,11 +84,17 @@ class ApController extends AppController {
 		if (isset($line)) {
 			
 			$Line =& ClassRegistry::init('Line');
-			
-			$data = $Line->find('first', array(
+
+			$opt = array(
 				'conditions' => array('category_name' => $line),
 				'fields' => array('title', 'category_name'),
-			));
+			);
+
+			if ($line != "baby") {
+				$opt['order'] = 'created DESC';
+			}
+
+			$data = $Line->find('first', $opt);
 
 			if (!empty($data)) {
 				$title = $data['Line']['title'];
@@ -85,14 +107,40 @@ class ApController extends AppController {
 				'fields' => array('title', 'category_name'),
 			));
 		}
-		$this->set(compact('issues', 'title', 'lines'));
-		$this->render('index');		
+
+		$this->set(compact('issues', 'title', 'lines', 'line'));
+		$this->render('index');
 	}
 
+	function __member_view($id = null) {
+
+		if(empty($id)) {
+			$this->cakeError('error404');
+		}
+
+		if ($this->Ktai->is_android()) {
+			$this->redirect('/pages/android/');
+		}
+
+		$this->ktai['enable_ktai_session'] = false;
+
+	  $filepath = WWW_ROOT."ap/member/{$id}/index.html";
+		if ($this->Ktai->is_softbank()) {
+			$_path = WWW_ROOT."ap/member/{$id}/index.softbank.html";
+		} elseif ($this->Ktai->is_ezweb()) {
+			$_path = WWW_ROOT."ap/member/{$id}/index.au.html";
+		}
+
+    if (isset($_path) && file_exists($_path)) {
+      $filepath = $_path;
+    }
+		
+		$this->set(compact('filepath'));
+		$this->layout = 'contents';
+		$this->render("view");
+	}
 
 	function __view($line = null, $id = null) {
-
-		//extract($this->params);
 
 		if(empty($line) || empty($id)) {
 			$this->redirect(array('action' => 'index'));
@@ -112,12 +160,23 @@ class ApController extends AppController {
 		$release_date = $data['Content']['release_date'];
 
 		if ($release_date <= date('Y-m-d')) {
-			if ($this->Ktai->is_imode()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
-			} elseif ($this->Ktai->is_softbank()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
+			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
+
+			if ($this->Ktai->is_softbank()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
 			} elseif ($this->Ktai->is_ezweb()) {
-				$filepath = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+			} elseif ($this->Ktai->is_android()) {
+				$_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
+				if (!file_exists($_path)) {
+					$this->layout = null;
+					$this->render('android');
+					return;
+				}
+			}
+
+			if (isset($_path) && file_exists($_path)) {
+				$filepath = $_path;
 			}
 			
 			$this->set(compact('release_date', 'filepath'));

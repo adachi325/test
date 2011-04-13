@@ -33,6 +33,11 @@ class Child extends AppModel {
                             'message' => '必須項目です',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDayChild',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
 		'birth_month' => array(
 			array(
@@ -40,6 +45,11 @@ class Child extends AppModel {
                             'message' => '必須項目です',
                             'last' => true,
 			),
+                        array(
+                            'rule' => 'checkBirthDayChild',
+                            'message' => '正しい生年月を入力してください。',
+                            'last' => true,
+                        ),
 		),
 		'sex' => array(
 			array(
@@ -162,8 +172,6 @@ class Child extends AppModel {
 					)
 				);
 			}
-			
-                        pr($params);
 
 			return $Diary->find('all', $params);
 

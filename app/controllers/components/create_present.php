@@ -13,14 +13,10 @@ class CreatePresentComponent extends Object {
         // アサイン用変数の設定
         $assign = array(
             // 差し込み画像
-            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][0]),
-            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][1]),
-            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_rect'), $args['child_id'], $args['diary_id'][2]),
+            'pic_01' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][0]),
+            'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][1]),
+            'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]),
         );
-
-        // ステージサイズの設定
-        $assign["width"] = 240;
-        $assign["height"] = 320;
 
         // Almeidaインスタンスを生成
         $almeida = new Almeida();
@@ -38,12 +34,17 @@ class CreatePresentComponent extends Object {
         // テンプレートのロード
         $almeida->load($template);
 
+        // ファイルへ出力する場合
+        $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+
+        system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+
         //ヘッダー出力
-        header("Content-type: application/x-shockwave-flash");
-        header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
+        //header("Content-type: application/x-shockwave-flash");
+        //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
 
         // Flash生成
-        $almeida->generateFlash();
+        //$almeida->generateFlash();
     }
 
 
@@ -56,7 +57,7 @@ class CreatePresentComponent extends Object {
         /******** ポストカード作成 ********/
 
         //下地画像生成（はがきサイズ）
-	$new_image = ImageCreateTrueColor(567, 839);
+	$new_image = ImageCreateTrueColor(566, 840);
 
         //思い出画像読み込み
 	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][0]));
@@ -74,7 +75,7 @@ class CreatePresentComponent extends Object {
         ImageCopy($new_image, $diaryImgD, 280, 300, 0, 0, 210, 210);
 
         //下地画像へ、テンプレート画像を合成
-        ImageCopy($new_image, $template, 0, 0,  0, 0, 567, 839);
+        ImageCopy($new_image, $template, 0, 0,  0, 0, 566, 840);
 
         //画像名生成
         $new_file_name = substr(md5($args['child_id'].time()),0,20);
@@ -96,7 +97,7 @@ class CreatePresentComponent extends Object {
         $height = ImageSY($image); //縦幅（ピクセル）
 
         //サイズ指定
-        $new_width = 100;
+        $new_width = 150;
 
         //リサイズの圧縮比
         $rate = $new_width / $width;

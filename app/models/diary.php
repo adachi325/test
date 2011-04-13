@@ -175,8 +175,6 @@ class Diary extends AppModel {
 		$has_image = false;
 		$error_code = null;
 		
-		pr($data['images']);
-		
 		foreach ($data['images'] as $image) {
 			
 			if (strlen($image) > Configure::read('Diary.image_filesize_max')) {
@@ -288,19 +286,9 @@ class Diary extends AppModel {
 		
 		$type = exif_imagetype($filepath);
 		if ($type == 2) {
-			#-------------------------------------------------------
-			# 画像リサイズ
-			#-------------------------------------------------------
-			$this->__smart_resize_image(
-				$filepath,		//file
-				$size,			//width
-				$size,			//height
-				true,			//proportional
-				'out',			//fit_type
-				'file',			//output
-				true,			//delete_original
-				false			//use_linux_commands
-			);
+			
+			$fit_type = ($is_rect === false) ? 'in' : 'out';
+			
 			
 			#-------------------------------------------------------
 			# 画像を中心から正方形にカット
@@ -314,6 +302,20 @@ class Diary extends AppModel {
 				$thumb->height($size); 
 				$thumb->crop(($info[0] - $size) / 2, ($info[1] - $size) / 2);
 				$thumb->save();
+			} else {
+				#-------------------------------------------------------
+				# 画像リサイズ
+				#-------------------------------------------------------
+				$this->__smart_resize_image(
+					$filepath,		//file
+					$size,			//width
+					$size,			//height
+					true,			//proportional
+					$fit_type,		//fit_type
+					'file',			//output
+					true,			//delete_original
+					false			//use_linux_commands
+				);
 			}
 		}
 	}

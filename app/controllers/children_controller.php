@@ -3,6 +3,7 @@
 class ChildrenController extends AppController {
 
     var $name = 'Children';
+	var $helpers = array('Wikiformat.Wikiformat');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -169,8 +170,8 @@ class ChildrenController extends AppController {
 
         if (empty($this->data)) {
             $this->Session->delete('childRegisterData');
-            $this->Session->setFlash(__('不正操作です。', true));
-            $this->redirect('/children/');
+            $this->cakeError('error404');
+            return;
         }
         
         $lines = $this->Child->Line->find('list');
@@ -196,20 +197,23 @@ class ChildrenController extends AppController {
                     //初回登録プレゼント
                     $this->_initialRegistrationPresents($this->Child->getLastInsertId());
                     TransactionManager::commit();
-                    $this->Session->setFlash(__('子供登録完了。', true));
                 } else {
                     TransactionManager::rollback();
-                    $this->Session->setFlash(__('子供登録失敗。', true));
-                    $this->redirect('/children/');
+                    $this->cakeError('error404');
+                    $this->log('子供登録に失敗01:'.$this->Child->getLastInsertId().':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                    return;
                 }
             } catch(Exception $e) {
-              TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+                TransactionManager::rollback();
+                $this->cakeError('error404');
+                $this->log('子供登録に失敗02:'.$this->Child->getLastInsertId().':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                $this->log($e.':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                return;
             }
         } else {
-             $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+            $this->cakeError('error404');
+            $this->log('不正操作03:'.$this->Child->getLastInsertId().':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+            return;
         }
     }
 
@@ -257,6 +261,7 @@ class ChildrenController extends AppController {
 
             if(empty($this->data)){
                 $this->cakeError('error404');
+                return;
             }
 
             $lines = $this->Child->Line->find('list');
@@ -303,20 +308,23 @@ class ChildrenController extends AppController {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
                     TransactionManager::commit();
-                    $this->Session->setFlash(__('更新完了。', true));
                 } else {
                     TransactionManager::rollback();
-                    $this->Session->setFlash(__('更新失敗。', true));
-                    $this->redirect('/children/');
+                    $this->cakeError('error404');
+                    $this->log('子供情報更新に失敗01:'.$this->Child->getLastInsertId().':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                    return;
                 }
             } catch(Exception $e) {
-              TransactionManager::rollback();
-              $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+                TransactionManager::rollback();
+                $this->cakeError('error404');
+                $this->log('子供情報更新に失敗02:'.$this->Child->getLastInsertId().':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                $this->log($e.':'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                return;
             }
         } else {
-             $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+            $this->cakeError('error404');
+            $this->log('子供情報更新に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+            return;
         }
     }
 
@@ -340,15 +348,15 @@ class ChildrenController extends AppController {
         $childrenData = $this->_setChild();
         //削除する子供がいなければ不正操作
         if (empty($childrenData)){
-             $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+            $this->cakeError('error404');
+            return;
         }
         //最終子供ID設定
         $lastChildId = $this->Tk->_getLastChild();
         //最終子供IDの子供がいなければ不正操作
         if (empty($lastChildId)){
-             $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+            $this->cakeError('error404');
+            return;
         }
         //子供情報取得
         $this->Child->contain();
@@ -388,12 +396,13 @@ class ChildrenController extends AppController {
                 TransactionManager::commit();
             } else {
                 TransactionManager::rollback();
-                //$this->Session->setFlash(__('削除失敗。', true));
+                $this->log('子供削除に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
                 $this->cakeError('error404');
                 return;
             }
         } catch(Exception $e) {
           TransactionManager::rollback();
+          $this->log('子供削除に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
           $this->cakeError('error404');
           return;
         }
@@ -401,14 +410,20 @@ class ChildrenController extends AppController {
         //思い出に紐付く画像を削除
         foreach($childData['Diary'] as $diary) {
             if($diary['has_image']) {
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']) )){
-                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $childData['Child']['id'],$diary['id']) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
-                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $childData['Child']['id'],$diary['id']) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
-                if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']) )){
-                    //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $childData['Child']['id'],$diary['id']) )){
+                        //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
+                    }
                 }
             }
         }

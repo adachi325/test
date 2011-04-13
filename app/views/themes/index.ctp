@@ -1,9 +1,13 @@
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-<?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?>
-
-<span style="color:#339933;">・</span>5月の思い出ﾃｰﾏに沿って書く<br />
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10%"><?php echo $this->Html->image("icn_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+<td width="85%"><?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
+</tr>
+</table>
+<span style="color:#339933;">・</span><?php echo $months['0']['Month']['month'] ?>月の思い出ﾃｰﾏに沿って書く<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php foreach($months as $month): ?>
@@ -16,7 +20,7 @@
 
 <?php endforeach; ?>
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0")); ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <span style="color:#339933;">・</span>自由に書く<br />
 
@@ -32,7 +36,7 @@
 
 <?php endforeach; ?>
 
-<?php echo $this->Html->image("dot_line_green.gif", array("width" => "100%", "style" => "margin:10px 0")); ?>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <span style="color:#339933;">・</span>他の月の思い出を書く<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

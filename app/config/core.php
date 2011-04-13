@@ -170,7 +170,7 @@
  * Session time out time (in seconds).
  * Actual value depends on 'Security.level' setting.
  */
-	Configure::write('Session.timeout', '120');
+	Configure::write('Session.timeout', '20');
 
 /**
  * If set to false, sessions are not automatically started.
@@ -182,7 +182,7 @@
  * in the session. You might want to set the value to false, when dealing with
  * older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
  */
-	Configure::write('Session.checkAgent', true);
+	Configure::write('Session.checkAgent', false);
 
 /**
  * The level of CakePHP security. The session timeout time defined

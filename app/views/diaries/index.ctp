@@ -9,19 +9,19 @@
 <tr>
 <td width="33%"><?php
 	$i = 0;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 <td width="33%"><?php
 	$i = 1;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -39,22 +39,22 @@
 </td>
 <td width="33%"><?php
 	$i = 2;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 <td width="33%"><?php
 	$i = 3;
-	if (isset($diaries[$i])) {
-		$diary = $diaries[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+	if (isset($diariesTop[$i])) {
+		$diary = $diariesTop[$i];
+		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id'])), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
 	} else {
 		$i++;
-		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
+		echo $this->Html->image("album_pic0{$i}.gif");
 	}
 	?></td>
 </tr>
@@ -96,9 +96,9 @@ foreach($diaries as $diary):
 	<?php
 	echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5"));
 	if ($diary['Diary']['has_image']) {
-		echo $html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array("width" => "99%", "style" => "margin:0 5px 5px 0;"));
+		echo $html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']) ,array("width" => "60", "height" => "60", "style" => "margin:0 5px 5px 0;"));
 	} else {
-		echo $this->Html->image("omoide_nophoto.gif", array("width" => "99%", "style" => "margin:0 5px 5px 0;"));
+		echo $this->Html->image("omoide_nophoto.gif", array("width" => "60", "height" => "60", "style" => "margin:0 5px 5px 0;"));
 	}
 	echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5"));
 	?>
@@ -130,7 +130,6 @@ endforeach;
 <?php if(count($diaries) > ($page * 5)): ?>
 <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
 <?php endif; ?>
-
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
@@ -149,8 +148,8 @@ if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $befo
 
 if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 	$next = ($options['month'] == 12) ?
-		$this->Html->link('/diaries/index/'.($options['year']+1).'/1') :
-		$this->Html->link('/diaries/index/'.$options['year'].'/'.($options['month']+1));
+		$this->Html->url('/diaries/index/'.($options['year']+1).'/1') :
+		$this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']+1));
 }
 ?>
 

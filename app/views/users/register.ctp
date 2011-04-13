@@ -17,7 +17,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><span style="color:#ff0000;">(必須)</span><span style="color:#666666;">※覚えやすい半角英数字でご登録ください｡</span><br />
 <span style="color:#ff6600;">半角英数字4-12文字</span><br />
-<?php echo $this->Form->input("loginid", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("loginid", array("type" => "text", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3']));?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -27,7 +27,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><span style="color:#ff0000;">(必須)</span> <br />
 <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("new_password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("new_password", array("type" => "password", "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -37,7 +37,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ確認</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("row_password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("row_password", array("type" => "password", "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -58,7 +58,7 @@
 <span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 
 <?php
-if (!empty($this->data['Child'][0]['sex'])) {
+if (!isset($this->data['Child'][0]['sex'])) {
 	$this->data['Child'][0]['sex'] = 0;
 }
 $value1 = ($this->data['Child'][0]['sex'] == 1) ? '1' : 'none';
@@ -116,12 +116,11 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■下記の会員の場合は､それぞれﾁｪｯｸを入れてください｡</span><br /><span style="color:#666666">※会員でなくても､このｻｰﾋﾞｽはご利用いただけます｡</span><br />
-<?php echo $this->Form->input("Child.0.benesse_user", array("type" => "checkbox")); ?>こどもちゃれんじ<br />
-<?php echo $this->Form->input("dc_user", array("type" => "checkbox")); ?>ﾄﾞｺﾓｺﾐｭﾆﾃｨ<br />
+<?php echo $this->Form->input("Child.0.benesse_user", array("type" => "checkbox", 'div' => false, 'label' => false)); ?>こどもちゃれんじ<br />
+<?php echo $this->Form->input("dc_user", array("type" => "checkbox", 'div' => false, 'label' => false)); ?>ﾄﾞｺﾓｺﾐｭﾆﾃｨ<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />

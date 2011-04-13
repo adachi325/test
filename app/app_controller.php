@@ -72,8 +72,8 @@ class AppController extends Controller {
 		'Session',
 		'Transition',
 		//'DebugKit.Toolbar',
-        'EasyLogin',
-        'Tk',
+                'EasyLogin',
+                'Tk',
 		'CreatePresent',
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
@@ -106,11 +106,14 @@ class AppController extends Controller {
 
 	function beforeFilter(){
             parent::beforeFilter();
+            $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
+            $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
             if($this->Ktai->is_imode()){
+		header('Content-Type: application/xhtml+xml');
                 $this->__formActionGuidOn();
                 $this->__checkImodeId();
             }
-	}
+	}   
 
         function __formActionGuidOn(){
             // output_add_rewrite_varで設定するパラメータをformタグのactionにも付加

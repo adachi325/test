@@ -47,7 +47,7 @@ class NavigationsController extends AppController {
 		$this->set('nexthash',$hash);
 
 		//メールアドレス設定
-		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@shimajiro-dev.com';
+		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
 		$mailTitle = 'ベストショット';
@@ -60,20 +60,28 @@ class NavigationsController extends AppController {
 
 	function after2($hash = null) {
 
-		if(!empty($hush)){
+                //hashを確認し、データがなければリダイレクト
+                if(!empty($this->data['Navigation']['nexthash'])){
+                    $hash=$this->data['Navigation']['nexthash'];
+                }
+
+		if(empty($hash)){
 			$this->cakeError('error404');
 			return;
 		}
 
 		//会員情報取得
 		$userdata = $this->getUserData();
-
-		$options = array();
-		$options['hash'] = $hash;
-		$options['child_id'] = $userdata['User']['last_selected_child'];
+                $conditions = array(
+                    'conditions' => array(
+                        'Diary.child_id' => $userdata['User']['last_selected_child'],
+                        'Diary.hash' => $hash
+                    ),
+                    'order'=>array('Diary.created DESC')
+                );
 		$diary =& ClassRegistry::init('Diary');
 		$diary->contain();
-		$diaries = $diary->find('first',array('conditions' => $options));
+		$diaries = $diary->find('first',$conditions);
 		$this->set(compact('diaries'));
 
 		//ハッシュタグを設定

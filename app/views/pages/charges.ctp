@@ -11,6 +11,6 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#996633;">・</span><a href="http://docomo-community.cp05.docomo.ne.jp/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">ﾄﾞｺﾓをお使いの方</span></a><br />
 <span style="color:#996633;">・</span><a href="http://docomo-community.com/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">auをお使いの方</span></a><br />
-<span style="color:#996633;">・</span><a href="https://docomo-community.com/djs/inquire_open.html" style="color:#cc6600;"><span style="color:#cc6600;">ｿﾌﾄﾊﾞﾝｸをお使いの方</span></a><br />
+<span style="color:#996633;">・</span><a href="http://mb.softbank.jp/mb/s/dl.html" style="color:#cc6600;"><span style="color:#cc6600;">ｿﾌﾄﾊﾞﾝｸをお使いの方</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
