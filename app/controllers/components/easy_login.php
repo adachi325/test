@@ -123,6 +123,8 @@ class EasyLoginComponent extends Object {
                     return false;
                 }
 
+                pr($request);
+
                 if($User->save($request)){
                     return true;
                 }
