@@ -67,7 +67,7 @@ $config['Present'] = array(
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
-        'docomo_community' => 'diary@docomo-community.ne.jp',
+        'docomo_community' => 'diary@docomo-community.com',
 );
 
 $config['Mail'] = array(
