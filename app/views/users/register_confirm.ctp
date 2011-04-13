@@ -89,18 +89,20 @@
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("登録"); ?><br />
-<?php echo $this->Form->end(); ?>
-
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-
-<?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
-<?php echo $this->Form->submit("戻る"); ?><br />
-<?php echo $this->Form->end(); ?>
-
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
-
 </table>
+<?php echo $this->Form->end(); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<table width="100%">
+    <tr>
+        <td align="center">
+            <?php echo $this->Form->submit("戻る"); ?><br />
+        </td>
+    </tr>
+</table>
+<?php echo $this->Form->end(); ?>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
