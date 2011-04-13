@@ -77,10 +77,6 @@ class CreatePresentComponent extends Object {
 	//画像保存
 	ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
 
-        //メモリを開放します
-        imagedestroy($new_image);
-
-
         /******** サムネイル作成 ********/
 
         //サムネイル元画像読み込み
