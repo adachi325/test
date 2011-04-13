@@ -42,7 +42,7 @@ case 2:
 	break;
 case 3:
 	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
-        $text = 'さっそくこの待受Flashを作成';
+        $text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
         $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 	break;
 default:
