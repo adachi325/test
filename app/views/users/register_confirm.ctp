@@ -93,7 +93,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
-<?php echo $this->Form->create('User', array('url' => '/users/register?guid=ON')); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->submit("戻る"); ?><br />
 <?php echo $this->Form->end(); ?>
 
