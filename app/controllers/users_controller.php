@@ -19,7 +19,20 @@ class UsersController extends AppController {
         $this->User->recursive = 0;
     }
 
+    function uidCheck(){
+        $uid = $this->_getUid();
+        if(!isset($uid) or empty($uid)) {
+            $result = $this->_getCareer();
+            if( $result == 0 or $result == 1 or $result == 2 ){
+                $this->redirect('/pages/errorMobileId/');
+                return;
+            }
+        }
+    }
+
     function login(){
+        //ログイン処理に入る前にUID取得確認
+        $this->uidCheck();
         //ログイン判定
         if($this->Auth->user()) {
             $this->redirect($this->Auth->redirect());
@@ -41,6 +54,10 @@ class UsersController extends AppController {
     }
 
     function register(){
+
+        //ログイン処理に入る前にUID取得確認
+        $this->uidCheck();
+
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
             $this->set('login_user',$this->Auth->user());
@@ -256,6 +273,9 @@ class UsersController extends AppController {
 
     //リマインド認証
     function remind () {
+
+        //ログイン処理に入る前にUID取得確認
+        $this->uidCheck();
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
