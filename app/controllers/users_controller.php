@@ -58,13 +58,6 @@ class UsersController extends AppController {
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
 
-        //ログイン処理に入る前に確認
-        $result = $this->_getCareer();
-        if( $result == 0 or $result == 1 or $result == 2 ){
-            $this->redirect('/pages/errorMobileId/');
-            return;
-        }
-
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
             $this->set('login_user',$this->Auth->user());
