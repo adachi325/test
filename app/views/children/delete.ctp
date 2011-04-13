@@ -21,6 +21,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td align="center">
+        <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
         <?php echo $this->Form->submit("ｷｬﾝｾﾙ"); ?><br />
         <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
         </td>
