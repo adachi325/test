@@ -61,8 +61,7 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">
-	<?php
+<span style="font-size:x-small; color:#333333;"><?php
 		//歳計算
 		$yy = $currentChild['Child']['birth_year'];
 		$mm = $currentChild['Child']['birth_month'];
@@ -108,7 +107,7 @@ if (count($childrenData) < 3) {
 <span style="font-size:x-small;color:#ff9900;"><?php $this->Ktai->emoji(0xE6DD); ?></span>
 </td>
 <td align="left">
-<span style="font-size:x-small;"><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?></span>
+<span style="font-size:x-small;"><?php echo $this->Html->link('入会ﾌﾟﾚｾﾞﾝﾄはこちら', '/presents/present_list/-1/'); ?></span>
 </td>
 </tr>
 <?php endif; ?>
@@ -228,22 +227,29 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 
+<table>
 <?php foreach($months as $month): ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
+<tr>
+
 <?php if (!$theme['free_theme']): ?>
-<span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
-<a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
+<td><span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span></td>
+<td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br /></td>
 <?php endif; ?>
 <?php endforeach; ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if ($theme['free_theme']): ?>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
+<td><span style="color:#339933;">・</span></td><td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br /></td>
 <?php endif; ?>
+
+<tr>
 <?php endforeach; ?>
 
 <?php endforeach; ?>
+</table>
+
 <div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
