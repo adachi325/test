@@ -5,6 +5,8 @@ class ApController extends AppController {
 	var $helpers = array('Time');
 	var $uses = array();
 
+	var $allow_android = true;
+
 	function beforeFilter()
 	{
 		$this->Auth->allow('*');
@@ -74,7 +76,7 @@ class ApController extends AppController {
 	function __index($line = null) {
 
 		if ($this->Ktai->is_android()) {
-			$this->redirect('/pages/android/');
+			$this->redirect('/');
 		}
 
 		extract($this->params);	
