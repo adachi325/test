@@ -6,22 +6,26 @@
 
 <?php echo $this->Form->create('Child', array('url' => '/children/delete?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false))); ?>
 <?php echo $form->hidden('check', array('value'=> $this->data['Child']['id'])); ?>
-
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit('削除', array('div' => false, 'label' => false)); ?>
-<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-
-<?php echo $this->Form->create('Child', array('url' => '/children/index?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false))); ?>
-<?php echo $this->Form->submit('ｷｬﾝｾﾙ', array('div' => false, 'label' => false)); ?>
-<?php echo $this->Form->end(); ?>
 </td>
 </tr>
 </table>
+<?php echo $this->Form->end(); ?>
 
-<?php $this->Form->end(); ?>
+<?php echo $this->Form->create('Child', array('url' => '/children/index?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false))); ?>
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="center">
+        <?php echo $this->Form->submit("ｷｬﾝｾﾙ"); ?><br />
+        <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+        </td>
+    </tr>
+</table>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 

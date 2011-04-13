@@ -3,7 +3,7 @@
 
 この思い出を削除してよろしいですか｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-
+<?php echo $this->Form->create('Diary', array('url' => '/diaries/delete_complete?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center">
@@ -27,15 +27,23 @@ if ($this->data['Diary']['has_image']) {
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php echo $this->Form->create('Diary', array('url' => '/diaries/delete_complete?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
+
 <?php echo $form->hidden('check', array('value'=> $this->data['Diary']['id'])); ?>
-<?php echo $this->Form->end("削除"); ?><br />
+<?php echo $this->Form->submit("削除"); ?>
+</td>
+</tr>
+</table>
+<?php echo $this->Form->end(); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->create('Diary', array('url' => '/diaries/info/'.$this->data['Diary']['id'].'?guid=ON', "inputDefaults" => array("dev" => false, "label" => false))); ?>
-<?php echo $this->Form->end("ｷｬﾝｾﾙ"); ?><br />
+<table width="90%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="center">
+<?php echo $this->Form->submit("ｷｬﾝｾﾙ"); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
-</table><br />
+</table>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
