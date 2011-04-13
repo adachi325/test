@@ -303,5 +303,5 @@
 	Cache::config('default', array('engine' => 'File'));
 
         //メモリー不足対策
-        ini_set( 'memory_limit', '32M' );
+        ini_set( 'memory_limit', '256M' );
         
