@@ -26,12 +26,11 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
 <div style="text-align:center;" align="center">
-<?php echo $paginator->counter(array('format' => '全%count%件 %start% %end%件～%current%件を表示')); ?>
+<?php echo $paginator->counter(array('format' => '全%count%件 %start%件～%current%件を表示')); ?>
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <table cellpadding="0" cellspacing="0" width="100%">
-
 
 <?php for($i = 0; $i < count($items);  $i++): ?>
 <?php extract($items[$i]['Diary']); ?>
