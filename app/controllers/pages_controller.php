@@ -91,11 +91,27 @@ class PagesController extends AppController {
 
 
 	function android_top() { } 
-		function charges() { } 
-		function contact() { } 
-		function help() { } 
-		function list_models() { } 
-		function maintenance() { } 
-		function rules() { } 
+        function charges() { }
+        function contact() { }
+        function help() { }
+        function list_models() { }
+        function maintenance() { }
+        function rules() { }
+
+        //uid取得不可時にエラーページを表示させる処理
+        function errorMobileId(){
+            $resultCareer = $this->_getCareer();
+            if( $resultCareer == 0) {
+                $career = 'dc';
+            } else if ($resultCareer == 1 ) {
+                $career = 'ez';
+            } else if ($resultCareer == 2 ){
+                $career = 'sb';
+            } else {
+                return;
+            }
+            $this->set('messege',Configure::read('Error.nothingUid.'.$career));
+            return;
+        }
 }
 ?>
