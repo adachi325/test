@@ -36,11 +36,6 @@ class User extends AppModel {
                             'message' => '半角英数字で入力してください',
                             'last' => true,
 			),
-			array(
-                            'rule' => 'checkRegisterLoginIdtoPassword',
-                            'message' => 'ﾛｸﾞｲﾝIDとﾊﾟｽﾜｰﾄﾞが重複しています',
-                            'last' => true,
-			),
 		),
 		'loginpassword' => array(
 			array(
@@ -73,11 +68,6 @@ class User extends AppModel {
 			array(
                             'rule' => 'checkIDPassword',
                             'message' => '半角英数字で入力してください',
-                            'last' => true,
-			),
-			array(
-                            'rule' => 'checkRegisterLoginIdtoPassword',
-                            'message' => 'ﾛｸﾞｲﾝIDとﾊﾟｽﾜｰﾄﾞが重複しています',
                             'last' => true,
 			),
 		),
