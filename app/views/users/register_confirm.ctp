@@ -20,7 +20,6 @@
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
 </div></td>
 </tr>
-
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -89,7 +88,6 @@
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("登録"); ?><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </td>
 </tr>
 </table>
