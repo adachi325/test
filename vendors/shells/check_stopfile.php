@@ -1,12 +1,10 @@
 <?php
 
 App::import('Shell', 'AppShell');
-//App::import('Shell', 'ReceiveMailShell');
 class CheckStopfileShell extends AppShell {
 	
 	function main() {
 		if (!$this->_stopfileExists()) {
-//			echo "no stopfile exists.\n";
 			return;
 		}
 		
@@ -14,12 +12,10 @@ class CheckStopfileShell extends AppShell {
 		
 		if ($pid === null
 				|| $this->_isRunningPid($pid) === true) {
-//			echo "pid is running.($pid)\n";
 			return;
 		}
 		
 		$this->_removeStopfile();
-		echo "\nstopfile was removed.\n";
 	}
 	
 	function _stopfileExists() {
@@ -34,7 +30,7 @@ class CheckStopfileShell extends AppShell {
 	}
 	
 	function _isRunningPid($pid) {
-		$command = 'ps x|grep "shimajiro/cake/console receive_mail" > ' . Configure::read('ReceiveMail.ps_log_path');
+		$command = 'ps x|grep "/cake/console receive_mail" > ' . Configure::read('ReceiveMail.ps_log_path');
 		$result = passthru($command, $ret);
 		
 		$is_running_pid = false;
@@ -47,6 +43,11 @@ class CheckStopfileShell extends AppShell {
 			}
 		}
 		fclose($fp);
+		
+		if (file_exists(Configure::read('ReceiveMail.ps_log_path'))) {
+			unlink(Configure::read('ReceiveMail.ps_log_path'));
+		}
+		
 		return $is_running_pid;
 	}
 	

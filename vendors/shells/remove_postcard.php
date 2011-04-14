@@ -4,25 +4,23 @@ App::import('Shell', 'AppShell');
 class RemovePostcardShell extends AppShell {
 	
 	function main() {
-//		echo "RemovePostcardShell start.\n";
+
+		$this->PostcardUrl =& ClassRegistry::init('PostcardUrl');
 		
-		$dirpath = WWW_ROOT . Configure::read('Present.postcard.output_dir');
-		if ($dir = opendir($dirpath)) {
-			while (($file = readdir($dir)) !== false) {
-				if (!is_dir($file)
-						&& !$this->_isAvailablePostcard($dirpath . $file)) {
-					unlink($dirpath . $file);
-				}
-			}
-			closedir($dir);
+		$data = $this->PostcardUrl->getExpiredUrls();
+		foreach($data as $url) {
+			$file = WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $url['PostcardUrl']['token']);
+			$file_thum = WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $url['PostcardUrl']['token']);
+
+			$this->PostcardUrl->delete($data['PostcardUrl']['id']);
+
+			$this->_safe_delete($file);
+			$this->_safe_delete($file_thum);
 		}
-		
-//		echo "RemovePostcardShell end.\n";
 	}
-	
-	function _isAvailablePostcard($filepath) {
-		$hour_diff = (time() - filemtime($filepath)) / 3600;
-		return $hour_diff <= Configure::read('Present.postcard.valid_hours');
+
+	function _safe_delete($filename) {
+		if (file_exists($filename)) { unlink($filename); }
 	}
 
 }

@@ -227,28 +227,25 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 
-<table>
 <?php foreach($months as $month): ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
-<tr>
 
 <?php if (!$theme['free_theme']): ?>
-<td><span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span></td>
-<td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br /></td>
+<span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 <?php endforeach; ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if ($theme['free_theme']): ?>
-<td><span style="color:#339933;">・</span></td><td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br /></td>
+<span style="color:#339933;">・</span>
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 
-<tr>
 <?php endforeach; ?>
 
 <?php endforeach; ?>
-</table>
 
 <div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></div>
 
@@ -262,14 +259,14 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 <?php
-    echo $this->Html->image('60pic_flash_'.date('Y').date('m').'.gif', array("align" => "left", "style" => "float:left; margin-right:10px;"));
+    echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), date('Y'), date('m')), array("align" => "left", "style" => "float:left; margin-right:10px;"));
 ?>
 思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞ､ﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?>
 <a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div><br clear="all" />
-<div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
+<div style="clear:both;"></div>
 
 <!-- 非会員限定のご案内 -->
 <?php if (true): ?>
@@ -315,7 +312,7 @@ if (count($childrenData) < 3) {
 新ｶﾝｶｸ☆ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
-&lt;こどもちゃんれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
+&lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
