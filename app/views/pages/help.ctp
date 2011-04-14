@@ -1,6 +1,6 @@
 <div style="background:#996633;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="font-size:small; font-weight:bold; color:#ffffff;">よくある質問・問い合わせ</span><br />
+<span style="font-size:small; font-weight:bold; color:#ffffff;">よくある質問･問い合わせ</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
@@ -11,7 +11,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-<span style="color:#996633;">・よくある質問</span><br />
+<span style="color:#996633;">&nbsp;・よくある質問</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q1.</span></td>
@@ -23,7 +23,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">・思い出記録について</span><br />
+<span style="color:#996633;">&nbsp;・思い出記録について</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
   <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q3.</span></td>
@@ -39,7 +39,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">・こどもちゃれんじについて</span><br />
+<span style="color:#996633;">&nbsp;・こどもちゃれんじについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
   <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q6.</span></td>
@@ -57,7 +57,7 @@
 
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array()); ?></div>
-<span style="color:#996633;">・よくある質問</span><br />
+<span style="color:#996633;">&nbsp;・よくある質問</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -66,7 +66,7 @@
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A1.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 </div>
@@ -77,11 +77,11 @@
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A2.</span></td>
-<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
-<span style="color:#996633;">・思い出記録について</span><br />
+<span style="color:#996633;">&nbsp;・思い出記録について</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -90,7 +90,7 @@
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A3.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 </div>
@@ -102,7 +102,7 @@
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A4.</span></td>
-<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 
@@ -114,13 +114,13 @@
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A5.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
-<span style="color:#996633;">・こどもちゃれんじについて</span><br />
+<span style="color:#996633;">&nbsp;・こどもちゃれんじについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><a name="Q6" id="Q6"></a><span style="font-size:x-small; white-space:nowrap;">Q6.</span></td>
@@ -128,7 +128,7 @@
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A6.</span></td>
-<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 
@@ -140,7 +140,7 @@
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A7.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 </div>
@@ -152,7 +152,7 @@
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A8.</span></td>
-<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
+<td><span style="font-size:x-small;color:#333333">登録料､利用料は無料です｡但し､別途ﾊﾟｹｯﾄ通信料がかかりますので､ﾊﾟｹ&nbsp;・ﾎｰﾀﾞｲﾀﾞﾌﾞﾙなどのﾊﾟｹｯﾄ定額ｻｰﾋﾞｽにご加入していない方はご注意ください｡</span></td>
 </tr>
 </table>
 

@@ -172,7 +172,7 @@ NM705i/NM706i/NM850iG<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="voice" id="voice"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
-<span style="color:#996633">▼着うた・着ﾎﾞｲｽ</span><br />
+<span style="color:#996633">▼着うた&nbsp;・着ﾎﾞｲｽ</span><br />
 以下の端末以外でご利用になれます｡<br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -302,7 +302,7 @@ C5001T<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <a name="decome" id="decome"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></a><br />
-<span style="color:#996633">▼ﾃﾞｺﾒ・ﾃﾞｺﾚﾒ</span><br />
+<span style="color:#996633">▼ﾃﾞｺﾒ&nbsp;・ﾃﾞｺﾚﾒ</span><br />
 以下の端末以外でご利用になれます｡<br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

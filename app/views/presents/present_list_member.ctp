@@ -14,7 +14,7 @@
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
-<span style="color:#ff6600;">・</span>対象年齢:0～3歳<br />
+<span style="color:#ff6600;">&nbsp;・</span>対象年齢:0～3歳<br />
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td><?php echo $this->Html->image("sample/first/60pic_pingpong-hello.gif", array("style" => "margin:5px 0;width:100%")); ?></td>
@@ -27,7 +27,7 @@
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<span style="color:#ff6600;">・</span>対象年齢:4～6歳<br />
+<span style="color:#ff6600;">&nbsp;・</span>対象年齢:4～6歳<br />
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="25%"><?php echo $this->Html->image("sample/first/60pic_lunch.gif", array("style" => "margin:5px 0;width:100%")); ?></td>

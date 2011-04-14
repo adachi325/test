@@ -61,8 +61,7 @@ if (count($childrenData) < 3) {
 
 <tr>
 <td align="left" valign="top"><?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;">
-	<?php
+<span style="font-size:x-small; color:#333333;"><?php
 		//歳計算
 		$yy = $currentChild['Child']['birth_year'];
 		$mm = $currentChild['Child']['birth_month'];
@@ -108,7 +107,7 @@ if (count($childrenData) < 3) {
 <span style="font-size:x-small;color:#ff9900;"><?php $this->Ktai->emoji(0xE6DD); ?></span>
 </td>
 <td align="left">
-<span style="font-size:x-small;"><?php echo $this->Html->link('会員限定プレゼント', '/presents/present_list/-1/'); ?></span>
+<span style="font-size:x-small;"><?php echo $this->Html->link('入会ﾌﾟﾚｾﾞﾝﾄはこちら', '/presents/present_list/-1/'); ?></span>
 </td>
 </tr>
 <?php endif; ?>
@@ -117,7 +116,7 @@ if (count($childrenData) < 3) {
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
-<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;・'; ?></span>
 </span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
 </td>
 <td align="left">
@@ -203,7 +202,7 @@ if (count($childrenData) < 3) {
 <td width="85%"><?php echo $this->Html->image("txt_look.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/');?>" style="color:#339900;"><span style="color:#339900;">思い出記録をもっと見る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/');?>" style="color:#339900;"><span style="color:#339900;">思い出記録をもっと見る</span></a><br />
 
 <!-- 思い出を形に残す -->
 
@@ -214,8 +213,8 @@ if (count($childrenData) < 3) {
 <td width="85%"><?php echo $this->Html->image("txt_leave.gif", array("width" => "100%")); ?></td>
 </tr>
 </table>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
@@ -232,14 +231,14 @@ if (count($childrenData) < 3) {
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if (!$theme['free_theme']): ?>
-<span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;・'; ?></span>
 <a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 <?php endforeach; ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if ($theme['free_theme']): ?>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 <?php endforeach; ?>
 
@@ -317,11 +316,11 @@ if (count($childrenData) < 3) {
 <td width="85%"><?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
-<span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
+<span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
 毎週月曜､朝7:30～8:00放送!<br />
 新ｶﾝｶｸ☆ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
+<span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
 &lt;こどもちゃんれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
@@ -333,8 +332,8 @@ if (count($childrenData) < 3) {
 <?php echo $this->Html->image("icn_spana.gif"); ?><span style="font-size:x-small;"><?php echo h($this->Session->read('Auth.User.loginid')); ?>さんの設定</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
-<span style="font-size:x-small;">・</span><a href="<?php echo $this->Html->url('/children/edit_menu/'); ?>" style="color:#666666;"><span style="color:#666666;">子ども情報の追加/変更/削除</span></a><br />
-<span style="font-size:x-small;">・</span><a href="<?php echo $this->Html->url('/children/user_menu/'); ?>" style="color:#666666;"><span style="color:#666666;">ﾌﾟﾛﾌｨｰﾙ情報を設定する</span></a><br />
+<span style="font-size:x-small;">&nbsp;・</span><a href="<?php echo $this->Html->url('/children/edit_menu/'); ?>" style="color:#666666;"><span style="color:#666666;">子ども情報の追加/変更/削除</span></a><br />
+<span style="font-size:x-small;">&nbsp;・</span><a href="<?php echo $this->Html->url('/children/user_menu/'); ?>" style="color:#666666;"><span style="color:#666666;">ﾌﾟﾛﾌｨｰﾙ情報を設定する</span></a><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

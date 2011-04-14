@@ -15,14 +15,14 @@
 <?php echo $this->Html->image("pc_logo.gif", array("width" => "471px", "height" => "118px", "alt" => "ケータイしまじろうひろば×ドコモコミュニティ")); ?>
 </h1>
 <div class="box">
-<h2>ポストカード完成！</h2>
+<h2>ポストカード印刷</h2>
 <p><?php echo $this->Html->image('/'.$path, array("width" => "283px", "height" => "420px", "alt" => "ポストカード")); ?></p>
 <p>上のポストカード画像をパソコンに保存し、お持ちのプリンターで印刷してください。<br />
 <b>【用意するもの】プリンター、はがき</b></p>
 </div>
 
 <div class="description">
-<h2>・Windowsの方</h2>
+<h2>&nbsp;・Windowsの方</h2>
 <ol>
 <li>画像を右クリックし、「名前を付けて画像を保存」を選択します。</li>
 <li>保存したファイルを右クリックし、「印刷」を選択してください。</li>
@@ -30,7 +30,7 @@
 <li>プリントしてください。</li>
 </ol>
 
-<h2>・Macintoshの方</h2>
+<h2>&nbsp;・Macintoshの方</h2>
 <ol>
 <li>Ctrl+クリックし、「イメージを別名で保存」を選択します。</li>
 <li>保存したファイルを開き、「ファイル」>「印刷」を選択してください。</li>
