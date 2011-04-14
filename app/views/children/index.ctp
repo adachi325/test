@@ -262,7 +262,7 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 <?php
-    echo $this->Html->image('60pic_flash_'.date('Y').date('m').'.gif', array("align" => "left", "style" => "float:left; margin-right:10px;"));
+    echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), date('Y'), date('m')), array("align" => "left", "style" => "float:left; margin-right:10px;"));
 ?>
 思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞ､ﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
