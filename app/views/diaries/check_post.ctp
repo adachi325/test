@@ -23,8 +23,8 @@
 <?php endif; ?>
 
 
-<?php if(!empty($diary['Diary']['present_id'])) : ?>
-<?php 
+<?php if(!empty($diary['Diary']['present_id'])) :
+$imgMonth = sprintf('%02d', $diary['Month']['month']);
 $desc = '';
 $type = $diary['Present']['present_type'];
 
@@ -53,24 +53,21 @@ default:
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
-
-<?php if ($type === 0): ?>
+<?php if ($type == 0): ?>
         <div>
             <span>
-            <?php
-            $imgMonth = sprintf('%02d', $$diary['Month']['month']);
-            echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_t'), $diary['Month']['year'], $imgMonth));
-            ?>
+            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample.0'),  $diary['Month']['year'], $imgMonth)); ?>
             </span>
         </div>
-<?php elseif ($type === 1): ?>
-		<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
-        <br>
+<?php elseif ($type == 1): ?>
+	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+	<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
+        <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
         <div>端末ﾒﾆｭｰ(機能)の画像保存からﾃﾞｺﾒを保存してね♪</div>
-
 <?php else: ?>
-		<?php echo $html->image($diary['Present']['present_thumbnail_path'], 
-				array("style" => "margin:10px 0;")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
+?>
 <?php endif;?>
 
 </div>
