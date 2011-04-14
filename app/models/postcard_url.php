@@ -31,13 +31,34 @@ class PostcardUrl extends AppModel {
 		)
 	);
 
-	function isValiable($token) {
+	function isValiable($token, $with_delete = false) {
 		$m = $this->alias;
 
-		$count = $this->find('count', array('conditions' => array("{$m}.token" => $token)) );
+		$data = $this->find('first', array('conditions' => array("{$m}.token" => $token)) );
+		if (empty($data)) {
+			return false;
+		}
 
-		return ($count > 0);
+		$exp = date('Y-m-d H:i:s', mktime(date('H') - Configure::read('Present.postcard.valid_hours')) );
+		if ($data['PostcardUrl']['created'] > $exp) {
+			return true;
+		}
+
+		// exec only has record and $exp failed.
+		if ($with_delete) {
+			$this->delete($data['PostcardUrl']['id']);
+		}
+
+		return false;
 	}
 
+	function getExpiredUrls() {
+		$m = $this->alias;
+
+		$exp = date('Y-m-d H:i:s', mktime(date('H') - Configure::read('Present.postcard.valid_hours')) );
+		$data = $this->find('all', array('conditions' => array("{$m}.created >" => $exp, )));
+
+		return $data;
+	}
 }
 ?>
