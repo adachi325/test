@@ -260,7 +260,7 @@ if (count($childrenData) < 3) {
 		<?php foreach($month['Present'] as $present): ?>
 			<?php
 				if($present['present_type'] == 3 and $f) {
-					echo $this->Html->image('/'.sprintf(Configure::read('Present.sample.2'), $month['month']['year'], $month['month']['month']),
+					echo $this->Html->image('/'.sprintf(Configure::read('Present.sample.2'), $month['month']['year'], sprintf('%02d' $month['month']['month'])),
                                         array("align" => "left", "style" => "float:left; margin-right:10px;"));
 					$f = false;
 					break;
