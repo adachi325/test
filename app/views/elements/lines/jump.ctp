@@ -36,7 +36,7 @@ if ($ii > 3) {
 
 <?php endif; ?>
 
-<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/ap/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a><br /></div>
+<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/ap/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a><br /></div>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image('dot_line_pink.gif'); ?></div>
 
