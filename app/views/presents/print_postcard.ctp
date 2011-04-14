@@ -15,7 +15,7 @@
 <?php echo $this->Html->image("pc_logo.gif", array("width" => "471px", "height" => "118px", "alt" => "ケータイしまじろうひろば×ドコモコミュニティ")); ?>
 </h1>
 <div class="box">
-<h2>ポストカード完成！</h2>
+<h2>ポストカード印刷</h2>
 <p><?php echo $this->Html->image('/'.$path, array("width" => "283px", "height" => "420px", "alt" => "ポストカード")); ?></p>
 <p>上のポストカード画像をパソコンに保存し、お持ちのプリンターで印刷してください。<br />
 <b>【用意するもの】プリンター、はがき</b></p>
