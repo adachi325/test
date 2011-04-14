@@ -62,6 +62,12 @@ $config['Present'] = array(
 		'valid_hours' => 72,
 		'output_dir' => 'present/output/postcard/',
 	),
+	'sample' => array(
+		'0' => 'sample/%s%s/60pic_bg.gif',
+		'1' => 'sample/%s%s/60pic_decome.gif',
+		'2' => 'sample/%s%s/60pic_flash.gif',
+		'3' => 'sample/%s%s/60pic_card.gif',
+	),
 );
 
 $config['Defaults'] = array(

@@ -24,6 +24,7 @@
 <?php echo $this->element('default/footer_android'); ?>
 
 </div>
+<?php echo $this->element('google/analytics'); ?>
 </body>
 </html>
 
