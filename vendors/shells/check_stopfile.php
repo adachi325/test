@@ -16,7 +16,6 @@ class CheckStopfileShell extends AppShell {
 		}
 		
 		$this->_removeStopfile();
-		echo "\nstopfile was removed.\n";
 	}
 	
 	function _stopfileExists() {
@@ -44,6 +43,11 @@ class CheckStopfileShell extends AppShell {
 			}
 		}
 		fclose($fp);
+		
+		if (file_exists(Configure::read('ReceiveMail.ps_log_path'))) {
+			unlink(Configure::read('ReceiveMail.ps_log_path'));
+		}
+		
 		return $is_running_pid;
 	}
 	
