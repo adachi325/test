@@ -17,6 +17,7 @@ $user = $this->Session->read('Auth.User');
 if (!$user['dc_user']) {
 	echo $this->element('invitation');
 }
+echo $this->element('default/footer_ap');
 ?>
 <?php else: ?>
 <?php echo $this->element('default/footer_android'); ?>
