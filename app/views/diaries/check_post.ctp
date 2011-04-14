@@ -42,7 +42,7 @@ case 2:
 	break;
 case 3:
 	$desc = 'ﾎﾟｽﾄｶｰﾄﾞのﾃﾝﾌﾟﾚｰﾄをﾌﾟﾚｾﾞﾝﾄ';
-        $text = 'さっそくこの待受Flashを作成';
+        $text = 'さっそくこのﾎﾟｽﾄｶｰﾄﾞを作成';
         $url = $this->Html->url('/presents/present_list/'.$diary['Present']['present_type']);
 	break;
 default:
@@ -54,20 +54,21 @@ default:
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
 
-<?php if ($type === 0): ?>
+<?php if ($type == 0): ?>
         <div>
             <span>
             <?php
-            $imgMonth = sprintf('%02d', $$diary['Month']['month']);
+            $imgMonth = sprintf('%02d', $diary['Month']['month']);
             echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_t'), $diary['Month']['year'], $imgMonth));
             ?>
             </span>
         </div>
-<?php elseif ($type === 1): ?>
+<?php elseif ($type == 1): ?>
 		<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
         <br>
         <div>端末ﾒﾆｭｰ(機能)の画像保存からﾃﾞｺﾒを保存してね♪</div>
-
+<?php elseif ($type == 2 || $type == 3): ?>
+		<div><?php echo $html->image(sprintf(Configure::read("Present.thumb.{$type}"), $diary['Month']['year'], sprintf('%02d', $diary['Month']['month']))); ?></div>
 <?php else: ?>
 		<?php echo $html->image($diary['Present']['present_thumbnail_path'], 
 				array("style" => "margin:10px 0;")); ?>
