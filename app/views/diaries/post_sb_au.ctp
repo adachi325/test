@@ -32,6 +32,6 @@
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']);?>" style="color:#339900;"><span style="color:#339900;">今月の思い出記録ﾍﾟｰｼﾞへ戻る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']);?>" style="color:#339900;"><span style="color:#339900;">今月の思い出記録ﾍﾟｰｼﾞへ戻る</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

@@ -1,7 +1,7 @@
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#339933;">・ﾃｰﾏ:<?php echo h($theme['Theme']['title']); ?></span><br />
+<span style="color:#339933;">&nbsp;・ﾃｰﾏ:<?php echo h($theme['Theme']['title']); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 例を参考に思い出を残そう!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

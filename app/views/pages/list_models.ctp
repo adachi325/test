@@ -19,13 +19,13 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj04.gif"); ?></div>
 
 ●各種ｺﾝﾃﾝﾂが利用できない端末<br />
-・入会ﾌﾟﾚｾﾞﾝﾄ<br />
+&nbsp;・入会ﾌﾟﾚｾﾞﾝﾄ<br />
 　<a href="#flash" style="color:#cc6600;">FLASH※音なし</a><br />
 　<a href="#flash_sound" style="color:#cc6600;">FLASH※音あり</a><br />
-・思い出記録<br />
+&nbsp;・思い出記録<br />
 　<a href="#decome" style="color:#cc6600;">ﾃﾞｺﾒ</a><br />
 　<a href="#screen" style="color:#cc6600;">待受FLASH (FLASH※音あり)</a><br />
-・教材ｺﾝﾃﾝﾂ<br />
+&nbsp;・教材ｺﾝﾃﾝﾂ<br />
 　<a href="#flash" style="color:#cc6600;">FLASH※音なし</a><br />
 　<a href="#flash_sound" style="color:#cc6600;">FLASH※音あり</a><br />
 　<a href="#movie" style="color:#cc6600;">動画</a><br />
@@ -35,14 +35,14 @@
 　<a href="#photoframe" style="color:#cc6600;">ﾌｫﾄﾌﾚｰﾑ</a><br />
 　<a href="#dcome" style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</a><br />
 ●ｺﾝﾃﾝﾂが利用できる端末<br />
-・教材ｺﾝﾃﾝﾂ<br />
+&nbsp;・教材ｺﾝﾃﾝﾂ<br />
 　<a href="#shimajiro" style="color:#cc6600;">しまじろうのおたんじょうびﾊﾟｰﾃｨｰ</a><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash" id="flash"></a>
-・FLASH※音なし<br />
+&nbsp;・FLASH※音なし<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼FLASH非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -78,7 +78,7 @@ AndroidOS2.0以前の端末<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash_sound" id="flash_sound"></a>
-・FLASH※音あり<br />
+&nbsp;・FLASH※音あり<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼FLASH(音付き)非対応機種</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -117,7 +117,7 @@ AndroidOS2.0以前の端末<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="movie" id="movie"></a>
-・動画<br />
+&nbsp;・動画<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼動画非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -136,7 +136,7 @@ AndroidOS2.0以前の端末<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="melody" id="melody"></a>
-・着ﾒﾛ<br />
+&nbsp;・着ﾒﾛ<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着ﾒﾛ非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -155,7 +155,7 @@ NM705i/NM706i/NM850iG<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="voice" id="voice"></a>
-・着うた･着ﾎﾞｲｽ<br />
+&nbsp;・着うた･着ﾎﾞｲｽ<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着うた･着ﾎﾞｲｽ非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -184,7 +184,7 @@ A5301T/A5302CA/A5304T<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="screen" id="screen"></a>
-・待受<br />
+&nbsp;・待受<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼待受非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -227,7 +227,7 @@ W21H<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="photoframe" id="photoframe"></a>
-・ﾌｫﾄﾌﾚｰﾑ<br />
+&nbsp;・ﾌｫﾄﾌﾚｰﾑ<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova<br />
@@ -266,7 +266,7 @@ C5001Tv
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="decome" id="decome"></a>
-・ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ<br />
+&nbsp;・ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ対応機種非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -301,7 +301,7 @@ W43K/W43S/W43T/W44K/W44KII/W44KII ｶﾒﾗなしﾓﾃﾞﾙ/W44T/W44TII(TiMo)/
 
 
 <a name="shimajiro" id="shimajiro"></a>
-・しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ<br />
+&nbsp;・しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ<br />
 <span style="color:#ff0000">※以下の端末でご利用になれます｡</span><br />
 <span style="color:#996633;">▼動画対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />

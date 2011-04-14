@@ -11,7 +11,7 @@
 	<h3 class="memory"><?php echo $this->Html->image("txt_memory.gif", array("alt" => "思い出記録")); ?></h3>
 	<dl>
 	  <dt><?php echo $this->Html->image("dummy.gif", array("width" => "58")); ?></dt>
-	  <dd>お子さんの成長がかわいく残せる！写真がたまるとポストカードに♪</dd>
+	  <dd>お子さんの成長がかわいく残せる!写真がたまるとポストカードに♪</dd>
 	</dl>
   </div>
 
