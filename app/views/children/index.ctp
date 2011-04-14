@@ -234,14 +234,14 @@ if (count($childrenData) < 3) {
 <tr>
 
 <?php if (!$theme['free_theme']): ?>
-<td><span style="color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span></td>
-<td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br /></td>
+<td><span style="font-size:x-small; color:#ff9900;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span></td>
+<td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900; font-size:x-small; ">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br /></td>
 <?php endif; ?>
 <?php endforeach; ?>
 
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if ($theme['free_theme']): ?>
-<td><span style="color:#339933;">・</span></td><td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br /></td>
+<td><span style="color:#339933; font-size:x-small; ">・</span></td><td><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br /></td>
 <?php endif; ?>
 
 <tr>
