@@ -21,7 +21,7 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 	$url = $this->Html->url(DS.$url.DS);
 }
 ?>
-<a href="<?php echo $url); ?>" style="color:#ff3333;"><span style="font-size:x-small; color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a></td>
+<a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="font-size:x-small; color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a></td>
 </tr>
 <?php
 $ii++;
