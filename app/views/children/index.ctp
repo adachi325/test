@@ -240,7 +240,7 @@ if (count($childrenData) < 3) {
 <?php foreach($month['Theme'] as $theme): ?>
 <?php if ($theme['free_theme']): ?>
 <span style="color:#339933;">・</span>
-<a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾌﾘｰ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
 
 <?php endforeach; ?>
@@ -266,7 +266,7 @@ if (count($childrenData) < 3) {
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?>
 <a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっとみる</span></a></span></div><br clear="all" />
-<div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
+<div style="clear:both;"></div>
 
 <!-- 非会員限定のご案内 -->
 <?php if (true): ?>
@@ -312,7 +312,7 @@ if (count($childrenData) < 3) {
 新ｶﾝｶｸ☆ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#cc0000;">・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
-&lt;こどもちゃんれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
+&lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
