@@ -46,13 +46,10 @@ $config['Present'] = array(
         'path' => array(
                 'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
                 'diaryback_f' => 'present/template/diaryback/diaryback_%s%s_footer.jpg',
-                'diaryback_t' => 'present/template/diaryback/diaryback_%s%s_thumb.gif',
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
-                'screen_thum' => 'present/template/screen/%s_thumb.jpg',
                 'screen_output' => 'img/photo/%s/%s.swf',
                 'postcard' => 'present/template/postcard/%s.png',
-                'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
                 'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
                 'member_flash' => 'present/template/member_flash/%s.swf',
@@ -67,6 +64,10 @@ $config['Present'] = array(
 		'1' => 'sample/%s%s/60pic_decome.gif',
 		'2' => 'sample/%s%s/60pic_flash.gif',
 		'3' => 'sample/%s%s/60pic_card.gif',
+	),
+	'thumb' => array(
+		'2' => 'sample/%s%s/90pic_flash.gif',
+		'3' => 'sample/%s%s/90pic_card.gif',
 	),
 );
 
