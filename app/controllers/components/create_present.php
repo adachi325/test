@@ -39,12 +39,6 @@ class CreatePresentComponent extends Object {
 
         system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
 
-        //ヘッダー出力
-        //header("Content-type: application/x-shockwave-flash");
-        //header("Expires: Sat, 01 Jan 2000 01:01:01 GMT");
-
-        // Flash生成
-        //$almeida->generateFlash();
     }
 
 
@@ -83,10 +77,6 @@ class CreatePresentComponent extends Object {
 	//画像保存
 	ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
 
-        //メモリを開放します
-        imagedestroy($new_image);
-
-
         /******** サムネイル作成 ********/
 
         //サムネイル元画像読み込み
@@ -113,8 +103,13 @@ class CreatePresentComponent extends Object {
 	ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
 
         //メモリを開放します
+        imagedestroy($new_image);
         imagedestroy($new_thumbnail);
-
+        ImageDestroy($diaryImgA);
+        ImageDestroy($diaryImgB);
+        ImageDestroy($diaryImgC);
+        ImageDestroy($diaryImgD);
+        ImageDestroy($image);
         
         /******** ワンタイムURL登録 ********/
 

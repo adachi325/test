@@ -133,22 +133,25 @@ class UsersController extends AppController {
                   $this->redirect('/navigations/after1');
                } else {
                   TransactionManager::rollback();
-                  $this->cakeError('error404');
+                  
                   $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
                   $this->log($this->data,LOG_DEBUG);
+                  $this->cakeError('error404');
                   return;
                }
             } catch(Exception $e) {
                   TransactionManager::rollback();
-                  $this->cakeError('error404');
+                  
                   $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
                   $this->log($this->data,LOG_DEBUG);
                   $this->log($e,LOG_DEBUG);
+                  $this->cakeError('error404');
                   return;
             }
         } else {
-             $this->cakeError('error404');
+             
              $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+             $this->cakeError('error404');
              return;
         }
     }
