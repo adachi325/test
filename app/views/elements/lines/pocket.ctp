@@ -15,7 +15,7 @@ foreach($contents as $content):
 <?php endif;?>
 <td width="229" align="left">
 <?php 
-$url = $content['path'];
+$url = $content['Content']['path'];
 if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 } else {
 	$url = $this->Html->url(DS.$url.DS);
