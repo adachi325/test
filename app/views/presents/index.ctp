@@ -6,6 +6,8 @@ $date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
 
 $next = date("Y-m-d", strtotime("+1 month", strtotime($date)));
 $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
+
+$sampleMonth = (strlen($month)==1) ? '0'.$month : $month ;
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
@@ -27,7 +29,9 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 </tr>
 <tr>
 <td width="25%">
-<?php echo $this->Html->image($presents[0]['Present']['present_thumbnail_path'], array("width" => "100%")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.0'), $year, $sampleMonth), array("width" => "100%"));
+?>
 </td>
 <td width="75%" valign="top" align="left"><span style="font-size:x-small;">1回目の記録でもらえる<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">思い出背景</span>】</span></span></td>
@@ -38,7 +42,9 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td width="25%">
-<?php echo $this->Html->image($presents[1]['Present']['present_thumbnail_path'], array("width" => "100%")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.1'), $year, $sampleMonth), array("width" => "100%"));
+?>
 </td>
 <td width="75%" valign="top" align="left"><span style="font-size:x-small;">2回目の記録でもらえる<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">ﾃﾞｺﾒ絵文字</span>】</span></span></td>
@@ -49,7 +55,9 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td width="25%">
-<?php echo $this->Html->image($presents[2]['Present']['present_thumbnail_path'], array("width" => "100%")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), $year, $sampleMonth), array("width" => "100%"));
+?>
 </td>
 <td width="75%" valign="top" align="left"><span style="font-size:x-small;">3回目の記録でもらえる<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">待受Flash</span>】</span></span></td>
@@ -60,7 +68,9 @@ $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td width="25%">
-<?php echo $this->Html->image($presents[3]['Present']['present_thumbnail_path'], array("width" => "100%")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.3'), $year, $sampleMonth), array("width" => "100%"));
+?>
 </td>
 <td width="75%" valign="top" align="left"><span style="font-size:x-small;">4回目の記録でもらえる<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">ﾎﾟｽﾄｶｰﾄﾞ</span>】</span></span></td>
