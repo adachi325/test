@@ -34,7 +34,7 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;"><?php echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+<span style="color:#cc0000;"><?php echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;・'; ?></span>
 <?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
 <?php
 $url = $content['path'];

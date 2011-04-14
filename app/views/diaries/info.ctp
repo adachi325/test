@@ -61,10 +61,10 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">家族や友達に共有する</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">家族や友達に共有する</span></a><br />
 (ﾄﾞｺﾓｺﾐｭﾆﾃｨへ送信)<span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨ会員登録が必要です</span><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -72,7 +72,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <td width="10%"><?php echo $this->Html->image("icn_leave.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 <td width="85%"><?php echo $this->Html->image("txt_leave.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
-</table><span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">印刷して送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+</table><span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">印刷して送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
