@@ -64,7 +64,7 @@
  */
 class AppController extends Controller {
 
-	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk');
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga');
 	public $components = array(
 		'Ktai',
                 'Tk',
@@ -102,32 +102,47 @@ class AppController extends Controller {
 		'use_xml' => false,
 	);
 
-        public $selectedChildId = null;//選択中こどもID
+	public $selectedChildId = null;//選択中こどもID
+
+	public $allow_android = array();
 
 	function beforeFilter(){
-            parent::beforeFilter();
-            $this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
-            $this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
-            if($this->Ktai->is_imode()){
-		header('Content-Type: application/xhtml+xml');
-                $this->__formActionGuidOn();
-                $this->__checkImodeId();
-            }
+		parent::beforeFilter();
+		$this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
+		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
+		if($this->Ktai->is_imode()){
+			header('Content-Type: application/xhtml+xml');
+			$this->__formActionGuidOn();
+			$this->__checkImodeId();
+		} elseif ($this->Ktai->is_android()) {
+			$action = $this->params['action'];
+			
+			if (empty($this->allow_android)) {
+				if ($action != 'display') {
+					$this->redirect('/');
+				}
+			} else {
+				if ($this->allow_android !== true) {
+					if (!array_search($action, $this->allow_android)) {
+						$this->redirect('/');
+					}
+				}
+			}
+		}
 	}   
 
-        function __formActionGuidOn(){
-            // output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
-            ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
-            output_add_rewrite_var('guid','ON');
-        }
+	function __formActionGuidOn(){
+		// output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
+		ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+		output_add_rewrite_var('guid','ON');
+	}
 
 	function __checkImodeId()
 	{
 		#-------------------------------------------------
 		# iモードIDがない場合
 		#-------------------------------------------------
-		if (empty($_SERVER["HTTP_X_DCMGUID"]))
-                {
+		if (empty($_SERVER["HTTP_X_DCMGUID"])) {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------

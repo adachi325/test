@@ -46,13 +46,10 @@ $config['Present'] = array(
         'path' => array(
                 'diaryback_h' => 'present/template/diaryback/diaryback_%s%s_header.jpg',
                 'diaryback_f' => 'present/template/diaryback/diaryback_%s%s_footer.jpg',
-                'diaryback_t' => 'present/template/diaryback/diaryback_%s%s_thumb.gif',
                 'decome' => 'present/template/decome/%s.gif',
                 'screen' => 'present/template/screen/%s.swf',
-                'screen_thum' => 'present/template/screen/%s_thumb.jpg',
                 'screen_output' => 'img/photo/%s/%s.swf',
                 'postcard' => 'present/template/postcard/%s.png',
-                'postcard_thum' => 'present/template/postcard/%s_thumb.jpg',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
                 'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
                 'member_flash' => 'present/template/member_flash/%s.swf',
@@ -62,12 +59,22 @@ $config['Present'] = array(
 		'valid_hours' => 72,
 		'output_dir' => 'present/output/postcard/',
 	),
+	'sample' => array(
+		'0' => 'sample/%s%s/60pic_bg.gif',
+		'1' => 'sample/%s%s/60pic_decome.gif',
+		'2' => 'sample/%s%s/60pic_flash.gif',
+		'3' => 'sample/%s%s/60pic_card.gif',
+	),
+	'thumb' => array(
+		'2' => 'sample/%s%s/90pic_flash.gif',
+		'3' => 'sample/%s%s/90pic_card.gif',
+	),
 );
 
 $config['Defaults'] = array(
 	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
-        'docomo_community' => 'diary@docomo-community.ne.jp',
+        'docomo_community' => 'diary@docomo-community.com',
 );
 
 $config['Mail'] = array(
@@ -124,3 +131,12 @@ $config['Child'] = array(
 		),
         'birthday_years' => 8,
 );
+
+$config['Error'] = array(
+        'nothingUid' => array(
+            'dc' => '「iMENU」→「お客様サポート」→「各種設定(確認・変更・利用)」→「iモードID通知設定」',
+            'ez' => '「EZメニュー」→「機能」→「時間/料金/申込」→「各種申込」→「EZ番号通知設定」',
+            'sb' => '「Yahoo!ケータイ」→「設定・申込」→「端末・サービス設定」→「ユーザーID通知設定」',
+        ),
+);
+ 

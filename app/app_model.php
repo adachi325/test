@@ -51,5 +51,36 @@ class AppModel extends LazyModel {
 		}
         }
 
+        //ぜい弱性チェック
+	function checkRegisterLoginIdtoPassword() {
+
+                if(empty($this->data)){
+                    return false;
+                }
+
+                $id='';
+                if(isset($_SESSION['Auth']['User']['loginid'])) {
+                    $id = $_SESSION['Auth']['User']['loginid'];
+                }else if(isset($this->data['User']['loginid'])) {
+                    $id = $this->data['User']['loginid'];
+                } else {
+                    return false;
+                }
+
+                $password='';
+                if(isset($this->data['User']['new_password'])) {
+                    $password = $this->data['User']['new_password'];
+                } else if(isset($this->data['User']['password'])) {
+                    $password = $this->data['User']['password'];
+                } else {
+                    return false;
+                }
+
+                if($id !== $password){
+                    return true;
+                }
+                
+                return false;
+        }
 }
 

@@ -121,7 +121,6 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
