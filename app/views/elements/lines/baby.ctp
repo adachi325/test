@@ -12,7 +12,7 @@ foreach($contents as $content):
 </tr>
 <tr>
 <?php 
-$url = $content['path'];
+$url = $content['Content']['path'];
 if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 } else {
 	$url = $this->Html->url(DS.$url.DS);
