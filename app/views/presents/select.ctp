@@ -1,3 +1,4 @@
+<?php 
 if (!isset($max_count)) {
 	$max_count = 4;
 }
