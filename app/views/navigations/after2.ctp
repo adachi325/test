@@ -12,9 +12,9 @@
 以下の理由により､写真を保存できませんでした｡<br /><br />
 
 <?php if ($diaries['Diary']['error_code'] === 'E001') : ?>
-・ﾌｧｲﾙｻｲｽﾞが2MB以上
+&nbsp;・ﾌｧｲﾙｻｲｽﾞが2MB以上
 <?php elseif ($diaries['Diary']['error_code'] === 'E002') : ?>
-・ﾌｧｲﾙ形式がJPEG以外
+&nbsp;・ﾌｧｲﾙ形式がJPEG以外
 <?php endif; ?><br /><br />
 
 <span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />

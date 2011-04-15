@@ -1,5 +1,4 @@
-
-<?php
+<?php 
 if (!isset($max_count)) {
 	$max_count = 4;
 }
@@ -15,7 +14,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 <div style="text-align:left;" align="center">
-<span style="color:#339933;">・</span><?php echo $text; ?><br />
+<span style="color:#339933;">&nbsp;・</span><?php echo $text; ?><br />
 </div>
 投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
@@ -26,11 +25,12 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
 <div style="text-align:center;" align="center">
-<?php echo $paginator->counter(array('format' => '全%count%件 %start%件～%current%件を表示')); ?>
+<?php echo $paginator->counter(array('format' => '全%count%件 %start%件～%end%件を表示')); ?>
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <table cellpadding="0" cellspacing="0" width="100%">
+
 
 <?php for($i = 0; $i < count($items);  $i++): ?>
 <?php extract($items[$i]['Diary']); ?>
@@ -47,15 +47,11 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td width="45%" align="center">
 <?php echo $this->Html->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
 </td>
-
 <?php else: ?>
 <td width="5%"></td>
 <td width="45%" align="center"></td>
-
 <?php endif; ?>
-
 </tr>
-
 <?php endfor; ?>
 
 </table>
@@ -65,12 +61,25 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <tr>
 <td align="left"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasPrev()): ?>
+
+<?php if ($this->Ktai->is_softbank()) : ?>
+<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php else: ?>
 <?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
 <?php endif; ?>
+
+<?php endif; ?>
+
 </span></td>
 <td align="right"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasNext()): ?>
+
+<?php if ($this->Ktai->is_softbank()): ?>
+<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php else: ?>
 <?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
+<?php endif; ?>
+
 <?php endif; ?>
 </span></td>
 </tr>

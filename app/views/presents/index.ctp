@@ -7,7 +7,7 @@ $date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
 $next = date("Y-m-d", strtotime("+1 month", strtotime($date)));
 $prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
 
-$sampleMonth = (strlen($month)==1) ? '0'.$month : $month ;
+$sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />

@@ -70,7 +70,7 @@
 </tr>
 </table>
 
-<span style="color:#339933;">・</span><?php echo $month_label; ?>月の思い出<br />
+<span style="color:#339933;">&nbsp;・</span><?php echo $month_label; ?>月の思い出<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <div align="center" style="background:#e9f7ff; text-align:center;">
@@ -87,10 +87,11 @@
 
 <?php
 $d = 0;$i = 0;$s = 0;
-if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 0; }
+if($page > 1) { $d = ($page-1)*5; } else { $d = 0; }
 foreach($diaries as $diary):
-	$s++;
-	if($s > $d && $i < 5) : ?>
+    $s++;
+    if((int)$s > (int)$d and (int)$i < (int)5) {
+?>
 	<tr>
 	<td width="25%" valign="top">
 	<?php
@@ -109,40 +110,43 @@ foreach($diaries as $diary):
 	<a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
 	</td>
 	</tr>
-<?php
-$i ++;
+	<?php
+	$i ++;
 
-endif;
+    }
 endforeach;
 ?>
 
 </table>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-
-<div style="text-align:left;" align="left">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
 <?php if($page > 1): ?>
-<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="color:#339900;">前へ</span></a>&nbsp;
+<td width="50%" align="left">
+	<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="color:#339900;">前へ</span></a>&nbsp;
+</td>
 <?php endif; ?>
-</div>
-
-<div style="text-align:right;" align="right">
 <?php if(count($diaries) > ($page * 5)): ?>
-<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
+<td width="50%" align="right">
+    <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
+</td>
 <?php endif; ?>
-</div>
+</tr>
+</table>
+
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-<span style="color:#339933;">・</span>他の月の思い出を見る<br />
+<span style="color:#339933;">&nbsp;・</span>他の月の思い出を見る<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php
 if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $beforeFlag['Month']['month']) {
-	$prev = ($options['month'] == 1) ? 
-		$this->Html->url('/diaries/index/'.($options['year']-1).'/12') : 
+	$prev = ($options['month'] == 1) ?
+		$this->Html->url('/diaries/index/'.($options['year']-1).'/12') :
 		$this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']-1));
 }
 
@@ -173,7 +177,7 @@ if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 </tr>
 </table>
 
-<span style="color:#339933;">・</span>
+<span style="color:#339933;">&nbsp;・</span>
 <a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month_label; ?>月の思い出を書く</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
