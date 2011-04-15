@@ -86,11 +86,14 @@ class UsersController extends AppController {
             if ($this->User->saveAll($request, array('validate'=>'only'))) {
                 //セッションにデータ保持
                 TransactionManager::rollback();
+		
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm');
             } else {
                 $this->Session->setFlash(__('入力情報が間違っています。', true));
+		$this->data['User']['new_password'] = '';
+		$this->data['User']['row_password'] = '';
             }
 
             TransactionManager::rollback();
@@ -99,6 +102,8 @@ class UsersController extends AppController {
         $userRegisterData = $this->Session->read('userRegisterData');
         if(!empty($userRegisterData)){
             $this->data = $userRegisterData;
+	    $this->data['User']['new_password'] = '';
+	    $this->data['User']['row_password'] = '';
             $this->Session->delete('userRegisterData');
         }
     }

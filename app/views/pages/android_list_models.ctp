@@ -1,3 +1,9 @@
+<body id="model">
+<div id="wrap" data-role="page" data-theme="d">
+<div id="header">
+  <h2>対応機種</h2>
+</div>
+
 <!-- main -->
 <div id="main">
     
@@ -9,16 +15,16 @@
   <dt>【NTTドコモ】</dt>
   <dd>FOMA iモード対応端末 (900i以前端末を除く)</dd>
   <dt>【au】</dt>
-  <dd>CDMA 1X WIN端末 (W2x､W31Sを除く)       </dd>
+  <dd>CDMA 1X WIN端末 (W2x、W31Sを除く)       </dd>
   <dt>【ソフトバンク】</dt>
-  <dd>SoftBank 3G端末 (海外端末､旧Vodafone端末､旧J-Phone端末を除く)</dd>
+  <dd>SoftBank 3G端末 (海外端末、旧Vodafone端末、旧J-Phone端末を除く)</dd>
   <dt>【Android】</dt>
   <dd>AndroidOS2.1以降の端末</dd>
 </dl>
 
 <p>
 (教材コンテンツのみ利用可能。プロフィール登録および思い出記録は利用できません。)<br />
-※ ただし､一部機種はご利用いただけません。<br />
+※ ただし、一部機種はご利用いただけません。<br />
 ※ iPhoneなどAndroid以外のスマートフォン端末には対応しておりません。<br />
 ※ コンテンツ毎に利用できる端末が異なります。詳細は以下をご確認ください。<br />
 </p>
@@ -28,7 +34,7 @@
 <!--　FLASH※音なし　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>FLASH※音なし</h3>
-<p>※以下の端末はご利用いただけません｡</p>
+<p>※以下の端末はご利用いただけません。</p>
 <p>▼FLASH非対応端末</p>
 <dl>
   <dt>【NTTドコモ】</dt>
@@ -50,14 +56,14 @@ T2101V<br />
   <dt>【au】</dt>
   <dd>
 【au】
-A1100～A1400シリーズ 全機種<br />
+A1100〜A1400シリーズ 全機種<br />
 A3000/C3000シリーズ 全機種<br />
 B01K/C5001T<br />
 A5300/A5400シリーズ 全機種<br />
 A5501T/A5502K/A5503SA/A5504T/A5505SA/A5506T/A5509T<br />
 W11H/W11K/W21H<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 702MO/702sMO/702NK/702NKII/703N/705N/705NK/705P/705Px/705SC/705T/706N/706P/<br />
 706SC/707SC/707SCII/708SC/709SC<br />
@@ -98,14 +104,14 @@ T2101V<br />
 </dd>
   <dt>  【au】</dt>
   <dd>
-A1100～A1400シリーズ 全機種<br />
+A1100〜A1400シリーズ 全機種<br />
 A3000/C3000シリーズ 全機種<br />
 B01K/C5001T<br />
 A5300/A5400シリーズ 全機種<br />
 A5501T/A5502K/A5503SA/A5504T/A5505SA/A5506T/A5509T<br />
 W11H/W11K/W21H<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 702MO/702sMO/702NK/702NKII/703N/705N/705NK/705P/705Px/705SC/705T/706N/706P/<br />
 706SC/707SC/707SCII/708SC/709SC<br />
@@ -145,8 +151,8 @@ T2101V<br />
 <!--　着メロ　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>着メロ</h3>
-<p>※以下の端末はご利用いただけません｡</p>
-<p>▼着ﾒﾛ非対応端末</p>
+<p>※以下の端末はご利用いただけません。</p>
+<p>▼着メロ非対応端末</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
@@ -156,7 +162,7 @@ L706ie/L852i(PRADAPhonebyLG)/L-01A/L-03A/L-04A/L-06A/L-01B/L-02B/L-03B/L-04B<br 
 M702iS/M702iG<br />
 NM705i/NM706i/NM850iG<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 702MO/702sMOC<br />
 702NK/702NKII/705NK/804NK<br />
@@ -172,7 +178,7 @@ NM705i/NM706i/NM850iG<br />
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>着うた・着ボイス</h3>
 <p>※以下の端末はご利用いただけません。</p>
-<p>▼着うた･着ﾎﾞｲｽ非対応端末</p>
+<p>▼着うた・着ボイス非対応端末</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
@@ -194,7 +200,7 @@ A3000/C3000シリーズ 全機種<br />
 C5001T<br />
 A5301T/A5302CA/A5304T<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 705P/705Px/706P/810P/820P/821P/822P/830P/831P/840P/840P for Biz/841P<br />
 702MO/702sMO<br />
@@ -246,7 +252,7 @@ A5300シリーズ 全機種<br />
 A5401CA/A5401CAII/A5405SA<br />
 W21H<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 702NK/702NKII/705NK/804NK<br />
 802SE<br />
@@ -333,10 +339,10 @@ T2101V<br />
   <dd>
 A/B/Cシリーズ 全機種<br />
 E02SA/E03CA<br />
-W11～W42シリーズ 全機種<br />
+W11〜W42シリーズ 全機種<br />
 W43K/W43S/W43T/W44K/W44KII/W44KII カメラなしモデル/W44T/W44TII(TiMo)/W45T<br />
   </dd>
-  <dt>【SoftBank･DisneyMobile】</dt>
+  <dt>【SoftBank・DisneyMobile】</dt>
   <dd>
 702MO/702sMO/702NK/702NKII/703N/703SH/703SHf/705N/705NK/705P/705Px/705SC/<br />
 705SH/705T/706N/706P/706SC/707SC/707SCII/708SC/709SC<br />
@@ -356,11 +362,11 @@ W43K/W43S/W43T/W44K/W44KII/W44KII カメラなしモデル/W44T/W44TII(TiMo)/W45
 <p>▼動画対応端末</p>
 <dl>
   <dt>【NTTドコモ】</dt>
-  <dd>FOMA iモード対応端末 (900i以前端末､スマートフォンを除く)</dd>
+  <dd>FOMA iモード対応端末 (900i以前端末、スマートフォンを除く)</dd>
   <dt>【au】</dt>
-  <dd>CDMA 1X WIN端末 (W2x､W31S､スマートフォンを除く)</dd>
+  <dd>CDMA 1X WIN端末 (W2x、W31S、スマートフォンを除く)</dd>
   <dt>【SoftBank】</dt>
-  <dd>SoftBank 3G端末 (海外端末､スマートフォン､旧Vodafone端末､旧J-Phone端末を除く)</dd>
+  <dd>SoftBank 3G端末 (海外端末、スマートフォン、旧Vodafone端末、旧J-Phone端末を除く)</dd>
   <dt>【Android】</dt>
   <dd>全機種</dd>
 </dl>
