@@ -15,7 +15,7 @@
     </dd>
     <dt><?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span></dt>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】身近な生き物</a>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】どれをたべるのかな？はっけんゲーム<a/>
     </dd>
     <dt><?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span></dt>
     <dd>
