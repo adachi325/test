@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
@@ -25,16 +24,24 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
+
+
 <table width="100%" cellpadding="0" cellspacing="0">
 
-<?php foreach ($issues as $issue): ?>
+<?php $alt = true; ?>
 
+<?php foreach ($issues as $issue): ?>
 <?php foreach ($issue['Content'] as $content): ?>
-<!--<?php echo h($issue['Issue']['title']); ?>-->	
+
 <tr>
-<td><div style="font-size:x-small;">
+<td<?php if ($alt) { echo ' bgcolor="#ffefef"'; } ?>><div style="font-size:x-small;">
+<?php $alt = !$alt;?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;"><?php echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '・'; ?></span>
+
+<?php if ($line == 'baby' || $line == 'petit') : ?>
+<span style="color:#333333;">●<?php echo h($issue['Issue']['title']); ?></span><br />
+<?php endif; ?>
+
 <?php if($content['release_date'] <= date('Y-m-d H:i:s')): ?>
 <?php
 $url = $content['path'];
@@ -43,13 +50,17 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 	$url = $this->Html->url(DS.$url.DS);
 }
 ?>
-<a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
+<span style="color:#cc0000;"><?php 
+echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; 
+?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
 <?php else: ?>
-<?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
+&nbsp;･<?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
 <?php endif; ?><br />
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
+
 <?php endforeach; ?>
 
 <?php endforeach; ?>
@@ -60,7 +71,7 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 <?php echo $this->element('default/pocket'); ?>
 <?php endif; ?>
 
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif"); ?></div>
 
 <?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
 <?php else: ?>
@@ -77,7 +88,6 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 <td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
 </tr>
 </table>
-
 
 <?php echo $this->element('default/room'); ?>
 

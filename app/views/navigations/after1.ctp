@@ -1,12 +1,12 @@
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
-<span style="color:#ff6600;">・</span><span style="color:#339933">思い出記録</span>とは<br />
+<span style="color:#ff6600;">&nbsp;・</span><span style="color:#339933">思い出記録</span>とは<br />
 毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝにｽﾃｷな思い出が残せます｡<br /><br />まずはお子さんの思い出を記録してみよう!
 ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
-<span style="color:#ff6600;">・</span><span style="color:#339933">最初のﾃｰﾏ:ﾍﾞｽﾄｼｮｯﾄ</span><br />
+<span style="color:#ff6600;">&nbsp;・</span><span style="color:#339933">最初のﾃｰﾏ:ﾍﾞｽﾄｼｮｯﾄ</span><br />
 <img src="img/spacer.gif" width="1" height="5" /><br />
 例を参考に思い出を残そう!<br />
 <img src="img/spacer.gif" width="1" height="10" /><br />
@@ -50,8 +50,10 @@ if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※ﾀｲﾄﾙは自由に変更できます｡<br /></span>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+※ﾀｲﾄﾙは自由に変更できます｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br /></span>
+<br />
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

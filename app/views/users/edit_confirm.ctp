@@ -10,7 +10,7 @@
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
-●●●<br />
+<span style="color:#000000;"><?php echo $this->data['User']['new_password']; ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>

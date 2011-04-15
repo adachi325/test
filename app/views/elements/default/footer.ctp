@@ -16,7 +16,7 @@
 </tr>
 <tr>
 <td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
-<a href="<?php echo $this->Html->url('/pages/help'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">よくある質問・問い合わせ</span></a></span></td>
+<a href="<?php echo $this->Html->url('/pages/help'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">よくある質問･問い合わせ</span></a></span></td>
 </tr>
 <tr>
 <td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
