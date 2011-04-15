@@ -1,7 +1,7 @@
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-ﾊﾟｽﾜｰﾄﾞを設定してください｡<br />内容修正の場合は｢戻る｣ﾎﾞﾀﾝを押して前の画面に戻って行ってください｡<br />
+ﾊﾟｽﾜｰﾄﾞを設定してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/remind_password?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
