@@ -22,6 +22,16 @@
 <td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
 <a href="<?php echo $this->Html->url('/pages/rules'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">利用規約</span></a></span></td>
 </tr>
+
+<?php
+if (($this->params['controller'] == 'pages' && $this->params['action'] == 'display') || ($this->params['controller'] == 'children' && $this->params['action'] == 'index'));
+?>
+<tr>
+<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
+<a href="http://shimajiromobile.benesse.ne.jp/ap1/about/" style="color:#ffffff;"><span style="color:#ffffff;">ｹｰﾀｲしまじろうひろばについて</span></a></span></td>
+</tr>
+<?php endif; ?>
+
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="text-align:left;"><span style="font-size:xx-small; color:#ffffff;">このｻｰﾋﾞｽはﾍﾞﾈｯｾｺｰﾎﾟﾚｰｼｮﾝと<br />

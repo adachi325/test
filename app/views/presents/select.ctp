@@ -25,7 +25,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
 
 <div style="text-align:center;" align="center">
-<?php echo $paginator->counter(array('format' => '全%count%件 %start% %end%件～%current%件を表示')); ?>
+<?php echo $paginator->counter(array('format' => '全%count%件 %start%件～%end%件を表示')); ?>
 </div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -47,15 +47,11 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td width="45%" align="center">
 <?php echo $this->Html->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
 </td>
-
 <?php else: ?>
 <td width="5%"></td>
 <td width="45%" align="center"></td>
-
 <?php endif; ?>
-
 </tr>
-
 <?php endfor; ?>
 
 </table>
@@ -65,12 +61,25 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <tr>
 <td align="left"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasPrev()): ?>
+
+<?php if ($this->Ktai->is_softbank()) : ?>
+<?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php else: ?>
 <?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
 <?php endif; ?>
+
+<?php endif; ?>
+
 </span></td>
 <td align="right"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasNext()): ?>
+
+<?php if ($this->Ktai->is_softbank()): ?>
+<?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
+<?php else: ?>
 <?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
+<?php endif; ?>
+
 <?php endif; ?>
 </span></td>
 </tr>
