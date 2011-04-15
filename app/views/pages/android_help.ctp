@@ -1,3 +1,9 @@
+<body id="faq">
+<div id="wrap" data-role="page" data-theme="d">
+<div id="header">
+  <h2>よくある質問・問い合わせ</h2>
+</div>
+
 <!-- main -->
 <div id="main">
 <h3 class="question"><?php echo $this->Html->image("txt_faq.gif", array("alt" => "よくある質問", "width" => "204", "height" => "20")); ?></h3>
