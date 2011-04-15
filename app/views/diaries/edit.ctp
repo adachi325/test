@@ -44,6 +44,7 @@
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("確認"); ?><br />
+※auをご利用の方は､全角512文字しか編集できません｡それ以上の文字数の場合は､お手数ですが再投稿してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </td>
 </tr>
