@@ -2,17 +2,17 @@
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達に共有しよう!<br />
+この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達と共有しよう!<br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
-<span style="color:#339933;">・</span>送信の仕方<br />
-<span style="color:#339900;">【初回のみ】</span><br />
+<span style="color:#339933;">&nbsp;・</span>送信の仕方<br />
+<span style="color:#339900;">【事前準備】</span><br />
 以下のﾒｰﾙｱﾄﾞﾚｽをｺﾋﾟｰして電話帳に登録すれば､ﾒｰﾙでﾄﾞｺﾓｺﾐｭﾆﾃｨの日記を送信できます｡<br />
 
 <?php echo $this->Form->input("mail_address", array("type" => "text", "value" => "diary@docomo-community.ne.jp", "style" => "font-size:x-small; width:100%")); ?>
 
-<span style="color:#339900;">【2回目以降】</span><br />
+<span style="color:#339900;">【投稿の仕方】</span><br />
 <ol>
 <li>下記のﾘﾝｸよりﾃﾞｺﾒになった思い出をﾀﾞｳﾝﾛｰﾄﾞ<br />
 <a href="<?php echo $this->Html->url('/diaries/downlord/'.$diary['Diary']['id']); ?>">ﾀﾞｳﾝﾛｰﾄﾞ</a></li>
@@ -28,6 +28,6 @@
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']);?>" style="color:#339900;"><span style="color:#339900;">今月の思い出記録ﾍﾟｰｼﾞへ戻る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/index/'.$diary['Month']['year'].'/'.$diary['Month']['month']);?>" style="color:#339900;"><span style="color:#339900;">今月の思い出記録ﾍﾟｰｼﾞへ戻る</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
