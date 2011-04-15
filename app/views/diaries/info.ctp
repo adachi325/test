@@ -62,7 +62,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">家族や友達に共有する</span></a><br />
-(ﾄﾞｺﾓｺﾐｭﾆﾃｨへ送信)<span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨ会員登録が必要です</span><br />
+(ﾄﾞｺﾓｺﾐｭﾆﾃｨへ送信)<span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨへの会員登録が必要です</span><br />
 <span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
 <span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
 

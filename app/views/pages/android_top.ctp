@@ -13,7 +13,7 @@
     </dd>
     <dt><?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span></dt>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e">【Flash】おてつだいたい</a>
+    <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e">【Flash】おてつだいたいに ほうこくしよう!</a>
     </dd>
   </dl>
   <hr id="orangeDot">
