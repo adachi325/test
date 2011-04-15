@@ -1,6 +1,6 @@
 <?php
 class GaHelper extends Helper {
-  private $GA_ACCOUNT="MO-21410679-6";
+  private $GA_ACCOUNT="MO-22726420-3";
   private $GA_PIXEL="/ga.php";
   function getUrl() {
 
