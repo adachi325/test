@@ -22,7 +22,7 @@ if ($this->data['Diary']['has_image']) {
 </td>
 </tr>
 <tr>
-<td align="left"><span style="font-size:x-small; color:#333333;"><?php echo h($this->data['Diary']['body']); ?></span></td>
+<td align="left"><span style="font-size:x-small; color:#333333;"><?php echo nl2br(($this->data['Diary']['body'])); ?></span></td>
 </tr>
 <tr>
 <td align="center">
