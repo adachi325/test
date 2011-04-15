@@ -164,7 +164,7 @@ class ApController extends AppController {
 		pr($release_date);
 		pr(date('Y-m-d H:n:s'));
 
-		if ($release_date <= date('Y-m-d h:n:s')) {
+		if ($release_date <= date('Y-m-d H:M:s')) {
 			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
 
 			if ($this->Ktai->is_softbank()) {
