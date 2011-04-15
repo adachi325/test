@@ -67,6 +67,7 @@ class DiariesController extends AppController {
                 'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
+	    $this->Diary->contain();
             $diaries = $this->Diary->find('all', $conditions);
             $this->set(compact('diaries'));
         } else {
