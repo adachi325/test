@@ -5,17 +5,17 @@
 <?php echo $this->Form->hidden('has_image');?>
 
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
+<?php if ($this->data['Diary']['has_image']) { ?>
 <tr>
 <td align="center">
-<?php if ($this->data['Diary']['has_image']) { 
+<?php
 	echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']),
 		 array("style" => "margin:10px 0;"));
-} else {
-	echo $this->Html->image("memory_pic.jpg", array("style" => "margin:10px 0;"));
-}
-?><br />
+?>
+<br />
 </td>
 </tr>
+<?php } ?>
 <tr>
 <td align="left">
 <span style="color:#666666;font-size:x-small">※写真の変更はできません｡<br />
