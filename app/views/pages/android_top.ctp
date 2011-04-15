@@ -2,7 +2,7 @@
 <body id="top">
 <div id="wrap" data-role="page" data-theme="d">
 <div id="header">
-  <img src="<?php echo $this->Html->image('img/logo.gif'); ?>" alt="ケータイしまじろうひろば×ドコモコミュニティ" width="320" height="83" />
+  <?php echo $this->Html->image("logo.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "320", "height" => "83")); ?>
 </div>
 
 <div id="main">
