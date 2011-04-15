@@ -162,7 +162,8 @@ class ApController extends AppController {
 		$release_date = $data['Content']['release_date'];
 
 		pr($release_date);
-		pr(date('Y-m-d H:n:s'));
+		pr(date('Y-m-d H:M:s'));
+		pr(date('Y-m-d H:N:s'));
 
 		if ($release_date <= date('Y-m-d H:M:s')) {
 			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
