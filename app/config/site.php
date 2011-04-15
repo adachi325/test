@@ -72,7 +72,7 @@ $config['Present'] = array(
 );
 
 $config['Defaults'] = array(
-	'domain' => 'dctry.jp',
+	'domain' => 'test.dctry.jp',
 	'receive_mail_prefix' => 'diary_',
         'docomo_community' => 'diary@docomo-community.com',
 );
