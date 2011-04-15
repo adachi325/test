@@ -8,7 +8,7 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
-&nbsp;・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
+・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
 <span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--写真サイズエラーの場合-->
@@ -16,15 +16,15 @@
 <?php elseif($diary['Diary']['error_code'] === 'E002') : ?>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
-&nbsp;・ﾌｧｲﾙ形式が非対応ﾌｫｰﾏｯﾄ<br /><br />
+・ﾌｧｲﾙ形式が非対応ﾌｫｰﾏｯﾄ<br /><br />
 <span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--形式エラーの場合-->
 <?php endif; ?>
 
 
-<?php if(!empty($diary['Diary']['present_id'])) : ?>
-<?php 
+<?php if(!empty($diary['Diary']['present_id'])) :
+$imgMonth = sprintf('%02d', $diary['Month']['month']);
 $desc = '';
 $type = $diary['Present']['present_type'];
 
@@ -53,25 +53,22 @@ default:
 <div style="text-align:center;" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
-
 <?php if ($type == 0): ?>
         <div>
             <span>
-            <?php
-            $imgMonth = sprintf('%02d', $diary['Month']['month']);
-            echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_t'), $diary['Month']['year'], $imgMonth));
-            ?>
+            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample.0'),  $diary['Month']['year'], $imgMonth)); ?>
             </span>
         </div>
 <?php elseif ($type == 1): ?>
-		<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
-        <br>
+	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+	<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
+        <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
         <div>端末ﾒﾆｭｰ(機能)の画像保存からﾃﾞｺﾒを保存してね♪</div>
-<?php elseif ($type == 2 || $type == 3): ?>
-		<div><?php echo $html->image(sprintf(Configure::read("Present.thumb.{$type}"), $diary['Month']['year'], sprintf('%02d', $diary['Month']['month']))); ?></div>
+
 <?php else: ?>
-		<?php echo $html->image($diary['Present']['present_thumbnail_path'], 
-				array("style" => "margin:10px 0;")); ?>
+<?php
+echo $this->Html->image(sprintf(Configure::read('Present.sample.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
+?>
 <?php endif;?>
 
 </div>
@@ -84,11 +81,11 @@ default:
 <?php endif; ?>
 
 <?php if (isset($text)): ?>
-<span style="color:#339933;">&nbsp;・</span><span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
+<span style="color:#339933;">・</span><span style="color:#339900;"><a href="<?php echo $url; ?>" style="color:#339900;"><?php echo $text; ?></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php endif; ?>
 
-<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">送信した思い出を見る</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">送信した思い出を見る</span></a><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
