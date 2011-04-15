@@ -8,7 +8,7 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
-・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
+&nbsp;・ﾌｧｲﾙｻｲｽﾞが2MB以上<br /><br />
 <span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--写真サイズエラーの場合-->
@@ -16,7 +16,7 @@
 <?php elseif($diary['Diary']['error_code'] === 'E002') : ?>
 <div style="color:#CC0000;text-align:left;" align="left">
 以下の理由により､写真を保存できませんでした｡<br /><br />
-・ﾌｧｲﾙ形式が非対応ﾌｫｰﾏｯﾄ<br /><br />
+&nbsp;・ﾌｧｲﾙ形式が非対応ﾌｫｰﾏｯﾄ<br /><br />
 <span style="color:#666666">写真をつけて思い出記録を残したい場合は､JPG形式で容量が2MB以内の写真を添付して再度送信し直してください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 </div><!--形式エラーの場合-->
