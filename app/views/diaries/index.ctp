@@ -87,10 +87,11 @@
 
 <?php
 $d = 0;$i = 0;$s = 0;
-if($page > 1) { $d = $page*5; $s=$d-5; } else { $d = 0; }
+if($page > 1) { $d = ($page-1)*5; } else { $d = 0; }
 foreach($diaries as $diary):
-	$s++;
-	if($s > $d && $i < 5) : ?>
+    $s++;
+    if((int)$s > (int)$d and (int)$i < (int)5) {
+?>
 	<tr>
 	<td width="25%" valign="top">
 	<?php
@@ -109,28 +110,31 @@ foreach($diaries as $diary):
 	<a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
 	</td>
 	</tr>
-<?php
-$i ++;
+	<?php
+	$i ++;
 
-endif;
+    }
 endforeach;
 ?>
 
 </table>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-
-<div style="text-align:left;" align="left">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
 <?php if($page > 1): ?>
-<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="color:#339900;">前へ</span></a>&nbsp;
+<td width="50%" align="left">
+	<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="color:#339900;">前へ</span></a>&nbsp;
+</td>
 <?php endif; ?>
-</div>
-
-<div style="text-align:right;" align="right">
 <?php if(count($diaries) > ($page * 5)): ?>
-<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
+<td width="50%" align="right">
+    <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
+</td>
 <?php endif; ?>
-</div>
+</tr>
+</table>
+
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div>
@@ -141,8 +145,8 @@ endforeach;
 
 <?php
 if($options['year'] >= $beforeFlag['Month']['year'] && $options['month'] > $beforeFlag['Month']['month']) {
-	$prev = ($options['month'] == 1) ? 
-		$this->Html->url('/diaries/index/'.($options['year']-1).'/12') : 
+	$prev = ($options['month'] == 1) ?
+		$this->Html->url('/diaries/index/'.($options['year']-1).'/12') :
 		$this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']-1));
 }
 
