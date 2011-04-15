@@ -264,7 +264,10 @@ if (count($childrenData) < 3) {
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <!-- 非会員限定のご案内 -->
-<?php if (true): ?>
+<?php
+$user = $this->Session->read('Auth.User');
+if (!$user['dc_user']):
+?>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -275,6 +278,7 @@ if (count($childrenData) < 3) {
 </table>
 <span style="font-size:x-small;">お子様の思い出を､家族や友達と共有できます｡詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/'); ?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
 <?php endif; ?>
 
 <a name="contents" id="contents"></a>

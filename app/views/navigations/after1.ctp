@@ -2,7 +2,7 @@
 ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 <span style="color:#ff6600;">&nbsp;・</span><span style="color:#339933">思い出記録</span>とは<br />
-毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝにｽﾃｷな思い出が残せます｡<br /><br />まずはお子さんの思い出を記録してみよう!
+毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝに待受けやﾊｶﾞｷﾃﾝﾌﾟﾚｰﾄに加工でき､ｽﾃｷな思い出が残せます｡<br /><br />まずはお子さんの思い出を記録してみよう!
 ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
