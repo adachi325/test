@@ -44,7 +44,9 @@ if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※ﾀｲﾄﾙは自由に変更できます｡</span><br />
+※ﾀｲﾄﾙは自由に変更できます｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br /></span>
 <br />
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">

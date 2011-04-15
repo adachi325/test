@@ -25,7 +25,7 @@
 <div style="background:#f3dfc4;">
 <?php echo $this->Html->image("petit_magane.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("petit_maganeimg.gif", array("width" => "30%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
-ご一緒に､こどもの気持ちがわかる｢こどもﾒｶﾞﾈ｣で見てみませんか?<br clear="all" />
+ご一緒に､こどもの気持ちがわかる｢こどもめがね｣で見てみませんか?<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div>
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>

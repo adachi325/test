@@ -64,7 +64,7 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 
 <?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
 <?php else: ?>
-<p>会員登録すると、他の教材ｺﾝﾃﾝﾂやお子様の思い出記録など、楽しい機能が使えるよ☆</p>
+<p>ﾌﾟﾛﾌｨｰﾙ登録すると､さらに楽しめるｺﾝﾃﾝﾂがいっぱい!お子さまの思い出記録など､楽しい機能が使えるよ☆</p>
 <?php echo $this->Form->create('Page', array('url' => '/pages/display/?guid=ON')); ?>
 <div align="center" style="text-align:center;"><?php echo $this->Form->submit('ｻｰﾋﾞｽｲﾒｰｼﾞを見る'); ?></div>
 <?php echo $this->Form->end(); ?>

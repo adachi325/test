@@ -77,7 +77,7 @@
 <div align="center" style="text-align:center;">
 <table width="230" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td align="center"><span style="font-size:x-small; color:#333333;">0～3歳向け</span><br />
+<td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("sample/first/90pic_memorygame.gif", array()); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
