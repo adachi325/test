@@ -51,7 +51,7 @@ default:
 }
 ?>	
 <div style="text-align:center;" align="center">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<br /><br />
 <span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?><?php echo $desc; ?></span><br />
 <?php if ($type == 0): ?>
         <div>
@@ -60,7 +60,7 @@ default:
             </span>
         </div>
 <?php elseif ($type == 1): ?>
-	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+	<br /><br />
 	<div><?php echo $html->image($diary['Present']['present_path']); ?></div>
         <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
         <div>端末ﾒﾆｭｰ(機能)の画像保存からﾃﾞｺﾒを保存してね♪</div>
