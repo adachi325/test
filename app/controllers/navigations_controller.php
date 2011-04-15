@@ -19,6 +19,15 @@ class NavigationsController extends AppController {
 			$id = $previd;
 		}
 
+		//利用規約未同意エラー表示切り分け処理
+		$errorStr = $this->Session->read('prev2_error_flg');
+		if(!isset($errorStr)){
+		    $errorStr = false;
+		} else {
+		    $this->Session->delete('prev2_error_flg');
+		}
+		$this->set(compact('errorStr'));
+
 		if(empty($id) or $id < 1 or $id > 2){
 			$this->cakeError('error404');
 			return;
@@ -108,6 +117,8 @@ class NavigationsController extends AppController {
 			$this->data['Navigation']['agree'] == 0){
 				//$this->Session->setFlash(__('利用規約に同意してください。', true));
 				$this->Session->write('previd' , '2');
+				//利用規約未同意エラー表示切り分けフラグ設定
+				$this->Session->write('prev2_error_flg' , true);
 				$this->redirect('/navigations/prev');
 			}
 		$this->redirect('/users/register');

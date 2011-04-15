@@ -253,22 +253,9 @@ if (count($childrenData) < 3) {
 <td width="85%"><?php echo $this->Html->image("txt_present.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
-<?php foreach($months as $month): ?>
-	<?php
-	$f = true;
-	if($month['month']['year'] == date('Y') and ($month['month']['month'] == (date('m')+0))) { ?>
-		<?php foreach($month['Present'] as $present): ?>
-			<?php
-				if($present['present_type'] == 3 and $f) {
-					echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), $month['month']['year'], sprintf('%02d', $month['month']['month'])),
-                                        array("align" => "left", "style" => "float:left; margin-right:10px;"));
-					$f = false;
-					break;
-				}
-			?>
-		<?php endforeach; ?>
-	<?php } ?>
-<?php endforeach; ?>
+
+<?php echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), date('Y'), date('m')), array("align" => "left", "style" => "float:left; margin-right:10px;")); ?>
+
 思い出を残すと､待受やﾎﾟｽﾄｶｰﾄﾞ､ﾃﾝﾌﾟﾚｰﾄなどがもらえるよ!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
