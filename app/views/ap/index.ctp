@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
