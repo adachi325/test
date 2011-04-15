@@ -358,17 +358,31 @@ W43K/W43S/W43T/W44K/W44KII/W44KII カメラなしモデル/W44T/W44TII(TiMo)/W45
 <!--　しまじろうからのおたんじょうびパーティー　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>しまじろうからのおたんじょうびパーティー</h3>
-<p>※以下の端末でご利用になれます。</p>
-<p>▼動画対応端末</p>
+<p>以下に記載された端末では､再生できない､または保証をしておりません｡</p>
 <dl>
-  <dt>【NTTドコモ】</dt>
-  <dd>FOMA iモード対応端末 (900i以前端末、スマートフォンを除く)</dd>
+  <dt>【docomo】</dt>
+  <dd>
+○mova全機種<br />
+○FOMA全機種<br />
+N600i(SIMPURE N)/L600i(SIMPURE L)/L601i(SIMPURE L1)/L602i(SIMPURE L2)<br />
+NM705i/NM706i/NM850iG/D851iWM(MUSIC PORTER X)/P851i(prosolidII)/SH851i(DOLCE)<br />
+F880iES(FOMAらくらくホン)/F881iES(FOMAらくらくホンII)<br />
+700i～702iSシリーズ<br />
+900i～902iSシリーズ<br />
+2001/2002/2051/2101/2102/2701ｼﾘｰｽﾞ<br />
+  </dd>
   <dt>【au】</dt>
-  <dd>CDMA 1X WIN端末 (W2x、W31S、スマートフォンを除く)</dd>
-  <dt>【SoftBank】</dt>
-  <dd>SoftBank 3G端末 (海外端末、スマートフォン、旧Vodafone端末、旧J-Phone端末を除く)</dd>
-  <dt>【Android】</dt>
-  <dd>全機種</dd>
+  <dd>
+A/B/C/Eシリーズ<br />
+W11～47シリーズ<br />
+W51CA/W51H/W51K/W51P/W51S/W51SH/W51SA/W51T/MEDIA SKIN(W52K)/W52P/W52S/W52SH/W52T/W53S/W53SA/W61SH/W62S/W63SH
+  </dd>
+  <dt>【SoftBank･DisneyMobile】</dt>
+  <dd>
+Vodafoneブランドで発売された全機種<br />
+SoftBank<br />
+001SC/705NK/705SC/705SH/705T/706SC/707SC/707SCII/708SC/709SC/731SC/740SC /803T/805SC/810T/811T/812T(コドモバイル)/813T/820T(コドモバイル)/821T(かんたん携帯) /822T/830SC/832T(かんたん携帯)/904T/910T
+  </dd>
 </dl>
 </div>
 <!--　/しまじろうからのおたんじょうびパーティー　-->

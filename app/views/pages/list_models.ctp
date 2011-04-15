@@ -302,14 +302,24 @@ W43K/W43S/W43T/W44K/W44KII/W44KII ｶﾒﾗなしﾓﾃﾞﾙ/W44T/W44TII(TiMo)/
 
 <a name="shimajiro" id="shimajiro"></a>
 &nbsp;・しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ<br />
-<span style="color:#ff0000">※以下の端末でご利用になれます｡</span><br />
-<span style="color:#996633;">▼動画対応端末</span><br />
-【NTTﾄﾞｺﾓ】<br />
-FOMA iﾓｰﾄﾞ対応端末 (900i以前端末､ｽﾏｰﾄﾌｫﾝを除く)<br />
+<span style="color:#ff0000">以下に記載された端末では､再生できない､または保証をしておりません｡</span><br />
+【docomo】<br />
+○mova 全機種<br />
+○FOMA<br />
+N600i(SIMPURE N)/L600i(SIMPURE L)/L601i(SIMPURE L1)/L602i(SIMPURE L2)<br />
+NM705i/NM706i/NM850iG/D851iWM(MUSIC PORTER X)/P851i(prosolidII)/SH851i(DOLCE)<br />
+F880iES(FOMAらくらくﾎﾝ)/F881iES(FOMAらくらくﾎﾝII)<br />
+700i～702iSｼﾘｰｽﾞ<br />
+900i～902iSｼﾘｰｽﾞ<br />
+2001/2002/2051/2101/2102/2701ｼﾘｰｽﾞ<br />
+<br />
 【au】<br />
-CDMA 1X WIN端末 (W2x､W31S､ｽﾏｰﾄﾌｫﾝを除く)<br />
-【SoftBank】<br />
-SoftBank 3G端末 (海外端末､ｽﾏｰﾄﾌｫﾝ､旧Vodafone端末､旧J-Phone端末を除く)<br />
-【Android】<br />
-全機種<br />
-<br /><div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+A/B/C/Eｼﾘｰｽﾞ<br />
+W11～47ｼﾘｰｽﾞ<br />
+W51CA/W51H/W51K/W51P/W51S/W51SH/W51SA/W51T/MEDIA SKIN(W52K)/W52P/W52S/W52SH/W52T/W53S/W53SA/W61SH/W62S/W63SH<br />
+<br />
+【SoftBank･DisneyMobile】<br />
+Vodafoneﾌﾞﾗﾝﾄﾞで発売された全機種<br />
+SoftBank<br />
+001SC/705NK/705SC/705SH/705T/706SC/707SC/707SCII/708SC/709SC/731SC/740SC /803T/805SC/810T/811T/812T(ｺﾄﾞﾓﾊﾞｲﾙ)/813T/820T(ｺﾄﾞﾓﾊﾞｲﾙ)/821T(かんたん携帯) /822T/830SC/832T(かんたん携帯)/904T/910T<br />
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
