@@ -229,10 +229,19 @@ if (count($childrenData) < 3) {
 
 <?php foreach($months as $month): ?>
 
-<?php foreach($month['Theme'] as $theme): ?>
-<?php if (!$theme['free_theme']): ?>
+<?php
+$i=0;
+foreach($month['Theme'] as $theme): ?>
+<?php if (!$theme['free_theme']):
+$i++;
+?>
 <span style="color:#339933;"><?php echo ($theme['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; ?></span><a href="<?php echo $this->Html->url('/themes/info/'.$theme['id']);?>" style="color:#339900;"><span style="color:#339900;">【ﾃｰﾏ】<?php echo h($theme['title']);?></span></a><br />
 <?php endif; ?>
+<?php
+if($i==2) {
+    break;
+}
+?>
 <?php endforeach; ?>
 
 <?php foreach($month['Theme'] as $theme): ?>

@@ -3,8 +3,14 @@
 
 以下をご入力の上､｢次へ｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
-<?php echo $this->Form->create('User', array("url" => "/users/remind?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php
+if(isset($errorStr)){
+    echo $errorStr;
+    echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10"));
+}
+?>
+<br />
+<?php echo $this->Form->create('User', array("url" => "/users/remindCheck?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>
