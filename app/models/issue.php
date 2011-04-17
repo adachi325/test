@@ -100,7 +100,7 @@ class Issue extends AppModel {
 			return parent::find('all', Set::merge(
 				array(
 					'conditions' => $cond,
-					'order' => "{$m}.release_date {$order}"
+					'order' => array("{$m}.release_date {$order}", "{$m}.id DESC");
 				),
 				$options
 			));
