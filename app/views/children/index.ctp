@@ -273,10 +273,7 @@ if($i==2) {
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <!-- 非会員限定のご案内 -->
-<?php
-$user = $this->Session->read('Auth.User');
-if (!$user['dc_user']):
-?>
+<?php if (!$this->Tk->is_dc_user()): ?>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
