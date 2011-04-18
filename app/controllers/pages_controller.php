@@ -97,6 +97,7 @@ class PagesController extends AppController {
 		$this->render($this->view_prefix.$this->params['action']);   
 	}
 	function contact() { 
+		$this->render($this->view_prefix.$this->params['action']);   
 	}
 	function help() {
 		$this->render($this->view_prefix.$this->params['action']);   

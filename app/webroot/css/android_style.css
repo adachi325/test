@@ -235,7 +235,7 @@ h1, h2, h3 {
 	font-size:medium;
 }
 
-#model h2, #faq h2, #rule h2, #cost h2  {
+#model h2, #faq h2, #rule h2, #cost h2, #contact h2 {
 	color:#FFF;
 	background:#996633;
 	height:32px;
