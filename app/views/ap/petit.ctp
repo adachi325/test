@@ -4,12 +4,12 @@
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-<td width="10%"><?php echo $this->Html->image("icn_petit.gif", array("width" => "100%")); ?></td>
 <td width="85%"><?php echo $this->Html->image("txt_petit.gif", array("width" => "100%")); ?></td>
+<td width="10%">&nbsp;</td>
 </tr>
 <tr>
-<td width="10%">&nbsp;</td>
 <td width="85%"><span style="font-size:x-small; color:#e61953;">1～2歳向けｺｰｽ</span></td>
+<td width="10%">&nbsp;</td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -42,7 +42,7 @@
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/reflection/" style="color:#ff3333;"><span style="color:#ff3333;">きろくをみる</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
-
+<div align="center" style="text-align:center;"><span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
 <a name="community" id="community"></a>

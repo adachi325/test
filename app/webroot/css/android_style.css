@@ -235,7 +235,7 @@ h1, h2, h3 {
 	font-size:medium;
 }
 
-#model h2, #faq h2, #rule h2, #cost h2  {
+#model h2, #faq h2, #rule h2, #cost h2, #contact h2 {
 	color:#FFF;
 	background:#996633;
 	height:32px;
@@ -267,6 +267,16 @@ h1, h2, h3 {
 	list-style-type:disc;
 	list-style-position:inside;
 }
+
+/*----------------------------------------------------
+	お問い合わせ contact
+----------------------------------------------------*/
+#contact ul {
+	margin:10px 0;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
 
 /*----------------------------------------------------
 	よくある質問 faq

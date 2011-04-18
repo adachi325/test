@@ -214,7 +214,7 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 <span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
-<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">部屋に飾れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">家族に送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
@@ -273,10 +273,6 @@ if($i==2) {
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <!-- 非会員限定のご案内 -->
-<?php
-$user = $this->Session->read('Auth.User');
-if (!$user['dc_user']):
-?>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -287,8 +283,6 @@ if (!$user['dc_user']):
 </table>
 <span style="font-size:x-small;">お子様の思い出を､家族や友達と共有できます｡詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/'); ?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
-<?php endif; ?>
 
 <a name="contents" id="contents"></a>
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?><br />
@@ -306,7 +300,7 @@ if (!$user['dc_user']):
 <!-- ライン別ここまで -->
 
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
-
+<div align="center" style="text-align:center;"><span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -320,7 +314,7 @@ if (!$user['dc_user']):
 新ｶﾝｶｸ☆ｷｯｽﾞ･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
-&lt;こどもちゃんれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
+&lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 

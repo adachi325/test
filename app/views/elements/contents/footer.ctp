@@ -1,9 +1,6 @@
 <div align="center">
 
-<?php 
-$user = $this->Session->read('login_user_data.User');
-if (!empty($user) && $user['dc_user']):
-?>
+<?php if ($this->Tk->is_dc_user()): ?>
 <?php echo $this->Html->link('マイページへ', array('controller' => 'children', 'action' => 'index')); ?>
 <?php else: ?>
 <p>会員登録すると、他の教材コンテンツやお子様の思い出記録など、楽しい機能が使えるよ☆</p>

@@ -1,5 +1,3 @@
-<div class="contents view">
-
 <?php
 
 $path = (isset($filepath)) ? $filepath : "nocontents.html";
@@ -13,8 +11,8 @@ echo $contents;
 <?php if (!$this->Ktai->is_android()): ?>
 
 <?php
-$user = $this->Session->read('Auth.User');
-if (!$user['dc_user']) {
+$user = $this->Session->read('Auth');
+if (!isset($user['User'])) { 
 	echo $this->element('invitation');
 }
 echo $this->element('default/footer_ap');
@@ -22,6 +20,4 @@ echo $this->element('default/footer_ap');
 <?php else: ?>
 <?php echo $this->element('default/footer_android'); ?>
 <?php endif; ?>
-
-</div>
 

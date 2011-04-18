@@ -109,7 +109,8 @@ class PresentsController extends AppController {
 		} else {
 			$max_count = 4;
 		}
-	
+
+		$page = 1;
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -158,7 +159,6 @@ class PresentsController extends AppController {
 					$page = $pageCount;
 				}
 			}
-			$this->paginate['page'] = $page;
 			$this->data['select_photo'] = $this->Session->read("Present.{$page}.selection");
 		}
 
@@ -169,7 +169,7 @@ class PresentsController extends AppController {
 			'child_id' => $this->Tk->_getLastChild(),
 			'has_image' => 1,
 		);
-		$this->paginate = array('conditions' => $cond, 'order' => 'Diary.created DESC', 'limit' => 10);
+		$this->paginate = array('conditions' => $cond, 'order' => 'Diary.created DESC', 'limit' => 10, 'page' => $page);
 
 		$items = $this->paginate('Diary', $cond);
 

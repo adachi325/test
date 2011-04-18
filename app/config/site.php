@@ -139,4 +139,10 @@ $config['Error'] = array(
             'sb' => '「Yahoo!ケータイ」→「設定・申込」→「端末・サービス設定」→「ユーザーID通知設定」',
         ),
 );
- 
+
+$config['GoogleAnalytics'] = array ('TrackingCode' => array(
+	    'shimajiro-dev.com' => 'MO-22726420-3',   //テスト
+            '220.152.124.130' => 'MO-22726420-6',     //ステージング
+            'dctry.jp' => 'MO-22726420-7',	      //本番
+	)
+    );
