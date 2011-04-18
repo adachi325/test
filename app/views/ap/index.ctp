@@ -70,7 +70,9 @@ echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $th
 <?php echo $this->element('default/pocket'); ?>
 <?php endif; ?>
 
-<?php if (!empty($child) && $child['Child']['benesse_user'] != 1): ?>
+<?php
+$user = $this->Session->read('Auth');
+if (!isset($user['User'])): ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%")); ?><br />
