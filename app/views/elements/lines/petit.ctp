@@ -43,6 +43,7 @@ endif;
 <div style="font-size:x-small;">
 &nbsp;･<a href="<?php echo "http://shimajiromobile.benesse.ne.jp/ap1/petit/reflection/"; ?>" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a>
 </div>
+<div style="font-size:x-small;">&nbsp;<span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 <div style="font-size:x-small;">
 &nbsp;･<a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a>
 </div>
