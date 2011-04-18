@@ -164,6 +164,7 @@ class ApController extends AppController {
 		if ($release_date <= date('Y-m-d H:i:s')) {
 			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
 
+			$this->layout = 'contents';
 			if ($this->Ktai->is_softbank()) {
 				$_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
 			} elseif ($this->Ktai->is_ezweb()) {
@@ -174,7 +175,9 @@ class ApController extends AppController {
 					$this->layout = null;
 					$this->render('android');
 					return;
-				}
+        } else {
+			    $this->layout = 'contents_android';
+        }
 			}
 
 			if (isset($_path) && file_exists($_path)) {
@@ -182,11 +185,11 @@ class ApController extends AppController {
 			}
 			
 			$this->set(compact('release_date', 'filepath'));
-			$this->layout = 'contents';
 			$this->render("view");
 		} else {
 			$this->set(compact('release_date'));
 			if ($this->Ktai->is_android()) {
+				$this->layout = null;
 				$this->render("android_error");	
 			} else {
 				$this->render("error");	
