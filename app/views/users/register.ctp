@@ -7,6 +7,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
+<span style="color:#CC0000">※電話番号やメールアドレス等､個人を特定できる情報は利用しないでください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
