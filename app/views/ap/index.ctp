@@ -70,8 +70,8 @@ echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $th
 <?php echo $this->element('default/pocket'); ?>
 <?php endif; ?>
 
-<?php if (!empty($login_user_data) && $login_user_data['User']['dc_user'] == 1): ?>
-<?php else: ?>
+<?php if (!empty($child) && $child['Child']['benesse_user'] != 1): ?>
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -108,6 +108,7 @@ echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $th
 </div>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+
 <?php endif; ?>
 
 <table width="100%" cellpadding="0" cellspacing="0">
