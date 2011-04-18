@@ -49,20 +49,7 @@ class tkHelper extends Helper {
             }
         }
         return false;
-	}
-
-	// ドコモコミュニティーユーザかどうかの判定
-	function is_dc_user() {
-		$user = $this->Session->read('login_user_data.User');
-		if (empty($user)) {
-			return false;
-		} else {
-			if (isset($user['dc_user']) {
-				return $user['dc_user'];
-			}
-		}
-		return false;
-	}
+    }
 }
 
 ?>

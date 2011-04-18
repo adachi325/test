@@ -364,9 +364,12 @@ class DiariesController extends AppController {
 		}
 		$this->set('mailBody',$mailBody);
 
-		// not dc_user
+	// not dc_user
         $userData = $this->Auth->user();
-        if(!$userData['User']['dc_user']) {
+	$users =& ClassRegistry::init('User');
+	$user = $users->read(null,$userData['User']['id']);
+
+        if(!$user['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
             $this->render('post_info');
