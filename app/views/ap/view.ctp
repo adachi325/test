@@ -1,5 +1,3 @@
-<div class="contents view">
-
 <?php
 
 $path = (isset($filepath)) ? $filepath : "nocontents.html";
@@ -22,6 +20,4 @@ echo $this->element('default/footer_ap');
 <?php else: ?>
 <?php echo $this->element('default/footer_android'); ?>
 <?php endif; ?>
-
-</div>
 
