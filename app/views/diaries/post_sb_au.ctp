@@ -15,7 +15,7 @@
 <li>下の｢思い出を記録に残す｣ﾘﾝｸを押すと、ﾒｰﾙが立ち上がるので､1で保存した画像を添付して送信<br />
 
 <?php if($this->Ktai->is_softbank()): ?>
-<a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo UrlPathEncode(mb_convert_encoding($mailTitle, "utf8"));?>?body=<?php echo UrlPathEncode(mb_convert_encoding($mailBody, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a>
+<a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurldecode(mb_convert_encoding($mailTitle, "utf8"));?>&body=<?php echo rawurldecode(mb_convert_encoding($mailBody, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a>
 <?php else: ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),$mailTitle,$mailBody); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
