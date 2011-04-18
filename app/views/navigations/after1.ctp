@@ -34,8 +34,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php
-if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
+if($this->Ktai->is_imode()): ?>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo $mailTitle;?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
 <?php elseif($this->Ktai->is_softbank()): ?>
 <a href="mailto:<?php echo $mailStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
 <?php else: ?>
