@@ -59,7 +59,7 @@ class NavigationsController extends AppController {
 		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
-		$mailTitle = 'ベスト ショット';
+		$mailTitle = 'ベストショット';
 
 		$ua = $_SERVER['HTTP_USER_AGENT'];
 
