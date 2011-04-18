@@ -1,6 +1,6 @@
 <div align="center" style="text-align:center;">
 <?php echo $this->Html->image("main.gif", array("width" => "100%")); ?><br />
-楽しく遊んで記録が残せる!<br />
+楽しく遊んで<br />成長の記録が残せる<span style="color:#339933"><?php $this->Ktai->emoji(0xe741); ?></span><br />
 &lt;こどもちゃれんじ&gt;ｹｰﾀｲｻｲﾄ
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -14,6 +14,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 ※ｻｰﾋﾞｽ利用料は<span style="color:#cc0000;">無料</span>です<br />
 ※別途ﾊﾟｹｯﾄ通信料がかかります<br />
+※3ｷｬﾘｱ対応<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="right" style="text-align:right;">登録済みの方は<a href="<?php echo $this->Html->url("/users/login/"); ?>">こちら</a></div>
 <div style="background:#ff9900;"><?php echo $this->Html->image("img_obj.gif", array("width" => "100%", "style" => "margin-bottom:1px;")); ?><br /></div>

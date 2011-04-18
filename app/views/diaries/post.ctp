@@ -10,7 +10,9 @@
 <span style="color:#339900;">【事前準備】</span><br />
 以下のﾒｰﾙｱﾄﾞﾚｽをｺﾋﾟｰして電話帳に登録すれば､ﾒｰﾙでﾄﾞｺﾓｺﾐｭﾆﾃｨの日記を送信できます｡<br />
 
-<?php echo $this->Form->input("mail_address", array("type" => "text", "value" => "diary@docomo-community.ne.jp", "style" => "font-size:x-small; width:100%")); ?>
+<form>
+<?php echo $this->Form->input("mail_address", array("label" => "","type" => "text", "value" => "diary@docomo-community.ne.jp", "style" => "font-size:x-small; width:100%")); ?>
+</form>
 
 <span style="color:#339900;">【投稿の仕方】</span><br />
 <ol>
@@ -23,7 +25,7 @@
 題名:日記のﾀｲﾄﾙを入力</li>
 <li>ﾒｰﾙを送信して完成!</li>
 <li>送信した日記を確認する<br />
-⇒<a href="http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml">ﾄﾞｺﾓｺﾐｭﾆﾃｨのﾏｲﾍﾟｰｼﾞへ</a></li>
+⇒<a href="http://docomo-community.cp05.docomo.ne.jp/dj/index.xhtml">ﾄﾞｺﾓｺﾐｭﾆﾃｨのﾏｲﾍﾟｰｼﾞへ</a></li>
 </ol>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>

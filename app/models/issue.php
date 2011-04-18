@@ -82,19 +82,25 @@ class Issue extends AppModel {
 		$m = $this->alias;
 
 		// add released method
+
 		switch($type) {
 		case 'released':
 			$cond = array("{$m}.release_date <=" => date('Y-m-d H:i:s'));
+			$order = 'ASC';
+
 			if (isset($options['line'])) {
 				$cond["Line.category_name"] = $options['line'];
+				if ($options['line'] != 'baby') {
+					$order = 'DESC'; 
+				}
 				unset($options['line']);
 			}
 
 			$this->contain('Line', 'Content');
 			return parent::find('all', Set::merge(
 				array(
-					'conditions' => $cond, 
-					'order' => "{$m}.release_date"
+					'conditions' => $cond,
+					'order' => array("{$m}.release_date {$order}", "{$m}.id DESC")
 				),
 				$options
 			));

@@ -11,7 +11,7 @@ class UsersController extends AppController {
             'username' => 'loginid',
             'password' => 'password'
         );
-        $this->Auth->allow('register','register_confirm','register_complete','remind','remind_password','remind_complete');
+        $this->Auth->allow('register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
     }
 
     function beforeRender() {
@@ -279,8 +279,12 @@ class UsersController extends AppController {
             $this->set('lines', $Line);
     }
 
-    //リマインド認証
+    //リマインド認証(初回)
     function remind () {
+    }
+
+    //リマインド認証(2回目以降)
+    function remindCheck () {
 
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
@@ -299,16 +303,20 @@ class UsersController extends AppController {
             $this->redirect('/children/');
         }
 
+	$errorStr = "入力情報が正しくありません。";
+
         //入力データが存在しない場合
         if(empty($this->data)){
-            $this->Session->setFlash(__('入力情報が間違っています。', true));
+            $this->set(compact('errorStr'));
+	    $this->render('remind');
             return;
         }
 
         //バリデーションチェック
         $this->User->set($this->data);
         if (!$this->User->validates()) {
-            $this->Session->setFlash(__('入力情報が間違っています。', true));
+            $this->set(compact('errorStr'));
+	    $this->render('remind');
             return;
         }
 
@@ -323,7 +331,8 @@ class UsersController extends AppController {
         $children = $child->find('all',array('conditions' => $conditions));
 
         if(empty($children)){
-            $this->Session->setFlash(__('入力された情報は存在しません。', true));
+            $this->set(compact('errorStr'));
+	    $this->render('remind');
             return;
         }
 
@@ -340,15 +349,22 @@ class UsersController extends AppController {
             $this->cakeError('error404');
             return;
         }
+
+	$errorStr = "入力情報が正しくありません。";
         
         //入力データが存在しない場合
         if(empty($this->data)){
             return;
         }
+
+	$this->data['User']['id'] = $userData['0']['User']['id'];
+	$this->data['User']['loginid'] = $userData['0']['User']['loginid'];
+
         //バリデーションチェック
         $this->User->set($this->data);
         if (!$this->User->validates()) {
-            $this->Session->setFlash(__('入力情報が間違っています。', true));
+            $this->set(compact('errorStr'));
+	    $this->render('remind_password');
             return;
         }
 

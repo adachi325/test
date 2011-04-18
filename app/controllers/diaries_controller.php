@@ -67,6 +67,7 @@ class DiariesController extends AppController {
                 'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
+	    $this->Diary->contain();
             $diaries = $this->Diary->find('all', $conditions);
             $this->set(compact('diaries'));
         } else {
@@ -363,9 +364,12 @@ class DiariesController extends AppController {
 		}
 		$this->set('mailBody',$mailBody);
 
-		// not dc_user
+	// not dc_user
         $userData = $this->Auth->user();
-        if(!$userData['User']['dc_user']) {
+	$users =& ClassRegistry::init('User');
+	$user = $users->read(null,$userData['User']['id']);
+
+        if(!$user['User']['dc_user']) {
             $this->set('yyy',$diary['Month']['year']);
             $this->set('mmm',$diary['Month']['month']);
             $this->render('post_info');

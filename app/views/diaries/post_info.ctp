@@ -9,6 +9,8 @@
 </td>
 </tr>
 </table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+登録済みの方は<a href="<?php echo $this->Html->url('/users/edit/'); ?>" >こちら</a>の設定画面からﾄﾞｺﾓｺﾐｭﾆﾃｨにﾁｪｯｸを入れてください｡
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 <span style="color:#ff6600;">【ﾄﾞｺﾓｺﾐｭﾆﾃｨに未登録の方】</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -24,7 +26,7 @@
 
 <div align="center" style="text-align:center">
 
-<?php echo $this->Html->image("dummy.gif", array("width" => "100", "height" => "100", "style" => "margin:10px 0")); ?><br />
+<?php echo $this->Html->image( "214_kisekae.jpg", array("width" => "100%","style" => "margin:10px 0")); ?><br />
 
 </div>
 
@@ -37,7 +39,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:small;">ﾄﾞｺﾓの方は<a href="http://campaign.bict.jp/aff/?guid=ON&amp;shopId=dcmpr03&amp;cpId=dcmub&amp;siteId=rjwo106">こちら</a><br />
 au/ｿﾌﾄﾊﾞﾝｸの方は<a href="http://docomo-community.com/djs/index.xhtml">こちら</a></span><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
+<span style="color:#CC0000">※ﾄﾞｺﾓｺﾐｭﾆﾃｨのｻｲﾄに移動します｡</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#666666">※au/ｿﾌﾄﾊﾞﾝｸの方は､NTTﾄﾞｺﾓの携帯電話をお使いの方からの招待状が必要となります｡</span>

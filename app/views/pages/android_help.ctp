@@ -188,7 +188,7 @@ A25. マナーモードを解除してご利用ください。
 <h3 class="inquiry"><?php echo $this->Html->image("txt_inquiry.gif", array("alt" => "よくある質問", "width" => "204", "height" => "20")); ?></h3>
 
 以上の質問に該当しない場合は､こちらよりお問い合わせください｡
-<a href="hoge.html" data-role="button" data-theme="c" data-icon="info" data-ajax="false">問い合わせ</a>
+<a href="<?php echo $this->Html->url('/pages/contact/'); ?>" data-role="button" data-theme="c" data-icon="info" rel="external">問い合わせ</a>
 </div>
 <!-- /inq -->
 </div>

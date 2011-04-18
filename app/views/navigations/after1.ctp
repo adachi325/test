@@ -21,7 +21,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </td>
 <td align="center" width="80%">
-<?php echo $this->Html->image("theme/theme_0.jpg", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("theme/theme_1.jpg", array("width" => "100%")); ?><br />
 </td>
 <td>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

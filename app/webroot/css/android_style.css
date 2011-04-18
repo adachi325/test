@@ -25,6 +25,12 @@ h1, h2, h3 {
 	margin:0 0 10px 0 !important;
 }
 
+/* 表示領域を超える文言の場合、改行する */
+.ui-btn-inner {
+  white-space: normal;
+}
+
+
 /*----------------------------------------------------
 	footer
 ----------------------------------------------------*/
@@ -229,7 +235,7 @@ h1, h2, h3 {
 	font-size:medium;
 }
 
-#model h2, #faq h2, #rule h2, #cost h2  {
+#model h2, #faq h2, #rule h2, #cost h2, #contact h2 {
 	color:#FFF;
 	background:#996633;
 	height:32px;
