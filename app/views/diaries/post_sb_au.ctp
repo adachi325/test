@@ -11,7 +11,7 @@
 <?php endif; ?>
 
 <ol>
-<li>上の画像を保存</li>
+<li>(写真を投稿した場合)上の画像を保存</li>
 <li>下の｢思い出を記録に残す｣ﾘﾝｸを押すと、ﾒｰﾙが立ち上がるので､1で保存した画像を添付して送信<br />
 
 <?php if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
