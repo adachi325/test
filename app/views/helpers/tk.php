@@ -57,7 +57,7 @@ class tkHelper extends Helper {
 		if (empty($user)) {
 			return false;
 		} else {
-			if (isset($user['dc_user']) {
+			if (isset($user['dc_user'])) {
 				return $user['dc_user'];
 			}
 		}
