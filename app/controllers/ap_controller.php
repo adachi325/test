@@ -110,15 +110,7 @@ class ApController extends AppController {
 			));
 		}
 
-		$child_id = $this->Session->read('Auth.User');
-		$child = '';
-		if ($child_id) {
-			$Child =& ClassRegistry::init('Child');
-			$Child->contain();
-			$child = $Child->find('first', array('condition' => array('child.id' => $child_id)));
-		}
-
-		$this->set(compact('issues', 'title', 'lines', 'line', 'child'));
+		$this->set(compact('issues', 'title', 'lines', 'line'));
 		$this->render('index');
 	}
 
