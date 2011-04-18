@@ -98,7 +98,7 @@ class ChildrenController extends AppController {
         $newslist = $news->find('all',array('conditions' =>
             array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
 
-        $this->set(compact('childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
+        $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
         if (count($childrenData) == 0) {
                 $this->render('index_nochild');
         }
