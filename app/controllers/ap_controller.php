@@ -188,7 +188,11 @@ class ApController extends AppController {
 			$this->render("view");
 		} else {
 			$this->set(compact('release_date'));
-			$this->render("error");	
+			if ($this->Ktai->is_android()) {
+				$this->render("android_error");	
+			} else {
+				$this->render("error");	
+			}
 		}
 	}
 
