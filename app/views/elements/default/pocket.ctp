@@ -20,3 +20,4 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
 
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>

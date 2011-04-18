@@ -35,7 +35,7 @@ if (($this->params['controller'] == 'pages' && $this->params['action'] == 'displ
 ?>
 <tr>
 <td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">&nbsp;･</span>
-<a href="http://shimajiromobile.benesse.ne.jp/ap1/about/" style="color:#ffffff;"><span style="color:#ffffff;">ｹｰﾀｲしまじろうひろばについて</span></a></span></td>
+<a href="http://shimajiromobile.benesse.ne.jp/ap1/about/" style="color:#ffffff;"><span style="color:#ffffff;">ｹｰﾀｲしまじろうひろばとは</span></a></span></td>
 </tr>
 <?php endif; ?>
 
