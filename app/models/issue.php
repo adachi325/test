@@ -86,17 +86,19 @@ class Issue extends AppModel {
 		switch($type) {
 		case 'released':
 			$cond = array("{$m}.release_date <=" => date('Y-m-d H:i:s'));
-			$order = array("{$m}.release_date DESC", "{$m}.id DESC");
+			$order = array("{$m}.release_date DESC");
+			$content_order = 'DESC';
 
 			if (isset($options['line'])) {
 				$cond["Line.category_name"] = $options['line'];
 				if ($options['line'] == 'baby') {
 					$order = array("{$m}.id ASC"); 
+					$content_order = 'ASC';
 				}
 				unset($options['line']);
 			}
 
-			$this->contain('Line', 'Content');
+			$this->contain(array('Line', 'Content' => array('order' => array("Content.release_date {$content_order}"))));
 			return parent::find('all', Set::merge(
 				array(
 					'conditions' => $cond,
