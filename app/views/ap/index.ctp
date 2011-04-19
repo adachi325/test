@@ -53,7 +53,7 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 echo ($content['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; 
 ?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['title']); ?></span></a>
 <?php else: ?>
-&nbsp;･<?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
+<span style="color:#cc0000;">&nbsp;･</span><?php echo h($content['title']).$this->Time->format('(n月j日更新予定)', $content['release_date']); ?>
 <?php endif; ?><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
