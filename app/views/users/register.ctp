@@ -19,12 +19,9 @@
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">半角英数字4-12文字</span><br />
 <?php
-$ua = $_SERVER['HTTP_USER_AGENT'];
-pr($ua);
-pr('はははは');
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("loginid", array("type" => "text", "istyle" => "3", "style" => "font-size:x-small;"));
-} else if($this->Ktai->is_imode and $this->tk->is_imode_browser()) {
+} else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
     echo $this->Form->input("loginid", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;"));
 } else {
     echo $this->Form->input("loginid", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
@@ -43,17 +40,21 @@ if($this->Ktai->is_ezweb()){
 <?php
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("new_password", array("type" => "text", "istyle" => "4", "style" => "font-size:x-small;"));
-} else if($this->Ktai->is_imode and $this->tk->is_imode_browser()) {
+} else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
     echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;"));
+    echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"));
+    echo $this->Form->input("new_password", array("type" => "text", "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;"));
+    echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4']));
+    echo $this->Form->input("new_password", array("type" => "text", "istyle" => "4", "format" => "4","mode" => "alphabet"  , "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;"));
 } else {
     echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
 ?>
 <br />
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -62,7 +63,7 @@ if($this->Ktai->is_ezweb()){
 <?php
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("row_password", array("type" => "text", "istyle" => "4", "style" => "font-size:x-small;"));
-} else if($this->Ktai->is_imode and $this->tk->is_imode_browser()) {
+} else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
     echo $this->Form->input("row_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;"));
 } else {
     echo $this->Form->input("row_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
