@@ -17,6 +17,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <span style="color:#339933;">&nbsp;・</span><?php echo $text; ?><br />
 </div>
 投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
+※au,ｿﾌﾄﾊﾞﾝｸご利用の方は同一ﾍﾟｰｼﾞから<?php echo $max_count; ?>枚の写真を選択するようお願いいたします｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
