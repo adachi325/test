@@ -22,7 +22,7 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => 'isUnique',
-                            'message' => 'このIDは既に登録されています',
+                            'message' => 'このﾛｸﾞｲﾝ名は既に登録されています',
                             'on'=>'create',
                             'last' => true,
 			),
@@ -72,7 +72,7 @@ class User extends AppModel {
 			),
 			array(
                             'rule' => 'checkRegisterLoginIdtoPassword',
-                            'message' => 'ﾛｸﾞｲﾝIDとﾊﾟｽﾜｰﾄﾞが重複しています',
+                            'message' => 'ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞが重複しています',
                             'last' => true,
 			),
 		),
