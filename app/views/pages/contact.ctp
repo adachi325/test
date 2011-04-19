@@ -16,10 +16,14 @@
 ※間違い電話が増えておりますので､番号はよくお確かめのうえ､おかけください｡</span><br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array()); ?></div>
 
-<span style="color:#996633;">&nbsp;・</span>操作方法およびﾄﾞｺﾓｺﾐｭﾆﾃｨに関するお問い合わせについて<br />
+<span style="color:#996633;">&nbsp;・</span>操作方法およびﾄﾞｺﾓｺﾐｭﾆﾃｨに関するお問い合わせはNTTﾄﾞｺﾓにお問い合わせください。<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">&nbsp;・</span>ﾄﾞｺﾓの方は<a href="http://docomo-community.cp05.docomo.ne.jp/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">&nbsp;・</span>au､ｿﾌﾄﾊﾞﾝｸの方は<a href="http://docomo-community.com/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
-
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+お問い合わせ先:ﾄﾞｺﾓｲﾝﾌｫﾒｰｼｮﾝｾﾝﾀｰ<br />
+<br />
+ﾄﾞｺﾓの携帯電話から:<?php $this->Ktai->emoji(0xE6CE); ?>151(無料)<br />
+<br />
+一般電話などから:0120-800-000(無料)<br />
+※携帯電話､PHS(他社)からもご利用になれます。<br />
+<br />
+受付時間:午前9時～午後8時<br />
+<br />

@@ -95,8 +95,10 @@ class ChildrenController extends AppController {
 
         //ニュース取得
         $news =& ClassRegistry::init('news');
-        $newslist = $news->find('all',array('conditions' =>
-            array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
+		$newslist = $news->find('all',array(
+			'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
+			'order' => array('start_at DESC'),
+		));
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
         if (count($childrenData) == 0) {

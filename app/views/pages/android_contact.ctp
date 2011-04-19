@@ -20,11 +20,14 @@
 
 <hr id="orangeDot">
 
-<p>&nbsp・操作方法およびドコモコミュニティに関するお問い合わせについて</p>
+<p>&nbsp・操作方法およびドコモコミュニティに関するお問い合わせにはNTTドコモにお問い合わせください。</p>
+お問い合わせ先：ドコモインフォメーションセンター<br />
 <ul>
-	<li>ドコモの方は<a href="http://docomo-community.cp05.docomo.ne.jp/djs/inquiry_top.xhtml" data-ajax="false">こちら</a></li>
-	<li>au、ソフトバンクの方は<a href="http://docomo-community.com/djs/inquiry_top.xhtml" data-ajax="false">こちら</a></li>
-	<li>Androidに関するお問い合わせは<a href="https://docomo-community.com/djs/inquire_open.html" data-ajax="false">こちら</a></li>
+  <li>ドコモの携帯電話から：151（無料）</li>
+  <li>一般電話などから：0120-800-000（無料）</li>
 </ul>
+※携帯電話、PHS（他社）からもご利用になれます。<br />
+<br />
+受付時間：午前9時～午後8時<br/ >
 </div>
 <!-- /main -->
