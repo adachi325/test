@@ -5,7 +5,7 @@
 $i = 0;
 $tabColId=0;
 
-$opt = array('border' => '0', 'style' => 'margin:0 ;', 'class' => 'test');
+$opt = array('border' => '0', 'style' => 'margin:0;', 'class' => 'test', 'width' => '30%');
 
 foreach ($childrenData as $child) {
     extract($child['Child']);
