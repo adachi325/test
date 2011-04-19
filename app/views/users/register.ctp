@@ -28,7 +28,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><span style="color:#ff0000;">(必須)</span> <br />
 <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("new_password", array("type" => "password", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
+<?php echo $this->Form->input("new_password", array("type" => "text", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -38,7 +38,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ確認</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("row_password", array("type" => "password", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
+<?php echo $this->Form->input("row_password", array("type" => "text", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
