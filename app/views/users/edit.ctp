@@ -19,7 +19,13 @@ extract($this->data['User']);
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
   <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-    <?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "font-size:x-small;")); ?><br />
+    <?php 
+    if($this->Ktai->is_ezweb()){
+	echo $this->Form->input("new_password", array("type" => "text", "istyle" => "4", "style" => "font-size:x-small;"));
+    } else {
+	echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
+    }
+    ?><br />
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -32,15 +38,6 @@ extract($this->data['User']);
 <?php echo $this->Form->input("row_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
-</tr>
-<tr>
-    <td>
-	<input type="text" name="テスト１" istyle="4" mode="numeric">
-	<input type="text" name="hoge" istyle="4" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
-	<input type="text" name="hoge" istyle="4" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
-	<input type="text" name="hoge" istyle="4" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
-	<input type="text" name="hoge" istyle="4" />
-    </td>
 </tr>
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
