@@ -98,6 +98,8 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
+<div align="center" style="text-align:center;"><span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
+
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array()); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
