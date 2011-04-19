@@ -17,6 +17,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <span style="color:#339933;">&nbsp;・</span><?php echo $text; ?><br />
 </div>
 投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
+<span style="color:#666666">※au,ｿﾌﾄﾊﾞﾝｸご利用の方は同一ﾍﾟｰｼﾞから<?php echo $max_count; ?>枚の写真を選択するようお願いいたします｡</span><br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
@@ -62,7 +63,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td align="left"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasPrev()): ?>
 
-<?php if ($this->Ktai->is_docomo()) : ?>
+<?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
 <?php else: ?>
 <?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
@@ -74,7 +75,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td align="right"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasNext()): ?>
 
-<?php if ($this->Ktai->is_docomo()): ?>
+<?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
 <?php else: ?>
 <?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>

@@ -141,7 +141,6 @@ class PresentsController extends AppController {
 					$this->Session->write('Present.data.type', $type);
 					$this->redirect("/presents/complete/");
 				} else {
-					$this->Session->setFlash('選択数が不正です');
 					$this->Session->write('Present.error.type', $type);
 					$this->Session->write('Present.error.template_id', $template_id);
 					$this->redirect("/presents/error_photo/");
@@ -173,8 +172,10 @@ class PresentsController extends AppController {
 
 		$items = $this->paginate('Diary', $cond);
 
+		$count = $this->Diary->find('count', $cond);
+
 		//思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
-		if(count($items) < $max_count){
+		if ($count < $max_count) {
 			$this->redirect("/presents/error_present/");
 		}
 

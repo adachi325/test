@@ -37,7 +37,7 @@
 <?php $alt = !$alt;?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
-<?php if ($line == 'baby' || $line == 'petit') : ?>
+<?php if ($line == 'baby') : ?>
 <span style="color:#333333;">●<?php echo h($issue['Issue']['title']); ?></span><br />
 <?php endif; ?>
 
