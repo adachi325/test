@@ -33,7 +33,12 @@ extract($this->data['User']);
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
+<tr>
+    <td>
+	<input type="text" name="テスト１" istyle="4" mode="numeric">
+	<input type="text" name="hoge" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"/>
+    </td>
+</tr>
 <tr>
 <td bgcolor="#eeeeee"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
