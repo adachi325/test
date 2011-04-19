@@ -270,13 +270,13 @@ class PresentsController extends AppController {
 			$this->cakeError('error404');
 			return;
 		}
+		$this->layout = null;
 
 		$PostcardUrl =& ClassRegistry::init('PostcardUrl');
-		if (!$PostcardUrl->isValiable($token)) {
-			$this->cakeError('error404');
-		}
-		$this->layout = null;
 		$this->set(compact('token'));
+		if (!$PostcardUrl->isValiable($token)) {
+			$this->render('print_postcard_error');
+		}
 	}
 }
 ?>
