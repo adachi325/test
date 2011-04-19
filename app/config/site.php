@@ -142,7 +142,9 @@ $config['Error'] = array(
 
 $config['GoogleAnalytics'] = array ('TrackingCode' => array(
 	    'shimajiro-dev.com' => 'MO-22726420-3',   //テスト
+	    'iidawataru.com' => 'MO-22726420-3',   //テスト
             '220.152.124.130' => 'MO-22726420-6',     //ステージング
+	    '10.5.39.11' => 'MO-22726420-6',     //ステージング
             'dctry.jp' => 'MO-22726420-7',	      //本番
 	)
     );
