@@ -36,7 +36,7 @@
 　<a href="#dcome" style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</a><br />
 ●ｺﾝﾃﾝﾂが利用できる端末<br />
 &nbsp;・教材ｺﾝﾃﾝﾂ<br />
-　<a href="#shimajiro" style="color:#cc6600;">しまじろうのおたんじょうびﾊﾟｰﾃｨｰ</a><br />
+　<a href="#shimajiro" style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</a><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
