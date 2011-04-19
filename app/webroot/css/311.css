@@ -54,6 +54,14 @@ div.box h2{
 	text-align:center;
 }
 
+div.box div.text {
+	margin: 80px auto 100px;
+}
+
+span.warning {
+	font-size:116%;
+    color:#cc0000;
+}
 
 div.description{
 	text-align:left;
@@ -88,7 +96,4 @@ div.container img{
 	vertical-align:bottom;
 }
 
-span.warning {
-    color:#cc0000;
-}
 
