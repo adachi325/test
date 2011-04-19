@@ -19,6 +19,9 @@
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">半角英数字4-12文字</span><br />
 <?php
+$ua = $_SERVER['HTTP_USER_AGENT'];
+pr($ua);
+pr('はははは');
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("loginid", array("type" => "text", "istyle" => "3", "style" => "font-size:x-small;"));
 } else if($this->Ktai->is_imode and $this->tk->is_imode_browser()) {
