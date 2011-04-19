@@ -33,7 +33,6 @@ echo $this->Html->Script('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a
 <div id="btnTop"><a href="<?php echo $this->Html->url('/'); ?>" data-role="button" data-icon="arrow-u" rel="external">トップページへ戻る</a></div>
 <ul>
 <li><a href="<?php echo $this->Html->url('/pages/list_models/'); ?>" rel="external">対応機種</a></li>
-<li><a href="<?php echo $this->Html->url('/pages/charges/'); ?>" rel="external">通信料の目安</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/help/'); ?>" rel="external">よくある質問･問い合わせ</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/rules/'); ?>" rel="external">利用規約</a></li>
 </ul>
