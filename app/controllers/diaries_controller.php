@@ -472,7 +472,7 @@ if($diary['Month']['month'] < 10) {
 }
 
 $list[2] = '--5000000000
-Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg'.'
+Content-Type: image/jpeg; name='.'"diaryback_'.$diary['Month']['year'].$imgMonth.'_header.jpg"'.'
 Content-Transfer-Encoding: base64
 Content-ID: <00>
 
@@ -483,7 +483,7 @@ $list[3] = $jpeg_enc;
 
 if ($diary['Diary']['has_image']) {
 $list[4] = '--5000000000
-Content-Type: image/jpeg; name='.$diary['Diary']['id'].'.jpg'.'
+Content-Type: image/jpeg; name="'.$diary['Diary']['id'].'_thumb.jpg"'.'
 Content-Transfer-Encoding: base64
 Content-ID: <01>
 
@@ -493,7 +493,7 @@ $jpeg_enc = chunk_split(base64_encode($img),76,PHP_EOL);
 $list[5] = $jpeg_enc;
 
 $list[6] = '--5000000000
-Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
+Content-Type: image/jpeg; name='.'"diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg"'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
 
@@ -508,7 +508,7 @@ $list[8] ='--5000000000--
 ';
 } else {
 $list[4] = '--5000000000
-Content-Type: image/jpeg; name='.'diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg'.'
+Content-Type: image/jpeg; name='.'"diaryback_'.$diary['Month']['year'].$imgMonth.'_footer.jpg"'.'
 Content-Transfer-Encoding: base64
 Content-ID: <02>
 

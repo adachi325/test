@@ -35,16 +35,15 @@ endif;
 </div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif"); ?></div>
 <div style="font-size:x-small;">
-&nbsp;･<a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/petit/navi/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">生活習慣おたすけﾅﾋﾞ</span></a>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/petit/navi/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">生活習慣おたすけﾅﾋﾞ</span></a>
 </div>
 <div style="font-size:x-small;">
-&nbsp;･<a href="<?php echo "http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/"; ?>" style="color:#ff3333;"><span style="color:#ff3333;">ﾁｪｯｸ&ｱﾄﾞﾊﾞｲｽ</span></a>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo "http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/"; ?>" style="color:#ff3333;"><span style="color:#ff3333;">ﾁｪｯｸ&ｱﾄﾞﾊﾞｲｽ</span></a>
 </div>
 <div style="font-size:x-small;">
-&nbsp;･<a href="<?php echo "http://shimajiromobile.benesse.ne.jp/ap1/petit/reflection/"; ?>" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo "http://shimajiromobile.benesse.ne.jp/ap1/petit/reflection/"; ?>" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a>
 </div>
 <div style="font-size:x-small;">&nbsp;<span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 <div style="font-size:x-small;">
-&nbsp;･<a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a>
 </div>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif"); ?></div>
