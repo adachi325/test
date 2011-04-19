@@ -16,7 +16,7 @@
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
   <p><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span> <br />
-    <span style="color:#000000;"><?php echo $this->data['User']['loginid']; ?></span><br />
+    <span style="color:#000000;"><?php echo h($this->data['User']['loginid']); ?></span><br />
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
 </div></td>
 </tr>
@@ -24,7 +24,7 @@
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span> <br />
-<span style="color:#000000;"><?php echo $this->data['User']['new_password']; ?></span><br />
+<span style="color:#000000;"><?php echo h($this->data['User']['new_password']); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -33,7 +33,7 @@
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><br />
-<span style="color:#000000;"><?php echo $this->data['Child']['0']['nickname']; ?></span><br />
+<span style="color:#000000;"><?php echo h($this->data['Child']['0']['nickname']); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
