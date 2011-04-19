@@ -33,7 +33,7 @@ if($this->Ktai->is_ezweb()){
 </tr>
 
 <tr>
-<td><div style="font-size:x-small;">
+<td><div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><span style="color:#ff0000;">(必須)</span> <br />
 <span style="color:#ff6600;">半角英数字6-12文字</span><br />
