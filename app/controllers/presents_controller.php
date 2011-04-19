@@ -80,6 +80,7 @@ class PresentsController extends AppController {
 					$present_ids = $ChildPresent->find('all', array(
 						'fields' => array('id', 'present_id'), 
 						'conditions' => array('child_id' => $child_id),
+						'order' => array('ChildPresent.id DESC'),
 					));
 					
 					if (is_array($present_ids)) {
