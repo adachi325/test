@@ -33,6 +33,7 @@ extract($this->data['User']);
     <td>
 	<input type="text" name="hoge" istyle="4" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
 	<input type="text" name="hoge" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
+	<?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;")); ?>
 	<input type="text" name="hoge" istyle="4" />
     </td>
 </tr>
