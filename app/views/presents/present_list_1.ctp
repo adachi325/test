@@ -29,7 +29,7 @@
 
 </table>
 
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
+<br /><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td align="left">
@@ -49,5 +49,5 @@
 <p>登録されていません</p>
 <?php endif; ?>
 
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<br /><br />
 
