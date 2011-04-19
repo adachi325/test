@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"> 
 <head> 
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" /> 
-<title>教材説明</title> 
+<title>しまじろうひろばxﾄﾞｺﾓｺﾐｭﾆﾃｨ</title> 
 </head> 
  
 <body>
