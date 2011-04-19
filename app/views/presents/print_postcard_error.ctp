@@ -15,10 +15,16 @@
 <?php echo $this->Html->image("pc_logo.gif", array("width" => "471px", "height" => "118px", "alt" => "ケータイしまじろうひろば×ドコモコミュニティ")); ?>
 </h1>
 <div class="box">
-<p>
-<span class="warning">ポストカードのURLの有効期限は3日のため、有効期限が切れております。</span><br />
+
+<div class="text">
+<p class="text">
+<span class="warning">ポストカードのURLの有効期限は3日のため、有効期限が切れております。</span>
+</p>
+<p class="text">
 お手数ですが、再度携帯電話側からポストカードを作成し、URLを再発行してください。
 </p>
+</div>
+
 </div>
 
 <?php echo $this->Html->image("pc_footer.gif", array("width" => "800", "height" => "117", "alt" => "ケータイしまじろうひろば×ドコモコミュニティ")); ?>
