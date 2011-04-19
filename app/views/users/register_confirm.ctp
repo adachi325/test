@@ -14,10 +14,10 @@
 <table width="100%">
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
-  <p><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span> <br />
     <span style="color:#000000;"><?php echo h($this->data['User']['loginid']); ?></span><br />
-    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
 <tr>
