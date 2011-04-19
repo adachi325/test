@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q7.</span></td>
-<td><a href="#Q7" style="color:#cc6600;"><span style="font-size:x-small; color;#cc6600;">ID/ﾊﾟｽﾜｰﾄﾞを忘れてしまいました｡</span></a></td>
+<td><a href="#Q7" style="color:#cc6600;"><span style="font-size:x-small; color;#cc6600;">ﾛｸﾞｲﾝ名/ﾊﾟｽﾜｰﾄﾞを忘れてしまいました｡</span></a></td>
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q8.</span></td>
@@ -105,7 +105,7 @@
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q17.</span></td>
-<td><a href="#Q17" style="color:#cc6600;"><span style="font-size:x-small; color;#cc6600;"> ID/ﾊﾟｽﾜｰﾄﾞの変更はできますか?</span></a></td>
+<td><a href="#Q17" style="color:#cc6600;"><span style="font-size:x-small; color;#cc6600;"> ﾛｸﾞｲﾝ名/ﾊﾟｽﾜｰﾄﾞの変更はできますか?</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
@@ -236,15 +236,15 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q7" id="Q7"></a><span style="font-size:x-small; white-space:nowrap;">Q7.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">ID/ﾊﾟｽﾜｰﾄﾞを忘れてしまいました｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">ﾛｸﾞｲﾝ名/ﾊﾟｽﾜｰﾄﾞを忘れてしまいました｡</span></td>
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A7.</span></td>
 <td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333">①IDの場合<br />
-IDを忘れてしまうと､ﾛｸﾞｲﾝできません｡ご利用いただくには再度新規登録が必要となります｡またその際には､以前の思い出記録は引き継げませんので､ご了承ください｡<br />
+ﾛｸﾞｲﾝ名を忘れてしまうと､ﾛｸﾞｲﾝできません｡ご利用いただくには再度新規登録が必要となります｡またその際には､以前の思い出記録は引き継げませんので､ご了承ください｡<br />
 ②ﾊﾟｽﾜｰﾄﾞの場合<br />
 以下のﾌﾛｰによって､ﾊﾟｽﾜｰﾄﾞを再設定することが可能です｡<br />
-｢ﾛｸﾞｲﾝ｣画面→※ﾊﾟｽﾜｰﾄﾞを忘れた方は｢こちら｣→各項目(ﾛｸﾞｲﾝID､登録したお子さまのﾆｯｸﾈｰﾑ､登録したお子さまの生年月)を入力→｢次へ｣→新しく設定するﾊﾟｽﾜｰﾄﾞを入力→｢変更｣
+｢ﾛｸﾞｲﾝ｣画面→※ﾊﾟｽﾜｰﾄﾞを忘れた方は｢こちら｣→各項目(ﾛｸﾞｲﾝ名､登録したお子さまのﾆｯｸﾈｰﾑ､登録したお子さまの生年月)を入力→｢次へ｣→新しく設定するﾊﾟｽﾜｰﾄﾞを入力→｢変更｣
 </span></td>
 </tr>
 </table>
@@ -256,7 +256,7 @@ IDを忘れてしまうと､ﾛｸﾞｲﾝできません｡ご利用いただ
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A8.</span></td>
-<td><span style="font-size:x-small;color:#333333">①ﾌｨｰﾁｬｰﾌｫﾝの場合：ご利用いただけます｡｢http://dctry.jp/shimajiro/(しまじろうひろば×ﾄﾞｺﾓｺﾐｭﾆﾃｨTOP)｣からﾛｸﾞｲﾝしてください｡その際にはID/ﾊﾟｽﾜｰﾄﾞが必要となります｡<br />
+<td><span style="font-size:x-small;color:#333333">①ﾌｨｰﾁｬｰﾌｫﾝの場合：ご利用いただけます｡｢http://dctry.jp/shimajiro/(しまじろうひろば×ﾄﾞｺﾓｺﾐｭﾆﾃｨTOP)｣からﾛｸﾞｲﾝしてください｡その際にはﾛｸﾞｲﾝ名/ﾊﾟｽﾜｰﾄﾞが必要となります｡<br />
 ②Androidの場合：教材ｺﾝﾃﾝﾂは一部ご利用いただけます｡思い出記録は今後対応予定ですので､対応後利用いただけます｡<br />
 ③iPhoneの場合：ご利用いただけません｡<br />
 </span></td>
@@ -401,7 +401,7 @@ IDを忘れてしまうと､ﾛｸﾞｲﾝできません｡ご利用いただ
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q17" id="Q17"></a><span style="font-size:x-small; white-space:nowrap;">Q17.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">ID/ﾊﾟｽﾜｰﾄﾞの変更はできますか?</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">ﾛｸﾞｲﾝ名/ﾊﾟｽﾜｰﾄﾞの変更はできますか?</span></td>
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A17.</span></td>
