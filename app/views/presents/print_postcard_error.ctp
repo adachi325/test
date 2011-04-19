@@ -16,7 +16,7 @@
 </h1>
 <div class="box">
 <p>
-<span class="warning">ポストカードのURLの有効期限は3日のため、有効期限が切れております。<span>
+<span class="warning">ポストカードのURLの有効期限は3日のため、有効期限が切れております。</span>
 お手数ですが、再度携帯電話側からポストカードを作成し、URLを再発行してください。
 </p>
 </div>
