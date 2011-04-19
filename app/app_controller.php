@@ -108,7 +108,7 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->loginError = 'ﾛｸﾞｲﾝID､またﾊﾟｽﾜｰﾄﾞが違います';
+		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
