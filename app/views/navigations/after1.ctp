@@ -1,9 +1,11 @@
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
+まずはお子さんの思い出を記録してみよう!<br />
+ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br /><br />
 <span style="color:#ff6600;">&nbsp;・</span><span style="color:#339933">思い出記録</span>とは<br />
-毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝに待受けやﾊｶﾞｷﾃﾝﾌﾟﾚｰﾄに加工でき､ｽﾃｷな思い出が残せます｡<br /><br />まずはお子さんの思い出を記録してみよう!
-ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
+毎週更新されるﾃｰﾏに沿ってお子さんの写真とｺﾒﾝﾄを書くだけでｶﾝﾀﾝに待受けやﾊｶﾞｷﾃﾝﾌﾟﾚｰﾄに加工でき､ｽﾃｷな思い出が残せます｡<br />
+
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
 <span style="color:#ff6600;">&nbsp;・</span><span style="color:#339933">最初のﾃｰﾏ:ﾍﾞｽﾄｼｮｯﾄ</span><br />
