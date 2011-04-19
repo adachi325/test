@@ -45,7 +45,7 @@ if($this->Ktai->is_ezweb()){
     echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"));
     echo $this->Form->input("new_password", array("type" => "text", "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"));
     echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4']));
-    echo $this->Form->input("new_password", array("type" => "text", "istyle" => "4"));
+    echo $this->Form->input("new_password", array("type" => "text", "istyle" => "4", "format" => "4","mode" => "alphabet"  , "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;"));
 } else {
     echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
@@ -55,7 +55,11 @@ if($this->Ktai->is_ezweb()){
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-<tr><td><input type="text" name="hoge" istyle="3" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" /></td></tr>
+<tr><td>
+	<div><input name="data[User][row_password]" type="text" istyle="4" style="-wap-input-format:&amp;quot;*&amp;lt;ja:n&amp;gt;&amp;quot;;-wap-input-format:*N;" id="UserRowPassword" /></div>
+	<div><input name="data[User][row_password]" type="text" istyle="4" style="-wap-input-format:&amp;quot;*&amp;lt;ja:n&amp;gt;&amp;quot;;-wap-input-format:*N;" /></div>
+	<div><input type="text" name="data[User][row_password]" istyle="4" style="-wap-input-format:&amp;quot;*&amp;lt;ja:n&amp;gt;&amp;quot;;-wap-input-format:*N;" /></div>
+	<input type="text" name="hoge" istyle="3" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" /></td></tr>
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
