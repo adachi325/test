@@ -62,7 +62,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td align="left"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasPrev()): ?>
 
-<?php if ($this->Ktai->is_docomo()) : ?>
+<?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->button('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
 <?php else: ?>
 <?php echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
@@ -74,7 +74,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <td align="right"><span style="font-size:x-small">
 <?php if ($this->Paginator->hasNext()): ?>
 
-<?php if ($this->Ktai->is_docomo()): ?>
+<?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->button('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
 <?php else: ?>
 <?php echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); ?>
