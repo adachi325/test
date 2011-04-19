@@ -29,7 +29,13 @@ extract($this->data['User']);
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
-
+<tr>
+    <td>
+	<input type="text" name="hoge" istyle="4" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
+	<input type="text" name="hoge" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
+	<input type="text" name="hoge" istyle="4" />
+    </td>
+</tr>
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
