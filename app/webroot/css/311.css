@@ -87,3 +87,8 @@ div.container img{
 	padding:0;
 	vertical-align:bottom;
 }
+
+span.warning {
+    color:#cc0000;
+}
+
