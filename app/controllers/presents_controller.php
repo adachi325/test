@@ -186,11 +186,11 @@ class PresentsController extends AppController {
 	function complete($type = null) {
             
 		$data = $this->Session->read('Present.data');
-
-                if(empty($data)){
+		if(empty($data)){
 			$this->cakeError('error404');
+			$this->Session->delete('Present');
 			return;
-                }
+		}
 
 		$selected = array(
 			'diary_id' => $data['selection'],
@@ -200,16 +200,17 @@ class PresentsController extends AppController {
 
 		$render = "";
 
-                $type = $this->Session->read('Present.data.type');
-                if(empty($type)){
+		$type = $this->Session->read('Present.data.type');
+		if(empty($type)){
 			$this->cakeError('error404');
+			$this->Session->delete('Present');
 			return;
-                }
+		}
 
 		if ($type === "flash") {
-                        $this->CreatePresent->createFlash($selected);
+			$this->CreatePresent->createFlash($selected);
 
-                        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+			$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
 
 			$this->set(compact('selected','urlItem'));
 			$render = 'complete_flash';
@@ -217,25 +218,29 @@ class PresentsController extends AppController {
 			$token = $this->CreatePresent->createPostcard($selected);
 			if ($token === false) {
 				$this->cakeError('error502');
+				$this->Session->delete('Present');
 				return;
 			}
 			$render = 'complete_postcard';
 		} else {
 			$this->cakeError('error404');
+			$this->Session->delete('Present');
 			return;
-                }
+		}
 
-                if($type == 'postcard') {
-                    //メールアドレス設定
-                    $url = Router::url('/'.'presents/print_postcard/'.$token, true);
-                    $mailSubject = "ポストカード印刷用URL";
-                    $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
+		$this->Session->delete('Present');
 
-                    $present_id = $data['template'];
+		if($type == 'postcard') {
+			//メールアドレス設定
+			$url = Router::url('/'.'presents/print_postcard/'.$token, true);
+			$mailSubject = "ポストカード印刷用URL";
+			$mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
 
-                    $this->set(compact('mailSubject','mailBody','token','present_id'));
-                }
-                
+			$present_id = $data['template'];
+
+			$this->set(compact('mailSubject','mailBody','token','present_id'));
+		}
+
 		$this->render($render);
 	}
 
