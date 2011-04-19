@@ -21,7 +21,7 @@ if(isset($errorStr)){
 <?php
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("remindId", array("type" => "text", "istyle" => "3", "style" => "font-size:x-small;"));
-} else if($this->Ktai->is_imode and $this->tk->is_imode_browser()) {
+} else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
     echo $this->Form->input("remindId", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;"));
 } else {
     echo $this->Form->input("remindId", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
