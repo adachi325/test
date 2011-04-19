@@ -31,7 +31,7 @@ echo $this->Session->flash('auth');;
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ</span><br />
 <span style="color:#666666;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("password", array("type" => "password", "style" => "font-size:x-small;")); ?><br />
+<?php echo $this->Form->input("password", array("type" => "text", "style" => "font-size:x-small;")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
