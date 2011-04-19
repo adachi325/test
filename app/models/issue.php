@@ -98,11 +98,11 @@ class Issue extends AppModel {
 				unset($options['line']);
 			}
 
-			$this->contain(array('Line', 'Content' => array('order' => array("Content.release_date {$content_order}"))));
 			return parent::find('all', Set::merge(
 				array(
 					'conditions' => $cond,
 					'order' => $order,
+					'contain' => array('Line', 'Content' => array('order' => array("Content.release_date {$content_order}"))),
 				),
 				$options
 			));
