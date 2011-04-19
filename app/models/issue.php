@@ -86,14 +86,12 @@ class Issue extends AppModel {
 		switch($type) {
 		case 'released':
 			$cond = array("{$m}.release_date <=" => date('Y-m-d H:i:s'));
-			$order = 'ASC';
-			$id_order = 'DESC';
+			$order = array("{$m}.release_date DESC", "{$m}.id DESC");
 
 			if (isset($options['line'])) {
 				$cond["Line.category_name"] = $options['line'];
 				if ($options['line'] != 'baby') {
-					$order = 'DESC'; 
-					$id_order = 'ASC';
+					$order = array("{$m}.id ASC"); 
 				}
 				unset($options['line']);
 			}
@@ -102,7 +100,7 @@ class Issue extends AppModel {
 			return parent::find('all', Set::merge(
 				array(
 					'conditions' => $cond,
-					'order' => array("{$m}.release_date {$order}", "{$m}.id {$id_order}")
+					'order' => $order,
 				),
 				$options
 			));
