@@ -235,7 +235,7 @@ h1, h2, h3 {
 	font-size:medium;
 }
 
-#model h2, #faq h2, #rule h2, #cost h2, #contact h2 {
+#model h2, #faq h2, #rule h2, #cost h2, #contact h2, #rule h2 {
 	color:#FFF;
 	background:#996633;
 	height:32px;
@@ -259,6 +259,18 @@ h1, h2, h3 {
 /*----------------------------------------------------
 	利用規約 rule
 ----------------------------------------------------*/
+#rule ol {
+  margin: 0 25px;
+}
+
+#rule ol li {
+  margin: 5px 0;
+}
+
+#rule h3 {
+	margin-bottom:0 !important;
+}
+
 /*----------------------------------------------------
 	通信料の目安 cost
 ----------------------------------------------------*/
