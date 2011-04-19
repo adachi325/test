@@ -23,6 +23,7 @@ if($this->Ktai->is_ezweb()){
     echo $this->Form->input("loginid", array("type" => "text", "istyle" => "3", "style" => "font-size:x-small;"));
 } else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
     echo $this->Form->input("loginid", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;"));
+    echo $this->Form->input("loginid", array("type" => "text", "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"));
 } else {
     echo $this->Form->input("loginid", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
 }
