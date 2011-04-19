@@ -102,7 +102,7 @@ class Issue extends AppModel {
 				array(
 					'conditions' => $cond,
 					'order' => $order,
-					'contain' => array('Line', 'Content' => array('order' => array("Content.release_date {$content_order}"))),
+					'contain' => array('Line', 'Content' => array('order' => array("Content.release_date {$content_order}", "Content.id DESC"))),
 				),
 				$options
 			));
