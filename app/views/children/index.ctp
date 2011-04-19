@@ -214,7 +214,7 @@ if (count($childrenData) < 3) {
 </tr>
 </table>
 <span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/2'); ?>" style="color:#339900;"><span style="color:#339900;">世界に1つ!待受画面を作る</span></a><br />
-<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">印刷して送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
+<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">家族に送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
@@ -300,7 +300,7 @@ if($i==2) {
 <!-- ライン別ここまで -->
 
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON"><?php echo $this->Html->image("bnr_melmaga.gif", array("width" => "83%", "border" => "0", "style" => "margin:10px 0 0;")); ?></a></div>
-
+<div align="center" style="text-align:center;"><span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif"); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">

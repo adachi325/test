@@ -18,7 +18,14 @@ if(isset($errorStr)){
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾛｸﾞｲﾝ名</span><br />
 <span style="color:#666666;">半角英数字4-12文字</span><br />
-<?php echo $this->Form->input("remindId", array("type" => "text", "style" => "font-size:x-small;",$this->tk->tk_style => $this->tk->tk_mode['3'])); ?><br />
+<?php
+if($this->Ktai->is_ezweb()){
+    echo $this->Form->input("remindId", array("type" => "text", "istyle" => "3", "style" => "font-size:x-small;"));
+} else {
+    echo $this->Form->input("remindId", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
+}
+?>
+<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

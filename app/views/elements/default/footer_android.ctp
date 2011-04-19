@@ -9,7 +9,6 @@
 
 <ul>
 <li><a href="<?php echo $this->Html->url('/pages/list_models/'); ?>" rel="external">対応機種</a></li>
-  <li><a href="<?php echo $this->Html->url('/pages/charges/'); ?>" rel="external">通信料の目安</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/help/'); ?>" rel="external">よくある質問・問い合わせ</a></li>
   <li><a href="<?php echo $this->Html->url('/pages/rules/'); ?>" rel="external">利用規約</a></li>
 </ul>

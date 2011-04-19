@@ -1,9 +1,10 @@
 <?php
 class GaHelper extends Helper {
-  private $GA_ACCOUNT="MO-22726420-3";
+  private $GA_ACCOUNT="";
   private $GA_PIXEL="/ga.php";
   function getUrl() {
 
+    $this->GA_ACCOUNT = Configure::read('GoogleAnalytics.TrackingCode.'.$_SERVER["SERVER_NAME"]);
     $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
 
     $url = "";
