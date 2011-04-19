@@ -87,11 +87,12 @@
   // If request containg utmdebug parameter, exceptions encountered
   // communicating with Google Analytics are thown.
   function sendRequestToGoogleAnalytics($utmUrl) {
+    $lang = ($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ? $_SERVER["HTTP_ACCEPT_LANGUAGE"] : '';
     $options = array(
       "http" => array(
           "method" => "GET",
           "user_agent" => $_SERVER["HTTP_USER_AGENT"],
-          "header" => ("Accepts-Language: " . $_SERVER["HTTP_ACCEPT_LANGUAGE"]))
+          "header" => ("Accepts-Language: " . $lang))
     );
     if (!empty($_GET["utmdebug"])) {
       $data = file_get_contents(
@@ -135,17 +136,17 @@
     }
 
     // Try and get visitor cookie from the request.
-    $cookie = $_COOKIE[COOKIE_NAME];
+    $cookie = isset($_COOKIE[COOKIE_NAME]) ? $_COOKIE[COOKIE_NAME] : '';
 
-    $guidHeader = $_SERVER["HTTP_X_DCMGUID"];
+    $guidHeader = isset($_SERVER["HTTP_X_DCMGUID"]) ? $_SERVER["HTTP_X_DCMGUID"] : '';
     if (empty($guidHeader)) {
-      $guidHeader = $_SERVER["HTTP_X_UP_SUBNO"];
+      $guidHeader = isset($_SERVER["HTTP_X_UP_SUBNO"]) ? $_SERVER["HTTP_X_UP_SUBNO"] : '';
     }
     if (empty($guidHeader)) {
-      $guidHeader = $_SERVER["HTTP_X_JPHONE_UID"];
+      $guidHeader = isset($_SERVER["HTTP_X_JPHONE_UID"]) ? $_SERVER["HTTP_X_JPHONE_UID"] : '';
     }
     if (empty($guidHeader)) {
-      $guidHeader = $_SERVER["HTTP_X_EM_UID"];
+      $guidHeader = isset($_SERVER["HTTP_X_EM_UID"]) ? $_SERVER["HTTP_X_EM_UID"] : '';
     }
 
     $visitorId = getVisitorId($guidHeader, $account, $userAgent, $cookie);
