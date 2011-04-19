@@ -86,7 +86,7 @@ class Issue extends AppModel {
 		switch($type) {
 		case 'released':
 			$cond = array("{$m}.release_date <=" => date('Y-m-d H:i:s'));
-			$order = array("{$m}.release_date DESC");
+			$order = array("{$m}.release_date DESC, {$m}.id DESC");
 			$content_order = 'DESC';
 
 			if (isset($options['line'])) {
