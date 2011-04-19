@@ -229,7 +229,7 @@ class PresentsController extends AppController {
                     //メールアドレス設定
                     $url = Router::url('/'.'presents/print_postcard/'.$token, true);
                     $mailSubject = "ポストカード印刷用URL";
-                    $mailBody ="{$url}\r\n※PCからアクセスし、ブラウザの印刷機能でプリントアウトしてください（ポストカードサイズに設定必要）\r\n※URLの有効期限は3日間です";
+                    $mailBody ="{$url}\r\n※PCからアクセスし、プリントアウトしてください\r\n※URLの有効期限は3日間です";
 
                     $present_id = $data['template'];
 
