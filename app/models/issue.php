@@ -90,7 +90,7 @@ class Issue extends AppModel {
 
 			if (isset($options['line'])) {
 				$cond["Line.category_name"] = $options['line'];
-				if ($options['line'] != 'baby') {
+				if ($options['line'] == 'baby') {
 					$order = array("{$m}.id ASC"); 
 				}
 				unset($options['line']);
