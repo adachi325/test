@@ -30,22 +30,18 @@ extract($this->data['User']);
 </div></td>
 </tr>
 <tr>
-    <td>
-	<input type="text" name="hoge" istyle="4" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
-	<input type="text" name="hoge" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
-	<?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;")); ?>
-	<?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;")); ?>
-	<?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;;font-size:x-small;")); ?>
-	<?php echo $this->Form->input("new_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "font-size:x-small;-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;")); ?>
-	<input type="text" name="hoge" istyle="4" />
-    </td>
-</tr>
-<tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ確認</span><br />
   <span style="color:#ff6600;">半角英数字6-12文字</span><br />
-<?php echo $this->Form->input("row_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "font-size:x-small;")); ?><br />
+<?php 
+if($this->Ktai->is_ezweb()){
+    echo $this->Form->input("row_password", array("type" => "text", "istyle" => "4", "style" => "font-size:x-small;"));
+} else {
+    echo $this->Form->input("row_password", array("type" => "text", $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
+}
+?>
+<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
