@@ -61,6 +61,8 @@ if($this->Ktai->is_ezweb()){
 	<div><input type="text" name="data[User][row_password]" istyle="4" style="-wap-input-format:&amp;quot;*&amp;lt;ja:n&amp;gt;&amp;quot;;-wap-input-format:*N;" /></div>
 	<input type="text" name="data[User][row_password]" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" id="UserRowPassword"/><br>
 	<div><input type="text" name="data[User][row_password]" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" id="UserRowPassword"/></div><br>
+	<div><input type="text" name="data[User][row_password]" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" id="UserRowPassword"/></div><br>
+	<div><input name="data[User][row_password]" type="text" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" id="UserRowPassword"/></div><br>
 	<input type="text" name="hoge" istyle="3" format="*m" mode="alphabet" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;" /></td></tr>
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
