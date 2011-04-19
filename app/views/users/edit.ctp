@@ -36,7 +36,7 @@ extract($this->data['User']);
 <tr>
     <td>
 	<input type="text" name="テスト１" istyle="4" mode="numeric">
-	<input type="text" name="hoge" style="-wap-input-format:&quot;*&lt;ja:en&gt;&quot;"/>
+	<input type="text" name="hoge" istyle="4" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" />
     </td>
 </tr>
 <tr>
