@@ -21,7 +21,5 @@
 <span style="color:#996633;">&nbsp;・</span>ﾄﾞｺﾓの方は<a href="http://docomo-community.cp05.docomo.ne.jp/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#996633;">&nbsp;・</span>au､ｿﾌﾄﾊﾞﾝｸの方は<a href="http://docomo-community.com/djs/inquiry_top.xhtml" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#996633;">&nbsp;・</span>Androidに関するお問い合わせは<a href="https://docomo-community.com/djs/inquire_open.html" style="color:#cc6600;"><span style="color:#cc6600;">こちら</span></a><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
