@@ -14,9 +14,7 @@
 <li>(写真を投稿した場合)上の画像を保存</li>
 <li>下の｢思い出を記録に残す｣ﾘﾝｸを押すと、ﾒｰﾙが立ち上がるので､1で保存した画像を添付して送信<br />
 <?php if($this->Ktai->is_softbank()): ?>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),h($mailTitle),h($mailBody)); ?></span>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),rawurlencode(mb_convert_encoding(h($mailTitle), "utf8")),rawurlencode(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),(mb_convert_encoding(h($mailTitle), "utf8")),(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
+<span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurldecode(mb_convert_encoding(h($mailTitle), "utf8"));?>&body=<?php echo rawurldecode(mb_convert_encoding(h($mailBody), "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <?php else: ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す","",h($mailTitle),h($mailBody)); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
