@@ -142,6 +142,7 @@ class PresentsController extends AppController {
 					$this->Session->write('Present.data.type', $type);
 					$this->redirect("/presents/complete/");
 				} else {
+					$this->Session->delete('Present');
 					$this->Session->write('Present.error.type', $type);
 					$this->Session->write('Present.error.template_id', $template_id);
 					$this->redirect("/presents/error_photo/");
