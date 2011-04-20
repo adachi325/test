@@ -7,23 +7,23 @@
 
 <div align="center">｢ｹｰﾀｲしまじろうひろば×ﾄﾞｺﾓｺﾐｭﾆﾃｨ｣<br />共同ｻｲﾄ利用規約</div>
 <br />
-<a href="#article1">第1条 利用規約の適用</a><br />
-<a href="#article2">第2条 本ｻｰﾋﾞｽの目的</a><br />
-<a href="#article3">第3条 本ｻｰﾋﾞｽの提供期間</a><br />
-<a href="#article4">第4条 本ｻｰﾋﾞｽの利用料</a><br />
-<a href="#article5">第5条 共同ｻｲﾄ登録ﾕｰｻﾞ限定ｺﾝﾃﾝﾂ(｢こどもの思い出記録｣など)の利用と申込</a><br />
-<a href="#article6">第6条 登録情報の取り扱い</a><br />
-<a href="#article7">第7条 ｲﾝﾀｰﾈｯﾄの利用</a><br />
-<a href="#article8">第8条 投稿された情報等に係る知的財産権</a><br />
-<a href="#article9">第9条 本ｻｰﾋﾞｽ上の情報の利用</a><br />
-<a href="#article10">第10条 ｻｰﾋﾞｽの停止</a><br />
-<a href="#article11">第11条 禁止事項</a><br />
-<a href="#article12">第12条 違反時の措置</a><br />
-<a href="#article13">第13条 運営者の免責事項</a><br />
-<a href="#article14">第14条 ｻｰﾋﾞｽの廃止･変更</a><br />
-<a href="#article15">第15条 裁判管轄</a><br />
-<a href="#article16">第16条 準拠法</a><br />
-<a href="#additional">付則</a><br />
+<a href="#article1" style="color:#cc6600;"><span style="color:#cc6600;">第1条 利用規約の適用</span></a><br />
+<a href="#article2" style="color:#cc6600;"><span style="color:#cc6600;">第2条 本ｻｰﾋﾞｽの目的</span></a><br />
+<a href="#article3" style="color:#cc6600;"><span style="color:#cc6600;">第3条 本ｻｰﾋﾞｽの提供期間</span></a><br />
+<a href="#article4" style="color:#cc6600;"><span style="color:#cc6600;">第4条 本ｻｰﾋﾞｽの利用料</span></a><br />
+<a href="#article5" style="color:#cc6600;"><span style="color:#cc6600;">第5条 共同ｻｲﾄ登録ﾕｰｻﾞ限定ｺﾝﾃﾝﾂ(｢こどもの思い出記録｣など)の利用と申込</span></a><br />
+<a href="#article6" style="color:#cc6600;"><span style="color:#cc6600;">第6条 登録情報の取り扱い</span></a><br />
+<a href="#article7" style="color:#cc6600;"><span style="color:#cc6600;">第7条 ｲﾝﾀｰﾈｯﾄの利用</span></a><br />
+<a href="#article8" style="color:#cc6600;"><span style="color:#cc6600;">第8条 投稿された情報等に係る知的財産権</span></a><br />
+<a href="#article9" style="color:#cc6600;"><span style="color:#cc6600;">第9条 本ｻｰﾋﾞｽ上の情報の利用</span></a><br />
+<a href="#article10" style="color:#cc6600;"><span style="color:#cc6600;">第10条 ｻｰﾋﾞｽの停止</span></a><br />
+<a href="#article11" style="color:#cc6600;"><span style="color:#cc6600;">第11条 禁止事項</span></a><br />
+<a href="#article12" style="color:#cc6600;"><span style="color:#cc6600;">第12条 違反時の措置</span></a><br />
+<a href="#article13" style="color:#cc6600;"><span style="color:#cc6600;">第13条 運営者の免責事項</span></a><br />
+<a href="#article14" style="color:#cc6600;"><span style="color:#cc6600;">第14条 ｻｰﾋﾞｽの廃止･変更</span></a><br />
+<a href="#article15" style="color:#cc6600;"><span style="color:#cc6600;">第15条 裁判管轄</span></a><br />
+<a href="#article16" style="color:#cc6600;"><span style="color:#cc6600;">第16条 準拠法</span></a><br />
+<a href="#additional" style="color:#cc6600;"><span style="color:#cc6600;">付則</span></a><br />
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj04.gif"); ?></div>
 
@@ -75,7 +75,7 @@
 
 <a name="article6" id="article6"></a>
 第6条 登録情報の取り扱い<br />
-<p>本ｻｰﾋﾞｽの利用に伴い登録ﾕｰｻﾞから提供される登録情報は､株式会社ｴﾇ･ﾃｨ･ﾃｨ･･ﾄﾞｺﾓが単独で取得し､別途定ﾒｰﾙ｢お客様の個人情報に関するﾌﾟﾗｲﾊﾞｼｰﾎﾟﾘｼｰ｣に従い､取り扱うものとします｡</p>
+<p>本ｻｰﾋﾞｽの利用に伴い登録ﾕｰｻﾞから提供される登録情報は､株式会社ｴﾇ･ﾃｨ･ﾃｨ･･ﾄﾞｺﾓが単独で取得し､別途定ﾒｰﾙ｢<a href="http://i.NTTdocomo.co.jp/f/utility/privacy/" style="color:#cc6600;" ><span style="color:#cc6600;">お客様の個人情報に関するﾌﾟﾗｲﾊﾞｼｰﾎﾟﾘｼｰ</span></a>｣に従い､取り扱うものとします｡</p>
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
