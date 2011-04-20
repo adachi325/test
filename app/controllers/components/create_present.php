@@ -29,8 +29,8 @@ class CreatePresentComponent extends Object {
         // Almeidaに変数をアサイン
         foreach($assign as $name => $value) {
             // UTF-8でアサイン
-            $almeida->setVariable($name, mb_convert_encoding($value,"UTF-8","UTF-8"));
-            //$almeida->setVariable($name, $value);
+            //$almeida->setVariable($name, mb_convert_encoding($value,"UTF-8","UTF-8"));
+            $almeida->setVariable($name, $value);
         }
 
         // 文字コードの設定
