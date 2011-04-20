@@ -2,7 +2,7 @@
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達と共有しよう!<br />
+この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達に共有しよう!<br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
