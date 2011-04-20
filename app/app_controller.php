@@ -111,8 +111,14 @@ class AppController extends Controller {
 		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 		if ($this->Ktai->is_ezweb()) {
-			$this->Ssl->autoRedirect = true;
-			$this->Ssl->startup($this);
+			$secured = $this->Ssl->ssled($this->params);
+
+			if ($secured && !$this->Ssl->https) {
+				$this->Ssl->forceSSL();
+			}
+			elseif (!$secured && $this->Ssl->https) {
+				$this->Ssl->forceNoSSL();
+			}
 		}
 		
 		if($this->Ktai->is_imode()){
