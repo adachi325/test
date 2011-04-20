@@ -114,10 +114,8 @@ if (count($childrenData) < 3) {
 
 <?php foreach($newslist as $news): ?>
 <tr>
-<td width="60" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
-<span style="color:#ff9900;">
-<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; ?></span>
-</span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
+<td width="60" valign="top" nowrap="nowrap" style="white-space:nowrap">
+<span style="font-size:x-small;"><span style="color:#ff9900;"><span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; ?></span></span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
 </td>
 <td align="left">
 <span style="font-size:x-small;"><?php echo  $this->Wikiformat->makeLink($news['news']['title']); ?></span>
