@@ -70,7 +70,7 @@
 </tr>
 </table>
 
-<span style="color:#339933;">&nbsp;・</span><?php echo $month_label; ?>月の思い出<br />
+<span style="color:#339933;">&nbsp;･</span><?php echo $month_label; ?>月の思い出<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <div align="center" style="background:#e9f7ff; text-align:center;">
@@ -140,7 +140,7 @@ endforeach;
 </div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-<span style="color:#339933;">&nbsp;・</span>他の月の思い出を見る<br />
+<span style="color:#339933;">&nbsp;･</span>他の月の思い出を見る<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php
@@ -177,7 +177,7 @@ if($options['year'] >= date('Y') && $options['month'] < date('m')) {
 </tr>
 </table>
 
-<span style="color:#339933;">&nbsp;・</span>
+<span style="color:#339933;">&nbsp;･</span>
 <a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month_label; ?>月の思い出を書く</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

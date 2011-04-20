@@ -22,7 +22,7 @@
 </div>
 
 <div class="description">
-<h2>&nbsp;・Windowsの方</h2>
+<h2>&nbsp;･Windowsの方</h2>
 <ol>
 <li>画像を右クリックし、「名前を付けて画像を保存」を選択します。</li>
 <li>保存したファイルを右クリックし、「印刷」を選択してください。</li>
@@ -30,7 +30,7 @@
 <li>プリントしてください。</li>
 </ol>
 
-<h2>&nbsp;・Macintoshの方</h2>
+<h2>&nbsp;･Macintoshの方</h2>
 <ol>
 <li>Ctrl+クリックし、「イメージを別名で保存」を選択します。</li>
 <li>保存したファイルを開き、「ファイル」>「印刷」を選択してください。</li>

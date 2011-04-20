@@ -12,7 +12,7 @@
 </table>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-<span style="color:#996633;">&nbsp;・ｻｰﾋﾞｽ全般</span><br />
+<span style="color:#996633;">&nbsp;･ｻｰﾋﾞｽ全般</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q1.</span></td>
@@ -34,7 +34,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 <br />
     
-<span style="color:#996633;">&nbsp;・お申し込み･ご利用方法</span><br />
+<span style="color:#996633;">&nbsp;･お申し込み･ご利用方法</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q5.</span></td>
@@ -56,7 +56,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 <br />
 
-<span style="color:#996633;">&nbsp;・思い出記録について</span><br />
+<span style="color:#996633;">&nbsp;･思い出記録について</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q9.</span></td>
@@ -79,7 +79,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 <br />
 
-<span style="color:#996633;">&nbsp;・教材ｺﾝﾃﾝﾂについて</span><br />
+<span style="color:#996633;">&nbsp;･教材ｺﾝﾃﾝﾂについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q13.</span></td>
@@ -93,7 +93,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 <br />
 
-<span style="color:#996633;">&nbsp;・各種設定</span><br />
+<span style="color:#996633;">&nbsp;･各種設定</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q15.</span></td>
@@ -110,7 +110,7 @@
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 
-<span style="color:#996633;">&nbsp;・体験談ひろばについて</span><br />
+<span style="color:#996633;">&nbsp;･体験談ひろばについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q18.</span></td>
@@ -132,7 +132,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 <br />
 
-<span style="color:#996633;">&nbsp;・しまじろうからのおたんじょうびﾊﾟｰﾃｨｰについて</span><br />
+<span style="color:#996633;">&nbsp;･しまじろうからのおたんじょうびﾊﾟｰﾃｨｰについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q22.</span></td>
@@ -155,7 +155,7 @@
 
 	   
 
-<span style="color:#996633;">&nbsp;・ｻｰﾋﾞｽ全般</span><br />
+<span style="color:#996633;">&nbsp;･ｻｰﾋﾞｽ全般</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -206,7 +206,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
-<span style="color:#996633;">&nbsp;・お申し込み･ご利用方法</span><br />
+<span style="color:#996633;">&nbsp;･お申し込み･ご利用方法</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -268,7 +268,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
 
-<span style="color:#996633;">&nbsp;・お申し込み･ご利用方法</span><br />
+<span style="color:#996633;">&nbsp;･お申し込み･ご利用方法</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -344,7 +344,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
-<span style="color:#996633;">&nbsp;・教材ｺﾝﾃﾝﾂについて</span><br />
+<span style="color:#996633;">&nbsp;･教材ｺﾝﾃﾝﾂについて</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -374,7 +374,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
-<span style="color:#996633;">&nbsp;・各種設定</span><br />
+<span style="color:#996633;">&nbsp;･各種設定</span><br />
 <div style="background:#fff0dd;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -418,7 +418,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
-<span style="color:#996633;">&nbsp;・体験談ひろばについて</span><br />
+<span style="color:#996633;">&nbsp;･体験談ひろばについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><a name="Q18" id="Q18"></a><span style="font-size:x-small; white-space:nowrap;">Q18.</span></td>
@@ -469,7 +469,7 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 
-<span style="color:#996633;">&nbsp;・しまじろうからのおたんじょうびﾊﾟｰﾃｨｰについて</span><br />
+<span style="color:#996633;">&nbsp;･しまじろうからのおたんじょうびﾊﾟｰﾃｨｰについて</span><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><a name="Q22" id="Q22"></a><span style="font-size:x-small; white-space:nowrap;">Q22.</span></td>

@@ -33,7 +33,7 @@
 <tr>
 <td width="50" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small;">
 <span style="color:#ff9900;">
-<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;・'; ?></span>
+<span style="color:#ff9900;"><?php echo ($news['news']['start_at'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･'; ?></span>
 </span><?php echo $this->Time->format('n/j', $news['news']['start_at']); ?></span>
 </td>
 <td align="left">
@@ -88,12 +88,12 @@
 <td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
 </tr>
 </table>
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/baby/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">0～1歳向け baby/ぷちﾌｧｰｽﾄ</span></a><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">1～2歳向け ぷち</span></a><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">2～3歳向け ぽけっと</span></a><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/hop/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">3～4歳向け ほっぷ</span></a><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">4～5歳向け すてっぷ</span></a><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="<?php echo $this->Html->url('/ap/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">5～6歳向け じゃんぷ</span></a>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/baby/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">0～1歳向け baby/ぷちﾌｧｰｽﾄ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">1～2歳向け ぷち</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">2～3歳向け ぽけっと</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/hop/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">3～4歳向け ほっぷ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">4～5歳向け すてっぷ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/ap/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">5～6歳向け じゃんぷ</span></a>
 
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -108,7 +108,7 @@
 <td width="85%"><?php echo $this->Html->image("txt_tv.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
-<span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
 毎週月曜､朝7:30～8:00放送!<br />
 新ｶﾝｶｸ☆ｷｯｽﾞ&nbsp;･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />

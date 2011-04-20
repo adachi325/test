@@ -5,7 +5,7 @@
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<span style="color:#996633;">&nbsp;・</span>しまじろうひろば全般･こどもちゃれんじに関するお問い合わせについて<br />
+<span style="color:#996633;">&nbsp;･</span>しまじろうひろば全般･こどもちゃれんじに関するお問い合わせについて<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 ﾌﾘｰｺｰﾙ 0120-554103(通話料無料)<br />
 受付時間:10:00～20:00<br /><br />
@@ -16,7 +16,7 @@
 ※間違い電話が増えておりますので､番号はよくお確かめのうえ､おかけください｡</span><br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif", array()); ?></div>
 
-<span style="color:#996633;">&nbsp;・</span>操作方法およびﾄﾞｺﾓｺﾐｭﾆﾃｨに関するお問い合わせはNTTﾄﾞｺﾓにお問い合わせください。<br />
+<span style="color:#996633;">&nbsp;･</span>操作方法およびﾄﾞｺﾓｺﾐｭﾆﾃｨに関するお問い合わせはNTTﾄﾞｺﾓにお問い合わせください。<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 お問い合わせ先:ﾄﾞｺﾓｲﾝﾌｫﾒｰｼｮﾝｾﾝﾀｰ<br />
 <br />
