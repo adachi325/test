@@ -9,18 +9,14 @@
 </span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br /></td>
 </tr>
 <tr>
-<td align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
-<a href="<?php echo $this->Html->url('../pages/list_models'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">対応機種</span></a></span></td>
-<td align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
-<a href="<?php echo $this->Html->url('../pages/rules'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">通信料の目安</span></a></span></td>
+<td align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">&nbsp;･</span><a href="<?php echo $this->Html->url('../pages/list_models'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">対応機種</span></a></span></td>
+<td align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">･</span><a href="<?php echo $this->Html->url('../pages/rules'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">通信料の目安</span></a></span></td>
 </tr>
 <tr>
-<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
-<a href="<?php echo $this->Html->url('../pages/help'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">よくある質問･問い合わせ</span></a></span></td>
+<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">&nbsp;･</span><a href="<?php echo $this->Html->url('../pages/help'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">よくある質問･問い合わせ</span></a></span></td>
 </tr>
 <tr>
-<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">・</span>
-<a href="<?php echo $this->Html->url('../pages/rules'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">利用規約</span></a></span></td>
+<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#ffcc33;">&nbsp;･</span><a href="<?php echo $this->Html->url('../pages/rules'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">利用規約</span></a></span></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
