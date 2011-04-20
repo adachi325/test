@@ -87,7 +87,7 @@
   // If request containg utmdebug parameter, exceptions encountered
   // communicating with Google Analytics are thown.
   function sendRequestToGoogleAnalytics($utmUrl) {
-    $lang = ($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ? $_SERVER["HTTP_ACCEPT_LANGUAGE"] : '';
+    $lang = isset($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ? $_SERVER["HTTP_ACCEPT_LANGUAGE"] : 'ja';
     $options = array(
       "http" => array(
           "method" => "GET",
