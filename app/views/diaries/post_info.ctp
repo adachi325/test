@@ -29,7 +29,8 @@
 <?php echo $this->Html->image( "214_kisekae.jpg", array("width" => "100%","style" => "margin:10px 0")); ?><br />
 
 </div>
-
+<div align="center" style="text-align:center;">(C)Benesse　Corporation　/しまじろう</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="background:#ffff99;text-align:center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000;">月額使用料は無料</span><br />
