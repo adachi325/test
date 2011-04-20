@@ -18,7 +18,7 @@
 <?php if($this->Ktai->is_softbank()): ?>
 <a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurldecode(mb_convert_encoding($mailTitle, "utf8"));?>&body=<?php echo rawurldecode(mb_convert_encoding($mailBody, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a>
 <?php else: ?>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),$mailTitle,nl2br($mailBody)); ?></span>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),h($mailTitle),h($mailBody)); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
