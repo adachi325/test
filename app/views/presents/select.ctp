@@ -14,7 +14,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 <div style="text-align:left;" align="center">
-<span style="color:#339933;">&nbsp;・</span><?php echo $text; ?><br />
+<span style="color:#339933;">&nbsp;･</span><?php echo $text; ?><br />
 </div>
 投稿写真から<?php echo $max_count; ?>枚選んで､｢作成する｣ﾎﾞﾀﾝを押してください｡<br />
 <span style="color:#666666">※au,ｿﾌﾄﾊﾞﾝｸご利用の方は同一ﾍﾟｰｼﾞから<?php echo $max_count; ?>枚の写真を選択するようお願いいたします｡</span><br />
