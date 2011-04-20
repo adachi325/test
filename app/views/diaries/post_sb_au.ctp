@@ -17,14 +17,11 @@
 	$yy = "\r\n";
 	?>
 <span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurldecode(mb_convert_encoding(h($mailTitle), "utf8"));?>&body=<?php echo rawurldecode(mb_convert_encoding(h($mailBody), "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
-<br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo h($mailTitle);?>&body=<?php echo h($mailBody);?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
-<br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo ($mailTitle);?>&body=<?php echo ($mailBody);?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
-<br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo $mailTitle;?>&body=<?php echo str_replace("<br />","\r\n",nl2br($mailBody));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo $mailTitle;?>&body=<?php echo str_replace("<br />",$yy,nl2br($mailBody));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo $mailTitle;?>&body=<?php echo mb_convert_encoding(str_replace("<br />",$yy,nl2br($mailBody)), "utf8");?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 
 <br><br>
-<span style='color:#339900;'><?php $this->Ktai->mailto("思い出を記録に残す", h($mailTitle), str_replace("<br />",$yy,nl2br($mailBody))); ?></span>
+<span style='color:#339900;'><?php $this->Ktai->mailto("思い出を記録に残す","", h($mailTitle), str_replace("<br />",$yy,nl2br($mailBody))); ?></span>
 <?php else: ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す","",h($mailTitle),h($mailBody)); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
