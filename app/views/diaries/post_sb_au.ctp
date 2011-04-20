@@ -3,7 +3,6 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達に共有しよう!<br />
-<span style="font-size:x-small;color:#cc0000">※ﾄﾞｺﾓｺﾐｭﾆﾃｨはNTTﾄﾞｺﾓが提供するｻｰﾋﾞｽですので､別途登録が必要です｡</span>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <div align="center" style="text-align:center;">
@@ -14,7 +13,12 @@
 <ol>
 <li>(写真を投稿した場合)上の画像を保存</li>
 <li>下の｢思い出を記録に残す｣ﾘﾝｸを押すと、ﾒｰﾙが立ち上がるので､1で保存した画像を添付して送信<br />
+<?php if($this->Ktai->is_softbank()): ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),h($mailTitle),h($mailBody)); ?></span>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),rawurlencode(h($mailTitle)),rawurlencode(h($mailBody))); ?></span>
+<?php else: ?>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す","",h($mailTitle),h($mailBody)); ?></span>
+<?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
 <?php $this->Ktai->emoji(0xE6D3); ?><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
