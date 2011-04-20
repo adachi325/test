@@ -10,6 +10,8 @@ class CreatePresentComponent extends Object {
         // テンプレートの指定
         $template = WWW_ROOT.sprintf(Configure::read('Present.path.screen'), $args['present_id']);
 
+	$this->log("1:".$template,LOG_DEBUG);
+
         // アサイン用変数の設定
         $assign = array(
             // 差し込み画像
@@ -17,6 +19,8 @@ class CreatePresentComponent extends Object {
             'pic_02' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][1]),
             'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]),
         );
+
+	$this->log("2:".$assign,LOG_DEBUG);
 
         // Almeidaインスタンスを生成
         $almeida = new Almeida();
@@ -37,7 +41,11 @@ class CreatePresentComponent extends Object {
         // ファイルへ出力する場合
         $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
 
+	$this->log("3:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
+
         system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+
+	$this->log("4:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
 
     }
 
