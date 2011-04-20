@@ -18,7 +18,7 @@
 <span style="color:#ff6600;">&nbsp;･ﾄﾞｺﾓｺﾐｭﾆﾃｨって?</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ﾄﾞｺﾓｺﾐｭﾆﾃｨは家族や親友､ｻｰｸﾙなど身近な人に限定して､日記､写真､ｶﾚﾝﾀﾞｰのやりとりができる無料のｻｰﾋﾞｽです｡<br />
-<span style="font-size:x-small;color:#cc0000">※ﾄﾞｺﾓｺﾐｭﾆﾃｨはNTTﾄﾞｺﾓが提供するｻｰﾋﾞｽですので､別途登録が必要です｡</span><br />
+<span style="font-size:x-small;">※ﾄﾞｺﾓｺﾐｭﾆﾃｨはNTTﾄﾞｺﾓが提供するｻｰﾋﾞｽで､別途登録が必要です｡</span><br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 <span style="color:#ff6600;">&nbsp;･ﾃﾞｺﾒやﾌﾟﾚｾﾞﾝﾄがもらえる!</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
