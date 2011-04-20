@@ -34,7 +34,7 @@ class CreatePresentComponent extends Object {
         }
 
         // 文字コードの設定
-        $almeida->setVariable("Media.Flash.Codepage","SJIS");
+        //$almeida->setVariable("Media.Flash.Codepage","SJIS");
 
         // テンプレートのロード
         $almeida->load($template);
