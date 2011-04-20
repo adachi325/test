@@ -3,6 +3,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達と共有しよう!<br />
+<span style="font-size:x-small;color:#cc0000">※ﾄﾞｺﾓｺﾐｭﾆﾃｨはNTTﾄﾞｺﾓが提供するｻｰﾋﾞｽですので､別途登録が必要です｡</span>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
@@ -25,7 +26,7 @@
 題名:日記のﾀｲﾄﾙを入力</li>
 <li>ﾒｰﾙを送信して完成!</li>
 <li>送信した日記を確認する<br />
-⇒<a href="http://docomo-community.cp05.docomo.ne.jp/dj/index.xhtml">ﾄﾞｺﾓｺﾐｭﾆﾃｨのﾏｲﾍﾟｰｼﾞへ</a></li>
+⇒<a href="http://docomo-community.cp05.docomo.ne.jp/dj/">ﾄﾞｺﾓｺﾐｭﾆﾃｨのﾏｲﾍﾟｰｼﾞへ</a></li>
 </ol>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
