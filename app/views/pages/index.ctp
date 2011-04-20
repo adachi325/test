@@ -110,11 +110,11 @@
 </table>
 <span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=62&pg=3640&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">しまじろうﾍｿｶ</span></a><br />
 毎週月曜､朝7:30～8:00放送!<br />
-新ｶﾝｶｸ☆ｷｯｽﾞ&nbsp;・ﾊﾞﾗｴﾃｨｰ｡<br />
+新ｶﾝｶｸ☆ｷｯｽﾞ&nbsp;･ﾊﾞﾗｴﾃｨｰ｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;・</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
 &lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
+<div style="font-size:x-small;">&nbsp;<span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <br />
-
