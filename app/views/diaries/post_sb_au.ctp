@@ -15,8 +15,8 @@
 <li>下の｢思い出を記録に残す｣ﾘﾝｸを押すと、ﾒｰﾙが立ち上がるので､1で保存した画像を添付して送信<br />
 <?php if($this->Ktai->is_softbank()): ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),h($mailTitle),h($mailBody)); ?></span>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),rawurlencode(mb_convert_encoding(h($mailTitle, "utf8"))),rawurlencode(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),(mb_convert_encoding(h($mailTitle, "utf8"))),(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),rawurlencode(mb_convert_encoding(h($mailTitle), "utf8")),rawurlencode(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す",Configure::read('Defaults.docomo_community'),(mb_convert_encoding(h($mailTitle), "utf8")),(mb_convert_encoding(h($mailBody), "utf8"))); ?></span>
 <?php else: ?>
 <span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("思い出を記録に残す","",h($mailTitle),h($mailBody)); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
