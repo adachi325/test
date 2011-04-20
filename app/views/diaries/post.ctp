@@ -3,6 +3,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 この思い出をﾄﾞｺﾓｺﾐｭﾆﾃｨに投稿し､家族や友達と共有しよう!<br />
+<span style="font-size:x-small;color:#cc0000">※ﾄﾞｺﾓｺﾐｭﾆﾃｨはNTTﾄﾞｺﾓが提供するｻｰﾋﾞｽですので､別途登録が必要です｡</span>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
