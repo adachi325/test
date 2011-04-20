@@ -53,6 +53,7 @@
 <div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/" style="color:#ff3333;"><span style="color:#ff3333;">みんなの体験談へ</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
+<div align="center" style="font-size:x-small;">&nbsp;<span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif"); ?></div>
 
