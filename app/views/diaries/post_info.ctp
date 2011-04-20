@@ -15,11 +15,11 @@
 <span style="color:#ff6600;">【ﾄﾞｺﾓｺﾐｭﾆﾃｨに未登録の方】</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("214_uses.gif", array("width" => "100%")); ?><br />
-<span style="color:#ff6600;">&nbsp;・ﾄﾞｺﾓｺﾐｭﾆﾃｨって?</span><br />
+<span style="color:#ff6600;">&nbsp;･ﾄﾞｺﾓｺﾐｭﾆﾃｨって?</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ﾄﾞｺﾓｺﾐｭﾆﾃｨは家族や親友､ｻｰｸﾙなど身近な人に限定して､日記､写真､ｶﾚﾝﾀﾞｰのやりとりができる無料のｻｰﾋﾞｽです｡<br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
-<span style="color:#ff6600;">&nbsp;・ﾃﾞｺﾒやﾌﾟﾚｾﾞﾝﾄがもらえる!</span><br />
+<span style="color:#ff6600;">&nbsp;･ﾃﾞｺﾒやﾌﾟﾚｾﾞﾝﾄがもらえる!</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 日記に使えるｵﾘｼﾞﾅﾙﾃﾞｺﾒがたくさんもらえる!しかも!!<br />
 ﾄﾞｺﾓｺﾐｭﾆﾃｨに登録すると､今ならしまじろうきせかえﾂｰﾙﾌﾟﾚｾﾞﾝﾄ<span style="color:#FF3399"><?php $this->Ktai->emoji(0xE685); ?></span><br />
