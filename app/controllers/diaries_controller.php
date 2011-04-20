@@ -433,11 +433,11 @@ $list[1] = '
 
 <div align="center"><img src="cid:00"></div>
 <br>
-<div align="center">'.$diary['Diary']['title'].'</div>
+<div align="center">'.h($diary['Diary']['title']).'</div>
 <br>
 <div align="center"><img src="cid:01"></div>
 <br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
+<div align="center">'.nl2br(h($diary['Diary']['body'])).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02"></div>
@@ -453,9 +453,9 @@ $list[1] = '
 
 <div align="center"><img src="cid:00" width="50" hight="50"></div>
 <br>
-<div align="center">'.$diary['Diary']['title'].'</div>
+<div align="center">'.h($diary['Diary']['title']).'</div>
 <br>
-<div align="center">'.nl2br($diary['Diary']['body']).'</div>
+<div align="center">'.nl2br(h($diary['Diary']['body'])).'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02" width="50" hight="50"></div>
