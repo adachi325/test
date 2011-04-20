@@ -9,7 +9,6 @@ class ApController extends AppController {
 
 	function beforeFilter()
 	{
-		$this->EasyLogin->login();
 		$this->Auth->allow('*');
 		parent::beforeFilter();
 	}
