@@ -45,4 +45,5 @@ if ($ii > 3) {
 <div style="font-size:x-small;">
 <span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo 'http://shimajiromobile.benesse.ne.jp/ap1/pocket/taiken/'; ?>" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a>
 </div>
+<div style="font-size:x-small;">&nbsp;<span style="font-size:x-small;color:#cc0000">※ﾍﾞﾈｯｾのｻｲﾄに移動します｡</span></div>
 

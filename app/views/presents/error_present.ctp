@@ -6,6 +6,6 @@
 <?php echo $this->Html->image("dot_line_green.gif", array("style" => "margin:10px 0; width:100%")); ?><br />
 もっと思い出を残そう!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#339933;">&nbsp;・</span><a href="<?php echo $this->Html->url('/themes/index/'); ?>"><span style="color:#339900;">思い出を記録する</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/themes/index/'); ?>"><span style="color:#339900;">思い出を記録する</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

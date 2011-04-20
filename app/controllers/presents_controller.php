@@ -232,7 +232,7 @@ class PresentsController extends AppController {
 
                 if($type == 'postcard') {
                     //メールアドレス設定
-                    $url = Router::url('/'.'presents/print_postcard/'.$token, true);
+                    $url = Router::url('/'.'presents/print_postcard/'.$token.'/', true);
                     $mailSubject = "ポストカード印刷用URL";
 			$mailBody ="{$url}\r\n※PCからアクセスし、プリントアウトしてください\r\n※URLの有効期限は3日間です";
 			$this->Session->delete('Present');
