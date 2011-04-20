@@ -174,7 +174,7 @@ class PresentsController extends AppController {
 
 		$items = $this->paginate('Diary', $cond);
 
-		$count = $this->Diary->find('count', $cond);
+		$count = $this->Diary->find('count', array('conditions' => $cond));
 
 		//思い出の投稿すうがプレゼント作成に必要な枚数以下の場合エラー
 		if ($count < $max_count) {
