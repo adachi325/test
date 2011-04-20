@@ -11,8 +11,7 @@ echo $contents;
 <?php if (!$this->Ktai->is_android()): ?>
 
 <?php
-$user = $this->Session->read('Auth');
-if (!isset($user['User'])) { 
+if (!(isset($has_account) && $has_account)) { 
 	echo $this->element('invitation');
 }
 echo $this->element('default/footer_ap');
