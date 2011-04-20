@@ -79,7 +79,7 @@ class AppController extends Controller {
 			'autoRedirect' => false,
 			'secured' => array(
 				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
-				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
 			),
 			'allowed' => array(
 				'users' => array('login'),
