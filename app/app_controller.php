@@ -79,7 +79,7 @@ class AppController extends Controller {
 			'autoRedirect' => false,
 			'secured' => array(
 				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
-				'childs' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
 			),
 			'allowed' => array(
 				'users' => array('login'),
@@ -110,6 +110,17 @@ class AppController extends Controller {
 		parent::beforeFilter();
 		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
+		if ($this->Ktai->is_ezweb()) {
+			$secured = $this->Ssl->ssled($this->params);
+
+			if ($secured && !$this->Ssl->https) {
+				$this->Ssl->forceSSL();
+			}
+			elseif (!$secured && $this->Ssl->https) {
+				$this->Ssl->forceNoSSL();
+			}
+		}
+		
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();

@@ -11,10 +11,6 @@ class ApController extends AppController {
 	{
 		$this->Auth->allow('*');
 		parent::beforeFilter();
-		$user = $this->Auth->user();
-		if (empty($user)) {
-			$this->EasyLogin->login();
-		}
 	}
 
 	function baby($id = null) {
