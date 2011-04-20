@@ -33,7 +33,7 @@
 　<a href="#voice" style="color:#cc6600;">着うた･着ﾎﾞｲｽ</a><br />
 　<a href="#screen" style="color:#cc6600;">待受</a><br />
 　<a href="#photoframe" style="color:#cc6600;">ﾌｫﾄﾌﾚｰﾑ</a><br />
-　<a href="#dcome" style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</a><br />
+　<a href="#decome" style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</a><br />
 　<a href="#shimajiro" style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</a><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
