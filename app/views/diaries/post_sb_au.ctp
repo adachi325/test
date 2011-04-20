@@ -16,7 +16,7 @@
 <?php if($this->Ktai->is_softbank()): 
 	$yy = "\r\n";
 	?>
-<span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurlencode(mb_convert_encoding(h($mailTitle), "utf8"));?>&body=<?php echo rawurldecode(mb_convert_encoding(h($mailBody), "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
+<span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo rawurlencode(mb_convert_encoding(h($mailTitle), "utf8"));?>&body=<?php echo rawurlencode(mb_convert_encoding(h($mailBody), "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo $mailTitle;?>&body=<?php echo str_replace("<br />",$yy,nl2br($mailBody));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <br><span style="color:#339900;font-size:medium"><a href="mailto:<?php echo Configure::read('Defaults.docomo_community'); ?>?subject=<?php echo $mailTitle;?>&body=<?php echo mb_convert_encoding(str_replace("<br />",$yy,nl2br($mailBody)), "utf8");?>" style="color:#339900;"><span style="color:#339900;font-size:medium">思い出を記録に残す</span></a></span>
 <br><br>
