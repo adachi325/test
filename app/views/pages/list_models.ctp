@@ -13,21 +13,21 @@
 【ｿﾌﾄﾊﾞﾝｸ】SoftBank 3G端末 (海外端末､旧Vodafone端末､旧J-Phone端末を除く) <br />
 【Android】AndroidOS2.1以降の端末<br />
 (教材ｺﾝﾃﾝﾂのみ利用可能｡ﾌﾟﾛﾌｨｰﾙ登録および思い出記録は利用できません｡)<br />
-※ ただし､一部機種はご利用いただけません｡<br />
-※ iPhoneなどAndroid以外のｽﾏｰﾄﾌｫﾝ端末には対応しておりません｡<br />
-※ ｺﾝﾃﾝﾂ毎に利用できる端末が異なります｡詳細は以下をご確認ください｡<br />
+<span style="color:#666666">※ ただし､一部機種はご利用いただけません｡</span><br />
+<span style="color:#666666">※ iPhoneなどAndroid以外のｽﾏｰﾄﾌｫﾝ端末には対応しておりません｡</span><br />
+<span style="color:#666666">※ ｺﾝﾃﾝﾂ毎に利用できる端末が異なります｡詳細は以下をご確認ください｡</span><br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj04.gif"); ?></div>
 
 ●各種ｺﾝﾃﾝﾂが利用できない端末<br />
 &nbsp;<span style="color:#996633;">･</span>入会ﾌﾟﾚｾﾞﾝﾄ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音なし</span></a><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音あり</span></a><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600;">※音なし</span><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600;">※音あり</span><br />
 &nbsp;<span style="color:#996633;">･</span>思い出記録<br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ</span></a><br />
-　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash (Flash※音あり)</span></a><br />
+　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash</span></a> <span style="color:#cc6600;">(Flash※音あり)</span><br />
 &nbsp;<span style="color:#996633;">･</span>教材ｺﾝﾃﾝﾂ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音なし</span></a><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音あり</span></a><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600">※音なし</span><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600">※音あり</span><br />
 　<a href="#movie" style="color:#cc6600;"><span style="color:#cc6600;">動画</span></a><br />
 　<a href="#melody" style="color:#cc6600;"><span style="color:#cc6600;">着ﾒﾛ</span></a><br />
 　<a href="#voice" style="color:#cc6600;"><span style="color:#cc6600;">着うた･着ﾎﾞｲｽ</span></a><br />
@@ -40,9 +40,11 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash" id="flash"></a>
-&nbsp;<span style="color:#996633;">･</span>Flash※音なし<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音なし</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -57,6 +59,8 @@ NM705i/NM706i/NM850iG<br />
 P703iμ/P704iμ/P2002/P2101V/P2102V<br />
 SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1100～A1400ｼﾘｰｽﾞ 全機種<br />
 A3000/C3000ｼﾘｰｽﾞ 全機種<br />
@@ -64,11 +68,15 @@ B01K/C5001T<br />
 A5300/A5400ｼﾘｰｽﾞ 全機種<br />
 A5501T/A5502K/A5503SA/A5504T/A5505SA/A5506T/A5509T<br />
 W11H/W11K/W21H<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 702MO/702sMO/702NK/702NKII/703N/705N/705NK/705P/705Px/705SC/705T/706N/706P/<br />
 706SC/707SC/707SCII/708SC/709SC<br />
 802N/803T/804N/804NK/804SS/805SC<br />
 902T/903T/904T<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 AndroidOS2.0以前の端末<br />
 
@@ -76,9 +84,11 @@ AndroidOS2.0以前の端末<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash_sound" id="flash_sound"></a>
-&nbsp;<span style="color:#996633;">･</span>Flash※音あり<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音あり</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash(音付き)非対応機種</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -96,7 +106,9 @@ P700i/P701iD/P702i/P702iD/P703iμ/P704iμ/P851i/P901i/P901iS/P901iTV/P902i/P902i
 P2002/P2101V/P2102V<br />
 SA700iS/SA702i/SA800i<br />
 SH2101V<br />
-T2101Vv
+T2101Vv<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1100～A1400ｼﾘｰｽﾞ 全機種<br />
 A3000/C3000ｼﾘｰｽﾞ 全機種<br />
@@ -104,11 +116,15 @@ B01K/C5001T<br />
 A5300/A5400ｼﾘｰｽﾞ 全機種<br />
 A5501T/A5502K/A5503SA/A5504T/A5505SA/A5506T/A5509T<br />
 W11H/W11K/W21H<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 702MO/702sMO/702NK/702NKII/703N/705N/705NK/705P/705Px/705SC/705T/706N/706P/<br />
 706SC/707SC/707SCII/708SC/709SC<br />
 802N/803T/804N/804NK/804SS/805SC<br />
 902T/903T/904T<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 AndroidOS2.0以前の端末<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -116,8 +132,10 @@ AndroidOS2.0以前の端末<br />
 
 <a name="movie" id="movie"></a>
 &nbsp;<span style="color:#996633;">･</span>動画<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼動画非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -126,8 +144,12 @@ N2001/N2002<br />
 P2002/P2101V<br />
 SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1101S A1302SA A3000/C3000ｼﾘｰｽﾞ 全機種<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 AndroidOS2.0以前の端末<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -135,18 +157,24 @@ AndroidOS2.0以前の端末<br />
 
 <a name="melody" id="melody"></a>
 &nbsp;<span style="color:#996633;">･</span>着ﾒﾛ<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着ﾒﾛ非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○FOMA<br />
 L600i(SIMPURE L)/L601i(SIMPURE L1)/L602i(SIMPURE L2)/L704i/L705i/L705iX/<br />
 L706ie/L852i(PRADAPhonebyLG)/L-01A/L-03A/L-04A/L-06A/L-01B/L-02B/L-03B/L-04B<br />
 M702iS/M702iG<br />
 NM705i/NM706i/NM850iG<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 702MO/702sMOC<br />
 702NK/702NKII/705NK/804NK<br />
 731SC/740SC/830SC<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 全機種<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -154,8 +182,10 @@ NM705i/NM706i/NM850iG<br />
 
 <a name="voice" id="voice"></a>
 &nbsp;<span style="color:#996633;">･</span>着うた･着ﾎﾞｲｽ<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着うた･着ﾎﾞｲｽ非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -167,15 +197,21 @@ NM705i/NM706i/NM850iG<br />
 P2002/P2101V/P2102V<br />
 SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1101S/A1301S/A1302SA/A1407PT<br />
 A3000/C3000ｼﾘｰｽﾞ 全機種<br />
 C5001T<br />
 A5301T/A5302CA/A5304T<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 705P/705Px/706P/810P/820P/821P/822P/830P/831P/840P/840P for Biz/841P<br />
 702MO/702sMO<br />
 702NK/702NKII/705NK/804NK<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 全機種<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -183,8 +219,10 @@ A5301T/A5302CA/A5304T<br />
 
 <a name="screen" id="screen"></a>
 &nbsp;<span style="color:#996633;">･</span>待受<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼待受非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova<br />
 D209i/D210i/D211i/D251i/D251iS/D252i/D253i/D253iWM/D501i/D502i/D503i/D503iS/D504i<br />
@@ -207,6 +245,8 @@ N600i/N2001/N2002/N2051/N2102V/N2701/NM705i/NM706i/NM850iG<br />
 P2002/P2101V/P2102V<br />
 SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1100/A1300ｼﾘｰｽﾞ 全機種<br />
 A1401K<br />
@@ -215,10 +255,14 @@ C5001T<br />
 A5300ｼﾘｰｽﾞ 全機種<br />
 A5401CA/A5401CAII/A5405SA<br />
 W21H<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 702NK/702NKII/705NK/804NK<br />
 802SE<br />
 702MO/702sMO<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 全機種<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -226,7 +270,9 @@ W21H<br />
 
 <a name="photoframe" id="photoframe"></a>
 &nbsp;<span style="color:#996633;">･</span>ﾌｫﾄﾌﾚｰﾑ<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova<br />
 D209i/D210i/D211i/D251i/D501i/D502i/D503i/D503iS/D504i<br />
@@ -250,14 +296,20 @@ NM705i/NM706i/NM850iG<br />
 P851i(prosolid II)/P-05A/P2002/P2101V/P2102V<br />
 SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A1101S<br />
 A3011SA/A3013T/A3014S<br />
 C3001H/C3002K/C3003P<br />
 C5001Tv
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank】<br />
 005SH/004HW/003SH/003Z/001HT/001DL/X06HT/X02T/X01T/004SH/002SH/002P/<br />
 945SH/944SH/943SH/942SH/942SH KT/843SH/841P/840P<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 全機種<br />
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -265,8 +317,10 @@ C5001Tv
 
 <a name="decome" id="decome"></a>
 &nbsp;<span style="color:#996633;">･</span>ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ<br />
-<span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ対応機種非対応端末</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -282,16 +336,22 @@ NM705i/NM706i/NM850iG<br />
 P2002/P2101V/P2102V<br />
 SH851i(DOLCE)/SH2101V<br />
 T2101V<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A/B/Cｼﾘｰｽﾞ 全機種<br />
 E02SA/E03CA<br />
 W11～W42ｼﾘｰｽﾞ 全機種<br />
 W43K/W43S/W43T/W44K/W44KII/W44KII ｶﾒﾗなしﾓﾃﾞﾙ/W44T/W44TII(TiMo)/W45T<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 702MO/702sMO/702NK/702NKII/703N/703SH/703SHf/705N/705NK/705P/705Px/705SC/<br />
 705SH/705T/706N/706P/706SC/707SC/707SCII/708SC/709SC<br />
 802N/802SE/802SH/803T/804N/804NK/804SH/804SS/805SC/821T/832T<br />
 902SH/902T/903SH/903T/904SH/904T/905SH<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】<br />
 全機種<br />
 <br /><div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -300,7 +360,9 @@ W43K/W43S/W43T/W44K/W44KII/W44KII ｶﾒﾗなしﾓﾃﾞﾙ/W44T/W44TII(TiMo)/
 
 <a name="shimajiro" id="shimajiro"></a>
 &nbsp;<span style="color:#996633;">･</span>しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ<br />
-<span style="color:#ff0000">以下に記載された端末では､再生できない､または保証をしておりません｡</span><br />
+<span style="color:#CC0000">以下に記載された端末では､再生できない､または保証をしておりません｡</span><br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【docomo】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -311,11 +373,15 @@ F880iES(FOMAらくらくﾎﾝ)/F881iES(FOMAらくらくﾎﾝII)<br />
 900i～902iSｼﾘｰｽﾞ<br />
 2001/2002/2051/2101/2102/2701ｼﾘｰｽﾞ<br />
 <br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】<br />
 A/B/C/Eｼﾘｰｽﾞ<br />
 W11～47ｼﾘｰｽﾞ<br />
 W51CA/W51H/W51K/W51P/W51S/W51SH/W51SA/W51T/MEDIA SKIN(W52K)/W52P/W52S/W52SH/W52T/W53S/W53SA/W61SH/W62S/W63SH<br />
 <br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【SoftBank･DisneyMobile】<br />
 Vodafoneﾌﾞﾗﾝﾄﾞで発売された全機種<br />
 SoftBank<br />
