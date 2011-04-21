@@ -8,9 +8,17 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 ●ｻｰﾋﾞｽ全体<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】FOMA iモード対応端末 (900i以前端末を除く) <br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【au】CDMA 1X WIN端末 (W2x､W31Sを除く)<br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【ｿﾌﾄﾊﾞﾝｸ】SoftBank 3G端末 (海外端末､旧Vodafone端末､旧J-Phone端末を除く) <br />
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【Android】AndroidOS2.1以降の端末<br />
 (教材ｺﾝﾃﾝﾂのみ利用可能｡ﾌﾟﾛﾌｨｰﾙ登録および思い出記録は利用できません｡)<br />
 <span style="color:#666666">※ ただし､一部機種はご利用いただけません｡</span><br />
@@ -40,7 +48,7 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash" id="flash"></a>
-&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音なし</span><br />
+&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#cc0000">※音なし</span><br />
 <span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash非対応端末</span><br />
 
@@ -84,7 +92,7 @@ AndroidOS2.0以前の端末<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash_sound" id="flash_sound"></a>
-&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音あり</span><br />
+&nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#cc0000">※音あり</span><br />
 <span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash(音付き)非対応機種</span><br />
 
