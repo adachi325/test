@@ -30,8 +30,8 @@
 　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">FLASH※音あり</span></a><br />
 　<a href="#movie" style="color:#cc6600;"><span style="color:#cc6600;">動画</span></a><br />
 　<a href="#melody" style="color:#cc6600;"><span style="color:#cc6600;">着ﾒﾛ</span></a><br />
-　<a href="#voice" style="color:#cc6600;"><span style="color:#cc6600;">着うた･着ﾎﾞｲｽ</span<</a><br />
-　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受</span<</a><br />
+　<a href="#voice" style="color:#cc6600;"><span style="color:#cc6600;">着うた･着ﾎﾞｲｽ</span></a><br />
+　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受</span></a><br />
 　<a href="#photoframe" style="color:#cc6600;"><span style="color:#cc6600;">ﾌｫﾄﾌﾚｰﾑ</span></a><br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</span></a><br />
 　<a href="#shimajiro" style="color:#cc6600;"><span style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span<</a><br />
@@ -225,7 +225,7 @@ W21H<br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="photoframe" id="photoframe"></a>
-&nbsp;<span style="color:#996633;">･ﾌｫﾄﾌﾚｰﾑ</span><br />
+&nbsp;<span style="color:#996633;">･</span>ﾌｫﾄﾌﾚｰﾑ<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova<br />
