@@ -60,7 +60,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q9.</span></td>
-<td><a href="#Q9" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;">待受FLASH･ﾎﾟｽﾄｶｰﾄﾞの作成方法がわかりません｡</span></a></td>
+<td><a href="#Q9" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;">待受Flash･ﾎﾟｽﾄｶｰﾄﾞの作成方法がわかりません｡</span></a></td>
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q10.</span></td>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q11.</span></td>
-<td><a href="#Q11" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;"> ﾀﾞｳﾝﾛｰﾄﾞした絵文字･待受けFLASHがどこに保存されているかわかりません｡</span></a></td>
+<td><a href="#Q11" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;"> ﾀﾞｳﾝﾛｰﾄﾞした絵文字･待受けFlashがどこに保存されているかわかりません｡</span></a></td>
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q12.</span></td>
@@ -198,7 +198,7 @@
 </tr>
 <tr>
 <td valign="top"><span style="font-size:x-small; white-space:nowrap;color:#333333">A4.</span></td>
-<td><span style="font-size:x-small;color:#333333">全て削除されます｡終了前に待受FLASHやﾎﾟｽﾄｶｰﾄﾞにすることをおすすめいたします｡</span></td>
+<td><span style="font-size:x-small;color:#333333">全て削除されます｡終了前に待受Flashやﾎﾟｽﾄｶｰﾄﾞにすることをおすすめいたします｡</span></td>
 </tr>
 </table>
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
@@ -273,12 +273,12 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q9" id="Q9"></a><span style="font-size:x-small; white-space:nowrap;">Q9.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">待受FLASH･ﾎﾟｽﾄｶｰﾄﾞの作成方法がわかりません｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">待受Flash･ﾎﾟｽﾄｶｰﾄﾞの作成方法がわかりません｡</span></td>
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A9.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333"> ①待受けFLASH<br />
-｢TOPﾍﾟｰｼﾞ｣→｢思い出記録｣ﾍﾟｰｼﾞ内｢獲得ﾌﾟﾚｾﾞﾝﾄ一覧｣の｢待受けFLASH｣→お好きなﾃﾝﾌﾟﾚｰﾄを選択→お好きな写真を３枚選択→｢送信する｣を選択し､端末の｢ﾒﾆｭｰ｣から画像保存してください｡<br />
+<td bgcolor="#fff0dd"><span style="font-size:x-small;color:#333333"> ①待受けFlash<br />
+｢TOPﾍﾟｰｼﾞ｣→｢思い出記録｣ﾍﾟｰｼﾞ内｢獲得ﾌﾟﾚｾﾞﾝﾄ一覧｣の｢待受けFlash｣→お好きなﾃﾝﾌﾟﾚｰﾄを選択→お好きな写真を３枚選択→｢送信する｣を選択し､端末の｢ﾒﾆｭｰ｣から画像保存してください｡<br />
 ②ﾎﾟｽﾄｶｰﾄﾞ<br />
 ｢TOPﾍﾟｰｼﾞ｣→｢思い出記録｣ﾍﾟｰｼﾞ内｢獲得ﾌﾟﾚｾﾞﾝﾄ一覧｣の｢ﾎﾟｽﾄｶｰﾄﾞ｣→お好きなﾃﾝﾌﾟﾚｰﾄを選択→お好きな写真を４枚選択→｢印刷用URLを送る｣を選択し､ﾊﾟｿｺﾝにﾃﾞｰﾀを送信します｡→ﾊﾟｿｺﾝからｱｸｾｽし､印刷します｡
 </span></td>
@@ -300,7 +300,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q11" id="Q11"></a><span style="font-size:x-small; white-space:nowrap;">Q11.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">ﾀﾞｳﾝﾛｰﾄﾞした絵文字･待受けFLASHがどこに保存されているかわかりません｡</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">ﾀﾞｳﾝﾛｰﾄﾞした絵文字･待受けFlashがどこに保存されているかわかりません｡</span></td>
 </tr>
 <tr>
 <td valign="top" bgcolor="#fff0dd"><span style="font-size:x-small; white-space:nowrap;color:#333333">A11.</span></td>
