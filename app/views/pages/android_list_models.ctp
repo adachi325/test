@@ -31,11 +31,11 @@
 </div>
 <!--　/サービス全体　-->
 
-<!--　FLASH※音なし　-->
+<!--　Flash※音なし　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
-<h3>FLASH※音なし</h3>
+<h3>Flash※音なし</h3>
 <p>※以下の端末はご利用いただけません。</p>
-<p>▼FLASH非対応端末</p>
+<p>▼Flash非対応端末</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
@@ -74,13 +74,13 @@ W11H/W11K/W21H<br />
   <dd>AndroidOS2.0以前の端末</dd>
 </dl>
 </div>
-<!--　/FLASH※音なし　-->
+<!--　/Flash※音なし　-->
 
-<!--　FLASH※音あり　-->
+<!--　Flash※音あり　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
-<h3>FLASH※音あり</h3>
+<h3>Flash※音あり</h3>
 <p>※以下の端末はご利用いただけません。</p>
-<p>▼FLASH(音付き)非対応機種</p>
+<p>▼Flash(音付き)非対応機種</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
@@ -122,13 +122,13 @@ W11H/W11K/W21H<br />
   <dd>AndroidOS2.0以前の端末</dd>
 </dl>
 </div>
-<!--　/FLASH※音あり　-->
+<!--　/Flash※音あり　-->
 
 <!--　動画　-->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>動画</h3>
 <p>※以下の端末はご利用いただけません。</p>
-<p>▼FLASH(音付き)非対応機種</p>
+<p>▼Flash(音付き)非対応機種</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
