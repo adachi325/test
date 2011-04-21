@@ -116,20 +116,20 @@
     // Get the referrer from the utmr parameter, this is the referrer to the
     // page that contains the tracking pixel, not the referrer for tracking
     // pixel.
-    $documentReferer = $_GET["utmr"];
+    $documentReferer = isset($_GET["utmr"]) ? $_GET["utmr"] : "";
     if (empty($documentReferer) && $documentReferer !== "0") {
       $documentReferer = "-";
     } else {
       $documentReferer = urldecode($documentReferer);
     }
-    $documentPath = $_GET["utmp"];
+    $documentPath = isset($_GET["utmp"]) ? $_GET["utmp"] : "";
     if (empty($documentPath)) {
       $documentPath = "";
     } else {
       $documentPath = urldecode($documentPath);
     }
 
-    $account = $_GET["utmac"];
+    $account = isset($_GET["utmac"]) ? $_GET["utmac"] : "";
     $userAgent = $_SERVER["HTTP_USER_AGENT"];
     if (empty($userAgent)) {
       $userAgent = "";
