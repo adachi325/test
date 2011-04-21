@@ -6,7 +6,7 @@ extract($this->data['User']);
 
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
-<?php echo h($_SESSION['Auth']['User']['loginid']); ?>さん<br /><br />
+<?php echo h($this->Session->read('Auth.User.loginid')); ?>さん<br /><br />
 変更後のﾊﾟｽﾜｰﾄﾞをご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
