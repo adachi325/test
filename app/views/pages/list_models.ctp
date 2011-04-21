@@ -20,14 +20,14 @@
 
 ●各種ｺﾝﾃﾝﾂが利用できない端末<br />
 &nbsp;<span style="color:#996633;">･</span>入会ﾌﾟﾚｾﾞﾝﾄ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600;">※音なし</span><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600;">※音あり</span><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000;">※音なし</span><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000;">※音あり</span><br />
 &nbsp;<span style="color:#996633;">･</span>思い出記録<br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ</span></a><br />
-　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash</span></a> <span style="color:#cc6600;">(Flash※音あり)</span><br />
+　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash</span></a> <span style="color:#cc0000;">(Flash※音あり)</span><br />
 &nbsp;<span style="color:#996633;">･</span>教材ｺﾝﾃﾝﾂ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600">※音なし</span><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc6600">※音あり</span><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000">※音なし</span><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000">※音あり</span><br />
 　<a href="#movie" style="color:#cc6600;"><span style="color:#cc6600;">動画</span></a><br />
 　<a href="#melody" style="color:#cc6600;"><span style="color:#cc6600;">着ﾒﾛ</span></a><br />
 　<a href="#voice" style="color:#cc6600;"><span style="color:#cc6600;">着うた･着ﾎﾞｲｽ</span></a><br />
@@ -41,7 +41,7 @@
 
 <a name="flash" id="flash"></a>
 &nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音なし</span><br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -85,7 +85,7 @@ AndroidOS2.0以前の端末<br />
 
 <a name="flash_sound" id="flash_sound"></a>
 &nbsp;<span style="color:#996633;">･</span>Flash<span style="color:#666666">※音あり</span><br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼Flash(音付き)非対応機種</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -132,7 +132,7 @@ AndroidOS2.0以前の端末<br />
 
 <a name="movie" id="movie"></a>
 &nbsp;<span style="color:#996633;">･</span>動画<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼動画非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -157,7 +157,7 @@ AndroidOS2.0以前の端末<br />
 
 <a name="melody" id="melody"></a>
 &nbsp;<span style="color:#996633;">･</span>着ﾒﾛ<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着ﾒﾛ非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -182,7 +182,7 @@ NM705i/NM706i/NM850iG<br />
 
 <a name="voice" id="voice"></a>
 &nbsp;<span style="color:#996633;">･</span>着うた･着ﾎﾞｲｽ<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼着うた･着ﾎﾞｲｽ非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -219,7 +219,7 @@ A5301T/A5302CA/A5304T<br />
 
 <a name="screen" id="screen"></a>
 &nbsp;<span style="color:#996633;">･</span>待受<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼待受非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -270,7 +270,7 @@ W21H<br />
 
 <a name="photoframe" id="photoframe"></a>
 &nbsp;<span style="color:#996633;">･</span>ﾌｫﾄﾌﾚｰﾑ<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 【NTTﾄﾞｺﾓ】<br />
@@ -317,7 +317,7 @@ C5001Tv
 
 <a name="decome" id="decome"></a>
 &nbsp;<span style="color:#996633;">･</span>ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ<br />
-<span style="color:#666666">※以下の端末はご利用いただけません｡</span><br />
+<span style="color:#CC0000">※以下の端末はご利用いただけません｡</span><br />
 <span style="color:#996633;">▼ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ対応機種非対応端末</span><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
