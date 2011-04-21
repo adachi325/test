@@ -34,7 +34,7 @@
 　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受</span></a><br />
 　<a href="#photoframe" style="color:#cc6600;"><span style="color:#cc6600;">ﾌｫﾄﾌﾚｰﾑ</span></a><br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</span></a><br />
-　<a href="#shimajiro" style="color:#cc6600;"><span style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span><</a><br />
+　<a href="#shimajiro" style="color:#cc6600;"><span style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span></a><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
