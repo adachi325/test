@@ -89,15 +89,10 @@ class PresentsController extends AppController {
 				}
 
 				$this->Present->contain(array('Month'));
-				$items = $this->paginate('Present', $cond, array('limit' => 10, 'order'=>array( '0.Present.created'=>'asc' )));
+				$items = $this->paginate('Present', $cond, array('limit' => 10));
 
-				$this->log($items,LOG_DEBUG);
-
-				//pr($items);
-
-				//逆順にソート
-				//$result = array_reverse($items['0']['Present'], true);
-				//$items['0']['Present'] = $result;
+				//アイテムを逆順にソート
+				rsort($items);
 				
 				$this->set(compact('items'));
 				

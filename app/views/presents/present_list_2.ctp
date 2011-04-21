@@ -14,7 +14,6 @@
 
 お好きなﾃﾝﾌﾟﾚｰﾄを選んでください｡<br />
 <table cellpadding="0" cellspacing="0" width="100%">
-
 <?php for($i = 0; $i < count($items);  $i++): ?>
 
 <tr>
