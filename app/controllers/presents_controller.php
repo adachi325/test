@@ -80,7 +80,7 @@ class PresentsController extends AppController {
 					$present_ids = $ChildPresent->find('all', array(
 						'fields' => array('id', 'present_id'), 
 						'conditions' => array('child_id' => $child_id),
-						'order' => array('ChildPresent.created DESC'),
+						'order' => array('ChildPresent.id DESC'),
 					));
 					
 					if (is_array($present_ids)) {
@@ -90,6 +90,9 @@ class PresentsController extends AppController {
 
 				$this->Present->contain(array('Month'));
 				$items = $this->paginate('Present', $cond, array('limit' => 10));
+
+				//アイテムを逆順にソート
+				rsort($items);
 				
 				$this->set(compact('items'));
 				

@@ -57,6 +57,12 @@
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif"); ?></div>
 
+<?php 
+if (!(isset($has_account) && $has_account)) {
+	echo $this->element('contents/invitation_index');
+}
+?>
+
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
