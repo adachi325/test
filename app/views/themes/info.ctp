@@ -44,7 +44,7 @@ if($this->Ktai->is_imode()): ?>
 <span style="color:#666666"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡<br />
+※絵文字･ﾃﾞｺﾒ絵文字･一部の記号はご利用できません｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※ﾀｲﾄﾙは自由に変更できます｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
