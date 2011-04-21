@@ -20,29 +20,29 @@
 
 ●各種ｺﾝﾃﾝﾂが利用できない端末<br />
 &nbsp;<span style="color:#996633;">･</span>入会ﾌﾟﾚｾﾞﾝﾄ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">FLASH※音なし</span></a><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">FLASH※音あり</span></a><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音なし</span></a><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音あり</span></a><br />
 &nbsp;<span style="color:#996633;">･</span>思い出記録<br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ</span></a><br />
-　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受FLASH (FLASH※音あり)</span></a><br />
+　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash (Flash※音あり)</span></a><br />
 &nbsp;<span style="color:#996633;">･</span>教材ｺﾝﾃﾝﾂ<br />
-　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">FLASH※音なし</span></a><br />
-　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">FLASH※音あり</span></a><br />
+　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音なし</span></a><br />
+　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash※音あり</span></a><br />
 　<a href="#movie" style="color:#cc6600;"><span style="color:#cc6600;">動画</span></a><br />
 　<a href="#melody" style="color:#cc6600;"><span style="color:#cc6600;">着ﾒﾛ</span></a><br />
 　<a href="#voice" style="color:#cc6600;"><span style="color:#cc6600;">着うた･着ﾎﾞｲｽ</span></a><br />
 　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受</span></a><br />
 　<a href="#photoframe" style="color:#cc6600;"><span style="color:#cc6600;">ﾌｫﾄﾌﾚｰﾑ</span></a><br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ･ﾃﾞｺﾚﾒ</span></a><br />
-　<a href="#shimajiro" style="color:#cc6600;"><span style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span<</a><br />
+　<a href="#shimajiro" style="color:#cc6600;"><span style="color:#cc6600;">しまじろうからのおたんじょうびﾊﾟｰﾃｨｰ</span><</a><br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash" id="flash"></a>
-&nbsp;<span style="color:#996633;">･</span>FLASH※音なし<br />
+&nbsp;<span style="color:#996633;">･</span>Flash※音なし<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
-<span style="color:#996633;">▼FLASH非対応端末</span><br />
+<span style="color:#996633;">▼Flash非対応端末</span><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
@@ -69,16 +69,16 @@ W11H/W11K/W21H<br />
 706SC/707SC/707SCII/708SC/709SC<br />
 802N/803T/804N/804NK/804SS/805SC<br />
 902T/903T/904T<br />
-【Android】v
+【Android】<br />
 AndroidOS2.0以前の端末<br />
 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
 <a name="flash_sound" id="flash_sound"></a>
-&nbsp;<span style="color:#996633;">･</span>FLASH※音あり<br />
+&nbsp;<span style="color:#996633;">･</span>Flash※音あり<br />
 <span style="color:#ff0000">※以下の端末はご利用いただけません｡</span><br />
-<span style="color:#996633;">▼FLASH(音付き)非対応機種</span><br />
+<span style="color:#996633;">▼Flash(音付き)非対応機種</span><br />
 【NTTﾄﾞｺﾓ】<br />
 ○mova 全機種<br />
 ○FOMA<br />
