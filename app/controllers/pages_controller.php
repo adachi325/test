@@ -39,12 +39,20 @@ class PagesController extends AppController {
 		//ログイン済みじゃない場合、uidを取得
 		$uid = $this->_getUid();
 		if(!empty($uid)) {
-			$user =& ClassRegistry::init('User');
-			$user->contain();
-			$users = $user->find('first',array('conditions' => array('uid' => $uid)));
+			$User =& ClassRegistry::init('User');
+			$User->contain();
+			$userdata = $User->find('first',array('conditions' => array('uid' => $uid)));
 			//uidが存在する場合、自動ログイン実行
-			if(!empty($users)){
-				$this->redirect('/children/');
+			if(!empty($userdata)){
+				//取得したユーザー情報でログイン
+				if($this->Auth->login($userdata)) {
+					//ユーザー情報設定
+					unset ($userdata['User']['uid']);
+					unset ($userdata['User']['created']);
+					unset ($userdata['User']['modified']);
+					$this->set('login_user_data',$userdata);
+					$this->redirect('/children/');
+				}
 			}
 		}
 

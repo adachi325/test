@@ -7,10 +7,6 @@ class UsersController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->fields = array(
-            'username' => 'loginid',
-            'password' => 'password'
-        );
         $this->Auth->allow('register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
     }
 
