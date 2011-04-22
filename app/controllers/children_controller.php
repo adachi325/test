@@ -5,23 +5,15 @@ class ChildrenController extends AppController {
     var $name = 'Children';
 	var $helpers = array('Wikiformat.Wikiformat');
 
-	function beforeFilter() {
-        parent::beforeFilter();
+ 	function beforeFilter() {
+    parent::beforeFilter();
 		$this->Auth->allow('display');
-    }
+		if ($this->Ktai->is_android()) {
+			$this->layout = 'android';
+			$this->view_prefix = 'android_';
+		}
+  }
     
-    function test(){
-        $args = array(
-            'diary_id' => array(1,2,3,4),
-            'child_id' => 30,
-            'present_id' => 5
-        );
-        if(!$this->CreatePresent->createPostCard($args)){
-            $this->Session->setFlash(__('画像作成に失敗しました。', true));
-        }
-        $this->redirect('/children');
-    }
-
 	function display() {
 		if ($this->Ktai->is_android()) {
 			$this->render('/pages/android_top');
