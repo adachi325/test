@@ -16,8 +16,10 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <div style="text-align:center;" align="center">
-<?php if($this->Ktai->is_imode() and !$this->tk->is_imode_browser()): ?>
-<a href="mailto:?subject=<?php echo urlencode(mb_convert_encoding($mailSubject, "utf8"));?>&body=<?php echo urlencode(mb_convert_encoding($mailBody, "utf8"));?>"><span style="color:#339900;">印刷用URLを送る</span></a>
+<?php if($this->Ktai->is_imode()): ?>
+<a href="mailto:?subject=<?php echo $mailSubject; ?>&body=<?php echo $mailBody; ?>"><span style="color:#339900;">印刷用URLを送る</span></a>
+<?php elseif($this->Ktai->is_softbank()): ?>
+<a href="mailto:?subject=<?php echo rawurlencode(mb_convert_encoding($mailSubject, "utf8"));?>&body=<?php echo rawurlencode(mb_convert_encoding($mailBody, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">印刷用URLを送る</span></a>
 <?php else: ?>
 <span style='color:#339900;'><?php $this->Ktai->mailto("印刷用URLを送る", '', $mailSubject, $mailBody); ?></span>
 <?php endif; ?>
