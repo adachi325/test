@@ -240,7 +240,7 @@ class PresentsController extends AppController {
                     $mailSubject = "ポストカード印刷用URL";
 
 		    if($this->Ktai->is_imode()){
-			$mailBody ="{$url}%0D%0A※PCからアクセスし、プリントアウトしてください%0D%0A※URLの有効期限は3日間です";
+			$mailBody ="{$url}%0A※PCからアクセスし、プリントアウトしてください%0A※URLの有効期限は3日間です";
 		    } else {
 			$mailBody ="{$url}\r\n※PCからアクセスし、プリントアウトしてください\r\n※URLの有効期限は3日間です";
 		    }
