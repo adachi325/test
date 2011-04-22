@@ -5,7 +5,7 @@
 
 
 <?php
-if (!(($this->params['controller'] == 'pages' && $this->params['action'] == 'display') || ($this->params['controller'] == 'children' && $this->params['action'] == 'index'))):
+if (!(($this->params['controller'] == 'children' && $this->params['action'] == 'display') || ($this->params['controller'] == 'children' && $this->params['action'] == 'index'))):
 ?>
 <tr>
 <td colspan="2" align="left">
