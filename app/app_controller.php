@@ -110,6 +110,13 @@ class AppController extends Controller {
 		parent::beforeFilter();
 		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
+
+		$this->Auth->fields = array(
+				'username' => 'loginid',
+				'password' => 'password'
+				);
+
+		/*
 		if ($this->Ktai->is_ezweb()) {
 			$secured = $this->Ssl->ssled($this->params);
 
@@ -120,7 +127,7 @@ class AppController extends Controller {
 				$this->Ssl->forceNoSSL();
 			}
 		}
-		
+		*/
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
