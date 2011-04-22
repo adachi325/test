@@ -238,11 +238,18 @@ class PresentsController extends AppController {
                     //メールアドレス設定
                     $url = Router::url('/'.'presents/print_postcard/'.$token.'/', true);
                     $mailSubject = "ポストカード印刷用URL";
-			$mailBody ="{$url}\r\n※PCからアクセスし、プリントアウトしてください\r\n※URLの有効期限は3日間です";
-			$this->Session->delete('Present');
-			$present_id = $data['template'];
 
-			$this->set(compact('mailSubject','mailBody','token','present_id'));
+		    if($this->Ktai->is_imode()){
+			$mailBody ="{$url}%0D%0A※PCからアクセスし、プリントアウトしてください%0D%0A※URLの有効期限は3日間です";
+		    } else {
+			$mailBody ="{$url}\r\n※PCからアクセスし、プリントアウトしてください\r\n※URLの有効期限は3日間です";
+		    }
+
+
+		    $this->Session->delete('Present');
+		    $present_id = $data['template'];
+
+		    $this->set(compact('mailSubject','mailBody','token','present_id'));
 		}
 
 		$this->render($render);
