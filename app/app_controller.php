@@ -115,6 +115,7 @@ class AppController extends Controller {
 				'username' => 'loginid',
 				'password' => 'password'
 				);
+		$this->Auth->autoRedirect = false;
 
 		/*
 		if ($this->Ktai->is_ezweb()) {

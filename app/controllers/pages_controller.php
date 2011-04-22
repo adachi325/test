@@ -33,7 +33,10 @@ class PagesController extends AppController {
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
 			$this->set('login_user',$this->Auth->user());
-			$this->redirect('/children/');
+			//$this->redirect('/children/');
+			echo $this->requestAction('/children/index', array('return'));
+			$this->autoRender = false;
+			return;
 		}
 
 		//ログイン済みじゃない場合、uidを取得
@@ -51,7 +54,10 @@ class PagesController extends AppController {
 					unset ($userdata['User']['created']);
 					unset ($userdata['User']['modified']);
 					$this->set('login_user_data',$userdata);
-					$this->redirect('/children/');
+					//$this->redirect('/children/');
+					echo $this->requestAction('/children/index', array('return'));
+					$this->autoRender = false;
+					return;
 				}
 			}
 		}
