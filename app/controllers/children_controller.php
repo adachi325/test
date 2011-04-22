@@ -5,8 +5,9 @@ class ChildrenController extends AppController {
     var $name = 'Children';
 	var $helpers = array('Wikiformat.Wikiformat');
 
-    function beforeFilter() {
+	function beforeFilter() {
         parent::beforeFilter();
+		$this->Auth->allow('display');
     }
     
     function test(){
@@ -21,7 +22,57 @@ class ChildrenController extends AppController {
         $this->redirect('/children');
     }
 
-    function index($id = null) {
+	function display() {
+		if ($this->Ktai->is_android()) {
+			$this->render('/pages/android_top');
+			return;
+		}
+
+		//ログイン済みならマイページへ遷移
+		if($this->Auth->user()) {
+			$this->set('login_user',$this->Auth->user());
+			//$this->redirect('/children/');
+			$this->_getChilddata();
+			$this->render('index');
+			return;
+		}
+
+		//ログイン済みじゃない場合、uidを取得
+		$uid = $this->EasyLogin->_getUid();
+		if(!empty($uid)) {
+			$User =& ClassRegistry::init('User');
+			$User->contain();
+			$userdata = $User->find('first',array('conditions' => array('uid' => $uid)));
+			//uidが存在する場合、自動ログイン実行
+			if(!empty($userdata)){
+				//取得したユーザー情報でログイン
+				if($this->Auth->login($userdata)) {
+					//ユーザー情報設定
+					unset ($userdata['User']['uid']);
+					unset ($userdata['User']['created']);
+					unset ($userdata['User']['modified']);
+					$this->set('login_user_data',$userdata);
+					//$this->redirect('/children/');
+					$this->_getChilddata();
+					$this->render('index');
+					return;
+				}
+			}
+		}
+
+		//ニュース取得
+		$news =& ClassRegistry::init('news');
+		$newslist = $news->find('all',array('conditions' =>
+			array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
+
+		$this->set(compact('newslist'));
+	}
+
+	function index($id = null) {
+		$this->_getChilddata($id);
+    }
+
+	function _getChilddata($id = null) {
         //子供データ一覧設定
         $childrenData = $this->_setChild();
 
@@ -42,8 +93,10 @@ class ChildrenController extends AppController {
                         $this->_saveLastChild($updateId);
                 }
         }
-        //最終子供情報取得
-        $currentChild = $this->Child->findById($lastChildId);
+		//最終子供情報取得
+		$Child =& ClassRegistry::init('Child');
+		
+        $currentChild = $Child->findById($lastChildId);
 
         //月号データ取得
         $content =& ClassRegistry::init('Content');
@@ -75,8 +128,8 @@ class ChildrenController extends AppController {
         $months['0']['Theme'] = $result;
 
         //ライン情報取得
-        $lines = $this->Child->Line->find('list');
-        $currentLine = $this->Child->Line->findById($currentChild['Child']['line_id']);
+        $lines = $Child->Line->find('list');
+        $currentLine = $Child->Line->findById($currentChild['Child']['line_id']);
 
         if(!empty($months)){
             $conditions = array(
@@ -102,9 +155,10 @@ class ChildrenController extends AppController {
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
         if (count($childrenData) == 0) {
-                $this->render('index_nochild');
+            $this->render('index_nochild');
         }
-    }
+
+	}
 
     //最終子供ID更新
     function _saveLastChild($id){

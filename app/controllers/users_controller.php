@@ -37,8 +37,9 @@ class UsersController extends AppController {
 
     //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
-            $redirectTo = $this->Auth->logout();
-            $this->redirect('/');
+		$this->Session->destroy();
+		$redirectTo = $this->Auth->logout();
+		$this->redirect('/');
     }
 
 	function index() {

@@ -25,6 +25,9 @@ class PagesController extends AppController {
 
 	function display() {
 
+		// 互換性のため残してありますが、children/displayを使用するようにしてください
+
+
 		if ($this->Ktai->is_android()) {
 			$this->render('android_top');
 			return;
@@ -33,11 +36,14 @@ class PagesController extends AppController {
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
 			$this->set('login_user',$this->Auth->user());
-			$this->redirect('/children/');
+			//$this->redirect('/children/');
+			echo $this->requestAction('/children/index', array('return'));
+			$this->autoRender = false;
+			return;
 		}
 
 		//ログイン済みじゃない場合、uidを取得
-		$uid = $this->_getUid();
+		$uid = $this->EasyLogin->_getUid();
 		if(!empty($uid)) {
 			$User =& ClassRegistry::init('User');
 			$User->contain();
@@ -51,7 +57,10 @@ class PagesController extends AppController {
 					unset ($userdata['User']['created']);
 					unset ($userdata['User']['modified']);
 					$this->set('login_user_data',$userdata);
-					$this->redirect('/children/');
+					//$this->redirect('/children/');
+					echo $this->requestAction('/children/index', array('return'));
+					$this->autoRender = false;
+					return;
 				}
 			}
 		}
