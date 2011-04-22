@@ -25,6 +25,8 @@ class PagesController extends AppController {
 
 	function display() {
 
+		return;
+
 		if ($this->Ktai->is_android()) {
 			$this->render('android_top');
 			return;
@@ -40,7 +42,7 @@ class PagesController extends AppController {
 		}
 
 		//ログイン済みじゃない場合、uidを取得
-		$uid = $this->_getUid();
+		$uid = $this->EasyLogin->_getUid();
 		if(!empty($uid)) {
 			$User =& ClassRegistry::init('User');
 			$User->contain();
