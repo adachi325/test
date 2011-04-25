@@ -20,9 +20,6 @@ class CreatePresentComponent extends Object {
             'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]),
         );
 
-	$this->log("2:",LOG_DEBUG);
-	$this->log($assign,LOG_DEBUG);
-
         // Almeidaインスタンスを生成
         $almeida = new Almeida();
 
@@ -42,11 +39,7 @@ class CreatePresentComponent extends Object {
         // ファイルへ出力する場合
         $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
 
-	$this->log("3:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
-
         system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
-
-	$this->log("4:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
 
     }
 
@@ -84,7 +77,11 @@ class CreatePresentComponent extends Object {
         $new_file_name = substr(md5($args['child_id'].time()),0,20);
 
 	//画像保存
-	ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
+	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
+	if(!$result){
+	    $this->log($result,LOG_DEBUG);
+	    $this->log("ポストカード作成に失敗しました。",LOG_DEBUG);
+	}
 
         /******** サムネイル作成 ********/
 
