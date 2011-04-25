@@ -74,13 +74,16 @@ class CreatePresentComponent extends Object {
         ImageCopy($new_image, $template, 0, 0,  0, 0, 566, 840);
 
         //画像名生成
-        $new_file_name = substr(md5($args['child_id'].time()),0,20);
+        $new_file_name = md5($args['child_id'].time());
+	if (mb_strlen ($new_file_name) > 20) {
+	    $new_file_name = substr($new_file_name,0,20);
+	}
 
 	//画像保存
 	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
 	if(!$result){
-	    $this->log($result,LOG_DEBUG);
 	    $this->log("ポストカード作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
 	}
 
         /******** サムネイル作成 ********/
@@ -126,6 +129,8 @@ class CreatePresentComponent extends Object {
             );
         $postcard_url->create();
         if (!$postcard_url->save($options)) {
+	    $this->log("ワンタイムURL登録に失敗しました。",LOG_DEBUG);
+	    $this->log($options,LOG_DEBUG);
             //データ登録に失敗した場合、ファイルを消す。
             unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name) );
             unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name) );
