@@ -109,7 +109,11 @@ class CreatePresentComponent extends Object {
         ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
 
 	//画像保存
-	ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+	if(!$result2){
+	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
+	}
 
         //メモリを開放します
         imagedestroy($new_image);
