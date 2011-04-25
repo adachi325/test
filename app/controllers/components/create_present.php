@@ -20,9 +20,6 @@ class CreatePresentComponent extends Object {
             'pic_03' => WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]),
         );
 
-	$this->log("2:",LOG_DEBUG);
-	$this->log($assign,LOG_DEBUG);
-
         // Almeidaインスタンスを生成
         $almeida = new Almeida();
 
@@ -42,11 +39,7 @@ class CreatePresentComponent extends Object {
         // ファイルへ出力する場合
         $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
 
-	$this->log("3:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
-
         system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
-
-	$this->log("4:".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf',LOG_DEBUG);
 
     }
 
@@ -81,10 +74,17 @@ class CreatePresentComponent extends Object {
         ImageCopy($new_image, $template, 0, 0,  0, 0, 566, 840);
 
         //画像名生成
-        $new_file_name = substr(md5($args['child_id'].time()),0,20);
+        $new_file_name = md5($args['child_id'].time());
+	if (mb_strlen ($new_file_name) > 20) {
+	    $new_file_name = substr($new_file_name,0,20);
+	}
 
 	//画像保存
-	ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
+	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
+	if(!$result){
+	    $this->log("ポストカード作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
+	}
 
         /******** サムネイル作成 ********/
 
@@ -109,7 +109,11 @@ class CreatePresentComponent extends Object {
         ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
 
 	//画像保存
-	ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+	if(!$result2){
+	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
+	}
 
         //メモリを開放します
         imagedestroy($new_image);
@@ -129,6 +133,8 @@ class CreatePresentComponent extends Object {
             );
         $postcard_url->create();
         if (!$postcard_url->save($options)) {
+	    $this->log("ワンタイムURL登録に失敗しました。",LOG_DEBUG);
+	    $this->log($options,LOG_DEBUG);
             //データ登録に失敗した場合、ファイルを消す。
             unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name) );
             unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name) );
