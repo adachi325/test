@@ -136,7 +136,7 @@ class ReceiveMailShell extends AppShell {
 		pr("\r\n/////////////1//////////////\r\n");
 		pr($maildata);
 		pr("\r\n/////////////1//////////////\r\n");
-		    $maildata = mb_convert_encoding($maildata,'SJIS','iso-2022-jp');
+		    $maildata = mb_convert_encoding($maildata,'UTF-8','SJIS');
 		pr("\r\n/////////////2//////////////\r\n");
 		pr($maildata);
 		pr("\r\n/////////////2//////////////\r\n");
