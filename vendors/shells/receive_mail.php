@@ -29,6 +29,12 @@ class ReceiveMailShell extends AppShell {
 
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
+
+
+		pr("\r\n///////////////////////////\r\n");
+		pr($stdin);
+		pr("\r\n///////////////////////////\r\n");
+
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		$fp = fopen($filepath, "w");
