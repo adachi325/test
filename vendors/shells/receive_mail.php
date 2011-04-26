@@ -17,7 +17,7 @@ class ReceiveMailShell extends AppShell {
 
 		try {
 			$this->_createStopfile();
-			$this->_execute();
+			//$this->_execute();
 			$this->_removeStopfile();
 		} catch(Exception $e) {
 			$this->sendErrorMail($e->getMessage());
