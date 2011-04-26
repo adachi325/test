@@ -129,12 +129,9 @@ class ReceiveMailShell extends AppShell {
 		}
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
-
-		$this->log("---0---",LOG_DEBUG);
-		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
-		//$receiver->unitedCharset( 'UTF-8' );
+		
+		$receiver = QdmailReceiver::start('direct', $maildata, 'UTF-8');
 		$header = $receiver->header();
-		$this->log("---/0---",LOG_DEBUG);
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
@@ -142,17 +139,7 @@ class ReceiveMailShell extends AppShell {
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
-
-//		if(!empty($receiver->body['text']['value'])){
-//		    $this->log("---1---",LOG_DEBUG);
-//		    $this->log($receiver->body['text']['value'],LOG_DEBUG);
-//		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
-//		    $this->log("---/1---",LOG_DEBUG);
-//		}
-
-		$this->log("---2---",LOG_DEBUG);
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
-		$this->log("---/2---",LOG_DEBUG);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
