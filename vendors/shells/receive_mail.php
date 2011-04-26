@@ -8,6 +8,8 @@ class ReceiveMailShell extends AppShell {
 		
 		$this->_saveMail();
 		
+		
+		
 		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
@@ -119,13 +121,18 @@ class ReceiveMailShell extends AppShell {
 	}
 	
 	function _processMail($filename) {
+	
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		
 		if (!($fp = fopen($filepath, "rb"))) {
 			return false;
 		}
+		
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
+
+		$maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
+		$maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
 		
 		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
