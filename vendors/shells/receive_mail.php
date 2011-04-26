@@ -3,18 +3,18 @@
 App::import('Shell', 'AppShell');
 App::import('Vendor', 'QdmailReceiver');
 class ReceiveMailShell extends AppShell {
-	
+
 	function main() {
-		
+
 		$this->_saveMail();
-		
-		
-		
+
+
+
 		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
 		}
-		
+
 		try {
 			$this->_createStopfile();
 			$this->_execute();
@@ -24,9 +24,9 @@ class ReceiveMailShell extends AppShell {
 			$this->_removeStopfile();
 			exit();
 		}
-		
+
 	}
-	
+
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
@@ -37,14 +37,14 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
-		
+
 //		chmod($filepath, 0777);
 	}
-	
+
 	function _stopfileExists() {
 		return file_exists(Configure::read('ReceiveMail.stopfile_path'));
 	}
-	
+
 	function _createStopfile() {
 		$body = getmypid();
 		$fp = fopen(Configure::read('ReceiveMail.stopfile_path'), "w");
@@ -55,14 +55,14 @@ class ReceiveMailShell extends AppShell {
 		fclose($fp);
 		echo "stopfile was created.\n";
 	}
-	
+
 	function _removeStopfile() {
 		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
 			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
 		echo "\nstopfile was removed.\n";
 	}
-	
+
 	function _execute() {
 		while (($filename = $this->_getOldestMail()) !== false) {
 			try {
@@ -77,12 +77,12 @@ class ReceiveMailShell extends AppShell {
 			}
 		}
 	}
-	
+
 	function _getOldestMail() {
 		if ($dir = opendir(Configure::read('ReceiveMail.mail_dir_new'))) {
 			$oldest_file = null;
 			$oldest_time = null;
-			
+
 			while (($file = readdir($dir)) !== false) {
 				if (!is_dir($file)) {
 					$temp_time = filemtime(Configure::read('ReceiveMail.mail_dir_new') . $file);
@@ -94,7 +94,7 @@ class ReceiveMailShell extends AppShell {
 				}
 			}
 			closedir($dir);
-			
+
 			if ($oldest_file == null) {
 				return false;
 			} else {
@@ -102,7 +102,7 @@ class ReceiveMailShell extends AppShell {
 			}
 		}
 	}
-	
+
 	function _moveMail($filename, $is_error=false) {
 		$filepath_from = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		if (is_file($filepath_from) === false) {
@@ -111,7 +111,7 @@ class ReceiveMailShell extends AppShell {
 		$filepath_to = ($is_error ? Configure::read('ReceiveMail.mail_dir_done_error') : Configure::read('ReceiveMail.mail_dir_done_normal')) . $filename;
 		rename($filepath_from, $filepath_to);
 	}
-	
+
 	function _deleteMail($filename) {
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		if (is_file($filepath) === false) {
@@ -119,35 +119,48 @@ class ReceiveMailShell extends AppShell {
 		}
 		unlink($filepath);
 	}
-	
+
 	function _processMail($filename) {
-	
+
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
-		
+
 		if (!($fp = fopen($filepath, "rb"))) {
 			return false;
 		}
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
-		
-		$receiver = QdmailReceiver::start('direct', $maildata, 'UTF-8');
+
+		$this->log("---0---",LOG_DEBUG);
+		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
+		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
+		$this->log("---/0---",LOG_DEBUG);
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
-		
+
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
-		
+
 		$receiver->bodyAutoSelect();
+
+		if(!empty($receiver->body['text']['value'])){
+		    $this->log("---1---",LOG_DEBUG);
+		    $this->log($receiver->body['text']['value'],LOG_DEBUG);
+		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
+		    $this->log("---/1---",LOG_DEBUG);
+		}
+
+		$this->log("---2---",LOG_DEBUG);
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
+		$this->log("---/2---",LOG_DEBUG);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
-		
+
 		//Dirayモデル呼び出し（思い出登録）
 		return ClassRegistry::init('Diary')->importMail($params);
 	}
-	
+
 	function _getImageAttachments(&$receiver) {
 		return $this->_getAttachments($receiver->attach());
 	}
@@ -176,7 +189,7 @@ class ReceiveMailShell extends AppShell {
 		}
 		return null;
 	}
-	
+
 	function sendErrorMail($message) {
 		App::import('Component', 'Qdmail');
 		$mail = new Qdmail();
