@@ -142,7 +142,7 @@ class ReceiveMailShell extends AppShell {
 		$receiver->bodyAutoSelect();
 
 		if(!empty($receiver->body['text']['value'])){
-		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "sjis");
+		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
 		}
 
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
