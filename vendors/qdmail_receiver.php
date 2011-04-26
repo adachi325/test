@@ -347,25 +347,33 @@ class QdDecodeBase extends QdmailReceiverError{
 			$param = array( $param );
 		}
 
-			echo "<pre>";
+			echo "\r\n<pre>";
 			echo ("---param---");
 			print_r ($param);
 			echo ("---/param---");
 			echo "<pre>";
 
-			echo "<pre>";
-			echo ("---line---");
-			print_r (__LINE__);
-			echo ("---/line---");
+			echo "\r\n<pre>";
+			echo ("---bd---");
+			print_r (array('body'));
+			echo ("---/bd---");
 			echo "<pre>";
 
 		$ret = $this->option(null,array( 'body' ,__LINE__) , false , array('body') );
-		$ret = $this->arrayDigup( $ret , $param ) ;
 
-			echo "<pre>";
+			echo "\r\n<pre>";
 			echo ("---re---");
 			print_r ($ret);
-			echo ("---/rw---");
+			echo ("---/re---");
+			echo "<pre>";
+
+
+		$ret = $this->arrayDigup( $ret , $param ) ;
+
+			echo "\r\n<pre>";
+			echo ("---re2---");
+			print_r ($ret);
+			echo ("---/re2---");
 			echo "<pre>";
 
 		return $ret;
