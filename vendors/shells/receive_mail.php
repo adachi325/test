@@ -30,15 +30,6 @@ class ReceiveMailShell extends AppShell {
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
 
-		pr($stdin);
-
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
-		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
-		$stdin = bin2hex(mb_convert_encoding($stdin,'JIS','SJIS'));
-
-		pr($stdin);
-
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		$fp = fopen($filepath, "w");
@@ -173,6 +164,15 @@ class ReceiveMailShell extends AppShell {
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 
 		$receiver->bodyAutoSelect();
+		
+		pr($receiver->body['text']['value']);
+
+		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
+		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
+		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
+		$receiver->body['text']['value'] = bin2hex(mb_convert_encoding($receiver->body['text']['value'],'JIS','SJIS'));
+
+		pr($receiver->body['text']['value']);
 
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
