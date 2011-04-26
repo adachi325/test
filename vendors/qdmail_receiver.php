@@ -334,11 +334,11 @@ class QdDecodeBase extends QdmailReceiverError{
 	}
 	function bodyFull( $param = null ){
 
-			echo "\r\n<pre>\r\n";
-			echo ("\r\n---Fullbd---\r\n");
-			print_r ($param);
-			echo ("\r\n---/Fullbd---\r\n");
-			echo "\r\n<pre>";
+		echo "\r\n<pre>\r\n";
+		echo ("\r\n---Fullbd---\r\n");
+		print_r ($param);
+		echo ("\r\n---/Fullbd---\r\n");
+		echo "\r\n<pre>";
 
 		if( !$this->already_text || !$this->already_attach ){
 			$this->decodeBody();
