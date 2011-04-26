@@ -131,31 +131,21 @@ class ReceiveMailShell extends AppShell {
 
 		pr($filepath);
 
-		$maildata = fread($fp, filesize($filepath));
+    $maildata = fread($fp, filesize($filepath));
+    $maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
+    $maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
 		fclose($fp);
 
 		if(mb_check_encoding($maildata,'SJIS')){
 		    pr("SJISだ");
-//		pr("\r\n/////////////1//////////////\r\n");
-//		pr($maildata);
-//		pr("\r\n/////////////1//////////////\r\n");
-		    //$maildata = mb_convert_encoding($maildata,'UTF-8','SJIS');
-		    //$maildata = mb_convert_encoding($maildata,'iso-2022-jp','SJIS');
-//		pr("\r\n/////////////2//////////////\r\n");
-//		pr($maildata);
-//		pr("\r\n/////////////2//////////////\r\n");
 		} else if(mb_check_encoding($maildata,'UTF-8')){
 		    pr("UTF-8だ");
 		} else {
 		    pr("謎だ");
 		}
 
-		
-
-
-
-		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
-		//$receiver->unitedCharset( 'UTF-8' );
+		$receiver = QdmailReceiver::start('direct', $maildata);
+    $receiver->charset( 'UTF-8' );
 		$header = $receiver->header();
 
 		$params = array();
@@ -165,16 +155,8 @@ class ReceiveMailShell extends AppShell {
 
 		$receiver->bodyAutoSelect();
 		
-		pr($receiver->body['text']['value']);
-
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
-		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
-		$receiver->body['text']['value'] = bin2hex(mb_convert_encoding($receiver->body['text']['value'],'JIS','SJIS'));
-		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], 'UTF-8', 'JIS');
-		pr($receiver->body['text']['value']);
-
-		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
+    $params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
+    print_r("body desu: " . $params['body']);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
