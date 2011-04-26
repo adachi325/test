@@ -33,7 +33,7 @@ class ReceiveMailShell extends AppShell {
 		pr($stdin);
 
 		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'JIS');
-		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'ISO-2022-JP');
+		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
 
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
