@@ -352,7 +352,7 @@ class QdDecodeBase extends QdmailReceiverError{
 			$this->log("---/param---",LOG_DEBUG);
 
 			$this->log("---line---",LOG_DEBUG);
-			$this->log(__LINE__,LOG_DEBUG);
+			//$this->log(__LINE__,LOG_DEBUG);
 			$this->log("---/line---",LOG_DEBUG);
 
 		$ret = $this->option(null,array( 'body' ,__LINE__) , false , array('body') );
