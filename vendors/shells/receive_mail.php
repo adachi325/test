@@ -30,6 +30,8 @@ class ReceiveMailShell extends AppShell {
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
 
+		pr($stdin);
+
 		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'JIS');
 		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'ISO-2022-JP');
 
