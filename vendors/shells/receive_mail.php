@@ -131,7 +131,7 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
-		pr(mb_check_encoding($maildata));
+		pr(safe_getEncoding($maildata, 'Unknown'));
 
 		pr("\r\n///////////////////////////\r\n");
 		pr($maildata);
