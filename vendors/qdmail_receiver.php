@@ -559,6 +559,11 @@ class QdDecodeBase extends QdmailReceiverError{
 				$plain_body .= $li . "\r\n" ;
 				$li = $this->get_1_line( false );
 			}
+
+			$this->log("---1---",LOG_DEBUG);
+			$this->log($plain_body,LOG_DEBUG);
+			$this->log("---/1---",LOG_DEBUG);
+
 			$_body = $this->makeBody( $header , $plain_body );
 			if( $_body['attach_flag'] ){
 				$type = 'attach';
