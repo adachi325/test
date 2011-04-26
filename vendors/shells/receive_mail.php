@@ -134,6 +134,13 @@ class ReceiveMailShell extends AppShell {
 		pr($maildata);
 		pr("///////////////////////////");
 
+
+		$maildata = mb_convert_encoding($maildata,0x1B,'<br />');
+
+		pr("///////////////////////////");
+		pr($maildata);
+		pr("///////////////////////////");
+
 		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
