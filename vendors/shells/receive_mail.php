@@ -130,7 +130,7 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 		
-		$receiver = QdmailReceiver::start('direct', $maildata, 'UTF-8');
+		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
 
 		$params = array();
