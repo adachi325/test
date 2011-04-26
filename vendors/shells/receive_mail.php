@@ -3,18 +3,18 @@
 App::import('Shell', 'AppShell');
 App::import('Vendor', 'QdmailReceiver');
 class ReceiveMailShell extends AppShell {
-
+	
 	function main() {
-
+		
 		$this->_saveMail();
-
-
-
+		
+		
+		
 		if ($this->_stopfileExists()) {
 			echo "other process is running.\n";
 			return;
 		}
-
+		
 		try {
 			$this->_createStopfile();
 			$this->_execute();
@@ -24,12 +24,11 @@ class ReceiveMailShell extends AppShell {
 			$this->_removeStopfile();
 			exit();
 		}
-
+		
 	}
-
+	
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
-
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		$fp = fopen($filepath, "w");
@@ -38,14 +37,14 @@ class ReceiveMailShell extends AppShell {
 		flock($fp, LOCK_UN);
 		rewind($fp);
 		fclose($fp);
-
+		
 //		chmod($filepath, 0777);
 	}
-
+	
 	function _stopfileExists() {
 		return file_exists(Configure::read('ReceiveMail.stopfile_path'));
 	}
-
+	
 	function _createStopfile() {
 		$body = getmypid();
 		$fp = fopen(Configure::read('ReceiveMail.stopfile_path'), "w");
@@ -56,21 +55,21 @@ class ReceiveMailShell extends AppShell {
 		fclose($fp);
 		echo "stopfile was created.\n";
 	}
-
+	
 	function _removeStopfile() {
 		if (file_exists(Configure::read('ReceiveMail.stopfile_path'))) {
 			unlink(Configure::read('ReceiveMail.stopfile_path'));
 		}
 		echo "\nstopfile was removed.\n";
 	}
-
+	
 	function _execute() {
 		while (($filename = $this->_getOldestMail()) !== false) {
 			try {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-				$this->_moveMail($filename, $is_error);
-				//$this->_deleteMail($filename);//ログは残さない
+//				$this->_moveMail($filename, $is_error);
+				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
@@ -78,12 +77,12 @@ class ReceiveMailShell extends AppShell {
 			}
 		}
 	}
-
+	
 	function _getOldestMail() {
 		if ($dir = opendir(Configure::read('ReceiveMail.mail_dir_new'))) {
 			$oldest_file = null;
 			$oldest_time = null;
-
+			
 			while (($file = readdir($dir)) !== false) {
 				if (!is_dir($file)) {
 					$temp_time = filemtime(Configure::read('ReceiveMail.mail_dir_new') . $file);
@@ -95,7 +94,7 @@ class ReceiveMailShell extends AppShell {
 				}
 			}
 			closedir($dir);
-
+			
 			if ($oldest_file == null) {
 				return false;
 			} else {
@@ -103,7 +102,7 @@ class ReceiveMailShell extends AppShell {
 			}
 		}
 	}
-
+	
 	function _moveMail($filename, $is_error=false) {
 		$filepath_from = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		if (is_file($filepath_from) === false) {
@@ -112,7 +111,7 @@ class ReceiveMailShell extends AppShell {
 		$filepath_to = ($is_error ? Configure::read('ReceiveMail.mail_dir_done_error') : Configure::read('ReceiveMail.mail_dir_done_normal')) . $filename;
 		rename($filepath_from, $filepath_to);
 	}
-
+	
 	function _deleteMail($filename) {
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		if (is_file($filepath) === false) {
@@ -120,69 +119,38 @@ class ReceiveMailShell extends AppShell {
 		}
 		unlink($filepath);
 	}
-
+	
 	function _processMail($filename) {
-
+	
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
-
+		
 		if (!($fp = fopen($filepath, "rb"))) {
 			return false;
 		}
-
-		pr($filepath);
-
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
-		if(mb_check_encoding($maildata,'SJIS')){
-		    pr("SJISだ");
-//		pr("\r\n/////////////1//////////////\r\n");
-//		pr($maildata);
-//		pr("\r\n/////////////1//////////////\r\n");
-		    //$maildata = mb_convert_encoding($maildata,'UTF-8','SJIS');
-		    //$maildata = mb_convert_encoding($maildata,'iso-2022-jp','SJIS');
-//		pr("\r\n/////////////2//////////////\r\n");
-//		pr($maildata);
-//		pr("\r\n/////////////2//////////////\r\n");
-		} else if(mb_check_encoding($maildata,'UTF-8')){
-		    pr("UTF-8だ");
-		} else {
-		    pr("謎だ");
-		}
-
+		$maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
+		$maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
 		
-
-
-
-		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
-		//$receiver->unitedCharset( 'UTF-8' );
+		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
-
-		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
-
-		$receiver->bodyAutoSelect();
 		
-		pr($receiver->body['text']['value']);
-
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
-		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
-		$receiver->body['text']['value'] = bin2hex(mb_convert_encoding($receiver->body['text']['value'],'JIS','SJIS'));
-		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], 'UTF-8', 'JIS');
-		pr($receiver->body['text']['value']);
-
+		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
+		
+		$receiver->bodyAutoSelect();
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
-
+		
 		//Dirayモデル呼び出し（思い出登録）
 		return ClassRegistry::init('Diary')->importMail($params);
 	}
-
+	
 	function _getImageAttachments(&$receiver) {
 		return $this->_getAttachments($receiver->attach());
 	}
@@ -211,7 +179,7 @@ class ReceiveMailShell extends AppShell {
 		}
 		return null;
 	}
-
+	
 	function sendErrorMail($message) {
 		App::import('Component', 'Qdmail');
 		$mail = new Qdmail();
