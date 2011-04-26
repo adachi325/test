@@ -333,6 +333,13 @@ class QdDecodeBase extends QdmailReceiverError{
 		return $this->option($param,array('headerName',__LINE__) , false , array('header_name'));
 	}
 	function bodyFull( $param = null ){
+
+			echo "\r\n<pre>\r\n";
+			echo ("\r\n---Fullbd---\r\n");
+			print_r ($param);
+			echo ("\r\n---/Fullbd---\r\n");
+			echo "\r\n<pre>";
+
 		if( !$this->already_text || !$this->already_attach ){
 			$this->decodeBody();
 		}
@@ -347,34 +354,34 @@ class QdDecodeBase extends QdmailReceiverError{
 			$param = array( $param );
 		}
 
-			echo "\r\n<pre>";
-			echo ("---param---");
+			echo "\r\n<pre>\r\n";
+			echo ("\r\n---param---\r\n");
 			print_r ($param);
-			echo ("---/param---");
-			echo "<pre>";
-
+			echo ("\r\n---/param---\r\n");
 			echo "\r\n<pre>";
-			echo ("---bd---");
+
+			echo "\r\n<pre>\r\n";
+			echo ("\r\n---bd---\r\n");
 			print_r (array('body'));
-			echo ("---/bd---");
-			echo "<pre>";
+			echo ("\r\n---/bd---\r\n");
+			echo "\r\n<pre>";
 
 		$ret = $this->option(null,array( 'body' ,__LINE__) , false , array('body') );
 
-			echo "\r\n<pre>";
-			echo ("---re---");
+			echo "\r\n<pre>\r\n";
+			echo ("\r\n---re---\r\n");
 			print_r ($ret);
-			echo ("---/re---");
-			echo "<pre>";
+			echo ("\r\n---/re---\r\n");
+			echo "\r\n<pre>";
 
 
 		$ret = $this->arrayDigup( $ret , $param ) ;
 
-			echo "\r\n<pre>";
-			echo ("---re2---");
+			echo "\r\n<pre>\r\n";
+			echo ("\r\n---re2---\r\n");
 			print_r ($ret);
-			echo ("---/re2---");
-			echo "<pre>";
+			echo ("\r\n---/re2---\r\n");
+			echo "\r\n<pre>";
 
 		return $ret;
 	}
