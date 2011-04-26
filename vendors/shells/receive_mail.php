@@ -129,10 +129,12 @@ class ReceiveMailShell extends AppShell {
 		}
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
-		
+
+		$this->log("---0---",LOG_DEBUG);
 		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
+		$this->log("---/0---",LOG_DEBUG);
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
