@@ -339,14 +339,30 @@ class QdDecodeBase extends QdmailReceiverError{
 		return array_merge( $this->body() , array( 'attach' => $this->attach( $param = null ) ) );
 	}
 	function body( $param = null ){
+
 		if( !$this->already_text ){
 			$this->decodeBody();
 		}
 		if( !is_array( $param ) ){
 			$param = array( $param );
 		}
+
+			$this->log("---param---",LOG_DEBUG);
+			$this->log($param,LOG_DEBUG);
+			$this->log("---/param---",LOG_DEBUG);
+
+			$this->log("---line---",LOG_DEBUG);
+			$this->log(__LINE__,LOG_DEBUG);
+			$this->log("---/line---",LOG_DEBUG);
+
 		$ret = $this->option(null,array( 'body' ,__LINE__) , false , array('body') );
 		$ret = $this->arrayDigup( $ret , $param ) ;
+
+		$this->log("---ret---",LOG_DEBUG);
+		$this->log($ret,LOG_DEBUG);
+		$this->log("---/ret---",LOG_DEBUG);
+		$this->log($param,LOG_DEBUG);
+		$this->log("---param---",LOG_DEBUG);
 		return $ret;
 	}
 	function bodyAutoSelect(){
@@ -559,10 +575,6 @@ class QdDecodeBase extends QdmailReceiverError{
 				$plain_body .= $li . "\r\n" ;
 				$li = $this->get_1_line( false );
 			}
-
-			$this->log("---plain---",LOG_DEBUG);
-			$this->log($plain_body,LOG_DEBUG);
-			$this->log("---/plain---",LOG_DEBUG);
 
 			$_body = $this->makeBody( $header , $plain_body );
 			if( $_body['attach_flag'] ){
