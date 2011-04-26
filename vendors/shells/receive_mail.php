@@ -130,7 +130,7 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 		
-		$receiver = QdmailReceiver::start('direct', $maildata);
+		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
 
@@ -141,12 +141,12 @@ class ReceiveMailShell extends AppShell {
 		
 		$receiver->bodyAutoSelect();
 
-		if(!empty($receiver->body['text']['value'])){
-		    $this->log("---1---",LOG_DEBUG);
-		    $this->log($receiver->body['text']['value'],LOG_DEBUG);
-		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
-		    $this->log("---/1---",LOG_DEBUG);
-		}
+//		if(!empty($receiver->body['text']['value'])){
+//		    $this->log("---1---",LOG_DEBUG);
+//		    $this->log($receiver->body['text']['value'],LOG_DEBUG);
+//		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
+//		    $this->log("---/1---",LOG_DEBUG);
+//		}
 
 		$this->log("---2---",LOG_DEBUG);
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
