@@ -30,6 +30,8 @@ class ReceiveMailShell extends AppShell {
 	function _saveMail() {
 		$stdin = file_get_contents('php://stdin');
 
+		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'JIS');
+
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
 		$fp = fopen($filepath, "w");
@@ -128,6 +130,9 @@ class ReceiveMailShell extends AppShell {
 		if (!($fp = fopen($filepath, "rb"))) {
 			return false;
 		}
+
+		pr($filepath);
+
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
@@ -137,7 +142,7 @@ class ReceiveMailShell extends AppShell {
 		pr($maildata);
 		pr("\r\n/////////////1//////////////\r\n");
 		    //$maildata = mb_convert_encoding($maildata,'UTF-8','SJIS');
-		    $maildata = mb_convert_encoding($maildata,'iso-2022-jp','SJIS');
+		    //$maildata = mb_convert_encoding($maildata,'iso-2022-jp','SJIS');
 		pr("\r\n/////////////2//////////////\r\n");
 		pr($maildata);
 		pr("\r\n/////////////2//////////////\r\n");
