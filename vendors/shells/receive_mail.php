@@ -171,7 +171,7 @@ class ReceiveMailShell extends AppShell {
 		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
 		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
 		$receiver->body['text']['value'] = bin2hex(mb_convert_encoding($receiver->body['text']['value'],'JIS','SJIS'));
-
+		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], 'UTF-8', 'JIS');
 		pr($receiver->body['text']['value']);
 
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
