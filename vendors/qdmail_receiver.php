@@ -347,22 +347,17 @@ class QdDecodeBase extends QdmailReceiverError{
 			$param = array( $param );
 		}
 
-			$this->log("---param---",LOG_DEBUG);
-			$this->log($param,LOG_DEBUG);
-			$this->log("---/param---",LOG_DEBUG);
+			echo ("---param---");
+			echo ($param);
+			echo ("---/param---");
 
-			$this->log("---line---",LOG_DEBUG);
-			//$this->log(__LINE__,LOG_DEBUG);
-			$this->log("---/line---",LOG_DEBUG);
+			echo ("---line---");
+			echo (__LINE__);
+			echo ("---/line---");
 
 		$ret = $this->option(null,array( 'body' ,__LINE__) , false , array('body') );
 		$ret = $this->arrayDigup( $ret , $param ) ;
 
-		$this->log("---ret---",LOG_DEBUG);
-		$this->log($ret,LOG_DEBUG);
-		$this->log("---/ret---",LOG_DEBUG);
-		$this->log($param,LOG_DEBUG);
-		$this->log("---param---",LOG_DEBUG);
 		return $ret;
 	}
 	function bodyAutoSelect(){
