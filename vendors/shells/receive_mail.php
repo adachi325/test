@@ -131,7 +131,15 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
-		pr(safe_getEncoding($maildata, 'Unknown'));
+		if(mb_check_encoding($maildata,'SJIS')){
+		    pr("SJISだ");
+		} else if(mb_check_encoding($maildata,'UTF-8')){
+		    pr("UTF-8だ");
+		} else {
+		    pr("謎だ");
+		}
+
+		
 
 		pr("\r\n///////////////////////////\r\n");
 		pr($maildata);
