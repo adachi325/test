@@ -131,7 +131,7 @@ class ReceiveMailShell extends AppShell {
 		fclose($fp);
 		
 		$receiver = QdmailReceiver::start('direct', $maildata);
-		$receiver->unitedCharset( 'UTF-8' );
+		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
 
 		$params = array();
@@ -140,6 +140,11 @@ class ReceiveMailShell extends AppShell {
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
+
+		if(!empty($receiver->body['text']['value'])){
+		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "ISO-2022-JP" , "utf-8");
+		}
+
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
