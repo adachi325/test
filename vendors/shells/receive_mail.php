@@ -133,6 +133,13 @@ class ReceiveMailShell extends AppShell {
 
 		if(mb_check_encoding($maildata,'SJIS')){
 		    pr("SJISだ");
+		pr("\r\n/////////////1//////////////\r\n");
+		pr($maildata);
+		pr("\r\n/////////////1//////////////\r\n");
+		    $maildata = mb_convert_encoding($maildata,'SJIS','UTF-8');
+		pr("\r\n/////////////2//////////////\r\n");
+		pr($maildata);
+		pr("\r\n/////////////2//////////////\r\n");
 		} else if(mb_check_encoding($maildata,'UTF-8')){
 		    pr("UTF-8だ");
 		} else {
@@ -141,9 +148,7 @@ class ReceiveMailShell extends AppShell {
 
 		
 
-		pr("\r\n///////////////////////////\r\n");
-		pr($maildata);
-		pr("\r\n///////////////////////////\r\n");
+
 
 		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
