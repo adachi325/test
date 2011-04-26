@@ -69,7 +69,7 @@ class ReceiveMailShell extends AppShell {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
 //				$this->_moveMail($filename, $is_error);
-				$this->_deleteMail($filename);//ログは残さない
+				//$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
