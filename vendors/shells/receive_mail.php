@@ -32,8 +32,10 @@ class ReceiveMailShell extends AppShell {
 
 		pr($stdin);
 
-		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'JIS');
-		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
+		$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
+		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
+
+		pr($stdin);
 
 		$filename = microtime() . '.' . getmypid() . '.' . Configure::read('Defaults.domain');
 		$filepath = Configure::read('ReceiveMail.mail_dir_new') . $filename;
@@ -141,14 +143,14 @@ class ReceiveMailShell extends AppShell {
 
 		if(mb_check_encoding($maildata,'SJIS')){
 		    pr("SJISだ");
-		pr("\r\n/////////////1//////////////\r\n");
-		pr($maildata);
-		pr("\r\n/////////////1//////////////\r\n");
+//		pr("\r\n/////////////1//////////////\r\n");
+//		pr($maildata);
+//		pr("\r\n/////////////1//////////////\r\n");
 		    //$maildata = mb_convert_encoding($maildata,'UTF-8','SJIS');
 		    //$maildata = mb_convert_encoding($maildata,'iso-2022-jp','SJIS');
-		pr("\r\n/////////////2//////////////\r\n");
-		pr($maildata);
-		pr("\r\n/////////////2//////////////\r\n");
+//		pr("\r\n/////////////2//////////////\r\n");
+//		pr($maildata);
+//		pr("\r\n/////////////2//////////////\r\n");
 		} else if(mb_check_encoding($maildata,'UTF-8')){
 		    pr("UTF-8だ");
 		} else {
