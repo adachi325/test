@@ -130,11 +130,11 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
-		$this->log("---0---",LOG_DEBUG);
+		pr($maildata);
+
 		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
 		$header = $receiver->header();
-		$this->log("---/0---",LOG_DEBUG);
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
@@ -143,9 +143,7 @@ class ReceiveMailShell extends AppShell {
 
 		$receiver->bodyAutoSelect();
 
-		$this->log("---2---",LOG_DEBUG);
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
-		$this->log("---/2---",LOG_DEBUG);
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
