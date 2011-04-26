@@ -130,16 +130,9 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
-		pr("///////////////////////////");
+		pr("\r\n///////////////////////////\r\n");
 		pr($maildata);
-		pr("///////////////////////////");
-
-
-		$maildata = mb_convert_encoding($maildata,0x1B,'<br />');
-
-		pr("///////////////////////////");
-		pr($maildata);
-		pr("///////////////////////////");
+		pr("\r\n///////////////////////////\r\n");
 
 		$receiver = QdmailReceiver::start('direct', $maildata,'UTF-8');
 		//$receiver->unitedCharset( 'UTF-8' );
