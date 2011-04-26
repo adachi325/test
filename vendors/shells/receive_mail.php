@@ -35,7 +35,7 @@ class ReceiveMailShell extends AppShell {
 		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'SJIS');
 		//$stdin = mb_convert_encoding($stdin, 'UTF-8', 'sjis-win');
 		//$stdin = mb_convert_encoding($stdin,'iso-2022-jp','SJIS');
-		$stdin = mb_convert_encoding($stdin,'JIS','SJIS');
+		$stdin = bin2hex(mb_convert_encoding($stdin,'JIS','SJIS'));
 
 		pr($stdin);
 
