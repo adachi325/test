@@ -443,7 +443,7 @@ class QdDecodeBase extends QdmailReceiverError{
 		}
 		// subject
 		if( isset( $this->header['subject'] ) ){
-			$this->header['subject']= $this->splitMime( $this->header['subject'] , false );
+			//$this->header['subject']= $this->splitMime( $this->header['subject'] , false );
 		}
 		$this->already_header = true;
 	}
