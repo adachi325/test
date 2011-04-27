@@ -415,6 +415,8 @@ class QdDecodeBase extends QdmailReceiverError{
 			$this->getMail();
 		}
 
+		pr($this->getMail());
+
 		// cutting
 		if( 0 === preg_match( '/\r?\n\r?\n/is', trim( $this->all ), $matches, PREG_OFFSET_CAPTURE)){
 			$this->header_all = $this->all ;
@@ -443,7 +445,7 @@ class QdDecodeBase extends QdmailReceiverError{
 		}
 		// subject
 		if( isset( $this->header['subject'] ) ){
-			//$this->header['subject']= $this->splitMime( $this->header['subject'] , false );
+			$this->header['subject']= $this->splitMime( $this->header['subject'] , false );
 		}
 		$this->already_header = true;
 	}
