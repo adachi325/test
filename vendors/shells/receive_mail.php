@@ -141,10 +141,10 @@ class ReceiveMailShell extends AppShell {
 
 		pr($header['subject']['value']);
 
-		while (eregi("(=??ISO?-2022?-JP??B??)([^??]*)(??=)",$header['subject']['value'],$hits)){
-		    $encoded_part = $hits[1].$hits[2].$hits[3];
-		    $decode_part = base64_decode($hits[2]);
-		    $header['subject']['value'] = str_replace($replace_part,$decode_part,$header['subject']['value']);
+		while (eregi("(=\?ISO\-2022\-JP\?B\?)([^\?]*)(\?=)",$subject,$hits)){
+			$encoded_part = $hits[1].$hits[2].$hits[3];
+			$decode_part = base64_decode($hits[2]);
+			$subject = str_replace($replace_part,$decode_part,$subject);
 		}
 
 		pr($header['subject']['value']);
