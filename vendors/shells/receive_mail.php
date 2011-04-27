@@ -141,7 +141,8 @@ class ReceiveMailShell extends AppShell {
 
 		pr($header['subject']['value']);
 
-		$header['subject']['value'] = iconv_mime_decode("Subject:".$header['subject']['value'],0, "iso-2022-jp");
+		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "sjis-win", "B");
+		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "UTF-8", "sjis-win");
 
 		pr($header['subject']['value']);
 
