@@ -68,8 +68,8 @@ class ReceiveMailShell extends AppShell {
 			try {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-//				$this->_moveMail($filename, $is_error);
-				$this->_deleteMail($filename);//ログは残さない
+				$this->_moveMail($filename, $is_error);
+//				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
@@ -131,8 +131,12 @@ class ReceiveMailShell extends AppShell {
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
 
+		pr($maildata);
+
 		$maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
 		$maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
+
+		pr($maildata);
 		
 		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
