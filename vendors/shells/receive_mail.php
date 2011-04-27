@@ -137,10 +137,15 @@ class ReceiveMailShell extends AppShell {
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
 
-		$header['subject']['name'] = mb_decode_mimeheader($header['subject']['name']);
+		//$header['subject']['name'] = mb_decode_mimeheader($header['subject']['name']);
 
-		//$header['subject']['name'] = mb_convert_encoding($header['subject']['name'], "sjis-win", "iso-2022-jp");
-		//$header['subject']['name'] = mb_convert_encoding($header['subject']['name'], "UTF-8", "sjis-win");
+		pr($header['subject']['value']);
+
+		while (eregi("(=??ISO?-2022?-JP??B??)([^??]*)(??=)",$header['subject']['value'],$hits)){
+		    $encoded_part = $hits[1].$hits[2].$hits[3];
+		    $decode_part = base64_decode($hits[2]);
+		    $header['subject']['value'] = str_replace($replace_part,$decode_part,$header['subject']['value']);
+		}
 
 		pr($header['subject']['value']);
 
