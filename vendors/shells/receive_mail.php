@@ -130,13 +130,6 @@ class ReceiveMailShell extends AppShell {
 		
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
-
-		pr($maildata);
-
-		$maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
-		$maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
-
-		pr($maildata);
 		
 		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
@@ -147,6 +140,14 @@ class ReceiveMailShell extends AppShell {
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
+
+		pr($receiver->body['text']['value']);
+
+		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "sjis-win", "iso-2022-jp");
+		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "UTF-8", "sjis-win");
+
+		pr($receiver->body['text']['value']);
+
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
