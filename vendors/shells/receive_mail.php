@@ -136,7 +136,14 @@ class ReceiveMailShell extends AppShell {
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
-		
+
+		pr($header['subject']['name']);
+
+		//$header['subject']['name'] = mb_convert_encoding($header['subject']['name'], "sjis-win", "iso-2022-jp");
+		$header['subject']['name'] = mb_convert_encoding($header['subject']['name'], "UTF-8", "iso-2022-jp");
+
+		pr($header['subject']['name']);
+
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
