@@ -415,7 +415,7 @@ class QdDecodeBase extends QdmailReceiverError{
 			$this->getMail();
 		}
 
-		pr($this->getMail());
+		pr($this->all);
 
 		// cutting
 		if( 0 === preg_match( '/\r?\n\r?\n/is', trim( $this->all ), $matches, PREG_OFFSET_CAPTURE)){
