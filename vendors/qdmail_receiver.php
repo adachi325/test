@@ -508,6 +508,8 @@ class QdDecodeBase extends QdmailReceiverError{
 				continue;
 			}
 		}
+
+
 		return $header;
 	}
 	//--------------------------------------

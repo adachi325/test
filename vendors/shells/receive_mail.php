@@ -68,8 +68,8 @@ class ReceiveMailShell extends AppShell {
 			try {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-				$this->_moveMail($filename, $is_error);
-//				$this->_deleteMail($filename);//ログは残さない
+//				$this->_moveMail($filename, $is_error);
+				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
@@ -137,21 +137,14 @@ class ReceiveMailShell extends AppShell {
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
 
-		//$header['subject']['name'] = mb_decode_mimeheader($header['subject']['name']);
-
-		pr($header['subject']['value']);
-
-		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "sjis-win", "B");
-		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "UTF-8", "sjis-win");
-
-		pr($header['subject']['value']);
-
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
 
-		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "sjis-win", "iso-2022-jp");
-		$receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "UTF-8", "sjis-win");
+		if(!empty($receiver->body['text']['value'])) {
+		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "sjis-win", "iso-2022-jp");
+		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "UTF-8", "sjis-win");
+		}
 
 		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
