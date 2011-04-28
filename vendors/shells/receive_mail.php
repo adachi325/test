@@ -68,8 +68,8 @@ class ReceiveMailShell extends AppShell {
 			try {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-				$this->_moveMail($filename, $is_error);
-//				$this->_deleteMail($filename);//ログは残さない
+//				$this->_moveMail($filename, $is_error);
+				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
@@ -139,12 +139,12 @@ class ReceiveMailShell extends AppShell {
 
 		//$header['subject']['name'] = mb_decode_mimeheader($header['subject']['name']);
 
-		pr($header['subject']['value']);
-
-		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "sjis-win", "B");
-		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "UTF-8", "sjis-win");
-
-		pr($header['subject']['value']);
+//		pr($header['subject']['value']);
+//
+//		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "sjis-win", "iso-2022-jp");
+//		$header['subject']['value'] = mb_convert_encoding($header['subject']['value'], "UTF-8", "sjis-win");
+//
+//		pr($header['subject']['value']);
 
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
