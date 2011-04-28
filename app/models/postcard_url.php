@@ -56,7 +56,7 @@ class PostcardUrl extends AppModel {
 		$m = $this->alias;
 
 		$exp = date('Y-m-d H:i:s', mktime(date('H') - Configure::read('Present.postcard.valid_hours')) );
-		$data = $this->find('all', array('conditions' => array("{$m}.created >" => $exp, )));
+		$data = $this->find('all', array('conditions' => array("{$m}.created <" => $exp, )));
 
 		return $data;
 	}

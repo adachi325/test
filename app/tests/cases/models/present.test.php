@@ -29,8 +29,8 @@ class PresentTestCase extends CakeTestCase {
                 foreach($options as $option) {
                     $result = $p->find($type,$option);
                     $this->assertNotNull($result, '[type]正常系'.$i);
-                    pr($result);
-                    pr($type.','.$option['type'].','.$option['child_id']);
+                    //pr($result);
+                    //pr($type.','.$option['type'].','.$option['child_id']);
                     $i++;
                 }
 
@@ -55,8 +55,8 @@ class PresentTestCase extends CakeTestCase {
                     }else {
                         $this->assertNull(null, '[type]異常系'.$i);
                     }
-                    pr($result);
-                    pr($type.','.$option['type'].','.$option['child_id']);
+                    //pr($result);
+                    //pr($type.','.$option['type'].','.$option['child_id']);
                     $i++;
                 }
 		
@@ -71,8 +71,8 @@ class PresentTestCase extends CakeTestCase {
                 foreach($options as $option) {
                     $result = $p->find($type,$option);
                     $this->assertNotNull($result, '[month]正常系'.$i);
-                    pr($result);
-                    pr($type.','.$option['year'].','.$option['month']);
+                    //pr($result);
+                    //pr($type.','.$option['year'].','.$option['month']);
                     $i++;
                 }
 
@@ -96,8 +96,8 @@ class PresentTestCase extends CakeTestCase {
                     }else {
                         $this->assertNull(null, '[month]異常系'.$i);
                     }
-                    pr($result);
-                    pr($type.','.$option['year'].','.$option['month']);
+                    //pr($result);
+                    //pr($type.','.$option['year'].','.$option['month']);
                     $i++;
                 }
 	}
