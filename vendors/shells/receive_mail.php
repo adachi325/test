@@ -141,12 +141,12 @@ class ReceiveMailShell extends AppShell {
 		
 		$receiver->bodyAutoSelect();
 
-		if(!empty($receiver->body['text']['value'])) {
+		if(isset($receiver->body['text']['value'])) {
 		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "sjis-win", "iso-2022-jp");
 		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "UTF-8", "sjis-win");
 		}
 
-		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
+		$params['body'] = isset($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
