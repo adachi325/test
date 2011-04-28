@@ -73,8 +73,8 @@ class IssueTestCase extends CakeTestCase {
                 foreach($options as $option) {
                     $result = $i->find($type, $option);
                     $this->assertNotNull($result, '正常系[released]'.$r);
-                    pr($result);
-                    pr($option);
+                    //pr($result);
+                    //pr($option);
                     $r++;
                 }
 
@@ -91,8 +91,8 @@ class IssueTestCase extends CakeTestCase {
                     } else {
                         $this->assertNull($result, '異常系[released]'.$r);
                     }
-                    pr($result);
-                    pr($option);
+                    //pr($result);
+                    //pr($option);
                     $r++;
                 }
 
@@ -108,8 +108,8 @@ class IssueTestCase extends CakeTestCase {
 //                foreach($options as $option) {
 //                    $result = $i->find($type, $option);
 //                    $this->assertNotNull($result, '正常系[month]'.$r);
-//                    pr($result);
-//                    pr($option);
+//                    //pr($result);
+//                    //pr($option);
 //                    $r++;
 //                }
 

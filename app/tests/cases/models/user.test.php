@@ -49,16 +49,12 @@ class UserTestCase extends CakeTestCase {
             );
             $datas['7'] = Array(
                 'User'  => Array ('loginid' => 'd2m2lomdo23','dc_user' => '0','password' => 'shjahdlkahdkhaldaiuwhliudhaliudhliuahd','uid' => '0000289-weqe2a15','carrier' => 2,),
-                'Child' => Array ('0' => Array('nickname' => 'meaてすと','sex' => 0,'birth_year' => '2011','birth_month' => '11','line_id' => 5,'benesse_user' => 0,))
-            );
-            $datas['8'] = Array(
-                'User'  => Array ('loginid' => 'dbd2jhb23','dc_user' => '1','password' => '66219368216396872168ye78y21e91ye8','uid' => '00qewqe002892a15','carrier' => 3,),
-                'Child' => Array ('0' => Array('nickname' => 'テスト人','sex' => 0,'birth_year' => '2011','birth_month' => '9','line_id' => 0,'benesse_user' => 0,))
+                'Child' => Array ('0' => Array('nickname' => 'meaてすと','sex' => 0,'birth_year' => '2011','birth_month' => '3','line_id' => 5,'benesse_user' => 0,))
             );
             $i=1;
             foreach($datas as $data) {
                 $this->assertTrue($u->_register($data), '正常系'.$i);
-                pr($data);
+                //pr($data);
                 $i++;
             }
 
@@ -222,7 +218,7 @@ class UserTestCase extends CakeTestCase {
             $datasf = array();
             $datasf['0'] = Array(
                 'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
-                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '9','line_id' => 6,'benesse_user' => 1,))
+                'Child' => Array ('0' => Array('nickname' => 'ういうい','sex' => 1,'birth_year' => '2010','birth_month' => '9','line_id' => 'a','benesse_user' => 1,))
             );
             $datasf['1'] = Array(
                 'User'  => Array ('loginid' => 'uiui','dc_user' => '0','password' => '6083c163496d88d309abb6037b701f99978ef76f','uid' => '00002892a15','carrier' => 0,),
@@ -255,11 +251,11 @@ class UserTestCase extends CakeTestCase {
         function asserdFalseChecker($u,$data,$m){
                 $this->User->Child->set($data);
                 if (!$this->User->Child->validates()) {
-                    pr($this->User->Child->validationErrors);
+                    //pr($this->User->Child->validationErrors);
                 }
                 $this->User->set($data);
                 if (!$this->User->validates()) {
-                    pr($this->User->validationErrors);
+                    //pr($this->User->validationErrors);
                 }
                 $this->assertFalse($u->_register($data), $m);
         }
