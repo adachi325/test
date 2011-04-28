@@ -68,8 +68,8 @@ class ReceiveMailShell extends AppShell {
 			try {
 		echo "_execute _processMail\n";
 				$is_error = !$this->_processMail($filename);
-//				$this->_moveMail($filename, $is_error);
-				$this->_deleteMail($filename);//ログは残さない
+				$this->_moveMail($filename, $is_error);
+//				$this->_deleteMail($filename);//ログは残さない
 			} catch(Exception $e) {
 //				$this->_moveMail($filename, true);
 				$this->_deleteMail($filename);//ログは残さない
@@ -130,23 +130,20 @@ class ReceiveMailShell extends AppShell {
 		
 		$maildata = fread($fp, filesize($filepath));
 		fclose($fp);
+
+		$maildata = mb_convert_encoding($maildata, "sjis-win", "iso-2022-jp");
+		$maildata = mb_convert_encoding($maildata, "UTF-8", "sjis-win");
 		
 		$receiver = QdmailReceiver::start('direct', $maildata);
 		$header = $receiver->header();
 
 		$params = array();
 		$params['to'] = isset($header['to'][0]['mail']) ? $header['to'][0]['mail'] : "";
-
+		
 		$params['subject'] = isset($header['subject']['name']) ? $header['subject']['name'] : "";
 		
 		$receiver->bodyAutoSelect();
-
-		if(isset($receiver->body['text']['value'])) {
-		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "sjis-win", "iso-2022-jp");
-		    $receiver->body['text']['value'] = mb_convert_encoding($receiver->body['text']['value'], "UTF-8", "sjis-win");
-		}
-
-		$params['body'] = isset($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
+		$params['body'] = !empty($receiver->body['text']['value']) ? $receiver->body['text']['value'] : "";
 
 		$images = $this->_getImageAttachments($receiver);
 		$params['images'] = ($images !== null) ? $images : array();
