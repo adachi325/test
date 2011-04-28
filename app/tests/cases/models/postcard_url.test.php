@@ -47,8 +47,9 @@ class PostcardUrlTestCase extends CakeTestCase {
 
 	function testGetExpiredUrls() {
 		$p =& $this->PostcardUrl;
-
+		
 		$result = $p->getExpiredUrls();
+		//期限切れデータ検索
 		$this->assertEqual(count($result), 2, 'レコード取得数 %s');
 	}
 }
