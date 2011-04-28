@@ -42,7 +42,7 @@ class ContentTestCase extends CakeTestCase {
                 foreach($options as $option) {
                     $result = $c->isReleased($option['line'],$option['month']);
                     $this->assertEqual($result, $expected, '正常系'.$i);
-                    pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
+                    //pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
                     $i++;
                 }
 
@@ -65,7 +65,7 @@ class ContentTestCase extends CakeTestCase {
                 foreach($options as $option) {
                     $result = $c->isReleased($option['line'],$option['month']);
                     $this->assertEqual($result, $expected, '異常系'.$i);
-                    pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
+                    //pr(_CONTENTS_BASE_PATH.DS.$option['line'].DS.$option['month']);
                     $i++;
                 }
                 
