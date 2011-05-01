@@ -144,8 +144,10 @@ class ThemesController extends AppController {
         }
         
         //次月フラグ設定
-        if(
-            $months['0']['Month']['year'] <= date('Y') &&
+        if((
+            $months['0']['Month']['year'] < date('Y')
+           ) || 
+            $months['0']['Month']['year'] == date('Y') &&
             $months['0']['Month']['month'] < (date('m') + 0)
           )
         {
