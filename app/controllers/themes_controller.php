@@ -99,6 +99,8 @@ class ThemesController extends AppController {
         $month =& ClassRegistry::init('Month');
         $biforeData = $month->find('first',$beforeOptions);
 
+	$this->log($biforeData,LOG_DEBUG);
+
         if(
            (
             $months['0']['Month']['year'] > $biforeData['Month']['year']
