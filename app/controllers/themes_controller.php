@@ -88,25 +88,53 @@ class ThemesController extends AppController {
         }
     }
 
+    //MAXまたはMINの月データを取得する。
+    function _stockYearMonth($stockdatas=null,$order=null){
+	if(empty($stockdatas) or !isset($stockdatas)){
+	    $this->log('月データ取得中にエラーが発生',LOG_DEBUG);
+	    $this->cakeError('error404');
+	    return;
+	}
+	$stock;
+	foreach($stockdatas as $data){
+	    $data['Month']['month'] = (mb_strlen($data['Month']['month'])==1) ? '0'.$data['Month']['month'] : $data['Month']['month'] ;
+	    if (!isset($stock)){
+		$stock = $data;
+	    }
+	    if ($order==='MIN'){
+		if ($data['Month']['year'].$data['Month']['month'] < $stock['Month']['year'].$stock['Month']['month']) {
+		    $stock = $data;
+		}
+	    } else if ($order==='MAX'){
+		if ($data['Month']['year'].$data['Month']['month'] > $stock['Month']['year'].$stock['Month']['month']) {
+		    $stock = $data;
+		}
+	    } else {
+		$this->log('条件不正',LOG_DEBUG);
+		$this->cakeError('error404');
+		return;
+	    }
+	}
+	$stock['Month']['month'] = $stock['Month']['month']+0;
+	return $stock;
+    }
+
     function _beforeNextFlgSet(){
 
         $months = $this->Session->read('monthData');
         
         //前月フラグ設定
-        $beforeOptions['order'] = array(
-            'Month.year, Month.month'
-        );
         $month =& ClassRegistry::init('Month');
-        $biforeData = $month->find('first',$beforeOptions);
-
-	$this->log($biforeData,LOG_DEBUG);
+	$month->contain();
+        $monthData = $month->find('all');
+	$stock = $this->_stockYearMonth($monthData,'MIN');
 
         if(
            (
-            $months['0']['Month']['year'] > $biforeData['Month']['year']
+            $months['0']['Month']['year'] > $stock['Month']['year']
            ) || (
-            $months['0']['Month']['year'] == $biforeData['Month']['year'] &&
-            $months['0']['Month']['month'] > $biforeData['Month']['month']
+            $months['0']['Month']['year'] == $stock['Month']['year'] &&
+            $months['0']['Month']['month'] > $stock['Month']['month']
            )
           )
         {
@@ -116,10 +144,6 @@ class ThemesController extends AppController {
         }
         
         //次月フラグ設定
-        $nextOptions['order'] = array(
-            'Month.year, Month.month DESC'
-        );
-        $nextData = $month->find('first',$nextOptions);
         if(
             $months['0']['Month']['year'] <= date('Y') &&
             $months['0']['Month']['month'] < (date('m') + 0)
