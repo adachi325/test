@@ -3,7 +3,7 @@ class ThemesController extends AppController {
 
     var $name = 'Themes';
 
-    function index($assign = null) {
+    function index($assign = null,$setyear = null,$setmonth = null ) {
         if (!empty($assign)){
             //セッション情報回収
             $setOptions = $this->Session->read('setOptions');
@@ -34,6 +34,11 @@ class ThemesController extends AppController {
                         return;
                     }
                 } else if ($assign === 'diary') {
+
+		    //クッキー対策
+		    $setOptions['year'] = $setyear;
+		    $setOptions['month'] = $setmonth;
+
                     if ($this->_monthsDataFind($setOptions)){
                         $this->redirect('/themes/');
                         return;
