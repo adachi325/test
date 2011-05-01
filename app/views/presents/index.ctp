@@ -105,7 +105,7 @@ echo $this->Html->image(sprintf(Configure::read('Present.sample.3'), $year, $sam
 <td width="85%"><?php echo $this->Html->image("txt_write.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/diary/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
+<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/themes/index/diary/'.$year.'/'.$month.'/'); ?>" style="color:#339900;"><span style="color:#339900;"><?php echo $month; ?>月の思い出を書く</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
 
