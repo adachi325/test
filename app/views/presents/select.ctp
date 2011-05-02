@@ -11,9 +11,6 @@ if ($max_count == 4) {
 $page = isset($this->params['paging']['Diary']['page']) ? $this->params['paging']['Diary']['page'] : 1;
 $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->params['paging']['Diary']['pageCount'] : 1;
 
-//KDDIキャッシュ対応
-$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 10);
-
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
@@ -24,7 +21,7 @@ $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 10);
 <span style="color:#666666">※au,ｿﾌﾄﾊﾞﾝｸご利用の方は同一ﾍﾟｰｼﾞから<?php echo $max_count; ?>枚の写真を選択するようお願いいたします｡</span><br />
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
-<?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/{$hash}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Present' , array('url' => "/presents/select/{$type}/{$template_id}/?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->Form->hidden('page', array('value' => $page)); ?>
 <?php echo $this->Form->hidden('pageCount', array('value' => $pageCount)); ?>
 <?php echo $this->Form->hidden('template', array('value' => $template_id)); ?>
