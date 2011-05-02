@@ -143,7 +143,11 @@ class PresentsController extends AppController {
 					$this->Session->write('Present.data', $data['Present']);
 					$this->Session->write('Present.data.selection', $selection);
 					$this->Session->write('Present.data.type', $type);
-					$this->redirect("/presents/complete/");
+
+					//キャッシュ対応
+					$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
+
+					$this->redirect("/presents/complete/".$hash."/");
 				} else {
 					$this->Session->delete('Present');
 					$this->Session->write('Present.error.type', $type);
@@ -187,7 +191,7 @@ class PresentsController extends AppController {
 		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
-	function complete($type = null) {
+	function complete() {
             
 		$data = $this->Session->read('Present.data');
 		if(empty($data)){
