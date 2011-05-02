@@ -1,9 +1,4 @@
 
-<?php
-//KDDIキャッシュ対応
-$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 10);
-?>
-
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -25,7 +20,7 @@ $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 10);
 <td align="center" width="50%">
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/{$hash}/"));
+echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/"));
 ?>
 </td>
 
@@ -34,7 +29,7 @@ echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height"
 <?php if (isset($items[$i])): ?>
 <?php
 extract($items[$i]['Present']);
-echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/{$hash}/"));
+echo $this->Html->image($present_thumbnail_path, array("width" => "90", "height" => "120", "style" => "margin:5px 0;", "url" => "/presents/select/flash/{$id}/"));
 ?>
 <?php endif; ?>
 </td>
