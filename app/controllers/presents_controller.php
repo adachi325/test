@@ -187,7 +187,7 @@ class PresentsController extends AppController {
 		$this->set(compact('items', 'data', 'type', 'template_id', 'max_count'));
 	}
 
-	function complete($type = null) {
+	function complete() {
             
 		$data = $this->Session->read('Present.data');
 		if(empty($data)){
