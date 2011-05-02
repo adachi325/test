@@ -1,5 +1,4 @@
 
-<meta http-equiv="Cache-Control" content="max-age=1" />
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 <div style="text-align:center;" align="center">待受Flash完成!</div>
 <br />
