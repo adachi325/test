@@ -128,7 +128,7 @@ W11H/W11K/W21H<br />
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
 <h3>動画</h3>
 <p>※以下の端末はご利用いただけません。</p>
-<p>▼Flash(音付き)非対応機種</p>
+<p>▼動画非対応機種</p>
 <dl>
   <dt>【NTTドコモ】</dt>
   <dd>
