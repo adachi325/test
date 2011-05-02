@@ -144,8 +144,8 @@ class PresentsController extends AppController {
 					$this->Session->write('Present.data.selection', $selection);
 					$this->Session->write('Present.data.type', $type);
 
-					//キャッシュ対応
-					$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
+					//KDDIキャッシュ対応
+					$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 10);
 
 					$this->redirect("/presents/complete/".$hash."/");
 				} else {
