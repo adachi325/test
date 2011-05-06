@@ -31,7 +31,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子<br />
-<div><span style="color:#ff0000"><?php echo $form->error('sex','必須項目です'); ?></span></div>
+<div><span style="color:#ff0000"><?php echo $form->error('sex','必須項目です', array('wrap' => false)); ?></span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -51,7 +51,21 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 		'label' => false,
         'error' => false,
 		'style' => 'font-size:x-small;',
-	)) ?> 年 <br /><span style="color:#ff0000"><?php echo $form->error('birth_year'); ?></span>
+	)) ?> 年 <br />
+	<?php
+		if($this->Ktai->is_ezweb()){
+		    echo '<font color="#ff0000">';
+		} else {
+		    echo '<span style="color:#ff0000">';
+		}
+		echo $form->error('birth_year');
+		if($this->Ktai->is_ezweb()){
+		    echo '</font>';
+		} else {
+		    echo '</span>';
+		}
+
+	?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -62,7 +76,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 		'label' => false,
         'error' => false,
 		'style' => 'font-size:x-small;',
-	)) ?> 月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month'); ?></span>
+	)) ?> 月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

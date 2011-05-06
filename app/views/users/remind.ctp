@@ -65,7 +65,21 @@ if($this->Ktai->is_ezweb()){
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><span style="color:#ff0000"><?php echo $form->error('birth_year'); ?></span>
+	)) ?>年 <br />
+	<?php
+		if($this->Ktai->is_ezweb()){
+		    echo '<font color="#ff0000">';
+		} else {
+		    echo '<span style="color:#ff0000">';
+		}
+		echo $form->error('birth_year');
+		if($this->Ktai->is_ezweb()){
+		    echo '</font>';
+		} else {
+		    echo '</span>';
+		}
+
+	?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -76,7 +90,7 @@ if($this->Ktai->is_ezweb()){
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month'); ?></span>
+	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month', null, array('wrap' => false)); ?></span><br />
 </span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>

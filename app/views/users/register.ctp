@@ -9,7 +9,6 @@
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
 <span style="color:#CC0000">※ﾛｸﾞｲﾝ名やﾊﾟｽﾜｰﾄﾞはご自由に設定できますが、電話番号やﾒｰﾙｱﾄﾞﾚｽ等､個人を特定できる情報は利用しないでください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
 <?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
@@ -94,7 +93,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('Child.0.sex', array('2' => ''), array('legend' => false,'value' => $value2)); ?>男の子<br /> 
-<span style="color:#ff0000"><?php echo $form->error('Child.0.sex','必須項目です'); ?></span>
+<span style="color:#ff0000"><?php echo $form->error('Child.0.sex','必須項目です', array('wrap' => false)); ?></span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
@@ -114,7 +113,21 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><span style="color:#ff0000"><?php echo $form->error('Child.0.birth_year'); ?></span>
+	)) ?>年 <br />
+	<?php
+		if($this->Ktai->is_ezweb()){
+		    echo '<font color="#ff0000">';
+		} else {
+		    echo '<span style="color:#ff0000">';
+		}
+		echo $form->error('Child.0.birth_year');
+		if($this->Ktai->is_ezweb()){
+		    echo '</font>';
+		} else {
+		    echo '</span>';
+		}
+	    
+	?>
 <?php echo $this->Form->input('Child.0.birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -125,7 +138,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('Child.0.birth_month'); ?></span>
+	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('Child.0.birth_month', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

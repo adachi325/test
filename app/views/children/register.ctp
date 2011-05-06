@@ -52,7 +52,20 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 年 <br />
-        <span style="color:#ff0000"><?php echo $form->error('birth_year'); ?></span>
+	<?php
+		if($this->Ktai->is_ezweb()){
+		    echo '<font color="#ff0000">';
+		} else {
+		    echo '<span style="color:#ff0000">';
+		}
+		echo $form->error('birth_year');
+		if($this->Ktai->is_ezweb()){
+		    echo '</font>';
+		} else {
+		    echo '</span>';
+		}
+
+	?>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -63,8 +76,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 	'label' => false,
         'error' => false,
 		'style' => 'font-size:x-small;',
-	)) ?> 月<br />
-        <span style="color:#ff0000"><?php echo $form->error('birth_month'); ?></span>
+	)) ?> 月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
