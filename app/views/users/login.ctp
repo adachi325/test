@@ -7,12 +7,12 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してくだい｡<br />
-<font color="#dd0000">
+<span style="color:#dd0000">
 <?php
 echo $this->Session->flash();
 echo $this->Session->flash('auth');;
 ?>
-</font>
+</span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>

@@ -3,14 +3,14 @@
 
 以下をご入力の上､｢次へ｣ﾎﾞﾀﾝを押してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<font color="#dd0000">
+<span style="color:#dd0000">
 <?php
 if(isset($errorStr)){
     echo $errorStr;
     echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10"));
 }
 ?>
-</font>
+</span>
 <br />
 <?php echo $this->Form->create('User', array("url" => "/users/remindCheck?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -32,7 +32,7 @@ if($this->Ktai->is_ezweb()){
 } else {
     echo $this->Form->input("remindId", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
 }
-?><font color="#ff0000"><?php echo $form->error('remindId', null, array('wrap' => false)); ?></font>
+?><span style="color:#ff0000"><?php echo $form->error('remindId', null, array('wrap' => false)); ?></span>
 <br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
@@ -44,7 +44,7 @@ if($this->Ktai->is_ezweb()){
 <span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><br />
 <span style="color:#666666;">全角6文字以内</span><br />
 <?php echo $this->Form->input("nickname", array("type" => "text", 'error' => false, "style" => "font-size:x-small;")); ?>
-<font color="#ff0000"><?php echo $form->error('nickname', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('nickname', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -65,7 +65,7 @@ if($this->Ktai->is_ezweb()){
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><font color="#ff0000"><?php echo $form->error('birth_year'); ?></font>
+	)) ?>年 <br /><span style="color:#ff0000"><?php echo $form->error('birth_year'); ?></span>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -76,7 +76,7 @@ if($this->Ktai->is_ezweb()){
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><font color="#ff0000"><?php echo $form->error('birth_month'); ?></font>
+	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('birth_month'); ?></span>
 </span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>

@@ -88,7 +88,6 @@ class UsersController extends AppController {
                 //バリデーションにエラーがなければリダイレクト処理
                 $this->redirect('/users/register_confirm');
             } else {
-                $this->Session->setFlash(__('入力情報が間違っています。', true));
 		$this->data['User']['new_password'] = '';
 		$this->data['User']['row_password'] = '';
             }

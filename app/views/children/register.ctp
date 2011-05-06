@@ -13,7 +13,7 @@
 <span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">全角6文字以内</span><br />
 <?php echo $this->Form->input("nickname", array("type" => "text", 'error' => false, "style" => "font-size:x-small;")); ?>
-<font color="#ff0000"><?php echo $form->error('nickname', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('nickname', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -31,7 +31,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('sex', array('1' => ''), array('legend' => false, 'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('sex', array('2' => ''), array('legend' => false, 'value' => $value2)); ?>男の子<br />
-<div><font color="#ff0000"><?php echo $form->error('sex','必須項目です'); ?></font></div>
+<div><span style="color:#ff0000"><?php echo $form->error('sex','必須項目です'); ?></span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -52,7 +52,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 年 <br />
-        <font color="#ff0000"><?php echo $form->error('birth_year'); ?></font>
+        <span style="color:#ff0000"><?php echo $form->error('birth_year'); ?></span>
 <?php echo $this->Form->input('birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -64,7 +64,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
         'error' => false,
 		'style' => 'font-size:x-small;',
 	)) ?> 月<br />
-        <font color="#ff0000"><?php echo $form->error('birth_month'); ?></font>
+        <span style="color:#ff0000"><?php echo $form->error('birth_month'); ?></span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -75,7 +75,7 @@ $value2 = ($this->data['Child']['sex'] == 2) ? '2' : 'none';
 <span style="color:#333333;">■子どもの年齢<span style="color:#ff0000;">(必須)</span><br />
 お子さんの年齢に合ったｺｰｽをお選びください｡</span><br />
 <?php echo $this->Form->input('line_id', array('style' => 'font-size:x-small;','error' => false)); ?>
-<font color="#ff0000"><?php echo $form->error('line_id', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('line_id', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>

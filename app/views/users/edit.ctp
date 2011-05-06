@@ -26,7 +26,7 @@ extract($this->data['User']);
     } else {
 	echo $this->Form->input("new_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
     }
-    ?><font color="#ff0000"><?php echo $form->error('new_password', null, array('wrap' => false)); ?></font><br />
+    ?><span style="color:#ff0000"><?php echo $form->error('new_password', null, array('wrap' => false)); ?></span><br />
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -43,7 +43,7 @@ if($this->Ktai->is_ezweb()){
 } else {
     echo $this->Form->input("row_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
-?><font color="#ff0000"><?php echo $form->error('row_password', null, array('wrap' => false)); ?></font><br />
+?><span style="color:#ff0000"><?php echo $form->error('row_password', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
