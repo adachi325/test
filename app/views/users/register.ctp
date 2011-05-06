@@ -30,7 +30,7 @@ if($this->Ktai->is_ezweb()){
 } else {
     echo $this->Form->input("loginid", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['3'], "style" => "-wap-input-format:&quot;*&lt;ja:en&gt;&quot;;-wap-input-format:*m;font-size:x-small;"));
 }
-?><font color="#ff0000"><?php echo $form->error('loginid', null, array('wrap' => false)); ?></font><br />
+?><span style="color:#ff0000"><?php echo $form->error('loginid', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -48,7 +48,7 @@ if($this->Ktai->is_ezweb()){
     echo $this->Form->input("new_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
 ?>
-<font color="#ff0000"><?php echo $form->error('new_password', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('new_password', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -66,7 +66,7 @@ if($this->Ktai->is_ezweb()){
     echo $this->Form->input("row_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
 ?>
-<font color="#ff0000"><?php echo $form->error('row_password', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('row_password', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -76,7 +76,7 @@ if($this->Ktai->is_ezweb()){
 <span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">全角6文字以内</span><br />
 <?php echo $this->Form->input("Child.0.nickname", array("type" => "text", 'error' => false, "style" => "font-size:x-small;")); ?>
-<font color="#ff0000"><?php echo $form->error('Child.0.nickname', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('Child.0.nickname', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -94,7 +94,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 ?>
 <?php echo $this->Form->radio('Child.0.sex', array('1' => ''), array('legend' => false,'value' => $value1)); ?>女の子<br />
 <?php echo $this->Form->radio('Child.0.sex', array('2' => ''), array('legend' => false,'value' => $value2)); ?>男の子<br /> 
-<font color="#ff0000"><?php echo $form->error('Child.0.sex','必須項目です'); ?></font>
+<span style="color:#ff0000"><?php echo $form->error('Child.0.sex','必須項目です'); ?></span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
@@ -114,7 +114,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>年 <br /><font color="#ff0000"><?php echo $form->error('Child.0.birth_year'); ?></font>
+	)) ?>年 <br /><span style="color:#ff0000"><?php echo $form->error('Child.0.birth_year'); ?></span>
 <?php echo $this->Form->input('Child.0.birth_month', array(
 		'options' => $this->SelectOptions->getOption(array(
 			'min' => 1, 
@@ -125,7 +125,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 		'div' => false,
 		'label' => false,
 		'style' => 'font-size:x-small;',
-	)) ?>月<br /><font color="#ff0000"><?php echo $form->error('Child.0.birth_month'); ?></font>
+	)) ?>月<br /><span style="color:#ff0000"><?php echo $form->error('Child.0.birth_month'); ?></span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -136,7 +136,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 <span style="color:#333333;">■子どもの年齢<span style="color:#ff0000;">(必須)</span><br />
 お子さんの年齢に合ったｺｰｽをお選びください｡</span><br />
 <?php echo $this->Form->input('Child.0.line_id', array('error' => false,'style' => 'font-size:x-small;')); ?>
-<font color="#ff0000"><?php echo $form->error('Child.0.line_id', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('Child.0.line_id', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>

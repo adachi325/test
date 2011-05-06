@@ -27,7 +27,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ﾀｲﾄﾙ<span style="color:#ff6600;"> 全角20文字以内</span><br />
 <?php echo $this->Form->input("title", array("type" => "text", 'error' => false, "style" => "font-size:x-small;width:100%")); ?>
-<font color="#ff0000"><?php echo $form->error('title', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('title', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -37,7 +37,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 本文<span style="color:#ff6600;"> 全角5000文字以内</span><br />
 <?php echo $this->Form->input("body", array("type" => "texterea", 'error' => false,  "style" => "font-size:x-small;width:100%")); ?>
-<font color="#ff0000"><?php echo $form->error('body', null, array('wrap' => false)); ?></font><br />
+<span style="color:#ff0000"><?php echo $form->error('body', null, array('wrap' => false)); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
