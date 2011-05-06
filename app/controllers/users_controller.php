@@ -191,6 +191,8 @@ class UsersController extends AppController {
 		unset($this->data['User']['new_password']);
 		if(empty($this->data['User']['row_password']) or !isset($this->data['User']['row_password'])) {
 		    unset($this->data['User']['row_password']);
+		} else {
+		    $this->data['User']['new_password'] = '';
 		}
 	    }
 
