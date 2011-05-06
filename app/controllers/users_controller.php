@@ -185,6 +185,15 @@ class UsersController extends AppController {
     function edit() {
         $this->pageTitle = '登録情報変更';
         if (!empty($this->data)) {
+
+	    //パスワード変更なしの場合は、設定しない。
+	    if(empty($this->data['User']['new_password']) or !isset($this->data['User']['new_password'])) {
+		unset($this->data['User']['new_password']);
+		if(empty($this->data['User']['row_password']) or !isset($this->data['User']['row_password'])) {
+		    unset($this->data['User']['row_password']);
+		}
+	    }
+
             $this->User->set($this->data);
             if ($this->User->validates()) {
                 //セッションにデータ保持
@@ -232,14 +241,14 @@ class UsersController extends AppController {
 
         if (!empty($this->data)) {
             try {
-               $this->_setEditData();
-               if( $this->User->save($this->data)){
-                  return;
-               } else {
-                  $this->cakeError('error404');
-                  $this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-                  $this->log($this->data,LOG_DEBUG);
-               }
+		$this->_setEditData();
+		if( $this->User->save($this->data)){
+		  return;
+		} else {
+		  $this->cakeError('error404');
+		  $this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+		  $this->log($this->data,LOG_DEBUG);
+		}
             } catch(Exception $e) {
                   $this->cakeError('error404');
                   $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
@@ -261,10 +270,13 @@ class UsersController extends AppController {
         $editData = array();
         $editData = $this->data;
         $editData['User']['id'] = $userData['User']['id'];
-        //ハッシュ化
-        $editData['User']['password'] = AuthComponent::password( $editData['User']['new_password'] );
-        unset ($editData['User']['new_password']);
-        unset ($editData['User']['row_password']);
+	//パスワード変更なしの場合は、設定しない。
+	if(isset($this->data['User']['new_password'])) {
+	    //ハッシュ化
+	    $editData['User']['password'] = AuthComponent::password( $editData['User']['new_password'] );
+	    unset ($editData['User']['new_password']);
+	    unset ($editData['User']['row_password']);
+	}
         $this->data = $editData;
     }
 
