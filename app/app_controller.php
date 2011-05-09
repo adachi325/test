@@ -107,6 +107,12 @@ class AppController extends Controller {
 	public $allow_android = array();
 
 	function beforeFilter(){
+
+		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
+		if ($this->Ktai->is_iphone()) {
+		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
+		}
+
 		parent::beforeFilter();
 		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
