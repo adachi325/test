@@ -410,7 +410,14 @@ class DiariesController extends AppController {
             $this->redirect('/children/');
         }
 
-        $filepath = 'img/photo/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.dmt';
+	$dir = 'img/photo/'.$diary['Diary']['child_id'].'/';
+	if (!file_exists($dir)) {
+		mkdir($dir,0777);
+		chmod($dir, 0777);
+		system("chmod 777 ".$dir);
+	}
+	
+        $filepath = $dir.$diary['Diary']['id'].'.dmt';
         $fp = fopen($filepath, "w"); // 新規書き込みモードで開く
 
         $list = array();
