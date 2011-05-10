@@ -62,6 +62,7 @@
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  */
+
 class AppController extends Controller {
 
 	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga');
@@ -154,6 +155,24 @@ class AppController extends Controller {
 				}
 			}
 		}
+
+		//pr($_SERVER['SERVER_NAME']);
+		//if(preg_match('|^http[s]?://|', $_SERVER["REQUEST_URL"])){
+		    //auとsoftbankにもセッション付与
+		    if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
+			define('__SESSION__SET__', 1);
+			ini_set('session.use_only_cookies', 0);
+			ini_set('session.use_cookies', 0);
+			$this->_userAgent = '';
+			ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+			ini_set('session.name','csid');
+			$session_name = session_name();
+			if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
+				session_id($_REQUEST[$session_name]);
+				output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
+			}
+		    }
+		//}
 	}   
 
 	function __formActionGuidOn(){
@@ -201,7 +220,7 @@ class AppController extends Controller {
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
-				$url['?'][session_name()] = session_id();
+				$url['?']['csid'] = session_id();
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
