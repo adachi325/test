@@ -416,7 +416,7 @@ class DiariesController extends AppController {
 		chmod($dir, 0777);
 		system("chmod 777 ".$dir);
 	}
-	
+
         $filepath = $dir.$diary['Diary']['id'].'.dmt';
         $fp = fopen($filepath, "w"); // 新規書き込みモードで開く
 
@@ -444,7 +444,7 @@ $list[1] = '
 <br>
 <div align="center"><img src="cid:01"></div>
 <br>
-<div align="center">'.(h($diary['Diary']['body'])).'</div>
+<div align="center">'.$diary['Diary']['body'].'</div>
 <br>
 <div align="right">'.date('n月d日', strtotime($diary['Diary']['created'])).'</div>
 <div align="center"><img src="cid:02"></div>
