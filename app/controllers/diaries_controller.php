@@ -530,7 +530,7 @@ $list[6] ='--5000000000--
 }
 
         while(list($key,$value) = each($list)){
-                $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
+                //$value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
                 $value = str_replace("\n","\r\n",$value);
                 @fwrite( $fp, $value, strlen($value) );
         }
