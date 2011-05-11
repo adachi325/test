@@ -125,16 +125,16 @@ class AppController extends Controller {
 		$this->Auth->autoRedirect = false;
 
 		/*
-		if ($this->Ktai->is_ezweb()) {
-			$secured = $this->Ssl->ssled($this->params);
+		if ($this->Ktai->is_ezweb()) { */
+		    $secured = $this->Ssl->ssled($this->params);
 
-			if ($secured && !$this->Ssl->https) {
-				$this->Ssl->forceSSL();
-			}
-			elseif (!$secured && $this->Ssl->https) {
-				$this->Ssl->forceNoSSL();
-			}
-		}
+		    if ($secured && !$this->Ssl->https) {
+			    $this->Ssl->forceSSL();
+		    }
+		    elseif (!$secured && $this->Ssl->https) {
+			    $this->Ssl->forceNoSSL();
+		    }
+		/*}
 		*/
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
@@ -173,7 +173,7 @@ class AppController extends Controller {
 			}
 		    }
 		//}
-	}   
+	}
 
 	function __formActionGuidOn(){
 		// output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
