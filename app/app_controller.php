@@ -234,14 +234,10 @@ class AppController extends Controller {
 					$url['?'] = array();
 				}
                                 $url['?']['guid'] = 'on'; // guid=onを付加
+				$url['?']['csid'] = session_id(); // session_idを不可
 			}
 			
-		}
-
-		$this->log('-----',LOG_DEBUG);
-		$this->log($url,LOG_DEBUG);
-		$this->log('-----',LOG_DEBUG);
-		
+		}		
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
