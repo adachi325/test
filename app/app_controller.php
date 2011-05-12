@@ -123,7 +123,7 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
-		$this->log(session_id($_REQUEST[$session_name]),LOG_DEBUG);
+		$this->log(session_id(),LOG_DEBUG);
 		//SSLページでの引き継ぎ用
 //		$ssluid= $this->Session->read('sslUid');
 //		$this->log('getuid1',LOG_DEBUG);
@@ -173,7 +173,7 @@ class AppController extends Controller {
 		    if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
 			define('__SESSION__SET__', 1);
 			ini_set('session.use_only_cookies', 0);
-			ini_set('session.use_cookies', 0);
+			//ini_set('session.use_cookies', 0);
 			$this->_userAgent = '';
 			ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
 			ini_set('session.name','csid');
