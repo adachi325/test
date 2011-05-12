@@ -17,11 +17,16 @@ class UsersController extends AppController {
 
     function uidCheck(){
 
+	$this->log($this->data,LOG_DEBUG);
+
 	$this->log(session_id(),LOG_DEBUG);
+
+	
 
 	if (isset($_SERVER['HTTPS'])) {
 	    $this->log('yes ssl',LOG_DEBUG);
-	    $uid = $this->data['User']['sslUid'];
+	    //$uid = $this->data['User']['sslUid'];
+	    $uid = $this->Session->read('sslUid');
 	} else {
 	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
