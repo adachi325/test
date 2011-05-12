@@ -126,6 +126,7 @@ class AppController extends Controller {
 		//SSLページでの引き継ぎ用
 		$ssluid= $this->Session->read('sslUid');
 		$this->log('getuid1',LOG_DEBUG);
+		$this->log($ssluid,LOG_DEBUG);
 		if(!isset($ssluid)){
 		    $this->log('getuid2',LOG_DEBUG);
 		    $uid = $this->Ktai->get_uid();
