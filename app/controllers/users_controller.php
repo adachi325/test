@@ -123,12 +123,15 @@ class UsersController extends AppController {
     }
 
     function register_confirm(){
+
+	session_start();
+
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');
         if (empty($this->data)) {
             $this->Session->delete('userRegisterData');
             $this->Session->setFlash(__('不正操作です。', true));
-            $this->cakeError('error404');
+            //$this->cakeError('error404');
             return;
         }
         $this->_setline();
