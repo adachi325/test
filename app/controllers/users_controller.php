@@ -18,12 +18,14 @@ class UsersController extends AppController {
     function uidCheck(){
 
 	if (isset($_SERVER['HTTPS'])) {
-	    pr('yes ssl');
+	    $this->log('yes ssl',LOG_DEBUG);
 	    $uid = $this->Session->read('sslUid');
 	} else {
-	    pr('no ssl');
+	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
 	}
+
+	$this->log($uid,LOG_DEBUG);
         
         if(!isset($uid) or empty($uid)) {
             $result = $this->_getCareer();
