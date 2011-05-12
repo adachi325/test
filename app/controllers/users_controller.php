@@ -17,6 +17,8 @@ class UsersController extends AppController {
 
     function uidCheck(){
 
+
+	$this->log('---------------------------------------------\r\n',LOG_DEBUG);
 	$this->log($this->data,LOG_DEBUG);
 
 	$this->log(session_id(),LOG_DEBUG);
