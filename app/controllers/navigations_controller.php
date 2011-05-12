@@ -119,9 +119,9 @@ class NavigationsController extends AppController {
 				$this->Session->write('previd' , '2');
 				//利用規約未同意エラー表示切り分けフラグ設定
 				$this->Session->write('prev2_error_flg' , true);
-				$this->redirect('/navigations/prev');
+		//		$this->redirect('/navigations/prev');
 			}
-		$this->redirect('http://shimajiro-dev.com/dev.tado.shimajiro/users/register');
+		$this->redirect('http://shimajiro-dev.com/dev.tado.shimajiro/users/register/?csid='.session_id());
 	}
 }
 ?>
