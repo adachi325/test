@@ -29,6 +29,8 @@ class UsersController extends AppController {
 	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
 	}
+
+	$this->log($uid,LOG_DEBUG);
         
         if(!isset($uid) or empty($uid)) {
             $result = $this->_getCareer();
