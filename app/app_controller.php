@@ -219,8 +219,8 @@ class AppController extends Controller {
 	function __redirect_url($url){
 
 		if(isset($this->Ktai)){
-			if($this->Ktai->_options['enable_ktai_session'] &&
-				($this->Ktai->_options['use_redirect_session_id'] /* || $this->Ktai->is_imode()*/)){
+			if($this->Ktai->_options['enable_ktai_session']/*  &&
+				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode()*/)){
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
 						$prefix = ereg("\?", $url) ? "&" : "?";
