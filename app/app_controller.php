@@ -225,6 +225,7 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 						$prefix = ereg("\?", $url) ? "&" : "?";
 						$url = $url.$prefix."csid=".session_id();
+						$this->log($url,LOG_DEBUG);
 						return $url;
 					}
 					$url = Router::parse($url);
