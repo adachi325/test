@@ -106,6 +106,8 @@ class UsersController extends AppController {
 		//$this->render('register_confirm');
 		$url = '/users/register_confirm';
 		$url .= sprintf("?%s=%s", 'csid',urlencode(session_id()));
+
+		pr($url);
                 $this->redirect($url);
             } else {
 		$this->data['User']['new_password'] = '';
