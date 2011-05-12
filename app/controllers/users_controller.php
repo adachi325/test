@@ -104,7 +104,7 @@ class UsersController extends AppController {
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
 		//$this->render('register_confirm');
-                $this->redirect('https://shimajiro-dev.com/dev.tado.shimajiro/users/register_confirm');
+                $this->redirect('https://shimajiro-dev.com/dev.tado.shimajiro/users/register_confirm/?csid='.session_id());
             } else {
 		$this->data['User']['new_password'] = '';
 		$this->data['User']['row_password'] = '';
