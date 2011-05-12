@@ -97,7 +97,7 @@ class AppController extends Controller {
 		'output_encoding' => 'UTF8',
 		'use_xml' => true,
 		'enable_ktai_session' => true, //セッション使用を有効にします
-		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
+		'use_redirect_session_id' => true, //リダイレクトに必ずセッションIDをつけます
 		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
 		'use_xml' => false,
@@ -117,25 +117,29 @@ class AppController extends Controller {
 		parent::beforeFilter();
 		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
-
 		$this->Auth->fields = array(
-				'username' => 'loginid',
-				'password' => 'password'
-				);
+			'username' => 'loginid',
+			'password' => 'password'
+			);
 		$this->Auth->autoRedirect = false;
 
-		/*
-		if ($this->Ktai->is_ezweb()) { */
-		    $secured = $this->Ssl->ssled($this->params);
+		//SSLページでの引き継ぎ用
+		$ssluid= $this->Session->write('sslUid');
+		if(!isset($ssluid)){
+		    $uid = $this->Ktai->get_uid();
+		    if(isset($uid)){
+			$this->Session->write('sslUid', $uid);
+		    }
+		}
 
-		    if ($secured && !$this->Ssl->https) {
-			    $this->Ssl->forceSSL();
-		    }
-		    elseif (!$secured && $this->Ssl->https) {
-			    $this->Ssl->forceNoSSL();
-		    }
-		/*}
-		*/
+		$secured = $this->Ssl->ssled($this->params);
+
+		if ($secured && !$this->Ssl->https) {
+			$this->Ssl->forceSSL();
+		} elseif (!$secured && $this->Ssl->https) {
+			$this->Ssl->forceNoSSL();
+		}
+
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();

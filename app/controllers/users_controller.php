@@ -16,7 +16,15 @@ class UsersController extends AppController {
     }
 
     function uidCheck(){
-        $uid = $this->_getUid();
+
+	if (isset($_SERVER['HTTPS'])) {
+	    pr('yes ssl');
+	    
+	} else {
+	    pr('no ssl');
+	    $uid = $this->_getUid();
+	}
+        
         if(!isset($uid) or empty($uid)) {
             $result = $this->_getCareer();
             if( $result == 0 or $result == 1 or $result == 2 ){
@@ -29,6 +37,7 @@ class UsersController extends AppController {
     function login(){
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
+
         //ログイン判定
         if($this->Auth->user()) {
             $this->redirect($this->Auth->redirect());
@@ -37,17 +46,17 @@ class UsersController extends AppController {
 
     //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
-		$this->Session->destroy();
-		$redirectTo = $this->Auth->logout();
-		$this->redirect('/');
+	$this->Session->destroy();
+	$redirectTo = $this->Auth->logout();
+	$this->redirect('/');
     }
 
-	function index() {
-		if ($this->Ktai->is_imode()) {
-			$this->redirect('/users/login/?guid=ON');
-		} else {
-			$this->redirect('/users/login');
-		}
+    function index() {
+	if ($this->Ktai->is_imode()) {
+		$this->redirect('/users/login/?guid=ON');
+	} else {
+		$this->redirect('/users/login');
+	}
     }
 
     function register(){
