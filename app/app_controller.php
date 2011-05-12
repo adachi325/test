@@ -203,7 +203,11 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
-			if (!eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"]))
+			$uri = '';
+			if(isset($_SERVER["REDIRECT_QUERY_STRING"])){
+			    $uri = $_SERVER["REDIRECT_QUERY_STRING"];
+			}
+			if (!eregi("guid=ON", $uri))
 			{
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"]))
 				{
