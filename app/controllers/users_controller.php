@@ -105,7 +105,7 @@ class UsersController extends AppController {
                 //バリデーションにエラーがなければリダイレクト処理
 		//$this->render('register_confirm');
 		$url = '/users/register_confirm';
-		$url .= sprintf("?%s=%s", CAKE_SESSION_COOKIE,urlencode(session_id());
+		$url .= sprintf("?%s=%s", CAKE_SESSION_COOKIE,urlencode(session_id()));
                 $this->redirect($url);
             } else {
 		$this->data['User']['new_password'] = '';
