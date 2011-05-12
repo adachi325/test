@@ -121,7 +121,7 @@ class NavigationsController extends AppController {
 				$this->Session->write('prev2_error_flg' , true);
 				$this->redirect('/navigations/prev');
 			}
-		$this->redirect('/users/register');
+		$this->redirect('http://shimajiro-dev.com/dev.tado.shimajiro/users/register');
 	}
 }
 ?>
