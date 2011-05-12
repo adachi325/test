@@ -168,7 +168,7 @@ class AppController extends Controller {
 		    if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
 			define('__SESSION__SET__', 1);
 			ini_set('session.use_only_cookies', 0);
-			//ini_set('session.use_cookies', 0);
+			ini_set('session.use_cookies', 0);
 			$this->_userAgent = '';
 			ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
 			ini_set('session.name','csid');
