@@ -225,7 +225,7 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 						$prefix = ereg("\?", $url) ? "&" : "?";
 						$url = $url.$prefix."csid=".session_id();
-						$this->log($url,LOG_DEBUG);
+						$this->log('ssl?'.$url,LOG_DEBUG);
 						return $url;
 					}
 					$url = Router::parse($url);
@@ -236,7 +236,8 @@ class AppController extends Controller {
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 				$url['?']['csid'] = session_id(); // session_idを不可
 			}
-		}		
+		}
+		$this->log('nomal?'.$url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
