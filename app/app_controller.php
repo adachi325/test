@@ -123,21 +123,23 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
-		$this->log(session_id(),LOG_DEBUG);
+		
 		//SSLページでの引き継ぎ用
-//		$ssluid= $this->Session->read('sslUid');
-//		$this->log('getuid1',LOG_DEBUG);
-//		$this->log($ssluid,LOG_DEBUG);
-//		if(!isset($ssluid)){
-//		    $this->log('getuid2',LOG_DEBUG);
-//		    $uid = $this->Ktai->get_uid();
-//
-//		    $this->log($uid,LOG_DEBUG);
-//		    if(isset($uid)){
-//			$this->log('getuid3',LOG_DEBUG);
-//			$this->Session->write('sslUid', $uid);
-//		    }
-//		}
+		$ssluid= $this->Session->read('sslUid');
+		$this->log('getuid1',LOG_DEBUG);
+		$this->log($ssluid,LOG_DEBUG);
+		if(!isset($ssluid)){
+		    $this->log('getuid2',LOG_DEBUG);
+		    $uid = $this->Ktai->get_uid();
+
+		    $this->log($uid,LOG_DEBUG);
+		    if(isset($uid)){
+			$this->log('getuid3',LOG_DEBUG);
+			$this->Session->write('sslUid', $uid);
+			$this->log('getuid4',LOG_DEBUG);
+			$this->log($this->Session->read('sslUid'),LOG_DEBUG);
+		    }
+		}
 
 		$secured = $this->Ssl->ssled($this->params);
 
