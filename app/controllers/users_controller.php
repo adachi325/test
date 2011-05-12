@@ -25,13 +25,10 @@ class UsersController extends AppController {
 	    $this->log('yes ssl',LOG_DEBUG);
 	    //$uid = $this->data['User']['sslUid'];
 	    $uid = $this->Session->read('sslUid');
-	    return;
 	} else {
 	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
 	}
-
-	$this->log($uid,LOG_DEBUG);
         
         if(!isset($uid) or empty($uid)) {
             $result = $this->_getCareer();

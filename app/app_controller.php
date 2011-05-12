@@ -97,7 +97,7 @@ class AppController extends Controller {
 		'output_encoding' => 'UTF8',
 		'use_xml' => true,
 		'enable_ktai_session' => true, //セッション使用を有効にします
-		'use_redirect_session_id' => true, //リダイレクトに必ずセッションIDをつけます
+		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
 		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
 		'use_xml' => false,
@@ -126,17 +126,10 @@ class AppController extends Controller {
 		
 		//SSLページでの引き継ぎ用
 		$ssluid= $this->Session->read('sslUid');
-		$this->log('getuid1',LOG_DEBUG);
-		$this->log($ssluid,LOG_DEBUG);
 		if(!isset($ssluid)){
-		    $this->log('getuid2',LOG_DEBUG);
 		    $uid = $this->Ktai->get_uid();
-
-		    $this->log($uid,LOG_DEBUG);
 		    if(isset($uid)){
-			$this->log('getuid3',LOG_DEBUG);
 			$this->Session->write('sslUid', $uid);
-			$this->log('getuid4',LOG_DEBUG);
 			$this->log($this->Session->read('sslUid'),LOG_DEBUG);
 		    }
 		}
@@ -230,6 +223,8 @@ class AppController extends Controller {
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
+						$prefix = ereg("\?", $url) ? "&" : "?";
+						$url = $url.$prefix."csid=".session_id();
 						return $url;
 					}
 					$url = Router::parse($url);
@@ -237,9 +232,9 @@ class AppController extends Controller {
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
-				$url['?']['csid'] = session_id();
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 			}
+			
 		}
 
 		$this->log('-----',LOG_DEBUG);
