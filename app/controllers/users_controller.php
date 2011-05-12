@@ -17,7 +17,6 @@ class UsersController extends AppController {
 
     function uidCheck(){
 
-
 	$this->log('---------------------------------------------\r\n',LOG_DEBUG);
 	$this->log($this->data,LOG_DEBUG);
 
@@ -104,7 +103,8 @@ class UsersController extends AppController {
 		
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
-                $this->redirect('/users/register_confirm');
+		$this->render('register_confirm');
+                //$this->redirect('/users/register_confirm');
             } else {
 		$this->data['User']['new_password'] = '';
 		$this->data['User']['row_password'] = '';
