@@ -127,6 +127,8 @@ class AppController extends Controller {
 		$ssluid= $this->Session->read('sslUid');
 		if(!isset($ssluid)){
 		    $uid = $this->Ktai->get_uid();
+		    $this->log('getuid',LOG_DEBUG);
+		    $this->log($uid,LOG_DEBUG);
 		    if(isset($uid)){
 			$this->Session->write('sslUid', $uid);
 		    }
