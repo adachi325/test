@@ -19,7 +19,7 @@ class UsersController extends AppController {
 
 	if (isset($_SERVER['HTTPS'])) {
 	    $this->log('yes ssl',LOG_DEBUG);
-	    $uid = $this->Session->read('sslUid');
+	    $uid = $this->data['User']['sslUid'];
 	} else {
 	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
