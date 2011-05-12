@@ -237,6 +237,11 @@ class AppController extends Controller {
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 			}
 		}
+
+		$this->log('-----',LOG_DEBUG);
+		$this->log($url,LOG_DEBUG);
+		$this->log('-----',LOG_DEBUG);
+		
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
