@@ -123,7 +123,7 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
-		$this->log('sid',session_id());
+		$this->log(session_id(),LOG_DEBUG);
 		//SSLページでの引き継ぎ用
 //		$ssluid= $this->Session->read('sslUid');
 //		$this->log('getuid1',LOG_DEBUG);
