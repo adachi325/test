@@ -10,7 +10,7 @@
 <span style="color:#666666">※ﾛｸﾞｲﾝ名､ﾊﾟｽﾜｰﾄﾞは機種変更の際に必要となりますので､ﾒﾓ等でお手元にお控えください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Form->create('User', array("url" => "/users/register_complete?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->FormHidden->hiddenVars(); ?>
 <?php echo $form->hidden('comp', array('value'=>'1')); ?>
 <table width="100%">
