@@ -103,8 +103,8 @@ class UsersController extends AppController {
 		
                 $this->Session->write('userRegisterData', $this->data);
                 //バリデーションにエラーがなければリダイレクト処理
-		//$this->render('register_confirm');
-                $this->redirect('https://shimajiro-dev.com/dev.tado.shimajiro/users/register_confirm/?csid='.session_id());
+		$this->render('register_confirm');
+                //$this->redirect('https://shimajiro-dev.com/dev.tado.shimajiro/users/register_confirm/?csid='.session_id());
             } else {
 		$this->data['User']['new_password'] = '';
 		$this->data['User']['row_password'] = '';
@@ -127,9 +127,11 @@ class UsersController extends AppController {
 	session_start();
 
         //セッション情報回収
-        $this->data = $this->Session->read('userRegisterData');
+        //$this->data = $this->Session->read('userRegisterData');
+	$this->data = $this->Session->read('ssl_this_data');
         if (empty($this->data)) {
-            $this->Session->delete('userRegisterData');
+            //$this->Session->delete('userRegisterData');
+	    $this->Session->delete('ssl_this_data');
             $this->Session->setFlash(__('不正操作です。', true));
             //$this->cakeError('error404');
             return;
