@@ -139,7 +139,6 @@ class UsersController extends AppController {
             return;
         }
         $this->_setline();
-	$this->Session->write('userRegisterData', $this->data);
     }
 
     function register_complete() {
