@@ -90,7 +90,7 @@ class UsersController extends AppController {
         }
 
         $this->_setline();
-	
+
 	if (!empty($this->data) && isset($this->data['User']['buck'])) {
 	    return;
 	}
@@ -139,6 +139,7 @@ class UsersController extends AppController {
             return;
         }
         $this->_setline();
+	$this->Session->write('userRegisterData', $this->data);
     }
 
     function register_complete() {
