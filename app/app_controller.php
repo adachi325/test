@@ -137,9 +137,7 @@ class AppController extends Controller {
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
-			if(!empty($this->data)){
-			    $this->Session->write('ssl_this_data', $this->data);
-			}
+			$this->Session->write('ssl_this_data', '1');
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 			$this->Ssl->forceNoSSL();
