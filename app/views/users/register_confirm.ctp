@@ -93,7 +93,7 @@
 </table>
 <?php echo $this->Form->end(); ?>
 <?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
-<?php echo $this->formhidden->hiddenVars(); ?>
+<?php echo $this->FormHidden->hiddenVars(); ?>
 <table width="100%">
     <tr>
         <td align="center">
