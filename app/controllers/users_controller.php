@@ -119,7 +119,7 @@ class UsersController extends AppController {
         }
         //セッション情報回収、削除
         $userRegisterData = $this->Session->read('userRegisterData');
-	$this->log('userRegisterData',LOG_DEBUG);
+	$this->log('[conf]userRegisterData',LOG_DEBUG);
 	$this->log($userRegisterData,LOG_DEBUG);
         if(!empty($userRegisterData)){
             $this->data = $userRegisterData;
@@ -144,9 +144,15 @@ class UsersController extends AppController {
 
     function register_complete() {
 
+	$this->log('[comp]this->data',LOG_DEBUG);
+	$this->log($this->data,LOG_DEBUG);
+
         //セッション情報回収、削除
 	$this->data = $this->Session->read('userRegisterData');
         $this->Session->delete('userRegisterData');
+	
+	$this->log('[comp]userRegisterData',LOG_DEBUG);
+	$this->log($userRegisterData,LOG_DEBUG);
 
         //初回会員登録処理
         if (!empty($this->data)) {
