@@ -91,7 +91,7 @@ class UsersController extends AppController {
 
         $this->_setline();
 
-	if (!empty($this->data) && $this->data['buck'] == 1) {
+	if (!empty($this->data) && $this->data['User']['buck'] == 1) {
 	    return;
 	}
 
