@@ -248,7 +248,7 @@ class UsersController extends AppController {
         //ハッシュ化
         $request['User']['password'] = AuthComponent::password( $request['User']['new_password'] );
         //uid取得
-        $request['User']['uid'] = $this->EasyLogin->_getUid();
+        $request['User']['uid'] = $this->Session->read('sslUid');
         $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
