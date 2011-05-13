@@ -14,7 +14,7 @@ class FormhiddenHelper extends AppHelper {
         if (is_array($data)) {
             foreach ($data as $key => $val) {
                 array_push($keyStack, $key);
-                $this->_hiddenVarsNestParse($val, $keyStack, $ret);
+                $this->_hiddenVarsNestParse(h($val), $keyStack, $ret);
                 array_pop($keyStack);
             }
         } else {

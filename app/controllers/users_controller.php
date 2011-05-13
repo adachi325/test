@@ -90,7 +90,7 @@ class UsersController extends AppController {
         }
 
         $this->_setline();
-
+	
 	if (!empty($this->data) && isset($this->data['User']['buck'])) {
 	    return;
 	}
