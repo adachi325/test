@@ -114,8 +114,8 @@ class UsersController extends AppController {
         }
         //セッション情報回収、削除
         $userRegisterData = $this->Session->read('userRegisterData');
-	$this->log('userRegisterData',LOG_DEBUG):
-	$this->log($userRegisterData,LOG_DEBUG):
+	$this->log('userRegisterData',LOG_DEBUG);
+	$this->log($userRegisterData,LOG_DEBUG);
         if(!empty($userRegisterData)){
             $this->data = $userRegisterData;
 	    $this->data['User']['new_password'] = '';
