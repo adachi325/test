@@ -65,7 +65,7 @@
 
 class AppController extends Controller {
 
-	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga');
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga','formhidden');
 	public $components = array(
 		'Ktai',
                 'Tk',
@@ -133,11 +133,9 @@ class AppController extends Controller {
 		    }
 		}
 
-
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
-			$this->Session->write('ssl_this_data', '1');
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 			$this->Ssl->forceNoSSL();
