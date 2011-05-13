@@ -12,6 +12,7 @@
 
 <?php echo $this->Form->create('User', array("url" => "/users/register_complete?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <?php echo $this->FormHidden->hiddenVars(); ?>
+<?php echo $form->hidden('comp', array('value'=>'1')); ?>
 <table width="100%">
 <tr>
 <td bgcolor="#ffecd9"><div style="font-size:x-small;">
