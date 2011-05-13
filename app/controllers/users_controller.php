@@ -139,12 +139,13 @@ class UsersController extends AppController {
             return;
         }
         $this->_setline();
+	$this->Session->write('userRegisterData', $this->data);
     }
 
     function register_complete() {
 
         //セッション情報回収、削除
-	//$this->data = $this->Session->read('userRegisterData');
+	$this->data = $this->Session->read('userRegisterData');
         $this->Session->delete('userRegisterData');
 
         //初回会員登録処理
