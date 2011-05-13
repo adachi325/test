@@ -123,9 +123,6 @@ class UsersController extends AppController {
     }
 
     function register_confirm(){
-
-	session_start();
-
         //セッション情報回収
         //$this->data = $this->Session->read('userRegisterData');
 	$this->data = $this->Session->read('ssl_this_data');
