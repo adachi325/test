@@ -123,20 +123,11 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 		
-		//SSLページでの引き継ぎ用
-		$ssluid= $this->Session->read('sslUid');
-		if(!isset($ssluid)){
-		    $uid = $this->Ktai->get_uid();
-		    if(isset($uid)){
-			$this->Session->write('sslUid', $uid);
-			$this->log($this->Session->read('sslUid'),LOG_DEBUG);
-		    }
-		}
-
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
 
+			//SSL環境下はセッションIDを引き回す。
 			if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
 			    define('__SESSION__SET__', 1);
 			    define('__SESSION__OUT__', 0);
@@ -150,6 +141,16 @@ class AppController extends Controller {
 			    if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
 				    session_id($_REQUEST[$session_name]);
 				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
+			    }
+			}
+
+			//SSLページでのUIDチェック用
+			$ssluid= $this->Session->read('sslUid');
+			if(!isset($ssluid)){
+			    $uid = $this->Ktai->get_uid();
+			    if(isset($uid)){
+				$this->Session->write('sslUid', $uid);
+				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
 			    }
 			}
 
