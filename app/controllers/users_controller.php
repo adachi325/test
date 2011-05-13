@@ -90,6 +90,11 @@ class UsersController extends AppController {
         }
 
         $this->_setline();
+
+	if (!empty($this->data) && $this->data['buck'] == 1) {
+	    return;
+	}
+
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
@@ -127,10 +132,8 @@ class UsersController extends AppController {
     function register_confirm(){
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');
-	//$this->data = $this->Session->read('ssl_this_data');
         if (empty($this->data)) {
             $this->Session->delete('userRegisterData');
-	    //$this->Session->delete('ssl_this_data');
             $this->Session->setFlash(__('不正操作です。', true));
             //$this->cakeError('error404');
             return;
