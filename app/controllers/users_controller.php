@@ -134,7 +134,7 @@ class UsersController extends AppController {
         $this->data = $this->Session->read('userRegisterData');
         if (empty($this->data)) {
             $this->Session->delete('userRegisterData');
-            $this->Session->setFlash(__('不正操作です。', true));
+            //$this->Session->setFlash(__('不正操作です。', true));
             //$this->cakeError('error404');
             return;
         }
@@ -144,7 +144,7 @@ class UsersController extends AppController {
     function register_complete() {
 
         //セッション情報回収、削除
-        $this->data = $this->Session->read('userRegisterData');
+	//$this->data = $this->Session->read('userRegisterData');
         $this->Session->delete('userRegisterData');
 
         //初回会員登録処理

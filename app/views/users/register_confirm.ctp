@@ -87,6 +87,7 @@
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->FormHidden->hiddenVars(); ?>
 <?php echo $this->Form->submit("登録"); ?><br />
 </td>
 </tr>
