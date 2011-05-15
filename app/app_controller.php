@@ -122,13 +122,23 @@ class AppController extends Controller {
 			'password' => 'password'
 			);
 		$this->Auth->autoRedirect = false;
+
+					//SSLページでのUIDチェック用
+			$ssluid= $this->Session->read('sslUid');
+			if(!isset($ssluid)){
+			    $uid = $this->Ktai->get_uid();
+			    if(isset($uid)){
+				$this->Session->write('sslUid', $uid);
+				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
+			    }
+			}
 		
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
 
 			//SSL環境下はセッションIDを引き回す。
-			if(!$this->Ktai->is_ktai() && !defined('__SESSION__SET__')){
+			if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
 			    define('__SESSION__SET__', 1);
 			    define('__SESSION__OUT__', 0);
 			    ini_set('session.use_trans_sid', 1);
@@ -144,20 +154,12 @@ class AppController extends Controller {
 			    }
 			}
 
-			//SSLページでのUIDチェック用
-			$ssluid= $this->Session->read('sslUid');
-			if(!isset($ssluid)){
-			    $uid = $this->Ktai->get_uid();
-			    if(isset($uid)){
-				$this->Session->write('sslUid', $uid);
-				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
-			    }
-			}
+
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-			if(!$this->Ktai->is_ktai() && !defined('__SESSION__OUT__')){
+			if(!$this->Ktai->is_imode() && !defined('__SESSION__OUT__')){
 			    define('__SESSION__OUT__', 1);
 			    define('__SESSION__SET__', 0);
 			    ini_set('session.use_trans_sid', 0);
