@@ -136,11 +136,6 @@ class AppController extends Controller {
 		    }
 		}
 
-		$this->log('oooUIDooo',LOG_DEBUG);
-		$this->log($this->Ktai->get_uid(),LOG_DEBUG);
-		$this->log('oooUIDooo',LOG_DEBUG);
-
-
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
@@ -208,6 +203,12 @@ class AppController extends Controller {
 				}
 			}
 		}
+
+		//pr($_SERVER['SERVER_NAME']);
+		//if(preg_match('|^http[s]?://|', $_SERVER["REQUEST_URL"])){
+		    //auとsoftbankにもセッション付与
+
+		//}
 	}
 
 	function __formActionGuidOn(){
@@ -252,9 +253,13 @@ class AppController extends Controller {
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
-					    $prefix = ereg("\?", $url) ? "&" : "?";
-					    $url = $url.$prefix."csid=".session_id();
-					    $this->log('nomal?'.$url,LOG_DEBUG);
+					    //if(!$this->Ktai->is_imode()){
+						if (!eregi("csid=", $uri)){
+						    $prefix = ereg("\?", $url) ? "&" : "?";
+						    $url = $url.$prefix."csid=".session_id();
+						    $this->log('nomal?'.$url,LOG_DEBUG);
+						}
+					    //}
 					    return $url;
 					}
 					$url = Router::parse($url);
