@@ -251,7 +251,11 @@ class AppController extends Controller {
 				}
                                 $url['?']['guid'] = 'on'; // guid=onを付加
 				if (!eregi("csid", $uri)) {
-				    $url['?']['csid'] = session_id(); // session_idを不可
+				    if ($this->Ktai->is_imode()) {
+					$url['?'][session_name()] = session_id();
+				    } else {
+					$url['?']['csid'] = session_id(); // session_idを不可
+				    }
 				}
 			}
 		}
