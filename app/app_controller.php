@@ -157,13 +157,13 @@ class AppController extends Controller {
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-//			if(!$this->Ktai->is_imode() && !defined('__SESSION__OUT__')){
-//			    define('__SESSION__OUT__', 1);
-//			    define('__SESSION__SET__', 0);
-//			    ini_set('session.use_trans_sid', 0);
-//			    ini_set('session.use_only_cookies', 0);
-//			    ini_set('session.use_cookies', 1);
-//			}
+			if(!$this->Ktai->is_imode() && !defined('__SESSION__OUT__')){
+			    define('__SESSION__OUT__', 1);
+			    define('__SESSION__SET__', 0);
+			    ini_set('session.use_trans_sid', 0);
+			    ini_set('session.use_only_cookies', 0);
+			    ini_set('session.use_cookies', 1);
+			}
 
 			$this->Ssl->forceNoSSL();
 		}
@@ -248,7 +248,9 @@ class AppController extends Controller {
 					$url['?'] = array();
 				}
                                 $url['?']['guid'] = 'on'; // guid=onを付加
-				$url['?']['csid'] = session_id(); // session_idを不可
+				if (!eregi("csid", $uri)) {
+				    $url['?']['csid'] = session_id(); // session_idを不可
+				}
 			}
 		}
 		$this->log('nomal?',LOG_DEBUG);
@@ -259,8 +261,11 @@ class AppController extends Controller {
                 //guid=onを付加
 		if ($this->Ktai->is_imode())
 		{
+		    if (!eregi("guid=ON", $uri))
+		    {
 			$prefix = ereg("\?", $url) ? "&" : "?";
 			$url = $url.$prefix."guid=ON";
+		    }
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
