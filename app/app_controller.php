@@ -141,9 +141,7 @@ class AppController extends Controller {
 		if ($secured && !$this->Ssl->https) {
 
 			//SSL環境下はセッションIDを引き回す。
-			if(!$this->Ktai->is_imode() && !defined('__SESSION__SET__')){
-			    define('__SESSION__SET__', 1);
-			    define('__SESSION__OUT__', 0);
+			if(!$this->Ktai->is_imode()){
 			    ini_set('session.use_trans_sid', 1);
 			    ini_set('session.use_only_cookies', 0);
 			    ini_set('session.use_cookies', 1);
@@ -173,9 +171,7 @@ class AppController extends Controller {
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-			if(!$this->Ktai->is_imode() && !defined('__SESSION__OUT__')){
-			    define('__SESSION__OUT__', 1);
-			    define('__SESSION__SET__', 0);
+			if(!$this->Ktai->is_imode()){
 			    ini_set('session.use_trans_sid', 0);
 			    ini_set('session.use_only_cookies', 0);
 			    ini_set('session.use_cookies', 1);
@@ -254,7 +250,7 @@ class AppController extends Controller {
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
 					    //if(!$this->Ktai->is_imode()){
-						if (!eregi("csid=", $uri)){
+						if (!eregi("csid=", $url)){
 						    $prefix = ereg("\?", $url) ? "&" : "?";
 						    $url = $url.$prefix."csid=".session_id();
 						    $this->log('nomal?'.$url,LOG_DEBUG);
