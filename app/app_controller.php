@@ -136,6 +136,8 @@ class AppController extends Controller {
 		    }
 		}
 
+		$this->log($this->Ktai->get_uid(),LOG_DEBUG);
+
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
