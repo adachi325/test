@@ -157,11 +157,13 @@ class AppController extends Controller {
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-			if(!$this->Ktai->is_imode()){
-			    ini_set('session.use_trans_sid', 0);
-			    ini_set('session.use_only_cookies', 0);
-			    ini_set('session.use_cookies', 1);
-			}
+//			if(!$this->Ktai->is_imode() && !defined('__SESSION__OUT__')){
+//			    define('__SESSION__OUT__', 1);
+//			    define('__SESSION__SET__', 0);
+//			    ini_set('session.use_trans_sid', 0);
+//			    ini_set('session.use_only_cookies', 0);
+//			    ini_set('session.use_cookies', 1);
+//			}
 
 			$this->Ssl->forceNoSSL();
 		}
