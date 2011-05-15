@@ -122,16 +122,6 @@ class AppController extends Controller {
 			'password' => 'password'
 			);
 		$this->Auth->autoRedirect = false;
-
-					//SSLページでのUIDチェック用
-			$ssluid= $this->Session->read('sslUid');
-			if(!isset($ssluid)){
-			    $uid = $this->Ktai->get_uid();
-			    if(isset($uid)){
-				$this->Session->write('sslUid', $uid);
-				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
-			    }
-			}
 		
 		$secured = $this->Ssl->ssled($this->params);
 
@@ -154,7 +144,15 @@ class AppController extends Controller {
 			    }
 			}
 
-
+			//SSLページでのUIDチェック用
+			$ssluid= $this->Session->read('sslUid');
+			if(!isset($ssluid)){
+			    $uid = $this->Ktai->get_uid();
+			    if(isset($uid)){
+				$this->Session->write('sslUid', $uid);
+				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
+			    }
+			}
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
