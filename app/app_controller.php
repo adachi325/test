@@ -267,8 +267,11 @@ class AppController extends Controller {
                 //guid=onを付加
 		if ($this->Ktai->is_imode())
 		{
+		    if (!eregi("guid=ON", $url)) 
+		    {
 			$prefix = ereg("\?", $url) ? "&" : "?";
 			$url = $url.$prefix."guid=ON";
+		    }
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
