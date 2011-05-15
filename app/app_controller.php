@@ -122,7 +122,19 @@ class AppController extends Controller {
 			'password' => 'password'
 			);
 		$this->Auth->autoRedirect = false;
-		
+
+		if($this->Ktai->is_imode()) {
+		    //SSLページでのUIDチェック用
+		    $ssluid= $this->Session->read('sslUid');
+		    if(!isset($ssluid)){
+			$uid = $this->Ktai->get_uid();
+			if(isset($uid)){
+			    $this->Session->write('sslUid', $uid);
+			    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
+			}
+		    }
+		}
+
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
@@ -240,7 +252,7 @@ class AppController extends Controller {
 					    if(!$this->Ktai->is_imode()){
 						$prefix = ereg("\?", $url) ? "&" : "?";
 						$url = $url.$prefix."csid=".session_id();
-						$this->log('ssl?'.$url,LOG_DEBUG);
+						$this->log('nomal?'.$url,LOG_DEBUG);
 					    }
 					    return $url;
 					}
@@ -259,7 +271,7 @@ class AppController extends Controller {
 				}
 			}
 		}
-		$this->log('nomal?',LOG_DEBUG);
+		$this->log('ssl?',LOG_DEBUG);
 		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
@@ -267,11 +279,8 @@ class AppController extends Controller {
                 //guid=onを付加
 		if ($this->Ktai->is_imode())
 		{
-		    if (!eregi("guid=ON", $url)) 
-		    {
-			$prefix = ereg("\?", $url) ? "&" : "?";
-			$url = $url.$prefix."guid=ON";
-		    }
+		    $prefix = ereg("\?", $url) ? "&" : "?";
+		    $url = $url.$prefix."guid=ON";
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
