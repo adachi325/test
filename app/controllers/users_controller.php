@@ -105,7 +105,7 @@ class UsersController extends AppController {
 			      TransactionManager::commit();
 			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
 			      //UID再取得のため、フルパスでリダイレクト
-			      $this->redirect('http://'.$urlItem[1].'/'.$urlItem[2].'/navigations/after1');
+			      $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[2].'/navigations/after1');
 			   } else {
 			      TransactionManager::rollback();
 
