@@ -437,6 +437,7 @@ class UsersController extends AppController {
         }
 
 	//バリデーションで問題なければ更新処理
+	$this->Session->delete('user_data');
 
         //会員情報更新
         $request = array();
@@ -448,7 +449,9 @@ class UsersController extends AppController {
 
         try {
            if( $this->User->save($request)){
-              return;
+		//UID再取得のため、フルパスでリダイレクト
+		$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+		$this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_complete');
            } else {
               $this->log('パスワード再設定に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
@@ -459,13 +462,6 @@ class UsersController extends AppController {
               $this->log($request,LOG_DEBUG);
               $this->cakeError('error404');
         }
-
-	$this->Session->delete('user_data');
-
-        //UID再取得のため、フルパスでリダイレクト
-        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
-        $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_complete');
-	return;
     }
 
     function remind_complete () {
