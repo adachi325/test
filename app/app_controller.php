@@ -129,6 +129,7 @@ class AppController extends Controller {
 		    $uid = $this->Ktai->get_uid();
 		    if(isset($uid)){
 			$this->Session->write('sslUid', $uid);
+			$this->log($this->Session->read('sslUid'),LOG_DEBUG);
 		    }
 		}
 
@@ -149,25 +150,32 @@ class AppController extends Controller {
 				    session_id($_REQUEST[$session_name]);
 				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 			    }
+			}
 
-			    //sb,auのときはSSL設定前にUIDをセット
+			//sb,auのときはSSL設定前にUIDをセット
+			if(!$this->Ktai->is_imode()) {
 			    //SSLページでのUIDチェック用
 			    $uid = $this->Ktai->get_uid();
 			    if(isset($uid)){
 				$this->Session->write('sslUid', $uid);
+				$this->log($this->Session->read('sslUid'),LOG_DEBUG);
 			    }
 			}
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-		    if(!$this->Ktai->is_imode()){
-			ini_set('session.use_trans_sid', 1);
-			ini_set('session.use_only_cookies', 0);
-			ini_set('session.use_cookies', 0);
-		    }
+			if(!$this->Ktai->is_imode()){
+			    ini_set('session.use_trans_sid', 0);
+			    ini_set('session.use_only_cookies', 1);
+			    ini_set('session.use_cookies', 1);
+			} else {
+			    ini_set('session.use_trans_sid', 1);
+			    ini_set('session.use_only_cookies', 0);
+			    ini_set('session.use_cookies', 0);
+			}
 
-		    $this->Ssl->forceNoSSL();
+			$this->Ssl->forceNoSSL();
 		}
 
 		if($this->Ktai->is_imode()){
@@ -176,7 +184,7 @@ class AppController extends Controller {
 			$this->__checkImodeId();
 		} elseif ($this->Ktai->is_android()) {
 			$action = $this->params['action'];
-
+			
 			if (empty($this->allow_android)) {
 				if ($action != 'display') {
 					$this->redirect('/');
@@ -235,6 +243,7 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 					    $prefix = ereg("\?", $url) ? "&" : "?";
 					    $url = $url.$prefix."csid=".session_id();
+					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
 					$url = Router::parse($url);
@@ -252,6 +261,8 @@ class AppController extends Controller {
 				}
 			}
 		}
+		$this->log('ssl?',LOG_DEBUG);
+		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
