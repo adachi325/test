@@ -348,12 +348,7 @@ class UsersController extends AppController {
 
     //リマインド認証(初回)
     function remind () {
-    }
-
-    //リマインド認証(2回目以降)
-    function remindCheck () {
-
-	$this->log($this->data,LOG_DEBUG);
+$this->log($this->data,LOG_DEBUG);
 
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
@@ -407,8 +402,8 @@ class UsersController extends AppController {
 
         $this->Session->write('user_data', $children);
         $this->redirect('/users/remind_password');
-        
     }
+
 
     //パスワード再設定
     function remind_password () {
