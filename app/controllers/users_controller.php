@@ -163,7 +163,9 @@ class UsersController extends AppController {
 	$themes = $theme->find('all',array('conditions' => $options));
 
 	//会員情報取得
-	$userdata = $this->getUserData();
+	$userAuthData = $this->Auth->user();
+	$this->User->contain();
+	return $this->User->read(null,$userAuthData['User']['id']);
 
 	//現在時刻にてhash作成
 	$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
