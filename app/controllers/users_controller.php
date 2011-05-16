@@ -149,7 +149,7 @@ class UsersController extends AppController {
 
     }
 
-/* 廃止ロジック
+/* 廃止ロジック 2011.05.16
     function register_confirm(){
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');

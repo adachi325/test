@@ -79,7 +79,7 @@ class AppController extends Controller {
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
 			'secured' => array(
-				'users' => array('register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password',),
+				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password',),
 				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
 			),
 			'allowed' => array(
@@ -150,8 +150,8 @@ class AppController extends Controller {
 			    ini_set('session.name','csid');
 			    $session_name = session_name();
 			    if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
-				    session_id($_REQUEST[$session_name]);
-				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
+				session_id($_REQUEST[$session_name]);
+				output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 			    }
 			}
 
