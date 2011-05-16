@@ -121,7 +121,7 @@ class AppController extends Controller {
 			'username' => 'loginid',
 			'password' => 'password'
 			);
-		$this->Auth->autoRedirect = false;
+		//$this->Auth->autoRedirect = false;
 
 		//ドコモのときはSSL設定前にUIDをセット
 		if($this->Ktai->is_imode()) {
