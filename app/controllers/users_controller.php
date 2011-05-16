@@ -442,7 +442,7 @@ class UsersController extends AppController {
         $request = array();
         $request['User']['id'] = $userData['0']['User']['id'];
         $request['User']['password'] = AuthComponent::password($this->data['User']['new_password']);
-        $request['User']['uid'] = $this->Session->read('user_data');
+        $request['User']['uid'] = $this->Session->read('sslUid');
         try {
            if( $this->User->save($request)){
               return;
