@@ -346,9 +346,13 @@ class UsersController extends AppController {
             $this->set('lines', $Lines);
     }
 
-    //リマインド認証(初回)
+    //リマインド認証
     function remind () {
-	$this->log($this->referer(),LOG_DEBUG);
+
+	//初回はNoCheck
+	if (!eregi("remind", $url)) {
+	    return;
+	}
 
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
