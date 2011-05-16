@@ -123,21 +123,22 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
-		//ドコモのときはSSL設定前にUIDをセット
-		if($this->Ktai->is_imode()) {
-		    //SSLページでのUIDチェック用
-		    $ssluid= $this->Session->read('sslUid');
-		    if(empty($ssluid) || !isset($ssluid)){
-			$uid = $this->Ktai->get_uid();
-			if(isset($uid)){
-			    $this->Session->write('sslUid', $uid);
-			}
-		    }
-		}
-
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
+
+			//ドコモのときはSSL設定前にUIDをセット
+			if($this->Ktai->is_imode()) {
+			    //SSLページでのUIDチェック用
+			    $ssluid= $this->Session->read('sslUid');
+			    if(empty($ssluid) || !isset($ssluid)){
+				$uid = $this->Ktai->get_uid();
+				if(isset($uid)){
+				    $this->Session->write('sslUid', $uid);
+				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
+				}
+			    }
+			}
 
 			//SSL環境下はセッションIDを引き回す。
 			if(!$this->Ktai->is_imode()){
@@ -162,15 +163,17 @@ class AppController extends Controller {
 				$uid = $this->Ktai->get_uid();
 				if(isset($uid)){
 				    $this->Session->write('sslUid', $uid);
+				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
 				}
 			    }
 			}
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
-
-			$this->Session->delete('sslUid');
-
+			$ssluid= $this->Session->read('sslUid');
+			if(empty($ssluid) || !isset($ssluid)){
+			    $ssluid= $this->Session->delete('sslUid');
+			}
 			if(!$this->Ktai->is_imode()){
 			    ini_set('session.use_trans_sid', 0);
 			    ini_set('session.use_only_cookies', 1);
@@ -245,6 +248,7 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 					    $prefix = ereg("\?", $url) ? "&" : "?";
 					    $url = $url.$prefix."csid=".session_id();
+					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
 					$url = Router::parse($url);
@@ -262,6 +266,8 @@ class AppController extends Controller {
 				}
 			}
 		}
+		$this->log('ssl?',LOG_DEBUG);
+		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
