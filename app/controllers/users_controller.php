@@ -103,6 +103,7 @@ class UsersController extends AppController {
 			      //初回登録プレゼント
 			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
 			      TransactionManager::commit();
+			      $this->Auth->autoRedirect = true;
 			      $this->Auth->loginRedirect = array('controller' => 'navigations', 'action' => 'after1');
 			      $this->login();
 			   } else {

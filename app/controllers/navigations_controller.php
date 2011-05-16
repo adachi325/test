@@ -37,6 +37,7 @@ class NavigationsController extends AppController {
 
 	function after1() {
 
+		$this->Auth->autoRedirect = false;
 		$this->Session->delete('Auth.redirect');
 
 		//今月の自由テーマＩＤを取得
