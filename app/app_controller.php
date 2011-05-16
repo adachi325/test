@@ -110,6 +110,12 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 
+		if (isset($_SERVER['HTTPS'])) {
+		    if ($this->Ktai->is_ezweb()) {
+			$this->ktai['output_encoding'] = 'sjis-win';
+		    }
+		}
+
 		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
 		if ($this->Ktai->is_iphone()) {
 		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
