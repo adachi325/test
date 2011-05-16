@@ -445,8 +445,6 @@ class UsersController extends AppController {
         $request['User']['password'] = AuthComponent::password($this->data['User']['new_password']);
         $request['User']['uid'] = $this->Session->read('sslUid');
 
-	$this->log($request,LOG_DEBUG);
-
         try {
            if( $this->User->save($request)){
 		//UID再取得のため、フルパスでリダイレクト
