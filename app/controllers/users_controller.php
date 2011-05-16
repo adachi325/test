@@ -103,8 +103,9 @@ class UsersController extends AppController {
 			      //初回登録プレゼント
 			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
 			      TransactionManager::commit();
-			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+
 			      //UID再取得のため、フルパスでリダイレクト
+			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
 			      $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/navigations/after1');
 			   } else {
 			      TransactionManager::rollback();
