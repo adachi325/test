@@ -82,6 +82,7 @@ class EasyLoginComponent extends Object {
             //個体識別番号取得
 	    if (isset($_SERVER['HTTPS'])) {
 		$this->mobuid = $this->controller->Session->read('sslUid');
+		$this->controller->log($this->mobuid,LOG_DEBUG);
 	    } else {
 		$this->mobuid = $this->_getUid();
 	    }
