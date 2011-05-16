@@ -103,7 +103,8 @@ class UsersController extends AppController {
 			      //初回登録プレゼント
 			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
 			      TransactionManager::commit();
-			      $this->redirect('/navigations/after1');
+			      $this->after1();
+			      $this->render('after1');
 			   } else {
 			      TransactionManager::rollback();
 
@@ -147,6 +148,39 @@ class UsersController extends AppController {
             TransactionManager::rollback();
         }
 
+    }
+
+
+    function after1() {
+
+	//今月の自由テーマＩＤを取得
+	$options = array();
+	$options['Theme.free_theme'] = true;
+	$options['Month.year'] = date('Y');
+	$options['Month.month'] = date('m') + 0;
+	$theme =& ClassRegistry::init('Theme');
+	$theme->contain('Month');
+	$themes = $theme->find('all',array('conditions' => $options));
+
+	//会員情報取得
+	$userdata = $this->getUserData();
+
+	//現在時刻にてhash作成
+	$hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
+
+	//ハッシュタグを設定
+	$this->set('nexthash',$hash);
+
+	//メールアドレス設定
+	$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
+
+	//メールタイトル設定
+	$mailTitle = 'ベストショット';
+
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+
+	$this->set('mailStr',$mailStr);
+	$this->set('mailTitle',$mailTitle);
     }
 
 /* 廃止ロジック 2011.05.16
