@@ -287,7 +287,12 @@ class AppController extends Controller {
 	}
 	function afterFilter() {
 	    parent::afterFilter();
-	    $this->output = mb_convert_encoding($this->output, 'SJIS-win', 'UTF-8');
+	    if (isset($_SERVER['HTTPS'])) {
+		if ($this->Ktai->is_ezweb()) {
+		    $this->output = mb_convert_encoding($this->output, 'SJIS-win', 'UTF-8');
+		    header("Content-Type: text/html;charset=sjis-win");
+		}
+	    }
 	}
 //	public function afterFilter() {
 //	    parent::afterFilter();
