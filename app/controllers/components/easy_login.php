@@ -61,6 +61,8 @@ class EasyLoginComponent extends Object {
 	 */
 	function login() {
 
+	    $this->controller->log('1',LOG_DEBUG);
+
             //ログイン済みなら終了
             if($this->controller->Auth->user()) {
 
