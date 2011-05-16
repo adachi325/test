@@ -246,8 +246,10 @@ class AppController extends Controller {
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
-					    $prefix = ereg("\?", $url) ? "&" : "?";
-					    $url = $url.$prefix."csid=".session_id();
+					    if (!eregi("csid=", $url)) {
+						$prefix = ereg("\?", $url) ? "&" : "?";
+						$url = $url.$prefix."csid=".session_id();
+					    }
 					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
