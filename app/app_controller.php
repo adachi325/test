@@ -126,9 +126,13 @@ class AppController extends Controller {
 		//ドコモのときはSSL設定前にUIDをセット
 		if($this->Ktai->is_imode()) {
 		    //SSLページでのUIDチェック用
-		    $uid = $this->Ktai->get_uid();
-		    if(isset($uid)){
-			$this->Session->write('sslUid', $uid);
+		    $ssluid= $this->Session->read('sslUid');
+		    if(empty($ssluid) || !isset($ssluid)){
+			$uid = $this->Ktai->get_uid();
+			if(isset($uid)){
+			    $this->Session->write('sslUid', $uid);
+			    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
+			}
 		    }
 		}
 
@@ -149,12 +153,18 @@ class AppController extends Controller {
 				    session_id($_REQUEST[$session_name]);
 				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 			    }
+			}
 
-			    //sb,auのときはSSL設定前にUIDをセット
+			//sb,auのときはSSL設定前にUIDをセット
+			if(!$this->Ktai->is_imode()) {
 			    //SSLページでのUIDチェック用
-			    $uid = $this->Ktai->get_uid();
-			    if(isset($uid)){
-				$this->Session->write('sslUid', $uid);
+			    $ssluid= $this->Session->read('sslUid');
+			    if(empty($ssluid) || !isset($ssluid)){
+				$uid = $this->Ktai->get_uid();
+				if(isset($uid)){
+				    $this->Session->write('sslUid', $uid);
+				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
+				}
 			    }
 			}
 
@@ -235,6 +245,7 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 					    $prefix = ereg("\?", $url) ? "&" : "?";
 					    $url = $url.$prefix."csid=".session_id();
+					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
 					$url = Router::parse($url);
@@ -252,6 +263,8 @@ class AppController extends Controller {
 				}
 			}
 		}
+		$this->log('ssl?',LOG_DEBUG);
+		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
