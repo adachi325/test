@@ -284,7 +284,9 @@ class AppController extends Controller {
 		if ($this->Ktai->is_ezweb()) {
 		    $outBuffer = ob_get_clean();
 		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
-		    ob_start("mb_output_handler"); echo $outBuffer;
+		    mb_http_output("sjis-win");
+		    ob_start("mb_output_handler");
+		    echo $outBuffer;
 		}
 	    }
 	}
