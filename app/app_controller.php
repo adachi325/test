@@ -293,6 +293,8 @@ class AppController extends Controller {
 
 		    $outBuffer = ob_get_clean();
 		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
+
+		    $this->log($outBuffer,LOG_DEBUG);
 		    
 		    mb_http_output("sjis-win");
 		    ob_start("mb_output_handler");
