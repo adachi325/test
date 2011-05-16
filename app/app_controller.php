@@ -280,6 +280,13 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 	    TransactionManager::destructs();
+	}
+
+	public function beforeRedirect() {
+		TransactionManager::destructs();
+	}
+
+	public function afterRender() {
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
 		    $outBuffer = ob_get_clean();
@@ -289,9 +296,5 @@ class AppController extends Controller {
 		    echo $outBuffer;
 		}
 	    }
-	}
-
-	public function beforeRedirect() {
-		TransactionManager::destructs();
 	}
 }
