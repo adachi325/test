@@ -78,7 +78,11 @@ class EasyLoginComponent extends Object {
             $User = ClassRegistry::init('User');
 
             //個体識別番号取得
-            $this->mobuid = $this->_getUid();
+	    if (isset($_SERVER['HTTPS'])) {
+		$this->mobuid = $this->Session->read('sslUid');
+	    } else {
+		$this->mobuid = $this->_getUid();
+	    }
 
             //簡単ログイン個体番号が設定されている場合
             if($this->mobuid!='') {
@@ -102,7 +106,13 @@ class EasyLoginComponent extends Object {
                 $User = ClassRegistry::init('User');
                 $request = array();
                 $request['User']['id'] = $selectId;
-                $request['User']['uid'] = $this->_getUid();
+
+		//個体識別番号取得
+		if (isset($_SERVER['HTTPS'])) {
+		    $request['User']['uid'] = $this->Session->read('sslUid');
+		} else {
+		    $request['User']['uid'] = $this->_getUid();
+		}
 
                 //$selectidがnullならログアウト
                 if(empty($selectId) or !isset($selectId)){
