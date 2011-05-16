@@ -51,7 +51,7 @@ class EasyLoginComponent extends Object {
 		//AuthComponentから認証に使うモデルを取得
 		$this->userModel = & $controller->{$controller->Auth->userModel};
 		//AuthComponentの自動リダイレクト設定を切る
-		//$controller->Auth->autoRedirect = false;
+		$controller->Auth->autoRedirect = false;
 		//ログイン処理
 		$this->login();
 	}
@@ -61,9 +61,7 @@ class EasyLoginComponent extends Object {
 	 */
 	function login() {
 
-	    $this->controller->log('1',LOG_DEBUG);
-
-            //ログイン済みなら終了
+	    //ログイン済みなら終了
             if($this->controller->Auth->user()) {
 
                 //ログイン成功時にuid更新
@@ -82,7 +80,6 @@ class EasyLoginComponent extends Object {
             //個体識別番号取得
 	    if (isset($_SERVER['HTTPS'])) {
 		$this->mobuid = $this->controller->Session->read('sslUid');
-		$this->controller->log($this->mobuid,LOG_DEBUG);
 	    } else {
 		$this->mobuid = $this->_getUid();
 	    }
