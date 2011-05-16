@@ -68,7 +68,7 @@ class UsersController extends AppController {
         }
 
         //ログイン済みじゃない場合、uidを取得
-        $uid = $this->_getUid();
+        $uid = $this->Session->read('sslUid');
         $this->User->contain();
         $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
         //uidが存在する場合、自動ログイン実行
