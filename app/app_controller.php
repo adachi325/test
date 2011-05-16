@@ -176,9 +176,9 @@ class AppController extends Controller {
 			    $ssluid= $this->Session->delete('sslUid');
 			}
 			if(!$this->Ktai->is_imode()){
-			    ini_set('session.use_trans_sid', 0);
-			    ini_set('session.use_only_cookies', 1);
-			    ini_set('session.use_cookies', 1);
+			    ini_set('session.use_trans_sid', 1);
+			    ini_set('session.use_only_cookies', 0);
+			    ini_set('session.use_cookies', 0);
 			}
 
 			//通常通信
