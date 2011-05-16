@@ -285,26 +285,29 @@ class AppController extends Controller {
 	public function beforeRedirect() {
 		TransactionManager::destructs();
 	}
-
-	public function afterFilter() {
+	function afterFilter() {
 	    parent::afterFilter();
-	    $this->log('aaaa',LOG_DEBUG);
-	    //AuのSSL文字化け対策
-	    if (isset($_SERVER['HTTPS'])) {
-		if ($this->Ktai->is_ezweb()) {
-		    $this->log('bbb',LOG_DEBUG);
-		    $outBuffer = ob_get_clean();
-		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
-
-		    $this->log($outBuffer,LOG_DEBUG);
-		    
-		    mb_http_output("sjis-win");
-		    ob_start("mb_output_handler");
-
-		    header("Content-Type: text/html;charset=sjis-win");
-
-		    echo $outBuffer;
-		}
-	    }
+	    $this->output = mb_convert_encoding($this->output, 'SJIS-win', 'UTF-8');
 	}
+//	public function afterFilter() {
+//	    parent::afterFilter();
+//	    $this->log('aaaa',LOG_DEBUG);
+//	    //AuのSSL文字化け対策
+//	    if (isset($_SERVER['HTTPS'])) {
+//		if ($this->Ktai->is_ezweb()) {
+//		    $this->log('bbb',LOG_DEBUG);
+//		    $outBuffer = ob_get_clean();
+//		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
+//
+//		    $this->log($outBuffer,LOG_DEBUG);
+//
+//		    mb_http_output("sjis-win");
+//		    ob_start("mb_output_handler");
+//
+//		    header("Content-Type: text/html;charset=sjis-win");
+//
+//		    echo $outBuffer;
+//		}
+//	    }
+//	}
 }
