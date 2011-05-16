@@ -350,7 +350,7 @@ class UsersController extends AppController {
     function remind () {
 
 	//初回はNoCheck
-	if (!eregi("remind", $url)) {
+	if (!eregi("remind", $this->referer())) {
 	    return;
 	}
 
