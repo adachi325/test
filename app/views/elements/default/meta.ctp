@@ -4,3 +4,8 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
 
+<?php
+    if (isset($_SERVER['HTTPS'])) {
+	echo '<meta http-equiv="Content-type" content="text/html; charset=Shift_JIS">';
+    }
+?>

@@ -135,7 +135,7 @@ class AppController extends Controller {
 			}
 		    }
 		}
-		
+
 		//SSL環境下はセッションIDを引き回す。
 		if(!$this->Ktai->is_imode()){
 		    ini_set('session.use_trans_sid', 1);
@@ -150,7 +150,7 @@ class AppController extends Controller {
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 		    }
 		}
-		
+
 		//SSL通信環境設定
 		$secured = $this->Ssl->ssled($this->params);
 
