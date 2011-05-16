@@ -4,10 +4,10 @@
 	if ($this->Ktai->is_ezweb()) {
 	    echo '<meta http-equiv="Content-type" content="text/html; charset=sjis-win">';
 	} else {
-	    echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />'
+	    echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />';
 	}
     } else {
-	echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />'
+	echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />';
     }
 ?>
 
