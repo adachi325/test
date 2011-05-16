@@ -412,7 +412,7 @@ class UsersController extends AppController {
     //パスワード再設定
     function remind_password () {
 
-	
+	$errorStr = "入力情報が正しくありません。";
 
         $userData = $this->Session->read('user_data');
 	$this->log($userData,LOG_DEBUG);
@@ -420,9 +420,7 @@ class UsersController extends AppController {
             $this->cakeError('error404');
             return;
         }
-
-	$errorStr = "入力情報が正しくありません。";
-        
+	
         //入力データが存在しない場合
         if(empty($this->data)){
             return;
@@ -439,28 +437,9 @@ class UsersController extends AppController {
             return;
         }
 
-        $this->Session->write('remind_data', $this->data);
-        $this->redirect('/users/remind_complete');
+	//バリデーションで問題なければ更新処理
+        $remindData = $this->data;
 
-    }
-
-    //パスワード再設定完了
-    function remind_complete () {
-
-        $userData = $this->Session->read('user_data');
-        $this->Session->delete('user_data');
-        if(empty($userData)){
-            $this->cakeError('error404');
-            return;
-        }
-
-        $remindData = $this->Session->read('remind_data');
-        $this->Session->delete('remind_data');
-        if(empty($remindData)){
-            $this->cakeError('error404');
-            return;
-        }
-        
         //会員情報更新
         $request = array();
         $request['User']['id'] = $userData['0']['User']['id'];
@@ -484,6 +463,9 @@ class UsersController extends AppController {
 
         //セッション全削除
         $this->Session->destroy();
+
+        $this->render('remind_complete');
+
     }
     
     /**
