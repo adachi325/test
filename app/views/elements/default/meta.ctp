@@ -6,6 +6,6 @@
 
 <?php
     if (isset($_SERVER['HTTPS'])) {
-	echo '<meta http-equiv="Content-type" content="text/html; charset=Shift_JIS">';
+	echo '<meta http-equiv="Content-type" content="text/html; charset=sjis-win">';
     }
 ?>

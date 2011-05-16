@@ -279,7 +279,14 @@ class AppController extends Controller {
 	}
 
 	public function beforeRender() {
-		TransactionManager::destructs();
+	    TransactionManager::destructs();
+	    if (isset($_SERVER['HTTPS'])) {
+		if ($this->Ktai->is_ezweb()) {
+		    $outBuffer = ob_get_clean();
+		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
+		    ob_start("mb_output_handler"); echo $outBuffer;
+		}
+	    }
 	}
 
 	public function beforeRedirect() {

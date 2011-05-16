@@ -611,6 +611,5 @@ class UsersController extends AppController {
         //トライアルトップへ遷移
         $this->redirect('/');
     }
-
 }
 ?>
