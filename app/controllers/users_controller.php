@@ -438,12 +438,11 @@ class UsersController extends AppController {
         }
 
 	//バリデーションで問題なければ更新処理
-        $remindData = $this->data;
 
         //会員情報更新
         $request = array();
         $request['User']['id'] = $userData['0']['User']['id'];
-        $request['User']['password'] = AuthComponent::password($remindData['User']['new_password']);
+        $request['User']['password'] = AuthComponent::password($this->data['User']['new_password']);
         $request['User']['uid'] = $this->Session->read('user_data');
         try {
            if( $this->User->save($request)){
@@ -459,13 +458,10 @@ class UsersController extends AppController {
               $this->log($request,LOG_DEBUG);
         }
 
+	$this->Session->delete('user_data');
+
 	$this->render('remind_complete');
 
-        //ログアウト
-        $this->Auth->logout();
-
-        //セッション全削除
-        $this->Session->destroy();
     }
     
     /**
