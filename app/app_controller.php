@@ -110,6 +110,8 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 
+	    Configure::write('App.encoding', 'Shift_JIS');
+
 		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
 		if ($this->Ktai->is_iphone()) {
 		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
@@ -296,8 +298,6 @@ class AppController extends Controller {
 	    //AuのSSL文字化け対策
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
-		    Configure::write('App.encoding', 'Shift_JIS');
-		    header("Content-Type: text/html;charset=sjis-win");
 
 		    $outBuffer = ob_get_clean();
 		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
