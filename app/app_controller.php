@@ -259,7 +259,9 @@ class AppController extends Controller {
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
-                                $url['?']['guid'] = 'on'; // guid=onを付加
+				if (!isset($url['?']['guid'])) {
+				    $url['?']['guid'] = 'on'; // guid=onを付加
+				}
 				if (!isset($url['?'][session_name()])) {
 				    if ($this->Ktai->is_imode()) {
 					$url['?'][session_name()] = session_id();
