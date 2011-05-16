@@ -282,9 +282,8 @@ class AppController extends Controller {
 	    TransactionManager::destructs();
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
-
+		    Configure::write('App.encoding', 'Shift_JIS');
 		    header("Content-Type: text/html;charset=sjis-win");
-
 		}
 	    }
 	}
