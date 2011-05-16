@@ -123,16 +123,16 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
-		$secured = $this->Ssl->ssled($this->params);
-
-		if(!$this->Ktai->is_imode()){
-			//ドコモはSSL設定前
-			//SSLページでのUIDチェック用
-			$uid = $this->Ktai->get_uid();
-			if(isset($uid)){
-			    $this->Session->write('sslUid', $uid);
-			}
+		//ドコモのときはSSL設定前にUIDをセット
+		if($this->Ktai->is_imode()) {
+		    //SSLページでのUIDチェック用
+		    $uid = $this->Ktai->get_uid();
+		    if(isset($uid)){
+			$this->Session->write('sslUid', $uid);
+		    }
 		}
+
+		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
 
@@ -158,8 +158,6 @@ class AppController extends Controller {
 			    }
 			}
 
-
-
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
@@ -167,14 +165,7 @@ class AppController extends Controller {
 			    ini_set('session.use_trans_sid', 0);
 			    ini_set('session.use_only_cookies', 1);
 			    ini_set('session.use_cookies', 1);
-			} else {
-			    ini_set('session.use_trans_sid', 1);
-			    ini_set('session.use_only_cookies', 0);
-			    ini_set('session.use_cookies', 0);
 			}
-
-			//セッションのUIDを削除
-			$this->Session->delete('sslUid');
 
 			$this->Ssl->forceNoSSL();
 		}
