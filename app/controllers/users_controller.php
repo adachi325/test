@@ -348,6 +348,22 @@ class UsersController extends AppController {
 
     //リマインド認証(初回)
     function remind () {
+        //ログイン処理に入る前にUID取得確認
+        $this->uidCheck();
+
+        //ログイン済みならマイページへ遷移
+        if($this->Auth->user()) {
+            $this->set('login_user',$this->Auth->user());
+            $this->redirect('/children/');
+        }
+        //ログイン済みじゃない場合、uidを取得
+        $uid = $this->Session->read('sslUid');
+        $this->User->contain();
+        $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
+        //uidが存在する場合、自動ログイン実行
+        if(!empty($users)){
+            $this->redirect('/children/');
+        }
     }
 
     //リマインド認証(2回目以降)
@@ -362,7 +378,7 @@ class UsersController extends AppController {
             $this->redirect('/children/');
         }
         //ログイン済みじゃない場合、uidを取得
-        $uid = $this->_getUid();
+        $uid = $this->Session->read('sslUid');
         $this->User->contain();
         $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
         //uidが存在する場合、自動ログイン実行
@@ -461,7 +477,7 @@ class UsersController extends AppController {
         $request = array();
         $request['User']['id'] = $userData['0']['User']['id'];
         $request['User']['password'] = AuthComponent::password($remindData['User']['new_password']);
-        $request['User']['uid'] = $this->_getUid();
+        $request['User']['uid'] = $this->Session->read('user_data');
         try {
            if( $this->User->save($request)){
               return;
