@@ -105,7 +105,7 @@ class UsersController extends AppController {
 			      TransactionManager::commit();
 			      $this->Auth->autoRedirect = true;
 			      $this->Auth->loginRedirect = array('controller' => 'navigations', 'action' => 'after1');
-			      $this->EasyLogin->login();
+			      $this->Auth->login();
 			   } else {
 			      TransactionManager::rollback();
 
