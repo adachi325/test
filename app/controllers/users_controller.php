@@ -460,8 +460,13 @@ class UsersController extends AppController {
 
 	$this->Session->delete('user_data');
 
-	$this->render('remind_complete');
+        //UID再取得のため、フルパスでリダイレクト
+        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+        $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_complete');
+	return;
+    }
 
+    function remind_complete () {
     }
     
     /**
