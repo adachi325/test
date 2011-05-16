@@ -280,6 +280,13 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 	    TransactionManager::destructs();
+	    if (isset($_SERVER['HTTPS'])) {
+		if ($this->Ktai->is_ezweb()) {
+
+		    header("Content-Type: text/html;charset=sjis-win");
+
+		}
+	    }
 	}
 
 	public function beforeRedirect() {
