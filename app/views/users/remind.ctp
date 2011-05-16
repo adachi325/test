@@ -12,7 +12,7 @@ if(isset($errorStr)){
 ?>
 </span>
 <br />
-<?php echo $this->Form->create('User', array("url" => "/users/remindCheck?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/remindCheck", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>
