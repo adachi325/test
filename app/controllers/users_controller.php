@@ -447,14 +447,14 @@ class UsersController extends AppController {
            if( $this->User->save($request)){
               return;
            } else {
-              $this->cakeError('error404');
               $this->log('パスワード再設定に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
+              $this->cakeError('error404');
            }
         } catch(Exception $e) {
-              $this->cakeError('error404');
               $this->log('パスワード再設定に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
+              $this->cakeError('error404');
         }
 
 	$this->Session->delete('user_data');
