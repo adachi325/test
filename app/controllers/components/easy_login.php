@@ -79,7 +79,7 @@ class EasyLoginComponent extends Object {
 
             //個体識別番号取得
 	    if (isset($_SERVER['HTTPS'])) {
-		$this->mobuid = $this->Session->read('sslUid');
+		$this->mobuid = $this->controller->Session->read('sslUid');
 	    } else {
 		$this->mobuid = $this->_getUid();
 	    }
@@ -109,7 +109,7 @@ class EasyLoginComponent extends Object {
 
 		//個体識別番号取得
 		if (isset($_SERVER['HTTPS'])) {
-		    $request['User']['uid'] = $this->Session->read('sslUid');
+		    $request['User']['uid'] = $this->controller->Session->read('sslUid');
 		} else {
 		    $request['User']['uid'] = $this->_getUid();
 		}
