@@ -458,14 +458,14 @@ class UsersController extends AppController {
               $this->log('パスワード再設定に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
         }
+
+	$this->render('remind_complete');
+
         //ログアウト
         $this->Auth->logout();
 
         //セッション全削除
         $this->Session->destroy();
-
-        $this->render('remind_complete');
-
     }
     
     /**
