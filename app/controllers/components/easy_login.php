@@ -51,7 +51,7 @@ class EasyLoginComponent extends Object {
 		//AuthComponentから認証に使うモデルを取得
 		$this->userModel = & $controller->{$controller->Auth->userModel};
 		//AuthComponentの自動リダイレクト設定を切る
-		$controller->Auth->autoRedirect = false;
+		//$controller->Auth->autoRedirect = false;
 		//ログイン処理
 		$this->login();
 	}
