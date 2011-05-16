@@ -103,10 +103,9 @@ class UsersController extends AppController {
 			      //初回登録プレゼント
 			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
 			      TransactionManager::commit();
-			      $this->redirect('http://shimajiro-dev.com/dev.tado.shimajiro/navigations/after1');
-//			      $this->Auth->autoRedirect = true;
-//			      $this->Auth->loginRedirect = array('controller' => 'navigations', 'action' => 'after1');
-//			      $this->Auth->login();
+			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+			      //UID再取得のため、フルパスでリダイレクト
+			      $this->redirect('http://'.$urlItem[1].'/'.$urlItem[2].'/navigations/after1');
 			   } else {
 			      TransactionManager::rollback();
 
