@@ -125,6 +125,15 @@ class AppController extends Controller {
 
 		$secured = $this->Ssl->ssled($this->params);
 
+		if(!$this->Ktai->is_imode()){
+			//ドコモはSSL設定前
+			//SSLページでのUIDチェック用
+			$uid = $this->Ktai->get_uid();
+			if(isset($uid)){
+			    $this->Session->write('sslUid', $uid);
+			}
+		}
+
 		if ($secured && !$this->Ssl->https) {
 
 			//SSL環境下はセッションIDを引き回す。
@@ -139,15 +148,17 @@ class AppController extends Controller {
 			    if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
 				    session_id($_REQUEST[$session_name]);
 				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
-			    } 
+			    }
+
+			    //sb,auのときはSSL設定前にUIDをセット
+			    //SSLページでのUIDチェック用
+			    $uid = $this->Ktai->get_uid();
+			    if(isset($uid)){
+				$this->Session->write('sslUid', $uid);
+			    }
 			}
 
-			//sb,auのときはSSL設定前にUIDをセット
-			//SSLページでのUIDチェック用
-			$uid = $this->Ktai->get_uid();
-			if(isset($uid)){
-			    $this->Session->write('sslUid', $uid);
-			}
+
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
