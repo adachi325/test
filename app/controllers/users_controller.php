@@ -350,7 +350,7 @@ class UsersController extends AppController {
     function remind () {
 
 	//初回はNoCheck
-	if (!eregi("remind", $this->referer())) {
+	if (!eregi("/remind/", $this->referer())) {
 	    return;
 	}
 
@@ -412,7 +412,10 @@ class UsersController extends AppController {
     //パスワード再設定
     function remind_password () {
 
+	
+
         $userData = $this->Session->read('user_data');
+	$this->log($userData,LOG_DEBUG);
         if(empty($userData)){
             $this->cakeError('error404');
             return;
