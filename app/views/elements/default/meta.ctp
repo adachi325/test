@@ -2,6 +2,7 @@
 <?php
     if (isset($_SERVER['HTTPS'])) {
 	if ($this->Ktai->is_ezweb()) {
+	    header("Content-Type: text/html;charset=SJIS-win");
 	    echo '<meta http-equiv="Content-type" content="text/html; charset=sjis-win">';
 	} else {
 	    echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />';

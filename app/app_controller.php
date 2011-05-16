@@ -283,7 +283,7 @@ class AppController extends Controller {
 	    //AuのSSL文字化け対策
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
-		    Configure::write('App.encoding', 'sjis-win');
+		    //Configure::write('App.encoding', 'sjis-win');
 		}
 	    }
 	}
