@@ -131,11 +131,11 @@ class AppController extends Controller {
 			$uid = $this->Ktai->get_uid();
 			if(isset($uid)){
 			    $this->Session->write('sslUid', $uid);
-			    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
 			}
 		    }
 		}
 
+		//SSL通信環境設定
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
@@ -163,11 +163,11 @@ class AppController extends Controller {
 				$uid = $this->Ktai->get_uid();
 				if(isset($uid)){
 				    $this->Session->write('sslUid', $uid);
-				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
 				}
 			    }
 			}
 
+			//SSL通信開始
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 			$ssluid= $this->Session->read('sslUid');
@@ -180,6 +180,7 @@ class AppController extends Controller {
 			    ini_set('session.use_cookies', 1);
 			}
 
+			//通常通信
 			$this->Ssl->forceNoSSL();
 		}
 
@@ -250,7 +251,6 @@ class AppController extends Controller {
 						$prefix = ereg("\?", $url) ? "&" : "?";
 						$url = $url.$prefix."csid=".session_id();
 					    }
-					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
 					$url = Router::parse($url);
@@ -268,8 +268,6 @@ class AppController extends Controller {
 				}
 			}
 		}
-		$this->log('ssl?',LOG_DEBUG);
-		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){

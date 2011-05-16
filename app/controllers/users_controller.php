@@ -17,7 +17,6 @@ class UsersController extends AppController {
 
     function uidCheck(){
 	if (isset($_SERVER['HTTPS'])) {
-	    $this->log('SSL通信を開始',LOG_DEBUG);
 	    $uid = $this->Session->read('sslUid');
 	} else {
 	    $uid = $this->_getUid();
@@ -147,77 +146,70 @@ class UsersController extends AppController {
 
             TransactionManager::rollback();
         }
-//        //セッション情報回収、削除
-//        $userRegisterData = $this->Session->read('userRegisterData');
-//	$this->log('[conf]userRegisterData',LOG_DEBUG);
-//	$this->log($userRegisterData,LOG_DEBUG);
-//        if(!empty($userRegisterData)){
-//            $this->data = $userRegisterData;
-//	    $this->data['User']['new_password'] = '';
-//	    $this->data['User']['row_password'] = '';
-//            $this->Session->delete('userRegisterData');
-//        }
+
     }
 
-//    function register_confirm(){
-//        //セッション情報回収
-//        $this->data = $this->Session->read('userRegisterData');
-//        if (empty($this->data)) {
-//            $this->Session->delete('userRegisterData');
-//            //$this->Session->setFlash(__('不正操作です。', true));
-//            //$this->cakeError('error404');
-//            return;
-//        }
-//        $this->_setline();
-//	$this->Session->write('userRegisterData', $this->data);
-//    }
+/* 廃止ロジック
+    function register_confirm(){
+        //セッション情報回収
+        $this->data = $this->Session->read('userRegisterData');
+        if (empty($this->data)) {
+            $this->Session->delete('userRegisterData');
+            //$this->Session->setFlash(__('不正操作です。', true));
+            //$this->cakeError('error404');
+            return;
+        }
+        $this->_setline();
+	$this->Session->write('userRegisterData', $this->data);
+    }
 
-//    function register_complete() {
-//
-//	$this->log('[comp]this->data',LOG_DEBUG);
-//	$this->log($this->data,LOG_DEBUG);
-//
-//        //セッション情報回収、削除
-//	$this->data = $this->Session->read('userRegisterData');
-//        $this->Session->delete('userRegisterData');
-//
-//	$this->log('[comp]userRegisterData',LOG_DEBUG);
-//	$this->log($userRegisterData,LOG_DEBUG);
-//
-//        //初回会員登録処理
-//        if (!empty($this->data)) {
-//            try {
-//               TransactionManager::begin();
-//               $this->_setRegisterData();
-//               if( $this->User->_register($this->data)){
-//                  //初回登録プレゼント
-//                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
-//                  TransactionManager::commit();
-//                  $this->redirect('/navigations/after1');
-//               } else {
-//                  TransactionManager::rollback();
-//
-//                  $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-//                  $this->log($this->data,LOG_DEBUG);
-//                  $this->cakeError('error404');
-//                  return;
-//               }
-//            } catch(Exception $e) {
-//                  TransactionManager::rollback();
-//
-//                  $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-//                  $this->log($this->data,LOG_DEBUG);
-//                  $this->log($e,LOG_DEBUG);
-//                  $this->cakeError('error404');
-//                  return;
-//            }
-//        } else {
-//
-//             $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-//             $this->cakeError('error404');
-//             return;
-//        }
-//    }
+    function register_complete() {
+
+	$this->log('[comp]this->data',LOG_DEBUG);
+	$this->log($this->data,LOG_DEBUG);
+
+        //セッション情報回収、削除
+	$this->data = $this->Session->read('userRegisterData');
+        $this->Session->delete('userRegisterData');
+
+	$this->log('[comp]userRegisterData',LOG_DEBUG);
+	$this->log($userRegisterData,LOG_DEBUG);
+
+        //初回会員登録処理
+        if (!empty($this->data)) {
+            try {
+               TransactionManager::begin();
+               $this->_setRegisterData();
+               if( $this->User->_register($this->data)){
+                  //初回登録プレゼント
+                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+                  TransactionManager::commit();
+                  $this->redirect('/navigations/after1');
+               } else {
+                  TransactionManager::rollback();
+
+                  $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                  $this->log($this->data,LOG_DEBUG);
+                  $this->cakeError('error404');
+                  return;
+               }
+            } catch(Exception $e) {
+                  TransactionManager::rollback();
+
+                  $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                  $this->log($this->data,LOG_DEBUG);
+                  $this->log($e,LOG_DEBUG);
+                  $this->cakeError('error404');
+                  return;
+            }
+        } else {
+
+             $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+             $this->cakeError('error404');
+             return;
+        }
+    }
+*/
     
     function _initialRegistrationPresents($id){
         $presentIds = Configure::read('Child.Initial_registration_presents');
