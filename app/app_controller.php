@@ -126,13 +126,9 @@ class AppController extends Controller {
 		//ドコモのときはSSL設定前にUIDをセット
 		if($this->Ktai->is_imode()) {
 		    //SSLページでのUIDチェック用
-		    $ssluid= $this->Session->read('sslUid');
-		    if(empty($ssluid) || !isset($ssluid)){
-			$uid = $this->Ktai->get_uid();
-			if(isset($uid)){
-			    $this->Session->write('sslUid', $uid);
-			    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
-			}
+		    $uid = $this->Ktai->get_uid();
+		    if(isset($uid)){
+			$this->Session->write('sslUid', $uid);
 		    }
 		}
 
@@ -153,29 +149,21 @@ class AppController extends Controller {
 				    session_id($_REQUEST[$session_name]);
 				    output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 			    }
-			}
 
-			//sb,auのときはSSL設定前にUIDをセット
-			if(!$this->Ktai->is_imode()) {
+			    //sb,auのときはSSL設定前にUIDをセット
 			    //SSLページでのUIDチェック用
-			    $ssluid= $this->Session->read('sslUid');
-			    if(empty($ssluid) || !isset($ssluid)){
-				$uid = $this->Ktai->get_uid();
-				if(isset($uid)){
-				    $this->Session->write('sslUid', $uid);
-				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
-				}
+			    $uid = $this->Ktai->get_uid();
+			    if(isset($uid)){
+				$this->Session->write('sslUid', $uid);
 			    }
 			}
 
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
 
-			if(!$this->Ktai->is_imode()){
-			    ini_set('session.use_trans_sid', 0);
-			    ini_set('session.use_only_cookies', 1);
-			    ini_set('session.use_cookies', 1);
-			}
+			ini_set('session.use_trans_sid', 1);
+			ini_set('session.use_only_cookies', 0);
+			ini_set('session.use_cookies', 1);
 
 			$this->Ssl->forceNoSSL();
 		}
@@ -186,7 +174,7 @@ class AppController extends Controller {
 			$this->__checkImodeId();
 		} elseif ($this->Ktai->is_android()) {
 			$action = $this->params['action'];
-			
+
 			if (empty($this->allow_android)) {
 				if ($action != 'display') {
 					$this->redirect('/');
@@ -245,7 +233,6 @@ class AppController extends Controller {
 					if(preg_match('|^http[s]?://|', $url)){
 					    $prefix = ereg("\?", $url) ? "&" : "?";
 					    $url = $url.$prefix."csid=".session_id();
-					    $this->log('nomal?'.$url,LOG_DEBUG);
 					    return $url;
 					}
 					$url = Router::parse($url);
@@ -263,8 +250,6 @@ class AppController extends Controller {
 				}
 			}
 		}
-		$this->log('ssl?',LOG_DEBUG);
-		$this->log($url,LOG_DEBUG);
 		return $url;
 	}
 	function redirect($url, $status = null, $exit = true){
