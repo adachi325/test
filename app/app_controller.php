@@ -280,12 +280,6 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 	    TransactionManager::destructs();
-	    //AuのSSL文字化け対策
-	    if (isset($_SERVER['HTTPS'])) {
-		if ($this->Ktai->is_ezweb()) {
-		    //Configure::write('App.encoding', 'sjis-win');
-		}
-	    }
 	}
 
 	public function beforeRedirect() {
@@ -298,8 +292,12 @@ class AppController extends Controller {
 		if ($this->Ktai->is_ezweb()) {
 		    $outBuffer = ob_get_clean();
 		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
+		    
 		    mb_http_output("sjis-win");
 		    ob_start("mb_output_handler");
+
+		    header("Content-Type: text/html;charset=sjis-win");
+
 		    echo $outBuffer;
 		}
 	    }
