@@ -110,12 +110,6 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 
-		if (isset($_SERVER['HTTPS'])) {
-		    if ($this->Ktai->is_ezweb()) {
-			$this->ktai['output_encoding'] = 'sjis-win';
-		    }
-		}
-
 		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
 		if ($this->Ktai->is_iphone()) {
 		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
@@ -289,7 +283,7 @@ class AppController extends Controller {
 	    //AuのSSL文字化け対策
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
-		    mb_http_output("sjis-win");
+		    Configure::write('App.encoding', 'sjis-win');
 		}
 	    }
 	}
@@ -304,6 +298,7 @@ class AppController extends Controller {
 		if ($this->Ktai->is_ezweb()) {
 		    $outBuffer = ob_get_clean();
 		    $outBuffer = mb_convert_encoding($outBuffer, "sjis-win", "UTF-8");
+		    mb_http_output("sjis-win");
 		    ob_start("mb_output_handler");
 		    echo $outBuffer;
 		}
