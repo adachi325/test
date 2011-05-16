@@ -123,22 +123,22 @@ class AppController extends Controller {
 			);
 		$this->Auth->autoRedirect = false;
 
+		//ドコモのときはSSL設定前にUIDをセット
+		if($this->Ktai->is_imode()) {
+		    //SSLページでのUIDチェック用
+		    $ssluid= $this->Session->read('sslUid');
+		    if(empty($ssluid) || !isset($ssluid)){
+			$uid = $this->Ktai->get_uid();
+			if(isset($uid)){
+			    $this->Session->write('sslUid', $uid);
+			    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
+			}
+		    }
+		}
+
 		$secured = $this->Ssl->ssled($this->params);
 
 		if ($secured && !$this->Ssl->https) {
-
-			//ドコモのときはSSL設定前にUIDをセット
-			if($this->Ktai->is_imode()) {
-			    //SSLページでのUIDチェック用
-			    $ssluid= $this->Session->read('sslUid');
-			    if(empty($ssluid) || !isset($ssluid)){
-				$uid = $this->Ktai->get_uid();
-				if(isset($uid)){
-				    $this->Session->write('sslUid', $uid);
-				    $this->log($this->Session->read('sslUid'),LOG_DEBUG);
-				}
-			    }
-			}
 
 			//SSL環境下はセッションIDを引き回す。
 			if(!$this->Ktai->is_imode()){
