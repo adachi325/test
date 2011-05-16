@@ -19,10 +19,11 @@ class UsersController extends AppController {
 	if (isset($_SERVER['HTTPS'])) {
 	    $this->log('SSL通信を開始',LOG_DEBUG);
 	    $uid = $this->Session->read('sslUid');
+	    $this->log($uid,LOG_DEBUG);
 	} else {
 	    $uid = $this->_getUid();
 	}
-        if(!isset($uid) or empty($uid)) {
+        if(empty($uid) || !isset($uid)) {
             $result = $this->_getCareer();
             if( $result == 0 or $result == 1 or $result == 2 ){
                 $this->redirect('/pages/errorMobileId/');
