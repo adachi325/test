@@ -4,7 +4,7 @@
 ﾊﾟｽﾜｰﾄﾞを設定してください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Form->create('User', array("url" => "/users/remind_password?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php echo $this->Form->create('User', array("url" => "/users/remind_password", "inputDefaults" => array("dev" => false, "label" => false))); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>

@@ -415,7 +415,6 @@ class UsersController extends AppController {
 	$errorStr = "入力情報が正しくありません。";
 
         $userData = $this->Session->read('user_data');
-	$this->log($userData,LOG_DEBUG);
         if(empty($userData)){
             $this->cakeError('error404');
             return;
