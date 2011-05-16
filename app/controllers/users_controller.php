@@ -16,23 +16,12 @@ class UsersController extends AppController {
     }
 
     function uidCheck(){
-
-	$this->log('---------------------------------------------\r\n',LOG_DEBUG);
-	$this->log($this->data,LOG_DEBUG);
-
-	$this->log(session_id(),LOG_DEBUG);
-
 	if (isset($_SERVER['HTTPS'])) {
-	    $this->log('yes ssl',LOG_DEBUG);
-	    //$uid = $this->data['User']['sslUid'];
+	    $this->log('SSL通信を開始',LOG_DEBUG);
 	    $uid = $this->Session->read('sslUid');
 	} else {
-	    $this->log('no ssl',LOG_DEBUG);
 	    $uid = $this->_getUid();
 	}
-
-	$this->log($uid,LOG_DEBUG);
-        
         if(!isset($uid) or empty($uid)) {
             $result = $this->_getCareer();
             if( $result == 0 or $result == 1 or $result == 2 ){
