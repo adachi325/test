@@ -286,7 +286,8 @@ class AppController extends Controller {
 		TransactionManager::destructs();
 	}
 
-	public function afterRender() {
+	public function afterFilter() {
+	    parent::afterFilter();
 	    $this->log('aaaa',LOG_DEBUG);
 	    //AuのSSL文字化け対策
 	    if (isset($_SERVER['HTTPS'])) {
