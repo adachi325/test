@@ -32,9 +32,9 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1106/');?>" data-role="button" data-theme="e" rel="external">【Flash】はたらく くるま わかった！ クイズ<a/>
     </dd>
-    <dt><?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">3～4歳向けコース</span></dt>
+    <dt><?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span></dt>
     <a href="<?php echo $this->Html->url('/ap/hop/1106/');?>" data-role="button" data-theme="e" rel="external">【着うた】かずのドーナツやさんの歌<a/>
-    <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】】なつの　いきもの　ずかん<a/>
+    <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの　いきもの　ずかん<a/>
     <dt><?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span></dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おてつだいたいに ほうこくしよう！＜NEW＞</a>
