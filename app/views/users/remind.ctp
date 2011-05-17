@@ -13,6 +13,13 @@ if(isset($errorStr)){
 </span>
 <br />
 <?php echo $this->Form->create('User', array("url" => "/users/remind", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<?php
+
+if(!empty($this->data['User']['NoCheck'])){
+    echo $form->hidden('NoCheck', array('value'=>'1'));
+}
+
+?>
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>

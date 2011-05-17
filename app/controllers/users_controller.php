@@ -353,12 +353,12 @@ class UsersController extends AppController {
         $this->uidCheck();
 
 	//初回はNoCheck
-	$firstCheck = $this->Session->read('firstCheck');
-	if (empty($firstCheck) || !isset($firstCheck)) {
-	    $this->Session->write('firstCheck',1);
+	if (empty($this->data['User']['NoCheck']) || !isset($this->data['User']['NoCheck'])) {
+	    $this->data['User']['NoCheck'] = '1';
 	    return;
+	} else {
+	    $this->data['User']['NoCheck'] = '1';
 	}
-	$this->Session->delete('firstCheck');
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -384,7 +384,9 @@ class UsersController extends AppController {
         }
 
         //バリデーションチェック
-        $this->User->set($this->data);
+	$validateData = $this->data;
+	unset ($validateData['User']['NoCheck']);
+        $this->User->set($validateData);
         if (!$this->User->validates()) {
             $this->set(compact('errorStr'));
             return;
