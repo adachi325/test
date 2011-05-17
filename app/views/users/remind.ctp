@@ -5,8 +5,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#dd0000">
 <?php
-if(isset($errorStr)){
-    echo $errorStr;
+if(isset($this->data)){
+    echo "入力情報が正しくありません。";
     echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10"));
 }
 ?>
