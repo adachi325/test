@@ -149,7 +149,7 @@ class AppController extends Controller {
 			session_id($_REQUEST[$session_name]);
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 		    }
-		    define('__SB_AU_KTAI_SESSION__', true);
+		    define('__SB_AU_KTAI_SESSION__', 1);
 		}
 
 		//SSL通信環境設定
