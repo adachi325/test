@@ -136,7 +136,16 @@ class ChildrenController extends AppController {
             //表示データ一覧取得
             $diary =& ClassRegistry::init('diary');
             $diaries = $diary->find('all', $conditions);
-        }
+		}
+
+		$conditions = array(
+			'conditions' => array(
+				'Diary.child_id' => $this->Tk->_getLastChild(),
+				'Diary.has_image' => 1,
+				'Diary.error_code' => null
+			),
+		);
+		$prof_diary = $diary->find('first', $conditions);
 
         //ニュース取得
         $news =& ClassRegistry::init('news');
@@ -145,7 +154,7 @@ class ChildrenController extends AppController {
 			'order' => array('start_at DESC'),
 		));
 
-        $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','newslist'));
+        $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
         if (count($childrenData) == 0) {
             $this->render('index_nochild');
         }
