@@ -378,7 +378,6 @@ class UsersController extends AppController {
         //入力データが存在しない場合
         if(empty($this->data)){
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
