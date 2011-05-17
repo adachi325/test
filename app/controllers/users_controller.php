@@ -385,7 +385,6 @@ class UsersController extends AppController {
         $this->User->set($this->data);
         if (!$this->User->validates()) {
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
@@ -401,7 +400,6 @@ class UsersController extends AppController {
 
         if(empty($children)){
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
