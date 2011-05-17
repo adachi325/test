@@ -353,13 +353,12 @@ class UsersController extends AppController {
         $this->uidCheck();
 
 	//初回はNoCheck
-	$this->log($this->referer(),LOG_DEBUG);
 	$firstCheck = $this->Session->read('firstCheck');
 	if (empty($firstCheck) || !isset($firstCheck)) {
-	    $this->log('1',LOG_DEBUG);
 	    $this->Session->write('firstCheck',1);
 	    return;
 	}
+	$this->Session->delete('firstCheck');
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
