@@ -407,7 +407,7 @@ class UsersController extends AppController {
         }
 
         $this->Session->write('user_data', $children);
-        $this->redirect('remind_password');
+        $this->redirect('/users/remind_password');
         //$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
         //$this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
     }
@@ -436,7 +436,6 @@ class UsersController extends AppController {
         $this->User->set($this->data);
         if (!$this->User->validates()) {
             $this->set(compact('errorStr'));
-	    $this->render('remind_password');
             return;
         }
 
