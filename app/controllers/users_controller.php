@@ -351,6 +351,7 @@ class UsersController extends AppController {
 
 	//初回はNoCheck
 	if (!eregi("remind", $this->referer())) {
+	    $this->render('remind');
 	    return;
 	}
 
@@ -405,7 +406,9 @@ class UsersController extends AppController {
         }
 
         $this->Session->write('user_data', $children);
-        $this->redirect('/users/remind_password');
+        //$this->redirect('remind_password');
+        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+        $this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
     }
 
 
