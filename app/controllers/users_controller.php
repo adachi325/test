@@ -354,10 +354,10 @@ class UsersController extends AppController {
 
 	//初回はNoCheck
 	$this->log($this->referer(),LOG_DEBUG);
-	$firstCheck = $this->session->read('firstCheck');
+	$firstCheck = $this->Session->read('firstCheck');
 	if (empty($firstCheck) || !isset($firstCheck)) {
 	    $this->log('1',LOG_DEBUG);
-	    $this->session->write('firstCheck',1);
+	    $this->Session->write('firstCheck',1);
 	    return;
 	}
 
