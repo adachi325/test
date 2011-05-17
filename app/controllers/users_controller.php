@@ -349,17 +349,14 @@ class UsersController extends AppController {
     //リマインド認証
     function remind () {
 
-	//ログイン処理に入る前にUID取得確認
+        //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
 
 	//初回はNoCheck
 	if (!eregi("remind", $this->referer())) {
+	    $this->render('remind');
 	    return;
 	}
-
-	$this->log('1:'.$this->Session->read('sslUid'),LOG_DEBUG);
-
-
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -410,9 +407,7 @@ class UsersController extends AppController {
         }
 
         $this->Session->write('user_data', $children);
-        $this->render('remind_password');
-	$this->log('2:'.$this->Session->read('sslUid'),LOG_DEBUG);
-	return;
+        $this->redirect('remind_password');
         //$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
         //$this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
     }
@@ -420,8 +415,6 @@ class UsersController extends AppController {
 
     //パスワード再設定
     function remind_password () {
-
-	$this->log('3:'.$this->Session->read('sslUid'),LOG_DEBUG);
 
 	$errorStr = "入力情報が正しくありません。";
 
@@ -433,7 +426,6 @@ class UsersController extends AppController {
 	
         //入力データが存在しない場合
         if(empty($this->data)){
-	    $this->render('remind_password');
             return;
         }
 
