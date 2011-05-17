@@ -367,6 +367,7 @@ class UsersController extends AppController {
         $uid = $this->Session->read('sslUid');
         $this->User->contain();
         $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
+
         //uidが存在する場合、自動ログイン実行
         if(!empty($users)){
             $this->redirect('/children/');
@@ -406,9 +407,9 @@ class UsersController extends AppController {
         }
 
         $this->Session->write('user_data', $children);
-        //$this->redirect('remind_password');
-        $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
-        $this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
+        $this->render('remind_password');
+        //$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+        //$this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
     }
 
 
@@ -425,6 +426,7 @@ class UsersController extends AppController {
 	
         //入力データが存在しない場合
         if(empty($this->data)){
+	    $this->render('remind_password');
             return;
         }
 
