@@ -411,7 +411,7 @@ class UsersController extends AppController {
 
         $this->Session->write('user_data', $children);
         $this->render('remind_password');
-	$this->log('2'.$this->Session->read('sslUid'),LOG_DEBUG);
+	$this->log('2:'.$this->Session->read('sslUid'),LOG_DEBUG);
 	return;
         //$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
         //$this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
@@ -421,7 +421,7 @@ class UsersController extends AppController {
     //パスワード再設定
     function remind_password () {
 
-	$this->log('3'.$this->Session->read('sslUid'),LOG_DEBUG);
+	$this->log('3:'.$this->Session->read('sslUid'),LOG_DEBUG);
 
 	$errorStr = "入力情報が正しくありません。";
 
