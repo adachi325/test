@@ -1,10 +1,12 @@
+RedirectMatch /ap/step/1105/ http://220.152.124.130/shimajiro/ap/step/1105_1/
+
 AddType application/xhtml+xml .html
 AddHandler server-parsed html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /shimajiro/app/webroot
-    RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg|swf|khm|dmt|hmt|3gp|3g2|ifm) [NC]
+    RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg|swf|khm|dmt|hmt|3gp|3g2|ifm|mp4) [NC]
     RewriteCond %{REQUEST_FILENAME} !^(.*)\\(src)\\.* [NC]
     RewriteRule ^(ap/.*)$ index.php [QSA,L]
 
