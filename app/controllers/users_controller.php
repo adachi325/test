@@ -354,7 +354,6 @@ class UsersController extends AppController {
 
 	//初回はNoCheck
 	if (!eregi("remind", $this->referer())) {
-	    $this->render('remind');
 	    return;
 	}
 
