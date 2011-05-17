@@ -3,7 +3,7 @@ AddHandler server-parsed html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-	RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg|swf|khm|dmt|hmt|3gp|3g2|ifm|mp4) [NC]
+	RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg|swf|khm|dmt|hmt|3gp|3g2|ifm|mp4|mp3|mmf) [NC]
 	RewriteCond %{REQUEST_FILENAME} !^(.*)\\(src)\\.* [NC]
 	RewriteRule ^(ap/.*)$ index.php [QSA,L]
 
