@@ -353,7 +353,9 @@ class UsersController extends AppController {
         $this->uidCheck();
 
 	//初回はNoCheck
+	$this->log($this->referer(),LOG_DEBUG);
 	if (!eregi("remind", $this->referer())) {
+	    $this->log('1',LOG_DEBUG);
 	    return;
 	}
 
@@ -372,14 +374,18 @@ class UsersController extends AppController {
             $this->redirect('/children/');
         }
 
+	$errorStr = "入力情報が正しくありません。";
+
         //入力データが存在しない場合
         if(empty($this->data)){
+            $this->set(compact('errorStr'));
             return;
         }
 
         //バリデーションチェック
         $this->User->set($this->data);
         if (!$this->User->validates()) {
+            $this->set(compact('errorStr'));
             return;
         }
 
@@ -394,6 +400,7 @@ class UsersController extends AppController {
         $children = $child->find('all',array('conditions' => $conditions));
 
         if(empty($children)){
+            $this->set(compact('errorStr'));
             return;
         }
 
