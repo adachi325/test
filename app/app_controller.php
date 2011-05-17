@@ -137,7 +137,7 @@ class AppController extends Controller {
 		}
 
 		//セッションIDを引き回す。
-		if(!$this->Ktai->is_imode() && !defined('__SB_AU_KTAI_SESSION__')){
+		if(!$this->Ktai->is_imode()){
 		    ini_set('session.use_trans_sid', 1);
 		    ini_set('session.use_only_cookies', 0);
 		    ini_set('session.use_cookies', 0);
@@ -149,7 +149,6 @@ class AppController extends Controller {
 			session_id($_REQUEST[$session_name]);
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 		    }
-		    define('__SB_AU_KTAI_SESSION__', 1);
 		}
 
 		//SSL通信環境設定
