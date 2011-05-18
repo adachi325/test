@@ -146,9 +146,14 @@ h1, h2, h3 {
 	color:#ffcc00;
 }
 
+#contents dt span.hop {
+	color:#00b0ec;
+}
+
 #contents dt span.step {
 	color:#009933;
 }
+
 
 #contents  dd a {
 	line-height:1.0em;

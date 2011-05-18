@@ -37,10 +37,9 @@
     <a href="<?php echo $this->Html->url('/ap/hop/1106/');?>" data-role="button" data-theme="e" rel="external">【着うた】かずのドーナツやさんの歌</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの　いきもの　ずかん</a>
+    <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの いきもの ずかん</a>
     </dd>
     <dt><?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span></dt>
-    </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おてつだいたいに ほうこくしよう！＜NEW＞</a>
     </dd>
