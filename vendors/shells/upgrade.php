@@ -37,7 +37,7 @@ class UpgradeShell extends AppShell {
 
 		$this->Child->contain();
 		$children = $this->Child->find('all');
-		foreach ($chldren as $child) {
+		foreach ($children as $child) {
 			$this->Child->save_hashcode($child['Child']['id']);
 		}
 	}
