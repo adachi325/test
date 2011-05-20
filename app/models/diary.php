@@ -109,12 +109,22 @@ class Diary extends AppModel {
 		}
 
 		//add
+		/*
 		$request = array(
 			'user_id' => $to_splits[0],
 			'child_id' => $to_splits[1],
 			'theme_id' => $to_splits[2],
 			'hash' => $to_splits[3],
 		);
+		*/
+
+		$request = array(
+			'user_hash' => $to_splits[0],
+			'child_hash' => $to_splits[1],
+			'theme_id' => $to_splits[2],
+			'hash' => $to_splits[3],
+		);
+		
 		$request['title'] = isset($data['subject']) ? $data['subject'] : "";
 		$request['body'] = isset($data['body']) ? $data['body'] : "";
 		$request['images'] = isset($data['images']) ? $data['images'] : array();
@@ -132,11 +142,20 @@ class Diary extends AppModel {
 		//user_id & child_id
 		$child = ClassRegistry::init('Child');
 		$child->contain('User');
-		$child_data = $child->find('first', array('conditions' => array('User.id' => $data['user_id'], 'Child.id' => $data['child_id'])));
+	
+		if (isset($data['user_hash']) && isset($data['child_hash'])) {
+			$child_data = $child->find('first', array('conditions' => array('User.hash' => $data['user_hash'], 'Child.hash' => $data['child_hash'])));
+		} else {
+			$child_data = $child->find('first', array('conditions' => array('User.id' => $data['user_id'], 'Child.id' => $data['child_id'])));
+		}
 		if (empty($child_data)) {
 			return false;
 		}
 
+		//User,Childのidを設定
+		$data['user_id'] = $child_data['User.id'];
+		$data['child_id'] = $child_dataa['Child.id'];
+		
 		//theme_id
 		$theme = ClassRegistry::init('Theme')->find('first', array('conditions' => array('Theme.id' => $data['theme_id'])));
 		if (empty($theme)) {
