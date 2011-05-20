@@ -15,7 +15,7 @@ if (!(($this->params['controller'] == 'children' && $this->params['action'] == '
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
 	    echo '<img localsrc="188" />';
     } else {
-	    echo $this->Ktai->emoji(0xE6EA);
+	    $this->Ktai->emoji(0xE6EA);
     }
 ?>
 </span>
