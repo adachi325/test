@@ -9,17 +9,13 @@ if (!(($this->params['controller'] == 'children' && $this->params['action'] == '
 ?>
 <tr>
 <td colspan="2" align="left">
-<span style="font-size:x-small;">
-<span style="color:#ffcc33;">
-<?php 
+<span style="font-size:x-small;"><?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
-	    echo '<img localsrc="188" />';
+	    echo '<span style="color:#ffcc33;"><img localsrc="188" /></span>';
     } else {
-	    $this->Ktai->emoji(0xE6EA);
+	    echo '<span style="color:#ffcc33;">'.$this->Ktai->emoji(0xE6EA,false).'</span>';
     }
-?>
-</span>
-<a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">ﾄｯﾌﾟﾍﾟｰｼﾞへ戻る</span></a>
+?><a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">ﾄｯﾌﾟﾍﾟｰｼﾞへ戻る</span></a>
 </span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br /></td>
 </tr>
 <?php endif; ?>
