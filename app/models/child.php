@@ -218,7 +218,8 @@ class Child extends AppModel {
 
 	function save_hashcode($id = null) {
 		if ($id) {
-			$data = $this->findById($id);
+			//$data = $this->findById($id);
+			$data = array($this->alias => array('id' => $id));
 		} else {
 			$data = $this->data;
 		}
