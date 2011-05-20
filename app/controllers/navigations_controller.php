@@ -37,11 +37,14 @@ class NavigationsController extends AppController {
 
 	function after1() {
 
+		$this->Auth->autoRedirect = false;
+		$this->Session->delete('Auth.redirect');
+
 		//今月の自由テーマＩＤを取得
 		$options = array();
 		$options['Theme.free_theme'] = true;
 		$options['Month.year'] = date('Y');
-		$options['Month.month'] = date('m') + 0;            
+		$options['Month.month'] = date('m') + 0;
 		$theme =& ClassRegistry::init('Theme');
 		$theme->contain('Month');
 		$themes = $theme->find('all',array('conditions' => $options));
