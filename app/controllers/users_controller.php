@@ -129,7 +129,10 @@ class UsersController extends AppController {
                $this->_setRegisterData();
                if( $this->User->_register($this->data)){
                   //初回登録プレゼント
-                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+				  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+
+				  $this->User->sate_hashcode($this->User->getLastInsertId());	
+
                   TransactionManager::commit();
                   $this->redirect('/navigations/after1');
                } else {

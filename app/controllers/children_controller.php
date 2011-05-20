@@ -252,7 +252,11 @@ class ChildrenController extends AppController {
                     //最終子供IDを更新
                     $this->_saveLastChild($this->Child->getLastInsertId());
                     //初回登録プレゼント
-                    $this->_initialRegistrationPresents($this->Child->getLastInsertId());
+					$this->_initialRegistrationPresents($this->Child->getLastInsertId());
+
+					//メール投稿用のハッシュコードを追加
+					$this->Child->save_hashcode($this->Child->getLastInsertId());
+
                     TransactionManager::commit();
                 } else {
                     TransactionManager::rollback();
