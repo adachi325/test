@@ -55,8 +55,11 @@ class NavigationsController extends AppController {
 		//ハッシュタグを設定
 		$this->set('nexthash',$hash);
 
+		 $Child =& ClassRegistry::init('Child');
+		 $child = $Child->findById($userdata['User']['last_selected_child']);
+		
 		//メールアドレス設定
-		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
+		$mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
 		$mailTitle = 'ベストショット';
