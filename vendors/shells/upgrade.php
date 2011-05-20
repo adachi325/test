@@ -26,20 +26,27 @@ class UpgradeShell extends AppShell {
 	}
 
 	function sethash() {
-		$this->User =& ClassRegistry::init('User');
-		$this->Child =& ClassRegistry::init('Child');
+		$User =& ClassRegistry::init('User');
+		$Child =& ClassRegistry::init('Child');
 		
-		$this->User->contain();
-		$users = $this->User->find('all');
+		echo '-----'.PHP_EOL;
+		$User->contain();
+		$users = $User->find('all');
 		foreach ($users as $user) {
-			$this->User->save_hashcode($user['User']['id']);
+			if (!$User->save_hashcode($user['User']['id'])) {
+				echo 'faild id:'.$user['User']['id'].PHP_EOL;
+			}
 		}
-
-		$this->Child->contain();
-		$children = $this->Child->find('all');
-		foreach ($chldren as $child) {
-			$this->Child->save_hashcode($child['Child']['id']);
+		echo 'add hash to users'.PHP_EOL;
+		$Child->contain();
+		$children = $Child->find('all');
+		foreach ($children as $child) {
+			if (!$Child->save_hashcode($child['Child']['id'])) {
+				echo 'faild id:'.$child['Child']['id'].PHP_EOL;
+			}
 		}
+		echo 'add hash to children'.PHP_EOL;
+		echo '-----'.PHP_EOL;
 	}
 
 
