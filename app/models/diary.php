@@ -153,8 +153,8 @@ class Diary extends AppModel {
 		}
 
 		//User,Childのidを設定
-		$data['user_id'] = $child_data['User.id'];
-		$data['child_id'] = $child_dataa['Child.id'];
+		$data['user_id'] = $child_data['User']['id'];
+		$data['child_id'] = $child_data['Child']['id'];
 		
 		//theme_id
 		$theme = ClassRegistry::init('Theme')->find('first', array('conditions' => array('Theme.id' => $data['theme_id'])));
