@@ -334,8 +334,11 @@ class Diary extends AppModel {
 				$thumb->height($size); 
 				$thumb->crop(($info[0] - $size) / 2, ($info[1] - $size) / 2);
 				$thumb->save();
-
-				imagedestroy($thumb);
+				try {
+					ImageDestroy($thumb);
+				} catch (Exception $e) {
+					$this->log($e);
+				}
 			} 
 			
 		}
