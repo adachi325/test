@@ -144,6 +144,7 @@ class ChildrenController extends AppController {
 				'Diary.has_image' => 1,
 				'Diary.error_code' => null
 			),
+            'order'=>array('Diary.created DESC')
 		);
 		$prof_diary = $diary->find('first', $conditions);
 
