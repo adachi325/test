@@ -2,7 +2,7 @@
 /* Hanamaru Fixture generated on: 2011-05-16 16:05:21 : 1305529941 */
 class HanamaruFixture extends CakeTestFixture {
 	var $name = 'Hanamaru';
-	var $table = 'hanamaru';
+	var $table = 'hanamarus';
 
 	var $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),

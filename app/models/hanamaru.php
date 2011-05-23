@@ -1,7 +1,9 @@
 <?php
 class Hanamaru extends AppModel {
 	var $name = 'Hanamaru';
-  var $useTable = 'hanamaru';
+
+  // 対応するテーブルを指定
+  var $useTable = 'hanamarus';
 
   /*
    * もらったはなまる総数を取得する。
