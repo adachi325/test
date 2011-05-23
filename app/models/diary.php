@@ -1,6 +1,7 @@
 <?php
 class Diary extends AppModel {
 	var $name = 'Diary';
+
 	var $validate = array(
 		'child_id' => array(
 			array(
@@ -452,7 +453,82 @@ class Diary extends AppModel {
 			chmod($dir, 0777);
 			system("chmod 777 ".$dir);
 		}
-	}
+  }
+
+  // 記事IDを作成する
+  // 作成方法:
+  // 1. 100000000から999999999までのランダムな数値を作成する。
+  // 2. 末尾にチェックディジットを付加したものを記事IDとする。DBに同様の値がある場合、再度1.からやり直す。
+  // 
+  // 戻り値: 記事ID
+  function makeIdentifyToken($number) {
+    
+    $token = '';
+    do {
+
+      // 1. 100000000から999999999までのランダムな数値を作成する。
+      $number = rand(100000000, 999999999);
+      $digit = $this->__check_digit($number);
+      if ($digit == null) {
+        return null;
+      }
+      $token = $number . $this->__check_digit($number);
+
+    } while ($this->__checkUniqueIdentifyToken($token));
+
+    return $token;
+
+  }
+
+  // 記事IDの重複をチェックする
+  function __checkUniqueIdentifyToken($token) {
+    $params = array('conditions' => array('Diary.identify_token' => $token) );
+    $count = $this->find('count', $params);
+    if ($count == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // チェックディジットを作成する
+  // 作成方法: モジュラス 10 ウェイト 3で作成する。
+  // 1. 数値を奇数桁と偶数桁に分割する。
+  // 2. 奇数桁のそれぞれに7をかけ、合計をとる。
+  // 3. 偶数桁のそれぞれに1をかけ、合計をとる。
+  // 4. 2. と 3. で計算した数値を合計し、10で割った余りを10から引いた値をチェックディジットとする。その値が10だったら0とする。
+  // in: 正の整数
+  // out: 数値に対するチェックディジット。入力値が正の整数9桁でないばあい、null。
+  function __check_digit($input) {
+    if (!preg_match("/^\d{9}$/", $input)) {
+      return null;
+    }
+
+    # 文字数を取得
+    $length = strlen($input);
+
+    # 奇数フラグを設定
+    $odd_flg = $length % 2 == 1;
+
+    $sum = 0;
+    for ($i = 0; $i < $length; $i++) {
+      $num = substr($input, $i, 1);
+      if ($odd_flg) {
+        $sum += $num * 3;
+      } else {
+        $sum += $num;
+      }
+      $odd_flg = !$odd_flg;
+    }
+
+    $rem = ($sum % 10);
+    $digit = 10 - $rem;
+    if ($digit == 10) {
+      $digit = 0;
+    }
+
+    return $digit;
+  }
 
 }
 ?>
