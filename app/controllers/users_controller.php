@@ -16,8 +16,12 @@ class UsersController extends AppController {
     }
 
     function uidCheck(){
-        $uid = $this->_getUid();
-        if(!isset($uid) or empty($uid)) {
+	if (isset($_SERVER['HTTPS'])) {
+	    $uid = $this->Session->read('sslUid');
+	} else {
+	    $uid = $this->_getUid();
+	}
+        if(empty($uid) || !isset($uid)) {
             $result = $this->_getCareer();
             if( $result == 0 or $result == 1 or $result == 2 ){
                 $this->redirect('/pages/errorMobileId/');
@@ -29,6 +33,7 @@ class UsersController extends AppController {
     function login(){
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
+
         //ログイン判定
         if($this->Auth->user()) {
             $this->redirect($this->Auth->redirect());
@@ -37,17 +42,17 @@ class UsersController extends AppController {
 
     //明示的にログアウト(基本ログアウトは不可能)
     public function logout(){
-		$this->Session->destroy();
-		$redirectTo = $this->Auth->logout();
-		$this->redirect('/');
+	$this->Session->destroy();
+	$redirectTo = $this->Auth->logout();
+	$this->redirect('/');
     }
 
-	function index() {
-		if ($this->Ktai->is_imode()) {
-			$this->redirect('/users/login/?guid=ON');
-		} else {
-			$this->redirect('/users/login');
-		}
+    function index() {
+	if ($this->Ktai->is_imode()) {
+		$this->redirect('/users/login/?guid=ON');
+	} else {
+		$this->redirect('/users/login');
+	}
     }
 
     function register(){
@@ -63,7 +68,7 @@ class UsersController extends AppController {
         }
 
         //ログイン済みじゃない場合、uidを取得
-        $uid = $this->_getUid();
+        $uid = $this->Session->read('sslUid');
         $this->User->contain();
         $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
         //uidが存在する場合、自動ログイン実行
@@ -73,6 +78,11 @@ class UsersController extends AppController {
         }
 
         $this->_setline();
+
+	if (!empty($this->data) && isset($this->data['User']['back'])) {
+	    return;
+	}
+
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
@@ -81,47 +91,96 @@ class UsersController extends AppController {
             }
             TransactionManager::begin();
             if ($this->User->saveAll($request, array('validate'=>'only'))) {
-                //セッションにデータ保持
+
+		if(isset($this->data['User']['comp'])) {
+		    
+		    //初回会員登録処理
+		    if (!empty($this->data)) {
+			try {
+			   TransactionManager::begin();
+			   $this->_setRegisterData();
+			   if( $this->User->_register($this->data)){
+			      //初回登録プレゼント
+			      
+			      $this->User->save_hashcode($this->User->getLastInsertId());
+			      $this->User->Child->save_hashcode($this->User->Child->getLastInsertId());
+  			
+			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+			      TransactionManager::commit();
+
+			      //UID再取得のため、フルパスでリダイレクト
+			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+			      $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/navigations/after1');
+			   } else {
+			      TransactionManager::rollback();
+
+			      $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+			      $this->log($this->data,LOG_DEBUG);
+			      $this->cakeError('error404');
+			      return;
+			   }
+			} catch(Exception $e) {
+			      TransactionManager::rollback();
+
+			      $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+			      $this->log($this->data,LOG_DEBUG);
+			      $this->log($e,LOG_DEBUG);
+			      $this->cakeError('error404');
+			      return;
+			}
+		    } else {
+
+			 $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+			 $this->cakeError('error404');
+			 return;
+		    }
+		}
+
+                
                 TransactionManager::rollback();
-		
-                $this->Session->write('userRegisterData', $this->data);
+
+		//セッションにデータ保持
+                //$this->Session->write('userRegisterData', $this->data);
+
                 //バリデーションにエラーがなければリダイレクト処理
-                $this->redirect('/users/register_confirm');
+		$this->render('register_confirm');
+		return;
+
             } else {
-                $this->Session->setFlash(__('入力情報が間違っています。', true));
 		$this->data['User']['new_password'] = '';
 		$this->data['User']['row_password'] = '';
             }
 
             TransactionManager::rollback();
         }
-        //セッション情報回収、削除
-        $userRegisterData = $this->Session->read('userRegisterData');
-        if(!empty($userRegisterData)){
-            $this->data = $userRegisterData;
-	    $this->data['User']['new_password'] = '';
-	    $this->data['User']['row_password'] = '';
-            $this->Session->delete('userRegisterData');
-        }
+
     }
 
+/* 廃止ロジック 2011.05.16
     function register_confirm(){
         //セッション情報回収
         $this->data = $this->Session->read('userRegisterData');
         if (empty($this->data)) {
             $this->Session->delete('userRegisterData');
-            $this->Session->setFlash(__('不正操作です。', true));
-            $this->cakeError('error404');
+            //$this->Session->setFlash(__('不正操作です。', true));
+            //$this->cakeError('error404');
             return;
         }
         $this->_setline();
+	$this->Session->write('userRegisterData', $this->data);
     }
 
     function register_complete() {
 
+	$this->log('[comp]this->data',LOG_DEBUG);
+	$this->log($this->data,LOG_DEBUG);
+
         //セッション情報回収、削除
-        $this->data = $this->Session->read('userRegisterData');
+	$this->data = $this->Session->read('userRegisterData');
         $this->Session->delete('userRegisterData');
+
+	$this->log('[comp]userRegisterData',LOG_DEBUG);
+	$this->log($userRegisterData,LOG_DEBUG);
 
         //初回会員登録処理
         if (!empty($this->data)) {
@@ -130,12 +189,16 @@ class UsersController extends AppController {
                $this->_setRegisterData();
                if( $this->User->_register($this->data)){
                   //初回登録プレゼント
-                  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+				  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
+
+				  $this->User->save_hashcode($this->User->getLastInsertId());	
+				  $this->User->Child->save_hashcode($this->User->Child->getLastInsertId());	
+
                   TransactionManager::commit();
                   $this->redirect('/navigations/after1');
                } else {
                   TransactionManager::rollback();
-                  
+
                   $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
                   $this->log($this->data,LOG_DEBUG);
                   $this->cakeError('error404');
@@ -143,7 +206,7 @@ class UsersController extends AppController {
                }
             } catch(Exception $e) {
                   TransactionManager::rollback();
-                  
+
                   $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
                   $this->log($this->data,LOG_DEBUG);
                   $this->log($e,LOG_DEBUG);
@@ -151,12 +214,13 @@ class UsersController extends AppController {
                   return;
             }
         } else {
-             
+
              $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
              $this->cakeError('error404');
              return;
         }
     }
+*/
     
     function _initialRegistrationPresents($id){
         $presentIds = Configure::read('Child.Initial_registration_presents');
@@ -176,7 +240,7 @@ class UsersController extends AppController {
         //ハッシュ化
         $request['User']['password'] = AuthComponent::password( $request['User']['new_password'] );
         //uid取得
-        $request['User']['uid'] = $this->EasyLogin->_getUid();
+        $request['User']['uid'] = $this->Session->read('sslUid');
         $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
@@ -186,6 +250,17 @@ class UsersController extends AppController {
     function edit() {
         $this->pageTitle = '登録情報変更';
         if (!empty($this->data)) {
+
+	    //パスワード変更なしの場合は、設定しない。
+	    if(empty($this->data['User']['new_password']) or !isset($this->data['User']['new_password'])) {
+		unset($this->data['User']['new_password']);
+		if(empty($this->data['User']['row_password']) or !isset($this->data['User']['row_password'])) {
+		    unset($this->data['User']['row_password']);
+		} else {
+		    $this->data['User']['new_password'] = '';
+		}
+	    }
+
             $this->User->set($this->data);
             if ($this->User->validates()) {
                 //セッションにデータ保持
@@ -233,14 +308,14 @@ class UsersController extends AppController {
 
         if (!empty($this->data)) {
             try {
-               $this->_setEditData();
-               if( $this->User->save($this->data)){
-                  return;
-               } else {
-                  $this->cakeError('error404');
-                  $this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-                  $this->log($this->data,LOG_DEBUG);
-               }
+		$this->_setEditData();
+		if( $this->User->save($this->data)){
+		  return;
+		} else {
+		  $this->cakeError('error404');
+		  $this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+		  $this->log($this->data,LOG_DEBUG);
+		}
             } catch(Exception $e) {
                   $this->cakeError('error404');
                   $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
@@ -262,29 +337,36 @@ class UsersController extends AppController {
         $editData = array();
         $editData = $this->data;
         $editData['User']['id'] = $userData['User']['id'];
-        //ハッシュ化
-        $editData['User']['password'] = AuthComponent::password( $editData['User']['new_password'] );
-        unset ($editData['User']['new_password']);
-        unset ($editData['User']['row_password']);
+	//パスワード変更なしの場合は、設定しない。
+	if(isset($this->data['User']['new_password'])) {
+	    //ハッシュ化
+	    $editData['User']['password'] = AuthComponent::password( $editData['User']['new_password'] );
+	    unset ($editData['User']['new_password']);
+	    unset ($editData['User']['row_password']);
+	}
         $this->data = $editData;
     }
 
     //ライン情報取得
     function _setline(){
             $Line = ClassRegistry::init('Line');
-            $Line = $Line->find('list');
-            $this->set('lines', $Line);
+            $Lines = $Line->find('list');
+            $this->set('lines', $Lines);
     }
 
-    //リマインド認証(初回)
+    //リマインド認証
     function remind () {
-    }
-
-    //リマインド認証(2回目以降)
-    function remindCheck () {
 
         //ログイン処理に入る前にUID取得確認
         $this->uidCheck();
+
+	//初回はNoCheck
+	if (empty($this->data['User']['NoCheck']) || !isset($this->data['User']['NoCheck'])) {
+	    $this->data['User']['NoCheck'] = '1';
+	    return;
+	} else {
+	    $this->data['User']['NoCheck'] = '1';
+	}
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -292,9 +374,10 @@ class UsersController extends AppController {
             $this->redirect('/children/');
         }
         //ログイン済みじゃない場合、uidを取得
-        $uid = $this->_getUid();
+        $uid = $this->Session->read('sslUid');
         $this->User->contain();
         $users = $this->User->find('all',array('conditions' => array('uid' => $uid)));
+
         //uidが存在する場合、自動ログイン実行
         if(!empty($users)){
             $this->redirect('/children/');
@@ -305,15 +388,15 @@ class UsersController extends AppController {
         //入力データが存在しない場合
         if(empty($this->data)){
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
         //バリデーションチェック
-        $this->User->set($this->data);
+	$validateData = $this->data;
+	unset ($validateData['User']['NoCheck']);
+        $this->User->set($validateData);
         if (!$this->User->validates()) {
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
@@ -329,26 +412,27 @@ class UsersController extends AppController {
 
         if(empty($children)){
             $this->set(compact('errorStr'));
-	    $this->render('remind');
             return;
         }
 
         $this->Session->write('user_data', $children);
         $this->redirect('/users/remind_password');
-        
+        //$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+        //$this->redirect('https://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_password?guid=ON&csid='.session_id());
     }
+
 
     //パスワード再設定
     function remind_password () {
+
+	$errorStr = "入力情報が正しくありません。";
 
         $userData = $this->Session->read('user_data');
         if(empty($userData)){
             $this->cakeError('error404');
             return;
         }
-
-	$errorStr = "入力情報が正しくありません。";
-        
+	
         //入力データが存在しない場合
         if(empty($this->data)){
             return;
@@ -361,55 +445,36 @@ class UsersController extends AppController {
         $this->User->set($this->data);
         if (!$this->User->validates()) {
             $this->set(compact('errorStr'));
-	    $this->render('remind_password');
             return;
         }
 
-        $this->Session->write('remind_data', $this->data);
-        $this->redirect('/users/remind_complete');
+	//バリデーションで問題なければ更新処理
+	$this->Session->delete('user_data');
 
-    }
-
-    //パスワード再設定完了
-    function remind_complete () {
-
-        $userData = $this->Session->read('user_data');
-        $this->Session->delete('user_data');
-        if(empty($userData)){
-            $this->cakeError('error404');
-            return;
-        }
-
-        $remindData = $this->Session->read('remind_data');
-        $this->Session->delete('remind_data');
-        if(empty($remindData)){
-            $this->cakeError('error404');
-            return;
-        }
-        
         //会員情報更新
         $request = array();
         $request['User']['id'] = $userData['0']['User']['id'];
-        $request['User']['password'] = AuthComponent::password($remindData['User']['new_password']);
-        $request['User']['uid'] = $this->_getUid();
+        $request['User']['password'] = AuthComponent::password($this->data['User']['new_password']);
+        $request['User']['uid'] = $this->Session->read('sslUid');
+
         try {
            if( $this->User->save($request)){
-              return;
+		//UID再取得のため、フルパスでリダイレクト
+		$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+		$this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/users/remind_complete');
            } else {
-              $this->cakeError('error404');
               $this->log('パスワード再設定に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
+              $this->cakeError('error404');
            }
         } catch(Exception $e) {
-              $this->cakeError('error404');
               $this->log('パスワード再設定に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
               $this->log($request,LOG_DEBUG);
+              $this->cakeError('error404');
         }
-        //ログアウト
-        $this->Auth->logout();
+    }
 
-        //セッション全削除
-        $this->Session->destroy();
+    function remind_complete () {
     }
     
     /**
@@ -558,6 +623,5 @@ class UsersController extends AppController {
         //トライアルトップへ遷移
         $this->redirect('/');
     }
-
 }
 ?>

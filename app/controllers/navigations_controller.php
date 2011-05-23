@@ -37,11 +37,14 @@ class NavigationsController extends AppController {
 
 	function after1() {
 
+		$this->Auth->autoRedirect = false;
+		$this->Session->delete('Auth.redirect');
+
 		//今月の自由テーマＩＤを取得
 		$options = array();
 		$options['Theme.free_theme'] = true;
 		$options['Month.year'] = date('Y');
-		$options['Month.month'] = date('m') + 0;            
+		$options['Month.month'] = date('m') + 0;
 		$theme =& ClassRegistry::init('Theme');
 		$theme->contain('Month');
 		$themes = $theme->find('all',array('conditions' => $options));
@@ -55,8 +58,11 @@ class NavigationsController extends AppController {
 		//ハッシュタグを設定
 		$this->set('nexthash',$hash);
 
+		 $Child =& ClassRegistry::init('Child');
+		 $child = $Child->findById($userdata['User']['last_selected_child']);
+		
 		//メールアドレス設定
-		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
+		$mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
 		$mailTitle = 'ベストショット';

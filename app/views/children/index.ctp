@@ -34,6 +34,7 @@ if (count($childrenData) < 3) {
 	$img = '';
 	$opt = array("width" => "100%", "style" => "margin:5px 2px 5px 0;");
 
+	/*
 	foreach($diaries as $diary) {
 		if ($diary['Diary']['has_image']) {
 			$img = $html->image(
@@ -42,9 +43,20 @@ if (count($childrenData) < 3) {
 			break;
 		}
 	}
+	
 	if (empty($img)) {
 		$img = $this->Html->image("profile.gif", $opt);
 	}
+	*/
+
+	if(empty($prof_diary)) {
+		$img = $this->Html->image('profile.gif', $opt);
+	} else {
+		$img = $html->image(
+			sprintf(Configure::read('Diary.image_path_rect'), $prof_diary['Diary']['child_id'], $prof_diary['Diary']['id']),
+			array_merge($opt, array('url'=>'/diaries/info/'.$prof_diary['Diary']['id'].'/' )) );
+	}
+
 	echo $img;
 	?>
 </td>
