@@ -2,6 +2,11 @@
 class Diary extends AppModel {
 	var $name = 'Diary';
 
+  /* バーチャルフィールド
+   * 思い出記録に対するはなまる個数
+   */
+  var $virtualFields = array('hanamaru_count' => "count(Diary.id)");
+
 	var $validate = array(
 		'child_id' => array(
 			array(

@@ -1,4 +1,5 @@
-<h1>hogehoge</h1>
+<h1>もらったはなまる一覧</h1>
+全○個 
 <table>
 <tr>
   <th>ID</th>
@@ -50,3 +51,35 @@
 <?php endforeach; ?>
 </table>
 
+<table>
+<?php foreach ($hanamarus as $hanamaru): ?>
+<!-- start: タイトル -->
+<tr>
+<td colspan="2"><?php echo $hanamaru['Diary']['title']; ?></td>
+</tr>
+<!-- end: タイトル -->
+
+<!-- start: 写真、ボディ -->
+<tr>
+<?php
+$image_path;
+if ($hanamaru['Diary']['has_image']) {
+  $image_path = sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']);
+}
+if ($diary['Diary']['has_image']) {
+  $image_path = "";
+} 
+?>
+
+<td><?php echo $html->image("", array("style" => "margin:10px 0;")); ?></td>
+<td><?php echo $hanamaru['Diary']['body']; ?></td>
+</tr>
+<!-- end: 写真、ボディ -->
+
+<!-- start: はなまる個数 -->
+<tr>
+<td colspan="2">はなまる個数</td>
+</tr>
+<?php endforeach; ?>
+<!-- end: はなまる個数 -->
+</table>
