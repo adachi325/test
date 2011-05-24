@@ -466,7 +466,7 @@ class Diary extends AppModel {
   // 2. 末尾にチェックディジットを付加したものを記事IDとする。DBに同様の値がある場合、再度1.からやり直す。
   // 
   // 戻り値: 記事ID
-  function makeIdentifyToken($number) {
+  function makeIdentifyToken() {
     
     $token = '';
     do {
