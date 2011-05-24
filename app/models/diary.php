@@ -479,7 +479,7 @@ class Diary extends AppModel {
       }
       $token = $number . $this->__check_digit($number);
 
-    } while ($this->__checkUniqueIdentifyToken($token));
+    } while (!$this->__checkUniqueIdentifyToken($token));
 
     return $token;
 

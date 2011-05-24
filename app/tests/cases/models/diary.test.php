@@ -8,6 +8,18 @@ class DiaryTestCase extends CakeTestCase {
 		$this->Diary =& ClassRegistry::init('Diary');
   }
 
+  function testmakeIdentifyToken() {
+    // 10桁で帰ってくるかのテスト
+    $token = $this->Diary->makeIdentifyToken();
+    $result = false;
+    if (1000000000 <= $token && $token <= 9999999999) {
+      $result = true;
+    } else {
+      $result = false;
+    }
+    $this->assertTrue($result);
+  }
+
   function test__checkUniqueIdentifyToken() {
     //---------- 記事IDチェックのテスト
     //----- 正常ケース
