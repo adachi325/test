@@ -37,6 +37,15 @@ class HanamaruFixture extends CakeTestFixture {
 			'created' => '2011-05-16 16:12:21',
 			'modified' => '2011-05-16 16:12:21'
 		),
+		array(
+			'id' => 3,
+			'type' => 1,
+			'external_id' => 1,
+			'user_id' => 1,
+			'owner_id' => 2,
+			'created' => '2011-05-16 16:12:21',
+			'modified' => '2011-05-16 16:12:21'
+		),
 	);
 
 }

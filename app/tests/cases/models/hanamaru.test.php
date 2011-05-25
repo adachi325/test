@@ -9,27 +9,51 @@ class HanamaruTestCase extends CakeTestCase {
 		$this->Hanamaru =& ClassRegistry::init('Hanamaru');
 	}
 
-  function testGetHanamaruCount(){
+  function testGetReceivedHanamaruCount(){
 
-    //---------- ユーザーのはなまる総数取得テスト
+    //---------- ユーザーのもらったはなまる総数取得テスト
     // 存在するユーザーで実施 
-    $count = $this->Hanamaru->getHanamaruCount(1);
+    $count = $this->Hanamaru->getReceivedHanamaruCount(1);
     $this->assertEqual($count, 2);
 
     // 存在しないユーザーで実施
-    $count = $this->Hanamaru->getHanamaruCount(242424);
+    $count = $this->Hanamaru->getReceivedHanamaruCount(242424);
     $this->assertEqual($count, 0);
 
     // 引数無しで実施
-    $count = $this->Hanamaru->getHanamaruCount();
+    $count = $this->Hanamaru->getReceivedHanamaruCount();
     $this->assertEqual($count, 0);
     
     // nullで実施
-    $count = $this->Hanamaru->getHanamaruCount(null);
+    $count = $this->Hanamaru->getReceivedHanamaruCount(null);
     $this->assertEqual($count, 0);
     
     // 文字列で実施
-    $count = $this->Hanamaru->getHanamaruCount("hogehoge");
+    $count = $this->Hanamaru->getReceivedHanamaruCount("hogehoge");
+    $this->assertEqual($count, 0);
+  }
+
+  function testGetGaveHanamaruCount(){
+
+    //---------- ユーザーのあげたはなまる総数取得テスト
+    // 存在するユーザーで実施 
+    $count = $this->Hanamaru->getGaveHanamaruCount(1);
+    $this->assertEqual($count, 3);
+
+    // 存在しないユーザーで実施
+    $count = $this->Hanamaru->getGaveHanamaruCount(242424);
+    $this->assertEqual($count, 0);
+
+    // 引数無しで実施
+    $count = $this->Hanamaru->getGaveHanamaruCount();
+    $this->assertEqual($count, 0);
+    
+    // nullで実施
+    $count = $this->Hanamaru->getGaveHanamaruCount(null);
+    $this->assertEqual($count, 0);
+    
+    // 文字列で実施
+    $count = $this->Hanamaru->getGaveHanamaruCount("hogehoge");
     $this->assertEqual($count, 0);
   }
 
