@@ -158,6 +158,7 @@ class ChildrenController extends AppController {
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
         if (count($childrenData) == 0) {
             $this->render('index_nochild');
+            return;
         }
 
 	}
