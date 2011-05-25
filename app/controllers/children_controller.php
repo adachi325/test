@@ -157,11 +157,19 @@ class ChildrenController extends AppController {
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
         if (count($childrenData) == 0) {
-            $this->render('index_nochild');
+            $this->redirect('/children/index_nochild');
             return;
         }
 
-	}
+    }
+    
+    function index_nochild() {
+        //子供データ一覧設定
+        $childrenData = $this->_setChild();
+        if (count($childrenData) != 0) {
+            $this->redirect('/children/');
+        }
+    }
 
     //最終子供ID更新
     function _saveLastChild($id){
