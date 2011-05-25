@@ -22,3 +22,5 @@
 <?php endforeach; ?>
 </table>
 
+<hr />
+全○コ <?php echo $paginator->counter(array('format' => "%count%件中 %start%件〜%end%件を表示"));?>

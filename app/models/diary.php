@@ -5,7 +5,38 @@ class Diary extends AppModel {
   /* バーチャルフィールド
    * 思い出記録に対するはなまる個数
    */
-  var $virtualFields = array('hanamaru_count' => "count(Diary.id)");
+  var $virtualFields = array(
+    'hanamaru_count' => 'SELECT COUNT(*) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id',
+    'last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id'
+  );
+
+	var $hasMany = array(
+		'Hanamaru' => array(
+			'className' => 'Hanamaru',
+			'foreignKey' => 'external_id',
+			'dependent' => true,
+			'conditions' => array('Hanamaru.type' => 1),
+			'exclusive' => true,
+    ),
+  );
+	
+  function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+    $joins = array(
+      array(
+        'type' => 'inner',
+        'alias' => 'Hanamaru',
+        'table' => 'hanamarus',
+        'conditions' => array(
+          'Diary.id = Hanamaru.external_id',
+        ),
+      ),
+    );
+    $params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => '*', 'conditions' => $conditions);
+    // FIXME: find('count')だと件数が取れない...
+    $result = $this->find('all', $params);
+    pr($conditions);
+    return count($result);
+  }
 
 	var $validate = array(
 		'child_id' => array(

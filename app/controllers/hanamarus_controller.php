@@ -6,8 +6,8 @@ class HanamarusController extends AppController {
   // 使用するモデルを指定
   var $uses = array("Hanamaru", "Diary");
 
-  // TODO: テスト用のため、削除すること
-  var $layout = null;
+  // TODO: テスト用のため稼働時には削除すること、またapp/view/layout/cake.ctpも削除すること
+  var $layout = "cake";
 
 	function beforeFilter()
   {
@@ -20,7 +20,10 @@ class HanamarusController extends AppController {
     $this->set('hanamarus', $this->paginate('Hanamaru'));
   }
 
-  function receive($user_id = null) {
+  function received($user_id = null) {
+
+    // もらったはなまる総数を取得
+    $this->set('hanamaru_total', $this->Hanamaru->getReceivedHanamaruCount($user_id));
 
     $this->paginate = array(
       'Diary' => array(
@@ -35,13 +38,43 @@ class HanamarusController extends AppController {
         'fields' => "*",
         'limit' => 2,
         'conditions' => array('Hanamaru.owner_id' => $user_id),
+        'group' => array('Diary.id'),
+        'order' => array('Diary.last_updated' =>  'desc'),
       )
     );
+    $this->Diary->recursive = -1;
     $hanamarus = $this->paginate('Diary');
     $this->set('hanamarus', $hanamarus);
     pr($hanamarus);
+    pr("hanamaru count: " . count($hanamarus));
   }
 
+  function gave($user_id = null) {
+    // あげたはなまる総数を取得
+    $this->set('hanamaru_total', $this->Hanamaru->getGaveHanamaruCount($user_id));
 
+    $this->paginate = array(
+      'Diary' => array(
+        'joins' => array(
+          array(
+            'type' => 'inner',
+            'table' => 'hanamarus',
+            'alias' => 'Hanamaru',
+            'conditions' => array('Diary.id = Hanamaru.external_id'),
+          ),
+        ),
+        'fields' => "*",
+        'limit' => 2,
+        'conditions' => array('Hanamaru.user_id' => $user_id),
+        'group' => array('Diary.id'),
+        'order' => array('Hanamaru.created' => 'desc'),
+      )
+    );
+    $this->Diary->recursive = -1;
+    $hanamarus = $this->paginate('Diary');
+    $this->set('hanamarus', $hanamarus);
+    pr($hanamarus);
+    pr("hanamaru count: " . count($hanamarus));
+  }
 }
 ?>
