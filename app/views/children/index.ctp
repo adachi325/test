@@ -86,6 +86,9 @@ if (count($childrenData) < 3) {
 
 </table>
 
+<!-- FIXME: 確認のためのリンクです、削除する際はエレメントも削除してください app/view/elements/default/test_link.ctp -->
+<?php echo $this->element('default/test_link'); ?>
+
 <!-- お知らせ -->
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
