@@ -1,6 +1,6 @@
 <!-- start: タイトル -->
 <tr>
-<td colspan="2"><?php echo $hanamaru['Diary']['title']; ?></td>
+<td colspan="2"><?php echo $html->link($hanamaru['Diary']['title'], '/diaries/info/' . $hanamaru['Diary']['id']); ?></td>
 </tr>
 <!-- end: タイトル -->
 
