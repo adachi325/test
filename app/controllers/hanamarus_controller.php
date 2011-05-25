@@ -20,7 +20,10 @@ class HanamarusController extends AppController {
     $this->set('hanamarus', $this->paginate('Hanamaru'));
   }
 
-  function received($user_id = null) {
+  function received() {
+    // ユーザー情報を取得
+    $user = $this->Auth->user();
+    $user_id = $user['User']['id'];
 
     // もらったはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getReceivedHanamaruCount($user_id));
@@ -45,11 +48,13 @@ class HanamarusController extends AppController {
     $this->Diary->recursive = -1;
     $hanamarus = $this->paginate('Diary');
     $this->set('hanamarus', $hanamarus);
-    pr($hanamarus);
-    pr("hanamaru count: " . count($hanamarus));
   }
 
-  function gave($user_id = null) {
+  function gave() {
+    // ユーザー情報を取得
+    $user = $this->Auth->user();
+    $user_id = $user['User']['id'];
+
     // あげたはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getGaveHanamaruCount($user_id));
 
@@ -73,8 +78,6 @@ class HanamarusController extends AppController {
     $this->Diary->recursive = -1;
     $hanamarus = $this->paginate('Diary');
     $this->set('hanamarus', $hanamarus);
-    pr($hanamarus);
-    pr("hanamaru count: " . count($hanamarus));
   }
 }
 ?>
