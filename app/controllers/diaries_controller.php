@@ -2,7 +2,9 @@
 
 class DiariesController extends AppController {
 
-    var $name = 'Diaries';
+  var $name = 'Diaries';
+
+  var $helpers = array('DiaryCommon');
 
     function index($year = null, $month = null, $page = null) {
 
