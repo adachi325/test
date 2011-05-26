@@ -4,10 +4,11 @@ class Diary extends AppModel {
 
   /* バーチャルフィールド
    * 思い出記録に対するはなまる個数
+   * 思い出記録に最後にはなまるがついた日付
    */
   var $virtualFields = array(
     'hanamaru_count' => 'SELECT COUNT(*) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id',
-    'last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id'
+    'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id'
   );
 
 	var $hasMany = array(
