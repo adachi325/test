@@ -98,8 +98,8 @@ class UsersController extends AppController {
 		    if (!empty($this->data)) {
 			try {
 			   TransactionManager::begin();
-			   $this->_setRegisterData();
-			   if( $this->User->_register($this->data)){
+			   $registData = $this->_setRegisterData();
+			   if( $this->User->_register($registData)){
 			      //初回登録プレゼント
 			      
 			      $this->User->save_hashcode($this->User->getLastInsertId());
@@ -129,6 +129,7 @@ class UsersController extends AppController {
 			      return;
 			}
 		    } else {
+                         TransactionManager::rollback();
 
 			 $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
 			 $this->cakeError('error404');
@@ -146,11 +147,7 @@ class UsersController extends AppController {
 		$this->render('register_confirm');
 		return;
 
-            } else {
-		$this->data['User']['new_password'] = '';
-		$this->data['User']['row_password'] = '';
             }
-
             TransactionManager::rollback();
         }
 
@@ -244,7 +241,7 @@ class UsersController extends AppController {
         $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
-        $this->data = $request;
+        return $request;
     }
 
     function edit() {
@@ -275,8 +272,6 @@ class UsersController extends AppController {
         if(!empty($data)){
             $userData = $this->Auth->user();
             $data['User']['loginid'] = $userData['User']['loginid'];
-            $data['User']['new_password'] = '';
-            $data['User']['row_password'] = '';
             $this->data = $data;
             $this->Session->delete('userEditData');
         }
