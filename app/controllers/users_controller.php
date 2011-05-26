@@ -98,8 +98,8 @@ class UsersController extends AppController {
 		    if (!empty($this->data)) {
 			try {
 			   TransactionManager::begin();
-			   $this->_setRegisterData();
-			   if( $this->User->_register($this->data)){
+			   $registData = $this->_setRegisterData();
+			   if( $this->User->_register($registData)){
 			      //初回登録プレゼント
 			      
 			      $this->User->save_hashcode($this->User->getLastInsertId());
@@ -241,7 +241,7 @@ class UsersController extends AppController {
         $request['User']['carrier'] = $this->EasyLogin->_getCareer();
         unset ($request['User']['new_password']);
         unset ($request['User']['row_password']);
-        $this->data = $request;
+        return $request;
     }
 
     function edit() {
