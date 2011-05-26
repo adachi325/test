@@ -15,7 +15,14 @@ class UsersController extends AppController {
         $this->User->recursive = 0;
     }
 
+    //uidチェック
     function uidCheck(){
+        //セッションidが存在しない場合
+        if(!isset(session_id())){
+            $this->cakeError('error404');
+            return;
+        }
+        //uidが取得できない場合
 	if (isset($_SERVER['HTTPS'])) {
 	    $uid = $this->Session->read('sslUid');
 	} else {
