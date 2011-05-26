@@ -47,7 +47,50 @@ if ($diary['Diary']['has_image']) {
 <?php echo $this->Time->format('n月j日', $diary['Diary']['created']); ?>
 </span></td>
 </tr>
-</table><br />
+</table>
+<br />
+
+<!-- start: 公開情報、はなまる個数、記事ID -->
+<table width="90%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td width="50%"><span style="font-size:x-small;">
+<?php
+$status = "非公開";
+if ($diary['Diary']['wish_public'] == 1) {
+
+  if ($diary['Diary']['permit_status'] == 0 || $diary['Diary']['permit_status'] == 1) {
+
+    $status = "公開申請中";
+
+  } elseif ($diary['Diary']['permit_status'] == 2) {
+
+    $current_time = time();
+    $publish_time = strtotime($diary['Diary']['publish_date']);
+
+    if ($current_time > $publish_time) {
+      $status = "公開中!";
+    } else {
+      $status = $this->Time->format('n月j日公開予定', $diary['Diary']['publish_date']);
+    }
+  } 
+}
+?>
+<?php echo $status; ?>
+</span></td>
+<td width="50%"><span style="font-size:x-small;">
+はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
+</span></td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+<?php if (isset($diary['Diary']['identify_token'])) { ?>
+【記事ID】<?php echo substr($diary['Diary']['identify_token'], 0, 4) . '-' . substr($diary['Diary']['identify_token'], 4, 6) ;?>
+<?php } ?>
+</td>
+</tr>
+</table>
+<!-- end: 公開情報、はなまる個数、記事ID -->
+<br />
 
 <?php 
 if($diary['Month']['month'] < 10) {
