@@ -19,7 +19,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_h'), $diar
 <?php
 $title = "無題";
 if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != '') { 
-	$title = h($diary['Diary']['title']);
+	$title = $diary['Diary']['title'];
 }
 ?>
 	<span style="color:#ff6666;font-size:x-small;"><?php echo h($title); ?></span><br />
