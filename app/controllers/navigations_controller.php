@@ -12,27 +12,34 @@ class NavigationsController extends AppController {
 
 	//登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
+            
+            $sessionTimeOutError01 = $this->Session->read('sessionTimeOutError01');
+            $this->Session->delete('sessionTimeOutError01');
 
-		$previd = $this->Session->read('previd');
-		$this->Session->delete('previd');
-		if (!empty($previd)){
-			$id = $previd;
-		}
+            $previd = $this->Session->read('previd');
+            $this->Session->delete('previd');
 
-		//利用規約未同意エラー表示切り分け処理
-		$errorStr = $this->Session->read('prev2_error_flg');
-		if(!isset($errorStr)){
-		    $errorStr = false;
-		} else {
-		    $this->Session->delete('prev2_error_flg');
-		}
-		$this->set(compact('errorStr'));
+            if (!empty($sessionTimeOutError01)){
+                    $this->set('uidErrorStr',1);
+                    $id = '2';
+            } else if (!empty($previd)){
+                    $id = $previd;
+            }
 
-		if(empty($id) or $id < 1 or $id > 2){
-			$this->cakeError('error404');
-			return;
-		}
-		$this->render('prev'.$id);
+            //利用規約未同意エラー表示切り分け処理
+            $errorStr = $this->Session->read('prev2_error_flg');
+            if(!isset($errorStr)){
+                $errorStr = false;
+            } else {
+                $this->Session->delete('prev2_error_flg');
+            }
+            $this->set(compact('errorStr'));
+
+            if(empty($id) or $id < 1 or $id > 2){
+                    $this->cakeError('error404');
+                    return;
+            }
+            $this->render('prev'.$id);
 	}
 
 	function after1() {
