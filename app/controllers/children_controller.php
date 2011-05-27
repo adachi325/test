@@ -215,8 +215,9 @@ class ChildrenController extends AppController {
             if($this->Child->validates()){
                 $this->Session->write('childRegisterData', $this->data);
                 $this->redirect('/children/register_confirm');
-			} else {
-                $this->Session->setFlash(__('入力項目に不備があります。', true));
+            } else {
+                //バリデーションエラー時
+                $this->set('validerr',1);
             }
         }
         $lines = $this->Child->Line->find('list');
@@ -321,6 +322,8 @@ class ChildrenController extends AppController {
         if(!empty($childEditValidationErrors)){
             $this->Child->set($this->data);
             $this->Child->validates();
+            //バリデーションエラー時
+            $this->set('validerr',1);
         }
 
         if (empty($this->data)) {
