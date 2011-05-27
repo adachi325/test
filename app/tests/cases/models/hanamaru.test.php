@@ -57,6 +57,61 @@ class HanamaruTestCase extends CakeTestCase {
     $this->assertEqual($count, 0);
   }
 
+  function testCheckAlreadyHanamaru(){
+    //---------- ユーザーが該当記事に対してはなまるをあげているかのテスト
+    //
+    //----- 既にはなまるをあげている
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, 1);
+    $expect = true;
+    $this->assertEqual($actual, $expect);
+
+    //----- はなまるをあげていない
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, 2424);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    //----- 引数が不正
+    // user_idがnull
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(null, 2424);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // diary_idがnull
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, null);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // user_id、diary_idがnull
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(null, null);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // diary_idを指定しない
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(1);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // 引数を指定しない
+    $actual = $this->Hanamaru->checkAlreadyHanamaru();
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // user_idが文字列
+    $actual = $this->Hanamaru->checkAlreadyHanamaru("homuhomu", 1);
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // diary_idが文字列
+    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, "homuhomu");
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+
+    // user_id、diary_idが文字列
+    $actual = $this->Hanamaru->checkAlreadyHanamaru("homuhomu", "homuhomu");
+    $expect = false;
+    $this->assertEqual($actual, $expect);
+  }
+
 	function endTest() {
 		unset($this->Hanamaru);
 		ClassRegistry::flush();
