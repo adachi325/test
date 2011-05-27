@@ -67,10 +67,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->submit('前へ', array('div' => false, 'label' => false, 'name' => 'prev')); ?>
 <?php else: ?>
-<?php 
-//echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false));
-echo "<a href='/presents/select/".$type."/".$template_id."/".$page-1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>前へ</span></a>" ;
-?>
+	<a href='/presents/select/"<?php echo $type;?>/<?php echo $template_id;?>/<?php echo $page-1;?>/?guid=ON'><span style='font-size:x-small; color:#339900;'>前へ</span></a>
 <?php endif; ?>
 
 <?php endif; ?>
@@ -82,10 +79,7 @@ echo "<a href='/presents/select/".$type."/".$template_id."/".$page-1."/?guid=ON'
 <?php if ($this->Ktai->is_imode()): ?>
 <?php echo $this->Form->submit('次へ', array('div' => false, 'label' => false, 'name' => 'next')); ?>
 <?php else: ?>
-<?php 
-//echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); 
-echo "<a href='/presents/select/".$type."/".$template_id."/".$page+1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>次へ</span></a>";
-?>
+	<a href='/presents/select/"<?php echo $type;?>/<?php echo $template_id;?>/<?php echo $page+1;?>/?guid=ON'><span style='font-size:x-small; color:#339900;'>次へ</span></a>
 <?php endif; ?>
 
 <?php endif; ?>
