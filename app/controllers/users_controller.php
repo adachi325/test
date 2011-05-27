@@ -148,6 +148,8 @@ class UsersController extends AppController {
 		return;
 
             }
+            //バリデーションエラー時
+            $this->set('validerr',1);
             TransactionManager::rollback();
         }
 

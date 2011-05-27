@@ -2,6 +2,11 @@
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 このｻｰﾋﾞｽでは､子どもを3人まで登録することができます｡<br />
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
+<?php
+if($validerr){
+    echo '<span style="color:#CC0000">入力情報が正しくありません｡</span><br />';
+}
+?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('Child', array('url' => '/children/edit_confirm?guid=ON', 'inputDefaults' => array('div' => false, 'label' => false)));?>
