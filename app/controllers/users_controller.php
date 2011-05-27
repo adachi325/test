@@ -15,14 +15,7 @@ class UsersController extends AppController {
         $this->User->recursive = 0;
     }
 
-    //uidチェック
     function uidCheck(){
-        //セッションidが存在しない場合
-        if(!isset(session_id())){
-            $this->cakeError('error404');
-            return;
-        }
-        //uidが取得できない場合
 	if (isset($_SERVER['HTTPS'])) {
 	    $uid = $this->Session->read('sslUid');
 	} else {
@@ -100,7 +93,7 @@ class UsersController extends AppController {
             if ($this->User->saveAll($request, array('validate'=>'only'))) {
 
 		if(isset($this->data['User']['comp'])) {
-		    
+
 		    //初回会員登録処理
 		    if (!empty($this->data)) {
 			try {
@@ -108,7 +101,7 @@ class UsersController extends AppController {
 			   $registData = $this->_setRegisterData();
 			   if( $this->User->_register($registData)){
 			      //初回登録プレゼント
-			      
+
 			      $this->User->save_hashcode($this->User->getLastInsertId());
 			      $this->User->Child->save_hashcode($this->User->Child->getLastInsertId());
   			
@@ -436,7 +429,7 @@ class UsersController extends AppController {
             $this->cakeError('error404');
             return;
         }
-	
+
         //入力データが存在しない場合
         if(empty($this->data)){
             return;
