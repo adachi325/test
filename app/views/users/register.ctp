@@ -8,7 +8,7 @@
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
 <?php
-if($validerr){
+if(!empty($validerr)){
     echo '<span style="color:#CC0000">入力情報が正しくありません｡</span><br />';
 }
 ?>
