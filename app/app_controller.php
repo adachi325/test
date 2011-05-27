@@ -177,7 +177,9 @@ class AppController extends Controller {
 			}
 
 			//通常通信
-			$this->Ssl->forceNoSSL();
+			if ($this->Ssl->https) {
+				$this->Ssl->forceNoSSL();
+			}
 		}
 
 		if($this->Ktai->is_imode()){
