@@ -116,7 +116,7 @@ class AppController extends Controller {
 		}
 
 		parent::beforeFilter();
-		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
+		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またはﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 		$this->Auth->fields = array(
 			'username' => 'loginid',
