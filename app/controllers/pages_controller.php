@@ -144,7 +144,7 @@ class PagesController extends AppController {
             $uid = $this->_getUid();
             if(!empty($uid) &&isset($uid)) {
                 $this->Session->write('sessionTimeOutError01',1);
-                $this->redirect('/navigations/prev/');
+                $this->redirect('/');
             }
             
             $this->set('messege',Configure::read('Error.nothingUid.'.$career));

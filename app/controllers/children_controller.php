@@ -6,13 +6,13 @@ class ChildrenController extends AppController {
 	var $helpers = array('Wikiformat.Wikiformat');
 
  	function beforeFilter() {
-    parent::beforeFilter();
-		$this->Auth->allow('display');
-		if ($this->Ktai->is_android()) {
-			$this->layout = 'android';
-			$this->view_prefix = 'android_';
-		}
-  }
+            parent::beforeFilter();
+            $this->Auth->allow('display');
+            if ($this->Ktai->is_android()) {
+                    $this->layout = 'android';
+                    $this->view_prefix = 'android_';
+            }
+        }
     
 	function display() {
 		if ($this->Ktai->is_android()) {
@@ -20,6 +20,12 @@ class ChildrenController extends AppController {
 			return;
 		}
 
+                $sessionTimeOutError01 = $this->Session->read('sessionTimeOutError01');
+                $this->Session->delete('sessionTimeOutError01');
+                if (!empty($sessionTimeOutError01)){
+                    $this->set('uidErrorStr',1);
+                }
+                
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
 			$this->set('login_user',$this->Auth->user());

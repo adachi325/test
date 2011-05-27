@@ -12,17 +12,11 @@ class NavigationsController extends AppController {
 
 	//登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
-            
-            $sessionTimeOutError01 = $this->Session->read('sessionTimeOutError01');
-            $this->Session->delete('sessionTimeOutError01');
 
             $previd = $this->Session->read('previd');
             $this->Session->delete('previd');
 
-            if (!empty($sessionTimeOutError01)){
-                    $this->set('uidErrorStr',1);
-                    $id = '2';
-            } else if (!empty($previd)){
+            if (!empty($previd)){
                     $id = $previd;
             }
 
