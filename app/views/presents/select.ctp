@@ -69,7 +69,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php else: ?>
 <?php 
 //echo $this->Paginator->prev('<span style="font-size:x-small; color:#339900;">前へ</span>', array('style' => 'color:#339900;', 'escape' => false));
-echo "<a href='/presents/select/".$type."/".$template_id."/".$page-1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>前へ</span></a>"
+echo "<a href='/presents/select/".$type."/".$template_id."/".$page-1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>前へ</span></a>" ;
 ?>
 <?php endif; ?>
 
@@ -84,7 +84,7 @@ echo "<a href='/presents/select/".$type."/".$template_id."/".$page-1."/?guid=ON'
 <?php else: ?>
 <?php 
 //echo $this->Paginator->next('<span style="font-size:x-small; color:#339900;">次へ</span>', array('style' => 'color:#339900;', 'escape' => false)); 
-echo "<a href='/presents/select/".$type."/".$template_id."/".$page+1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>次へ</span></a>"
+echo "<a href='/presents/select/".$type."/".$template_id."/".$page+1."/?guid=ON'><span style='font-size:x-small; color:#339900;'>次へ</span></a>";
 ?>
 <?php endif; ?>
 
