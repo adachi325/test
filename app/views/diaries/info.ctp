@@ -47,29 +47,20 @@ if ($diary['Diary']['has_image']) {
 <?php echo $this->Time->format('n月j日', $diary['Diary']['created']); ?>
 </span></td>
 </tr>
+
+<!-- start: 配信日 -->
+<?php if (!$isOwner) { ?>
+<tr>
+<td align="right"><span style="font-size:x-small; color:#666666;">
+<?php echo $this->Time->format('配信日:n月j日', $diary['Diary']['publish_date']); ?>
+</span></td>
+</tr>
+<?php } ?>
+<!-- end: 配信日 -->
+
 </table>
 <br />
 
-<!-- start: 公開情報、はなまる個数、記事ID -->
-<table width="90%" cellpadding="0" cellspacing="0" align="center">
-<tr>
-<td width="50%"><span style="font-size:x-small;">
-<?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Diary']['publish_date']); ?>
-</span></td>
-<td width="50%"><span style="font-size:x-small;">
-はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
-</span></td>
-</tr>
-<tr>
-<td colspan="2" align="right">
-<?php if (isset($diary['Diary']['identify_token'])) { ?>
-【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
-<?php } ?>
-</td>
-</tr>
-</table>
-<!-- end: 公開情報、はなまる個数、記事ID -->
-<br />
 
 <?php 
 if($diary['Month']['month'] < 10) {
@@ -83,9 +74,55 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<?php if ($isOwner) { ?>
+<!-- start: 自分の思い出(公開情報、はなまる個数、記事ID) -->
+<table width="90%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td width="50%"><span style="font-size:x-small;">
+<?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Diary']['publish_date']); ?>
+</span></td>
+<td width="50%"><span style="font-size:x-small;">
+はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
+</span></td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+<?php if (isset($diary['Diary']['identify_token'])) { ?>
+<span style="font-size:x-small;">
+【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
+</span>
+<?php } ?>
+</td>
+</tr>
+</table>
+<!-- end: 自分の思い出(公開情報、はなまる個数、記事ID) -->
+<?php } else { ?>
+<!-- start: 他人の思い出(はなまる個数、記事ID) -->
+<table width="90%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="center"><span style="font-size:x-small;">
+はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
+</span></td>
+</tr>
+<tr>
+<td align="right">
+<?php if (isset($diary['Diary']['identify_token'])) { ?>
+<span style="font-size:x-small;">
+【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
+</span>
+<?php } ?>
+</td>
+</tr>
+</table>
+<?php } ?>
+<!-- end: 他人の思い出(はなまる個数、記事ID) -->
+<br />
+
+<?php if($isOwner) { ?>
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出記録を家族や友達と共有する</span></a><br />
 (ﾄﾞｺﾓｺﾐｭﾆﾃｨへ投稿)<br /><span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨへの登録が必要です</span><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit_public/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出の公開設定を変更する</span></a><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif"); ?></div>
@@ -98,3 +135,4 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/3'); ?>" style="color:#339900;"><span style="color:#339900;">家族に送れるﾎﾟｽﾄｶｰﾄﾞを作る</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<?php } ?>
