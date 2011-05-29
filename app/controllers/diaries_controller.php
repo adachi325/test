@@ -4,7 +4,7 @@ class DiariesController extends AppController {
 
   var $name = 'Diaries';
 
-  var $uses = array('Diary', 'Child');
+  var $uses = array('Diary', 'Child', 'Article');
 
   var $helpers = array('DiaryCommon');
 
@@ -616,31 +616,32 @@ $list[6] ='--5000000000--
     }
 
     function edit_public($id=null){
-#        //セッション情報回収、削除
-#        $diaryEditData = $this->Session->read('diaryEditData');
-#        $this->Session->delete('diaryEditData');
-#        if(!empty($diaryEditData)){
-#            $this->data = $diaryEditData;
-#        }
-#        $diaryEditValidationErrors = $this->Session->read('diaryEditValidationErrors');
-#        $this->Session->delete('diaryEditValidationErrors');
-#        if(!empty($diaryEditValidationErrors)){
-#            $this->Diary->set($this->data);
-#            $this->Diary->validates();
-#        }
 
-        $conditions = array(
-            'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
-                'Diary.id' => $id
-            )
-        );
+        //セッション情報回収、削除
+        $diaryEditPublicData = $this->Session->read('diaryEditPublicData');
+        $this->Session->delete('diaryEditPublicData');
+        if(!empty($diaryEditPublicData)){
+            $this->data = $diaryEditPublicData;
+        }
+        $diaryEditPublicValidationErrors = $this->Session->read('diaryEditPublicValidationErrors');
+        $this->Session->delete('diaryEditPublicValidationErrors');
+        if(!empty($diaryEditPublicValidationErrors)){
+            $this->Diary->set($this->data);
+            $this->Diary->validates();
+        }
 
         if (empty($this->data)){
             if(empty($id)){
                 $this->Session->setFlash(__('不正操作です', true));
                 $this->redirect('/children/');
             }
+
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.id' => $id
+                )
+            );
 
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
@@ -653,36 +654,66 @@ $list[6] ='--5000000000--
     }
 
     function edit_public_confirm(){
+
+        // 不正遷移チェック
         if(empty($this->data)){
              $this->Session->setFlash(__('エラー', true));
              $this->redirect('/children/');
         }
+
+        // DBよりデータを取得
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.id' => $this->data['Diary']['id'],
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+          $this->Session->setFlash(__('エラー', true));
+          $this->redirect('/children/');
+        }
+
+        // FIXME: これ何？
         $request = array();
-        $request = $this->data;
-        $userData = $this->Auth->user();
-        $request['Diary']['child_id'] = $this->Tk->_getLastChild();
+
+        $request = $diary;
+        $request['Diary']['wish_public'] = $this->data['Diary']['wish_public'];
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
             $this->Session->setFlash(__('入力項目に不備があります。', true));
-            $this->Session->write('diaryEditData', $this->data);
-            $this->Session->write('diaryEditValidationErrors', $this->validateErrors($this->Diary));
-            $this->redirect('/diaries/edit/');
+            $this->Session->write('diaryEditPublicData', $this->data);
+            $this->Session->write('diaryEditPublicValidationErrors', $this->validateErrors($this->Diary));
+            $this->redirect('/diaries/edit_public/');
         }
-        $this->Session->write('diaryEditData', $this->data);
+        $this->Session->write('diaryEditPublicData', $this->data);
     }
 
     function edit_public_complete(){
 
         //セッション情報回収、削除
-        $this->data = $this->Session->read('diaryEditData');
-        $this->Session->delete('diaryEditData');
+        $this->data = $this->Session->read('diaryEditPublicData');
+        $this->Session->delete('diaryEditPublicData');
+        pr($this->data);
+        pr("homuhomu");
 
         if (!empty($this->data)) {
             TransactionManager::begin();
             try {
-                $this->Diary->create();
-                if ($this->Diary->save($this->data)) {
+              // パラメータの初期化(審査のやり直し)
+              $this->data['Diary']['permit_status'] = 0;
+              $this->data['Diary']['publish_date'] = null;
+
+              $this->Diary->create();
+              if ($this->Diary->save($this->data)) {
+
+                // articlesテーブルからのレコード削除
+                $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
+                $article = $this->Article->find('first', array('conditions' => $conditions));
+                if ($article) {
+                  $this->Article->delete($article['Article']['id']);
+                }
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
                     $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
