@@ -10,6 +10,5 @@
 </table>
 <hr />
 <?php echo $paginator->prev('前へ', null, null, array('class' => 'disabled')); ?>
-<?php echo $paginator->numbers(); ?>
 <?php echo $paginator->next('次へ', null, null, array('class' => 'disabled')); ?>
 
