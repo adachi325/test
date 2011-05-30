@@ -1,5 +1,4 @@
 <?php
-
 class DiariesController extends AppController {
 
   var $name = 'Diaries';
@@ -322,7 +321,6 @@ class DiariesController extends AppController {
             }
         }
 
-
         // 思い出データ取得
         $this->Diary->contain('Month');
         $conditions = array(
@@ -362,20 +360,17 @@ class DiariesController extends AppController {
         }
 
         // FIXME: デバッグ文だよ
-        if ($isLogin) { pr("isLogin = true"); } else { pr("isLogin = false"); }
-        if ($isOwner) { pr("isOwner = true"); } else { pr("isOwner = false"); }
+        // if ($isLogin) { pr("isLogin = true"); } else { pr("isLogin = false"); }
+        // if ($isOwner) { pr("isOwner = true"); } else { pr("isOwner = false"); }
 
         // 思い出のオーナーでは無い場合、公開されている思い出にアクセスしているかチェックする
         if (!$isOwner && !$this->__checkPublish($diary)) {
-             $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
+             // $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
              $this->redirect('/children/');
         }
           
         $this->set(compact('isLogin'));
         $this->set(compact('isOwner'));
-
-
-
     }
 
     // 思い出記録が公開されているか判定する
@@ -695,8 +690,6 @@ $list[6] ='--5000000000--
         //セッション情報回収、削除
         $this->data = $this->Session->read('diaryEditPublicData');
         $this->Session->delete('diaryEditPublicData');
-        pr($this->data);
-        pr("homuhomu");
 
         if (!empty($this->data)) {
             TransactionManager::begin();
@@ -733,6 +726,5 @@ $list[6] ='--5000000000--
              $this->redirect('/children/');
         }
     }
-
 }
 ?>
