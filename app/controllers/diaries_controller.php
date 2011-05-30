@@ -171,17 +171,41 @@ class DiariesController extends AppController {
             }
             $this->data = $diary;
         }
+        // TODO: DEBUG
+        pr($this->data);
     }
 
-    function edit_confirm(){
+    function edit_confirm() {
+
+        // 不正遷移チェック
         if(empty($this->data)){
              $this->Session->setFlash(__('エラー', true));
              $this->redirect('/children/');
         }
+
+        // DBよりデータを取得
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.id' => $this->data['Diary']['id'],
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+          $this->Session->setFlash(__('エラー', true));
+          $this->redirect('/children/');
+        }
+
+        // FIXME: これ何？
         $request = array();
-        $request = $this->data;
-        $userData = $this->Auth->user();
-        $request['Diary']['child_id'] = $this->Tk->_getLastChild();
+
+        // DBより取得したデータに、POSTされたデータで上書きする
+        $request = $diary;
+        $request['Diary']['title'] = $this->data['Diary']['title'];
+        $request['Diary']['body'] = $this->data['Diary']['body'];
+        $request['Diary']['permit_status'] = $diary['Diary']['permit_status'];
+        $request['Diary']['wish_public'] = $diary['Diary']['wish_public'];
+        $request['Diary']['publish_date'] = $diary['Diary']['publish_date'];
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
@@ -191,9 +215,11 @@ class DiariesController extends AppController {
             $this->redirect('/diaries/edit/');
         }
         $this->Session->write('diaryEditData', $this->data);
+        pr($this->data);
     }
 
     function edit_complete(){
+
         //セッション情報回収、削除
         $this->data = $this->Session->read('diaryEditData');
         $this->Session->delete('diaryEditData');
@@ -201,8 +227,20 @@ class DiariesController extends AppController {
         if (!empty($this->data)) {
             TransactionManager::begin();
             try {
+                // パラメータの初期化(審査のやり直し)
+                $this->data['Diary']['permit_status'] = 0;
+                $this->data['Diary']['publish_date'] = null;
+
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
+
+                    // articlesテーブルからのレコード削除
+                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
+                    $article = $this->Article->find('first', array('conditions' => $conditions));
+                    if ($article) {
+                        $this->Article->delete($article['Article']['id']);
+                    }
+
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
                     $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
@@ -694,19 +732,20 @@ $list[6] ='--5000000000--
         if (!empty($this->data)) {
             TransactionManager::begin();
             try {
-              // パラメータの初期化(審査のやり直し)
-              $this->data['Diary']['permit_status'] = 0;
-              $this->data['Diary']['publish_date'] = null;
+                // パラメータの初期化(審査のやり直し)
+                $this->data['Diary']['permit_status'] = 0;
+                $this->data['Diary']['publish_date'] = null;
 
-              $this->Diary->create();
-              if ($this->Diary->save($this->data)) {
+                $this->Diary->create();
+                if ($this->Diary->save($this->data)) {
 
-                // articlesテーブルからのレコード削除
-                $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
-                $article = $this->Article->find('first', array('conditions' => $conditions));
-                if ($article) {
-                  $this->Article->delete($article['Article']['id']);
-                }
+                    // articlesテーブルからのレコード削除
+                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
+                    $article = $this->Article->find('first', array('conditions' => $conditions));
+                    if ($article) {
+                        $this->Article->delete($article['Article']['id']);
+                    }
+
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
                     $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
