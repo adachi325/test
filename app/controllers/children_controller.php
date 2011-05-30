@@ -204,12 +204,36 @@ class ChildrenController extends AppController {
         $simaItem[1] = 'しま(青)';
     }
 
+	function _check_code() {
+		if (isset($this->data['Child']['nickname'])) {
+			$this->data['Child']['nickname'] = $this->check_invalid_code($this->data['Child']['nickname']);
+		}
+		if (isset($this->data['Child']['sex'])) {
+			$this->data['Child']['sex'] = $this->check_invalid_code($this->data['Child']['sex']);
+		}
+		if (isset($this->data['Child']['birth_year'])) {
+			$this->data['Child']['birth_year'] = $this->check_invalid_code($this->data['Child']['birth_year']);
+		}
+		if (isset($this->data['Child']['birth_month'])) {
+			$this->data['Child']['birth_month'] = $this->check_invalid_code($this->data['Child']['birth_month']);
+		}
+		if (isset($this->data['Child']['line_id'])) {
+			$this->data['Child']['line_id'] = $this->check_invalid_code($this->data['Child']['line_id']);
+		}
+		if (isset($this->data['Child']['benesse_user'])) {
+			$this->data['Child']['benesse_user'] = $this->check_invalid_code($this->data['Child']['benesse_user']);
+		}
+	}
+
     function register() {
         //子供数チェック
         $this->_checkChildrenCount();
 
-        if (!empty($this->data)) {
-            $request = array();
+		if (!empty($this->data)) {
+
+			$this->_check_code();
+			
+			$request = array();
             $request = $this->data;
             if(empty($request['Child']['sex'])){
                 $request['Child']['sex'] = null;
@@ -247,7 +271,8 @@ class ChildrenController extends AppController {
             $this->cakeError('error404');
             return;
         }
-        
+
+
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
     }
@@ -263,7 +288,9 @@ class ChildrenController extends AppController {
         //子供登録処理
         if (!empty($this->data)) {
             TransactionManager::begin();
-            try {
+			$this->_check_code();
+
+			try {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
                     //最終子供IDを更新
@@ -354,7 +381,10 @@ class ChildrenController extends AppController {
     function edit_confirm(){
 
         if (!empty($this->data)) {
-            $request = array();
+
+			$this->_check_code();
+
+			$request = array();
             $request = $this->data;
             $userData = $this->Auth->user();
             $request['Child']['id'] = $this->Tk->_getLastChild();
@@ -384,7 +414,10 @@ class ChildrenController extends AppController {
         //子供登録処理
         if (!empty($this->data)) {
             TransactionManager::begin();
-            try {
+
+			$this->_check_code();
+
+			try {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
                     TransactionManager::commit();

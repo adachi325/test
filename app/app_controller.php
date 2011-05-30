@@ -298,4 +298,11 @@ class AppController extends Controller {
 	    }
 	}
 	
+	function check_invalid_code($data) {
+		if (ctype_print($data])) {
+			$data = '';
+		}
+		return $data;
+	}
+
 }
