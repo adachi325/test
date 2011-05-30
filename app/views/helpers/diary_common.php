@@ -31,7 +31,7 @@ class DiaryCommonHelper extends Helper {
         $current_time = time();
         $publish_time = strtotime($publish_date);
     
-        if ($current_time > $publish_time) {
+        if ($current_time >= $publish_time) {
           $status = "公開中!";
         } else {
           $status = $this->Time->format('n月j日公開予定', $publish_date);
