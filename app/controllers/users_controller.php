@@ -448,6 +448,9 @@ class UsersController extends AppController {
     //パスワード再設定
     function remind_password () {
 
+        //UID取得確認
+        $this->uidCheck();
+
 	$errorStr = "入力情報が正しくありません。";
 
         $userData = $this->Session->read('user_data');

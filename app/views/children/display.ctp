@@ -4,10 +4,14 @@
 &lt;こどもちゃれんじ&gt;ｹｰﾀｲｻｲﾄ
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php if (!empty($uidErrorStr)) { ?>
-<span style="color:#cc0000">入力画面で長時間放置されたためセッションが切断されました。</span><br />
-<span style="color:#cc0000">再度登録を実行してください。</span><br />
-<?php } ?>
+
+
+<?php 
+if (!empty($uidErrorStr)) { 
+	echo $this->element('session_timeout');
+}
+?> 
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="background:#ffff99; text-align:center;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
