@@ -246,18 +246,21 @@ class UsersController extends AppController {
         return $request;
     }
 
+	function _check_code() {
+		if (isset($this->data['User']['new_password'])) {
+			$this->data['User']['new_password'] = $this->check_invalid_code($this->data['User']['new_password']);
+		}
+		if (isset($this->data['User']['row_password'])) {
+			$this->data['User']['row_password'] = $this->check_invalid_code($this->data['User']['row_password']);
+		}
+	}
+
     function edit() {
         $this->pageTitle = '登録情報変更';
 		
 		if (!empty($this->data)) {
 
-
-			if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
-				$this->data['User']['new_password'] = '';
-			}
-			if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
-				$this->data['User']['row_password'] = '';
-			}
+			$this->_check_code();
 
 			//パスワード変更なしの場合は、設定しない。
 			if(empty($this->data['User']['new_password']) || !isset($this->data['User']['new_password'])) {
@@ -305,13 +308,8 @@ class UsersController extends AppController {
             return;
         }
 
-		if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
-			$this->data['User']['new_password'] = '';
-		}
-		if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
-			$this->data['User']['row_password'] = '';
-		}
-
+		$this->_check_code();
+		
 		$this->_setline();
     }
     
@@ -322,13 +320,8 @@ class UsersController extends AppController {
         $this->Session->delete('userEditData');
 
 		if (!empty($this->data)) {
-			if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
-				$this->data['User']['new_password'] = '';
-			}
-			if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
-				$this->data['User']['row_password'] = '';
-			}
-			
+			$this->_check_code();
+
 			try {
 				$this->_setEditData();
 				$this->User->whitelist = array('id', 'password', 'dc_user');
