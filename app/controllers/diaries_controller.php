@@ -682,6 +682,7 @@ $list[6] ='--5000000000--
                 )
             );
 
+            $this->Diary->contain('Article');
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                 $this->Session->setFlash(__('エラー', true));
@@ -690,6 +691,7 @@ $list[6] ='--5000000000--
 
             $this->data = $diary;
         }
+
     }
 
     function edit_public_confirm(){
