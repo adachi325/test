@@ -248,17 +248,26 @@ class UsersController extends AppController {
 
     function edit() {
         $this->pageTitle = '登録情報変更';
-        if (!empty($this->data)) {
+		
+		if (!empty($this->data)) {
 
-	    //パスワード変更なしの場合は、設定しない。
-	    if(empty($this->data['User']['new_password']) or !isset($this->data['User']['new_password'])) {
-		unset($this->data['User']['new_password']);
-		if(empty($this->data['User']['row_password']) or !isset($this->data['User']['row_password'])) {
-		    unset($this->data['User']['row_password']);
-		} else {
-		    $this->data['User']['new_password'] = '';
-		}
-	    }
+
+			if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
+				$this->data['User']['new_password'] = '';
+			}
+			if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
+				$this->data['User']['row_password'] = '';
+			}
+
+			//パスワード変更なしの場合は、設定しない。
+			if(empty($this->data['User']['new_password']) || !isset($this->data['User']['new_password'])) {
+				unset($this->data['User']['new_password']);
+				if(empty($this->data['User']['row_password']) || !isset($this->data['User']['row_password'])) {
+					unset($this->data['User']['row_password']);
+				} else {
+					$this->data['User']['new_password'] = '';
+				}
+			}
 
             $this->User->set($this->data);
             if ($this->User->validates()) {
@@ -286,7 +295,8 @@ class UsersController extends AppController {
     }
 
     function edit_confirm(){
-        $this->pageTitle = '変更確認';
+
+		$this->pageTitle = '変更確認';
         //セッション情報回収
         $this->data = $this->Session->read('userEditData');
         if (empty($this->data)) {
@@ -294,7 +304,15 @@ class UsersController extends AppController {
             $this->cakeError('error404');
             return;
         }
-        $this->_setline();
+
+		if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
+			$this->data['User']['new_password'] = '';
+		}
+		if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
+			$this->data['User']['row_password'] = '';
+		}
+
+		$this->_setline();
     }
     
     function edit_complete(){
@@ -303,26 +321,33 @@ class UsersController extends AppController {
         $this->data = $this->Session->read('userEditData');
         $this->Session->delete('userEditData');
 
-        if (!empty($this->data)) {
-            try {
+		if (!empty($this->data)) {
+			if (isset($this->data['User']['new_password']) && !ctype_print($this->data['User']['new_password'])) {
+				$this->data['User']['new_password'] = '';
+			}
+			if (isset($this->data['User']['row_password']) && !ctype_print($this->data['User']['row_password'])) {
+				$this->data['User']['row_password'] = '';
+			}
+			
+			try {
 				$this->_setEditData();
 				$this->User->whitelist = array('id', 'password', 'dc_user');
-		if( $this->User->save($this->data)){
-		  return;
+				if( $this->User->save($this->data)){
+					return;
+				} else {
+					$this->cakeError('error404');
+					$this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+					$this->log($this->data,LOG_DEBUG);
+				}
+			} catch(Exception $e) {
+				$this->cakeError('error404');
+				$this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+				$this->log($this->data,LOG_DEBUG);
+				$this->log($e,LOG_DEBUG);
+			}
 		} else {
-		  $this->cakeError('error404');
-		  $this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-		  $this->log($this->data,LOG_DEBUG);
+			$this->cakeError('error404');
 		}
-            } catch(Exception $e) {
-                  $this->cakeError('error404');
-                  $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-                  $this->log($this->data,LOG_DEBUG);
-                  $this->log($e,LOG_DEBUG);
-            }
-        } else {
-             $this->cakeError('error404');
-        }
         //ログアウト
         $this->Auth->logout();
 
