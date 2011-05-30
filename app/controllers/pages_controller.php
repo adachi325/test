@@ -139,6 +139,14 @@ class PagesController extends AppController {
             } else {
                 return;
             }
+            
+            //セッションギレのUID取得エラー端末は別画面へ遷移
+            $uid = $this->_getUid();
+            if(!empty($uid) &&isset($uid)) {
+                $this->Session->write('sessionTimeOutError01',1);
+                $this->redirect('/');
+            }
+            
             $this->set('messege',Configure::read('Error.nothingUid.'.$career));
             return;
         }
