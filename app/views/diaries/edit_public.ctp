@@ -17,7 +17,7 @@
 <tr>
 <td align="left">
 <span style="font-size:x-small">
-<?php echo $this->DiaryCommon->publicStatus($this->data['Diary']['wish_public'], $this->data['Diary']['permit_status'], $this->data['Diary']['publish_date']); ?>
+<?php echo $this->DiaryCommon->publicStatus($this->data['Diary']['wish_public'], $this->data['Diary']['permit_status'], $this->data['Article']['release_date']); ?>
 </span>
 </td>
 </tr>

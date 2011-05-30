@@ -14,11 +14,11 @@ class DiaryCommonHelper extends Helper {
    *     
    * in: 掲載希望フラグ (diaries.wish_public)
    * in: 許可フラグ (diaries.permit_status)
-   * in: 公開日 (diaries.publish_date)
+   * in: 公開日 (articles.release_date)
    * in: 非公開の場合は空文字列とするか
    * out: 掲載ステータス
    */
-  function publicStatus($wish_public = 0, $permit_status = 0, $publish_date = null, $withoutClosed = false) {
+  function publicStatus($wish_public = 0, $permit_status = 0, $release_date = null, $withoutClosed = false) {
      
     $status = $withoutClosed ? "" : "非公開";
 
@@ -31,12 +31,12 @@ class DiaryCommonHelper extends Helper {
       } elseif ($permit_status == 2) {
     
         $current_time = time();
-        $publish_time = strtotime($publish_date);
+        $publish_time = strtotime($release_date);
     
         if ($current_time >= $publish_time) {
           $status = "公開中!";
         } else {
-          $status = $this->Time->format('n月j日公開予定', $publish_date);
+          $status = $this->Time->format('n月j日公開予定', $release_date);
         }
       } 
     }

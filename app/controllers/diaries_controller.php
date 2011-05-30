@@ -53,7 +53,7 @@ class DiariesController extends AppController {
         $months = $month->find('all',array('conditions' => $setOptions));
 
         if(!empty($months)){
-            $conditions;
+            // 表示データ一覧（アルバム）取得
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -63,11 +63,10 @@ class DiariesController extends AppController {
                 ),
                 'order'=>array('Diary.created DESC')
             );
-            //表示データ一覧取得
             $diariesTop = $this->Diary->find('all', $conditions);
             $this->set(compact('diariesTop'));
 
-            $conditions;
+            // 表示データ一覧（思い出一覧）取得
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -75,8 +74,7 @@ class DiariesController extends AppController {
                 ),
                 'order'=>array('Diary.created DESC')
             );
-            //表示データ一覧取得
-	    $this->Diary->contain();
+            $this->Diary->contain('Article');
             $diaries = $this->Diary->find('all', $conditions);
             $this->set(compact('diaries'));
         } else {
@@ -98,6 +96,11 @@ class DiariesController extends AppController {
         } else {
             $this->set('page', $page);
         }
+
+        pr("diariesTop:");
+        pr($diariesTop);
+        pr("diaries:");
+        pr($diaries);
     }
 
     function checkPost($hash = null){
@@ -157,7 +160,8 @@ class DiariesController extends AppController {
                  $this->redirect('/children/');
             }
             //データ取得
-            $this->Diary->contain('Month');
+            // TODO: 良さそうなら消す$this->Diary->contain('Month', 'Article');
+            $this->Diary->contain();
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -190,6 +194,7 @@ class DiariesController extends AppController {
                 'Diary.id' => $this->data['Diary']['id'],
             )
         );
+        $this->Diary->Contain('Article');
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
           $this->Session->setFlash(__('エラー', true));
@@ -205,7 +210,6 @@ class DiariesController extends AppController {
         $request['Diary']['body'] = $this->data['Diary']['body'];
         $request['Diary']['permit_status'] = $diary['Diary']['permit_status'];
         $request['Diary']['wish_public'] = $diary['Diary']['wish_public'];
-        $request['Diary']['publish_date'] = $diary['Diary']['publish_date'];
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
@@ -229,7 +233,6 @@ class DiariesController extends AppController {
             try {
                 // パラメータの初期化(審査のやり直し)
                 $this->data['Diary']['permit_status'] = 0;
-                $this->data['Diary']['publish_date'] = null;
 
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
@@ -420,7 +423,7 @@ class DiariesController extends AppController {
       $isPublish = false;
       if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2) {
         $current_time = time();
-        $publish_time = strtotime($diary['Diary']['publish_date']);
+        $publish_time = strtotime($diary['Article']['release_date']);
         pr("current: " . $current_time);
         pr("publish_time: " . $publish_time);
 
@@ -737,7 +740,6 @@ $list[6] ='--5000000000--
             try {
                 // パラメータの初期化(審査のやり直し)
                 $this->data['Diary']['permit_status'] = 0;
-                $this->data['Diary']['publish_date'] = null;
 
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {

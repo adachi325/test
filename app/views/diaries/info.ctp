@@ -53,7 +53,7 @@ if ($diary['Diary']['has_image']) {
 <?php if (!$isOwner) { ?>
 <tr>
 <td align="right"><span style="font-size:x-small; color:#666666;">
-<?php echo $this->Time->format('配信日:n月j日', $diary['Diary']['publish_date']); ?>
+<?php echo $this->Time->format('配信日:n月j日', $diary['Article']['release_date']); ?>
 </span></td>
 </tr>
 <?php } ?>
@@ -80,7 +80,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td width="50%"><span style="font-size:x-small;">
-<?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Diary']['publish_date']); ?>
+<?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date']); ?>
 </span></td>
 <td width="50%"><span style="font-size:x-small;">
 <?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
@@ -92,7 +92,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <td colspan="2" align="right">
 <?php
 $current_time = time();
-$publish_time = strtotime($diary['Diary']['publish_date']);
+$publish_time = strtotime($diary['Article']['release_date']);
 ?>
 <?php if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2 && $current_time >= $publish_time) { ?>
 <span style="font-size:x-small;">

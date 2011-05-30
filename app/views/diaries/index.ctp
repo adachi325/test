@@ -108,10 +108,12 @@ foreach($diaries as $diary):
 	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 	<?php $title = (!empty($diary['Diary']['title'])) ? h($diary['Diary']['title']) : '無題'; ?>
   <a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a><br />
-  <?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Diary']['publish_date'], true); ?><br />
+  <span style="font-size:x-small;">
+  <?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date'], true); ?><br />
   <?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
   はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>
   <?php } ?>
+  </span>
 	</td>
 	</tr>
 	<?php
