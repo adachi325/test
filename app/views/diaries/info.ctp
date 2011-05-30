@@ -82,12 +82,18 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Diary']['publish_date']); ?>
 </span></td>
 <td width="50%"><span style="font-size:x-small;">
+<?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
 はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
+<?php } ?>
 </span></td>
 </tr>
 <tr>
 <td colspan="2" align="right">
-<?php if (isset($diary['Diary']['identify_token'])) { ?>
+<?php
+$current_time = time();
+$publish_time = strtotime($diary['Diary']['publish_date']);
+?>
+<?php if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2 && $current_time >= $publish_time) { ?>
 <span style="font-size:x-small;">
 【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
 </span>
@@ -101,12 +107,14 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_f'), $diar
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center"><span style="font-size:x-small;">
+<?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
 はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
+<?php } ?>
 </span></td>
 </tr>
 <tr>
 <td align="right">
-<?php if (isset($diary['Diary']['identify_token'])) { ?>
+<?php if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2 && $current_time >= $publish_time) { ?>
 <span style="font-size:x-small;">
 【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
 </span>
