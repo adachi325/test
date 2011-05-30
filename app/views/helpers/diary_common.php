@@ -15,10 +15,12 @@ class DiaryCommonHelper extends Helper {
    * in: 掲載希望フラグ (diaries.wish_public)
    * in: 許可フラグ (diaries.permit_status)
    * in: 公開日 (diaries.publish_date)
+   * in: 非公開の場合は空文字列とするか
    * out: 掲載ステータス
    */
-  function publicStatus($wish_public, $permit_status, $publish_date) {
-    $status = "非公開";
+  function publicStatus($wish_public = 0, $permit_status = 0, $publish_date = null, $withoutClosed = false) {
+     
+    $status = $withoutClosed ? "" : "非公開";
 
     if ($wish_public == 1) {
     
