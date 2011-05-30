@@ -360,7 +360,7 @@ class DiariesController extends AppController {
         }
 
         // 思い出データ取得
-        $this->Diary->contain('Month');
+        $this->Diary->contain('Month', 'Article');
         $conditions = array(
             'conditions' => array(
                 // 'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -409,6 +409,9 @@ class DiariesController extends AppController {
           
         $this->set(compact('isLogin'));
         $this->set(compact('isOwner'));
+
+        pr($diary);
+        $this->layout = 'cake';
     }
 
     // 思い出記録が公開されているか判定する

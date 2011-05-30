@@ -8,11 +8,21 @@ class Diary extends AppModel {
    */
   var $virtualFields = array(
     'hanamaru_count' => 'SELECT COUNT(*) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id',
-    'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id'
+    'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id',
   );
 
+  var $hasOne = array(
+    'Article' => array(
+      'className' => 'Article',
+      'foreignKey' => 'external_id',
+      'dependent' => true,
+      'conditions' => array('Article.type' => 1),
+      'exculsive' => true,
+    ),
+  );
+  
 	var $hasMany = array(
-		'Hanamaru' => array(
+    'Hanamaru' => array(
 			'className' => 'Hanamaru',
 			'foreignKey' => 'external_id',
 			'dependent' => true,
