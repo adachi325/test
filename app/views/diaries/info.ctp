@@ -1,3 +1,4 @@
+<?php /* 208-1 思い出記録詳細、208-2 思い出記録詳細（他ユーザ） */ ?>
 
 <div style="background:#e9f7ff; text-align:center;" align="center">
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />

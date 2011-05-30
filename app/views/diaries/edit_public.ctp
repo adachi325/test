@@ -1,3 +1,4 @@
+<?php /* 220 思い出記録 公開・非公開の設定 */ ?>
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 <?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_public_confirm?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
 <?php echo $this->Form->hidden('id');?>
