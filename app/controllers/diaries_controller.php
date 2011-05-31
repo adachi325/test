@@ -9,7 +9,7 @@ class DiariesController extends AppController {
 
 	function beforeFilter()
   {
-		$this->Auth->allow('info');
+		$this->Auth->allow('info', 'get_news_count');
 		parent::beforeFilter();
 	}
 
@@ -772,5 +772,33 @@ $list[6] ='--5000000000--
              $this->redirect('/children/');
         }
     }
+
+  /*
+   * ニュース本数取得API
+   *
+   * ニュースの一日あたりの本数を取得します。
+   *
+   * out: ニュース本数(csv形式)
+   */
+  function get_news_count() {
+
+    // 現在日付を取得
+    $today = date("Y-m-d");
+
+    // articlesテーブル内の本日付け配信数をカウントする
+    $conditions = array(
+      'DATE_FORMAT(Article.release_date, \'%Y-%m-%d\')' => $today,
+    );
+    $count = $this->Article->find('count', array('conditions' => $conditions));
+
+    // 出力データの設定
+    $data = array($count);
+    $this->set(compact('count'));
+
+    // 出力設定
+    Configure::write('debug', 0); // 警告を出さない
+    $this->layout = null;
+    header("Content-Type: text/plain"); 
+  }
 }
 ?>
