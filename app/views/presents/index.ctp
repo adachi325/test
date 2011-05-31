@@ -90,7 +90,7 @@ echo $this->Html->image(sprintf(Configure::read('Present.sample.3'), $year, $sam
 </td>
 
 <td align="right">
-<?php if (date('Y-m-d') > date('Y-m-d', strtotime($next))): ?>
+<?php if (date('Y-m-d') >= date('Y-m-d', strtotime($next))): ?>
 <a href="<?php echo $this->Html->url('/presents/index/'.date('Y/n', strtotime($next)).'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次月</span></a>
 <?php endif; ?>
 </td>
