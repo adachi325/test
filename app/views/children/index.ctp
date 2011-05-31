@@ -102,6 +102,13 @@ if (count($childrenData) < 3) {
 <div style="background:#ff9900;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 </div>
+
+<?php 
+if (!empty($uidErrorStr)) { 
+	echo $this->element('session_timeout');
+}
+?>
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <table width="100%" cellpadding="0" cellspacing="0">

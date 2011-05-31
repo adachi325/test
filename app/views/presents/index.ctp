@@ -2,11 +2,10 @@
 <?php
 $year = (isset($year)) ? $year : date('Y');
 $month = (isset($month)) ? $month : date('n');
+$date = date("Y/m/d", mktime(0, 0, 0, $month, 1, $year));
 
-$date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
-
-$next = date("Y-m-d", strtotime("+1 month", strtotime($date)));
-$prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
+$next = date("Y/m/d", strtotime("+1 month", strtotime($date)));
+$prev = date("Y/m/d", strtotime("-1 month", strtotime($date)));
 
 $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 ?>

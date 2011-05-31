@@ -7,6 +7,11 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
+<?php
+if(!empty($validerr)){
+    echo '<span style="color:#CC0000">入力情報が正しくありません｡</span><br />';
+}
+?>
 <span style="color:#CC0000">※ﾛｸﾞｲﾝ名やﾊﾟｽﾜｰﾄﾞはご自由に設定できますが、電話番号やﾒｰﾙｱﾄﾞﾚｽ等､個人を特定できる情報は利用しないでください｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php echo $this->Form->create('User', array("url" => "/users/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
@@ -42,7 +47,11 @@ if($this->Ktai->is_ezweb()){
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("new_password", array("type" => "text",'error' => false, "istyle" => "4", "style" => "font-size:x-small;"));
 } else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
-    echo '<input type="text" name="data[User][new_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserNewPassword"/><br>';
+    if(isset($this->data['User']['new_password'])){
+        echo '<input type="text" value="'.h($this->data['User']['new_password']).'" name="data[User][new_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserNewPassword"/><br>';
+    } else {
+        echo '<input type="text" name="data[User][new_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserNewPassword"/><br>';
+    }
 } else {
     echo $this->Form->input("new_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }
@@ -60,7 +69,11 @@ if($this->Ktai->is_ezweb()){
 if($this->Ktai->is_ezweb()){
     echo $this->Form->input("row_password", array("type" => "text",'error' => false, "istyle" => "4", "style" => "font-size:x-small;"));
 } else if($this->Ktai->is_imode() and $this->tk->is_imode_browser()) {
-    echo '<input type="text" name="data[User][row_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserRowPassword"/><br>';
+    if(isset($this->data['User']['row_password'])){
+        echo '<input type="text" value="'.h($this->data['User']['row_password']).'" name="data[User][row_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserRowPassword"/><br>';
+    } else {
+        echo '<input type="text" name="data[User][row_password]" format="*N" mode="numeric" style="-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;" id="UserRowPassword"/><br>';
+    }
 } else {
     echo $this->Form->input("row_password", array("type" => "text",'error' => false, $this->tk->tk_style => $this->tk->tk_mode['4'], "style" => "-wap-input-format:&quot;*&lt;ja:n&gt;&quot;;-wap-input-format:*N;font-size:x-small;"));
 }

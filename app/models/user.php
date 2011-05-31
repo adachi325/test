@@ -227,9 +227,13 @@ class User extends AppModel {
 	function save_hashcode($id = null) {
 		if ($id) {
 			//$data = $this->findById($id);
-			$data = array($this->alias => array('id' => $id)); 
+			$data = array($this->alias => array('id' => $id));
+                        $this->log('1',LOG_DEBUG);
+                        $this->log($data,LOG_DEBUG);
 		} else {
 			$data = $this->data;
+                        $this->log('2',LOG_DEBUG);
+                        $this->log($data,LOG_DEBUG);
 		}
 		$data[$this->alias]['hash'] = substr(md5($data[$this->alias]['id']), 0, 6);
 		return $this->save($data);

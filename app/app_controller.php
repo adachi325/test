@@ -116,7 +116,7 @@ class AppController extends Controller {
 		}
 
 		parent::beforeFilter();
-		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
+		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またはﾊﾟｽﾜｰﾄﾞが違います';
 		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 		$this->Auth->fields = array(
 			'username' => 'loginid',
@@ -177,7 +177,9 @@ class AppController extends Controller {
 			}
 
 			//通常通信
-			$this->Ssl->forceNoSSL();
+			if ($this->Ssl->https) {
+				$this->Ssl->forceNoSSL();
+			}
 		}
 
 		if($this->Ktai->is_imode()){
@@ -296,4 +298,9 @@ class AppController extends Controller {
 	    }
 	}
 	
+	function check_invalid_code($data) {
+		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
+		return $data;
+	}
+
 }

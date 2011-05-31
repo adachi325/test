@@ -2,6 +2,11 @@
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 以下をご入力の上､｢確認｣ﾎﾞﾀﾝを押してください｡<br />
+<?php
+if(!empty($validerr)){
+    echo '<span style="color:#CC0000">入力情報が正しくありません｡</span><br />';
+}
+?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('Child', array("url" => "/children/register?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
