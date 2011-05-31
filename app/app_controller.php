@@ -299,9 +299,7 @@ class AppController extends Controller {
 	}
 	
 	function check_invalid_code($data) {
-		if (!ctype_print($data)) {
-			$data = '';
-		}
+		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
 		return $data;
 	}
 
