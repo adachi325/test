@@ -80,9 +80,7 @@ switch (Configure::read('Session.save')) {
 		);
 	break;
 	default:
-		$this->log('ecw',LOG_DEBUG);
 		$config = CONFIGS . Configure::read('Session.save') . '.php';
-		$this->log(config,LOG_DEBUG);
 		if (is_file($config)) {
 			require($config);
 		}
