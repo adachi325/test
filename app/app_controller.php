@@ -62,9 +62,10 @@
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  */
+
 class AppController extends Controller {
 
-	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga');
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga','FormHidden');
 	public $components = array(
 		'Ktai',
                 'Tk',
@@ -78,8 +79,9 @@ class AppController extends Controller {
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
 			'secured' => array(
-				'users' => array('register', 'register_confirm', 'edit', 'edit_confirm', 'remind', 'remind_password',),
+				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password',),
 				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+				'diaries' => array('edit', 'edit_confirm','edit_complete'),
 			),
 			'allowed' => array(
 				'users' => array('login'),
@@ -96,7 +98,7 @@ class AppController extends Controller {
 		'output_encoding' => 'UTF8',
 		'use_xml' => true,
 		'enable_ktai_session' => true, //セッション使用を有効にします
-		'use_redirect_session_id' => false, //リダイレクトに必ずセッションIDをつけます
+		'use_redirect_session_id' => true, //リダイレクトに必ずセッションIDをつけます
 		'imode_session_name' => 'csid', //iMODE時のセッション名を変更します
 		'iphone_user_agent_belongs_to_softbank' => false,
 		'use_xml' => false,
@@ -107,28 +109,79 @@ class AppController extends Controller {
 	public $allow_android = array();
 
 	function beforeFilter(){
-		parent::beforeFilter();
-		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またﾊﾟｽﾜｰﾄﾞが違います';
-		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 
+		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
+		if ($this->Ktai->is_iphone()) {
+		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
+		}
+
+		parent::beforeFilter();
+		$this->Auth->loginError = 'ﾛｸﾞｲﾝ名､またはﾊﾟｽﾜｰﾄﾞが違います';
+		$this->Auth->authError =  'ご利用されるにはﾛｸﾞｲﾝが必要です';
 		$this->Auth->fields = array(
-				'username' => 'loginid',
-				'password' => 'password'
-				);
+			'username' => 'loginid',
+			'password' => 'password'
+			);
 		$this->Auth->autoRedirect = false;
 
-		/*
-		if ($this->Ktai->is_ezweb()) {
-			$secured = $this->Ssl->ssled($this->params);
-
-			if ($secured && !$this->Ssl->https) {
-				$this->Ssl->forceSSL();
+		//ドコモのときはSSL設定前にUIDをセット
+		if($this->Ktai->is_imode()) {
+		    //SSLページでのUIDチェック用
+		    $ssluid= $this->Session->read('sslUid');
+		    if(empty($ssluid) || !isset($ssluid)){
+			$uid = $this->Ktai->get_uid();
+			if(isset($uid)){
+			    $this->Session->write('sslUid', $uid);
 			}
-			elseif (!$secured && $this->Ssl->https) {
+		    }
+		}
+
+		//セッションIDを引き回す。
+		if(!$this->Ktai->is_imode()){
+		    ini_set('session.use_trans_sid', 1);
+		    ini_set('session.use_only_cookies', 0);
+		    ini_set('session.use_cookies', 0);
+		    $this->_userAgent = '';
+		    ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+		    ini_set('session.name','csid');
+		    $session_name = session_name();
+		    if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
+			session_id($_REQUEST[$session_name]);
+			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
+		    }
+		}
+
+		//SSL通信環境設定
+		$secured = $this->Ssl->ssled($this->params);
+
+		if ($secured && !$this->Ssl->https) {
+
+			//sb,auのときはSSL設定前にUIDをセット
+			if(!$this->Ktai->is_imode()) {
+			    //SSLページでのUIDチェック用
+			    $ssluid= $this->Session->read('sslUid');
+			    if(empty($ssluid) || !isset($ssluid)){
+				$uid = $this->Ktai->get_uid();
+				if(isset($uid)){
+				    $this->Session->write('sslUid', $uid);
+				}
+			    }
+			}
+
+			//SSL通信開始
+			$this->Ssl->forceSSL();
+		} elseif (!$secured && $this->Ssl->https) {
+			$ssluid= $this->Session->read('sslUid');
+			if(empty($ssluid) || !isset($ssluid)){
+			    $ssluid= $this->Session->delete('sslUid');
+			}
+
+			//通常通信
+			if ($this->Ssl->https) {
 				$this->Ssl->forceNoSSL();
 			}
 		}
-		*/
+
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
@@ -148,7 +201,7 @@ class AppController extends Controller {
 				}
 			}
 		}
-	}   
+	}
 
 	function __formActionGuidOn(){
 		// output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
@@ -165,7 +218,11 @@ class AppController extends Controller {
 			#-------------------------------------------------
 			# 「guid=ON」が渡ってこなければ付加してリダイレクト
 			#-------------------------------------------------
-			if (!eregi("guid=ON", $_SERVER["REDIRECT_QUERY_STRING"]))
+			$uri = '';
+			if(isset($_SERVER["REDIRECT_QUERY_STRING"])){
+			    $uri = $_SERVER["REDIRECT_QUERY_STRING"];
+			}
+			if (!eregi("guid=ON", $uri))
 			{
 				if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["REQUEST_URI"]))
 				{
@@ -188,15 +245,27 @@ class AppController extends Controller {
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
 					if(preg_match('|^http[s]?://|', $url)){
-						return $url;
+					    if (!eregi("csid=", $url)) {
+						$prefix = ereg("\?", $url) ? "&" : "?";
+						$url = $url.$prefix."csid=".session_id();
+					    }
+					    return $url;
 					}
 					$url = Router::parse($url);
 				}
 				if(!isset($url['?'])){
 					$url['?'] = array();
 				}
-				$url['?'][session_name()] = session_id();
-                                $url['?']['guid'] = 'on'; // guid=onを付加
+				if (!isset($url['?']['guid'])) {
+				    $url['?']['guid'] = 'on'; // guid=onを付加
+				}
+				if (!isset($url['?'][session_name()])) {
+				    if ($this->Ktai->is_imode()) {
+					$url['?'][session_name()] = session_id();
+				    } else {
+					$url['?']['csid'] = session_id(); // session_idを不可
+				    }
+				}
 			}
 		}
 		return $url;
@@ -205,17 +274,33 @@ class AppController extends Controller {
                 //guid=onを付加
 		if ($this->Ktai->is_imode())
 		{
-			$prefix = ereg("\?", $url) ? "&" : "?";
-			$url = $url.$prefix."guid=ON";
+		    $prefix = ereg("\?", $url) ? "&" : "?";
+		    $url = $url.$prefix."guid=ON";
 		}
 		return parent::redirect($this->__redirect_url($url), $status, $exit);
 	}
 
 	public function beforeRender() {
-		TransactionManager::destructs();
+	    TransactionManager::destructs();
 	}
 
 	public function beforeRedirect() {
 		TransactionManager::destructs();
 	}
+
+	function afterFilter() {
+	    parent::afterFilter();
+	    if (isset($_SERVER['HTTPS'])) {
+		if ($this->Ktai->is_ezweb()) {
+		    $this->output = mb_convert_encoding($this->output, 'SJIS-win', 'UTF-8');
+		    header("Content-Type: text/html;charset=sjis-win");
+		}
+	    }
+	}
+	
+	function check_invalid_code($data) {
+		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
+		return $data;
+	}
+
 }

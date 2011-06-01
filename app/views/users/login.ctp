@@ -7,12 +7,12 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してくだい｡<br />
-<font color="#dd0000">
+<span style="color:#dd0000">
 <?php
 echo $this->Session->flash();
 echo $this->Session->flash('auth');;
 ?>
-</font>
+</span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php echo $this->Form->create('User', array("url" => "/users/login?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
@@ -65,8 +65,8 @@ if($this->Ktai->is_ezweb()){
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
-※ﾊﾟｽﾜｰﾄﾞを忘れた方は<a href="<?php echo Router::url('/users/remind/', true) ?>"><span style="color:#ff6600;">こちら</span></a><br />
-→　<a href="<?php echo Router::url('/navigations/prev/2', true) ?>"><span style="color:#ff6600;">新規ﾌﾟﾛﾌｨｰﾙ登録</span></a><br />
+※ﾊﾟｽﾜｰﾄﾞを忘れた方は<a href="<?php echo Router::url('/users/remind?guid=ON&csid='.session_id(), true) ?>"><span style="color:#ff6600;">こちら</span></a><br />
+→　<a href="<?php echo Router::url('/navigations/prev/2?guid=ON&csid='.session_id(), true) ?>"><span style="color:#ff6600;">新規ﾌﾟﾛﾌｨｰﾙ登録</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
