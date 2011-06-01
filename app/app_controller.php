@@ -127,6 +127,7 @@ class AppController extends Controller {
 		//ドコモのときはSSL設定前にUIDをセット
 		if($this->Ktai->is_imode()) {
 		    //SSLページでのUIDチェック用
+                    ini_set('session.name','csid');
 		    $ssluid= $this->Session->read('sslUid');
 		    if(empty($ssluid) || !isset($ssluid)){
 			$uid = $this->Ktai->get_uid();
@@ -204,10 +205,10 @@ class AppController extends Controller {
 	}
 
 	function __formActionGuidOn(){
-		// output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
-		ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
-		output_add_rewrite_var('guid','ON');
-	}
+            // output_add_rewrite_varで設定するパラメータをformタグのactionにも付加
+            ini_set("url_rewriter.tags", "a=href,area=href,frame=src,form=action,fieldset=");
+            output_add_rewrite_var('guid','ON');
+        }
 
 	function __checkImodeId()
 	{
