@@ -31,6 +31,9 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_14/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレでおしっこ</a>
     </dd>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit/1104_15/');?>" data-role="button" data-theme="e" rel="external">【動画】みんなでトイレ</a>
+    </dd>
     <dt><?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span></dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】どれをたべるのかな？はっけんゲーム</a>
