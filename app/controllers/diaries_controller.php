@@ -97,10 +97,6 @@ class DiariesController extends AppController {
             $this->set('page', $page);
         }
 
-        pr("diariesTop:");
-        pr($diariesTop);
-        pr("diaries:");
-        pr($diaries);
     }
 
     function checkPost($hash = null){
@@ -175,8 +171,6 @@ class DiariesController extends AppController {
             }
             $this->data = $diary;
         }
-        // TODO: DEBUG
-        pr($this->data);
     }
 
     function edit_confirm() {
@@ -219,7 +213,6 @@ class DiariesController extends AppController {
             $this->redirect('/diaries/edit/');
         }
         $this->Session->write('diaryEditData', $this->data);
-        pr($this->data);
     }
 
     function edit_complete(){
@@ -400,10 +393,6 @@ class DiariesController extends AppController {
           }
         }
 
-        // FIXME: デバッグ文だよ
-        // if ($isLogin) { pr("isLogin = true"); } else { pr("isLogin = false"); }
-        // if ($isOwner) { pr("isOwner = true"); } else { pr("isOwner = false"); }
-
         // 思い出のオーナーでは無い場合、公開されている思い出にアクセスしているかチェックする
         if (!$isOwner && !$this->__checkPublish($diary)) {
              // $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
@@ -412,9 +401,6 @@ class DiariesController extends AppController {
           
         $this->set(compact('isLogin'));
         $this->set(compact('isOwner'));
-
-        pr($diary);
-        $this->layout = 'cake';
     }
 
     // 思い出記録が公開されているか判定する
@@ -424,8 +410,6 @@ class DiariesController extends AppController {
       if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2) {
         $current_time = time();
         $publish_time = strtotime($diary['Article']['release_date']);
-        pr("current: " . $current_time);
-        pr("publish_time: " . $publish_time);
 
         if ($current_time > $publish_time) {
           $isPublish = true;
