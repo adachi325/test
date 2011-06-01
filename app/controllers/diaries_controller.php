@@ -669,6 +669,7 @@ $list[6] ='--5000000000--
             $this->Diary->validates();
         }
 
+
         if (empty($this->data)){
             if(empty($id)){
                 $this->Session->setFlash(__('不正操作です', true));
@@ -690,6 +691,23 @@ $list[6] ='--5000000000--
             }
 
             $this->data = $diary;
+            // オリジナルの公開希望フラグをセッションに格納する
+            $this->Session->write('wish_public_origin', $diary['Diary']['wish_public']);
+        }
+
+        // 公開希望フラグ(オリジナル)をviewに渡す。（セッションに無い場合は再取得する。）
+        $wish_public_origin = $this->Session->read('wish_public_origin');
+        if (!empty($wish_public_origin)) {
+          $this->set(compact('wish_public_origin'));
+        } else {
+          $conditions = array(
+            'conditions' => array(
+              'Diary.child_id' => $this->Tk->_getLastChild(),
+              'Diary.id' => $id
+            ),
+          );
+          $diary = $this->Diary->find('first', $conditions);
+          $this->set('wish_public_origin', $diary['Diary']['wish_public']);
         }
 
     }

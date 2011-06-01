@@ -17,7 +17,8 @@
 <tr>
 <td align="left">
 <span style="font-size:x-small">
-<?php echo $this->DiaryCommon->publicStatus($this->data['Diary']['wish_public'], $this->data['Diary']['permit_status'], $this->data['Article']['release_date']); ?>
+<?php /* 掲載ステータスは現在状態を表すため、公開希望フラグをPOSTデータからではなく、現在のレコードの値を使用する */
+  echo $this->DiaryCommon->publicStatus($wish_public_origin, $this->data['Diary']['permit_status'], $this->data['Article']['release_date']); ?>
 </span>
 </td>
 </tr>
