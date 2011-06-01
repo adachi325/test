@@ -52,7 +52,7 @@
 </tr>
 
 <tr>
-<td align="right"><span style="font-size:x-small; color:#666666;"><?php echo date('n月d日', strtotime($diaries['Diary']['created'])); ?></span></td>
+<td align="right"><span style="font-size:x-small; color:#666666;"><?php echo date('n月j日', strtotime($diaries['Diary']['created'])); ?></span></td>
 </tr>
 
 </table><br />
