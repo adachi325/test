@@ -115,6 +115,10 @@ $publish_time = strtotime($diary['Article']['release_date']);
 </tr>
 <tr>
 <td align="right">
+<?php
+$current_time = time();
+$publish_time = strtotime($diary['Article']['release_date']);
+?>
 <?php if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2 && $current_time >= $publish_time) { ?>
 <span style="font-size:x-small;">
 【記事ID】<?php echo $this->DiaryCommon->hyphenateIdentifyToken($diary['Diary']['identify_token']) ;?>
