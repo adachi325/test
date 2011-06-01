@@ -81,7 +81,6 @@ switch (Configure::read('Session.save')) {
 	break;
 	default:
 		$config = CONFIGS . Configure::read('Session.save') . '.php';
-
 		if (is_file($config)) {
 			require($config);
 		}

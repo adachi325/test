@@ -106,7 +106,7 @@ foreach($diaries as $diary):
 	</td>
 	<td width="75%" align="left" valign="top">
 	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-	<?php $title = (!empty($diary['Diary']['title'])) ? h($diary['Diary']['title']) : '無題'; ?>
+	<?php $title = (!empty($diary['Diary']['title'])) ? $diary['Diary']['title'] : '無題'; ?>
 	<a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
 	</td>
 	</tr>

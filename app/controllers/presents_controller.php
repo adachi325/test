@@ -104,7 +104,7 @@ class PresentsController extends AppController {
 		}
 	}
 
-	function select($type = null, $template_id = null) {
+	function select($type = null, $template_id = null, $new_page = 0) {
 
 		$data = $this->data;
 
@@ -115,6 +115,10 @@ class PresentsController extends AppController {
 		}
 
 		$page = 1;
+		if ($new_page > 0) {
+			$page = $new_page;
+		}
+
 		if ($data && isset($data['Present']['page'])) {
 			$page = $data['Present']['page'];
 			$pageCount = $data['Present']['pageCount'];
@@ -173,6 +177,8 @@ class PresentsController extends AppController {
 			'child_id' => $this->Tk->_getLastChild(),
 			'has_image' => 1,
 		);
+
+
 		$this->paginate = array('conditions' => $cond, 'order' => 'Diary.created DESC', 'limit' => 10, 'page' => $page);
 
 		$items = $this->paginate('Diary', $cond);

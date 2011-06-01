@@ -192,7 +192,15 @@ class ThemesController extends AppController {
          $this->set('nexthash',$hash);
 
          //メールアドレス生成
+		 /*
          $mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$id.'.'.$hash.'@'.Configure::read('Defaults.domain');
+		  */
+
+		 $Child =& ClassRegistry::init('Child');
+		 $child = $Child->findById($userdata['User']['last_selected_child']);
+
+		 $mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$id.'.'.$hash.'@'.Configure::read('Defaults.domain');
+
 
          //タイトル設定
          if($theme['Theme']['free_theme']){
@@ -201,7 +209,7 @@ class ThemesController extends AppController {
             $mailTitle = $theme['Theme']['title'];
          }
 
-         $this->set('mailStr',$mailStr);
+         $this->set('mailStr', $mailStr);
          $this->set('mailTitle',$mailTitle);
 
     }
