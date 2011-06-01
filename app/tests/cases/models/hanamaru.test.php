@@ -57,57 +57,57 @@ class HanamaruTestCase extends CakeTestCase {
     $this->assertEqual($count, 0);
   }
 
-  function testCheckAlreadyHanamaru(){
+  function testCheckAlreadyAddHanamaru(){
     //---------- ユーザーが該当記事に対してはなまるをあげているかのテスト
     //
     //----- 既にはなまるをあげている
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, 1);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, 1);
     $expect = true;
     $this->assertEqual($actual, $expect);
 
     //----- はなまるをあげていない
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, 2424);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, 2424);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     //----- 引数が不正
     // user_idがnull
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(null, 2424);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(null, 2424);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // diary_idがnull
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, null);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, null);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // user_id、diary_idがnull
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(null, null);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(null, null);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // diary_idを指定しない
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(1);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // 引数を指定しない
-    $actual = $this->Hanamaru->checkAlreadyHanamaru();
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru();
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // user_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyHanamaru("homuhomu", 1);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("homuhomu", 1);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // diary_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyHanamaru(1, "homuhomu");
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, "homuhomu");
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // user_id、diary_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyHanamaru("homuhomu", "homuhomu");
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("homuhomu", "homuhomu");
     $expect = false;
     $this->assertEqual($actual, $expect);
   }

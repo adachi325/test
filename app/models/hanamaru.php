@@ -32,7 +32,7 @@ class Hanamaru extends AppModel {
    * in: $diary_id 思い出記録ID
    * out: はなまるをつけていればtrue、はなまるをつけていなければfalse
    */
-  function checkAlreadyHanamaru($user_id = null, $diary_id = null) {
+  function checkAlreadyAddHanamaru($user_id = null, $diary_id = null) {
 
     $conditions = array(
       'user_id' => $user_id,
