@@ -3,7 +3,7 @@ class DiariesController extends AppController {
 
   var $name = 'Diaries';
 
-  var $uses = array('Diary', 'Child', 'Article');
+  var $uses = array('Diary', 'Child', 'Article', 'Hanamaru');
 
   var $helpers = array('DiaryCommon');
 
@@ -350,8 +350,8 @@ class DiariesController extends AppController {
             if(!empty($diaryEditCompleteId)){
                 $id = $diaryEditCompleteId;
             } else {
-                $this->Session->setFlash(__('不正操作です。', true));
-                $this->redirect('/children/');
+              $this->Session->setFlash(__('不正操作です。', true));
+              $this->redirect('/children/');
             }
         }
 
@@ -367,6 +367,7 @@ class DiariesController extends AppController {
         if(empty($diary)){
              $this->Session->setFlash(__('エラー', true));
              $this->redirect('/children/');
+             $this->redirect('/children/');
         }
         $this->set(compact('diary'));
 
@@ -380,15 +381,21 @@ class DiariesController extends AppController {
         $isOwner = false;
         $children = null;
 
-        // ログイン判定
+        // ログイン判定、ユーザーデータ登録
         $user = $this->Auth->user();
         if ($user) {
+          $this->set(compact('user'));
+
           $isLogin = true;
           $children = $this->Child->find('all', array('conditions' => array('user_id' => $user['User']['id'])));
           foreach ($children as $child) {
             if ($diary['Diary']['child_id'] == $child['Child']['id']) {
               $isOwner = true;
               break;
+            } else {
+              // はなまるをすでに押しているか
+              $alreadyAddHanamaru = $this->Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
+              $this->set(compact('alreadyAddHanamaru'));
             }
           }
         }

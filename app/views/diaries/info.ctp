@@ -108,6 +108,21 @@ $publish_time = strtotime($diary['Article']['release_date']);
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center"><span style="font-size:x-small;">
+<?php if ($alreadyAddHanamaru) { ?>
+はなまるをついてるよ
+<?php } else { ?>
+<?php
+$scheme = '';
+if (isset($_SERVER['HTTPS'])) {
+  $scheme = "https://";
+} else {
+  $scheme = "http://";
+}
+$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+$encoded_url = urlencode($url);
+?>
+<?php echo $html->link('はなまるをつける！', "/hanamarus/add_hanamaru?id={$diary['Diary']['id']}&user_id={$user['User']['hash']}&returnPath={$encoded_url}"); ?>
+<?php } ?>
 <?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
 はなまる <?php echo $diary['Diary']['hanamaru_count']; ?>コ
 <?php } ?>
