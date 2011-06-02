@@ -22,6 +22,14 @@
 </div><!--形式エラーの場合-->
 <?php endif; ?>
 
+<?php if($diary['Diary']['wish_public'] == 1) : ?>
+<div align="left" style="color:#CC0000;text-align:left;">
+※思い出の掲載申請を受け付けました｡<br />
+掲載申請をいただいた思い出はベネッセによる選定の上､しまじろうひろばに掲載されます｡<br />
+※掲載設定が反映されるまでには最大で2週間程お時間がかかります｡ご了承ください｡<br />
+</div><!-- 公開希望の場合 -->
+<?php endif; ?>
+
 
 <?php if(!empty($diary['Diary']['present_id'])) :
 $imgMonth = sprintf('%02d', $diary['Month']['month']);
