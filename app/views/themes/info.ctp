@@ -30,10 +30,13 @@
 <?php
 if($this->Ktai->is_imode()): ?>
 <a href="mailto:<?php echo $mailStr ?>?subject=<?php echo $mailTitle;?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
+<a href="mailto:<?php echo $mailPublicStr ?>?subject=<?php echo $mailTitle;?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す、公開でな！</span></a>
 <?php elseif($this->Ktai->is_softbank()): ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
+<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a><br />
+<a href="mailto:<?php echo $mailPublicStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す、公開でな！</span></a>
 <?php else: ?>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("①思い出を記録に残す",$mailStr,$mailTitle); ?></span>
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("①思い出を記録に残す",$mailStr,$mailTitle); ?></span><br />
+<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("①思い出を記録に残す、公開でな！",$mailPublicStr,$mailTitle); ?></span>
 <?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
