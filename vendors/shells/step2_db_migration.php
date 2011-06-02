@@ -16,7 +16,6 @@ class Step2DbMigrationShell extends AppShell {
     $this->createAttentionsTable();
 
     /* 既存テーブルにカラムを追加 */
-    $this->addDisplayNameToUsersTable();
     $this->addColumnsToDiariesTable();
   }
 
@@ -85,18 +84,6 @@ class Step2DbMigrationShell extends AppShell {
     echo '-----'.PHP_EOL;
     $data = $User->query($sql);
     $task = "create attentions table.";
-    $result = $data ? "SUCCESS:" : "FAILED:";
-    echo $result.$task.PHP_EOL;
-    echo '-----'.PHP_EOL;
-  }
-
-  function addDisplayNameToUsersTable() {
-
-    $User =& ClassRegistry::init('User');
-
-    echo '-----'.PHP_EOL;
-    $data = $User->query('ALTER TABLE users ADD COLUMN display_name VARCHAR(45) DEFAULT NULL;');
-    $task = "add display_name to users table.";
     $result = $data ? "SUCCESS:" : "FAILED:";
     echo $result.$task.PHP_EOL;
     echo '-----'.PHP_EOL;
