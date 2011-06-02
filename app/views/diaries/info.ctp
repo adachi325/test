@@ -20,7 +20,7 @@ echo $html->image('/'.sprintf(Configure::read('Present.path.diaryback_h'), $diar
 <?php
 $title = "無題";
 if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != '') { 
-	$title = h($diary['Diary']['title']);
+	$title = $diary['Diary']['title'];
 }
 ?>
 	<span style="color:#ff6666;font-size:x-small;"><?php echo h($title); ?></span><br />
@@ -147,7 +147,7 @@ $publish_time = strtotime($diary['Article']['release_date']);
 <br />
 
 <?php if($isOwner) { ?>
-<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出記録を家族や友達と共有する</span></a><br />
+<?php echo$html->link($html->image('btn_dcm.gif', array('width' => '100%')), '/diaries/post/'.$diary['Diary']['id'], array('escape' => false)); ?><br />
 (ﾄﾞｺﾓｺﾐｭﾆﾃｨへ投稿)<br /><span style="color:#666666">※ﾄﾞｺﾓｺﾐｭﾆﾃｨへの登録が必要です</span><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit_public/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出の公開設定を変更する</span></a><br />

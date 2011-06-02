@@ -13,35 +13,39 @@ class NavigationsController extends AppController {
 	//登録前ページ(prev)に制御は特に無し。
 	function prev($id =null) {
 
-		$previd = $this->Session->read('previd');
-		$this->Session->delete('previd');
-		if (!empty($previd)){
-			$id = $previd;
-		}
+            $previd = $this->Session->read('previd');
+            $this->Session->delete('previd');
 
-		//利用規約未同意エラー表示切り分け処理
-		$errorStr = $this->Session->read('prev2_error_flg');
-		if(!isset($errorStr)){
-		    $errorStr = false;
-		} else {
-		    $this->Session->delete('prev2_error_flg');
-		}
-		$this->set(compact('errorStr'));
+            if (!empty($previd)){
+                    $id = $previd;
+            }
 
-		if(empty($id) or $id < 1 or $id > 2){
-			$this->cakeError('error404');
-			return;
-		}
-		$this->render('prev'.$id);
+            //利用規約未同意エラー表示切り分け処理
+            $errorStr = $this->Session->read('prev2_error_flg');
+            if(!isset($errorStr)){
+                $errorStr = false;
+            } else {
+                $this->Session->delete('prev2_error_flg');
+            }
+            $this->set(compact('errorStr'));
+
+            if(empty($id) or $id < 1 or $id > 2){
+                    $this->cakeError('error404');
+                    return;
+            }
+            $this->render('prev'.$id);
 	}
 
 	function after1() {
+
+		$this->Auth->autoRedirect = false;
+		$this->Session->delete('Auth.redirect');
 
 		//今月の自由テーマＩＤを取得
 		$options = array();
 		$options['Theme.free_theme'] = true;
 		$options['Month.year'] = date('Y');
-		$options['Month.month'] = date('m') + 0;            
+		$options['Month.month'] = date('m') + 0;
 		$theme =& ClassRegistry::init('Theme');
 		$theme->contain('Month');
 		$themes = $theme->find('all',array('conditions' => $options));
@@ -55,8 +59,11 @@ class NavigationsController extends AppController {
 		//ハッシュタグを設定
 		$this->set('nexthash',$hash);
 
+		 $Child =& ClassRegistry::init('Child');
+		 $child = $Child->findById($userdata['User']['last_selected_child']);
+		
 		//メールアドレス設定
-		$mailStr = 'diary_'.$userdata['User']['id'].'.'.$userdata['User']['last_selected_child'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
+		$mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
 		$mailTitle = 'ベストショット';

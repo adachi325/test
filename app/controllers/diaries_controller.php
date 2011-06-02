@@ -509,7 +509,14 @@ class DiariesController extends AppController {
             $this->redirect('/children/');
         }
 
-        $filepath = 'img/photo/'.$diary['Diary']['child_id'].'/'.$diary['Diary']['id'].'.dmt';
+	$dir = 'img/photo/'.$diary['Diary']['child_id'].'/';
+	if (!file_exists($dir)) {
+		mkdir($dir,0777);
+		chmod($dir, 0777);
+		system("chmod 777 ".$dir);
+	}
+
+        $filepath = $dir.$diary['Diary']['id'].'.dmt';
         $fp = fopen($filepath, "w"); // 新規書き込みモードで開く
 
         $list = array();
@@ -622,7 +629,7 @@ $list[6] ='--5000000000--
 }
 
         while(list($key,$value) = each($list)){
-                $value = mb_convert_encoding($value,  'Shift_JIS', 'UTF-8');
+                $value = mb_convert_encoding($value,  'sjis-win', 'UTF-8');
                 $value = str_replace("\n","\r\n",$value);
                 @fwrite( $fp, $value, strlen($value) );
         }

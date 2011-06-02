@@ -216,5 +216,16 @@ class Child extends AppModel {
 		}
 	}
 
+	function save_hashcode($id = null) {
+		if ($id) {
+			//$data = $this->findById($id);
+			$data = array($this->alias => array('id' => $id));
+		} else {
+			$data = $this->data;
+		}
+
+		$data[$this->alias]['hash'] = substr(md5($data[$this->alias]['id']), 0, 6);
+		return $this->save($data);
+	}
 }
 ?>

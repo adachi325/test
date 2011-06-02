@@ -2,10 +2,10 @@
 <?php
 $year = (isset($year)) ? $year : date('Y');
 $month = (isset($month)) ? $month : date('n');
-$date = date("Y-m-d", mktime(0, 0, 0, $month, 1, $year));
+$date = date("Y/m/d", mktime(0, 0, 0, $month, 1, $year));
 
-$next = date("Y-m-d", strtotime("+1 month", strtotime($date)));
-$prev = date("Y/m/d",strtotime("-1 month", strtotime($date)));
+$next = date("Y/m/d", strtotime("+1 month", strtotime($date)));
+$prev = date("Y/m/d", strtotime("-1 month", strtotime($date)));
 
 $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 ?>
@@ -90,7 +90,7 @@ echo $this->Html->image(sprintf(Configure::read('Present.sample.3'), $year, $sam
 </td>
 
 <td align="right">
-<?php if (date('Y-m-d') > date('Y-m-d', strtotime($next))): ?>
+<?php if (date('Y-m-d') >= date('Y-m-d', strtotime($next))): ?>
 <a href="<?php echo $this->Html->url('/presents/index/'.date('Y/n', strtotime($next)).'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次月</span></a>
 <?php endif; ?>
 </td>
