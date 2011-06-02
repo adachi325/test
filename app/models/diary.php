@@ -150,11 +150,12 @@ class Diary extends AppModel {
 		//@以降除去
 		$to = ereg_replace("@.*", "", $to);
 
-		//宛先アドレス有効判定
-		$to_splits = split('\.', $to);
-		if (count($to_splits) != 4) {//user_id, child_id, theme_id, hash
+    //宛先アドレス有効判定
+    $to_splits = split('\.', $to);
+    $split_count = count($to_splits);
+		if ($split_count != 4 || $split_count != 5) {//user_hash, child_hash, theme_id, hash, pub(optional)
 			return false;
-		}
+    }
 
 		//add
 		/*
@@ -171,7 +172,11 @@ class Diary extends AppModel {
 			'child_hash' => $to_splits[1],
 			'theme_id' => $to_splits[2],
 			'hash' => $to_splits[3],
-		);
+    );
+    if ($split_count == 5) {
+      $request['pub'] = $to_splits[4];
+    }
+
 		
 		$request['title'] = isset($data['subject']) ? $data['subject'] : "";
 		$request['body'] = isset($data['body']) ? $data['body'] : "";
@@ -208,8 +213,18 @@ class Diary extends AppModel {
 		$theme = ClassRegistry::init('Theme')->find('first', array('conditions' => array('Theme.id' => $data['theme_id'])));
 		if (empty($theme)) {
 			return false;
-		}
+    }
 
+    //公開希望フラグのチェックと設定
+    if (isset($data['pub'])) {
+      if ($data['pub'] == 'pub') {
+        $data['wish_public'] = 1;
+      } else {
+        // 設定されている文字列が pub じゃない場合は不正
+        return false;
+      }
+    }
+    
 		//month_id
 		$data['month_id'] = $theme['Theme']['month_id'];
 
