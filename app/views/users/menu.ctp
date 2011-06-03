@@ -29,7 +29,7 @@
 
 <span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('action' => 'edit')); ?>" style="color:#666666;"><span style="color:#666666;">ﾊﾟｽﾜ-ﾄﾞを変更する</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('action' => 'edit')); ?>" style="color:#666666;"><span style="color:#666666;">その他の設定</span></a><br />
+<span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('action' => 'other_setting')); ?>" style="color:#666666;"><span style="color:#666666;">その他の設定</span></a><br />
 <span style="color:#333333;">ﾄﾞｺﾓｺﾐｭﾆﾃｨの設定変更はこちら</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('action' => 'delete')); ?>" style="color:#666666;"><span style="color:#666666;">ﾌﾟﾛﾌｨ-ﾙを削除する(退会)</span></a><br />
