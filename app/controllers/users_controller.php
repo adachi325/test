@@ -328,15 +328,15 @@ class UsersController extends AppController {
 				if( $this->User->save($this->data)){
 					return;
 				} else {
-					$this->cakeError('error404');
 					$this->log('会員更新に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
 					$this->log($this->data,LOG_DEBUG);
+					$this->cakeError('error404');
 				}
 			} catch(Exception $e) {
-				$this->cakeError('error404');
 				$this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
 				$this->log($this->data,LOG_DEBUG);
 				$this->log($e,LOG_DEBUG);
+				$this->cakeError('error404');
 			}
 		} else {
 			$this->cakeError('error404');
@@ -651,6 +651,75 @@ class UsersController extends AppController {
     }
 
     function other_setting() {
+
+        // POSTデータが存在する場合 
+        if (!empty($this->data)) {
+            $this->User->set($this->data);
+            if ($this->User->validates()) {
+                //セッションにデータ保持
+                $this->Session->write('userOtherSettingData', $this->data);
+                //バリデーションにエラーがなければリダイレクト処理
+                $this->redirect('/users/other_setting_confirm');
+            }
+        }
+
+        //セッッション回収と削除
+        $data = $this->Session->read('userOtherSettingData');
+        if(!empty($data)){
+            $userData = $this->Auth->user();
+            $this->data = $data;
+            $this->Session->delete('userOtherSettingData');
+        }
+
+        //それでもデータが無ければデータベースから取得
+        if(empty($this->data)){
+            $userData = $this->Auth->user();
+            $this->data = $this->User->read(null, $userData['User']['id']);
+        }
+    }
+
+    function other_setting_confirm(){
+
+        //セッション情報回収
+        $this->data = $this->Session->read('userOtherSettingData');
+        if (empty($this->data)) {
+            $this->Session->delete('userOtherSettingData');
+            $this->cakeError('error404');
+            return;
+        }
+    }
+
+    function other_setting_complete() {
+      
+        //セッション情報回収、削除
+        $this->data = $this->Session->read('userOtherSettingData');
+        $this->Session->delete('userOtherSettingData');
+
+        if (!empty($this->data)) {
+            try {
+                $this->User->whitelist = array('dc_user');
+                if($this->User->save($this->data)){
+                  $this->render('edit_complete');
+                } else {
+                    $this->log('会員更新に失敗other_setting01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                    $this->log($this->data,LOG_DEBUG);
+                    $this->cakeError('error404');
+                }
+            } catch(Exception $e) {
+                $this->log('会員登録に失敗other_setting02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+                $this->log($this->data,LOG_DEBUG);
+                $this->log($e,LOG_DEBUG);
+                $this->cakeError('error404');
+            }
+        } else {
+            $this->cakeError('error404');
+        }
+
+        //ログアウト
+        $this->Auth->logout();
+
+        //セッション全削除
+        $this->Session->destroy();
     }
 }
 ?>
