@@ -324,7 +324,7 @@ class UsersController extends AppController {
 
 			try {
 				$this->_setEditData();
-				$this->User->whitelist = array('id', 'password', 'dc_user');
+				$this->User->whitelist = array('id', 'password');
 				if( $this->User->save($this->data)){
 					return;
 				} else {
