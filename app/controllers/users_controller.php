@@ -3,7 +3,7 @@
 class UsersController extends AppController {
 
     public $name = 'Users';
-    public $uses = array('User');
+    public $uses = array('User', 'Child');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -641,6 +641,13 @@ class UsersController extends AppController {
 
         //トライアルトップへ遷移
         $this->redirect('/');
+    }
+
+    function menu() {
+      //子供数取得（リンク表示有無情報）
+      $userData = $this->Auth->user();
+      $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
+      $this->set(compact('childData'));
     }
 }
 ?>
