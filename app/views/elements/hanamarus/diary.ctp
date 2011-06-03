@@ -1,11 +1,3 @@
-<!-- start: タイトル -->
-<tr>
-<td colspan="2"><?php echo $html->link($hanamaru['Diary']['title'], '/diaries/info/' . $hanamaru['Diary']['id']); ?></td>
-</tr>
-<!-- end: タイトル -->
-
-<!-- start: 写真、ボディ -->
-<tr>
 <?php
 $image_path;
 if ($hanamaru['Diary']['has_image']) {
@@ -15,13 +7,19 @@ if ($hanamaru['Diary']['has_image']) {
 } 
 ?>
 
-<td><?php echo $html->image($image_path, array("style" => "margin:10px 0;")); ?></td>
-<td><?php echo $hanamaru['Diary']['body']; ?></td>
-</tr>
-<!-- end: 写真、ボディ -->
-
-<!-- start: はなまる個数 -->
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $bgcolor; ?>">
 <tr>
-<td colspan="2">はなまる: <?php echo $hanamaru['Diary']['hanamaru_count']; ?></td>
+<td width="25%" rowspan="2" align="left" valign="top">
+<?php echo $this->Html->image($image_path, array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
+<td colspan="2" align="left" valign="top"><a href="#" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo $html->link(h($hanamaru['Diary']['title']), '/diaries/info/' . $hanamaru['Diary']['id']); ?></span></a></td>
 </tr>
-<!-- end: はなまる個数 -->
+<tr>
+<td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo nl2br(h($hanamaru['Diary']['body'])); ?></span></td>
+</tr>
+<tr>
+<td></td>
+
+<td align="left" valign="middle"><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:1px 3px 0 0;")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru['Diary']['hanamaru_count']; ?>ｺ</span></td>
+<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $hanamaru['Diary']['modified']); ?></span></td>
+</tr></table>
+

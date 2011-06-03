@@ -7,17 +7,13 @@ class HanamarusController extends AppController {
   var $uses = array("Hanamaru", "Diary");
 
   // TODO: テスト用のため稼働時には削除すること、またapp/view/layout/cake.ctpも削除すること
-  var $layout = "cake";
+  // var $layout = "cake";
 
 	function beforeFilter()
   {
     // TODO: 表示テストのため、非ログイン時でも表示可とする
-		$this->Auth->allow('*');
+		// $this->Auth->allow('*');
     parent::beforeFilter();
-  }
-
-  function index() {
-    $this->set('hanamarus', $this->paginate('Hanamaru'));
   }
 
   function received() {
@@ -39,7 +35,7 @@ class HanamarusController extends AppController {
           ),
         ),
         'fields' => "*",
-        'limit' => 2,
+        'limit' => 1,
         'conditions' => array('Hanamaru.owner_id' => $user_id),
         'group' => array('Diary.id'),
         'order' => array('Diary.hanamaru_last_updated' =>  'desc'),
