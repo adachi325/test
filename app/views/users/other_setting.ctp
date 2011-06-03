@@ -27,7 +27,7 @@
 <?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->create(null, array("url" => "/users/menu?guid=ON", "type" => "get", "div" => false));?>
-<input type="submit" value="戻る" /><br />
+<?php echo $this->Form->submit("戻る", array("div" => false)); ?><br />
 <?php echo $this->Form->end(); ?>
 </td>
 </tr>
