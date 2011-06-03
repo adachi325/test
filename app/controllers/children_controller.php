@@ -441,16 +441,6 @@ class ChildrenController extends AppController {
         }
     }
 
-    function edit_menu(){
-        //子供数取得（リンク表示有無情報）
-        $userData = $this->Auth->user();
-        $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
-        $this->set(compact('childData'));
-    }
-
-    function user_menu(){
-    }
-    
     function delete() {
 
         if(!empty($this->data)){
