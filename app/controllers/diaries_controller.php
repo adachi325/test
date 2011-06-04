@@ -367,7 +367,6 @@ class DiariesController extends AppController {
         if(empty($diary)){
              $this->Session->setFlash(__('エラー', true));
              $this->redirect('/children/');
-             $this->redirect('/children/');
         }
         $this->set(compact('diary'));
 
@@ -400,14 +399,16 @@ class DiariesController extends AppController {
           }
         }
 
-        // 思い出のオーナーでは無い場合、公開されている思い出にアクセスしているかチェックする
-        if (!$isOwner && !$this->__checkPublish($diary)) {
-             // $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
-             $this->redirect('/children/');
+        // 他ユーザーの思い出へのアクセス
+        if (!$isOwner) {
+            if ($this->__checkPublish($diary)) {
+               $this->render('info_public');
+            } else {
+               // $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
+               $this->redirect('/children/');
+            }
         }
           
-        $this->set(compact('isLogin'));
-        $this->set(compact('isOwner'));
     }
 
     // 思い出記録が公開されているか判定する
