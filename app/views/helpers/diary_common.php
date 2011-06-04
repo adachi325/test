@@ -7,7 +7,7 @@ class DiaryCommonHelper extends Helper {
    * 
    * 掲載希望フラグが 0 の場合、非公開
    * 掲載希望フタグが 1 かつ
-   *   許可フラグが 0 または 1 の場合、公開申請中
+   *   許可フラグが 0 または 1 の場合、申請中
    *   許可フラグが 2 かつ
    *     公開日が現在より前の場合、●月●日公開予
    *     公開日が現在以降の場合、公開中！
@@ -26,7 +26,7 @@ class DiaryCommonHelper extends Helper {
     
       if ($permit_status == 0 || $permit_status == 1) {
     
-        $status = "公開申請中";
+        $status = "申請中";
     
       } elseif ($permit_status == 2) {
     
