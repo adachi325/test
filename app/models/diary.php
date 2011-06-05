@@ -43,7 +43,7 @@ class Diary extends AppModel {
       ),
     );
     $params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => '*', 'conditions' => $conditions);
-    // FIXME: find('count')だと件数が取れない...
+    // find('count')だと件数が取れない
     $result = $this->find('all', $params);
     pr($conditions);
     return count($result);

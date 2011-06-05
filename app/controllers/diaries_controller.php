@@ -194,7 +194,6 @@ class DiariesController extends AppController {
           $this->redirect('/children/');
         }
 
-        // FIXME: これ何？
         $request = array();
 
         // DBより取得したデータに、POSTされたデータで上書きする
@@ -731,7 +730,6 @@ $list[6] ='--5000000000--
           $this->redirect('/children/');
         }
 
-        // FIXME: これ何？
         $request = array();
 
         $request = $diary;
