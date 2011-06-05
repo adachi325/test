@@ -8,7 +8,7 @@ class DiaryTestCase extends CakeTestCase {
 		$this->Diary =& ClassRegistry::init('Diary');
   }
 
-  function testmakeIdentifyToken() {
+  function testMakeIdentifyToken() {
     // 10桁で帰ってくるかのテスト
     $token = $this->Diary->makeIdentifyToken();
     $result = false;
