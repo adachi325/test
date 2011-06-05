@@ -97,17 +97,17 @@ class HanamaruTestCase extends CakeTestCase {
     $this->assertEqual($actual, $expect);
 
     // user_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("homuhomu", 1);
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("hogehoge", 1);
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // diary_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, "homuhomu");
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru(1, "hogehoge");
     $expect = false;
     $this->assertEqual($actual, $expect);
 
     // user_id、diary_idが文字列
-    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("homuhomu", "homuhomu");
+    $actual = $this->Hanamaru->checkAlreadyAddHanamaru("hogehoge", "hogehoge");
     $expect = false;
     $this->assertEqual($actual, $expect);
   }
