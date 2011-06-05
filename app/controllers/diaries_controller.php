@@ -298,6 +298,7 @@ class DiariesController extends AppController {
             $deleteCondition = array("Diary.id" => $id);
 
             //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
+            //思い出IDに紐づく記事、はなまるを削除
             TransactionManager::begin();
             try {
                 $this->Diary->contain();
