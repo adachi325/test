@@ -6,13 +6,9 @@ class HanamarusController extends AppController {
   // 使用するモデルを指定
   var $uses = array("Hanamaru", "Diary");
 
-  // TODO: テスト用のため稼働時には削除すること、またapp/view/layout/cake.ctpも削除すること
-  // var $layout = "cake";
 
 	function beforeFilter()
   {
-    // TODO: 表示テストのため、非ログイン時でも表示可とする
-		// $this->Auth->allow('*');
     parent::beforeFilter();
   }
 

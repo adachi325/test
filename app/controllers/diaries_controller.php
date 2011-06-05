@@ -156,7 +156,6 @@ class DiariesController extends AppController {
                  $this->redirect('/children/');
             }
             //データ取得
-            // TODO: 良さそうなら消す$this->Diary->contain('Month', 'Article');
             $this->Diary->contain();
             $conditions = array(
                 'conditions' => array(
