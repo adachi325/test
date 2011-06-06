@@ -152,7 +152,7 @@ class Diary extends AppModel {
     //宛先アドレス有効判定
     $to_splits = split('\.', $to);
     $split_count = count($to_splits);
-		if ($split_count != 4 || $split_count != 5) {//user_hash, child_hash, theme_id, hash, pub(optional)
+		if ($split_count != 4 && $split_count != 5) {//user_hash, child_hash, theme_id, hash, pub(optional)
 			return false;
     }
 
