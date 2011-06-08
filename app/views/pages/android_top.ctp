@@ -9,10 +9,6 @@
   <p>
    Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
   <dl id="contents">
-    <dt><?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby/ぷちファースト")); ?><br /><span class="baby">0～1歳向けコース</span></dt>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【Flash】おうちでできるカンタンからだあそび動画</a>
-    </dd>
     <dt><?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span></dt>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_8/');?>" data-role="button" data-theme="e" rel="external">【Flash】たべものおしゃべりパズルであそぼう！</a>
@@ -40,9 +36,6 @@
     </dd>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_16/');?>" data-role="button" data-theme="e" rel="external">【動画】トイレでおしっこできるかな</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
     </dd>
     <dt><?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span></dt>
     <dd>
