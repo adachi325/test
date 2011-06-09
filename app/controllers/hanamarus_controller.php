@@ -113,12 +113,23 @@ class HanamarusController extends AppController {
 
     // はなまるをあげていなければデータを登録する
     if ($count == 0) {
+	// 対象記事の所有者のUIDを取得する
+	$diary_model = & ClassRegistry::init('Diary');
+	$diary_model->contain();
+	$diary = $diary_model->find('first', array('conditions' => array('id' => $id)));
+	$child_id = $diary['Diary']['child_id'];
+
+    	$child_model = & ClassRegistry::init('Child');
+	$child_model->contain();
+	$child = $child_model->find('first', array('conditions' => array('id' => $child_id)));
+	$owner_id = $child['Child']['user_id'];
 
       // モデルを作成
       $data = array(
         'type' => 1,
         'external_id' => $id,
         'user_id' => $user['User']['id'],
+	'owner_id' => $owner_id,
       );
       $this->Hanamaru->create();
       $this->Hanamaru->save($data);
@@ -126,6 +137,6 @@ class HanamarusController extends AppController {
 
     $this->redirect($returnPath);
   }
-
+ 
 }
 ?>

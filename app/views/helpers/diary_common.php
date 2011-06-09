@@ -30,14 +30,18 @@ class DiaryCommonHelper extends Helper {
     
       } elseif ($permit_status == 2) {
     
-        $current_time = time();
-        $publish_time = strtotime($release_date);
-    
-        if ($current_time >= $publish_time) {
-          $status = "公開中!";
-        } else {
-          $status = $this->Time->format('n月j日公開予定', $release_date);
-        }
+        if(!empty($release_date)){
+		$current_time = time();
+        	$publish_time = strtotime($release_date);
+        	if ($current_time >= $publish_time) {
+	          	$status = "公開中!";
+        	} else {
+          		$status = $this->Time->format('公開予定(n月j日)', $release_date);
+        	}
+	}else{
+		//articlesテーブルに掲載期限情報がない場合
+		$status = "";
+	}
       } 
     }
 
