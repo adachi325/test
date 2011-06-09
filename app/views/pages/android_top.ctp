@@ -9,7 +9,16 @@
   <p>
    Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
   <dl id="contents">
-    <dt><?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span></dt>
+    <dt>
+    	<?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby/ぷちファースト")); ?><br /><span class="baby">0～1歳向けコース</span>
+    </dt>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【Flash】おうちでできるカンタンからだあそび動画</a>
+    </dd>
+    
+    <dt>
+    	<?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span>
+    </dt>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_8/');?>" data-role="button" data-theme="e" rel="external">【Flash】たべものおしゃべりパズルであそぼう！</a>
     </dd>
@@ -34,21 +43,33 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_15/');?>" data-role="button" data-theme="e" rel="external">【動画】みんなでトイレ</a>
     </dd>
-    <dt><?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span></dt>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit/1104_16/');?>" data-role="button" data-theme="e" rel="external">【動画】トイレでおしっこできるかな</a>
+    </dd>
+    
+    <dt>
+    	<?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span>
+    </dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】どれをたべるのかな？はっけんゲーム</a>
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1106/');?>" data-role="button" data-theme="e" rel="external">【Flash】はたらく くるま わかった！ クイズ</a>
     </dd>
-    <dt><?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span></dt>
+    
+    <dt>
+    	<?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span>
+    </dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1106/');?>" data-role="button" data-theme="e" rel="external">【着うた】かずのドーナツやさんの歌</a>
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの いきもの ずかん</a>
     </dd>
-    <dt><?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span></dt>
+    
+    <dt>
+    	<?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span>
+    </dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おてつだいたいに ほうこくしよう！＜NEW＞</a>
     </dd>
