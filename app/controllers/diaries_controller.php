@@ -1,17 +1,17 @@
 <?php
 class DiariesController extends AppController {
 
-  var $name = 'Diaries';
+    var $name = 'Diaries';
 
-  var $uses = array('Diary', 'Child', 'Article', 'Hanamaru');
+    var $uses = array('Diary', 'Child', 'Article', 'Hanamaru');
 
-  var $helpers = array('DiaryCommon');
+    var $helpers = array('DiaryCommon');
 
-	function beforeFilter()
-  {
-		$this->Auth->allow('info', 'get_news_count');
-		parent::beforeFilter();
-	}
+    function beforeFilter()
+    {
+        $this->Auth->allow('info', 'get_news_count');
+        parent::beforeFilter();
+    }
 
     function index($year = null, $month = null, $page = null) {
 
@@ -788,32 +788,43 @@ $list[6] ='--5000000000--
         }
     }
 
-  /*
-   * ニュース本数取得API
-   *
-   * ニュースの一日あたりの本数を取得します。
-   *
-   * out: ニュース本数(csv形式)
-   */
-  function get_news_count() {
+    /*
+     * ニュース本数取得API
+     *
+     * ニュースの一日あたりの本数を取得します。
+     *
+     * out: ニュース本数(csv形式)
+     */
+    function get_news_count() {
 
-    // 現在日付を取得
-    $today = date("Y-m-d");
+        // 現在日付を取得
+        $today = date("Y-m-d");
 
-    // articlesテーブル内の本日付け配信数をカウントする
-    $conditions = array(
-      'DATE_FORMAT(Article.release_date, \'%Y-%m-%d\')' => $today,
-    );
-    $count = $this->Article->find('count', array('conditions' => $conditions));
+        // articlesテーブル内の本日付け配信数をカウントする
+        $conditions = array(
+            'DATE_FORMAT(Article.release_date, \'%Y-%m-%d\')' => $today,
+        );
+        $count = $this->Article->find('count', array('conditions' => $conditions));
 
-    // 出力データの設定
-    $data = array($count);
-    $this->set(compact('count'));
+        // 出力データの設定
+        $data = array($count);
+        $this->set(compact('count'));
 
-    // 出力設定
-    Configure::write('debug', 0); // 警告を出さない
-    $this->layout = null;
-    header("Content-Type: text/plain"); 
-  }
+        // 出力設定
+        Configure::write('debug', 0); // 警告を出さない
+        $this->layout = null;
+        header("Content-Type: text/plain"); 
+    }
+
+
+    function top() {
+		//ログイン済みならマイページへ遷移
+		if($this->Auth->user()) {
+			$this->set('login_user',$this->Auth->user());
+        } else {
+            $this->render('top_guest');
+        }
+
+    }
 }
 ?>
