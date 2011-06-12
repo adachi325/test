@@ -823,5 +823,11 @@ $list[6] ='--5000000000--
     $this->layout = null;
     header("Content-Type: text/plain"); 
   }
+
+    /*
+     * 公開に際しての注意事項
+     */
+    function publish() {
+    }
 }
 ?>

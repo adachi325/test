@@ -63,7 +63,7 @@
 </table>
 
 <div align="right" style="text-align:right;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<a href="#" style="color:#ff0000;"><span style="color:#ff0000;font-size:x-small;">※公開に際しての注意事項</span></a></div>
+<a href="<?php echo $this->Html->url('/diaries/publish/'); ?>" style="color:#ff0000;"><span style="color:#ff0000;font-size:x-small;">※公開に際しての注意事項</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000">
 ※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡<br /></span>
