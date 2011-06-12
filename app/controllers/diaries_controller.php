@@ -824,7 +824,6 @@ $list[6] ='--5000000000--
         header("Content-Type: text/plain"); 
     }
 
-
     function top() {
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
@@ -832,7 +831,13 @@ $list[6] ='--5000000000--
         } else {
             $this->render('top_guest');
         }
+    }
 
+    /*
+     * 公開に際しての注意事項
+     */
+    function publish() {
+   
     }
 }
 ?>
