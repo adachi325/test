@@ -7,7 +7,7 @@ class NewsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('prev','rule','register');
+		$this->Auth->allow('prev','rule','register', 'get_news_count');
 	}
 
 	function index(){
@@ -28,6 +28,7 @@ class NewsController extends AppController {
 			$this->cakeError('error404');
 			return;
 		}
-	}
+  }
+
 }
 ?>

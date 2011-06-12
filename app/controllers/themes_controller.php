@@ -200,6 +200,7 @@ class ThemesController extends AppController {
 		 $child = $Child->findById($userdata['User']['last_selected_child']);
 
 		 $mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$id.'.'.$hash.'@'.Configure::read('Defaults.domain');
+		 $mailPublicStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$id.'.'.$hash.'.pub@'.Configure::read('Defaults.domain');
 
 
          //タイトル設定
@@ -210,6 +211,7 @@ class ThemesController extends AppController {
          }
 
          $this->set('mailStr', $mailStr);
+         $this->set('mailPublicStr', $mailPublicStr);
          $this->set('mailTitle',$mailTitle);
 
     }

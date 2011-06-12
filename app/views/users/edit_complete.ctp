@@ -1,4 +1,4 @@
-
+<?php /* 119 完了 */ ?>
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />
 
 ﾌﾟﾛﾌｨｰﾙ情報を変更いたしました｡<br />
