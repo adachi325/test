@@ -17,6 +17,37 @@ class ArticlesController extends AppController {
     }
 
     function timeline($category = null) {
+ 
+        $user = $this->Auth->user();
+
+        if ($user) {
+            $this->set('login_user',$user);
+        } else {
+            //ログイン済みじゃない場合、uidを取得
+            $uid = $this->EasyLogin->_getUid();
+            if(!empty($uid)) {
+                $User =& ClassRegistry::init('User');
+                $User->contain();
+                $user = $User->find('first',array('conditions' => array('uid' => $uid)));
+                //uidが存在する場合、自動ログイン実行
+                if(!empty($user)){
+                    //取得したユーザー情報でログイン
+                    if($this->Auth->login($user)) {
+                        //ユーザー情報設定
+                        unset ($user['User']['uid']);
+                        unset ($user['User']['created']);
+                        unset ($user['User']['modified']);
+                        $this->set('login_user',$user);
+                    } else {
+                        $user = '';
+                    }
+                }
+            } else {
+                $this->redirect('/');
+            }
+
+        } 
+ 
         $today = date('Y-m-d H:i:s');
   
         $cond = array(
@@ -77,19 +108,7 @@ class ArticlesController extends AppController {
             }
         }
 
-        // 非会員の判定
-        if (empty($user)) {
-            $this->render('top_guest');
-            return;
-        }
-        
         $today = date('Y-m-d H:i:s');
-
-        $Hanamaru =& ClassRegistry::init('Hanamaru');
-
-        $hanamaru_received = $Hanamaru->getReceivedHanamaruCount($user['User']['id']);
-        $hanamaru_gave = $Hanamaru->getGaveHanamaruCount($user['User']['id']);
-
         
         //ニュース取得
         $News =& ClassRegistry::init('News');
@@ -98,19 +117,9 @@ class ArticlesController extends AppController {
 
         $cond = array(
             'conditions' => array('release_date <= ' => $today, 'expire_date >= ' => $today),
-            'limit' => 5,
+            'limit' => empty($user) ? 4 : 5,
             'order' => 'release_date DESC'
         );
-        if ($category != null) {
-            $cond['conditions']['type'] = $category;
-        }
-
-        $cond = array(
-            'conditions' => array('release_date <= ' => $today, 'expire_date >= ' => $today),
-            'limit' => 5,
-            'order' => 'release_date DESC'
-        );
-
         if ($category != null) {
             $cond['conditions']['type'] = $category;
         }
@@ -119,7 +128,30 @@ class ArticlesController extends AppController {
         $articles_base = $this->Article->find('all', $cond);
         $articles = $this->__addDiaries($articles_base);
 
-        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles')); 
+        $hanamaru_received = 0;
+        $hanamaru_gave = 0;
+        $themes = array();
+
+        // 非会員の判定
+        if (empty($user)) {
+            $this->render('top_guest');
+            //月データ取得
+            $Month =& ClassRegistry::init('Month');
+            $options = array();
+            $options['year'] = date('Y');
+            $options['month'] = date('m') + 0;
+            $months = $Month->find('all', array('conditions' => $options));
+
+            //テーマ要素作成日順に入れ替える
+            $themes = array_reverse($months['0']['Theme']);
+        } else {
+            $Hanamaru =& ClassRegistry::init('Hanamaru');
+
+            $hanamaru_received = $Hanamaru->getReceivedHanamaruCount($user['User']['id']);
+            $hanamaru_gave = $Hanamaru->getGaveHanamaruCount($user['User']['id']);
+        }
+
+        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles', 'themes')); 
     }
 
     function __addDiaries($articles_base) {
