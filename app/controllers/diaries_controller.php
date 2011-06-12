@@ -763,7 +763,7 @@ $list[6] ='--5000000000--
             TransactionManager::begin();
             try {
                 // パラメータの初期化(審査のやり直し)
-                $this->data['Diary']['permit_status'] = 0;
+                $this->data['Diary']['permit_status'] = 1;	//申請中
 		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();

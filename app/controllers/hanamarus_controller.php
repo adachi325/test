@@ -4,7 +4,7 @@ class HanamarusController extends AppController {
 	var $name = 'Hanamarus';
 
   // 使用するモデルを指定
-  var $uses = array("Hanamaru", "Diary");
+  var $uses = array("Hanamaru", "Diary", "Article");
 
 
 	function beforeFilter()
@@ -49,8 +49,8 @@ class HanamarusController extends AppController {
 
     // あげたはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getGaveHanamaruCount($user_id));
-
-    $this->paginate = array(
+	
+	$this->paginate = array(
       'Diary' => array(
         'joins' => array(
           array(
@@ -67,7 +67,7 @@ class HanamarusController extends AppController {
         'order' => array('Hanamaru.created' => 'desc'),
       )
     );
-    $this->Diary->recursive = -1;
+   $this->Diary->recursive = -1;
     $hanamarus = $this->paginate('Diary');
     $this->set('hanamarus', $hanamarus);
   }

@@ -21,7 +21,27 @@ class Hanamaru extends AppModel {
    * out: 該当ユーザーのあげたはなまる総数。該当ユーザーが見つからない場合は、0。
    */
   function getGaveHanamaruCount($user_id = null) {
-    $count = $this->find('count', array('conditions' => array('user_id' => $user_id)));
+/*
+	//結合条件
+	$joins = array(
+		array(
+			'type' => 'inner',
+			'table' => 'diaries',
+			'conditions' => array(
+				'Hanamaru.type = 1',
+				'diaries.permit_status = 2',
+				'diaries.wish_public = 1',
+				'diaries.id = Hanamaru.external_id',
+			),
+		),
+    	);
+	$params = array('joins' => $joins, 'fields' => '*', 'conditions' => array('user_id' => $user_id));
+	// 'count'では件数が返らないらしい
+	$result = $this->find('all', $params);
+	$count = count($result);
+	$this->log('[Hanamaru::getGaveHanamaruCount]count='.$count, LOG_DEBUG);//logging
+  */
+    $count = $this->find('count', array('conditions' => array('type' => 1, 'user_id' => $user_id)));
     return $count;
   }
 
