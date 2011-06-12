@@ -224,6 +224,7 @@ class DiariesController extends AppController {
             try {
                 // パラメータの初期化(審査のやり直し)
                 $this->data['Diary']['permit_status'] = 0;
+		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
@@ -414,6 +415,12 @@ class DiariesController extends AppController {
     function __checkPublish($diary) {
 
       $isPublish = false;
+
+	//release_dateが設定されていなければ、公開しない
+	if(empty($diary['Article']['release_date'])){
+		return $isPublish;
+	}
+
       if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2) {
         $current_time = time();
         $publish_time = strtotime($diary['Article']['release_date']);
@@ -756,7 +763,8 @@ $list[6] ='--5000000000--
             TransactionManager::begin();
             try {
                 // パラメータの初期化(審査のやり直し)
-                $this->data['Diary']['permit_status'] = 0;
+                $this->data['Diary']['permit_status'] = 1;	//申請中
+		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {

@@ -4,7 +4,7 @@ class HanamarusController extends AppController {
 	var $name = 'Hanamarus';
 
   // 使用するモデルを指定
-  var $uses = array("Hanamaru", "Diary");
+  var $uses = array("Hanamaru", "Diary", "Article");
 
 
 	function beforeFilter()
@@ -49,8 +49,8 @@ class HanamarusController extends AppController {
 
     // あげたはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getGaveHanamaruCount($user_id));
-
-    $this->paginate = array(
+	
+	$this->paginate = array(
       'Diary' => array(
         'joins' => array(
           array(
@@ -67,7 +67,7 @@ class HanamarusController extends AppController {
         'order' => array('Hanamaru.created' => 'desc'),
       )
     );
-    $this->Diary->recursive = -1;
+   $this->Diary->recursive = -1;
     $hanamarus = $this->paginate('Diary');
     $this->set('hanamarus', $hanamarus);
   }
@@ -113,12 +113,23 @@ class HanamarusController extends AppController {
 
     // はなまるをあげていなければデータを登録する
     if ($count == 0) {
+	// 対象記事の所有者のUIDを取得する
+	$diary_model = & ClassRegistry::init('Diary');
+	$diary_model->contain();
+	$diary = $diary_model->find('first', array('conditions' => array('id' => $id)));
+	$child_id = $diary['Diary']['child_id'];
+
+    	$child_model = & ClassRegistry::init('Child');
+	$child_model->contain();
+	$child = $child_model->find('first', array('conditions' => array('id' => $child_id)));
+	$owner_id = $child['Child']['user_id'];
 
       // モデルを作成
       $data = array(
         'type' => 1,
         'external_id' => $id,
         'user_id' => $user['User']['id'],
+	'owner_id' => $owner_id,
       );
       $this->Hanamaru->create();
       $this->Hanamaru->save($data);
@@ -126,6 +137,6 @@ class HanamarusController extends AppController {
 
     $this->redirect($returnPath);
   }
-
+ 
 }
 ?>

@@ -218,6 +218,7 @@ class Diary extends AppModel {
     if (isset($data['pub'])) {
       if ($data['pub'] == 'pub') {
         $data['wish_public'] = 1;
+	$data['permit_status'] = 1;	//初期値は申請中
       } else {
         // 設定されている文字列が pub じゃない場合は不正
         return false;
