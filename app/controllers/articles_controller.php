@@ -82,6 +82,7 @@ class ArticlesController extends AppController {
 
         //ログイン済み判定
         $user = $this->Auth->user();
+        $this->set('login_user', array());
 
         if ($user) {
             $this->set('login_user',$user);
@@ -123,6 +124,9 @@ class ArticlesController extends AppController {
         if ($category != null) {
             $cond['conditions']['type'] = $category;
         }
+        if (empty($user)) {
+            $cond['conditions']['type <>'] = 1;
+        }
 
         $this->Article->contain();
         $articles_base = $this->Article->find('all', $cond);
@@ -134,7 +138,6 @@ class ArticlesController extends AppController {
 
         // 非会員の判定
         if (empty($user)) {
-            $this->render('top_guest');
             //月データ取得
             $Month =& ClassRegistry::init('Month');
             $options = array();
@@ -152,6 +155,10 @@ class ArticlesController extends AppController {
         }
 
         $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles', 'themes')); 
+        
+        if (empty($user)) {
+            $this->render('top_guest');
+        }
     }
 
     function __addDiaries($articles_base) {

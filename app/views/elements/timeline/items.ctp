@@ -39,7 +39,11 @@ echo h($article['Article']['body']);
 ?></span><br /><span style="color:#339933;"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</span></span></td>
 </tr>
 <tr>
-<td valign="middle"><a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['User']['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
+<td valign="middle">
+<?php if (!empty($logon_user)) : ?>
+<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['User']['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+<?php endif; ?>
+</td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
 <td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
 </tr>
@@ -55,7 +59,9 @@ echo h($article['Article']['body']);
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <tr>
+<?php if (!empty($logon_user)) : ?>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo sprintf($url_set_attention, $article['Article']['external_id'], $login_user['User']['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
+<?php endif; ?>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span></td>
 <td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
 </tr>
