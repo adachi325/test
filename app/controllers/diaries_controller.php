@@ -108,7 +108,7 @@ class DiariesController extends AppController {
 
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
         $this->Diary->contain('Present','Month');
         $conditions = array(
@@ -153,7 +153,7 @@ class DiariesController extends AppController {
         if (empty($this->data)){
             if(empty($id)){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //データ取得
             $this->Diary->contain();
@@ -166,7 +166,7 @@ class DiariesController extends AppController {
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                  $this->Session->setFlash(__('エラー', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             $this->data = $diary;
         }
@@ -177,7 +177,7 @@ class DiariesController extends AppController {
         // 不正遷移チェック
         if(empty($this->data)){
              $this->Session->setFlash(__('エラー', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
 
         // DBよりデータを取得
@@ -191,7 +191,7 @@ class DiariesController extends AppController {
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
           $this->Session->setFlash(__('エラー', true));
-          $this->redirect('/children/');
+          $this->redirect('/');
         }
 
         $request = array();
@@ -243,23 +243,23 @@ class DiariesController extends AppController {
                 } else {
                     TransactionManager::rollback();
                     $this->Session->setFlash(__('更新失敗。', true));
-                    $this->redirect('/children/');
+                    $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
               $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+              $this->redirect('/');
             }
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
     }
 
     function delete($id = null){
             if(empty($id)){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //データ取得
             $this->Diary->contain('Month');
@@ -272,7 +272,7 @@ class DiariesController extends AppController {
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                  $this->Session->setFlash(__('エラー', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             $this->data = $diary;
     }
@@ -281,7 +281,7 @@ class DiariesController extends AppController {
             if(empty($this->data) or
                empty($this->data['Diary']['check'])){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
 
             }
             $id = $this->data['Diary']['check'];
@@ -293,7 +293,7 @@ class DiariesController extends AppController {
 
             if(empty($diary)){
                  $this->Session->setFlash(__('不正操作です。', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //削除用の配列作成
             $deleteCondition = array("Diary.id" => $id);
@@ -313,7 +313,7 @@ class DiariesController extends AppController {
             } catch(Exception $e) {
                 TransactionManager::rollback();
                 $this->Session->setFlash(__('システムエラー。', true));
-                $this->redirect('/children/');
+                $this->redirect('/');
             }
 
             if($diary['Diary']['has_image']) {
@@ -351,7 +351,7 @@ class DiariesController extends AppController {
                 $id = $diaryEditCompleteId;
             } else {
               $this->Session->setFlash(__('不正操作です。', true));
-              $this->redirect('/children/');
+              $this->redirect('/');
             }
         }
 
@@ -365,8 +365,9 @@ class DiariesController extends AppController {
         );
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
-             $this->Session->setFlash(__('エラー', true));
-             $this->redirect('/children/');
+            $this->set('message', 'このお友達の様子は削除されています。');
+            $this->render('info_error');
+            return;
         }
         $this->set(compact('diary'));
 
@@ -404,8 +405,9 @@ class DiariesController extends AppController {
             if ($this->__checkPublish($diary)) {
                $this->render('info_public');
             } else {
-               // $this->Session->setFlash(__('公開されていない思い出へのアクセスです。', true));
-               $this->redirect('/children/');
+                $this->set('message', 'このお友達の様子は現在非公開に設定されています。');
+                $this->render('info_error');
+               //$this->redirect('/');
             }
         }
           
@@ -451,7 +453,7 @@ class DiariesController extends AppController {
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
         $this->set(compact('diary'));
 
@@ -498,7 +500,7 @@ class DiariesController extends AppController {
 
         if(empty($id)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
 
         //データ取得
@@ -513,7 +515,7 @@ class DiariesController extends AppController {
 
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
 
 	$dir = 'img/photo/'.$diary['Diary']['child_id'].'/';
@@ -678,7 +680,7 @@ $list[6] ='--5000000000--
         if (empty($this->data)){
             if(empty($id)){
                 $this->Session->setFlash(__('不正操作です', true));
-                $this->redirect('/children/');
+                $this->redirect('/');
             }
 
             $conditions = array(
@@ -692,7 +694,7 @@ $list[6] ='--5000000000--
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                 $this->Session->setFlash(__('エラー', true));
-                $this->redirect('/children/');
+                $this->redirect('/');
             }
 
             $this->data = $diary;
@@ -722,7 +724,7 @@ $list[6] ='--5000000000--
         // 不正遷移チェック
         if(empty($this->data)){
              $this->Session->setFlash(__('エラー', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
 
         // DBよりデータを取得
@@ -735,7 +737,7 @@ $list[6] ='--5000000000--
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
           $this->Session->setFlash(__('エラー', true));
-          $this->redirect('/children/');
+          $this->redirect('/');
         }
 
         $request = array();
@@ -783,16 +785,16 @@ $list[6] ='--5000000000--
                 } else {
                     TransactionManager::rollback();
                     $this->Session->setFlash(__('更新失敗。', true));
-                    $this->redirect('/children/');
+                    $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
               $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+              $this->redirect('/');
             }
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
     }
 

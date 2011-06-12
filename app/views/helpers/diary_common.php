@@ -63,6 +63,18 @@ class DiaryCommonHelper extends Helper {
     $token = substr($token, 0, 4) . '-' . substr($token, 4, 6);
     return $token;
   }
+
+    function formatYearsOld($year, $month) {
+		//歳計算
+		$yyy = date('Y') - $year;
+		$mmm = date('m') - $month;
+		if($mmm < 0) {
+			$mmm = $mmm + 12;
+			$yyy = $yyy -1;
+		} 
+		return $yyy.'才'.$mmm.'ヶ月';
+    }
+
   
 }
 
