@@ -2,8 +2,6 @@
 
 <?php echo $this->Html->image("ttl_memory.gif", array("alt" => "思い出記録", "width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_public_complete?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
-<?php echo $this->Form->hidden('id');?>
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center">
@@ -27,6 +25,8 @@ $selection = array("1" => "公開する", "0" => "公開しない");
 <table width="90%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 <td align="center">
+<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_public_complete?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
+<?php echo $this->Form->hidden('id');?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("変更", array('div' => false)); ?>
 <?php echo $this->Form->end(); ?>
