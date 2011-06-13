@@ -64,7 +64,7 @@ foreach ($childrenData as $child) :
         $suffix = ($sex == 1) ? 'ちゃん' : 'くん';
 ?>
 <tr> 
-<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/diaries/top/{$i}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
+<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$i}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
 </tr> 
 <?php
     endif;
