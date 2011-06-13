@@ -9,7 +9,9 @@ class ArticlesController extends AppController {
     function beforeFilter()
     {
         parent::beforeFilter();
+        
         $this->Auth->allow('top');
+
         if ($this->Ktai->is_android()) {
             $this->layout = 'android';
             $this->view_prefix = 'android_';

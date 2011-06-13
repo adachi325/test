@@ -10,6 +10,7 @@ class linesController extends AppController {
     function beforeFilter()
     {
         parent::beforeFilter();
+        $this->Auth->allow('top');
     }
 
     //最終子供ID更新
@@ -127,21 +128,25 @@ class linesController extends AppController {
         ));
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
-
-        //子供０人画面へ遷移
-        if (count($childrenData) == 0) {
-            $this->redirect('/children/index_nochild');
-        }
     }
     
-    function top($id = null) {
+    function top($id = null, $line_id = null) {
 		//ログイン済みならマイページへ遷移
         $this->_getChilddata($id);
- 
+
+        $this->set('line_id', $line_id);
+
         if($this->Auth->user()) {
 			$this->set('login_user',$this->Auth->user());
         } else {
-            $this->render('top_guest');
+            $line = $this->Line->find('first', array('Line.id' => $line_id));
+            if (!empty($line)) {
+                $name = $line['Line']['category_name'];
+            } else {
+                $name = "baby";
+            }
+            $this->redirect(Router::url("/ap/{$name}/", true));
+            //$this->render('top_guest');
         }
     }
 

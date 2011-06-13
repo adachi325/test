@@ -9,8 +9,9 @@ class DiariesController extends AppController {
 
     function beforeFilter()
     {
-        $this->Auth->allow('info', 'get_news_count');
         parent::beforeFilter();
+        $this->Auth->allow('top', 'register', 'get_news_count');
+        //$this->Auth->allow('*');
     }
 
     //最終子供ID更新
@@ -129,10 +130,6 @@ class DiariesController extends AppController {
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
 
-        //子供０人画面へ遷移
-        if (count($childrenData) == 0) {
-            $this->redirect('/children/index_nochild');
-        }
     }
     
     function index($year = null, $month = null, $page = null) {
