@@ -25,7 +25,7 @@
 </table>
 
 <div style="background-color:#ffcc00;">
-<div style="background-color:#ffffff;"><?php echo $this->Html->image("tab_btn01_on.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?><a href="#"><?php echo $this->Html->image("tab_btn02.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?></a><a href="#"><?php echo $this->Html->image("tab_btn03.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></a></div>
+<div style="background-color:#ffffff;"><?php echo $this->Html->image("tab_btn01_on.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?><a href="<?php echo $this->Html->url('/diaries/top/'); ?>"><?php echo $this->Html->image("tab_btn02.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?></a><a href="<?php echo $this->Html->url('/lines/top/'); ?>"><?php echo $this->Html->image("tab_btn03.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></a></div>
 <div style="background-color:#ffcc00;"><?php echo $this->Html->image("spacer.gif", array("height" => "2", "width" => "1")); ?></div>
 <div align="center" style="background-color:#ffff99;text-align:center">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -79,7 +79,7 @@ echo h($themes['description']);
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <table width="100%" border="0">
 <tr>
-<td align="center"><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a></td>
+<td align="center"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
