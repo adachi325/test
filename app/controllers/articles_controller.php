@@ -64,7 +64,19 @@ class ArticlesController extends AppController {
         $articles_base = $this->paginate();
         $articles = $this->__addDiaries($articles_base);
 
-        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles')); 
+        $Diary =& ClassRegistry::init('Diary');
+        
+        $cond = array(
+            'conditions' => array(
+                'Diary.user_id' => $user['User']['id'],
+                'Diary.has_image' => 1,
+                'Diary.error_code' => null
+            ),
+            'order'=>array('Diary.created DESC')
+        );
+        $prof_diary = $Diary->find('first', $cond);
+        
+        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles', 'prof_diary')); 
     }
 
     function top($category = null) {

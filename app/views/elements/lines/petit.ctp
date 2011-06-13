@@ -20,7 +20,10 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 }
 ?>
 <span style="color:#cc0000;"><?php
-echo ($content['Content']['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? $this->Ktai->emoji(0xE6DD, false) : '&nbsp;･' ; 
+if ($ii < 3) {
+    echo $this->Html->image('dummy.gif', array('width' => '24', 'height' => '24'));
+}
+echo ($content['Content']['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? ' '.$this->Ktai->emoji(0xE6DD, false) : ' &nbsp;･' ; 
 ?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a><br />
 </div>
 

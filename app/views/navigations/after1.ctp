@@ -66,6 +66,6 @@ if($this->Ktai->is_imode()): ?>
 </div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
-今は送信しないで<a href="<?php echo $this->Html->url('/children/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
+今は送信しないで<a href="<?php echo $this->Html->url('/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

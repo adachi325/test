@@ -5,7 +5,7 @@
 <div style="background-color:#339933;"> 
 <div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div> 
 <div style="background-color:#66cc00;"> 
-<div style="background-color:#339933;"><a href="#"><?php echo $this->Html->image("tab_btn01_green.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?></a><?php echo $this->Html->image("tab_btn02_on_green.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?><a href="#"><?php echo $this->Html->image("tab_btn03_green.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></a></div> 
+<div style="background-color:#339933;"><a href="<?php echo $this->Html->url('/');?>"><?php echo $this->Html->image("tab_btn01_green.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?></a><?php echo $this->Html->image("tab_btn02_on_green.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?><a href="<?php echo $this->Html->url('/lines/top/');?>"><?php echo $this->Html->image("tab_btn03_green.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></a></div> 
 <div style="background-color:#66cc00;"><?php echo $this->Html->image("spacer.gif", array("height" => "2", "width" => "1")); ?></div> 
 <div style="background-color:#ffff99;"> 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ccff99"> 
@@ -13,7 +13,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
 <span style="color:#336600">せっかく撮った写真どうしてる?</span><br /> 
 <span style="color:#333333">思い出記録なら簡単に<br />待受やﾎﾟｽﾄｶｰﾄﾞができちゃう♪</span></span><br /> 
-<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="#">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
+<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /> 
 </td></tr> 
 </table> 
@@ -58,7 +58,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99"> 
 <tr><td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
 <span style="font-size:x-small">ｹﾞｰﾑや動画で遊んで<br />素敵に写真が残せる<?php echo $this->Html->image("emoji/images/230.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
-<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="#">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
+<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
 <span style="font-size:x-small"><?php echo $this->Html->image("emoji/images/75.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?>3ｷｬﾘｱ対応<?php echo $this->Html->image("emoji/images/87.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td></tr> 
 </table> 
  

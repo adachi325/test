@@ -3,7 +3,7 @@
 class ChildrenController extends AppController {
 
     var $name = 'Children';
-    var $helpers = array('Wikiformat.Wikiformat');
+    var $helpers = array('Wikiformat.Wikiformat', 'DiaryCommon');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -67,6 +67,8 @@ class ChildrenController extends AppController {
     }
 
     function index($id = null) {
+        $this->redirect("/");
+
         $this->_getChilddata($id);
     }
 
