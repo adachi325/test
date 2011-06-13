@@ -1,6 +1,10 @@
 <?php echo $this->Html->image("ttl_challenge.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<?php echo $this->element('lines'.DS.$line); ?>
+
+<!--
+
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="85%"><?php echo $this->Html->image("txt_{$line}.gif", array("width" => "100%")); ?></td>
@@ -89,6 +93,8 @@ if (!(isset($has_account) && $has_account)) {
 <td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
 </tr>
 </table>
+
+-->
 
 <?php echo $this->element('default/room'); ?>
 

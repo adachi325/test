@@ -17,7 +17,8 @@ if (!(($this->params['controller'] == 'articles' && $this->params['action'] == '
     }
 ?>
 <a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">ﾄｯﾌﾟﾍﾟ-ｼﾞへ</span></a><br />
-
+<?php elseif: ?>
+<a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">育児なうﾄｯﾌﾟへ</span></a><br />
 <?php endif; ?>
 
 <span style="color:#ffcc33;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/top/'); ?>" style="color:#ffffff;"><span style="color:#ffffff;">思い出記録ﾄｯﾌﾟへ</span></a><br />

@@ -81,131 +81,15 @@ if (count($childrenData) < 3) :
 <?php endif; ?>
 
 </table> 
-
+<!--
 <div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0", "style" => "margin:5px 0 5px 0;")); ?></a><br />
 <span style="color:#cc0000; font-size:x-small;">しまじろうのきせかえ<br />↑ﾌﾟﾚｾﾞﾝﾄ中↑</span></div>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
+-->
 
 <!-- ライン別の内容 -->
 <?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
 <!-- ライン別ここまで -->
-
-<!--
-
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじbaby", "width" => "100%")); ?></td>
-</tr>
-<tr>
-<td><span style="font-size:x-small; color:#ee86b4;">0～1歳向けｺｰｽ</span></td>
-</tr>
-</table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじぷちファースト", "width" => "100%")); ?></td>
-</tr>
-<tr>
-<td><span style="font-size:x-small; color:#e61953;">1歳前後向けｺｰｽ</span></td>
-</tr>
-</table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center"><a href="#"><span style="color:#ff3333; font-size:x-small;">6ｶ月～11ｶ月</span></a><span style="color:#333333;">｜</span><a href="#"><span style="color:#ff3333; font-size:x-small;">1歳～1歳2ｶ月</span></a></div>
-
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr>
-<td bgcolor="#ffefef"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●6ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
-</tr>
-
-<tr>
-<td><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●7ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【動画】ｽﾄﾗｯﾌﾟ取り付け動画</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffefef"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●8ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】眠りたくなる音</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●9ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;"><?php $this->Ktai->emoji(0xE6DD); ?></span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【Web】おうちのかたﾀｲﾌﾟ診断</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffefef"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●10ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【動画】おにぎり食べちゃった振付動画</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●11ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【投稿】りんりんﾄﾗｯｸ</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffefef"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●1歳号</span><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_birthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
-  <?php $this->Ktai->emoji(0xE6DD); ?></span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【待受】おたんじょうびおめでとうﾌﾚｰﾑ</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffffff"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●1歳1ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】育児ｽﾄﾚｽ解消??癒しの音声</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffefef"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●1歳2ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><a href="#" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】ﾓｸﾞﾓｸﾞのﾃｰﾏｿﾝｸﾞ</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffffff"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●1歳3ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">・</span><span style="color:#333333;">【Flash】外出先でお役立ち!画像＆音声でぐずり対策(5月20日更新予定)</span>
-</div></td>
-</tr>
-</table>
-
--->
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array("alt" => "")); ?></div>
 
@@ -246,3 +130,4 @@ echo $this->element('default/room');
 <span style="color:#cc0000;">&nbsp;･</span><a href="http://w.benesse.jp/gw/http/sv/front/Page.php?st=58&pg=3641&SESS=" style="color:#ff3333;"><span style="color:#ff3333;">ｺﾝｻｰﾄ</span></a><br />
 &lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
+
