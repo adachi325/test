@@ -1,5 +1,6 @@
-
+<?php /* 207 思い出記録一覧 */ ?>
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="background:#e9f7ff; text-align:center;">
 
 <?php $month_label = $options['month']; ?>
@@ -10,8 +11,12 @@
 <td width="33%"><?php
 	$i = 0;
 	if (isset($diariesTop[$i])) {
-		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    $diary = $diariesTop[$i];
+    if ($diariesTop[$i]['Diary']['has_image']) {
+      echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    } else {
+      echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    }
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -21,7 +26,11 @@
 	$i = 1;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    if ($diariesTop[$i]['Diary']['has_image']) {
+      echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    } else {
+      echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    }
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -41,7 +50,11 @@
 	$i = 2;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    if ($diariesTop[$i]['Diary']['has_image']) {
+      echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    } else {
+      echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    }
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -51,7 +64,11 @@
 	$i = 3;
 	if (isset($diariesTop[$i])) {
 		$diary = $diariesTop[$i];
-		echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    if ($diariesTop[$i]['Diary']['has_image']) {
+      echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    } else {
+      echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+    }
 	} else {
 		$i++;
 		echo $this->Html->image("album_pic0{$i}.gif", array("width" => "100%"));
@@ -93,7 +110,7 @@ foreach($diaries as $diary):
     if((int)$s > (int)$d and (int)$i < (int)5) {
 ?>
 	<tr>
-	<td width="25%" valign="top">
+	<td width="25%" rowspan="3" valign="top">
 	<?php
 	echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5"));
 	if ($diary['Diary']['has_image']) {
@@ -104,12 +121,22 @@ foreach($diaries as $diary):
 	echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5"));
 	?>
 	</td>
-	<td width="75%" align="left" valign="top">
-	<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-	<?php $title = (!empty($diary['Diary']['title'])) ? $diary['Diary']['title'] : '無題'; ?>
-	<a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
-	</td>
-	</tr>
+  <td width="75%" align="left" valign="top">
+  <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+	<?php $title = (!empty($diary['Diary']['title'])) ? h($diary['Diary']['title']) : '無題'; ?>
+  <a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a><br />
+  </tr>
+  <tr>
+    <td align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date'], true); ?></span></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top">
+    <?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
+      <?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0")); ?>
+      <span style="font-size:x-small; color:#FF0000;"><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
+    <?php } ?>
+    </td>
+  </tr>
 	<?php
 	$i ++;
 

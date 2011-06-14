@@ -1,9 +1,136 @@
 <?php
-
 class DiariesController extends AppController {
 
     var $name = 'Diaries';
 
+    var $uses = array('Diary', 'Child', 'Article', 'Hanamaru');
+
+    var $helpers = array('DiaryCommon');
+
+    function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('top', 'register', 'get_news_count');
+        //$this->Auth->allow('*');
+    }
+
+    //最終子供ID更新
+    function _saveLastChild($id){
+        $userData = array();
+        $userData = $this->Auth->user();
+        $userData['User']['last_selected_child'] = $id;
+        unset ($userData['User']['loginid']);
+        unset ($userData['User']['carrier']);
+        unset ($userData['User']['dc_user']);
+        unset ($userData['User']['admin_user']);
+        unset ($userData['User']['uid']);
+        unset ($userData['User']['created']);
+        unset ($userData['User']['modified']);
+        $this->Child->saveLastChild($userData);
+    }
+
+    //子供情報取得
+    function _setChild(){
+        $userData = $this->Auth->user();
+        $childData = $this->Child->find('all', array('conditions'=>array('user_id'=>$userData['User']['id'])));
+        return $childData;
+    }
+
+    
+    function _getChilddata($id = null) {
+        //子供データ一覧設定
+        $childrenData = $this->_setChild();
+
+        //最終子供ID更新
+        if ($id !== null && $id >= 0 && $id < count($childrenData)) {
+
+            $updateId = $childrenData[$id]['Child']['id'];
+            $this->_saveLastChild($updateId);
+        }
+
+        //最終子供ID設定
+        $lastChildId = $this->Tk->_getLastChild();
+        if ($lastChildId == 0) {
+            if (count($childrenData)) {
+                $lastChildId = $childrenData[0]['Child']['id'];
+                $updateId = $lastChildId;
+                $this->_saveLastChild($updateId);
+            }
+        }
+        //最終子供情報取得
+        $Child =& ClassRegistry::init('Child');
+
+        $currentChild = $Child->findById($lastChildId);
+
+        //月号データ取得
+        $Content =& ClassRegistry::init('Content');
+
+        //babyの場合降順にする
+        $sortStr = 'DESC';
+        if($currentChild['Child']['line_id'] == '1'){
+            $sortStr = 'ASC';
+        }
+
+        $conditions = array(
+            'conditions' => array(
+                'Content.line_id' => $currentChild['Child']['line_id'],
+            ),
+            'order'=>array('Content.release_date '.$sortStr)
+        );
+        $Content->contain('Issue');
+        $contents = $Content->find('all', $conditions);
+
+        //月データ取得
+        $Month =& ClassRegistry::init('Month');
+        $options = array();
+        $options['Month.year'] = date('Y');
+        $options['Month.month'] = date('m') + 0;
+        $months = $Month->find('all', array('conditions' => $options));
+
+        //テーマ要素作成日順に入れ替える
+        $result = array_reverse($months['0']['Theme']);
+        $months['0']['Theme'] = $result;
+
+        //ライン情報取得
+        $lines = $Child->Line->find('list');
+        $currentLine = $Child->Line->findById($currentChild['Child']['line_id']);
+
+        if(!empty($months)){
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.month_id' => $months['0']['Month']['id'],
+                    'Diary.has_image' => 1,
+                    'Diary.error_code' => null
+                ),
+                'order'=>array('Diary.created DESC')
+            );
+            //表示データ一覧取得
+            $diary =& ClassRegistry::init('Diary');
+            $diaries = $diary->find('all', $conditions);
+        }
+
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.has_image' => 1,
+                'Diary.error_code' => null
+            ),
+            'order'=>array('Diary.created DESC')
+        );
+        $prof_diary = $diary->find('first', $conditions);
+
+        //ニュース取得
+        $news =& ClassRegistry::init('News');
+        $newslist = $news->find('all',array(
+            'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
+            'order' => array('start_at DESC'),
+        ));
+
+        $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
+
+    }
+    
     function index($year = null, $month = null, $page = null) {
 
         $setOptions = array();
@@ -26,7 +153,7 @@ class DiariesController extends AppController {
                  ($year >= date('Y') && (date('m') + 0) < $month) or
                  ($year > date('Y'))
             ) {
-                 $this->redirect('/diaries/');
+                 //$this->redirect('/diaries/');
             }
             //年月を設定
             $setOptions['year'] = $year;
@@ -44,21 +171,20 @@ class DiariesController extends AppController {
         $months = $month->find('all',array('conditions' => $setOptions));
 
         if(!empty($months)){
-            $conditions;
+            // 表示データ一覧（アルバム）取得
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id'],
-                    'Diary.has_image' => 1,
-                    'Diary.error_code' => null
+                    // 'Diary.has_image' => 1,
+                    // 'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
-            );
-            //表示データ一覧取得
+              );
             $diariesTop = $this->Diary->find('all', $conditions);
             $this->set(compact('diariesTop'));
 
-            $conditions;
+            // 表示データ一覧（思い出一覧）取得
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -66,13 +192,12 @@ class DiariesController extends AppController {
                 ),
                 'order'=>array('Diary.created DESC')
             );
-            //表示データ一覧取得
-	    $this->Diary->contain();
+            $this->Diary->contain('Article');
             $diaries = $this->Diary->find('all', $conditions);
             $this->set(compact('diaries'));
         } else {
             //月データが存在しない場合は不正操作
-            $this->redirect('/diaries/');
+            //$this->redirect('/diaries/');
         }
 
         //前月表示フラグ設定
@@ -89,6 +214,7 @@ class DiariesController extends AppController {
         } else {
             $this->set('page', $page);
         }
+
     }
 
     function checkPost($hash = null){
@@ -100,7 +226,7 @@ class DiariesController extends AppController {
 
         if(empty($hash)){
             $this->Session->setFlash(__('不正操作です。', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
         $this->Diary->contain('Present','Month');
         $conditions = array(
@@ -145,10 +271,10 @@ class DiariesController extends AppController {
         if (empty($this->data)){
             if(empty($id)){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //データ取得
-            $this->Diary->contain('Month');
+            $this->Diary->contain();
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
@@ -158,21 +284,42 @@ class DiariesController extends AppController {
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                  $this->Session->setFlash(__('エラー', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             $this->data = $diary;
         }
     }
 
-    function edit_confirm(){
+    function edit_confirm() {
+
+        // 不正遷移チェック
         if(empty($this->data)){
              $this->Session->setFlash(__('エラー', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
+
+        // DBよりデータを取得
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.id' => $this->data['Diary']['id'],
+            )
+        );
+        $this->Diary->Contain('Article');
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+          $this->Session->setFlash(__('エラー', true));
+          $this->redirect('/');
+        }
+
         $request = array();
-        $request = $this->data;
-        $userData = $this->Auth->user();
-        $request['Diary']['child_id'] = $this->Tk->_getLastChild();
+
+        // DBより取得したデータに、POSTされたデータで上書きする
+        $request = $diary;
+        $request['Diary']['title'] = $this->data['Diary']['title'];
+        $request['Diary']['body'] = $this->data['Diary']['body'];
+        $request['Diary']['permit_status'] = $diary['Diary']['permit_status'];
+        $request['Diary']['wish_public'] = $diary['Diary']['wish_public'];
         $this->data = $request;
         $this->Diary->set($this->data);
         if(!$this->Diary->validates()){
@@ -185,6 +332,7 @@ class DiariesController extends AppController {
     }
 
     function edit_complete(){
+
         //セッション情報回収、削除
         $this->data = $this->Session->read('diaryEditData');
         $this->Session->delete('diaryEditData');
@@ -192,8 +340,20 @@ class DiariesController extends AppController {
         if (!empty($this->data)) {
             TransactionManager::begin();
             try {
+                // パラメータの初期化(審査のやり直し)
+                $this->data['Diary']['permit_status'] = 0;
+		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
+
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
+
+                    // articlesテーブルからのレコード削除
+                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
+                    $article = $this->Article->find('first', array('conditions' => $conditions));
+                    if ($article) {
+                        $this->Article->delete($article['Article']['id']);
+                    }
+
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
                     $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
@@ -201,23 +361,23 @@ class DiariesController extends AppController {
                 } else {
                     TransactionManager::rollback();
                     $this->Session->setFlash(__('更新失敗。', true));
-                    $this->redirect('/children/');
+                    $this->redirect('/');
                 }
             } catch(Exception $e) {
               TransactionManager::rollback();
               $this->Session->setFlash(__('システムエラー。', true));
-              $this->redirect('/children/');
+              $this->redirect('/');
             }
         } else {
              $this->Session->setFlash(__('不正操作です。', true));
-             $this->redirect('/children/');
+             $this->redirect('/');
         }
     }
 
     function delete($id = null){
             if(empty($id)){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //データ取得
             $this->Diary->contain('Month');
@@ -230,7 +390,7 @@ class DiariesController extends AppController {
             $diary = $this->Diary->find('first', $conditions);
             if(empty($diary)){
                  $this->Session->setFlash(__('エラー', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             $this->data = $diary;
     }
@@ -239,7 +399,7 @@ class DiariesController extends AppController {
             if(empty($this->data) or
                empty($this->data['Diary']['check'])){
                  $this->Session->setFlash(__('不正操作です', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
 
             }
             $id = $this->data['Diary']['check'];
@@ -251,12 +411,13 @@ class DiariesController extends AppController {
 
             if(empty($diary)){
                  $this->Session->setFlash(__('不正操作です。', true));
-                 $this->redirect('/children/');
+                 $this->redirect('/');
             }
             //削除用の配列作成
             $deleteCondition = array("Diary.id" => $id);
 
             //子供IDに紐付く子供情報、思い出情報、獲得プレゼント情報を削除
+            //思い出IDに紐づく記事、はなまるを削除
             TransactionManager::begin();
             try {
                 $this->Diary->contain();
@@ -270,7 +431,7 @@ class DiariesController extends AppController {
             } catch(Exception $e) {
                 TransactionManager::rollback();
                 $this->Session->setFlash(__('システムエラー。', true));
-                $this->redirect('/children/');
+                $this->redirect('/');
             }
 
             if($diary['Diary']['has_image']) {
@@ -307,24 +468,89 @@ class DiariesController extends AppController {
             if(!empty($diaryEditCompleteId)){
                 $id = $diaryEditCompleteId;
             } else {
-                $this->Session->setFlash(__('不正操作です。', true));
-                $this->redirect('/children/');
+              $this->Session->setFlash(__('不正操作です。', true));
+              $this->redirect('/');
             }
         }
-        //データ取得
-        $this->Diary->contain('Month');
+
+        // 思い出データ取得
+        $this->Diary->contain('Month', 'Article');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                // 'Diary.child_id' => $this->Tk->_getLastChild(),
                 'Diary.id' => $id
             )
         );
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
-             $this->Session->setFlash(__('エラー', true));
-             $this->redirect('/children/');
+            $this->set('message', 'このお友達の様子は削除されています。');
+            $this->render('info_error');
+            return;
         }
         $this->set(compact('diary'));
+
+        /*
+         * パターン
+         * ログイン済み かつ 自分の思い出
+         * ログイン済み かつ 他人の思い出
+         * 未ログイン
+         */
+        $isLogin = false;
+        $isOwner = false;
+        $children = null;
+
+        // ログイン判定、ユーザーデータ登録
+        $user = $this->Auth->user();
+        if ($user) {
+          $this->set(compact('user'));
+
+          $isLogin = true;
+          $children = $this->Child->find('all', array('conditions' => array('user_id' => $user['User']['id'])));
+          foreach ($children as $child) {
+            if ($diary['Diary']['child_id'] == $child['Child']['id']) {
+              $isOwner = true;
+              break;
+            } else {
+              // はなまるをすでに押しているか
+              $alreadyAddHanamaru = $this->Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
+              $this->set(compact('alreadyAddHanamaru'));
+            }
+          }
+        }
+
+        // 他ユーザーの思い出へのアクセス
+        if (!$isOwner) {
+            if ($this->__checkPublish($diary)) {
+               $this->render('info_public');
+            } else {
+                $this->set('message', 'このお友達の様子は現在非公開に設定されています。');
+                $this->render('info_error');
+               //$this->redirect('/');
+            }
+        }
+          
+    }
+
+    // 思い出記録が公開されているか判定する
+    function __checkPublish($diary) {
+
+      $isPublish = false;
+
+	//release_dateが設定されていなければ、公開しない
+	if(empty($diary['Article']['release_date'])){
+		return $isPublish;
+	}
+
+      if ($diary['Diary']['wish_public'] == 1 && $diary['Diary']['permit_status'] == 2) {
+        $current_time = time();
+        $publish_time = strtotime($diary['Article']['release_date']);
+
+        if ($current_time > $publish_time) {
+          $isPublish = true;
+        }
+      }
+
+      return $isPublish;
     }
 
     function post($id=null){
@@ -345,7 +571,7 @@ class DiariesController extends AppController {
         $diary = $this->Diary->find('first', $conditions);
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
         $this->set(compact('diary'));
 
@@ -392,7 +618,7 @@ class DiariesController extends AppController {
 
         if(empty($id)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
 
         //データ取得
@@ -407,7 +633,7 @@ class DiariesController extends AppController {
 
         if(empty($diary)){
             $this->Session->setFlash(__('エラー', true));
-            $this->redirect('/children/');
+            $this->redirect('/');
         }
 
 	$dir = 'img/photo/'.$diary['Diary']['child_id'].'/';
@@ -553,5 +779,188 @@ $list[6] ='--5000000000--
 
     }
 
+    function edit_public($id=null){
+
+        //セッション情報回収、削除
+        $diaryEditPublicData = $this->Session->read('diaryEditPublicData');
+        $this->Session->delete('diaryEditPublicData');
+        if(!empty($diaryEditPublicData)){
+            $this->data = $diaryEditPublicData;
+        }
+        $diaryEditPublicValidationErrors = $this->Session->read('diaryEditPublicValidationErrors');
+        $this->Session->delete('diaryEditPublicValidationErrors');
+        if(!empty($diaryEditPublicValidationErrors)){
+            $this->Diary->set($this->data);
+            $this->Diary->validates();
+        }
+
+
+        if (empty($this->data)){
+            if(empty($id)){
+                $this->Session->setFlash(__('不正操作です', true));
+                $this->redirect('/');
+            }
+
+            $conditions = array(
+                'conditions' => array(
+                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.id' => $id
+                )
+            );
+
+            $this->Diary->contain('Article');
+            $diary = $this->Diary->find('first', $conditions);
+            if(empty($diary)){
+                $this->Session->setFlash(__('エラー', true));
+                $this->redirect('/');
+            }
+
+            $this->data = $diary;
+            // オリジナルの公開希望フラグをセッションに格納する
+            $this->Session->write('wish_public_origin', $diary['Diary']['wish_public']);
+        }
+
+        // 公開希望フラグ(オリジナル)をviewに渡す。（セッションに無い場合は再取得する。）
+        $wish_public_origin = $this->Session->read('wish_public_origin');
+        if (!empty($wish_public_origin)) {
+          $this->set(compact('wish_public_origin'));
+        } else {
+          $conditions = array(
+            'conditions' => array(
+              'Diary.child_id' => $this->Tk->_getLastChild(),
+              'Diary.id' => $id
+            ),
+          );
+          $diary = $this->Diary->find('first', $conditions);
+          $this->set('wish_public_origin', $diary['Diary']['wish_public']);
+        }
+
+    }
+
+    function edit_public_confirm(){
+
+        // 不正遷移チェック
+        if(empty($this->data)){
+             $this->Session->setFlash(__('エラー', true));
+             $this->redirect('/');
+        }
+
+        // DBよりデータを取得
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.id' => $this->data['Diary']['id'],
+            )
+        );
+        $diary = $this->Diary->find('first', $conditions);
+        if(empty($diary)){
+          $this->Session->setFlash(__('エラー', true));
+          $this->redirect('/');
+        }
+
+        $request = array();
+
+        $request = $diary;
+        $request['Diary']['wish_public'] = $this->data['Diary']['wish_public'];
+        $this->data = $request;
+        $this->Diary->set($this->data);
+        if(!$this->Diary->validates()){
+            $this->Session->setFlash(__('入力項目に不備があります。', true));
+            $this->Session->write('diaryEditPublicData', $this->data);
+            $this->Session->write('diaryEditPublicValidationErrors', $this->validateErrors($this->Diary));
+            $this->redirect('/diaries/edit_public/');
+        }
+        $this->Session->write('diaryEditPublicData', $this->data);
+    }
+
+    function edit_public_complete(){
+
+        //セッション情報回収、削除
+        $this->data = $this->Session->read('diaryEditPublicData');
+        $this->Session->delete('diaryEditPublicData');
+
+        if (!empty($this->data)) {
+            TransactionManager::begin();
+            try {
+                // パラメータの初期化(審査のやり直し)
+                $this->data['Diary']['permit_status'] = 1;	//申請中
+		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
+
+                $this->Diary->create();
+                if ($this->Diary->save($this->data)) {
+
+                    // articlesテーブルからのレコード削除
+                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
+                    $article = $this->Article->find('first', array('conditions' => $conditions));
+                    if ($article) {
+                        $this->Article->delete($article['Article']['id']);
+                    }
+
+                    TransactionManager::commit();
+                    $this->Session->setFlash(__('更新完了。', true));
+                    $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
+                    $this->redirect('/diaries/info');
+                } else {
+                    TransactionManager::rollback();
+                    $this->Session->setFlash(__('更新失敗。', true));
+                    $this->redirect('/');
+                }
+            } catch(Exception $e) {
+              TransactionManager::rollback();
+              $this->Session->setFlash(__('システムエラー。', true));
+              $this->redirect('/');
+            }
+        } else {
+             $this->Session->setFlash(__('不正操作です。', true));
+             $this->redirect('/');
+        }
+    }
+
+    /*
+     * ニュース本数取得API
+     *
+     * ニュースの一日あたりの本数を取得します。
+     *
+     * out: ニュース本数(csv形式)
+     */
+    function get_news_count() {
+
+        // 現在日付を取得
+        $today = date("Y-m-d");
+
+        // articlesテーブル内の本日付け配信数をカウントする
+        $conditions = array(
+            'DATE_FORMAT(Article.release_date, \'%Y-%m-%d\')' => $today,
+        );
+        $count = $this->Article->find('count', array('conditions' => $conditions));
+
+        // 出力データの設定
+        $data = array($count);
+        $this->set(compact('count'));
+
+        // 出力設定
+        Configure::write('debug', 0); // 警告を出さない
+        $this->layout = null;
+        header("Content-Type: text/plain"); 
+    }
+
+    function top($id = null) {
+		//ログイン済みならマイページへ遷移
+        $this->_getChilddata($id);
+ 
+        if($this->Auth->user()) {
+			$this->set('login_user',$this->Auth->user());
+        } else {
+            $this->render('top_guest');
+        }
+        //$this->_getChilddata($id);
+    }
+
+    /*
+     * 公開に際しての注意事項
+     */
+    function publish() {
+   
+    }
 }
 ?>
