@@ -34,7 +34,7 @@
     $suffix = ($currentChild['Child']['sex'] == 1) ? 'ちゃん' : 'くん';
 	echo $this->Html->image($image_file.'.gif', array("style" => "margin-right:2px;"));
 ?>
-    <span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span></td> 
+<span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span></td> 
 </tr> 
 <tr> 
 <td align="left" valign="top"><?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
