@@ -29,7 +29,7 @@ $i = !$i;
 echo $this->Html->image($article['Article']['photo'], array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); 
 ?></td>
 <td colspan="2" align="left" valign="top"><a href="<?php
-echo $this->Html->url('/diaries/info/'.$article['Article']['external_id'].'/');
+echo $this->Html->url('/navigations/prev/1');
 ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php
 echo h($article['Article']['title']);
 ?></span></a></td>
@@ -43,7 +43,7 @@ echo h($article['Article']['body']);
 <td valign="middle">
 
 <?php if (!empty($login_user)) : ?>
-<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+<a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
@@ -59,7 +59,7 @@ echo h($article['Article']['body']);
 <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "ニュース画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
 <?php endif; ?>
 </td>
-<td colspan="2" align="left" valign="top"><a href="<?php echo $url_news_detail.$article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a></td>
+<td colspan="2" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
@@ -101,7 +101,7 @@ echo h($article['Article']['body']);
 <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "心理テスト画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
 <?php endif; ?>
 </td>
-<td colspan="2" align="left" valign="top"><a href="<?php echo $url_test_detail.$article['Article']['external_id']; ?>" style="color:#9933CC;"><span style="font-size:x-small; color:#9933CC;"><?php echo h($article['Article']['title']); ?></span></a></td>
+<td colspan="2" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#9933CC;"><span style="font-size:x-small; color:#9933CC;"><?php echo h($article['Article']['title']); ?></span></a></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?>

@@ -53,7 +53,7 @@ echo $this->element('timeline/categories');
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffcc">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top"><?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br /><?php echo $this->Html->image("theme/theme_".$themes['id'].".jpg", array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
-<td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php
+<td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php
 echo h($themes['title']);
 ?></span></a></td>
 </tr>
@@ -65,7 +65,7 @@ echo h($themes['description']);
 </tr>
 <tr>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
-<td align="left" valign="middle" width="25%"><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a></td>
+<td align="left" valign="middle" width="25%"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a></td>
 <td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">0ｺ</span></td>
 <td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $themes['release_date']); ?></span></td>
 </tr>
