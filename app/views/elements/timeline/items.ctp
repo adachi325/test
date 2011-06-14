@@ -84,7 +84,7 @@ echo h($article['Article']['body']);
 </td>
 <td colspan="2" align="left" valign="top"><!--<a href="#" style="color:#ff9900;">--><span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink(h($article['Article']['title'])); ?></span><!--</a>--></td>
 </tr>
-tr>
+<tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <tr>
