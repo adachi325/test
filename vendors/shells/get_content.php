@@ -33,7 +33,7 @@ class GetContentShell extends AppShell {
 
                     $rec['external_id'] = $this->removeDoubleQuote($cells[0]);
                     $rec['title'] = $this->removeDoubleQuote($cells[1]);
-                    $rec['body'] = $this->removeDoubleQuote($cells[2]);
+                    $rec['body'] = $this->removeShimajiro($this->removeDoubleQuote($cells[2]));
                     $rec['photo'] = $this->removeDoubleQuote($cells[3]);
                     $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
                     $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
@@ -50,6 +50,10 @@ class GetContentShell extends AppShell {
 
     function removeDoubleQuote($str) {
         return preg_replace('/^\"(.*?)\"$/', "$1", $str);
+    }
+
+    function removeShimajiro($str) {
+        return preg_replace('/^\/shimajiro\//', "/", $str);
     }
 
 	function getNews() {
