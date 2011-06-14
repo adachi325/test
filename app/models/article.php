@@ -5,16 +5,20 @@ class Article extends AppModel {
     /**
      * 重複判定
      */
-    function isUnique($type, $external_id = null) {
+    function getArticleId($type, $external_id = null) {
         if ($external_id == null) {
             return true;
         }
 
-        $count = $this->find('count', array(
+        $article = $this->find('first', array(
             'conditions' => array($this->alias.'.type' => $type, $this->alias.'.external_id', $external_id),
         ));
 
-        return ($count == 0);
+        $article_id = -1;
+        if (!empty($article)) {
+            $article_id = $article['Article']['id'];
+        }
+        return $article_id;
     }
 }
 ?>
