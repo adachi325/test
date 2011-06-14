@@ -78,6 +78,10 @@ $config['Defaults'] = array(
         'shimajiro_square' => 'https://kodomo.benesse.ne.jp/login/index.shtml',
 );
 
+$config['Api'] = array(
+    'domain' => 'st-dctry.com',
+);
+
 $config['Mail'] = array(
 	'from_addresses' => array(
 		'admin' => array('address' => 'admin@' . $config['Defaults']['domain'], 'signature' => __('しまじろうひろば管理者', true)),
