@@ -24,14 +24,20 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("確認", array("div" => false)); ?><br />
+</td>
+</tr>
+</table>
 <?php echo $this->Form->end(); ?>
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Form->create(null, array("url" => "/users/menu?guid=ON", "type" => "get", "div" => false));?>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+<?php echo $this->Form->create('User', array("url" => "/users/menu?guid=ON", "type" => "get", "div" => false));?>
 <?php echo $this->Form->submit("戻る", array("div" => false)); ?><br />
 <?php echo $this->Form->end(); ?>
 </td>
 </tr>
-
 </table>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

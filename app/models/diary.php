@@ -235,7 +235,10 @@ class Diary extends AppModel {
 		$data['body'] = isset($data['body']) ? mb_substr($data['body'], 0, Configure::read('Diary.body_len_max')) : "";
 
 		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
-		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
+    $data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
+
+    //identify_token
+    $data['identify_token'] = $this->makeIdentifyToken();
 
 		$this->create();
 		if (!$this->save($data)) {
