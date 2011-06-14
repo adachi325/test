@@ -138,8 +138,9 @@ class ArticlesController extends AppController {
         
         //ニュース取得
         $News =& ClassRegistry::init('News');
-        $newslist = $News->find('all',array('conditions' =>
-            array('start_at <= ' => $today, 'finish_at >= ' => $today )));
+        $newslist = $News->find('all',array('order' => array('start_at desc'),
+					    'conditions' =>
+            					array('start_at <= ' => $today, 'finish_at >= ' => $today )));
 
         $cond = array(
             'conditions' => array('release_date <= ' => $today, 'expire_date >= ' => $today),
