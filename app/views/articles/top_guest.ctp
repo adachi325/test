@@ -74,7 +74,7 @@ echo h($themes['description']);
 <?php endif; ?>
 
 <!-- タイムライン -->
-<?php echo $this->element('timeline/items'); ?>
+<?php echo $this->element('timeline/items_guest'); ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <table width="100%" border="0">
