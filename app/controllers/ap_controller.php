@@ -22,7 +22,7 @@ class ApController extends AppController {
 			$user =& ClassRegistry::init('User');
 			$user->contain();
 			$users = $user->find('first',array('conditions' => array('uid' => $uid)));
-			//uidが存在する場合、自動ログイン実行
+			//uidが存在する場合、フラグを立てる
 			if(!empty($users)){
 				$has_account = true;
 			}

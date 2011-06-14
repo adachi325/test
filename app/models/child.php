@@ -2,7 +2,8 @@
 App::import('Model', 'Diary');
 class Child extends AppModel {
 	var $name = 'Child';
-	var $validate = array(
+
+    var $validate = array(
 		'line_id' => array(
 			array(
                             'rule' => 'notEmpty',

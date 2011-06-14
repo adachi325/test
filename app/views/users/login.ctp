@@ -6,7 +6,7 @@
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してくだい｡<br />
+ﾛｸﾞｲﾝ名とﾊﾟｽﾜｰﾄﾞを入力してください｡<br />
 <span style="color:#dd0000">
 <?php
 echo $this->Session->flash();
