@@ -42,12 +42,11 @@ class DiariesController extends AppController {
         $childrenData = $this->_setChild();
 
         //最終子供ID更新
-        if ($id !== null &&
-            $id >= 0 && $id < count($childrenData)) {
+        if ($id !== null && $id >= 0 && $id < count($childrenData)) {
 
-                $updateId = $childrenData[$id]['Child']['id'];
-                $this->_saveLastChild($updateId);
-            }
+            $updateId = $childrenData[$id]['Child']['id'];
+            $this->_saveLastChild($updateId);
+        }
 
         //最終子供ID設定
         $lastChildId = $this->Tk->_getLastChild();
@@ -64,7 +63,7 @@ class DiariesController extends AppController {
         $currentChild = $Child->findById($lastChildId);
 
         //月号データ取得
-        $content =& ClassRegistry::init('Content');
+        $Content =& ClassRegistry::init('Content');
 
         //babyの場合降順にする
         $sortStr = 'DESC';
@@ -78,15 +77,15 @@ class DiariesController extends AppController {
             ),
             'order'=>array('Content.release_date '.$sortStr)
         );
-        $content->contain('Issue');
-        $contents = $content->find('all', $conditions);
+        $Content->contain('Issue');
+        $contents = $Content->find('all', $conditions);
 
         //月データ取得
-        $month =& ClassRegistry::init('month');
+        $Month =& ClassRegistry::init('Month');
         $options = array();
-        $options['year'] = date('Y');
-        $options['month'] = date('m') + 0;
-        $months = $month->find('all', array('conditions' => $options));
+        $options['Month.year'] = date('Y');
+        $options['Month.month'] = date('m') + 0;
+        $months = $Month->find('all', array('conditions' => $options));
 
         //テーマ要素作成日順に入れ替える
         $result = array_reverse($months['0']['Theme']);
@@ -100,14 +99,14 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
-                    'Diary.month_id' => $months['0']['month']['id'],
+                    'Diary.month_id' => $months['0']['Month']['id'],
                     'Diary.has_image' => 1,
                     'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
             //表示データ一覧取得
-            $diary =& ClassRegistry::init('diary');
+            $diary =& ClassRegistry::init('Diary');
             $diaries = $diary->find('all', $conditions);
         }
 
@@ -122,7 +121,7 @@ class DiariesController extends AppController {
         $prof_diary = $diary->find('first', $conditions);
 
         //ニュース取得
-        $news =& ClassRegistry::init('news');
+        $news =& ClassRegistry::init('News');
         $newslist = $news->find('all',array(
             'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
             'order' => array('start_at DESC'),
@@ -154,7 +153,7 @@ class DiariesController extends AppController {
                  ($year >= date('Y') && (date('m') + 0) < $month) or
                  ($year > date('Y'))
             ) {
-                 $this->redirect('/diaries/');
+                 //$this->redirect('/diaries/');
             }
             //年月を設定
             $setOptions['year'] = $year;
@@ -198,7 +197,7 @@ class DiariesController extends AppController {
             $this->set(compact('diaries'));
         } else {
             //月データが存在しない場合は不正操作
-            $this->redirect('/diaries/');
+            //$this->redirect('/diaries/');
         }
 
         //前月表示フラグ設定
@@ -954,6 +953,7 @@ $list[6] ='--5000000000--
         } else {
             $this->render('top_guest');
         }
+        //$this->_getChilddata($id);
     }
 
     /*
