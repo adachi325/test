@@ -14,7 +14,7 @@
 <?php endif; ?>
 <?php if(count($childData) > 0): ?>
 <span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('controller' => 'children', 'action' => 'edit')); ?>" style="color:#666666;"><span style="color:#666666;">子ども情報を変更する</span></a><br />
-<span style="color:#333333;">登録済みの子供の年齢やこどもちゃれんじのｺ-ｽ等の設定変更はこちら</span><br />
+<span style="color:#333333;">登録済みのお子さんの年齢やこどもちゃれんじのｺ-ｽ等の設定変更はこちら</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#666666;">&nbsp;･</span><a href="<?php echo $this->Html->url(array('controller' => 'children', 'action' => 'delete')); ?>" style="color:#666666;"><span style="color:#666666;">子ども情報を削除する</span></a><br />
 <?php endif; ?>
