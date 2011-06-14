@@ -7,7 +7,7 @@ class NavigationsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('prev','register');
+		$this->Auth->allow('prev', 'after1', 'after2', 'register');
 	}
 
 	//登録前ページ(prev)に制御は特に無し。
@@ -64,6 +64,7 @@ class NavigationsController extends AppController {
 
 		//メールアドレス設定
 		$mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'@'.Configure::read('Defaults.domain');
+		$mailPublicStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$themes[0]['Theme']['id'].'.'.$hash.'.pub@'.Configure::read('Defaults.domain');
 
 		//メールタイトル設定
 		$mailTitle = 'ベストショット';
@@ -71,6 +72,7 @@ class NavigationsController extends AppController {
 		$ua = $_SERVER['HTTP_USER_AGENT'];
 
 		$this->set('mailStr',$mailStr);
+		$this->set('mailPublicStr',$mailPublicStr);
 		$this->set('mailTitle',$mailTitle);
 	}
 
