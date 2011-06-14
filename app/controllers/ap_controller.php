@@ -158,10 +158,12 @@ class ApController extends AppController {
 
 			$lines = $Line->find('all', array(
 				'fields' => array('title', 'category_name'),
-			));
-		}
+            ));
 
-		$this->set(compact('issues', 'title', 'lines', 'line'));
+            $contents = Set::extract('/Content', $issues);
+        }
+
+		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
 		$this->render('index');
 	}
 
