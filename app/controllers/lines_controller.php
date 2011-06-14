@@ -36,7 +36,7 @@ class linesController extends AppController {
     }
 
     
-    function _getChilddata($id = null) {
+    function _getChilddata($id = null, $line_id = null) {
         //子供データ一覧設定
         $childrenData = $this->_setChild();
 
@@ -71,9 +71,17 @@ class linesController extends AppController {
             $sortStr = 'ASC';
         }
 
+        //ライン情報取得
+        $lines = $Child->Line->find('list');
+        if ($line_id) {
+            $currentLine = $Child->Line->findByCategoryName($line_id);
+        } else {
+            $currentLine = $Child->Line->findById($currentChild['Child']['line_id']);
+        }
+
         $conditions = array(
             'conditions' => array(
-                'Content.line_id' => $currentChild['Child']['line_id'],
+                'Content.line_id' => $currentLine['Line']['id'],
             ),
             'order'=>array('Content.release_date '.$sortStr)
         );
@@ -91,9 +99,6 @@ class linesController extends AppController {
         $result = array_reverse($months['0']['Theme']);
         $months['0']['Theme'] = $result;
 
-        //ライン情報取得
-        $lines = $Child->Line->find('list');
-        $currentLine = $Child->Line->findById($currentChild['Child']['line_id']);
 
         if(!empty($months)){
             $conditions = array(
@@ -131,15 +136,17 @@ class linesController extends AppController {
     }
     
     function top($id = null, $line_id = null) {
-		//ログイン済みならマイページへ遷移
-        $this->_getChilddata($id);
+        // 非会員の場合のチェック
+        $this->_getChilddata($id, $line_id);
 
         $this->set('line_id', $line_id);
 
         if($this->Auth->user()) {
-			$this->set('login_user',$this->Auth->user());
+            $this->set('login_user',$this->Auth->user());
+
         } else {
-            $line = $this->Line->find('first', array('Line.id' => $line_id));
+            $line = $this->Line->find('first', array('Line.category_name' => $line_id));
+
             if (!empty($line)) {
                 $name = $line['Line']['category_name'];
             } else {
