@@ -74,7 +74,7 @@ echo h($article['Article']['body']);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 3) : // お知らせ?>
+<?php elseif($article['Article']['type'] == 4) : // お知らせ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_yellow_oshirase.gif", array("alt" => "お知らせ", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
@@ -94,7 +94,7 @@ echo h($article['Article']['body']);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 4) : // 心理テスト?>
+<?php elseif($article['Article']['type'] == 3) : // 心理テスト?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
