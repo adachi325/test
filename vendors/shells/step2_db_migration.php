@@ -96,7 +96,7 @@ class Step2DbMigrationShell extends AppShell {
     $data = $User->query('ALTER TABLE diaries
       ADD COLUMN wish_public TINYINT(1) NOT NULL DEFAULT 0,
       ADD COLUMN permit_status INT(10) NOT NULL DEFAULT 0,
-      ADD COLUMN `identify_token` INT(10) NULL DEFAULT NULL;');
+      ADD COLUMN `identify_token` BIGINT(10) NULL DEFAULT NULL;');
     $task = "add wish_public, permit_status, identify_token to diaries table.";
     $result = $data ? "SUCCESS:" : "FAILED:";
     echo $result.$task.PHP_EOL;
