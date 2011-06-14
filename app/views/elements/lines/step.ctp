@@ -1,15 +1,38 @@
 
-<?php if(count($contents) > 0): ?>
+
+<a name="top" id="top"></a>
+<div style="font-size:x-small; color:#333333;">
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="85%"><?php echo $this->Html->image("txt_step.gif", array("width" => "100%", "alt" => "")); ?></td>
+<td width="10%">&nbsp;</td>
+</tr>
+<tr>
+<td width="85%"><span style="font-size:x-small; color:#e61953;">4～5歳向けｺｰｽ</span>
+</td>
+<td width="10%">&nbsp;</td>
+</tr>
+</table>
+
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+
+<div>
+<?php
+if(count($contents) > 0):
+?>
+
+<table width="100%" cellpadding="0" cellspacing="0">
 
 <?php 
 $ii = 0;
 foreach($contents as $content):
+    $color = ($ii % 2 == 0) ? " bgcolor='ffefef'" : "";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
-
-<div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
 <?php 
 $url = $content['Content']['path'];
@@ -19,21 +42,30 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 }
 ?>
 
-<span style="color:#cc0000;"><?php
-if ($ii < 3) {
-    echo $this->Html->image('dummy.gif', array('width' => '24', 'height' => '24'));
-}
-echo ($content['Content']['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? ' '.$this->Ktai->emoji(0xE6DD, false) : ' &nbsp;･' ; 
-?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="font-size:x-small; color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a><br />
-</div>
-
+<tr>
+<td<?php echo $color;?>><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?></span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php 
-$ii++; 
+if ($ii < 3) {
+    echo $this->Html->image("icn_puchi.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+}
 ?>
-<?php endif; ?>
+<span style="color:#cc0000;"><?php 
+echo ($content['Content']['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? ' '.$this->Ktai->emoji(0xE6DD, false) : ' &nbsp;･';
+?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
+</tr>
+
+
+<?php
+$ii++;
+endif; 
+?>
 <?php endforeach; ?>
-
 <?php endif; ?>
 
-<div align="right" style="text-align:right;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/ap/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">もっとみる</span></a><br /></div>
+</table>
+
 
