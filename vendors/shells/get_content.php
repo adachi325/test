@@ -3,7 +3,7 @@
 App::import('Shell', 'AppShell');
 class GetContentShell extends AppShell {
 
-    var $uses = array('Article');
+    //var $uses = array('Article');
 
 	function main() {
         $this->getNews();
@@ -13,15 +13,18 @@ class GetContentShell extends AppShell {
 
 	function __getCSV($url, $type) {
         
-        //$Article =& ClassRegistry::init('Article');
+        $Article =& ClassRegistry::init('Article');
 
         $data = file_get_contents($url);
-        $lines = explode("¥n", $data);
+        if ($type != 3) {
+            $lines = explode("\n", $data);
+        }
 
         $article = array();
         foreach ($lines as $line) {
-            if (count($line) >=6 ) {
-                $cells = explode(',', $line);
+            $cells = explode(',', $line);
+            
+            if (count($cells) >=6 ) {
                 
                 if ($Article->isUnique($type, $cell[5])) {
                     $rec = array();
