@@ -1,10 +1,18 @@
 
 <?php 
-$url_all = $this->Html->url('/articles/top/');
-$url_diaries = $this->Html->url('/articles/top/1/');
-$url_news = $this->Html->url('/articles/top/2/');
-$url_notify = $this->Html->url('/articles/top/3/');
-$url_test = $this->Html->url('/articles/top/4/');
+if ($login_user) { // 会員
+  $url_all = $this->Html->url('/articles/top/');
+  $url_diaries = $this->Html->url('/articles/top/1/');
+  $url_news = $this->Html->url('/articles/top/2/');
+  $url_notify = $this->Html->url('/articles/top/3/');
+  $url_test = $this->Html->url('/articles/top/4/');
+} else { // 非会員の場合は会員登録ナビ(601)
+  $url_all = $this->Html->url('/navigations/prev/1');
+  $url_diaries = $this->Html->url('/navigations/prev/1');
+  $url_news = $this->Html->url('/navigations/prev/1');
+  $url_notify = $this->Html->url('/navigations/prev/1');
+  $url_test = $this->Html->url('/navigations/prev/1');
+}
 
 ?>
 
