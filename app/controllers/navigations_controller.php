@@ -7,7 +7,7 @@ class NavigationsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('prev', 'after1', 'after2', 'register');
+		$this->Auth->allow('prev', 'register');
 	}
 
 	//登録前ページ(prev)に制御は特に無し。
