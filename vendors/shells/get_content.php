@@ -7,8 +7,8 @@ class GetContentShell extends AppShell {
 
 	function main() {
         $this->getNews();
-        $this->getWheather();
-        $this->getPsycologicalTest();
+        $this->getWeather();
+        $this->getPsychologicalTest();
 	}
 
 	function __getCSV($url, $type) {
@@ -26,7 +26,7 @@ class GetContentShell extends AppShell {
         foreach ($lines as $line) {
             $cells = explode(',', $line);
             
-            if (count($cells) >=6 ) {
+            if (count($cells) >= 6 ) {
                 
                 if ($Article->isUnique($type, $cells[0])) {
                     $rec = array();
@@ -61,7 +61,7 @@ class GetContentShell extends AppShell {
         $this->__getCSV($url, $type);
 	}
 
-	function getWheather() {
+	function getWeather() {
         
         $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_weathers.php?&id=";
         $type = 2;
@@ -69,7 +69,7 @@ class GetContentShell extends AppShell {
         $this->__getCSV($url, $type);
 	}
 
-	function getPsycologicalTest() {
+	function getPsychologicalTest() {
         
         $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_psychological_tests.php?&id=";
         $type = 3;
