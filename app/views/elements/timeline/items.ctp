@@ -1,6 +1,14 @@
 
 <?php
 $i = false;
+
+$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_news.php?guid=ON&id=";
+$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_psycological_tests.php?guid=ON&id=";
+
+$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
+$url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
+
+$login_user = $this->Session->read('Auth.User'); 
 ?>
 
 <?php foreach ($articles as $article) : ?>
@@ -12,14 +20,8 @@ if ($i) {
     $color = "#ffffff";
 }
 $i = !$i;
-
-$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_news.php?guid=ON&id=";
-$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_psycological_tests.php?guid=ON&id=";
-
-$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
-$url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
-
 ?>
+
 
 <?php if ($article['Article']['type'] == 1) : // 思い出?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
@@ -40,12 +42,13 @@ echo h($article['Article']['body']);
 </tr>
 <tr>
 <td valign="middle">
-<?php if (!empty($logon_user)) : ?>
-<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['User']['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+
+<?php if (!empty($login_user)) : ?>
+<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
-<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
+<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
 </tr>
 </table>
 
@@ -63,11 +66,11 @@ echo h($article['Article']['body']);
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <tr>
-<?php if (!empty($logon_user)) : ?>
-<td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo sprintf($url_set_attention, $article['Article']['external_id'], $login_user['User']['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
+<?php if (!empty($login_user)) : ?>
+<td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo sprintf($url_set_attention, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
 <?php endif; ?>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span></td>
-<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
+<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
 </tr>
 </table>
 
@@ -87,7 +90,7 @@ tr>
 <tr>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#333333;"></td>
 <td align="left" valign="top"></td>
-<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
+<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
 </tr>
 </table>
 
@@ -114,7 +117,7 @@ tr>
 <tr>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#333333;"></td>
 <td align="left" valign="top" style="font-size:x-small;"></td>
-<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $article['Article']['release_date']); ?></span></td>
+<td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
 </tr>
 </table>
 <?php endif; ?>

@@ -3,12 +3,12 @@
 <?php if ($this->Session->read('Auth.User')): ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/baby/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">0～1歳向け baby/ぷちﾌｧｰｽﾄ</span></a><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">1～2歳向け ぷち</span></a><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">2～3歳向け ぽけっと</span></a><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/hop/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">3～4歳向け ほっぷ</span></a><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">4～5歳向け すてっぷ</span></a><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">5～6歳向け じゃんぷ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/baby/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">0～1歳向け baby/ぷちﾌｧｰｽﾄ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/petit/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">1～2歳向け ぷち</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/pocket/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">2～3歳向け ぽけっと</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/hop/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">3～4歳向け ほっぷ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/step/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">4～5歳向け すてっぷ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?php echo $this->Html->url('/lines/top/0/jump/'); ?>" style="color:#ff3333;"><span style="color:#ff3333;">5～6歳向け じゃんぷ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <?php else: ?>
