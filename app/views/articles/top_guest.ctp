@@ -67,7 +67,7 @@ echo h($themes['description']);
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
 <td align="left" valign="middle" width="25%"><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a></td>
 <td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">0ｺ</span></td>
-<td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月d日', $themes['release_date']); ?></span></td>
+<td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $themes['release_date']); ?></span></td>
 </tr>
 </table>
 
