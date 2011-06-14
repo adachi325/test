@@ -2,8 +2,8 @@
 <?php
 $i = false;
 
-$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_news.php?guid=ON&id=";
-$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_psycological_tests.php?guid=ON&id=";
+$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_news.php?guid=ON&id=";
+$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_psycological_tests.php?guid=ON&id=";
 
 $url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
 $url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
