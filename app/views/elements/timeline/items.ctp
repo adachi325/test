@@ -5,8 +5,8 @@ $i = false;
 $url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_news.php?guid=ON&id=";
 $url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_psychological_tests.php?guid=ON&id=";
 
-$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
-$url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
+$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/', true)."?id=%s&user_id=%s&returnPath=%s";
+$url_set_attention = $this->Html->url('/attentions/attention/', true)."?id=%s&user_id=%s&returnPath=%s";
 
 $login_user = $this->Session->read('Auth.User'); 
 ?>
@@ -44,7 +44,7 @@ echo h($article['Article']['body']);
 <td valign="middle">
 
 <?php if (!empty($login_user)) : ?>
-<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['hash'], $this->Html->url($this->here)); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
@@ -74,7 +74,7 @@ echo h($article['Article']['body']);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 4) : // お知らせ?>
+<?php elseif($article['Article']['type'] == 3) : // お知らせ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_yellow_oshirase.gif", array("alt" => "お知らせ", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
@@ -94,7 +94,7 @@ echo h($article['Article']['body']);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 3) : // 心理テスト?>
+<?php elseif($article['Article']['type'] == 4) : // 心理テスト?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />

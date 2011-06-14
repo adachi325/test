@@ -38,7 +38,7 @@ if(count($contents) > 0):
 <?php 
 $ii = 0;
 foreach($contents as $content):
-    $color = $ii ? " bgcolor='ffefef'" : "";
+    $color = ($ii % 2 == 0) ? " bgcolor='ffefef'" : "";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
@@ -53,9 +53,11 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 
 <tr>
 <td<?php echo $color;?>><div style="font-size:x-small;">
+<!--
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?><!--●○○○○　○ｶ月号--></span><br />
+<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?>●○○○○　○ｶ月号</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+-->
 <?php 
 if ($ii < 3) {
     echo $this->Html->image("icn_puchi.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
