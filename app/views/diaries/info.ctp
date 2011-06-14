@@ -74,7 +74,7 @@ $publish_time = strtotime($diary['Article']['release_date']);
 </tr>
 </table>
 
-<div align="center" style="text-align:center"><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']) ;?>"><?php $this->Html->image('bt_kyouyu.gif', array('width' => "80%", 'border' => '0')); ?></a></div>
+<div align="center" style="text-align:center"><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']) ;?>"><?php echo $this->Html->image('bt_kyouyu.gif', array('width' => "80%", 'border' => '0')); ?></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit_public/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出の公開設定を変更する</span></a><br />
