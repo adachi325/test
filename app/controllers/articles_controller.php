@@ -169,10 +169,10 @@ class ArticlesController extends AppController {
             $options['year'] = date('Y');
             $options['month'] = date('m') + 0;
             $months = $Month->find('all', array('conditions' => $options));
-
             //テーマ要素作成日順に入れ替える
             $themes = array_reverse($months['0']['Theme']);
-        } else {
+	    $themes = $themes[0];	//追加　ｂｙ　飯塚
+       } else {
             $Hanamaru =& ClassRegistry::init('Hanamaru');
 
             $hanamaru_received = $Hanamaru->getReceivedHanamaruCount($user['User']['id']);
