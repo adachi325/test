@@ -79,15 +79,11 @@ echo h($themes['description']);
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <table width="100%" border="0">
 <tr>
-<td align="center"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a></td>
+<td align="center"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "width" => "80%", "border" => "0")); ?></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<a href="<?php echo $this->Html->url('/diaries/post_info'); ?>"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
+</td>
 </tr>
-</table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
-<tr><td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="font-size:x-small">ｹﾞｰﾑや動画で遊んで<br />素敵に写真が残せる<?php $this->Ktai->emoji(0xE741); ?></span><br />
-<span style="font-size:medium;"><?php $this->Ktai->emoji(0xE6FA); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php $this->Ktai->emoji(0xE6FA); ?></span><br />
-<span style="font-size:x-small"><?php $this->Ktai->emoji(0xE688); ?>3ｷｬﾘｱ対応<?php $this->Ktai->emoji(0xE694); ?></span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td></tr>
 </table>
 <!-- ページトップへ -->
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
