@@ -1,7 +1,7 @@
 <?php
 
 App::import('Shell', 'AppShell');
-class UpgradeShell extends AppShell {
+class GetContentShell extends AppShell {
 
 	function main() {
         $this->getNews();
