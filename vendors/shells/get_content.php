@@ -18,6 +18,8 @@ class GetContentShell extends AppShell {
         $data = file_get_contents($url);
         if ($type != 3) {
             $lines = explode("\n", $data);
+        } else {
+            $lines[] = $data;
         }
 
         $article = array();
@@ -26,15 +28,15 @@ class GetContentShell extends AppShell {
             
             if (count($cells) >=6 ) {
                 
-                if ($Article->isUnique($type, $cell[5])) {
+                if ($Article->isUnique($type, $cells[0])) {
                     $rec = array();
 
-                    $rec['external_id'] = $cells[0];
-                    $rec['title'] = $cells[1];
-                    $rec['body'] = $cells[2];
-                    $rec['photo'] = $cells[3];
-                    $rec['release_date'] = $cells[4];
-                    $rec['expire_date'] = $cells[5];
+                    $rec['external_id'] = $this->removeDoubleQuote($cells[0]);
+                    $rec['title'] = $this->removeDoubleQuote($cells[1]);
+                    $rec['body'] = $this->removeDoubleQuote($cells[2]);
+                    $rec['photo'] = $this->removeDoubleQuote($cells[3]);
+                    $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
+                    $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
                     $rec['type'] = $type;
 
                     $article['Article'] = $rec;
@@ -44,7 +46,11 @@ class GetContentShell extends AppShell {
                 }
             }
         }
-	}
+    }
+
+    function removeDoubleQuote($str) {
+        return preg_replace('/^\"(.*?)\"$/', "$1", $str);
+    }
 
 	function getNews() {
         
