@@ -1,5 +1,3 @@
-<a name="top" id="top"></a>
-<div style="font-size:x-small; color:#333333;">
 <div style="background-color:#ff9900;"><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0", "style" => "margin-bottom:2px;")); ?></div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -60,7 +58,11 @@ if (!empty($uidErrorStr)) {
 </table>
 </div>
 </div>
-<div align="center" style="text-align:center;"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0")); ?></a></div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
+<div align="center" style="text-align:center; font-size:x-small; color:#666666;">
+ﾆｭｰｽやお友達の様子などが、<br />
+次々と更新されていきます!</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 
 <?php echo $this->element('timeline/categories'); ?>
 
@@ -72,8 +74,14 @@ if (!empty($uidErrorStr)) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <table width="100%" border="0">
 <tr>
-<td align="center"><a href="<?php echo $this->Html->url('/articles/timeline/'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a></td>
+<td align="center"><a href="<?php echo $this->Html->url('/articles/timeline/'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
+</td>
 </tr>
 </table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
+<!-- ページトップへ -->
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<br />
 

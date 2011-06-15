@@ -1,5 +1,3 @@
-<a name="top" id="top"></a> 
-<div style="font-size:x-small; color:#333333;"> 
 <!-- 背景グリーンタブ --> 
 <div style="background-color:#339933;"> 
 <div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div> 
@@ -84,7 +82,7 @@ if (count($childrenData) < 3) :
 </table> 
  
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
-<div align="center" style="text-align:center;"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0")); ?></a></div> 
+<div align="center" style="text-align:center;"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div> 
 <div align="center" style="text-align:center; font-size:x-small; color:#666666"><?php echo $this->Html->image("dot_line_green.gif", array()); ?><br /> 
 思い出を書くと<br />ﾌﾟﾚｾﾞﾝﾄがもらえるよ♪</div> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
@@ -185,7 +183,7 @@ if($i==2) {
 <?php endforeach; ?>
  
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php echo $this->Html->image("emoji/images/84.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
  
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array("alt" => "")); ?></div> 
 
@@ -220,7 +218,7 @@ if($i==2) {
 </table> 
 <?php echo $this->Html->image("pic_present.jpg", array("align" => "left", "style" => "float:left; margin-right:10px;")); ?>思い出を残すと､待受Flashやﾎﾟｽﾄｶｰﾄﾞなどがもらえる!<br /> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php echo $this->Html->image("emoji/images/84.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div> 
  
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array()); ?></div> 

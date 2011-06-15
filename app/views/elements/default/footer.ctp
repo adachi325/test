@@ -5,19 +5,15 @@
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 
-<td align="left"><?php
-if (!(($this->params['controller'] == 'articles' && $this->params['action'] == 'top') || ($this->params['controller'] == 'articles' && $this->params['action'] == 'timeline'))):
-?>
-
-<span style="font-size:x-small"><?php 
+<td align="left"><span style="font-size:x-small">
+<?php if (!($this->params['controller'] == 'articles' && $this->params['action'] == 'top')): ?>
+<?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
 	    echo '<span style="color:#ffcc33;"><img localsrc="188" /></span>';
     } else {
 	    echo '<span style="color:#ffcc33;">'.$this->Ktai->emoji(0xE6EA,false).'</span>';
     }
 ?>
-<a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">ﾄｯﾌﾟﾍﾟ-ｼﾞへ</span></a><br />
-<?php else: ?>
 <a href="<?php echo $this->Html->url('/'); ?>" style="color:#ffffff;" accesskey="9"><span style="color:#ffffff;">育児なうﾄｯﾌﾟへ</span></a><br />
 <?php endif; ?>
 
