@@ -27,7 +27,11 @@ $i = !$i;
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top"><?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br /><?php 
-echo $this->Html->image($article['Article']['photo'], array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); 
+if (!empty($article['Article']['photo']) && file_exists(IMAGES.$article['Article']['photo'])) {
+    echo $this->Html->image($article['Article']['photo'], array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); 
+} else {
+    echo $this->Html->image('omoide_nophoto.gif', array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); 
+} 
 ?></td>
 <td colspan="2" align="left" valign="top"><a href="<?php
 echo $this->Html->url('/diaries/info/'.$article['Article']['external_id'].'/');
