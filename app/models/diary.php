@@ -556,7 +556,7 @@ class Diary extends AppModel {
       // 1. 100000000から999999999までのランダムな数値を作成する。
       $number = rand(100000000, 999999999);
       $digit = $this->__check_digit($number);
-      if ($digit == null) {
+      if ($digit === null) {
         $this->log("makeIdentifyToken(): digitがnull, " . $number, LOG_DEBUG);
         return null;
       }
