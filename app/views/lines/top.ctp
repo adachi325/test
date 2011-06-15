@@ -1,5 +1,3 @@
-<a name="top" id="top"></a>
-<div style="font-size:x-small; color:#333333;">
 <div style="background-color:#339933;">
 <div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div>
 <div style="background-color:#ff6699;">
@@ -81,6 +79,11 @@ if (count($childrenData) < 3) :
 <?php endif; ?>
 
 </table> 
+
+<div align="center" style="text-align:center;font-size:x-small;color:#666666;"><?php echo $this->Html->image('dot_line_pink.gif'); ?><br />
+<こどもちゃれんじ>ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
+<img src="img/spacer.gif" width="1" height="7" /><br />
+
 <!--
 <div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0", "style" => "margin:5px 0 5px 0;")); ?></a><br />
 <span style="color:#cc0000; font-size:x-small;">しまじろうのきせかえ<br />↑ﾌﾟﾚｾﾞﾝﾄ中↑</span></div>
