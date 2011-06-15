@@ -233,5 +233,5 @@ if($i==2) {
  
 <!-- ページトップへ --> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /> 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php echo $this->Html->image("emoji/images/123.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div> 
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div> 
 <br /> 

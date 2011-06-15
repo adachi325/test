@@ -556,10 +556,11 @@ class Diary extends AppModel {
       // 1. 100000000から999999999までのランダムな数値を作成する。
       $number = rand(100000000, 999999999);
       $digit = $this->__check_digit($number);
-      if ($digit == null) {
+      if ($digit === null) {
+        $this->log("makeIdentifyToken(): digitがnull, " . $number, LOG_DEBUG);
         return null;
       }
-      $token = $number . $this->__check_digit($number);
+      $token = $number . $digit;
 
     } while (!$this->__checkUniqueIdentifyToken($token));
 
@@ -574,6 +575,7 @@ class Diary extends AppModel {
     if ($count == 0) {
       return true;
     } else {
+      $this->log("__checkUniqueIdentifyToken(): トークンの重複, " . $token, LOG_DEBUG);
       return false;
     }
   }
@@ -588,6 +590,7 @@ class Diary extends AppModel {
   // out: 数値に対するチェックディジット。入力値が正の整数9桁でないばあい、null。
   function __check_digit($input) {
     if (!preg_match("/^\d{9}$/", $input)) {
+      $this->log("__check_digit(): 入力値不正," . $input, LOG_DEBUG);
       return null;
     }
 

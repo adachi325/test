@@ -1,4 +1,16 @@
 
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="85%"><?php echo $this->Html->image("txt_pocket.gif", array("width" => "100%", "alt" => "")); ?></td>
+<td width="10%">&nbsp;</td>
+</tr>
+<tr>
+<td width="85%"><span style="font-size:x-small; color:#e61953;">2～3歳向けｺｰｽ</span>
+</td>
+<td width="10%">&nbsp;</td>
+</tr>
+</table>
+
 <?php if(count($contents) > 0): ?>
 
 <?php 
