@@ -1,11 +1,16 @@
+
 <?php
 $i = false;
 
-$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_news.php?guid=ON&id=";
-$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/-apis/view_psycological_tests.php?guid=ON&id=";
+//$url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_news.php?guid=ON&id=";
+$url_news_detail = $this->Html->url('/navigations/prev/1');
+//$url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_psychological_tests.php?guid=ON&id=";
+$url_test_detail = $this->Html->url('/navigations/prev/1');
 
-$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
-$url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
+//$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/', true)."?id=%s&user_id=%s&returnPath=%s";
+$url_set_hanamaru = $this->Html->url('/navigations/prev/1');
+//$url_set_attention = $this->Html->url('/attentions/attention/', true)."?id=%s&user_id=%s&returnPath=%s";
+$url_set_attention = $this->Html->url('/navigations/prev/1');
 
 $login_user = $this->Session->read('Auth.User'); 
 ?>
@@ -29,7 +34,7 @@ $i = !$i;
 echo $this->Html->image($article['Article']['photo'], array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); 
 ?></td>
 <td colspan="2" align="left" valign="top"><a href="<?php
-echo $this->Html->url('/navigations/prev/1');
+echo $this->Html->url('/navigations/prev/1');;
 ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php
 echo h($article['Article']['title']);
 ?></span></a></td>
@@ -43,7 +48,18 @@ echo h($article['Article']['body']);
 <td valign="middle">
 
 <?php if (!empty($login_user)) : ?>
-<a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+<?php
+$scheme = '';
+if (isset($_SERVER['HTTPS'])) {
+  $scheme = "https://";
+} else {
+  $scheme = "http://";
+}
+$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+$encoded_url = urlencode($url);
+?>
+<?php echo $this->Html->image("icn_hanamaru_btn.gif",
+  array("url" => "/navigations/prev/1", "alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
@@ -59,14 +75,14 @@ echo h($article['Article']['body']);
 <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "ニュース画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
 <?php endif; ?>
 </td>
-<td colspan="2" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a></td>
+<td colspan="2" align="left" valign="top"><a href="<?php $this->Html->url('/navigations/prev/1'); ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <tr>
 <?php if (!empty($login_user)) : ?>
-<td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo sprintf($url_set_attention, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
+<td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo $this->Html->url('/navigations/prev/1'), '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
 <?php endif; ?>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span></td>
 <td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
