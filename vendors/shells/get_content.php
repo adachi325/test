@@ -80,7 +80,7 @@ class GetContentShell extends AppShell {
 	function getPsychologicalTest() {
         
         $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_psychological_tests.php?&id=";
-        $type = 3;
+        $type = 4;
 
         $this->__getCSV($url, $type);
 	}

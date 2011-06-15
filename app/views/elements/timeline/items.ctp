@@ -5,8 +5,8 @@ $i = false;
 $url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_news.php?guid=ON&id=";
 $url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_psychological_tests.php?guid=ON&id=";
 
-$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/')."?id=%s&user_id=%s&returnPath=%s";
-$url_set_attention = $this->Html->url('/attentions/attention/')."?id=%s&user_id=%s&returnPath=%s";
+$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/', true)."?id=%s&user_id=%s&returnPath=%s";
+$url_set_attention = $this->Html->url('/attentions/attention/', true)."?id=%s&user_id=%s&returnPath=%s";
 
 $login_user = $this->Session->read('Auth.User'); 
 ?>
@@ -85,7 +85,7 @@ $encoded_url = urlencode($url);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 4) : // お知らせ?>
+<?php elseif($article['Article']['type'] == 3) : // お知らせ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_yellow_oshirase.gif", array("alt" => "お知らせ", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
@@ -105,7 +105,7 @@ $encoded_url = urlencode($url);
 </tr>
 </table>
 
-<?php elseif($article['Article']['type'] == 3) : // 心理テスト?>
+<?php elseif($article['Article']['type'] == 4) : // 心理テスト?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;"><?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
@@ -117,11 +117,6 @@ $encoded_url = urlencode($url);
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?>
-<!--
-<a href="802.html#psycho1" style="color:#9933CC;"><span style="color:#9933CC;">【1.傘を買う】</span></a><br />
-<a href="802.html#psycho2" style="color:#9933CC;"><span style="color:#9933CC;">【2.布団を干す】</span></a><br />
-<a href="802.html#psycho3" style="color:#9933CC;"><span style="color:#9933CC;">【3.冷蔵庫の掃除】</span></a><br />
--->
 </span>
 </td>
 </tr>

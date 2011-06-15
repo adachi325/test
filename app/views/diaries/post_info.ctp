@@ -10,7 +10,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-登録済みの方は<a href="<?php echo $this->Html->url('/users/edit/'); ?>" >こちら</a>の設定画面からﾄﾞｺﾓｺﾐｭﾆﾃｨにﾁｪｯｸを入れてください｡
+登録済みの方は<a href="<?php echo $this->Html->url('/users/other_setting/'); ?>" >こちら</a>の設定画面からﾄﾞｺﾓｺﾐｭﾆﾃｨにﾁｪｯｸを入れてください｡
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 <span style="color:#ff6600;">【ﾄﾞｺﾓｺﾐｭﾆﾃｨに未登録の方】</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
