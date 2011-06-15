@@ -62,7 +62,7 @@ default:
 <?php if ($type == 0): ?>
         <div>
             <span>
-            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
+            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample1.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
             </span>
         </div>
 <?php elseif ($type == 1): ?>
