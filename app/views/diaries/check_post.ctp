@@ -62,7 +62,7 @@ default:
 <?php if ($type == 0): ?>
         <div>
             <span>
-            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
+            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample1.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
             </span>
         </div>
 <?php elseif ($type == 1): ?>
@@ -73,7 +73,7 @@ default:
 
 <?php else: ?>
 <?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample150.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
+echo $this->Html->image(sprintf(Configure::read('Present.sample.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
 ?>
 <?php endif;?>
 </div>
