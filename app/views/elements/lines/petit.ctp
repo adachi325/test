@@ -38,7 +38,7 @@ if(count($contents) > 0):
 <?php 
 $ii = 0;
 foreach($contents as $content):
-    $color = $ii ? " bgcolor='ffefef'" : "";
+    $color = $ii % 2 == 0 ? " bgcolor='ffefef'" : "";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
@@ -54,7 +54,7 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 <tr>
 <td<?php echo $color;?>><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?><!--●○○○○　○ｶ月号--></span><br />
+●<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?><!--●○○○○　○ｶ月号--></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php 
 if ($ii < 3) {
@@ -305,14 +305,6 @@ endif;
 </div>
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
-
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
-<td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
-</tr>
-</table>
-
 
 
 <!--
