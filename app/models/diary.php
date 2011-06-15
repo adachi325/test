@@ -557,7 +557,7 @@ class Diary extends AppModel {
       $number = rand(100000000, 999999999);
       $digit = $this->__check_digit($number);
       if ($digit == null) {
-        $this->log("makeIdentifyToken(): digitがnull", LOG_DEBUG);
+        $this->log("makeIdentifyToken(): digitがnull, " . $number, LOG_DEBUG);
         return null;
       }
       $token = $number . $digit;
