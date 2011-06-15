@@ -26,7 +26,6 @@
 〈こどもちゃれんじ〉ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく☆</div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 
-
 <?php echo $this->element('lines'.DS.$line); ?>
 
 
