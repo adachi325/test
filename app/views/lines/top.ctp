@@ -104,16 +104,16 @@ if (count($childrenData) < 3) :
 echo $this->element('default/room');
 ?>
 
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orange.gif", array("alt" => "")); ?></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
 
-<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="#"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;資料請求</span></a><br />
+<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会・資料請求</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="#"><span style="color:#ff3333; font-size:x-small;">有料ケータイしまじろう(3ｷｬﾘｱ公式ｻｲﾄ)</span></a><br />
+<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="http://m.shimajiro.co.jp/" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">有料ｹｰﾀｲしまじろう(3ｷｬﾘｱ公式ｻｲﾄ)</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000; font-size:x-small">※ﾍﾞﾈｯｾのｻｲﾄに移動します</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<?php echo $this->Html->image("icn_twitter.gif", array("style" => "margin:0 3px 0 0")); ?><a href="#"><span style="color:#ff3333; font-size:x-small;">twitterでﾍﾞﾈｯｾの情報配信中</span></a><br />
+<?php echo $this->Html->image("icn_twitter.gif", array("style" => "margin:0 3px 0 0")); ?><a href="http://twitter.com/kodomochallenge" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">twitterでﾍﾞﾈｯｾの情報配信中</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array("alt" => "")); ?></div>
 
@@ -131,3 +131,10 @@ echo $this->element('default/room');
 &lt;こどもちゃれんじ&gt;ｺﾝｻｰﾄの楽しい情報がいっぱい!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<div align="center" style="text-align:center"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/" style="color:#ff3333;"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div>
+
+<!-- ページトップへ -->
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<br />

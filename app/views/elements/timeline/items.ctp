@@ -44,7 +44,18 @@ echo h($article['Article']['body']);
 <td valign="middle">
 
 <?php if (!empty($login_user)) : ?>
-<a href="<?php echo sprintf($url_set_hanamaru, $article['Article']['external_id'], $login_user['hash'], $this->Html->url($this->here)); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+<?php
+$scheme = '';
+if (isset($_SERVER['HTTPS'])) {
+  $scheme = "https://";
+} else {
+  $scheme = "http://";
+}
+$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+$encoded_url = urlencode($url);
+?>
+<?php echo $this->Html->image("icn_hanamaru_btn.gif",
+  array("url" => "/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}", "alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
@@ -106,11 +117,6 @@ echo h($article['Article']['body']);
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?>
-<!--
-<a href="802.html#psycho1" style="color:#9933CC;"><span style="color:#9933CC;">【1.傘を買う】</span></a><br />
-<a href="802.html#psycho2" style="color:#9933CC;"><span style="color:#9933CC;">【2.布団を干す】</span></a><br />
-<a href="802.html#psycho3" style="color:#9933CC;"><span style="color:#9933CC;">【3.冷蔵庫の掃除】</span></a><br />
--->
 </span>
 </td>
 </tr>
