@@ -62,7 +62,7 @@ default:
 <?php if ($type == 0): ?>
         <div>
             <span>
-            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
+            <?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.0'),  $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;")); ?>
             </span>
         </div>
 <?php elseif ($type == 1): ?>
@@ -73,7 +73,7 @@ default:
 
 <?php else: ?>
 <?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
+echo $this->Html->image(sprintf(Configure::read('Present.sample150.'.($type-1)), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
 ?>
 <?php endif;?>
 </div>
@@ -86,7 +86,8 @@ echo $this->Html->image(sprintf(Configure::read('Present.sample.'.$type), $diary
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $url; ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;"><?php echo $text; ?></span></a><br />
 <?php endif; ?>
 
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("docomo_commu_banner.gif", array("url" => '/diaries/post/' . $diary['Diary']['id'], "style" => "margin:5px 0 5px 0;")); ?></div><br />
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("docomo_commu_banner.gif", array("url" => '/diaries/post/' . $diary['Diary']['id'], "style" => "margin:5px 0 5px 0;", "alt" => "ドコモコミュニティバナー", "width" => "100%")); ?></div>
+<br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/info/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">送信した思い出を見る</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/themes/info/'.$diary['Diary']['theme_id']); ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">もう一回思い出を書く</span></a><br />

@@ -21,61 +21,53 @@ $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 <span style="font-size:x-small;">思い出を記録に残すと､毎月ｽﾃｷなﾌﾟﾚｾﾞﾝﾄがもらえます♪</span><br />
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td colspan="2" align="left"><span style="font-size:x-small;"><span style="color:#339933;">・</span><?php echo $month; ?>月のﾌﾟﾚｾﾞﾝﾄ一覧</span><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td>
-</tr>
-<tr>
-<td width="25%">
-<?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample.0'), $year, $sampleMonth), array("width" => "100%"));
-?>
-</td>
-<td width="75%" valign="top" align="left"><span style="font-size:x-small;">1回目の記録でもらえる<br />
+<td align="left"><span style="font-size:x-small;"><span style="color:#339933;">・</span><?php echo $month; ?>月のﾌﾟﾚｾﾞﾝﾄ一覧</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="font-size:x-small;">1回目の投稿でもらえる!<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">思い出背景</span>】</span></span></td>
 </tr>
+<tr>
+<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.0'), $year, $sampleMonth), array("width" => "62%")); ?></td>
+</tr>
 </table>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td width="25%">
-<?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample.1'), $year, $sampleMonth), array("width" => "100%"));
-?>
-</td>
-<td width="75%" valign="top" align="left"><span style="font-size:x-small;">2回目の記録でもらえる<br />
+<td align="left">
+<span style="font-size:x-small;">2回目の投稿でもらえる!<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">ﾃﾞｺﾒ絵文字</span>】</span></span></td>
 </tr>
+<tr>
+<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample.1'), $year, $sampleMonth)); ?></td>
+</tr>
 </table>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td width="25%">
-<?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), $year, $sampleMonth), array("width" => "100%"));
-?>
-</td>
-<td width="75%" valign="top" align="left"><span style="font-size:x-small;">3回目の記録でもらえる<br />
+<td align="left">
+<span style="font-size:x-small;">3回目の投稿でもらえる!<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">待受Flash</span>】</span></span></td>
 </tr>
-</table>
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
-
-<table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td width="25%">
-<?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample.3'), $year, $sampleMonth), array("width" => "100%"));
-?>
-</td>
-<td width="75%" valign="top" align="left"><span style="font-size:x-small;">4回目の記録でもらえる<br />
-<span style="font-size:medium;">【<span style="color:#ff3366;">ﾎﾟｽﾄｶｰﾄﾞ</span>】</span></span></td>
+<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.1'), $year, $sampleMonth), array("width" => "62%")); ?>></td>
 </tr>
 </table>
+
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
+<table width="100%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="left">
+<span style="font-size:x-small;">4回目の投稿でもらえる!<br />
+<span style="font-size:medium;">【<span style="color:#ff3366;">ﾎﾟｽﾄｶ-ﾄﾞ</span>】</span></span></td>
+</tr>
+<tr>
+<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.2'), $year, $sampleMonth), array("width" => "62%")); ?></td>
+</tr>
+</table>
+
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
 <span style="color:#339933;">・</span>他の月のﾌﾟﾚｾﾞﾝﾄを見る<br />

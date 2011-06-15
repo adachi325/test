@@ -39,10 +39,12 @@ class Diary extends AppModel {
         'table' => 'hanamarus',
         'conditions' => array(
           'Diary.id = Hanamaru.external_id',
+          'Hanamaru.type = 1',
         ),
       ),
     );
-    $params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => '*', 'conditions' => $conditions);
+    //$params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => '*', 'conditions' => $conditions);
+    $params = array('group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
     // find('count')だと件数が取れない
     $result = $this->find('all', $params);
     return count($result);

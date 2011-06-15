@@ -118,6 +118,9 @@ class PagesController extends AppController {
 	function help() {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}
+	function help2() {
+		$this->render($this->view_prefix.$this->params['action']);   
+   	}
 	function list_models() {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}
