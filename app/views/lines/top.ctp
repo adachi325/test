@@ -1,5 +1,3 @@
-<a name="top" id="top"></a>
-<div style="font-size:x-small; color:#333333;">
 <div style="background-color:#339933;">
 <div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div>
 <div style="background-color:#ff6699;">
