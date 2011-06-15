@@ -1,7 +1,4 @@
-<a name="top" id="top"></a> 
-<div style="font-size:x-small; color:#333333;"> 
-    
-    <!-- 背景グリーンタブ --> 
+<!-- 背景グリーンタブ --> 
 <div style="background-color:#339933;"> 
 <div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div> 
 <div style="background-color:#66cc00;"> 
@@ -13,7 +10,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
 <span style="color:#336600">せっかく撮った写真どうしてる?</span><br /> 
 <span style="color:#333333">思い出記録なら簡単に<br />待受やﾎﾟｽﾄｶｰﾄﾞができちゃう♪</span></span><br /> 
-<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
+<span style="font-size:medium;"><?php $this->Ktai->emoji(0xE6FA); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php $this->Ktai->emoji(0xE6FA); ?></span><br /> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /> 
 </td></tr> 
 </table> 
@@ -57,13 +54,13 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99"> 
 <tr><td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
-<span style="font-size:x-small">ｹﾞｰﾑや動画で遊んで<br />素敵に写真が残せる<?php echo $this->Html->image("emoji/images/230.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
-<span style="font-size:medium;"><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php echo $this->Html->image("emoji/images/150.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /> 
-<span style="font-size:x-small"><?php echo $this->Html->image("emoji/images/75.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?>3ｷｬﾘｱ対応<?php echo $this->Html->image("emoji/images/87.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?></span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td></tr> 
+<span style="font-size:x-small">ｹﾞｰﾑや動画で遊んで<br />素敵に写真が残せる<?php $this->Ktai->emoji(0xE741); ?></span><br /> 
+<span style="font-size:medium;"><?php $this->Ktai->emoji(0xE6FA); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php $this->Ktai->emoji(0xE6FA); ?></span><br /> 
+<span style="font-size:x-small"><?php $this->Ktai->emoji(0xE688); ?>3ｷｬﾘｱ対応<?php $this->Ktai->emoji(0xE694); ?></span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td></tr> 
 </table> 
  
 <!-- ページトップへ --> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /> 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php echo $this->Html->image("emoji/images/123.gif", array("width" => "12", "height" => "12", "border" => "0", "alt" => "")); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div> 
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div> 
 <br /> 
  
