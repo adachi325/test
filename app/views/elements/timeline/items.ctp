@@ -5,10 +5,19 @@ $i = false;
 $url_news_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_news.php?guid=ON&id=";
 $url_test_detail = "http://".$_SERVER["HTTP_HOST"]."/shimajiro/-apis/view_psychological_tests.php?guid=ON&id=";
 
-$url_set_hanamaru = $this->Html->url('/hanamarus/add_hanamaru/', true)."?id=%s&user_id=%s&returnPath=%s";
-$url_set_attention = $this->Html->url('/attentions/attention/', true)."?id=%s&user_id=%s&returnPath=%s";
-
 $login_user = $this->Session->read('Auth.User'); 
+?>
+
+<?php
+// 現在ページのフルパス(エンコード済み)を設定する
+$scheme = '';
+if (isset($_SERVER['HTTPS'])) {
+  $scheme = "https://";
+} else {
+  $scheme = "http://";
+}
+$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+$encoded_url = urlencode($url);
 ?>
 
 <?php foreach ($articles as $article) : ?>
@@ -48,18 +57,7 @@ echo h($article['Article']['body']);
 <td valign="middle">
 
 <?php if (!empty($login_user)) : ?>
-<?php
-$scheme = '';
-if (isset($_SERVER['HTTPS'])) {
-  $scheme = "https://";
-} else {
-  $scheme = "http://";
-}
-$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-$encoded_url = urlencode($url);
-?>
-<?php echo $this->Html->image("icn_hanamaru_btn.gif",
-  array("url" => "/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}", "alt" => "はなまる", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?>
+<a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image('icn_hanamaru_btn.gif', array("width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
 <?php endif; ?>
 </td>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?><br /><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span></td>
@@ -82,7 +80,9 @@ $encoded_url = urlencode($url);
 </tr>
 <tr>
 <?php if (!empty($login_user)) : ?>
-<td valign="middle" nowrap="nowrap" style="white-space:nowrap;"><a href="<?php echo sprintf($url_set_attention, $article['Article']['external_id'], $login_user['hash'], '/'.$this->here); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a></td>
+<td valign="middle" nowrap="nowrap" style="white-space:nowrap;">
+<a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image('icn_attention.gif', array("width" => "100%", "style" => "margin:0 0 3px 0;")); ?></a>
+</td>
 <?php endif; ?>
 <td align="left" valign="middle"><?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "1")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span></td>
 <td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span></td>
