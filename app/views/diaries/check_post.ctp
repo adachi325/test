@@ -73,7 +73,7 @@ default:
 
 <?php else: ?>
 <?php
-echo $this->Html->image(sprintf(Configure::read('Present.sample150.'.$type), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
+echo $this->Html->image(sprintf(Configure::read('Present.sample150.'.($type-1)), $diary['Month']['year'], $imgMonth), array("style" => "margin:10px 0;"));
 ?>
 <?php endif;?>
 </div>
