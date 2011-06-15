@@ -5,11 +5,11 @@
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
 
-<td align="left"><?php
+<td align="left"><span style="font-size:x-small"><?php
 if (!(($this->params['controller'] == 'articles' && $this->params['action'] == 'top') || ($this->params['controller'] == 'articles' && $this->params['action'] == 'timeline'))):
 ?>
 
-<span style="font-size:x-small"><?php 
+<?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
 	    echo '<span style="color:#ffcc33;"><img localsrc="188" /></span>';
     } else {
