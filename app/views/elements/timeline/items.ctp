@@ -53,7 +53,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top"><span style="font-size:x-small;">
-    <span style="color:#333333;"><?php echo h($article['Article']['title']); ?></span><br />
+    <span style="color:#333333;"><?php echo h($article['Article']['body']); ?></span><br />
     <span style="color:#339933;"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</span></span><br />
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
