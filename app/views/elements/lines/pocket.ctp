@@ -31,6 +31,10 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 }
 ?>
 
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;"><?php echo h($content['Issue']['title']); ?></span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+
 <span style="color:#cc0000;"><?php
 if ($ii < 3) {
     echo $this->Html->image('dummy.gif', array('width' => '24', 'height' => '24'));
