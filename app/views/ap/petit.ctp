@@ -64,12 +64,5 @@
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td width="10%"><?php echo $this->Html->image("icn_mobile.gif", array("width" => "100%")); ?></td>
-<td width="85%"><?php echo $this->Html->image("txt_course.gif", array("width" => "100%")); ?></td>
-</tr>
-</table>
-
 <?php $this->element('default/room'); ?>
 
