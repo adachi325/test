@@ -9,19 +9,6 @@
   <p>
    Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
   <dl id="contents">
-    <dt>
-    	<?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby/ぷちファースト")); ?><br /><span class="baby">0～1歳向けコース</span>
-    </dt>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1007/');?>" data-role="button" data-theme="e" rel="external">【動画】特別教材・おでかけストラップの取りつけ方
-</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1010/');?>" data-role="button" data-theme="e" rel="external">【動画】「おにぎり たべちゃうぞ」の曲に合わせた遊び方 </a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
-    </dd>
     
     <dt>
     	<?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span>
@@ -53,9 +40,6 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_16/');?>" data-role="button" data-theme="e" rel="external">【動画】トイレでおしっこできるかな</a>
     </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
-    </dd>
     
     <dt>
     	<?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span>
@@ -66,9 +50,6 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1106/');?>" data-role="button" data-theme="e" rel="external">【Flash】はたらく くるま わかった！ クイズ</a>
     </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
-    </dd>
     
     <dt>
     	<?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span>
@@ -78,12 +59,6 @@
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの いきもの ずかん</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】どんな かげかな？</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに のるとき おりるときの　やくそく</a>
     </dd>
     
     <dt>
