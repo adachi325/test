@@ -20,6 +20,9 @@ class HanamarusController extends AppController {
     // もらったはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getReceivedHanamaruCount($user_id));
 
+    // paginateCount呼び出し時のオプションを設定
+    Configure::write('paginateOption','hanamarus/received');
+
     $this->paginate = array(
       'Diary' => array(
         'joins' => array(
@@ -49,6 +52,9 @@ class HanamarusController extends AppController {
 
     // あげたはなまる総数を取得
     $this->set('hanamaru_total', $this->Hanamaru->getGaveHanamaruCount($user_id));
+    
+    // paginateCount呼び出し時のオプションを設定
+    Configure::write('paginateOption','hanamarus/gave');
 	
 	$this->paginate = array(
       'Diary' => array(
