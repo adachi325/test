@@ -52,7 +52,7 @@ $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 <span style="font-size:medium;">【<span style="color:#ff3366;">待受Flash</span>】</span></span></td>
 </tr>
 <tr>
-<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.1'), $year, $sampleMonth), array("width" => "62%")); ?>></td>
+<td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /><?php echo $this->Html->image(sprintf(Configure::read('Present.sample150.1'), $year, $sampleMonth), array("width" => "62%")); ?></td>
 </tr>
 </table>
 
