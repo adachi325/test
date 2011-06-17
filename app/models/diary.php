@@ -32,20 +32,27 @@ class Diary extends AppModel {
   );
 	
   function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
-    $joins = array(
-      array(
-        'type' => 'inner',
-        'alias' => 'Hanamaru',
-        'table' => 'hanamarus',
-        'conditions' => array(
-          'Diary.id = Hanamaru.external_id',
-          'Hanamaru.type = 1',
+    
+    // paginateCountが1つしか定義できないことに対する苦肉の策
+    // paginateOptionに設定された値をもとに処理を切り替える
+    $result;
+    if (Configure::read('paginateOption') == 'hanamarus/received' || Configure::read('paginateOption') == 'hanamarus/gave') {
+      $joins = array(
+        array(
+          'type' => 'inner',
+          'alias' => 'Hanamaru',
+          'table' => 'hanamarus',
+          'conditions' => array(
+            'Diary.id = Hanamaru.external_id',
+            'Hanamaru.type = 1',
+          ),
         ),
-      ),
-    );
-    //$params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => '*', 'conditions' => $conditions);
-    $params = array('group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
-    // find('count')だと件数が取れない
+      );
+      $params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
+    } else {
+      $params = array('group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
+    };
+
     $result = $this->find('all', $params);
     return count($result);
   }
