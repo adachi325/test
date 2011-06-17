@@ -6,6 +6,7 @@ class DiariesController extends AppController {
     var $uses = array('Diary', 'Child', 'Article', 'Hanamaru');
 
     var $helpers = array('DiaryCommon');
+    var $components = array('Toppage');
 
     function beforeFilter()
     {
@@ -14,135 +15,23 @@ class DiariesController extends AppController {
         //$this->Auth->allow('*');
     }
 
-    //最終子供ID更新
-    function _saveLastChild($id){
-        $userData = array();
-        $userData = $this->Auth->user();
-        $userData['User']['last_selected_child'] = $id;
-        unset ($userData['User']['loginid']);
-        unset ($userData['User']['carrier']);
-        unset ($userData['User']['dc_user']);
-        unset ($userData['User']['admin_user']);
-        unset ($userData['User']['uid']);
-        unset ($userData['User']['created']);
-        unset ($userData['User']['modified']);
-        $this->Child->saveLastChild($userData);
-    }
-
-    //子供情報取得
-    function _setChild(){
-        $userData = $this->Auth->user();
-        $childData = $this->Child->find('all', array('conditions'=>array('user_id'=>$userData['User']['id'])));
-        return $childData;
-    }
-
-    
-    function _getChilddata($id = null) {
-        //子供データ一覧設定
-        $childrenData = $this->_setChild();
-
-        //最終子供ID更新
-        if ($id !== null && $id >= 0 && $id < count($childrenData)) {
-
-            $updateId = $childrenData[$id]['Child']['id'];
-            $this->_saveLastChild($updateId);
-        }
-
-        //最終子供ID設定
-        $lastChildId = $this->Tk->_getLastChild();
-        if ($lastChildId == 0) {
-            if (count($childrenData)) {
-                $lastChildId = $childrenData[0]['Child']['id'];
-                $updateId = $lastChildId;
-                $this->_saveLastChild($updateId);
-            }
-        }
-        //最終子供情報取得
-        $Child =& ClassRegistry::init('Child');
-
-        $currentChild = $Child->findById($lastChildId);
-
-        //月号データ取得
-        $Content =& ClassRegistry::init('Content');
-
-        //babyの場合降順にする
-        $sortStr = 'DESC';
-        if($currentChild['Child']['line_id'] == '1'){
-            $sortStr = 'ASC';
-        }
-
-        $conditions = array(
-            'conditions' => array(
-                'Content.line_id' => $currentChild['Child']['line_id'],
-            ),
-            'order'=>array('Content.release_date '.$sortStr)
-        );
-        $Content->contain('Issue');
-        $contents = $Content->find('all', $conditions);
-
-        //月データ取得
-        $Month =& ClassRegistry::init('Month');
-        $options = array();
-        $options['Month.year'] = date('Y');
-        $options['Month.month'] = date('m') + 0;
-        $months = $Month->find('all', array('conditions' => $options));
-
-        //テーマ要素作成日順に入れ替える
-        $result = array_reverse($months['0']['Theme']);
-        $months['0']['Theme'] = $result;
-
-        //ライン情報取得
-        $lines = $Child->Line->find('list');
-        $currentLine = $Child->Line->findById($currentChild['Child']['line_id']);
-
-        if(!empty($months)){
-            $conditions = array(
-                'conditions' => array(
-                    'Diary.child_id' => $this->Tk->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id'],
-                    //'Diary.has_image' => 1,
-                    //'Diary.error_code' => null
-                ),
-                'order'=>array('Diary.created DESC')
-            );
-            //表示データ一覧取得
-            $diary =& ClassRegistry::init('Diary');
-            $diaries = $diary->find('all', $conditions);
-        }
-
-        $conditions = array(
-            'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
-                'Diary.has_image' => 1,
-                'Diary.error_code' => null
-            ),
-            'order'=>array('Diary.created DESC')
-        );
-        $prof_diary = $diary->find('first', $conditions);
-
-        //ニュース取得
-        $news =& ClassRegistry::init('News');
-        $newslist = $news->find('all',array(
-            'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
-            'order' => array('start_at DESC'),
-        ));
-
-        $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
-
-    }
-    
-    function top($id = null) {
+    function top($index = null) {
 		//ログイン済みならマイページへ遷移
-       // $this->_getChilddata($id);
- 
         if($this->Auth->user()) {
+            $user = $this->Auth->user();
+
+            
             $this->set('login_user',$this->Auth->user());
-            $this->index();
-            $this->_getChilddata($id);
+            //$this->index();
+            $this->Toppage->getChilddata($index);
+            
+            $this->Toppage->getDiarydata();
+            $this->Toppage->getProfiledata();
+            $this->Toppage->getNewsdata();
+
         } else {
             $this->render('top_guest');
         }
-        //$this->_getChilddata($id);
     }
 
     function index($year = null, $month = null, $page = null) {
@@ -959,19 +848,6 @@ $list[6] ='--5000000000--
         header("Content-Type: text/plain"); 
     }
 
-    function top($id = null) {
-		//ログイン済みならマイページへ遷移
-       // $this->_getChilddata($id);
- 
-        if($this->Auth->user()) {
-            $this->set('login_user',$this->Auth->user());
-            $this->index();
-            $this->_getChilddata($id);
-        } else {
-            $this->render('top_guest');
-        }
-        //$this->_getChilddata($id);
-    }
 
     /*
      * 公開に際しての注意事項
@@ -979,5 +855,6 @@ $list[6] ='--5000000000--
     function publish() {
    
     }
-}
+    }
+
 ?>

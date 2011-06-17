@@ -645,8 +645,11 @@ class UsersController extends AppController {
 
     function menu() {
       //子供数取得（リンク表示有無情報）
-      $userData = $this->Auth->user();
+      $user = $this->Auth->user();
+      $userData = $this->User->findById($user['User']['id']);
+
       $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
+
       $this->set(compact('childData'));
     }
 

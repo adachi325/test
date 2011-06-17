@@ -7,7 +7,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffd4d4">
 <tr>
 <td width="25%" rowspan="4" align="left" valign="top">
-	<?php
+<?php
+
 	$img = '';
 	$opt = array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;");
 
@@ -74,7 +75,7 @@ foreach ($childrenData as $child) :
         $suffix = ($sex == 1) ? 'ちゃん' : 'くん';
 ?>
 <tr> 
-<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$i}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
+<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
 </tr> 
 <?php
     endif;
@@ -92,10 +93,11 @@ if (count($childrenData) < 3) :
 
 </table> 
 
+<?php if (!empty($user)):?>
 <div align="center" style="text-align:center;font-size:x-small;color:#666666;"><?php echo $this->Html->image('dot_line_pink.gif'); ?><br />
-<こどもちゃれんじ>ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
+&lt;こどもちゃれんじ&gt;ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
 <img src="img/spacer.gif" width="1" height="7" /><br />
-
+<?php endif;?>
 <!--
 <div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0", "style" => "margin:5px 0 5px 0;")); ?></a><br />
 <span style="color:#cc0000; font-size:x-small;">しまじろうのきせかえ<br />↑ﾌﾟﾚｾﾞﾝﾄ中↑</span></div>
