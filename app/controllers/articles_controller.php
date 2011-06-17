@@ -107,6 +107,7 @@ class ArticlesController extends AppController {
 
         //ログイン済み判定
         $user = $this->Auth->user();
+        //デフォルトの値を設定
         $this->set('login_user', array());
 
         if ($user) {
@@ -133,6 +134,28 @@ class ArticlesController extends AppController {
                 }
             }
         }
+
+        // get profile
+        $Diary =& ClassRegistry::init('Diary');
+        $Child =& ClassRegistry::init('Child');
+
+        $Child->contain();
+        $children = $Child->find('all', array(
+            'conditions' => array('Child.user_id' => $user['User']['id']),
+            'fields' => array('id'),
+        ));
+
+        $child_ids = Set::extract('/Child/id', $children);
+
+        $cond = array(
+            'conditions' => array(
+                'Diary.child_id' => $child_ids,
+                'Diary.has_image' => 1,
+                'Diary.error_code' => null
+            ),
+            'order'=>array('Diary.created DESC')
+        );
+        $prof_diary = $Diary->find('first', $cond);
 
         $today = date('Y-m-d H:i:s');
         
@@ -180,7 +203,7 @@ class ArticlesController extends AppController {
             $hanamaru_gave = $Hanamaru->getGaveHanamaruCount($user['User']['id']);
         }
 
-        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles', 'themes')); 
+        $this->set(compact('newslist', 'hanamaru_received', 'hanamaru_gave', 'articles', 'themes', 'prof_diary')); 
         
         if (empty($user)) {
             $this->render('top_guest');

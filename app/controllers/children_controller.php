@@ -365,6 +365,7 @@ class ChildrenController extends AppController {
             //最終子供ID設定
             $lastChildId = $this->Tk->_getLastChild();
 
+
             //子供情報取得
             $this->data = $this->Child->read(null, $lastChildId);
 
@@ -458,6 +459,7 @@ class ChildrenController extends AppController {
         }
         //最終子供ID設定
         $lastChildId = $this->Tk->_getLastChild();
+
         //最終子供IDの子供がいなければ不正操作
         if (empty($lastChildId)){
             $this->cakeError('error404');
