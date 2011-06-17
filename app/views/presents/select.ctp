@@ -10,7 +10,6 @@ if ($max_count == 4) {
 }
 $page = isset($this->params['paging']['Diary']['page']) ? $this->params['paging']['Diary']['page'] : 1;
 $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->params['paging']['Diary']['pageCount'] : 1;
-
 ?>
 
 <?php echo $this->Html->image("ttl_memory.gif", array("width" => "100%", "style" => "margin-bottom:10px;")); ?><br />

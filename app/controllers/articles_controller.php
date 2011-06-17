@@ -107,6 +107,7 @@ class ArticlesController extends AppController {
 
         //ログイン済み判定
         $user = $this->Auth->user();
+        //デフォルトの値を設定
         $this->set('login_user', array());
 
         if ($user) {
