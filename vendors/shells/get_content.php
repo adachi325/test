@@ -30,7 +30,7 @@ class GetContentShell extends AppShell {
                 
                 $rec = array();
 
-                $article_id = $Article->getArticleId($type, $cells[0]);
+                $article_id = $Article->getArticleId($type, $this->removeDoubleQuote($cells[0]));
                 if ($article_id > -1) {
                     $rec['id'] = $article_id;
                 }
