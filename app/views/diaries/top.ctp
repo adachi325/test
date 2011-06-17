@@ -82,7 +82,16 @@ if (count($childrenData) < 3) :
 </table> 
  
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
-<div align="center" style="text-align:center;"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div> 
+<?php
+// ドコモコミュニティのリンク先を設定する
+$docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
+if ($this->Ktai->is_imode()) {
+  $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
+} else {
+  $docomo_commu_url = 'http://docomo-community.com/djs/index.xhtml';
+}
+?>
+<div align="center" style="text-align:center;"><a href="<?php echo $docomo_commu_url; ?>"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div> 
 <div align="center" style="text-align:center; font-size:x-small; color:#666666"><?php echo $this->Html->image("dot_line_green.gif", array()); ?><br /> 
 思い出を書くと<br />ﾌﾟﾚｾﾞﾝﾄがもらえるよ♪</div> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
