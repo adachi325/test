@@ -82,7 +82,11 @@ if (count($childrenData) < 3) :
 </table> 
  
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
+<?php echo $this->element('contents/docomo_community'); ?>
+<!--
 <div align="center" style="text-align:center;"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div> 
+-->
+
 <div align="center" style="text-align:center; font-size:x-small; color:#666666"><?php echo $this->Html->image("dot_line_green.gif", array()); ?><br /> 
 思い出を書くと<br />ﾌﾟﾚｾﾞﾝﾄがもらえるよ♪</div> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 

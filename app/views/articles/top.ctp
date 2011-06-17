@@ -83,7 +83,11 @@ if (isset($this->params['pass'][0])) {
 <tr>
 <td align="center"><a href="<?php echo $this->Html->url($url); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
+<?php echo $this->element('contents/docomo_community'); ?>
+<!--
+<a href="http://docomo-community.cp05.docomo.ne.jp/dj/"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a>
+-->
+<br />
 </td>
 </tr>
 </table>
