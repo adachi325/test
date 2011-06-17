@@ -5,7 +5,8 @@
 <div style="background-color:#339933;"><a href="<?php echo $this->Html->url('/');?>"><?php echo $this->Html->image("tab_btn01_green.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?></a><?php echo $this->Html->image("tab_btn02_on_green.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?><a href="<?php echo $this->Html->url('/lines/top/');?>"><?php echo $this->Html->image("tab_btn03_green.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></a></div> 
 <div style="background-color:#66cc00;"><?php echo $this->Html->image("spacer.gif", array("height" => "2", "width" => "1")); ?></div> 
 <div style="background-color:#ffff99;"> 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ccff99"> 
+<?php $child_bg = count($childrenData) > 0 ? '#ccff99' : '#ffd4d4'; ?>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo $child_bg; ?>"> 
 <tr> 
 <td width="25%" rowspan="4" align="left" valign="top">
 	<?php
@@ -27,26 +28,38 @@
 </tr> 
 <tr> 
 <td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
 <?php
-    $image_file = ($currentChild['Child']['sex'] == 1) ? 'icn_name_girl' : 'icn_name_boy';
-    $suffix = ($currentChild['Child']['sex'] == 1) ? 'ちゃん' : 'くん';
+        $image_file = ($currentChild['Child']['sex'] == 1) ? 'icn_name_girl' : 'icn_name_boy';
+        $suffix = ($currentChild['Child']['sex'] == 1) ? 'ちゃん' : 'くん';
 	echo $this->Html->image($image_file.'.gif', array("style" => "margin-right:2px;"));
 ?>
-<span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span></td> 
-</tr> 
-<tr> 
-<td align="left" valign="top"><?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->formatYearsOld($currentChild['Child']['birth_year'], $currentChild['Child']['birth_month']); ?></span>
+<span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span>
+<?php endif; ?>
 </td> 
 </tr> 
 <tr> 
-<td align="left" valign="top"><?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span></td> 
+<td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
+<?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
+<span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->formatYearsOld($currentChild['Child']['birth_year'], $currentChild['Child']['birth_month']); ?></span>
+<?php endif; ?>
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
+<?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span>
+<?php else : ?>
+<span style="font-size:x-small; color:#333333;">子どもが登録されていません。</br>子ども情報を追加してください。</span>
+<?php endif; ?>
+</td> 
 </tr> 
 </table> 
 </div> 
 </div> 
 </div> 
- 
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
 
 <?php
@@ -80,9 +93,12 @@ if (count($childrenData) < 3) :
 <?php endif; ?>
 
 </table> 
- 
+
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
 <?php echo $this->element('contents/docomo_community'); ?>
+
+<?php if (count($childrenData) > 0) : //「＝０」ならここまで ?>
+
 <div align="center" style="text-align:center; font-size:x-small; color:#666666"><?php echo $this->Html->image("dot_line_green.gif", array()); ?><br /> 
 思い出を書くと<br />ﾌﾟﾚｾﾞﾝﾄがもらえるよ♪</div> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
@@ -220,6 +236,8 @@ if($i==2) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div> 
+
+<?php endif; //「＝０ならここまで」に対応 ?>
  
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array()); ?></div> 
  
