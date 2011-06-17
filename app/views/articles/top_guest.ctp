@@ -1,11 +1,13 @@
 <a name="top" id="top"></a>
+<div style="font-size:x-small; color:#333333;">
+<div style="background-color:#ffff99;text-align:center;" align="center"><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0", "style" => "margin-bottom:2px;")); ?>
+<div align="left">
 <?php 
 if (!empty($uidErrorStr)) { 
 	echo $this->element('session_timeout');
 }
 ?>
-<div style="font-size:x-small; color:#333333;">
-<div style="background-color:#ffff99;text-align:center;" align="center"><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0", "style" => "margin-bottom:2px;")); ?>
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
 <tr><td align="center"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:x-small">ｹﾞｰﾑや動画で遊んで<br />素敵に写真が残せる<?php $this->Ktai->emoji(0xE741); ?></span><br />
