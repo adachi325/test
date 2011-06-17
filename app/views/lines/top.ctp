@@ -26,20 +26,32 @@
 </tr>
 <tr>
 <td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
 <?php
-    $image_file = ($currentChild['Child']['sex'] == 1) ? 'icn_name_girl' : 'icn_name_boy';
-    $suffix = ($currentChild['Child']['sex'] == 1) ? 'ちゃん' : 'くん';
+	$image_file = ($currentChild['Child']['sex'] == 1) ? 'icn_name_girl' : 'icn_name_boy';
+    	$suffix = ($currentChild['Child']['sex'] == 1) ? 'ちゃん' : 'くん';
 	echo $this->Html->image($image_file.'.gif', array("style" => "margin-right:2px;"));
 ?>
-<span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span></td> 
-</tr> 
-<tr> 
-<td align="left" valign="top"><?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
-<span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->formatYearsOld($currentChild['Child']['birth_year'], $currentChild['Child']['birth_month']); ?></span>
+<span style="font-size:x-small; color:#333333;"><?php echo h($currentChild['Child']['nickname']).$suffix;?></span>
+<?php endif; ?>
 </td> 
 </tr> 
 <tr> 
-<td align="left" valign="top"><?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span></td> 
+<td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
+<?php echo $this->Html->image("icn_birth.gif", array("style" => "margin-right:2px;")); ?>
+<span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->formatYearsOld($currentChild['Child']['birth_year'], $currentChild['Child']['birth_month']); ?></span>
+<?php endif; ?>
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top">
+<?php if (count($childrenData) > 0) : ?>
+<?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span>
+<?php else : ?>
+<span style="font-size:x-small; color:#333333;">子どもが登録されていません。</br>子ども情報を追加してください。</span>
+<?php endif; ?>
+</td> 
 </tr> 
 </table> 
 </div> 
@@ -91,7 +103,9 @@ if (count($childrenData) < 3) :
 -->
 
 <!-- ライン別の内容 -->
+<?php if (!empty($currentLine['Line']['category_name'])) : ?>
 <?php echo $this->element('lines'.DS.$currentLine['Line']['category_name']); ?>
+<?php endif; ?>
 <!-- ライン別ここまで -->
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array("alt" => "")); ?></div>

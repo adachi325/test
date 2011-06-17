@@ -7,11 +7,11 @@ class Article extends AppModel {
      */
     function getArticleId($type, $external_id = null) {
         if ($external_id == null) {
-            return true;
+            return -1;
         }
 
         $article = $this->find('first', array(
-            'conditions' => array($this->alias.'.type' => $type, $this->alias.'.external_id', $external_id),
+            'conditions' => array($this->alias.'.type' => $type, $this->alias.'.external_id' => $external_id),
         ));
 
         $article_id = -1;
