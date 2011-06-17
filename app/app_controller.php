@@ -79,7 +79,7 @@ class AppController extends Controller {
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
 			'secured' => array(
-				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password',),
+				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password','other_setting','other_setting_confirm'),
 				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
 				'diaries' => array('edit', 'edit_confirm','edit_complete'),
 			),

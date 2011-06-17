@@ -298,8 +298,10 @@ class UsersController extends AppController {
     }
 
     function edit_confirm(){
+	
+        $this->uidCheck();
 
-		$this->pageTitle = '変更確認';
+	$this->pageTitle = '変更確認';
         //セッション情報回収
         $this->data = $this->Session->read('userEditData');
         if (empty($this->data)) {
@@ -308,9 +310,9 @@ class UsersController extends AppController {
             return;
         }
 
-		$this->_check_code();
-		
-		$this->_setline();
+	$this->_check_code();
+
+	$this->_setline();
     }
     
     function edit_complete(){
@@ -679,6 +681,8 @@ class UsersController extends AppController {
     }
 
     function other_setting_confirm(){
+	
+        $this->uidCheck();
 
         //セッション情報回収
         $this->data = $this->Session->read('userOtherSettingData');
