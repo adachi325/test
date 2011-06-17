@@ -61,7 +61,7 @@ class HanamarusController extends AppController {
           ),
         ),
         'fields' => "*",
-        'limit' => 2,
+        'limit' => 5,
         'conditions' => array('Hanamaru.user_id' => $user_id),
         'group' => array('Diary.id'),
         'order' => array('Hanamaru.created' => 'desc'),
