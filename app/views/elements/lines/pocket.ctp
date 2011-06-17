@@ -48,7 +48,11 @@ if ($prev != $content['Issue']['title']):
 <?php endif; ?>
 <?php 
 if ($ii < 3) {
-    echo $this->Html->image("icn_puchi.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+    if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
+        echo $this->Html->image($content['Content']['path'].'.gif', array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+    } else {
+        echo $this->Html->image("icn_puchi.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+    }
 }
 ?>
 <span style="color:#cc0000;"><?php 
