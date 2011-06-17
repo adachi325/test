@@ -100,8 +100,8 @@ class DiariesController extends AppController {
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
                     'Diary.month_id' => $months['0']['Month']['id'],
-                    'Diary.has_image' => 1,
-                    'Diary.error_code' => null
+                    //'Diary.has_image' => 1,
+                    //'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
@@ -482,8 +482,9 @@ class DiariesController extends AppController {
             )
         );
         $diary = $this->Diary->find('first', $conditions);
-        if(empty($diary)){
-            $this->set('message', 'このお友達の様子は削除されています。');
+        if (empty($diary)) {
+
+            $this->set('message', 'この思い出記録は削除されています。');
             $this->render('info_error');
             return;
         }
@@ -946,10 +947,12 @@ $list[6] ='--5000000000--
 
     function top($id = null) {
 		//ログイン済みならマイページへ遷移
-        $this->_getChilddata($id);
+       // $this->_getChilddata($id);
  
         if($this->Auth->user()) {
-			$this->set('login_user',$this->Auth->user());
+            $this->set('login_user',$this->Auth->user());
+            $this->index();
+            $this->_getChilddata($id);
         } else {
             $this->render('top_guest');
         }
