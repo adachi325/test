@@ -1,7 +1,7 @@
 <?php
 $image_path;
 if ($hanamaru['Diary']['has_image']) {
-  $image_path = sprintf(Configure::read('Diary.image_path_thumb'), $hanamaru['Diary']['child_id'], $hanamaru['Diary']['id']);
+  $image_path = sprintf(Configure::read('Diary.image_path_rect'), $hanamaru['Diary']['child_id'], $hanamaru['Diary']['id']);
 } else {
   $image_path = "omoide_nophoto.gif";
 } 
