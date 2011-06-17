@@ -55,7 +55,7 @@ class ArticlesController extends AppController {
         $cond = array(
             'conditions' => array('release_date <= ' => $today, 'expire_date >= ' => $today),
             'limit' => 10,
-            'order' => array('release_date', 'id DESC'),
+            'order' => array('release_date DESC', 'id DESC'),
         );
 
         if ($category != null) {
