@@ -256,21 +256,24 @@ class UsersController extends AppController {
 	}
 
     function edit() {
+	
+	$this->uidCheck();
+	
         $this->pageTitle = '登録情報変更';
 		
-		if (!empty($this->data)) {
+	if (!empty($this->data)) {
 
-			$this->_check_code();
+		$this->_check_code();
 
-			//パスワード変更なしの場合は、設定しない。
-			if(empty($this->data['User']['new_password']) || !isset($this->data['User']['new_password'])) {
-				unset($this->data['User']['new_password']);
-				if(empty($this->data['User']['row_password']) || !isset($this->data['User']['row_password'])) {
-					unset($this->data['User']['row_password']);
-				} else {
-					$this->data['User']['new_password'] = '';
-				}
+		//パスワード変更なしの場合は、設定しない。
+		if(empty($this->data['User']['new_password']) || !isset($this->data['User']['new_password'])) {
+			unset($this->data['User']['new_password']);
+			if(empty($this->data['User']['row_password']) || !isset($this->data['User']['row_password'])) {
+				unset($this->data['User']['row_password']);
+			} else {
+				$this->data['User']['new_password'] = '';
 			}
+		}
 
             $this->User->set($this->data);
             if ($this->User->validates()) {
@@ -653,6 +656,8 @@ class UsersController extends AppController {
     }
 
     function other_setting() {
+	
+	$this->uidCheck();
 
         // POSTデータが存在する場合 
         if (!empty($this->data)) {
