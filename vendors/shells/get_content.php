@@ -28,26 +28,24 @@ class GetContentShell extends AppShell {
             
             if (count($cells) >= 6 ) {
                 
-                if () {
-                    $rec = array();
+                $rec = array();
 
-                    $article_id = $Article->getArticleId($type, $cells[0]);
-                    if ($article_id > -1) {
-                        $rec['id'] = $article_id;
-                    }
-                    $rec['external_id'] = $this->removeDoubleQuote($cells[0]);
-                    $rec['title'] = $this->removeDoubleQuote($cells[1]);
-                    $rec['body'] = $this->removeShimajiro($this->removeDoubleQuote($cells[2]));
-                    $rec['photo'] = $this->removeDoubleQuote($cells[3]);
-                    $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
-                    $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
-                    $rec['type'] = $type;
-
-                    $article['Article'] = $rec;
-
-                    $Article->create();
-                    $Article->save($article);
+                $article_id = $Article->getArticleId($type, $cells[0]);
+                if ($article_id > -1) {
+                    $rec['id'] = $article_id;
                 }
+                $rec['external_id'] = $this->removeDoubleQuote($cells[0]);
+                $rec['title'] = $this->removeDoubleQuote($cells[1]);
+                $rec['body'] = $this->removeShimajiro($this->removeDoubleQuote($cells[2]));
+                $rec['photo'] = $this->removeDoubleQuote($cells[3]);
+                $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
+                $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
+                $rec['type'] = $type;
+
+                $article['Article'] = $rec;
+
+                $Article->create();
+                $Article->save($article);
             }
         }
     }

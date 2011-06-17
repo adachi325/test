@@ -159,8 +159,18 @@ class ApController extends AppController {
 			$lines = $Line->find('all', array(
 				'fields' => array('title', 'category_name'),
             ));
-
             $contents = Set::extract('/Content', $issues);
+
+		//Issue.titleの追加
+		$ii = 0;
+		foreach($contents as $content){
+			foreach($issues as $issue){
+				if ($content['Content']['issue_id'] == $issue['Issue']['id']) {
+					$contents[$ii++]['Issue']['title'] = $issue['Issue']['title'];
+					break;
+				}	
+			}
+		}	
         }
 
 		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
