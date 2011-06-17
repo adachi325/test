@@ -81,7 +81,10 @@ echo h($themes['description']);
 <tr>
 <td align="center"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "width" => "80%", "border" => "0")); ?></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<a href="<?php echo $this->Html->url('/diaries/post_info'); ?>"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
+<?php 
+$docomo_community_url = $this->Ktai->is_imode() ? 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml': 'http://docomo-community.com/djs/index.xhtml';
+?>
+<a href="<?php echo $docomo_community_url; ?>"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
 </td>
 </tr>
 </table>
