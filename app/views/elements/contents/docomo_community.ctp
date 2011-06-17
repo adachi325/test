@@ -3,5 +3,5 @@ $docomo_community_url = $this->Ktai->is_imode() ? 'http://docomo-community.cp05.
 ?>
 <div align="center" style="text-align:center">
 <a href="<?php echo $docomo_community_url; ?>" style="color:#ff3333;">
-<?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "", "width" => "100%", "border" => "0")); ?></a></div>
+<?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div>
 
