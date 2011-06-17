@@ -21,7 +21,7 @@ class AttentionsController extends AppController {
   function get_attention_count() {
 
     // パラメーターの取得
-    $user_id = $this->params['url']['id'];
+    $news_id = $this->params['url']['id'];
 
     // 注目数の取得
     $conditions = array(
