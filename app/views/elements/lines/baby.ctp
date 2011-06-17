@@ -83,7 +83,7 @@
 <a name="1year"><span style="color:#333333;">●1歳号</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("icn_kochare_birthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
-  <?php $this->Ktai->emoji(0xE6DD); ?></span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】おたんじょうびおめでとうﾌﾚｰﾑ</span></a><br />
+<span style="color:#cc0000;">・</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】おたんじょうびおめでとうﾌﾚｰﾑ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
