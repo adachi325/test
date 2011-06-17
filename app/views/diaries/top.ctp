@@ -232,7 +232,8 @@ if($i==2) {
 <td width="85%"><?php echo $this->Html->image("txt_present.gif", array("alt" => "今月のプレゼント", "width" => "100%", "style" => "margin-bottom:5px;")); ?></td> 
 </tr> 
 </table> 
-<?php echo $this->Html->image("pic_present.jpg", array("align" => "left", "style" => "float:left; margin-right:10px;")); ?>思い出を残すと､待受Flashやﾎﾟｽﾄｶｰﾄﾞなどがもらえる!<br /> 
+<?php echo $this->Html->image(sprintf(Configure::read('Present.sample.2'), date('Y'), date('m')), array("align" => "left", "style" => "float:left; margin-right:10px;")); ?>
+思い出を残すと､待受Flashやﾎﾟｽﾄｶｰﾄﾞなどがもらえる!<br /> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/presents/'); ?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div> 
