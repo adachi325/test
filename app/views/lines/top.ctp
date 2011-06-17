@@ -135,7 +135,7 @@ echo $this->element('default/room');
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center"><a href="http://docomo-community.cp05.docomo.ne.jp/dj/" style="color:#ff3333;"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a></div>
+<?php echo $this->element('contents/docomo_community'); ?>
 
 <!-- ページトップへ -->
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

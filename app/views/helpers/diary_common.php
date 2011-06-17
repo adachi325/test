@@ -40,7 +40,7 @@ class DiaryCommonHelper extends Helper {
         	}
 	}else{
 		//articlesテーブルに掲載期限情報がない場合
-		$status = "";
+		$status = "公開予定";
 	}
       } 
     }
