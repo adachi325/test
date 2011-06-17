@@ -25,13 +25,12 @@ class PagesController extends AppController {
 
 	function display() {
 
-		// 互換性のため残してありますが、children/displayを使用するようにしてください
-
-
 		if ($this->Ktai->is_android()) {
 			$this->render('android_top');
 			return;
-		}
+		} else {
+            $this->redirect('/');
+        }
 
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {

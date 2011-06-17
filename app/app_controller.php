@@ -200,12 +200,12 @@ class AppController extends Controller {
 			
 			if (empty($this->allow_android)) {
 				if ($action != 'display') {
-					$this->redirect('/');
+					$this->redirect('/pages/display/');
 				}
 			} else {
 				if ($this->allow_android !== true) {
 					if (!array_search($action, $this->allow_android)) {
-						$this->redirect('/');
+                        $this->redirect('/pages/display/');
 					}
 				}
 			}
