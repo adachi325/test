@@ -131,6 +131,20 @@ class DiariesController extends AppController {
 
     }
     
+    function top($id = null) {
+		//ログイン済みならマイページへ遷移
+       // $this->_getChilddata($id);
+ 
+        if($this->Auth->user()) {
+            $this->set('login_user',$this->Auth->user());
+            $this->index();
+            $this->_getChilddata($id);
+        } else {
+            $this->render('top_guest');
+        }
+        //$this->_getChilddata($id);
+    }
+
     function index($year = null, $month = null, $page = null) {
 
         $setOptions = array();
