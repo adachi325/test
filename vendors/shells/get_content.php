@@ -16,8 +16,8 @@ class GetContentShell extends AppShell {
         $Article =& ClassRegistry::init('Article');
 
         $data = file_get_contents($url);
-        if ($type != 3) {
-            $lines = explode("\n", $data);
+        if ($type != 4) {
+            $lines = split("\n", $data);
         } else {
             $lines[] = $data;
         }
@@ -44,7 +44,7 @@ class GetContentShell extends AppShell {
 
                 $article['Article'] = $rec;
 
-                $Article->create();
+                $Article->create(false);
                 $Article->save($article);
             }
         }

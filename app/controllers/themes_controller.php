@@ -184,7 +184,12 @@ class ThemesController extends AppController {
              $this->Session->setFlash(__('ログイン有効期限切れです。', true));
              $this->redirect('/children/');
          }
-         
+        
+	//こどもの登録数０ならことも登録画面へ
+        if(empty($userdata['User']['last_selected_child'])){
+                $this->redirect('/children/register');
+        }
+ 
          //現在時刻にてhash作成
          $hash = substr(AuthComponent::password(date("Ymdhis")), 0, 4);
 
@@ -201,7 +206,6 @@ class ThemesController extends AppController {
 
 		 $mailStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$id.'.'.$hash.'@'.Configure::read('Defaults.domain');
 		 $mailPublicStr = 'diary_'.$userdata['User']['hash'].'.'.$child['Child']['hash'].'.'.$id.'.'.$hash.'.pub@'.Configure::read('Defaults.domain');
-
 
          //タイトル設定
          if($theme['Theme']['free_theme']){
