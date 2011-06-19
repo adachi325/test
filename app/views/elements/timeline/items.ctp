@@ -89,7 +89,7 @@ $i = !$i;
     <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="60px" height="60px" style="margin:5px 2px 5px 0;" />
   </td>
   <td colspan="3" align="left" valign="top">
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $url_news_detail.$article['Article']['external_id'].'&user_id='.$login_user['hash']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
   </td>
 </tr>
 <tr>
@@ -103,7 +103,7 @@ $i = !$i;
     <?php echo $this->Html->image("icn_bule_news.gif", array("alt" => "ニュース", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?>
 </td>
 <td colspan="3" align="left" valign="top">
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $url_news_detail . $article['Article']['external_id'].'&user_id='.$login_user['hash']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
 </td>
 </tr>
 <tr>
