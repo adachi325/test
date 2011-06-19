@@ -19,10 +19,7 @@
 <a href="#check" style="color:#ff3333;"><span style="color:#ff3333;">ﾁｪｯｸ&amp;ｱﾄﾞﾊﾞｲｽ</span></a> / <a href="#diary" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a> / <a href="#community" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a><br />
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
-
-<div align="left" style="text-align:left;"><span style="font-size:medium; color:#cc0000;">こどもちゃれんじぷち</span><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-  <span style="font-size:medium; color:#cc0000;">ｽﾍﾟｼｬﾙｱﾌﾟﾘ&lt;教材と連動&gt;</span></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("40_shimajiro.gif", array("width" => "100%", "alt" => "スペシャルアプリ")); ?></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <div align="left" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE727); ?></span><a href="<?php echo $this->Html->url('/ap/petit/index/'); ?>" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">詳しく見る</span></a></div>
 
@@ -32,7 +29,7 @@
 <div style="background:#f3dfc4;">
 <?php echo $this->Html->image("petit_magane.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("petit_maganeimg.gif", array("width" => "30%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
-ご一緒に､こどもの気持ちがわかる｢こどもﾒｶﾞﾈ｣で見てみませんか?<br clear="all" />
+ご一緒に､お子さんの気持ちがわかる｢こどもめがね｣で見てみませんか?<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div>
 <div align="left" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE727); ?></span><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
