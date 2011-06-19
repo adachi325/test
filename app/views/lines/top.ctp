@@ -94,7 +94,7 @@ if (count($childrenData) < 3) :
 </table> 
 
 <div align="center" style="text-align:center;font-size:x-small;color:#666666;"><?php echo $this->Html->image('dot_line_pink.gif'); ?><br />
-&lt;こどもちゃれんじ&gt;ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
+&lt;こどもちゃれんじ&gt;<br />ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
 <img src="img/spacer.gif" width="1" height="7" /><br />
 
 <!--
