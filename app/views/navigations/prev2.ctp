@@ -16,7 +16,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:small">
 <?php if ($errorStr) { ?>
-<span style="color:#cc0000">ご利用規約をご確認ください。</span><br />
+<span style="color:#cc0000">ご利用規約をご確認ください｡</span><br />
 <?php } ?>
 <?php echo $this->Form->input("agree", array("type" => "checkbox", "div" => false, "label" => false)); ?>
 <a href="<?php echo $this->Html->url('/pages/rules/'); ?>" style="color:#ff6600;"><span style="color:#ff6600;">利用規約</span></a>に同意します｡</span><br />

@@ -69,7 +69,7 @@
 <?php echo $this->Html->image("60pic_omoide101.gif", array("width" => "25%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>お子さんの成長がかわいく残せる!写真がたまるとﾎﾟｽﾄｶｰﾄﾞに♪<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></div>
 
-<div align="center" style="text-align:center;"><a href="<?php echo $this->Html->url('/navigations/prev/1');?>"><span style="color:#ff6600;">更に詳しく見る</span></a><span style="color:#cc0000;"><?php $this->Ktai->emoji(0xE6F5); ?></span></div>
+<div align="center" style="text-align:center;"><a href="<?php echo $this->Html->url('/navigations/prev/1');?>" style="color:#ff6600;"><span style="color:#ff6600;">更に詳しく見る</span></a><span style="color:#cc0000;"><?php $this->Ktai->emoji(0xE6F5); ?></span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
@@ -91,9 +91,9 @@
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
 
-<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会・資料請求</span></a><br />
+<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会･<br />資料請求</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="http://m.shimajiro.co.jp/" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">有料ｹｰﾀｲしまじろう(3ｷｬﾘｱ公式ｻｲﾄ)</span></a><br />
+<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="http://m.shimajiro.co.jp/" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">有料ｹｰﾀｲしまじろう(公式ｻｲﾄ)</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000; font-size:x-small">※ﾍﾞﾈｯｾのｻｲﾄに移動します</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

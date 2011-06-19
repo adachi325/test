@@ -23,7 +23,7 @@
 	echo $img;
 	?>
 </td>
-<td><?php echo $this->Html->image("spacer.gif", array()); ?></td>
+<td><?php echo $this->Html->image("spacer.gif", array("height" => "5")); ?></td> 
 </tr>
 <tr>
 <td align="left" valign="top">
@@ -50,7 +50,7 @@
 <?php if (count($childrenData) > 0) : ?>
 <?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span>
 <?php else : ?>
-<span style="font-size:x-small; color:#333333;">子どもが登録されていません。</br>子ども情報を追加してください。</span>
+<span style="font-size:x-small; color:#333333;">子どもが登録されていません｡</br>子ども情報を追加してください｡</span>
 <?php endif; ?>
 </td> 
 </tr> 
@@ -60,7 +60,7 @@
 </div> 
  
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
-
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <?php
 $i = 0;
 $tabColId=0;
@@ -75,7 +75,7 @@ foreach ($childrenData as $child) :
         $suffix = ($sex == 1) ? 'ちゃん' : 'くん';
 ?>
 <tr> 
-<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
+<td><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
 </tr> 
 <?php
     endif;
@@ -125,9 +125,9 @@ echo $this->element('default/room');
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
 
-<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会・資料請求</span></a><br />
+<span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会･<br />資料請求</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="http://m.shimajiro.co.jp/" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">有料ｹｰﾀｲしまじろう(3ｷｬﾘｱ公式ｻｲﾄ)</span></a><br />
+<span style="color:#000000;"><?php $this->Ktai->emoji(0xE688); ?></span><a href="http://m.shimajiro.co.jp/" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">有料ｹｰﾀｲしまじろう(公式ｻｲﾄ)</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#cc0000; font-size:x-small">※ﾍﾞﾈｯｾのｻｲﾄに移動します</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
