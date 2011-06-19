@@ -20,7 +20,7 @@ class Attention extends AppModel {
 
     $conditions = array(
       'user_id' => $user_id,
-      'type' => 1,
+      'type' => 2,
       'external_id' => $news_id,
     );
 

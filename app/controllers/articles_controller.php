@@ -233,8 +233,9 @@ class ArticlesController extends AppController {
                 $article['Article']['attention_count'] = $count;
 
                 /* 既に注目をつけているかのデータを付け加えます */
+                $user = $this->Auth->user();
                 $Attention =& ClassRegistry::init('Attention');
-                $article['Article']['alreadyAddAttention'] = $Attention->checkAlreadyAddAttention($article['Article']['external_id'], $article['Article']['id']);
+                $article['Article']['alreadyAddAttention'] = $Attention->checkAlreadyAddAttention($user['User']['id'], $article['Article']['external_id']);
                 break;
             }
             $articles[] = $article;
