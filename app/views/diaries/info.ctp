@@ -56,9 +56,23 @@ if($diary['Month']['month'] < 10) {
 <tr>
 <td align="left"><span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date']); ?></span></td>
 <td align="right">
-<?php if ($diary['Diary']['hanamaru_count'] > 0) : ?>
+<?php if ($alreadyAddHanamaru) : ?>
   <span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:0 4px 0 0;")); ?><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
+<?php else : ?>
+<?php
+// 現在ページのフルパス(エンコード済み)を設定する
+$scheme = '';
+if (isset($_SERVER['HTTPS'])) {
+  $scheme = "https://";
+} else {
+  $scheme = "http://";
+}
+$url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+$encoded_url = urlencode($url);
+?>
+      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$diary['Diary']['id']}&user_id={$user['User']['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "style" => "margin:0px 2px 0px 0;")); ?></a><span style="font-size:x-small; color:#FF0000;"><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php endif; ?>
+
 </td>
 </tr>
 <tr>

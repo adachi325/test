@@ -223,10 +223,20 @@ class ArticlesController extends AppController {
                 $diary = $Diary->find('first', array('conditions' => array('Diary.id' => $article['Article']['external_id'])));
                 $article['Diary'] = $diary['Diary'];
                 $article['Child'] = $diary['Child'];
+
+                /* 既にはなまるをつけているかのデータを付け加えます */
+                $Hanamaru =& ClassRegistry::init('Hanamaru');
+                $user = $this->Auth->user();
+                $article['Article']['alreadyAddHanamaru'] = $Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
                 break;
             case 2:
                 $count = $Attention->getAttentionCount($article['Article']['type'], $article['Article']['external_id']);
                 $article['Article']['attention_count'] = $count;
+
+                /* 既に注目をつけているかのデータを付け加えます */
+                $user = $this->Auth->user();
+                $Attention =& ClassRegistry::init('Attention');
+                $article['Article']['alreadyAddAttention'] = $Attention->checkAlreadyAddAttention($user['User']['id'], $article['Article']['external_id']);
                 break;
             }
             $articles[] = $article;
