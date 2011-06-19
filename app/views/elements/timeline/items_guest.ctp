@@ -19,9 +19,9 @@ $login_user = $this->Session->read('Auth.User');
 
 <?php
 if ($i) {
-    $color = "#ffffcc";
-} else {
     $color = "#ffffff";
+} else {
+    $color = "#ffffcc";
 }
 $i = !$i;
 ?>

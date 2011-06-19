@@ -24,9 +24,9 @@ $encoded_url = urlencode($url);
 
 <?php
 if ($i) {
-    $color = "#ffffcc";
-} else {
     $color = "#ffffff";
+} else {
+    $color = "#ffffcc";
 }
 $i = !$i;
 ?>
