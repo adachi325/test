@@ -61,7 +61,9 @@ echo $this->element('timeline/categories');
 <td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">今週のお出かけ</span></a></td>
 </tr>
 <tr>
-<td colspan="3" align="left" valign="top"><span style="font-size:x-small;"><span style="color:#333333;">動物園にやってきました｡楽しいね♪</span><br /><span style="color:#339933;">2才0ｶ月のお友達</span></span><br />
+<td colspan="3" align="left" valign="top">
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <span style="font-size:x-small;color:#333333;">動物園にやってきました｡楽しいね♪</span><br /><div align="right" style="text-align:right;color:#339933;margin-top:10px;font-size:x-small">2才0ｶ月のお友達</div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td>
 </tr>
 <tr>

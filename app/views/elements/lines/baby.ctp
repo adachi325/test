@@ -31,7 +31,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <a name="6month"><span style="color:#333333;">●6ｶ月号</span></a><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
+<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
