@@ -25,7 +25,7 @@ class Step2DbMigrationShell extends AppShell {
               `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
               `body` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
               `type` int(10) NOT NULL COMMENT '記事のタイプ\n1: 思い出記録、2: ニュース、3: 心理テスト、4: お知らせ',
-              `external_id` int(10) NOT NULL COMMENT '記事タイプ先に紐づくID',
+              `external_id` bigint(10) NOT NULL COMMENT '記事タイプ先に紐づくID',
               `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '画像ファイルのパス',
               `release_date` datetime NOT NULL COMMENT 'リリース日時',
               `expire_date` datetime NOT NULL COMMENT '終了日時',
@@ -49,7 +49,7 @@ class Step2DbMigrationShell extends AppShell {
     $sql = "CREATE TABLE `hanamarus` (
             `id` int(10) NOT NULL AUTO_INCREMENT,
             `type` int(10) NOT NULL COMMENT '記事のタイプ\n1: 思い出記録、2: ニュース、 3:心理テスト',
-            `external_id` int(10) NOT NULL COMMENT '記事タイプ先に紐づくID',
+            `external_id` bigint(10) NOT NULL COMMENT '記事タイプ先に紐づくID',
             `user_id` int(10) NOT NULL COMMENT 'はなまるをつけたユーザーID',
             `owner_id` int(10) NOT NULL COMMENT 'はなまるをもらったユーザーID\n外部コンテンツの場合は、別途定める',
             `created` datetime NOT NULL,
@@ -72,7 +72,7 @@ class Step2DbMigrationShell extends AppShell {
     $sql = "CREATE TABLE `attentions` (
             `id` int(10) NOT NULL AUTO_INCREMENT,
             `type` int(10) NOT NULL,
-            `external_id` int(10) NOT NULL,
+            `external_id` bigint(10) NOT NULL,
             `user_id` int(10) NOT NULL,
             `created` datetime NOT NULL,
             `modified` datetime NOT NULL,
