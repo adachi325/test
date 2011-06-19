@@ -10,8 +10,9 @@
 <td width="10%">&nbsp;</td>
 </tr>
 </table>
-
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("40_shimajiro.gif", array("width" => "100%", "alt" => "スペシャルアプリ")); ?></div>
+<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 <div align="left" style="text-align:left;"><span style="color:#333333; font-size:x-small;">【生活習慣ｱﾌﾟﾘ】</span></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
