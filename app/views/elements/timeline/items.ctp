@@ -45,7 +45,7 @@ $i = !$i;
 <tr>
   <td width="25%" rowspan="2" align="left" valign="top">
     <?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
-    <?php echo $this->Html->image($album_pic_path, array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
+    <?php echo $this->Html->image($album_pic_path, array("alt" => "子ども画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>
   </td>
   <td colspan="3" align="left" valign="top">
     <a href="<?php echo $this->Html->url('/diaries/info/'.$article['Article']['external_id'].'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($article['Article']['title']); ?></span></a>
@@ -79,8 +79,8 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" style=" font-size:x-small; color:#ff9900;">
     <?php echo $this->Html->image("icn_bule_news.gif", array("alt" => "ニュース", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
     <?php if (!empty($article['Article']['photo'])) : ?>
-      <!--<?php echo $this->Html->image($article['Article']['photo'], array("alt" => "ニュース画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>-->
-    <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="100%" style="margin:5px 2px 5px 0;" />
+      <!--<?php echo $this->Html->image($article['Article']['photo'], array("alt" => "ニュース画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>-->
+    <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="60px" height="60px" style="margin:5px 2px 5px 0;" />
     <?php endif; ?>
   </td>
   <td colspan="3" align="left" valign="top">
@@ -112,7 +112,7 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;">
     <?php echo $this->Html->image("icn_yellow_oshirase.gif", array("alt" => "お知らせ", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
     <?php if (!empty($article['Article']['photo'])) : ?>
-      <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "お知らせ画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
+      <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "お知らせ画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>
     <?php endif; ?>
   </td>
   <td colspan="3" align="left" valign="top">
@@ -139,7 +139,7 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;">
     <?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
     <?php if (!empty($article['Article']['photo'])) : ?>
-      <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "心理テスト画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?>
+      <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "心理テスト画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>
     <?php endif; ?>
   </td>
   <td colspan="3" align="left" valign="top">
