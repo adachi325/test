@@ -68,7 +68,7 @@ $i = !$i;
     <?php endif ; ?>
   </td>
   <td align="left" valign="middle" width="20%">
-    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>コ</span>
+    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span>
   </td>
   <td align="right" valign="middle" width="30%">
     <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span>

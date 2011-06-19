@@ -427,13 +427,14 @@ class DiariesController extends AppController {
           $isLogin = true;
           $children = $this->Child->find('all', array('conditions' => array('user_id' => $user['User']['id'])));
           foreach ($children as $child) {
+            // はなまるをすでに押しているか
+            $alreadyAddHanamaru = $this->Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
+            $this->set(compact('alreadyAddHanamaru'));
+
             if ($diary['Diary']['child_id'] == $child['Child']['id']) {
               $isOwner = true;
               break;
             } else {
-              // はなまるをすでに押しているか
-              $alreadyAddHanamaru = $this->Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
-              $this->set(compact('alreadyAddHanamaru'));
             }
           }
         }
