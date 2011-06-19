@@ -22,6 +22,7 @@ class AttentionsController extends AppController {
 
     // パラメーターの取得
     $news_id = $this->params['url']['id'];
+    $user_id = $this->params['url']['user_id'];
 
     // 注目数の取得
     $conditions = array(
@@ -31,7 +32,20 @@ class AttentionsController extends AppController {
     $attention_count = $this->Attention->find('count', array('conditions' => $conditions));
 
     // ログインユーザーの取得、注目フラグの取得
-    $user = $this->Auth->user();
+    //$user = $this->Auth->user();
+    // 渡されたハッシュ(user_id)からユーザーを特定します。
+    $conditions = array(
+      'hash' => $user_id,
+    );
+
+    $user_model =& ClassRegistry::init('User');
+    $user_model->contain();
+    $user = $user_model->find('first', array('conditions' => $conditions));
+    if (!$user) {
+        // ユーザーが特定できなければ、リダイレクト
+        return;
+    }
+
     $user_id = -1;
     $attention_flg = "false";
     if ($user) {
@@ -44,6 +58,7 @@ class AttentionsController extends AppController {
         'external_id' => $news_id,
         'user_id' => $user_id,
       );
+
       $count = $this->Attention->find('count', array('conditions' => $conditions));
       if ($count > 0) {
         $attention_flg = "true";
