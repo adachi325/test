@@ -26,16 +26,19 @@ class linesController extends AppController {
         if($user) {
             $this->Toppage->getChilddata($index);
             $this->Toppage->getLinedata($line_name);
+            $this->Toppage->getProfiledata();
         } else {
-            $line = $this->Line->find('first', array('Line.category_name' => $line_name));
+            $line = array();
+            if ($line_name) {
+                $line = $this->Line->find('first', array('Line.category_name' => $line_name));
+            }
 
             if (!empty($line)) {
                 $name = $line['Line']['category_name'];
+                $this->redirect(Router::url("/ap/{$name}/", true));
             } else {
-                $name = "baby";
+                $this->render('top_guest');
             }
-            $this->redirect(Router::url("/ap/{$name}/", true));
-            //$this->render('top_guest');
         }
     }
 
