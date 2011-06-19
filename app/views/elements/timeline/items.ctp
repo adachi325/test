@@ -69,7 +69,7 @@ $i = !$i;
     <?php endif ; ?>
   </td>
   <td align="left" valign="middle" width="20%">
-    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>コ</span>
+    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span>
   </td>
   <td align="right" valign="middle" width="30%">
     <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span>
@@ -107,7 +107,9 @@ $i = !$i;
 </td>
 </tr>
 <tr>
-<td colspan="4" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+<td colspan="4" align="left" valign="top">
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <?php endif; ?>
 
@@ -145,6 +147,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
   </td>
 </tr>
@@ -172,6 +175,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
   </td>
 </tr>

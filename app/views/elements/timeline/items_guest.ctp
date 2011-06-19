@@ -48,9 +48,9 @@ $i = !$i;
   </td>
 </tr>
 <tr>
-  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;">
-    <span style="color:#333333;"><?php echo h($article['Article']['title']); ?></span><br />
-    <span style="color:#339933;"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</span></span><br />
+  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;color:#333333;">
+    <?php echo h($article['Article']['title']); ?><br />
+    <div align="right" style="text-align:right;color:#339933;margin-top:10px;font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
 </tr>
@@ -60,7 +60,7 @@ $i = !$i;
     <a href="<?php echo $this->Html->url("/navigations/prev/1"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
   </td>
   <td align="left" valign="middle" width="20%">
-    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>コ</span>
+    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span>
   </td>
   <td align="right" valign="middle" width="30%">
     <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span>
@@ -84,6 +84,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
   </td>
 </tr>
@@ -97,7 +98,9 @@ $i = !$i;
 </td>
 </tr>
 <tr>
-<td colspan="4" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+<td colspan="4" align="left" valign="top">
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <?php endif; ?>
 
@@ -130,6 +133,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
   </td>
 </tr>
@@ -157,6 +161,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
   </td>
 </tr>
