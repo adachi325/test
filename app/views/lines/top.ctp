@@ -93,11 +93,10 @@ if (count($childrenData) < 3) :
 
 </table> 
 
-<?php if (!empty($user)):?>
 <div align="center" style="text-align:center;font-size:x-small;color:#666666;"><?php echo $this->Html->image('dot_line_pink.gif'); ?><br />
 &lt;こどもちゃれんじ&gt;ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
 <img src="img/spacer.gif" width="1" height="7" /><br />
-<?php endif;?>
+
 <!--
 <div align="center" style="text-align:center;"><a href="#"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "80%", "border" => "0", "style" => "margin:5px 0 5px 0;")); ?></a><br />
 <span style="color:#cc0000; font-size:x-small;">しまじろうのきせかえ<br />↑ﾌﾟﾚｾﾞﾝﾄ中↑</span></div>
