@@ -1,21 +1,27 @@
 <a name="top" id="top"></a>
 <div style="font-size:x-small; color:#333333;">
-
-<?php echo $this->Html->image("ttl_challenge.gif", array("alt" => "こどもちゃれんじ", "width" => "100%")); ?><br />
+<!-- 背景グリーンタブ -->
+<div style="background-color:#339933;">
+<div><?php echo $this->Html->image("top_nypage_main.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></div>
+<div style="background-color:#ff6699;">
+<div style="background-color:#339933;"><a href="<?php echo $this->Html->url('/');?>"><?php echo $this->Html->image("tab_btn01_green.gif", array("alt" => "育児なう", "width" => "33%", "border" => "0")); ?></a><a href="<?php echo $this->Html->url('/diaries/top/')?>"><?php echo $this->Html->image("tab_btn02_green.gif", array("alt" => "思い出記録", "width" => "33%", "border" => "0", "class" => "test")); ?></a><?php echo $this->Html->image("tab_btn03_on_green.gif", array("alt" => "こどもちゃれんじ", " width" => "33%", "border" => "0", "class" => "test")); ?></div> 
+<div style="background-color:#ff6699;"><?php echo $this->Html->image("spacer.gif", array("height" => "2", "width" => "1")); ?></div>
+<div style="background-color:#ffff99;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffd4d4">
+<tr><td align="center"><span style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
+<span style="color:#cc3366">年齢別の&lt;こどもちゃれんじ&gt;<br />ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画が楽しめる!</span><br />
+<span style="color:#333333">登録で年齢別に表示されます♪</span></span><br />
+<span style="font-size:medium;"><?php $this->Ktai->emoji(0xE6FA); ?><a href="<?php echo $this->Html->url('/navigations/prev/2'); ?>">今すぐ登録!(無料)</a><?php $this->Ktai->emoji(0xE6FA); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td width="85%"><?php echo $this->Html->image("txt_petit.gif", array("width" => "100%", "alt" => "")); ?></td>
-<td width="10%">&nbsp;</td>
-</tr>
-<tr>
-<td width="85%"><span style="font-size:x-small; color:#e61953;">1～2歳向けｺｰｽ</span>
-</td>
-<td width="10%">&nbsp;</td>
-</tr>
+</td></tr>
 </table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+</div>
+</div>
+</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
+
+
 <a href="#check" style="color:#ff3333;"><span style="color:#ff3333;">ﾁｪｯｸ&amp;ｱﾄﾞﾊﾞｲｽ</span></a> / <a href="#diary" style="color:#ff3333;"><span style="color:#ff3333;">たいけんのきろく</span></a> / <a href="#community" style="color:#ff3333;"><span style="color:#ff3333;">体験談のひろば</span></a><br />
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>

@@ -21,11 +21,6 @@
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 
-
-<div align="center" style="text-align:center;font-size:x-small;color:#666666;">
-〈こどもちゃれんじ〉ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく☆</div>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-
 <!--
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "20")); ?><br />
 <?php echo $this->Html->image("ttl_fun.gif", array("alt" => "このサイトの楽しみ方", "width" => "100%")); ?><br />
