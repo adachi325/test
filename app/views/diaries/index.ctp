@@ -151,12 +151,12 @@ endforeach;
 <tr>
 <?php if($page > 1): ?>
 <td width="50%" align="left">
-	<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="color:#339900;">前へ</span></a>&nbsp;
+	<a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page-1)); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">前へ</span></a>&nbsp;
 </td>
 <?php endif; ?>
 <?php if(count($diaries) > ($page * 5)): ?>
 <td width="50%" align="right">
-    <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="color:#339900;">次へ</span></a>&nbsp;
+    <a href="<?php echo $this->Html->url('/diaries/index/'.$options['year'].'/'.($options['month']).'/'.($page+1)); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">次へ</span></a>&nbsp;
 </td>
 <?php endif; ?>
 </tr>

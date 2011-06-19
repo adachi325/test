@@ -54,30 +54,23 @@ echo $this->element('timeline/categories');
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 
-<!-- テーマサンプル -->
-<?php if (!empty($themes)): ?>
+<?php /* テーマサンプル 手動です */ ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffcc">
 <tr>
-<td width="25%" rowspan="2" align="left" valign="top"><?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br /><?php echo $this->Html->image("theme/theme_".$themes['id'].".jpg", array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
-<td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php
-echo h($themes['title']);
-?></span></a></td>
+<td width="25%" rowspan="2" align="left" valign="top"><?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br /><?php echo $this->Html->image("theme/theme_22.gif", array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
+<td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">今週のお出かけ</span></a></td>
 </tr>
 <tr>
-<td colspan="3" align="left" valign="top"><span style="font-size:x-small;"><span style="color:#333333;"><?php
-echo h($themes['description']);
-?></span></span><br />
+<td colspan="3" align="left" valign="top"><span style="font-size:x-small;"><span style="color:#333333;">動物園にやってきました｡楽しいね♪</span><br /><span style="color:#339933;">2才0ｶ月のお友達</span></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td>
 </tr>
 <tr>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
 <td align="left" valign="middle" width="25%"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a></td>
-<td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">0ｺ</span></td>
-<td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $themes['release_date']); ?></span></td>
+<td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">5ｺ</span></td>
+<td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;">6月24日</span></td>
 </tr>
 </table>
-
-<?php endif; ?>
 
 <!-- タイムライン -->
 <?php echo $this->element('timeline/items_guest'); ?>

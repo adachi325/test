@@ -24,7 +24,7 @@
 	echo $img;
 	?>
 </td> 
-<td><?php echo $this->Html->image("spacer.gif", array()); ?></td> 
+<td><?php echo $this->Html->image("spacer.gif", array("height" => "5")); ?></td> 
 </tr> 
 <tr> 
 <td align="left" valign="top">
@@ -51,7 +51,7 @@
 <?php if (count($childrenData) > 0) : ?>
 <?php echo $this->Html->image("icn_present_box.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo $this->Html->link('獲得ﾌﾟﾚｾﾞﾝﾄ一覧', '/presents/#presents'); ?></span>
 <?php else : ?>
-<span style="font-size:x-small; color:#333333;">子どもが登録されていません。</br>子ども情報を追加してください。</span>
+<span style="font-size:x-small; color:#333333;">子どもが登録されていません｡</br>子ども情報を追加してください｡</span>
 <?php endif; ?>
 </td> 
 </tr> 
@@ -61,7 +61,7 @@
 </div> 
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
-
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <?php
 $i = 0;
 $tabColId=0;
@@ -76,7 +76,7 @@ foreach ($childrenData as $child) :
         $suffix = ($sex == 1) ? 'ちゃん' : 'くん';
 ?>
 <tr> 
-<td><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
+<td><?php echo $this->Html->image($image_file.".gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/"); ?>"><?php echo $nickname;?><?php echo $suffix; ?>に切り替え</a></span></td> 
 </tr> 
 <?php
     endif;
@@ -182,9 +182,7 @@ if (count($childrenData) < 3) :
 	?></td>
 </tr> 
 </table> 
-<?php echo $this->Html->image("album_btm.gif", array("width" => "100%")); ?><br /></div> 
- 
- 
+<?php echo $this->Html->image("album_btm.gif", array("width" => "100%")); ?><br /></div><br /> 
 <table width="100%" cellpadding="0" cellspacing="0"> 
 <tr> 
 <td width="10%"><?php echo $this->Html->image("icn_write.gif", array("width" => "100%")); ?></td> 
@@ -218,7 +216,7 @@ if($i==2) {
 <?php endforeach; ?>
  
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /> 
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div><br clear="all" /> 
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE691); ?><a href="<?php echo $this->Html->url('/themes/');?>" style="color:#339900;"><span style="color:#339900;">もっと見る</span></a></span></div>
  
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array("alt" => "")); ?></div> 
 
@@ -267,7 +265,7 @@ if($i==2) {
 <td width="85%"><?php echo $this->Html->image("txt_comunity.gif", array("alt" => "ドコモコミュニティでもっと楽しく！", "width" => "100%", "style" => "margin-bottom:5px;")); ?></td> 
 </tr> 
 </table> 
-<span style="font-size:x-small;">お子さんの思い出を家族や友達と共有できます。詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/'); ?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span><br /> 
+<span style="font-size:x-small;">お子さんの思い出を家族や友達と共有できます｡詳しくは<a href="<?php echo $this->Html->url('/diaries/post_info/'); ?>" style="color:#339900;"><span style="color:#339900;">こちら</span></a></span><br /> 
  
 <!-- ページトップへ --> 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br /> 

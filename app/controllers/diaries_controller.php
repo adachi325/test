@@ -250,12 +250,7 @@ class DiariesController extends AppController {
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
 
-                    // articlesテーブルからのレコード削除
-                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
-                    $article = $this->Article->find('first', array('conditions' => $conditions));
-                    if ($article) {
-                        $this->Article->delete($article['Article']['id']);
-                    }
+                    $this->delete_relative_data($id);
 
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
@@ -298,6 +293,25 @@ class DiariesController extends AppController {
             $this->data = $diary;
     }
 
+    function delete_relative_data($diary_id = null) {
+        if ($diary_id ==  null) {
+            return;
+        }
+
+        // articlesテーブルからのレコード削除
+        $conditions = array('type' => 1, 'external_id' => $diary_id);
+        $article = $this->Article->find('first', array('conditions' => $conditions));
+        if ($article) {
+            $this->Article->delete($article['Article']['id']);
+        }
+
+        // hanamaruテーブルからのレコード削除
+        $hanamarus = $this->Hanamaru->find('first', array('conditions' => $conditions));
+        if ($hanamaru) {
+            $this->Hanamaru->delete($hanamaru['Hanamru']['id']);
+        }
+    }
+
     function delete_complete(){
             if(empty($this->data) or
                empty($this->data['Diary']['check'])){
@@ -331,6 +345,8 @@ class DiariesController extends AppController {
                     TransactionManager::rollback();
                     $this->Session->setFlash(__('削除失敗。', true));
                 }
+                $this->delete_relative_data($id);
+
             } catch(Exception $e) {
                 TransactionManager::rollback();
                 $this->Session->setFlash(__('システムエラー。', true));
@@ -788,17 +804,20 @@ $list[6] ='--5000000000--
             try {
                 // パラメータの初期化(審査のやり直し)
                 $this->data['Diary']['permit_status'] = 1;	//申請中
-		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
+		        $this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
 
                     // articlesテーブルからのレコード削除
+                    /*
                     $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
                     $article = $this->Article->find('first', array('conditions' => $conditions));
                     if ($article) {
                         $this->Article->delete($article['Article']['id']);
                     }
+                     */
+                    $this->delete_relative_data($this->data['Diary']['id']);
 
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
