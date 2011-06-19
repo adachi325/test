@@ -67,7 +67,7 @@
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
-<?php $this->element('default/room'); ?>
+<?php echo $this->element('default/room'); ?>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
 
