@@ -52,9 +52,10 @@ $i = !$i;
   </td>
 </tr>
 <tr>
-  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;">
-    <span style="color:#333333;"><?php echo h($article['Article']['body']); ?></span><br />
-    <span style="color:#339933;"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</span></span><br />
+  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;color:#333333;">
+  <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <?php echo h($article['Article']['body']); ?></span><br />
+    <div align="right" style="text-align:right;color:#339933;margin-top:10px;font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
 </tr>
