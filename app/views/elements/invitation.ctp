@@ -10,9 +10,11 @@
 <td width="85%"><?php echo $this->Html->image("txt_ikujinau.gif", array("alt" => "育児なう", "width" => "100%")); ?></td>
 </tr>
 </table>
+<span style="font-size:x-small;color:#333333">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("60pic_ikujinau.gif", array("width" => "25%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
 子どもに関するﾆｭｰｽや心理ﾃｽﾄ､他のお友達の思い出などが見られる!<br clear="all" />
+</span>
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
@@ -23,9 +25,11 @@
 <td width="85%"><?php echo $this->Html->image("txt_challenge.gif", array("alt" => "こどもちゃれんじ", "width" => "100%")); ?></td>
 </tr>
 </table>
+<span style="font-size:x-small;color:#333333">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("60pic_kodomo101.gif", array("width" => "25%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>
 &lt;こどもちゃれんじ&gt;教材と連動した年齢別ｺﾝﾃﾝﾂが楽しめる!<br clear="all" />
+</span>
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "1")); ?></div>
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
@@ -36,8 +40,10 @@
 <td width="85%"><?php echo $this->Html->image("txt_memory.gif", array("alt" => "思い出記録", "width" => "100%")); ?></td>
 </tr>
 </table>
+<span style="font-size:x-small;color:#333333">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("60pic_omoide101.gif", array("width" => "25%", "align" => "left", "style" => "float:left; margin-right:5px;")); ?>お子さんの成長がかわいく残せる!写真がたまるとﾎﾟｽﾄｶｰﾄﾞに♪<br clear="all" />
+</span>
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffff99">

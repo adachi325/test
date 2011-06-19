@@ -52,19 +52,24 @@ $i = !$i;
   </td>
 </tr>
 <tr>
-  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;">
-    <span style="color:#333333;"><?php echo h($article['Article']['body']); ?></span><br />
-    <span style="color:#339933;"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</span></span><br />
+  <td colspan="3" align="left" valign="top"><span style="font-size:x-small;color:#333333;">
+  <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <?php echo h($article['Article']['body']); ?></span><br />
+    <div align="right" style="text-align:right;color:#339933;margin-top:10px;font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
 </tr>
 <tr>
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
-    <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+    <?php if ($article['Article']['alreadyAddHanamaru']) : ?>
+      <?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
+    <?php else : ?>
+      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+    <?php endif ; ?>
   </td>
   <td align="left" valign="middle" width="20%">
-    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>コ</span>
+    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span>
   </td>
   <td align="right" valign="middle" width="30%">
     <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span>
@@ -84,7 +89,7 @@ $i = !$i;
     <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="60px" height="60px" style="margin:5px 2px 5px 0;" />
   </td>
   <td colspan="3" align="left" valign="top">
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $url_news_detail.$article['Article']['external_id'].'&user_id='.$login_user['hash']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
   </td>
 </tr>
 <tr>
@@ -98,18 +103,24 @@ $i = !$i;
     <?php echo $this->Html->image("icn_bule_news.gif", array("alt" => "ニュース", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?>
 </td>
 <td colspan="3" align="left" valign="top">
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $url_news_detail . $article['Article']['external_id'].'&user_id='.$login_user['hash']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
 </td>
 </tr>
 <tr>
-<td colspan="4" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+<td colspan="4" align="left" valign="top">
+    <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
 </tr>
 <?php endif; ?>
 
 <tr>
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
-    <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+    <?php if ($article['Article']['alreadyAddAttention']) : ?>
+      <?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
+    <?php else : ?>
+      <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+    <?php endif; ?>
   </td>
   <td align="left" valign="middle" width="20%">
     <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span>
@@ -136,6 +147,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
   </td>
 </tr>
@@ -163,6 +175,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
+      <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
   </td>
 </tr>

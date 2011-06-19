@@ -20,11 +20,11 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br /> 
  
  
-<table width="100%" border="0" cellpadding="0" cellspacing="0"> 
-<tr> 
-<td rowspan="2" align="left" valign="top"><?php echo $this->Html->image("pic_omoide_sample01.jpg", array("alt" => "", "width" => "100%")); ?></td> 
-<td rowspan="2" align="left"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
-<td align="left"><span style="font-size:x-small; color:333333;">ﾃ-ﾏに沿ってかわいく思い出を残せる☆</span></td> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td rowspan="2" align="left" valign="top" width="25%"><?php echo $this->Html->image("pic_omoide_sample01.jpg", array("alt" => "", "width" => "100%")); ?></td> 
+<td rowspan="2" align="left" width="3%"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
+<td align="left" width="72%"><span style="font-size:x-small; color:333333;">ﾃ-ﾏに沿ってかわいく思い出を残せる☆</span></td> 
 </tr> 
 <tr> 
 <td align="left"><?php echo $this->Html->image("arrow_omoide01.gif", array("alt" => "")); ?></td> 
@@ -33,9 +33,9 @@
 <br /> 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
 <tr> 
-<td rowspan="2" align="left" valign="top"><?php echo $this->Html->image("pic_omoide_sample02.jpg", array("alt" => "", "width" => "100%")); ?></td> 
-<td rowspan="2" align="left"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
-<td align="left"><span style="font-size:x-small; color:333333;">思い出を残すと､待受Flashやﾎﾟｽﾄｶ-ﾄﾞやﾃﾝﾌﾟﾚ-ﾄなどがもらえるよ！</span></td> 
+<td rowspan="2" align="left" valign="top" width="25%"><?php echo $this->Html->image("pic_omoide_sample02.jpg", array("alt" => "", "width" => "100%")); ?></td> 
+<td rowspan="2" align="left" width="3%"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
+<td align="left" width="72%"><span style="font-size:x-small; color:333333;">思い出を残すと､待受Flashやﾎﾟｽﾄｶ-ﾄﾞやﾃﾝﾌﾟﾚ-ﾄなどがもらえるよ！</span></td> 
 </tr> 
 <tr> 
 <td align="left" valign="top"><?php echo $this->Html->image("arrow_omoide02.gif", array("alt" => "")); ?></td> 
@@ -44,9 +44,9 @@
 <br /> 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
 <tr> 
-<td align="left" valign="top"><?php echo $this->Html->image("pic_omoide_sample03.jpg", array("alt" => "", "width" => "100%")); ?></td> 
-<td rowspan="2" align="left"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
-<td align="left" valign="top"><span style="font-size:x-small; color:333333;">自慢したい思い出は、公開すると｢育児なう｣に掲載されて、他の人から｢はなまる｣をもらえるよ！</span></td> 
+<td rowspan="2" align="left" valign="top" width="25%"><?php echo $this->Html->image("pic_omoide_sample03.jpg", array("alt" => "", "width" => "100%")); ?></td> 
+<td rowspan="2" align="left" width="3%"><?php echo $this->Html->image("spacer.gif", array("width" => "7", "height" => "1")); ?><br /></td> 
+<td align="left" width="72%"><span style="font-size:x-small; color:333333;">自慢したい思い出は、公開すると｢育児なう｣に掲載されて、他の人から｢はなまる｣をもらえるよ！</span></td> 
 </tr> 
 </table> 
  
