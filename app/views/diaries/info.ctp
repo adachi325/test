@@ -62,7 +62,6 @@ if($diary['Month']['month'] < 10) {
       <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a><span style="font-size:x-small; color:#FF0000;"><?php echo $article['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php endif; ?>
 
-<?php if ($diary['Diary']['hanamaru_count'] > 0) : ?>
 </td>
 </tr>
 <tr>
