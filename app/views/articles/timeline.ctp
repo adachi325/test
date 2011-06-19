@@ -17,6 +17,7 @@
 <tr>
 
 <td width="50%" align="left">
+
 <?php
 // リンクのフィルタ設定
 $filter = isset($this->params['pass'][0]) ? $this->params['pass'][0] . '/' : '';
@@ -25,17 +26,20 @@ $filter = isset($this->params['pass'][0]) ? $this->params['pass'][0] . '/' : '';
 <?php $page = $paginator->current() - 1; ?>
 <a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#ff9900"><span style="font-size:x-small; color:#ff9900;">前のページ</span></a>
 <?php else : ?>
-前のページ
+<span style="font-size:x-small; color:#666666;">前のページ</span>
 <?php endif; ?>
+
 </td>
 
 <td width="50%" align="right">
+<span style="font-size:x-small;">
 <?php if ($paginator->hasNext()) : ?>
 <?php $page = $paginator->current() + 1; ?>
 <a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#339900">もっと見る</a>
 <?php else : ?>
 もっと見る
 <?php endif; ?>
+</span>
 </td>
 
 </tr>

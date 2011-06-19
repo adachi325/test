@@ -61,13 +61,13 @@ echo $this->element('timeline/categories');
 <td colspan="3" align="left" valign="top"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;">今週のお出かけ</span></a></td>
 </tr>
 <tr>
-<td colspan="3" align="left" valign="top"><span style="font-size:x-small;"><span style="color:#333333;">動物園にやってきました。楽しいね♪</span></span><br />
+<td colspan="3" align="left" valign="top"><span style="font-size:x-small;"><span style="color:#333333;">動物園にやってきました｡楽しいね♪</span><br /><span style="color:#339933;">2才0ｶ月のお友達</span></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></td>
 </tr>
 <tr>
 <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
 <td align="left" valign="middle" width="25%"><a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a></td>
-<td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">0ｺ</span></td>
+<td align="left" valign="middle" width="20%"><span style="font-size:x-small; color:#FF0000;">5ｺ</span></td>
 <td align="right" valign="middle" width="30%"><span style="font-size:x-small; color:#666666;">6月24日</span></td>
 </tr>
 </table>

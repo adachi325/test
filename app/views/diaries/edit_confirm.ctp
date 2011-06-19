@@ -20,7 +20,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></td>
 </tr>
 <tr>
-<td colspan="2" align="left"><span style="font-size:x-small; color:#333333;"><?php echo nl2br(h($this->data['Diary']['body'])); ?></span></td>
+<td colspan="2" align="left"><span style="font-size:x-small; color:#333333;"><?php echo nl2br(h($this->data['Diary']['body'])); ?></span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /></td>
 </tr>
 <?php if ($this->data['Diary']['wish_public'] == 1) : ?>
 <tr>
@@ -41,17 +42,23 @@
 </tr>
 <tr>
 <td colspan="2" align="center">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<?php echo $this->Form->submit("変更"); ?><br />
-<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Form->submit("変更"); ?>
+</td>
+</tr>
+</table>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Form->create('Diary', array("url" => "/diaries/edit?guid=ON", "inputDefaults" => array("dev" => false, "label" => false))); ?>
+<table width="100%">
+<tr>
+<td align="center">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("戻る"); ?>
 <?php echo $this->Form->end(); ?>
 </td>
 </tr>
 </table>
 <br />
-</form>
+<?php echo $this->Form->end(); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

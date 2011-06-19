@@ -72,7 +72,7 @@ class DiaryCommonHelper extends Helper {
 			$mmm = $mmm + 12;
 			$yyy = $yyy -1;
 		} 
-		return $yyy.'才'.$mmm.'ヶ月';
+		return $yyy.'才'.$mmm.'ｶ月';
     }
 
   

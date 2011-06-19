@@ -11,7 +11,7 @@ if ($hanamaru['Diary']['has_image']) {
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top">
 <?php echo $this->Html->image($image_path, array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
-<td colspan="2" align="left" valign="top"><a href="#" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo $html->link(h($hanamaru['Diary']['title']), '/diaries/info/' . $hanamaru['Diary']['id']); ?></span></a></td>
+<td colspan="2" align="left" valign="top" style="font-size:x-small;><a href="#" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo $html->link(h($hanamaru['Diary']['title']), '/diaries/info/' . $hanamaru['Diary']['id']); ?></span></a></td>
 </tr>
 <tr>
 <td colspan="2" align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo nl2br(h($hanamaru['Diary']['body'])); ?></span></td>

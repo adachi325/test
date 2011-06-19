@@ -44,7 +44,7 @@ if (!empty($uidErrorStr)) {
 	echo $img;
 	?>
 </td>
-<td><?php echo $this->Html->image("spacer.gif", array()); ?></td>
+<td><?php echo $this->Html->image("spacer.gif", array("height" => "5")); ?></td> 
 </tr>
 <tr>
 <td align="left" valign="top"><span style="font-size:x-small; color:#333333;"><?php echo h($this->Session->read('Auth.User.loginid')); ?>さん</span></td>
@@ -60,7 +60,7 @@ if (!empty($uidErrorStr)) {
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <div align="center" style="text-align:center; font-size:x-small; color:#666666;">
-ﾆｭｰｽやお友達の様子などが、<br />
+ﾆｭｰｽやお友達の様子などが､<br />
 次々と更新されていきます!</div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 
