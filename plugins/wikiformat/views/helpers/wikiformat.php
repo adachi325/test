@@ -29,13 +29,41 @@ class WikiformatHelper extends AppHelper {
 			$label = $matches[1];
 			$label = empty($label) ? $matches[2] : $label;
 			$_options = '.$_options.';
-			$options = isset($matches[3]) ? array_merge($_options, array("target" => $matches[3])) : $_options;
+            $options = isset($matches[3]) ? array_merge($_options, array("target" => $matches[3])) : $_options;
 			return $Html->link($label, $matches[2], $options);';
 		$search_full_url = "/\\{$start}(?:([^{$end}]*?)\\{$delimiter})?((?:(?:https?|ftp):\/\/|\/)?[a-zA-Z0-9;\/?:@&=\+$,\-_\.!~*'\(\)%#]+?)(?:\\{$delimiter}([^{$start}]*?))?\\{$end}/";
 
 		return preg_replace_callback($search_full_url, create_function('$matches', $function), $text);
 	}
 
+	public function makeTimelineLink($text, $options = array(), $link_options = array()) {
+		if (empty($text)) {
+			return $this->invalid_string;
+		}
+		$_setting = array_merge($this->defaults, $options);
+
+		$delimiter = $_setting['delimiter'];
+		$start = $_setting['brackets']['start'];
+		$end = $_setting['brackets']['end'];
+
+		$_options = var_export($link_options, true);
+
+		$function = '$Html = new HtmlHelper();
+			$Html->tags = $Html->loadConfig();
+			$label = $matches[1];
+			$label = empty($label) ? $matches[2] : $label;
+			$_options = '.$_options.';
+            $options = isset($matches[3]) ? array_merge($_options, array("target" => $matches[3])) : $_options;
+            $url = $matches[2];
+            if (substr($url, 0, 1) != "/") {
+                $url = "/".$url;
+            }
+			return "<br />".$Html->link($label, $url, $options);';
+		$search_full_url = "/\\{$start}(?:([^{$end}]*?)\\{$delimiter})?((?:(?:https?|ftp):\/\/|\/)?[a-zA-Z0-9;\/?:@&=\+$,\-_\.!~*'\(\)%#]+?)(?:\\{$delimiter}([^{$start}]*?))?\\{$end}/";
+
+		return preg_replace_callback($search_full_url, create_function('$matches', $function), $text);
+	}
+    
 	public function mmdd_to_text($str) {
 		if (strlen($str) !== 4) {
 			return $this->invalid_string;
