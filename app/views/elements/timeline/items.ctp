@@ -109,7 +109,7 @@ $i = !$i;
 <tr>
 <td colspan="4" align="left" valign="top">
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span></td>
 </tr>
 <?php endif; ?>
 
@@ -148,7 +148,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
   </td>
 </tr>
 <tr>
@@ -176,7 +176,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeTimelineLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>
