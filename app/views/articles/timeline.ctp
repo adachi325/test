@@ -24,9 +24,9 @@ $filter = isset($this->params['pass'][0]) ? $this->params['pass'][0] . '/' : '';
 ?>
 <?php if ($paginator->hasPrev()) : ?>
 <?php $page = $paginator->current() - 1; ?>
-<a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#ff9900"><span style="font-size:x-small; color:#ff9900;">前のページ</span></a>
+<a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#ff9900"><span style="font-size:x-small; color:#ff9900;">前のﾍﾟｰｼﾞ</span></a>
 <?php else : ?>
-<span style="font-size:x-small; color:#666666;">前のページ</span>
+<span style="font-size:x-small; color:#666666;">前のﾍﾟｰｼﾞ</span>
 <?php endif; ?>
 
 </td>
@@ -35,9 +35,9 @@ $filter = isset($this->params['pass'][0]) ? $this->params['pass'][0] . '/' : '';
 <span style="font-size:x-small;">
 <?php if ($paginator->hasNext()) : ?>
 <?php $page = $paginator->current() + 1; ?>
-<a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#339900">もっと見る</a>
+<a href="<?php echo $this->Html->url('/articles/timeline/' . $filter . 'page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#ff9900"><span style="font-size:x-small; color:#ff9900;">もっと見る</span></a>
 <?php else : ?>
-もっと見る
+<span style="font-size:x-small; color:#666666;">もっと見る</span>
 <?php endif; ?>
 </span>
 </td>
