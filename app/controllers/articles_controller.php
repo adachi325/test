@@ -226,7 +226,8 @@ class ArticlesController extends AppController {
 
                 /* 既にはなまるをつけているかのデータを付け加えます */
                 $Hanamaru =& ClassRegistry::init('Hanamaru');
-                $article['Article']['alreadyAddHanamaru'] = $Hanamaru->checkAlreadyAddHanamaru($diary['Child']['user_id'], $diary['Diary']['id']);
+                $user = $this->Auth->user();
+                $article['Article']['alreadyAddHanamaru'] = $Hanamaru->checkAlreadyAddHanamaru($user['User']['id'], $diary['Diary']['id']);
                 break;
             case 2:
                 $count = $Attention->getAttentionCount($article['Article']['type'], $article['Article']['external_id']);
