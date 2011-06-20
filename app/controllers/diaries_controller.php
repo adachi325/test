@@ -22,12 +22,14 @@ class DiariesController extends AppController {
 
             
             $this->set('login_user',$this->Auth->user());
-            //$this->index();
+            
             $this->Toppage->getChilddata($index);
             
             $this->Toppage->getDiarydata();
             $this->Toppage->getProfiledata();
             $this->Toppage->getNewsdata();
+
+            $this->index();
 
         } else {
             $this->render('top_guest');

@@ -22,17 +22,18 @@ for ($i = 0; $i < count($hanamarus); $i++) {
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <table width="100%" border="0">
 <tr>
 <td width="50%" align="left"><span style="font-size:x-small; color:#666666;">
 <?php if ($paginator->hasPrev()) : ?>
 <?php $page = $paginator->current() - 1; ?>
-<a href="<?php echo $this->Html->url('/hanamarus/gave/page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#666666">前へ</a>
+<a href="<?php echo $this->Html->url('/hanamarus/gave/page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#339900">前へ</a>
 <?php else : ?>
 前へ
 <?php endif; ?>
 </span></td>
-<td width="50%" align="right"><span style="font-size:x-small; color:#339900;">
+<td width="50%" align="right"><span style="font-size:x-small; color:#666666;">
 <?php if ($paginator->hasNext()) : ?>
 <?php $page = $paginator->current() + 1; ?>
 <a href="<?php echo $this->Html->url('/hanamarus/gave/page:' . $page . '?guid=ON&' . session_name() . '=' . session_id()); ?>" style="color:#339900">次へ</a>
@@ -42,5 +43,4 @@ for ($i = 0; $i < count($hanamarus); $i++) {
 </span></td>
 </tr>
 </table>
-
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
+<br />
