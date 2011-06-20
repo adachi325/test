@@ -36,6 +36,11 @@ $i = !$i;
   } else {
     $album_pic_path = 'omoide_nophoto.gif';
   } 
+
+  $title = '無題';
+  if(!empty($article['Article']['title']) && $article['Article']['title'] != '') { 
+  	$title = $article['Article']['title'];
+  }
 ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
@@ -51,7 +56,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top"><span style="font-size:x-small;color:#333333;">
-    <?php echo h($article['Article']['title']); ?><br />
+    <?php echo h($title); ?><br />
     <div align="right" style="text-align:right;color:#339933;margin-top:10px;font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
