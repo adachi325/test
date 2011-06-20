@@ -308,9 +308,9 @@ class DiariesController extends AppController {
         }
 
         // hanamaruテーブルからのレコード削除
-        $hanamaru = $this->Hanamaru->find('first', array('conditions' => $conditions));
-        if ($hanamaru) {
-            $this->Hanamaru->delete($hanamaru['Hanamru']['id']);
+        $hanamarus = $this->Hanamaru->find('all', array('conditions' => $conditions));
+        foreach ($hanamarus as $hanamaru) {
+          $this->Hanamaru->delete($hanamaru['Hanamaru']['id']);
         }
     }
 
