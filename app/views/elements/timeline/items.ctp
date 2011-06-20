@@ -40,6 +40,12 @@ $i = !$i;
   } else {
     $album_pic_path = 'omoide_nophoto.gif';
   } 
+
+  $title = '無題';
+  if(!empty($article['Article']['title']) && $article['Article']['title'] != '') { 
+  	$title = $article['Article']['title'];
+  }
+  
 ?>
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $color; ?>">
 <tr>
@@ -50,7 +56,7 @@ $i = !$i;
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <a href="<?php echo $this->Html->url('/diaries/info/'.$article['Article']['external_id'].'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $this->Html->url('/diaries/info/'.$article['Article']['external_id'].'/'); ?>" style="color:#339900;"><span style="font-size:x-small; color:#339900;"><?php echo h($title); ?></span></a>
   </td>
 </tr>
 <tr>
