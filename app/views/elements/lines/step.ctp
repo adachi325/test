@@ -50,9 +50,9 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 <?php 
 if ($ii < 3) {
     if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
-        echo $this->Html->image($content['Content']['path'].'.gif', array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+        echo $this->Html->image($content['Content']['path'].'.gif', array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
     } else {
-        echo $this->Html->image("icn_puchi.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+        echo $this->Html->image("icn_puchi.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
     }
 }
 ?>

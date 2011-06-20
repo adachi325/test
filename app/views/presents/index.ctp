@@ -23,7 +23,7 @@ $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 <table width="100%" cellpadding="0" cellspacing="0" align="center">
 <tr>
-<td align="left"><span style="font-size:x-small;"><span style="color:#339933;">・</span><?php echo $month; ?>月のﾌﾟﾚｾﾞﾝﾄ一覧</span><br />
+<td align="left"><span style="font-size:x-small;"><span style="color:#339933;">&nbsp;･</span><?php echo $month; ?>月のﾌﾟﾚｾﾞﾝﾄ一覧</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="font-size:x-small;">1回目の投稿でもらえる!<br />
 <span style="font-size:medium;">【<span style="color:#ff3366;">思い出背景</span>】</span></span></td>
@@ -109,12 +109,12 @@ $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 </table><a name="presents" id="presents"></a>
 獲得したﾌﾟﾚｾﾞﾝﾄを確認しよう!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/1');?>" style="color:#339900;"><span style="color:#339900;">ﾃﾞｺﾒ絵文字</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/1');?>" style="color:#339900;"><span style="color:#339900;">ﾃﾞｺﾒ絵文字</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/2');?>" style="color:#339900;"><span style="color:#339900;">待受Flash</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/2');?>" style="color:#339900;"><span style="color:#339900;">待受Flash</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/3');?>" style="color:#339900;"><span style="color:#339900;">ﾎﾟｽﾄｶｰﾄﾞ</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/3');?>" style="color:#339900;"><span style="color:#339900;">ﾎﾟｽﾄｶｰﾄﾞ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#339933;">・</span><a href="<?php echo $this->Html->url('/presents/present_list/-1');?>" style="color:#339900;"><span style="color:#339900;">入会ﾌﾟﾚｾﾞﾝﾄ</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/-1');?>" style="color:#339900;"><span style="color:#339900;">入会ﾌﾟﾚｾﾞﾝﾄ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

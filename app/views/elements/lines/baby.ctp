@@ -21,7 +21,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center"><a href="#6month"><span style="color:#ff3333; font-size:x-small;">6ｶ月～11ｶ月</span></a><span style="color:#333333;">｜</span><a href="#1year"><span style="color:#ff3333; font-size:x-small;">1歳～1歳2ｶ月</span></a></div>
+<div align="center" style="text-align:center"><a href="#6month" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">6ｶ月～11ｶ月</span></a><span style="color:#333333;">｜</span><a href="#1year" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">1歳～1歳2ｶ月</span></a></div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
@@ -31,7 +31,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <a name="6month"><span style="color:#333333;">●6ｶ月号</span></a><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
+<?php echo $this->Html->image("/img/ap/baby/1006.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
@@ -85,7 +85,7 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <a name="1year"><span style="color:#333333;">●1歳号</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_birthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
+<?php echo $this->Html->image("/img/ap/baby/1012.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
 <span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】おたんじょうびおめでとうﾌﾚｰﾑ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
