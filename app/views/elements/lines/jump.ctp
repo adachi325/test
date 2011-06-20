@@ -28,7 +28,7 @@ if(count($contents) > 0):
 <?php 
 $ii = 0;
 foreach($contents as $content):
-    $color = ($ii % 2 == 0) ? " bgcolor='ffefef'" : "";
+    $color = ($ii % 2 == 0) ? " bgcolor='#ffefef'" : " bgcolor='#ffffff'";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
