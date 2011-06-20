@@ -31,7 +31,7 @@
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <a name="6month"><span style="color:#333333;">●6ｶ月号</span></a><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰﾃﾞｺﾒ</span></a><br />
+<?php echo $this->Html->image("icn_kochare_halfbirthday.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1006/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】ﾊｰﾌﾊﾞｰｽﾃﾞｰ｢ありがとうﾒｰﾙﾃﾝﾌﾟﾚｰﾄ｣</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
@@ -39,7 +39,7 @@
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●7ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1007/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】ｽﾄﾗｯﾌﾟ取り付け動画</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1007/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】特別教材･おでかけｽﾄﾗｯﾌﾟの取り付け方</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -48,7 +48,7 @@
 <td bgcolor="#ffefef"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●8ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1008/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】眠りたくなる音</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1008/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】赤ちゃんの夜泣きやぐずりに･･･｢眠くなる音｣</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -57,7 +57,7 @@
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●9ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1009/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Web】おうちのかたﾀｲﾌﾟ診断</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1009/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Web】おうちのかたのﾀｲﾌﾟ診断</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -66,7 +66,7 @@
 <td bgcolor="#ffefef"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●10ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1010/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】おにぎり食べちゃった振付動画</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1010/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】｢おにぎり たべちゃうぞ｣の曲に合わせた遊び方</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -75,7 +75,7 @@
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●11ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1011/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【投稿】りんりんﾄﾗｯｸ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1011/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【投稿】みんなは何載せた?木のりんりんﾄﾗｯｸ画像投稿大募集(できたねﾌｫﾄﾌﾚｰﾑのﾌﾟﾚｾﾞﾝﾄあり)</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -86,15 +86,35 @@
 <a name="1year"><span style="color:#333333;">●1歳号</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("icn_kochare_birthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】おたんじょうびおめでとうﾌﾚｰﾑ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012_1/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】1歳のﾊﾞｰｽﾃﾞｰﾒｰﾙﾃﾝﾌﾟﾚｰﾄ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
 <tr>
 <td bgcolor="#ffffff"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<a name="1year"><span style="color:#333333;">●1歳号</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("icn_kochare_birthday.gif", array("alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】1歳おめでとうﾌｫﾄﾌﾚｰﾑ</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
+</tr>
+
+
+<tr>
+<td bgcolor="#ffefef"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳1ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1013/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】育児ｽﾄﾚｽ解消??癒しの音声</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1013/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】育児ｽﾄﾚｽ解消??? 癒しの音声</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
+<td bgcolor="#ffffff"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">●1歳2ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1014/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】もぐもぐのﾃｰﾏｿﾝｸﾞ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -102,17 +122,8 @@
 <tr>
 <td bgcolor="#ffefef"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#333333;">●1歳2ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1014/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】ﾓｸﾞﾓｸﾞのﾃｰﾏｿﾝｸﾞ</span></a><br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
-</div></td>
-</tr>
-
-<tr>
-<td bgcolor="#ffffff"><div style="font-size:x-small;">
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳3ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1015/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】外出先でお役立ち!画像＆音声でぐずり対策</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1015/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【Flash】外出先でお役立ち!?ぐずり防止ﾌﾗｯｼｭ</span></a><br />
 </div></td>
 </tr>
 
@@ -120,7 +131,7 @@
 <td bgcolor="#ffffff"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳4ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1016/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】からだあそび動画</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1016/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【動画】おうちでできるｶﾝﾀﾝからだあそび動画</span></a><br />
 </div></td>
 </tr>
 
