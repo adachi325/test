@@ -57,7 +57,7 @@ if($diary['Month']['month'] < 10) {
 <td align="left"><span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date']); ?></span></td>
 <td align="right">
 <?php if ($alreadyAddHanamaru) : ?>
-  <span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:0 4px 0 0;")); ?><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
+  <span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "style" => "margin:0px 2px 0px 0;")); ?><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:0 4px 0 0;")); ?><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php else : ?>
 <?php
 // 現在ページのフルパス(エンコード済み)を設定する
