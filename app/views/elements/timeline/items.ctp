@@ -115,7 +115,7 @@ $i = !$i;
 <tr>
 <td colspan="4" align="left" valign="top">
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span></td>
 </tr>
 <?php endif; ?>
 
@@ -156,7 +156,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
   </td>
 </tr>
 <tr>
@@ -174,9 +174,7 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
-    <?php if (!empty($article['Article']['photo'])) : ?>
-      <?php echo $this->Html->image($article['Article']['photo'], array("alt" => "心理テスト画像", "width" => "60", "height" => "60", "style" => "margin:2px 2px 5px 0;")); ?>
-    <?php endif; ?>
+    <?php echo $this->Html->image('pic_psycho01.gif', array("alt" => "心理テスト画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -186,7 +184,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeTimelineLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>
