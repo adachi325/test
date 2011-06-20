@@ -83,7 +83,7 @@ $i = !$i;
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
   </td>
 </tr>
 <tr>
@@ -100,7 +100,7 @@ $i = !$i;
 </td>
 <td colspan="3" align="left" valign="top">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <a href="<?php echo $url_news_detail . $article['Article']['external_id']; ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
+    <a href="<?php echo $this->Html->url('/navigations/prev/1'); ?>" style="color:#0099FF;"><span style="font-size:x-small; color:#0099FF;"><?php echo h($article['Article']['title']); ?></span></a>
 </td>
 </tr>
 <tr>
@@ -136,7 +136,7 @@ $i = !$i;
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink(h($article['Article']['title'])); ?></span>
+    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink($article['Article']['title']); ?></span>
   </td>
 </tr>
 <tr>
