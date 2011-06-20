@@ -246,7 +246,7 @@ class DiariesController extends AppController {
             TransactionManager::begin();
             try {
                 // パラメータの初期化(審査のやり直し)
-                $this->data['Diary']['permit_status'] = 0;
+                $this->data['Diary']['permit_status'] = ($this->data['Diary']['wish_public']==1) ? 1 : 0;	//公開希望なら１、希望しないなら０
 		$this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
