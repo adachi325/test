@@ -84,10 +84,15 @@ if (isset($this->params['pass'][0])) {
 <td align="center"><a href="<?php echo $this->Html->url($url); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a><br />
 <?php
 // ドコモコミュニティのリンク先を設定する
-if ($this->Ktai->is_imode()) {
-  $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
+if($this->Session->read('Auth.User.dc_user')) {
+    if ($this->Ktai->is_imode()) {
+      $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/dj/';
+    } else {
+      $docomo_commu_url = 'http://docomo-community.com/djs/index.xhtml';
+    }
 } else {
-  $docomo_commu_url = 'http://docomo-community.com/djs/index.xhtml';
+    $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+    $docomo_commu_url = '/'.$urlItem[1].'/diaries/post_info';
 }
 ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
