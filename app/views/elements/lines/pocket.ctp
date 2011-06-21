@@ -23,7 +23,7 @@ if(count($contents) > 0):
 $ii = 0;
 $prev = "";
 foreach($contents as $content):
-    $color = ($ii % 2 == 0) ? " bgcolor='ffefef'" : "";
+    $color = ($ii % 2 == 0) ? " bgcolor='#ffefef'" : " bgcolor='#ffffff'";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
@@ -77,9 +77,10 @@ endif;
 <div style="background:#fcf8e4;"><?php echo $this->Html->image("pocket_sansai.gif", array("width" => "100%")); ?><br />
 お子さんに合ったｵﾑﾂはずれのｱﾄﾞﾊﾞｲｽ<br clear="all" />
 <div style="clear:both;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div>
-<div align="center" style="text-align:center;"><a href="http://shimajiromobile.benesse.ne.jp/ap1/pocket/advice/" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
+<div align="center" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE691); ?></span><a href="http://shimajiromobile.benesse.ne.jp/ap1/pocket/advice/" style="color:#ff3333;"><span style="color:#ff3333;">今月の質問をﾁｪｯｸする</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
 </div>
+
 
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 

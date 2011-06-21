@@ -29,7 +29,7 @@ if(count($contents) > 0):
 <?php 
 $ii = 0;
 foreach($contents as $content):
-    $color = ($ii % 2 == 0) ? " bgcolor='ffefef'" : "";
+    $color = ($ii % 2 == 0) ? " bgcolor='#ffefef'" : " bgcolor='#ffffff'";
 ?>
 
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
@@ -49,6 +49,9 @@ if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php 
 if ($ii < 3) {
+    if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
+        // ベネッセ向け画像に変換
+    }
     if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
         echo $this->Html->image($content['Content']['path'].'.gif', array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
     } else {
