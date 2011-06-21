@@ -21,7 +21,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center"><a href="#6month" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">6ｶ月～11ｶ月</span></a><span style="color:#333333;">｜</span><a href="#1year" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">1歳～1歳2ｶ月</span></a></div>
+<div align="center" style="text-align:center"><a href="#6month" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">6ｶ月～11ｶ月</span></a><span style="color:#333333;">｜</span><a href="#1year" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">1歳以上</span></a></div>
 
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
