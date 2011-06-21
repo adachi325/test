@@ -150,14 +150,12 @@ class AppController extends Controller {
 			session_id($_REQUEST[$session_name]);
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 		    }
-
 		    // auでフォームからの入力が文字化けする問題の対策
 		    if ($this->Ktai->is_ezweb()) {
 			if (!empty($this->data)) {
 			    mb_convert_variables('UTF-8', 'UTF-8, sjis-win', $this->data);
 			}
 		    }
-
 		}
 
 		//SSL通信環境設定
