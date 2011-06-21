@@ -15,24 +15,7 @@ class UsersController extends AppController {
         $this->User->recursive = 0;
     }
 
-    function uidCheck(){
-	if (isset($_SERVER['HTTPS'])) {
-	    $uid = $this->Session->read('sslUid');
-	} else {
-	    $uid = $this->_getUid();
-	}
-        if(empty($uid) || !isset($uid)) {
-            $result = $this->_getCareer();
-            if( $result == 0 or $result == 1 or $result == 2 ){
-                $this->redirect('/pages/errorMobileId/');
-                return;
-            }
-        }
-    }
-
     function login(){
-        //ログイン処理に入る前にUID取得確認
-        $this->uidCheck();
 
         //ログイン判定
         if($this->Auth->user()) {
@@ -56,9 +39,6 @@ class UsersController extends AppController {
     }
 
     function register(){
-
-        //ログイン処理に入る前にUID取得確認
-        $this->uidCheck();
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -257,8 +237,6 @@ class UsersController extends AppController {
 
     function edit() {
 	
-	$this->uidCheck();
-	
         $this->pageTitle = '登録情報変更';
 		
 	if (!empty($this->data)) {
@@ -301,8 +279,6 @@ class UsersController extends AppController {
     }
 
     function edit_confirm(){
-	
-        $this->uidCheck();
 
 	$this->pageTitle = '変更確認';
         //セッション情報回収
@@ -378,9 +354,6 @@ class UsersController extends AppController {
     //リマインド認証
     function remind () {
 
-        //ログイン処理に入る前にUID取得確認
-        $this->uidCheck();
-
 	//初回はNoCheck
 	if (empty($this->data['User']['NoCheck']) || !isset($this->data['User']['NoCheck'])) {
 	    $this->data['User']['NoCheck'] = '1';
@@ -445,9 +418,6 @@ class UsersController extends AppController {
 
     //パスワード再設定
     function remind_password () {
-
-        //UID取得確認
-        $this->uidCheck();
 
 	$errorStr = "入力情報が正しくありません。";
 
@@ -659,8 +629,6 @@ class UsersController extends AppController {
     }
 
     function other_setting() {
-	
-	$this->uidCheck();
 
         // POSTデータが存在する場合 
         if (!empty($this->data)) {
@@ -689,8 +657,6 @@ class UsersController extends AppController {
     }
 
     function other_setting_confirm(){
-	
-        $this->uidCheck();
 
         //セッション情報回収
         $this->data = $this->Session->read('userOtherSettingData');

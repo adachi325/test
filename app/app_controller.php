@@ -149,14 +149,14 @@ class AppController extends Controller {
 		    if(isset($_REQUEST[$session_name]) && preg_match('/^\w+$/', $_REQUEST[$session_name])){
 			session_id($_REQUEST[$session_name]);
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
-            }
+		    }
 
-            // auでフォームからの入力が文字化けする問題の対策
-            if ($this->Ktai->is_ezweb()) {
-                if (!empty($this->data)) {
-                    mb_convert_variables('UTF-8', 'UTF-8, sjis-win', $this->data);
-                }
-            }
+		    // auでフォームからの入力が文字化けする問題の対策
+		    if ($this->Ktai->is_ezweb()) {
+			if (!empty($this->data)) {
+			    mb_convert_variables('UTF-8', 'UTF-8, sjis-win', $this->data);
+			}
+		    }
 
 		}
 
@@ -210,6 +210,9 @@ class AppController extends Controller {
 				}
 			}
 		}
+		
+		/* uidﾁｪｯｸ(SSL通信時のみ) */
+		$this->uidCheck();
 	}
 
 	function __formActionGuidOn(){
@@ -312,4 +315,34 @@ class AppController extends Controller {
 		return $data;
 	}
 
+	function uidCheck(){
+	    if (isset($_SERVER['HTTPS'])) {
+		$uid = $this->Session->read('sslUid');
+		if(empty($uid) || !isset($uid)) {
+		    $result = $this->_getCareer();
+		    if( $result == 0 or $result == 1 or $result == 2 ){
+			$this->redirect('/pages/errorMobileId/');
+			return;
+		    }
+		}
+	    } 
+	}
+	/**
+	 * キャリア判定
+	 */
+	function _getCareer(){
+	    if ($this->Ktai->is_imode()) {
+		return 0;
+	    } else if ($this->Ktai->is_ezweb()) {
+		return 1;
+	    } else if ($this->Ktai->is_softbank()) {
+		return 2;
+	    } else if ($this->Ktai->is_iphone()) {
+		return 3;
+	    } else if ($this->Ktai->is_android()) {
+		return 4;
+	    } else {
+		return 5;
+	    }
+	}
 }
