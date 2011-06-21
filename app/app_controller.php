@@ -109,7 +109,7 @@ class AppController extends Controller {
 	public $allow_android = array();
 
 	function beforeFilter(){
-	
+
 		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
 		if ($this->Ktai->is_iphone()) {
 		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
@@ -176,10 +176,6 @@ class AppController extends Controller {
 				}
 			    }
 			}
-
-			/* uidﾁｪｯｸ(SSL通信時のみ) */
-			$this->uidCheck();
-
 			//SSL通信開始
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
@@ -190,11 +186,16 @@ class AppController extends Controller {
 
 			//通常通信
 			if ($this->Ssl->https) {
-			    /* uidﾁｪｯｸ(SSL通信時のみ) */
-			    $this->uidCheck();
 			    $this->Ssl->forceNoSSL();
 			}
 		}
+		
+		//SSL環境時のUIDチェック
+		if ($secured && $this->Ssl->https) {
+		    /* uidﾁｪｯｸ(SSL通信時のみ) */
+		    $this->uidCheck();
+		}
+		
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
@@ -323,6 +324,9 @@ class AppController extends Controller {
 		    $result = $this->_getCareer();
 		    if( $result == 0 or $result == 1 or $result == 2 ){
 			$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+			
+			$this->log('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');
+			
 			$this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
 			return;
 		    }
