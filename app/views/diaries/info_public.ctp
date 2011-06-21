@@ -1,5 +1,5 @@
 <?php /* 208-2 思い出記録詳細（他ユーザ） */ ?>
-<?php echo $this->Html->image("ttl_memory.gif", array("alt" => "思い出記録", "width" => "100%")); ?><br />
+<?php echo $this->Html->image("otomodachi.gif", array("alt" => "思い出記録", "width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 <table width="80%" cellpadding="0" cellspacing="0" align="center">
 <tr>
