@@ -1,5 +1,5 @@
 <?php /* 208-2 思い出記録詳細（他ユーザ） */ ?>
-<?php echo $this->Html->image("ttl_memory.gif", array("alt" => "思い出記録", "width" => "100%")); ?><br />
+<?php echo $this->Html->image("ttl_memory.gif", array("alt" => "お友達の様子", "width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 <table width="80%" cellpadding="0" cellspacing="0" align="center">
 <tr>
@@ -29,6 +29,11 @@ if ($diary['Diary']['has_image']) {
   <span style="font-size:x-small; color:#333333;"><?php echo nl2br(h($diary['Diary']['body'])); ?></span>
 </td>
 </tr>
+<tr><td align="right">
+<span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->formatYearsOld($currentChild['Child']['birth_year'], $currentChild['Child']['birth_month']); ?>のお友達</span><br />
+ <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
+</td></tr>
+
 <tr>
 <td align="right">
 <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $diary['Diary']['created']); ?></span>

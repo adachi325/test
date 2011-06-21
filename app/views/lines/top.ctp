@@ -49,7 +49,7 @@
 <td align="left" valign="top">
 
 <?php if (count($childrenData) > 0) : ?>
-<?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo Configure::read('LinesString.strings.'.$currentLine['Line']['id']) ; ?></span>
+<?php echo $this->Html->image("icn_course.gif", array("style" => "margin-right:2px;")); ?><span style="font-size:x-small; color:#333333;"><?php echo Configure::read('LinesString.strings.'.$currentChild['Child']['line_id']) ; ?></span>
 <?php else : ?>
 <span style="font-size:x-small; color:#333333;">子どもが登録されていません｡</br>子ども情報を追加してください｡</span>
 <?php endif; ?>
