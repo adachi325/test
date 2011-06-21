@@ -176,6 +176,9 @@ class AppController extends Controller {
 				}
 			    }
 			}
+			
+			/* uidﾁｪｯｸ(SSL通信時のみ) */
+			$this->uidCheck();
 
 			//SSL通信開始
 			$this->Ssl->forceSSL();
@@ -184,6 +187,9 @@ class AppController extends Controller {
 			if(empty($ssluid) || !isset($ssluid)){
 			    $ssluid= $this->Session->delete('sslUid');
 			}
+
+			/* uidﾁｪｯｸ(SSL通信時のみ) */
+			$this->uidCheck();
 
 			//通常通信
 			if ($this->Ssl->https) {
@@ -210,9 +216,6 @@ class AppController extends Controller {
 				}
 			}
 		}
-		
-		/* uidﾁｪｯｸ(SSL通信時のみ) */
-		$this->uidCheck();
 	}
 
 	function __formActionGuidOn(){
