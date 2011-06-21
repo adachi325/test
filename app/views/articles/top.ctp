@@ -84,7 +84,6 @@ if (isset($this->params['pass'][0])) {
 <td align="center"><a href="<?php echo $this->Html->url($url); ?>"><?php echo $this->Html->image("bt_more.gif", array("alt" => "もっと見る", "border" => "0")); ?></a><br />
 <?php
 // ドコモコミュニティのリンク先を設定する
-$docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
 if ($this->Ktai->is_imode()) {
   $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
 } else {

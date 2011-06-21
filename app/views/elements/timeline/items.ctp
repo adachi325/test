@@ -52,7 +52,7 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <?php echo $this->Html->image("icn_green_aboutfriend.gif", array("alt" => "お友達の様子", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
-    <?php echo $this->Html->image($album_pic_path, array("alt" => "子ども画像", "width" => "60", "height" => "60", "style" => "margin:2px 2px 5px 0;")); ?>
+    <?php echo $ktai->image($album_pic_path, array("alt" => "子ども画像", "width" => "60", "height" => "60", "style" => "margin:2px 2px 5px 0;")); ?>
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />

@@ -444,6 +444,8 @@ class DiariesController extends AppController {
         // 他ユーザーの思い出へのアクセス
         if (!$isOwner) {
             if ($this->__checkPublish($diary)) {
+               $currentChild = $this->Child->findById($diary['Diary']['child_id']);
+               $this->set(compact('currentChild'));
                $this->render('info_public');
             } else {
                 $this->set('message', 'このお友達の様子は現在非公開に設定されています。');

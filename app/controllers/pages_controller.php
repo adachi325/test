@@ -144,7 +144,7 @@ class PagesController extends AppController {
             
             //セッションギレのUID取得エラー端末は別画面へ遷移
             $uid = $this->_getUid();
-            if(!empty($uid) &&isset($uid)) {
+            if(!empty($uid) && isset($uid)) {
                 $this->Session->write('sessionTimeOutError01',1);
                 $this->redirect('/');
             }
