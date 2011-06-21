@@ -90,9 +90,9 @@ echo $this->element('timeline/categories');
 <?php
 // ドコモコミュニティのリンク先を設定する
 if ($this->Ktai->is_imode()) {
-  $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/djs/index.xhtml';
+    $docomo_commu_url = 'http://docomo-community.cp05.docomo.ne.jp/dj/';
 } else {
-  $docomo_commu_url = 'http://docomo-community.com/djs/index.xhtml';
+    $docomo_commu_url = 'http://docomo-community.com/djs/index.xhtml';
 }
 ?>
 <a href="<?php echo $docomo_commu_url ?>"><?php echo $this->Html->image("docomo_commu_banner.gif", array("alt" => "ドコモコミュニティ", "width" => "100%", "border" => "0")); ?></a><br />
