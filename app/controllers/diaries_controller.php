@@ -11,8 +11,7 @@ class DiariesController extends AppController {
     function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('top', 'register', 'get_news_count');
-        //$this->Auth->allow('*');
+        $this->Auth->allow('top', 'register', 'get_news_count', 'post_info');
     }
 
     function top($index = null) {
