@@ -187,7 +187,7 @@ class AppController extends Controller {
 			if(empty($ssluid) || !isset($ssluid)){
 			    $ssluid= $this->Session->delete('sslUid');
 			}
-			
+
 			/* uidﾁｪｯｸ(SSL通信時のみ) */
 			$this->uidCheck();
 
