@@ -51,11 +51,11 @@ if ($ii < 3) {
     $opt = array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;");
     if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
         if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110401&guid=ON') { echo $this->Html->image('ap/step/110401.gif', $opt); }
-        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110501&guid=ON') { echo $this->Html->image('ap/step/110501.gif', $opt); }
-        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110601&guid=ON') { echo $this->Html->image('ap/step/110601.gif', $opt); }
-        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110701&guid=ON') { echo $this->Html->image('ap/step/110701.gif', $opt); }
-        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110801&guid=ON') { echo $this->Html->image('ap/step/110801.gif', $opt); }
-        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110901&guid=ON') { echo $this->Html->image('ap/step/110901.gif', $opt); }
+        elseif ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110501&guid=ON') { echo $this->Html->image('ap/step/110501.gif', $opt); }
+        elseif ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110601&guid=ON') { echo $this->Html->image('ap/step/110601.gif', $opt); }
+        elseif ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110701&guid=ON') { echo $this->Html->image('ap/step/110701.gif', $opt); }
+        elseif ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110801&guid=ON') { echo $this->Html->image('ap/step/110801.gif', $opt); }
+        elseif ($url == 'http://shimajiromobile.benesse.ne.jp/ap3/collection/index.php?dt=110901&guid=ON') { echo $this->Html->image('ap/step/110901.gif', $opt); }
     } else {
         if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
             echo $this->Html->image($content['Content']['path'].'.gif', $opt); 
@@ -66,15 +66,6 @@ if ($ii < 3) {
 }
 ?>
 
-<?php 
-if ($ii < 3) {
-    if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
-        echo $this->Html->image($content['Content']['path'].'.gif', array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
-    } else {
-        echo $this->Html->image("icn_puchi.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
-    }
-}
-?>
 <span style="color:#cc0000;"><?php 
 echo ($content['Content']['release_date'] > date("Y-m-d H:i:s", strtotime("-7 day"))) ? ' '.$this->Ktai->emoji(0xE6DD, false) : ' &nbsp;･';
 ?></span><a href="<?php echo $url; ?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo h($content['Content']['title']); ?></span></a><br />
