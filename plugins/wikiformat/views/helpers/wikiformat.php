@@ -35,6 +35,30 @@ class WikiformatHelper extends AppHelper {
 
 		return preg_replace_callback($search_full_url, create_function('$matches', $function), $text);
 	}
+    
+    public function makeGuestLink($text, $options = array(), $link_options = array()) {
+		if (empty($text)) {
+			return $this->invalid_string;
+		}
+		$_setting = array_merge($this->defaults, $options);
+
+		$delimiter = $_setting['delimiter'];
+		$start = $_setting['brackets']['start'];
+		$end = $_setting['brackets']['end'];
+
+		$_options = var_export($link_options, true);
+
+		$function = '$Html = new HtmlHelper();
+			$Html->tags = $Html->loadConfig();
+			$label = $matches[1];
+			$label = empty($label) ? $matches[2] : $label;
+			$_options = '.$_options.';
+            $options = isset($matches[3]) ? array_merge($_options, array("target" => $matches[3])) : $_options;
+			return $Html->link($label, "/navigations/prev/1/", $options);';
+		$search_full_url = "/\\{$start}(?:([^{$end}]*?)\\{$delimiter})?((?:(?:https?|ftp):\/\/|\/)?[a-zA-Z0-9;\/?:@&=\+$,\-_\.!~*'\(\)%#]+?)(?:\\{$delimiter}([^{$start}]*?))?\\{$end}/";
+
+		return preg_replace_callback($search_full_url, create_function('$matches', $function), $text);
+	}
 
 	public function makeTimelineLink($text, $options = array(), $link_options = array()) {
 		if (empty($text)) {
