@@ -73,7 +73,7 @@
 <a name="community" id="community"></a>
 <div style="background:#b4cd59;">
 <?php echo $this->Html->image("petit_taiken.gif", array("width" => "100%")); ?><br />
-子育てのｱｲﾃﾞｨｱやﾜｻﾞを共有できるひろば!<br />
+子育てのｱｲﾃﾞｨｱやﾜｻﾞを共有できる広場!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <div align="left" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE691); ?></span><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/" style="color:#ff3333;"><span style="color:#ff3333;">みんなの体験談へ</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>

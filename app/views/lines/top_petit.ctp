@@ -95,6 +95,9 @@ if (count($childrenData) < 3) :
 
 </table> 
 
+<div align="center" style="text-align:center;font-size:x-small;color:#666666;"><?php echo $this->Html->image('dot_line_pink.gif'); ?><br />
+&lt;こどもちゃれんじ&gt;<br />ｽﾍﾟｼｬﾙｱﾌﾟﾘや動画で遊ぼう!教材と連動するともっと楽しく♪</div>
+<img src="img/spacer.gif" width="1" height="7" /><br />
 
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
@@ -118,7 +121,6 @@ if (count($childrenData) < 3) :
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <div align="left" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE691); ?></span><a href="<?php echo $this->Html->url("/lines/top/{$tab_index}/petit/index/"); ?>" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">詳しく見る</span></a></div>
 
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
 
 <a name="check" id="check"></a>
 <div style="background:#f3dfc4;">
@@ -148,7 +150,7 @@ if (count($childrenData) < 3) :
 <a name="community" id="community"></a>
 <div style="background:#b4cd59;">
 <?php echo $this->Html->image("petit_taiken.gif", array("width" => "100%")); ?><br />
-子育てのｱｲﾃﾞｨｱやﾜｻﾞを共有できるひろば!<br />
+子育てのｱｲﾃﾞｨｱやﾜｻﾞを共有できる広場!<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <div align="left" style="text-align:left;"><span style="color:#ff9900;"><?php $this->Ktai->emoji(0xE691); ?></span><a href="http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/" style="color:#ff3333;"><span style="color:#ff3333;">みんなの体験談へ</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?>
