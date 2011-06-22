@@ -53,7 +53,7 @@ if (!empty($uidErrorStr)) {
 <td align="left" valign="top"><span style="font-size:x-small; color:#333333;">もらった</span><?php echo $ktai->image("icn_hanamaru.gif", array("width" => "20", "height" => "18", "style" => "margin-right:2px; margin-right:2px;")); ?><a href="<?php echo $this->Html->url('/hanamarus/received/'); ?>"><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru_received;?>ｺ</span></a></td>
 </tr>
 <tr>
-<td align="left" valign="top"><span style="font-size:x-small; color:#333333;">あげた</span><?php echo $this->Html->image("icn_hanamaru.gif", array("width" => "20", "height" => "18", "style" => "margin-right:2px; margin-right:2px;")); ?><a href="<?php echo $this->Html->url('/hanamarus/gave/'); ?>"><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru_gave;?>ｺ</span></a></td>
+<td align="left" valign="top"><span style="font-size:x-small; color:#333333;">あげた</span><?php echo $ktai->image("icn_hanamaru.gif", array("width" => "20", "height" => "18", "style" => "margin-right:2px; margin-right:2px;")); ?><a href="<?php echo $this->Html->url('/hanamarus/gave/'); ?>"><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru_gave;?>ｺ</span></a></td>
 </tr>
 </table>
 </div>
