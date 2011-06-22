@@ -89,7 +89,18 @@ class UsersController extends AppController {
 			      TransactionManager::commit();
 			      
 			      //ログイン実行
-			      $this->Auth->login();
+			      $user = $this->User->find('first', array(
+				      'conditions' => array($this->User->name.'.uid' => $uid)
+			      ));
+			      //取得したユーザー情報でログイン
+			      if(!$this->Auth->login($user[$this->User->name])) {
+				  TransactionManager::rollback();
+
+				  $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+				  $this->log($this->data,LOG_DEBUG);
+				  $this->cakeError('error404');
+				  return;
+			      }
 
 			      //UID再取得のため、フルパスでリダイレクト
 			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
