@@ -84,7 +84,11 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" style=" font-size:x-small; color:#ff9900;">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <?php echo $this->Html->image("icn_bule_news.gif", array("alt" => "ニュース", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
-    <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="100%" style="margin:2px 2px 5px 0;">
+    <?php if ($ktai->is_softbank()) : ?>
+      <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="100%" style="margin:2px 2px 5px 0;">
+    <?php else : ?>
+      <img src="<?php echo $article['Article']['photo']; ?>" alt="ニュース画像" width="60" height="60" style="margin:2px 2px 5px 0;">
+    <?php endif; ?>
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
