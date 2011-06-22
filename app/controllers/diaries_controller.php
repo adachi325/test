@@ -159,7 +159,7 @@ class DiariesController extends AppController {
 
     function edit($id=null){
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 
         //セッション情報回収、削除
@@ -199,7 +199,7 @@ class DiariesController extends AppController {
 
     function edit_confirm() {
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 
         // 不正遷移チェック
@@ -243,7 +243,7 @@ class DiariesController extends AppController {
 
     function edit_complete(){
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 
         //セッション情報回収、削除
