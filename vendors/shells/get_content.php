@@ -51,7 +51,11 @@ class GetContentShell extends AppShell {
     }
 
     function removeDoubleQuote($str) {
-        return preg_replace('/^\"(.*?)\"$/', "$1", $str);
+        $ret = preg_replace('/^\"(.*?)\"$/', "$1", $str);
+        $ret = preg_replace('/^\"/', "", $ret);
+        $ret = preg_replace('/\"$/', "", $ret);
+
+        return $ret;
     }
 
     function removeShimajiro($str) {
