@@ -14,8 +14,28 @@ class UsersController extends AppController {
         parent::beforeRender();
         $this->User->recursive = 0;
     }
+    
+    function uidCheck(){
+	if (isset($_SERVER['HTTPS'])) {
+	    $uid = $this->Session->read('sslUid');
+	    if(empty($uid) || !isset($uid)) {
+		$result = $this->_getCareer();
+		if( $result == 0 or $result == 1 or $result == 2 ){
+		    $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+
+		    $this->log('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');
+
+		    $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
+		    return;
+		}
+	    }
+	}
+    }
 
     function login(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
         //ログイン判定
         if($this->Auth->user()) {
@@ -39,6 +59,9 @@ class UsersController extends AppController {
     }
 
     function register(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -185,6 +208,9 @@ class UsersController extends AppController {
 
     function edit() {
 	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();	
+	
         $this->pageTitle = '登録情報変更';
 		
 	if (!empty($this->data)) {
@@ -227,6 +253,9 @@ class UsersController extends AppController {
     }
 
     function edit_confirm(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
 	$this->pageTitle = '変更確認';
         //セッション情報回収
@@ -243,6 +272,10 @@ class UsersController extends AppController {
     }
     
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
+	
         $this->pageTitle = '変更完了';
         //セッション情報回収、削除
         $this->data = $this->Session->read('userEditData');
@@ -301,6 +334,9 @@ class UsersController extends AppController {
 
     //リマインド認証
     function remind () {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();	
 
 	//初回はNoCheck
 	if (empty($this->data['User']['NoCheck']) || !isset($this->data['User']['NoCheck'])) {
@@ -366,6 +402,9 @@ class UsersController extends AppController {
 
     //パスワード再設定
     function remind_password () {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
 	$errorStr = "入力情報が正しくありません。";
 
@@ -577,6 +616,9 @@ class UsersController extends AppController {
     }
 
     function other_setting() {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
         // POSTデータが存在する場合 
         if (!empty($this->data)) {
@@ -605,6 +647,9 @@ class UsersController extends AppController {
     }
 
     function other_setting_confirm(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
 
         //セッション情報回収
         $this->data = $this->Session->read('userOtherSettingData');
@@ -616,6 +661,9 @@ class UsersController extends AppController {
     }
 
     function other_setting_complete() {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->uidCheck();
       
         //セッション情報回収、削除
         $this->data = $this->Session->read('userOtherSettingData');
