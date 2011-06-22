@@ -24,7 +24,10 @@ class linesController extends AppController {
         $this->set(compact($user));
 
         if($user) {
-            $this->Toppage->getChilddata($index);
+            $currentChild = $this->Toppage->getChilddata($index);
+            if (empty($line_name)) {
+                $line_name = $currentChild['Line']['category_name'];
+            }
             $this->Toppage->getLinedata($line_name);
             $this->Toppage->getProfiledata();
 
