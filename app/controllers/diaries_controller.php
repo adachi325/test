@@ -158,6 +158,9 @@ class DiariesController extends AppController {
     }
 
     function edit($id=null){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         //セッション情報回収、削除
         $diaryEditData = $this->Session->read('diaryEditData');
@@ -195,6 +198,9 @@ class DiariesController extends AppController {
     }
 
     function edit_confirm() {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         // 不正遷移チェック
         if(empty($this->data)){
@@ -236,6 +242,9 @@ class DiariesController extends AppController {
     }
 
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         //セッション情報回収、削除
         $this->data = $this->Session->read('diaryEditData');
