@@ -1,5 +1,5 @@
 <?php echo $this->Html->image("ttl_setting.gif", array("width" => "100%")); ?><br />
-<img src="img/spacer.gif" width="1" height="10"/><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 内容をご確認の上､｢変更｣ﾎﾞﾀﾝを押してください｡<br />内容修正の場合は｢戻る｣ﾎﾞﾀﾝを押して前の画面に戻って行ってください｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
