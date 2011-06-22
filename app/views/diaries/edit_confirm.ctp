@@ -36,7 +36,7 @@
 </span></td>
 <td align="right">
 <?php if ($this->data['Diary']['hanamaru_count'] > 0 ) : ?>
-<span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:0 4px 0 0;")); ?><?php echo $this->data['Diary']['hanamaru_count']; ?>ｺ</span>
+<span style="font-size:x-small; color:#FF0000;"><?php echo $ktai->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "width" => "20", "height" => "18", "style" => "margin:0 4px 0 0;")); ?><?php echo $this->data['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php endif; ?>
 </td>
 </tr>

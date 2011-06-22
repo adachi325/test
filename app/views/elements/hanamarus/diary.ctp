@@ -19,6 +19,6 @@ if ($hanamaru['Diary']['has_image']) {
 <tr>
 <td></td>
 
-<td align="left" valign="middle"><?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "style" => "margin:1px 3px 0 0;")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru['Diary']['hanamaru_count']; ?>ｺ</span></td>
+<td align="left" valign="middle"><?php echo $ktai->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "width" => "20", "height" => 18, "style" => "margin:1px 3px 0 0;")); ?><span style="font-size:x-small; color:#FF0000;"><?php echo $hanamaru['Diary']['hanamaru_count']; ?>ｺ</span></td>
 <td align="right" valign="middle"><span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $hanamaru['Diary']['modified']); ?></span></td>
 </tr></table>
