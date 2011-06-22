@@ -188,12 +188,6 @@ class AppController extends Controller {
 			}
 		}
 		
-		//SSL環境時のUIDチェック
-		if ($secured && $this->Ssl->https) {
-		    /* uidﾁｪｯｸ(SSL通信時のみ) */
-		    $this->uidCheck();
-		}
-		
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
@@ -313,40 +307,5 @@ class AppController extends Controller {
 	function check_invalid_code($data) {
 		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
 		return $data;
-	}
-
-	function uidCheck(){
-	    if (isset($_SERVER['HTTPS'])) {
-		$uid = $this->Session->read('sslUid');
-		if(empty($uid) || !isset($uid)) {
-		    $result = $this->_getCareer();
-		    if( $result == 0 or $result == 1 or $result == 2 ){
-			$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
-			
-			$this->log('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');
-			
-			$this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
-			return;
-		    }
-		}
-	    }
-	}
-	/**
-	 * キャリア判定
-	 */
-	function _getCareer(){
-	    if ($this->Ktai->is_imode()) {
-		return 0;
-	    } else if ($this->Ktai->is_ezweb()) {
-		return 1;
-	    } else if ($this->Ktai->is_softbank()) {
-		return 2;
-	    } else if ($this->Ktai->is_iphone()) {
-		return 3;
-	    } else if ($this->Ktai->is_android()) {
-		return 4;
-	    } else {
-		return 5;
-	    }
 	}
 }
