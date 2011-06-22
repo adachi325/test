@@ -14,8 +14,11 @@ class UsersController extends AppController {
         parent::beforeRender();
         $this->User->recursive = 0;
     }
-
+    
     function login(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         //ログイン判定
         if($this->Auth->user()) {
@@ -39,6 +42,9 @@ class UsersController extends AppController {
     }
 
     function register(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
 
         //ログイン済みならマイページへ遷移
         if($this->Auth->user()) {
@@ -87,6 +93,20 @@ class UsersController extends AppController {
   			
 			      $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
 			      TransactionManager::commit();
+			      
+			      //ログイン実行
+			      $user = $this->User->find('first', array(
+				      'conditions' => array($this->User->name.'.uid' => $uid)
+			      ));
+			      //取得したユーザー情報でログイン
+			      if(!$this->Auth->login($user[$this->User->name])) {
+				  TransactionManager::rollback();
+
+				  $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+				  $this->log($this->data,LOG_DEBUG);
+				  $this->cakeError('error404');
+				  return;
+			      }
 
 			      //UID再取得のため、フルパスでリダイレクト
 			      $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
@@ -134,72 +154,6 @@ class UsersController extends AppController {
         }
 
     }
-
-/* 廃止ロジック 2011.05.16
-    function register_confirm(){
-        //セッション情報回収
-        $this->data = $this->Session->read('userRegisterData');
-        if (empty($this->data)) {
-            $this->Session->delete('userRegisterData');
-            //$this->Session->setFlash(__('不正操作です。', true));
-            //$this->cakeError('error404');
-            return;
-        }
-        $this->_setline();
-	$this->Session->write('userRegisterData', $this->data);
-    }
-
-    function register_complete() {
-
-	$this->log('[comp]this->data',LOG_DEBUG);
-	$this->log($this->data,LOG_DEBUG);
-
-        //セッション情報回収、削除
-	$this->data = $this->Session->read('userRegisterData');
-        $this->Session->delete('userRegisterData');
-
-	$this->log('[comp]userRegisterData',LOG_DEBUG);
-	$this->log($userRegisterData,LOG_DEBUG);
-
-        //初回会員登録処理
-        if (!empty($this->data)) {
-            try {
-               TransactionManager::begin();
-               $this->_setRegisterData();
-               if( $this->User->_register($this->data)){
-                  //初回登録プレゼント
-				  $this->_initialRegistrationPresents($this->User->Child->getLastInsertId());
-
-				  $this->User->save_hashcode($this->User->getLastInsertId());	
-				  $this->User->Child->save_hashcode($this->User->Child->getLastInsertId());	
-
-                  TransactionManager::commit();
-                  $this->redirect('/navigations/after1');
-               } else {
-                  TransactionManager::rollback();
-
-                  $this->log('会員登録に失敗01:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-                  $this->log($this->data,LOG_DEBUG);
-                  $this->cakeError('error404');
-                  return;
-               }
-            } catch(Exception $e) {
-                  TransactionManager::rollback();
-
-                  $this->log('会員登録に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-                  $this->log($this->data,LOG_DEBUG);
-                  $this->log($e,LOG_DEBUG);
-                  $this->cakeError('error404');
-                  return;
-            }
-        } else {
-
-             $this->log('会員登録に失敗03:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-             $this->cakeError('error404');
-             return;
-        }
-    }
-*/
     
     function _initialRegistrationPresents($id){
         $presentIds = Configure::read('Child.Initial_registration_presents');
@@ -236,6 +190,9 @@ class UsersController extends AppController {
 	}
 
     function edit() {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();	
 	
         $this->pageTitle = '登録情報変更';
 		
@@ -279,6 +236,9 @@ class UsersController extends AppController {
     }
 
     function edit_confirm(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
 	$this->pageTitle = '変更確認';
         //セッション情報回収
@@ -295,6 +255,10 @@ class UsersController extends AppController {
     }
     
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         $this->pageTitle = '変更完了';
         //セッション情報回収、削除
         $this->data = $this->Session->read('userEditData');
@@ -353,6 +317,9 @@ class UsersController extends AppController {
 
     //リマインド認証
     function remind () {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();	
 
 	//初回はNoCheck
 	if (empty($this->data['User']['NoCheck']) || !isset($this->data['User']['NoCheck'])) {
@@ -418,6 +385,9 @@ class UsersController extends AppController {
 
     //パスワード再設定
     function remind_password () {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
 	$errorStr = "入力情報が正しくありません。";
 
@@ -469,39 +439,6 @@ class UsersController extends AppController {
     }
 
     function remind_complete () {
-    }
-    
-    /**
-     * 端末からuidを取得する。
-     */
-    function _getUid(){
-        //UID取得
-        if($this->Ktai->is_ktai()) {
-            $result = $this->_getCareer();
-            if( $result == 0 or $result == 1 or $result == 2 ){
-                return $this->Ktai->get_uid();
-            }
-        }
-        return 0;
-    }
-
-    /**
-     * キャリア判定
-     */
-    function _getCareer(){
-        if ($this->Ktai->is_imode()) {
-            return 0;
-        } else if ($this->Ktai->is_ezweb()) {
-            return 1;
-        } else if ($this->Ktai->is_softbank()) {
-            return 2;
-        } else if ($this->Ktai->is_iphone()) {
-            return 3;
-        } else if ($this->Ktai->is_android()) {
-            return 4;
-        } else {
-            return 5;
-        }
     }
 
     function delete(){
@@ -629,6 +566,9 @@ class UsersController extends AppController {
     }
 
     function other_setting() {
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         // POSTデータが存在する場合 
         if (!empty($this->data)) {
@@ -657,6 +597,9 @@ class UsersController extends AppController {
     }
 
     function other_setting_confirm(){
+	
+	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	$this->Tk->uidCheck();
 
         //セッション情報回収
         $this->data = $this->Session->read('userOtherSettingData');
@@ -668,6 +611,9 @@ class UsersController extends AppController {
     }
 
     function other_setting_complete() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
       
         //セッション情報回収、削除
         $this->data = $this->Session->read('userOtherSettingData');

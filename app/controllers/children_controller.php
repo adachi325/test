@@ -228,6 +228,10 @@ class ChildrenController extends AppController {
     }
 
     function register() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //子供数チェック
         $this->_checkChildrenCount();
 
@@ -265,6 +269,10 @@ class ChildrenController extends AppController {
     }
 
     function register_confirm(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収
         $this->data = $this->Session->read('childRegisterData');
 
@@ -280,6 +288,10 @@ class ChildrenController extends AppController {
     }
 
     function register_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //子供数チェック
         $this->_checkChildrenCount();
 
@@ -346,6 +358,10 @@ class ChildrenController extends AppController {
 
     //子供の情報を編集する
     function edit() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収、削除
         $childEditData = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');
@@ -382,6 +398,9 @@ class ChildrenController extends AppController {
     }
 
     function edit_confirm(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
 
         if (!empty($this->data)) {
 
@@ -410,6 +429,10 @@ class ChildrenController extends AppController {
     }
 
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収、削除
         $this->data = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');
@@ -548,5 +571,23 @@ class ChildrenController extends AppController {
         $this->redirect('/children/');
 
     }
+    
+    function uidCheck(){
+	if (isset($_SERVER['HTTPS'])) {
+	    $uid = $this->Session->read('sslUid');
+	    if(empty($uid) || !isset($uid)) {
+		$result = $this->_getCareer();
+		if( $result == 0 or $result == 1 or $result == 2 ){
+		    $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+
+		    $this->log('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');
+
+		    $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
+		    return;
+		}
+	    }
+	}
+    }
+    
 }
 ?>
