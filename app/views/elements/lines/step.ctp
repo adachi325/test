@@ -34,7 +34,7 @@ foreach($contents as $content):
 <?php if ($content['Content']['release_date'] < date('Y-m-d H:i:s')): ?>
 
 <?php 
-$url = $content['Content']['path'];
+$url = trim($content['Content']['path']);
 if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 } else {
 	$url = $this->Html->url(DS.$url.DS);
