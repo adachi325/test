@@ -20,15 +20,13 @@ class TkComponent extends Object {
     }
 
     function uidCheck(){
-	if (isset($_SERVER['HTTPS'])) {
-	    $uid = $this->controller->Session->read('sslUid');
-	    if(empty($uid) || !isset($uid)) {
-		$result = $this->_getCareer();
-		if( $result == 0 or $result == 1 or $result == 2 ){
-		    $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
-		    $this->controller->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
-		    return;
-		}
+	$uid = $this->controller->Session->read('sslUid');
+	if(empty($uid) || !isset($uid)) {
+	    $result = $this->_getCareer();
+	    if( $result == 0 or $result == 1 or $result == 2 ){
+		$urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+		$this->controller->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
+		return;
 	    }
 	}
     }

@@ -229,7 +229,7 @@ class ChildrenController extends AppController {
 
     function register() {
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 	
         //子供数チェック
@@ -270,7 +270,7 @@ class ChildrenController extends AppController {
 
     function register_confirm(){
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 	
         //セッション情報回収
@@ -288,6 +288,10 @@ class ChildrenController extends AppController {
     }
 
     function register_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //子供数チェック
         $this->_checkChildrenCount();
 
@@ -355,7 +359,7 @@ class ChildrenController extends AppController {
     //子供の情報を編集する
     function edit() {
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 	
         //セッション情報回収、削除
@@ -395,7 +399,7 @@ class ChildrenController extends AppController {
 
     function edit_confirm(){
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 
         if (!empty($this->data)) {
@@ -425,6 +429,10 @@ class ChildrenController extends AppController {
     }
 
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収、削除
         $this->data = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');

@@ -43,7 +43,7 @@ class UsersController extends AppController {
 
     function register(){
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
+	/* uidﾁｪｯｸ */
 	$this->Tk->uidCheck();
 
         //ログイン済みならマイページへ遷移
@@ -255,6 +255,9 @@ class UsersController extends AppController {
     }
     
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
 	
         $this->pageTitle = '変更完了';
         //セッション情報回収、削除
@@ -608,6 +611,9 @@ class UsersController extends AppController {
     }
 
     function other_setting_complete() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
       
         //セッション情報回収、削除
         $this->data = $this->Session->read('userOtherSettingData');
