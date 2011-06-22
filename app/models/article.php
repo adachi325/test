@@ -5,7 +5,7 @@ class Article extends AppModel {
     /**
      * 重複判定
      */
-    function getArticleId($type, $external_id = null) {
+    function getArticle($type, $external_id = null) {
         if ($external_id == null) {
             return -1;
         }
@@ -14,11 +14,7 @@ class Article extends AppModel {
             'conditions' => array($this->alias.'.type' => $type, $this->alias.'.external_id' => $external_id),
         ));
 
-        $article_id = -1;
-        if (!empty($article)) {
-            $article_id = $article['Article']['id'];
-        }
-        return $article_id;
+        return $article;
     }
 }
 ?>
