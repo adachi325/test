@@ -108,7 +108,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
   </td>
 </tr>
 <?php else: ?>
