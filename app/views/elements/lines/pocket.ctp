@@ -56,7 +56,7 @@ if ($ii < 3) {
         if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
             echo $this->Html->image($content['Content']['path'].'.gif', $opt); 
         } else {
-            echo $this->Html->image("icn_puchi.gif", $opt); 
+            //echo $this->Html->image("icn_puchi.gif", $opt); 
         }
     }
 }
