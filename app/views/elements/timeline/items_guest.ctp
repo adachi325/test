@@ -164,9 +164,7 @@ $i = !$i;
   <td width="25%" rowspan="2" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap; font-size:x-small; color:#ff9900;">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
     <?php echo $this->Html->image("icn_purple_psycho.gif", array("alt" => "心理テスト", "width" => "100%", "style" => "margin:1px 3px 0 0;")); ?><br />
-    <?php if (!empty($article['Article']['photo'])) : ?>
     <?php echo $ktai->image('pic_psycho01.gif', array("alt" => "心理テスト画像", "width" => "60", "height" => "60", "style" => "margin:5px 2px 5px 0;")); ?>
-    <?php endif; ?>
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
