@@ -57,7 +57,8 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top"><span style="font-size:x-small;color:#333333;">
     <?php echo h($title); ?><br />
-    <div align="left" style="text-align:left;color:#339933;margin-top:10px;font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+    <div align="right" style="text-align:right;color:#339933; font-size:x-small"><?php echo $this->DiaryCommon->formatYearsOld($article['Child']['birth_year'], $article['Child']['birth_month']);?>のお友達</div>
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
   </td>
 </tr>
