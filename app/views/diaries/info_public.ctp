@@ -52,7 +52,7 @@ if ($diary['Diary']['has_image']) {
   <tr>
     <td width="60%" align="right">
     <?php if ($alreadyAddHanamaru) : ?>
-      <?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "border" => "0")); ?>
+      <?php echo $ktai->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "border" => "0", "width" => "60", "height" => "21")); ?>
     <?php else: ?>
       <?php
       $scheme = '';
@@ -64,9 +64,9 @@ if ($diary['Diary']['has_image']) {
       $url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
       $encoded_url = urlencode($url);
       ?>
-      <?php echo $this->Html->image("icn_hanamaru_btn.gif",
+      <?php echo $ktai->image("icn_hanamaru_btn.gif",
         array("url" => "/hanamarus/add_hanamaru?id={$diary['Diary']['id']}&user_id={$user['User']['hash']}&returnPath={$encoded_url}",
-              "alt" => "はなまる", "border" => "0")); ?>
+              "alt" => "はなまる", "border" => "0", "width" => "60", "height" => "21")); ?>
     <?php endif; ?>
     <?php echo $this->Html->image("spacer.gif", array("width" => "4", "height" => "10")); ?>
     </td>

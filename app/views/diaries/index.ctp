@@ -132,7 +132,7 @@ foreach($diaries as $diary):
   <tr>
     <td align="right" valign="top">
     <?php if ($diary['Diary']['hanamaru_count'] > 0) { ?>
-      <?php echo $this->Html->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0")); ?>
+      <?php echo $ktai->image("icn_hanamaru.gif", array("alt" => "はなまる", "width" => "20", "height" => "18", "border" => "0")); ?>
       <span style="font-size:x-small; color:#FF0000;"><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
     <?php } ?>
     </td>
