@@ -23,6 +23,8 @@ class PagesController extends AppController {
 		}
 	}
 
+    function renewal() { }
+
 	function display() {
 
 		if ($this->Ktai->is_android()) {
