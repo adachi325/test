@@ -98,7 +98,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
   </td>
 </tr>
 <?php else: ?>
@@ -115,7 +115,7 @@ $i = !$i;
 <tr>
 <td colspan="4" align="left" valign="top">
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span></td>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span></td>
 </tr>
 <?php endif; ?>
 
@@ -151,7 +151,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeGuestLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>

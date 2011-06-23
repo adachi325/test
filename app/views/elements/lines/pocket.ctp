@@ -48,10 +48,16 @@ if ($prev != $content['Issue']['title']):
 <?php endif; ?>
 <?php 
 if ($ii < 3) {
-    if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
-        echo $this->Html->image($content['Content']['path'].'.gif', array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+    $opt = array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;");
+    if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
+        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap1/petit/advice/') { echo $this->Html->image('ap/petit/advice.gif', $opt); }
+        if ($url == 'http://shimajiromobile.benesse.ne.jp/ap1/petit/taiken/') { echo $this->Html->image('ap/petit/taiken.gif', $opt); }
     } else {
-        echo $this->Html->image("icn_puchi.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+        if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
+            echo $this->Html->image($content['Content']['path'].'.gif', $opt); 
+        } else {
+            //echo $this->Html->image("icn_puchi.gif", $opt); 
+        }
     }
 }
 ?>

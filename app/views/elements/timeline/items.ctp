@@ -108,7 +108,7 @@ $i = !$i;
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
-    <span style="font-size:x-small; color:#333333;"><?php echo h($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
   </td>
 </tr>
 <?php else: ?>
@@ -160,13 +160,13 @@ $i = !$i;
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink(h($article['Article']['title'])); ?></span>
+    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink($article['Article']['title']); ?></span>
   </td>
 </tr>
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $article['Article']['body']; ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>

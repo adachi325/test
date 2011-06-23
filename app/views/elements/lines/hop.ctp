@@ -15,15 +15,12 @@
 </tr>
 </table>
 
-<div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_pink.gif", array()); ?></div>
-
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
 <div>
 <?php
 if(count($contents) > 0):
 ?>
-
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <?php 
@@ -55,7 +52,7 @@ if ($ii < 3) {
     if (file_exists(IMAGES.$content['Content']['path'].'.gif')) {
         echo $this->Html->image($content['Content']['path'].'.gif', array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
     } else {
-        echo $this->Html->image("icn_puchi.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
+        //echo $this->Html->image("icn_puchi.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 3px 0;")); 
     }
 }
 ?>

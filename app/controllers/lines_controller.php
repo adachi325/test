@@ -15,7 +15,7 @@ class linesController extends AppController {
         $this->Auth->allow('top');
     }
    
-    function top($index = null, $line_name = null) {
+    function top($index = null, $line_name = null, $option = null) {
         // 非会員の場合のチェック
 
         $this->set('line_name', $line_name);
@@ -24,9 +24,19 @@ class linesController extends AppController {
         $this->set(compact($user));
 
         if($user) {
-            $this->Toppage->getChilddata($index);
+            $currentChild = $this->Toppage->getChilddata($index);
+            if (empty($line_name)) {
+                $line_name = $currentChild['Line']['category_name'];
+            }
             $this->Toppage->getLinedata($line_name);
             $this->Toppage->getProfiledata();
+
+            if ($line_name == 'petit') {
+                if (!$option) {
+                    $this->render('top_petit');
+                }
+            }
+
         } else {
             $line = array();
             if ($line_name) {
