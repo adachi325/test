@@ -145,7 +145,7 @@ $i = !$i;
   </td>
   <td colspan="3" align="left" valign="top">
   <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink($article['Article']['title']); ?></span>
+    <span style="font-size:x-small; color:#ff9900;"><?php echo $this->Wikiformat->makeLink($article['Article']['title'], array(), array('style' => 'color:#ff9900;')); ?></span>
   </td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeGuestTimelineLink($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeGuestTimelineLink($article['Article']['body'], array(), array('style' => 'color:#9933CC;')); ?></span>
   </td>
 </tr>
 <tr>
