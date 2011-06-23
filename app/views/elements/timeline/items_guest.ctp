@@ -179,7 +179,7 @@ $i = !$i;
 <tr>
   <td colspan="3" align="left" valign="top">
       <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "2")); ?><br />
-    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeGuestLink($article['Article']['body']); ?></span>
+    <span style="font-size:x-small; color:#333333;"><?php echo $this->Wikiformat->makeGuestTimelineLink($article['Article']['body']); ?></span>
   </td>
 </tr>
 <tr>
