@@ -35,13 +35,13 @@ class GetContentShell extends AppShell {
                     $rec['id'] = $article['Article']['id'];
                     $rec['release_date'] = $article['Article']['release_date'];
                 } else {
-                    $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
+                    $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
                 }
                 $rec['external_id'] = $this->removeDoubleQuote($cells[0]);
                 $rec['title'] = $this->removeDoubleQuote($cells[1]);
                 $rec['body'] = $this->removeDoubleQuote($cells[2]);
                 $rec['photo'] = $this->removeDoubleQuote($cells[3]);
-                $rec['release_date'] = $this->removeDoubleQuote($cells[4]);
+                $rec['expire_date'] = $this->removeDoubleQuote($cells[5]);
                 $rec['type'] = $type;
 
                 $article['Article'] = $rec;
