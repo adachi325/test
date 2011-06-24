@@ -19,6 +19,20 @@ class TkComponent extends Object {
         return $User['User']['last_selected_child'];
     }
 
+    // 子供取得
+    // 自分の子供のIDを配列で返却します
+    function _getChildIds() {
+      $child_ids = array();
+
+      $user = $this->controller->Auth->user();
+      $Child = ClassRegistry::init('Child');
+      $children = $Child->find('all', array('conditions' => array('user_id' => $user['User']['id'])));
+      foreach ($children as $child) {
+        array_push($child_ids, $child['Child']['id']);
+      }
+      return $child_ids;
+    }
+
     function uidCheck(){
 	if (isset($_SERVER['HTTPS'])) {
 	    $uid = $this->controller->Session->read('sslUid');

@@ -184,7 +184,7 @@ class DiariesController extends AppController {
             $this->Diary->contain();
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getChildIds(),
                     'Diary.id' => $id
                 )
             );
@@ -211,7 +211,7 @@ class DiariesController extends AppController {
         // DBよりデータを取得
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getChildIds(),
                 'Diary.id' => $this->data['Diary']['id'],
             )
         );
@@ -291,7 +291,7 @@ class DiariesController extends AppController {
             $this->Diary->contain('Month');
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getChildIds(),
                     'Diary.id' => $id
                 )
             );
@@ -331,10 +331,10 @@ class DiariesController extends AppController {
             }
             $id = $this->data['Diary']['check'];
 
-            $child_id = $this->Tk->_getLastChild();
+            $child_ids = $this->Tk->_getChildIds();
 
             $this->Diary->contain('Month');
-            $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id = '.$id , 'Diary.child_id = '.$child_id)));
+            $diary = $this->Diary->find('first', array( 'conditions' => array( 'Diary.id' => $id , 'Diary.child_id' => $child_ids)));
 
             if(empty($diary)){
                  $this->Session->setFlash(__('不正操作です。', true));
@@ -364,18 +364,18 @@ class DiariesController extends AppController {
             }
 
             if($diary['Diary']['has_image']) {
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $child_id,$id) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $id) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $child_id,$id) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $id) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
-                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child_id,$id))) {
-                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $child_id,$id) )){
+                if (file_exists('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $diary['Diary']['child_id'], $id))) {
+                    if(!unlink('img/'.sprintf(Configure::read('Diary.image_path_postcard'), $diary['Diary']['child_id'], $id) )){
                         //$this->Session->setFlash(__('思い出画像の削除に失敗した可能性があります。', true));
                     }
                 }
@@ -497,7 +497,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getChildIds(),
                 'Diary.id' => $id
             )
         );
@@ -558,7 +558,7 @@ class DiariesController extends AppController {
         $this->Diary->contain('Month');
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getChildIds(),
                 'Diary.id' => $id
             )
         );
@@ -736,7 +736,7 @@ $list[6] ='--5000000000--
 
             $conditions = array(
                 'conditions' => array(
-                    'Diary.child_id' => $this->Tk->_getLastChild(),
+                    'Diary.child_id' => $this->Tk->_getChildIds(),
                     'Diary.id' => $id
                 )
             );
@@ -760,7 +760,7 @@ $list[6] ='--5000000000--
         } else {
           $conditions = array(
             'conditions' => array(
-              'Diary.child_id' => $this->Tk->_getLastChild(),
+              'Diary.child_id' => $this->Tk->_getChildIds(),
               'Diary.id' => $id
             ),
           );
@@ -781,7 +781,7 @@ $list[6] ='--5000000000--
         // DBよりデータを取得
         $conditions = array(
             'conditions' => array(
-                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.child_id' => $this->Tk->_getChildIds(),
                 'Diary.id' => $this->data['Diary']['id'],
             )
         );
