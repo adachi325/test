@@ -260,7 +260,7 @@ class DiariesController extends AppController {
                 $this->Diary->create();
                 if ($this->Diary->save($this->data)) {
 
-                    $this->delete_relative_data($id);
+                    $this->delete_relative_data($this->data['Diary']['id']);
 
                     TransactionManager::commit();
                     $this->Session->setFlash(__('更新完了。', true));
