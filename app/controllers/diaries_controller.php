@@ -887,6 +887,67 @@ $list[6] ='--5000000000--
     function publish() {
    
     }
-    }
+    
+  /**
+   * ｻｲﾑﾈｲﾙ作成API(step3)
+   * 引数の条件でｻﾑﾈｲﾙを作成する
+   * 作成結果とサムネイルのパスを返す。
+   * 
+   * @param	string	$inputfile	縮小対象ﾌｧｲﾙ
+   * @param	string	$inputfilepath	縮小対象ﾌｧｲﾙﾊﾟｽ
+   * @param	int	$size		縮小ｻｲｽﾞ
+   * @param	int	$mainline	縮小主軸
+   * @return	String	$result		処理結果
+  */
+  function api_create_thumbnail(){
+      
+        //ｵｰﾄﾚﾝﾀﾞｰ解除
+        $this->autoRender = false;
+
+        //特殊文字をHTMLエンティティに変換
+	$urlPrames = array();
+        $urlPrames['inputfile'] = h($this->params['url']['inputfile']);
+        $urlPrames['inputfilepath'] = h($this->params['url']['inputfilepath']);
+        $urlPrames['size'] = h($this->params['url']['size']);
+        $urlPrames['mainline'] = h($this->params['url']['mainline']);
+	
+	$this->log($this->params,LOG_DEBUG);
+	
+	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
+	foreach($urlPrames as $key => $value){
+	    //引数ﾁｪｯｸ
+	    if(empty($value)){
+		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false"';
+	    }
+	    //ﾇﾙ文字対策
+	    if (isset($value)) {
+		    $urlPrames[$key] = $this->check_invalid_code($value);
+	    } else {
+		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false"';
+	    }
+	}
+        
+        //ｻﾑﾈｲﾙ作成
+        $result = $this->CreatePresent->imageReSize(
+                $urlPrames['inputfilepath'].$urlPrames['inputfile'],
+                WWW_ROOT.sprintf(Configure::read('ApiThumbnail.outPutPath'), 
+                     str_replace(Configure::read('ApiThumbnail.inPutFileExtension'), "", $urlPrames['inputfile'] )),
+                $urlPrames['size'],
+                $urlPrames['mainline']
+        );
+	
+	if(!$result) {
+	    return '"false"';
+	}
+	
+	return '"true"';
+	
+  }
+    
+}
 
 ?>

@@ -645,5 +645,55 @@ class UsersController extends AppController {
         //セッション全削除
         $this->Session->destroy();
     }
+
+    /** 
+     * 外部認証用API(step3)
+     * 処理結果と認証用のhashコードを返す。
+     * 
+     * @param	int	$loginid    ﾛｸﾞｲﾝ用ID
+     * @param	int	$password   ﾛｸﾞｲﾝ用ﾊﾟｽﾜｰﾄﾞ
+     * @return	String	$result	    処理結果
+     * @return	String	$uid	    認証用hashｺｰﾄﾞ
+     */
+    function api_login() {
+	
+        //ｵｰﾄﾚﾝﾀﾞｰ解除
+        $this->autoRender = false;
+
+        //特殊文字をHTMLエンティティに変換
+	$urlPrames = array();
+        $urlPrames['User.loginid'] = h($this->params['url']['id']);
+        $urlPrames['User.password'] = h($this->params['url']['pass']);
+	
+	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
+	foreach($urlPrames as $key => $value){
+	    //引数ﾁｪｯｸ
+	    if(empty($value)){
+		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false",""';
+	    }
+	    //ﾇﾙ文字対策
+	    if (isset($value)) {
+		    $urlPrames[$key] = $this->check_invalid_code($value);
+	    } else {
+		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false",""';
+	    }
+	}
+
+        //存在ﾁｪｯｸ
+        $checkData['User.password'] = AuthComponent::password( $checkData['User.password'] );
+        $this->User->contain();
+        $users = $this->User->find('first',array('conditions' => $checkData));        
+        if(empty($users) || count($users) != 1){
+            return '"false",""';
+        }
+
+        //hash値をﾘﾀｰﾝ
+        return '"true,"."'.$users['User']['hash'].'"';
+   
+    }
 }
 ?>
