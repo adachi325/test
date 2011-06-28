@@ -69,6 +69,20 @@ class UsersController extends AppController {
 	    return;
 	}
 
+		//制御文字対策
+		$user_attrs = array('loginid', 'new_password', 'row_password', 'dc_user');
+		foreach ($user_attrs as $attr){
+			if (isset($this->data['User'][$attr])) {
+				$this->data['User'][$attr] = $this->check_invalid_code($this->data['User'][$attr]);
+			}
+		}
+		$child_attrs = array('nickname', 'sex', 'birth_year', 'birth_month', 'line_id', 'benesse_user');
+		foreach ($child_attrs as $attr){
+			if (isset($this->data['Child'][0][$attr])) {
+				$this->data['Child'][0][$attr] = $this->check_invalid_code($this->data['Child'][0][$attr]);
+			}
+		}
+		
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
