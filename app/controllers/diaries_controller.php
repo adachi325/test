@@ -156,7 +156,23 @@ class DiariesController extends AppController {
             $this->set('getStr',$typelist[$diary['Present']['present_type']]);
         }
     }
-
+    
+    //postデータからの制御コード除去
+	function _check_code() {
+		$diary_attrs = array(
+							'title',
+							'body',
+							'wish_public',
+							'id',
+							'check',
+		);
+		foreach ($diary_attrs as $attr){
+			if (isset($this->data['Diary'][$attr])) {
+				$this->data['Diary'][$attr] = $this->check_invalid_code($this->data['Diary'][$attr]);
+			}
+		}
+	}
+    
     function edit($id=null){
 	
 	/* uidﾁｪｯｸ */
@@ -222,6 +238,9 @@ class DiariesController extends AppController {
           $this->redirect('/');
         }
 
+        //postデータチェック
+        $this->_check_code();
+        
         $request = array();
 
         // DBより取得したデータに、POSTされたデータで上書きする
@@ -329,6 +348,10 @@ class DiariesController extends AppController {
                  $this->redirect('/');
 
             }
+            
+            //制御文字対策
+            $this->_check_code();
+            
             $id = $this->data['Diary']['check'];
 
             $child_ids = $this->Tk->_getChildIds();
@@ -790,7 +813,10 @@ $list[6] ='--5000000000--
           $this->Session->setFlash(__('エラー', true));
           $this->redirect('/');
         }
-
+        
+        //postデータチェック
+        $this->_check_code();
+        
         $request = array();
 
         $request = $diary;
