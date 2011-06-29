@@ -93,7 +93,9 @@ class EasyLoginComponent extends Object {
 
                     //取得したユーザー情報でログイン
                     if($this->controller->Auth->login($user[$User->name])) {
-                        //ユーザー情報設定
+                		//セッションIDの再割り当て
+                		$this->controller->Session->renew();
+                    	//ユーザー情報設定
                         $this->_setUserData();
                     }
             }
