@@ -122,7 +122,7 @@ $i = !$i;
 <tr>
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
-    <a href="<?php echo $this->Html->url("/navigations/prev/1"); ?>"><?php echo $this->Html->image("icn_attention_on.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+    <a href="<?php echo $this->Html->url("/navigations/prev/1"); ?>"><?php echo $this->Html->image("icn_attention_btn_on.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
   </td>
   <td align="left" valign="middle" width="20%">
     <span style="font-size:x-small; color:#0099FF;"><?php echo $article['Article']['attention_count']; ?>ｺ</span>
