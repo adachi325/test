@@ -75,7 +75,7 @@
 
 <a name="article6" id="article6"></a>
 第6条 登録情報の取り扱い<br />
-<p>本ｻｰﾋﾞｽの利用に伴い登録ﾕｰｻﾞから提供される登録情報は､株式会社ｴﾇ･ﾃｨ･ﾃｨ･･ﾄﾞｺﾓが単独で取得し､別途定ﾒｰﾙ｢<a href="http://i.NTTdocomo.co.jp/f/utility/privacy/" style="color:#cc6600;" ><span style="color:#cc6600;">お客様の個人情報に関するﾌﾟﾗｲﾊﾞｼｰﾎﾟﾘｼｰ</span></a>｣に従い､取り扱うものとします｡</p>
+<p>本ｻｰﾋﾞｽの利用に伴い登録ﾕｰｻﾞから提供される登録情報は､株式会社ｴﾇ･ﾃｨ･ﾃｨ･ﾄﾞｺﾓが単独で取得し､別途定める｢<a href="http://i.NTTdocomo.co.jp/f/utility/privacy/" style="color:#cc6600;" ><span style="color:#cc6600;">お客様の個人情報に関するﾌﾟﾗｲﾊﾞｼｰﾎﾟﾘｼｰ</span></a>｣に従い､取り扱うものとします｡</p>
 <div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php $this->Ktai->emoji(0xE6E0); ?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <div align="center" style="text-align:center"><?php echo $this->Html->image("dot_line_brown.gif"); ?></div>
 
