@@ -133,9 +133,9 @@ $i = !$i;
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
     <?php if ($article['Article']['alreadyAddAttention']) : ?>
-      <?php echo $this->Html->image("icn_attention_off.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
+      <?php echo $this->Html->image("icn_attention_btn_off.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
     <?php else : ?>
-      <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention_on.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+      <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention_btn_on.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
     <?php endif; ?>
   </td>
   <td align="left" valign="middle" width="20%">
