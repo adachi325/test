@@ -98,3 +98,7 @@
 今は送信しないで<a href="<?php echo $this->Html->url('/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
+<?php
+echo $this->element('default/conversion');
+?>
+
