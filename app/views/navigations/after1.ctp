@@ -85,6 +85,8 @@
 ※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※ﾀｲﾄﾙは自由に変更できます｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br />
 
 <br />
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
