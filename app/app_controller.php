@@ -79,8 +79,8 @@ class AppController extends Controller {
 		'Secured.Ssl' => array(
 			'autoRedirect' => false,
 			'secured' => array(
-				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'remind', 'remind_password',),
-				'children' => array('register', 'register_confirm', 'edit', 'edit_confirm'),
+				'users' => array('login','register', 'register_confirm' ,'register_complete', 'edit', 'edit_confirm', 'edit_complete', 'remind', 'remind_password','other_setting','other_setting_confirm','other_setting_complete'),
+				'children' => array('register', 'register_confirm', 'register_complete', 'edit', 'edit_confirm', 'edit_complete'),
 				'diaries' => array('edit', 'edit_confirm','edit_complete'),
 			),
 			'allowed' => array(
@@ -150,6 +150,12 @@ class AppController extends Controller {
 			session_id($_REQUEST[$session_name]);
 			output_add_rewrite_var($session_name, $_REQUEST[$session_name]);
 		    }
+		    // auでフォームからの入力が文字化けする問題の対策
+		    if ($this->Ktai->is_ezweb()) {
+			if (!empty($this->data)) {
+			    mb_convert_variables('UTF-8', 'UTF-8, sjis-win', $this->data);
+			}
+		    }
 		}
 
 		//SSL通信環境設定
@@ -168,7 +174,6 @@ class AppController extends Controller {
 				}
 			    }
 			}
-
 			//SSL通信開始
 			$this->Ssl->forceSSL();
 		} elseif (!$secured && $this->Ssl->https) {
@@ -179,10 +184,10 @@ class AppController extends Controller {
 
 			//通常通信
 			if ($this->Ssl->https) {
-				$this->Ssl->forceNoSSL();
+			    $this->Ssl->forceNoSSL();
 			}
 		}
-
+		
 		if($this->Ktai->is_imode()){
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
@@ -192,12 +197,12 @@ class AppController extends Controller {
 			
 			if (empty($this->allow_android)) {
 				if ($action != 'display') {
-					$this->redirect('/');
+					$this->redirect('/pages/display/');
 				}
 			} else {
 				if ($this->allow_android !== true) {
 					if (!array_search($action, $this->allow_android)) {
-						$this->redirect('/');
+                        $this->redirect('/pages/display/');
 					}
 				}
 			}
@@ -303,5 +308,4 @@ class AppController extends Controller {
 		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
 		return $data;
 	}
-
 }

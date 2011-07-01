@@ -1,6 +1,62 @@
 <?php
 class Diary extends AppModel {
 	var $name = 'Diary';
+
+  /* バーチャルフィールド
+   * 思い出記録に対するはなまる個数
+   * 思い出記録に最後にはなまるがついた日付
+   */
+  var $virtualFields = array(
+    'hanamaru_count' => 'SELECT COUNT(*) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id AND Hanamaru.type = 1',
+    'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id AND Hanamaru.type = 1',
+  );
+
+  var $hasOne = array(
+    'Article' => array(
+      'className' => 'Article',
+      'foreignKey' => 'external_id',
+      'dependent' => true,
+      'conditions' => array('Article.type' => 1),
+      'exculsive' => true,
+    ),
+  );
+  
+	var $hasMany = array(
+    'Hanamaru' => array(
+			'className' => 'Hanamaru',
+			'foreignKey' => 'external_id',
+			'dependent' => true,
+			'conditions' => array('Hanamaru.type' => 1),
+			'exclusive' => true,
+    ),
+  );
+	
+  function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+    
+    // paginateCountが1つしか定義できないことに対する苦肉の策
+    // paginateOptionに設定された値をもとに処理を切り替える
+    $result;
+    if (Configure::read('paginateOption') == 'hanamarus/received' || Configure::read('paginateOption') == 'hanamarus/gave') {
+      $joins = array(
+        array(
+          'type' => 'inner',
+          'alias' => 'Hanamaru',
+          'table' => 'hanamarus',
+          'conditions' => array(
+            'Diary.id = Hanamaru.external_id',
+            'Hanamaru.type = 1',
+          ),
+        ),
+      );
+      $params = array('joins' => $joins, 'group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
+    } else {
+      $params = array('group' => 'Diary.id', 'fields' => 'Diary.id', 'conditions' => $conditions);
+    };
+
+    $result = $this->find('all', $params);
+    return count($result);
+  }
+
 	var $validate = array(
 		'child_id' => array(
 			array(
@@ -102,11 +158,12 @@ class Diary extends AppModel {
 		//@以降除去
 		$to = ereg_replace("@.*", "", $to);
 
-		//宛先アドレス有効判定
-		$to_splits = split('\.', $to);
-		if (count($to_splits) != 4) {//user_id, child_id, theme_id, hash
+    //宛先アドレス有効判定
+    $to_splits = split('\.', $to);
+    $split_count = count($to_splits);
+		if ($split_count != 4 && $split_count != 5) {//user_hash, child_hash, theme_id, hash, pub(optional)
 			return false;
-		}
+    }
 
 		//add
 		/*
@@ -123,7 +180,11 @@ class Diary extends AppModel {
 			'child_hash' => $to_splits[1],
 			'theme_id' => $to_splits[2],
 			'hash' => $to_splits[3],
-		);
+    );
+    if ($split_count == 5) {
+      $request['pub'] = $to_splits[4];
+    }
+
 		
 		$request['title'] = isset($data['subject']) ? $data['subject'] : "";
 		$request['body'] = isset($data['body']) ? $data['body'] : "";
@@ -160,8 +221,19 @@ class Diary extends AppModel {
 		$theme = ClassRegistry::init('Theme')->find('first', array('conditions' => array('Theme.id' => $data['theme_id'])));
 		if (empty($theme)) {
 			return false;
-		}
+    }
 
+    //公開希望フラグのチェックと設定
+    if (isset($data['pub'])) {
+      if ($data['pub'] == 'pub') {
+        $data['wish_public'] = 1;
+	$data['permit_status'] = 1;	//初期値は申請中
+      } else {
+        // 設定されている文字列が pub じゃない場合は不正
+        return false;
+      }
+    }
+    
 		//month_id
 		$data['month_id'] = $theme['Theme']['month_id'];
 
@@ -172,7 +244,10 @@ class Diary extends AppModel {
 		$data['body'] = isset($data['body']) ? mb_substr($data['body'], 0, Configure::read('Diary.body_len_max')) : "";
 
 		//present_id:テーマの月に紐づくプレゼントを取得しなければいけない！
-		$data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
+    $data['present_id'] = $this->__getNextPresentId($data['child_id'], $theme['Month']['year'], $theme['Month']['month']);
+
+    //identify_token
+    $data['identify_token'] = $this->makeIdentifyToken();
 
 		$this->create();
 		if (!$this->save($data)) {
@@ -474,7 +549,85 @@ class Diary extends AppModel {
 			chmod($dir, 0777);
 			system("chmod 777 ".$dir);
 		}
-	}
+  }
+
+  // 記事IDを作成する
+  // 作成方法:
+  // 1. 100000000から999999999までのランダムな数値を作成する。
+  // 2. 末尾にチェックディジットを付加したものを記事IDとする。DBに同様の値がある場合、再度1.からやり直す。
+  // 
+  // 戻り値: 記事ID
+  function makeIdentifyToken() {
+    
+    $token = '';
+    do {
+
+      // 1. 100000000から999999999までのランダムな数値を作成する。
+      $number = rand(100000000, 999999999);
+      $digit = $this->__check_digit($number);
+      if ($digit === null) {
+        $this->log("makeIdentifyToken(): digitがnull, " . $number, LOG_DEBUG);
+        return null;
+      }
+      $token = $number . $digit;
+
+    } while (!$this->__checkUniqueIdentifyToken($token));
+
+    return $token;
+
+  }
+
+  // 記事IDの重複をチェックする
+  function __checkUniqueIdentifyToken($token) {
+    $params = array('conditions' => array('Diary.identify_token' => $token) );
+    $count = $this->find('count', $params);
+    if ($count == 0) {
+      return true;
+    } else {
+      $this->log("__checkUniqueIdentifyToken(): トークンの重複, " . $token, LOG_DEBUG);
+      return false;
+    }
+  }
+
+  // チェックディジットを作成する
+  // 作成方法: モジュラス 10 ウェイト 3で作成する。
+  // 1. 数値を奇数桁と偶数桁に分割する。
+  // 2. 奇数桁のそれぞれに7をかけ、合計をとる。
+  // 3. 偶数桁のそれぞれに1をかけ、合計をとる。
+  // 4. 2. と 3. で計算した数値を合計し、10で割った余りを10から引いた値をチェックディジットとする。その値が10だったら0とする。
+  // in: 正の整数
+  // out: 数値に対するチェックディジット。入力値が正の整数9桁でないばあい、null。
+  function __check_digit($input) {
+    if (!preg_match("/^\d{9}$/", $input)) {
+      $this->log("__check_digit(): 入力値不正," . $input, LOG_DEBUG);
+      return null;
+    }
+
+    # 文字数を取得
+    $length = strlen($input);
+
+    # 奇数フラグを設定
+    $odd_flg = $length % 2 == 1;
+
+    $sum = 0;
+    for ($i = 0; $i < $length; $i++) {
+      $num = substr($input, $i, 1);
+      if ($odd_flg) {
+        $sum += $num * 3;
+      } else {
+        $sum += $num;
+      }
+      $odd_flg = !$odd_flg;
+    }
+
+    $rem = ($sum % 10);
+    $digit = 10 - $rem;
+    if ($digit == 10) {
+      $digit = 0;
+    }
+
+    return $digit;
+  }
 
 }
 ?>

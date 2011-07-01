@@ -23,15 +23,16 @@ class PagesController extends AppController {
 		}
 	}
 
+    function renewal() { }
+
 	function display() {
-
-		// 互換性のため残してありますが、children/displayを使用するようにしてください
-
 
 		if ($this->Ktai->is_android()) {
 			$this->render('android_top');
 			return;
-		}
+		} else {
+            $this->redirect('/');
+        }
 
 		//ログイン済みならマイページへ遷移
 		if($this->Auth->user()) {
@@ -118,6 +119,9 @@ class PagesController extends AppController {
 	function help() {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}
+	function help2() {
+		$this->render($this->view_prefix.$this->params['action']);   
+   	}
 	function list_models() {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}
@@ -142,7 +146,7 @@ class PagesController extends AppController {
             
             //セッションギレのUID取得エラー端末は別画面へ遷移
             $uid = $this->_getUid();
-            if(!empty($uid) &&isset($uid)) {
+            if(!empty($uid) && isset($uid)) {
                 $this->Session->write('sessionTimeOutError01',1);
                 $this->redirect('/');
             }

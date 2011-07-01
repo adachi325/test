@@ -22,7 +22,7 @@ class ApController extends AppController {
 			$user =& ClassRegistry::init('User');
 			$user->contain();
 			$users = $user->find('first',array('conditions' => array('uid' => $uid)));
-			//uidが存在する場合、自動ログイン実行
+			//uidが存在する場合、フラグを立てる
 			if(!empty($users)){
 				$has_account = true;
 			}
@@ -158,10 +158,22 @@ class ApController extends AppController {
 
 			$lines = $Line->find('all', array(
 				'fields' => array('title', 'category_name'),
-			));
-		}
+            ));
+            $contents = Set::extract('/Content', $issues);
 
-		$this->set(compact('issues', 'title', 'lines', 'line'));
+		//Issue.titleの追加
+		$ii = 0;
+		foreach($contents as $content){
+			foreach($issues as $issue){
+				if ($content['Content']['issue_id'] == $issue['Issue']['id']) {
+					$contents[$ii++]['Issue']['title'] = $issue['Issue']['title'];
+					break;
+				}	
+			}
+		}	
+        }
+
+		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
 		$this->render('index');
 	}
 

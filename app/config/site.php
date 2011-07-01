@@ -65,6 +65,11 @@ $config['Present'] = array(
 		'2' => 'sample/%s%s/60pic_flash.gif',
 		'3' => 'sample/%s%s/60pic_card.gif',
 	),
+	'sample150' => array(
+		'0' => 'sample/%s%s/150pic_bg.gif',
+		'1' => 'sample/%s%s/150pic_flash.gif',
+		'2' => 'sample/%s%s/150pic_card.gif',
+	),
 	'thumb' => array(
 		'2' => 'sample/%s%s/90pic_flash.gif',
 		'3' => 'sample/%s%s/90pic_card.gif',
@@ -72,10 +77,14 @@ $config['Present'] = array(
 );
 
 $config['Defaults'] = array(
-	'domain' => 'dctry.jp',
+	'domain' => 'shimajiro-dev.com',
 	'receive_mail_prefix' => 'diary_',
         'docomo_community' => 'diary@docomo-community.com',
         'shimajiro_square' => 'https://kodomo.benesse.ne.jp/login/index.shtml',
+);
+
+$config['Api'] = array(
+    'domain' => 'st-dctry.com',
 );
 
 $config['Mail'] = array(

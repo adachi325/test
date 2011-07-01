@@ -3,74 +3,76 @@
 class ChildrenController extends AppController {
 
     var $name = 'Children';
-	var $helpers = array('Wikiformat.Wikiformat');
+    var $helpers = array('Wikiformat.Wikiformat', 'DiaryCommon');
 
- 	function beforeFilter() {
-            parent::beforeFilter();
-            $this->Auth->allow('display');
-            if ($this->Ktai->is_android()) {
-                    $this->layout = 'android';
-                    $this->view_prefix = 'android_';
-            }
+    function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('display');
+        if ($this->Ktai->is_android()) {
+            $this->layout = 'android';
+            $this->view_prefix = 'android_';
         }
-    
-	function display() {
-		if ($this->Ktai->is_android()) {
-			$this->render('/pages/android_top');
-			return;
-		}
-
-                $sessionTimeOutError01 = $this->Session->read('sessionTimeOutError01');
-                $this->Session->delete('sessionTimeOutError01');
-                if (!empty($sessionTimeOutError01)){
-                    $this->set('uidErrorStr',1);
-                }
-                
-		//ログイン済みならマイページへ遷移
-		if($this->Auth->user()) {
-			$this->set('login_user',$this->Auth->user());
-			//$this->redirect('/children/');
-			$this->_getChilddata();
-			$this->render('index');
-			return;
-		}
-
-		//ログイン済みじゃない場合、uidを取得
-		$uid = $this->EasyLogin->_getUid();
-		if(!empty($uid)) {
-			$User =& ClassRegistry::init('User');
-			$User->contain();
-			$userdata = $User->find('first',array('conditions' => array('uid' => $uid)));
-			//uidが存在する場合、自動ログイン実行
-			if(!empty($userdata)){
-				//取得したユーザー情報でログイン
-				if($this->Auth->login($userdata)) {
-					//ユーザー情報設定
-					unset ($userdata['User']['uid']);
-					unset ($userdata['User']['created']);
-					unset ($userdata['User']['modified']);
-					$this->set('login_user_data',$userdata);
-					//$this->redirect('/children/');
-					$this->_getChilddata();
-					$this->render('index');
-					return;
-				}
-			}
-		}
-
-		//ニュース取得
-		$news =& ClassRegistry::init('news');
-		$newslist = $news->find('all',array('conditions' =>
-			array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
-
-		$this->set(compact('newslist'));
-	}
-
-	function index($id = null) {
-		$this->_getChilddata($id);
     }
 
-	function _getChilddata($id = null) {
+    function display() {
+        if ($this->Ktai->is_android()) {
+            $this->render('/pages/android_top');
+            return;
+        }
+
+        $sessionTimeOutError01 = $this->Session->read('sessionTimeOutError01');
+        $this->Session->delete('sessionTimeOutError01');
+        if (!empty($sessionTimeOutError01)){
+            $this->set('uidErrorStr',1);
+        }
+
+        //ログイン済みならマイページへ遷移
+        if($this->Auth->user()) {
+            $this->set('login_user',$this->Auth->user());
+            //$this->redirect('/children/');
+            $this->_getChilddata();
+            $this->render('index');
+            return;
+        }
+
+        //ログイン済みじゃない場合、uidを取得
+        $uid = $this->EasyLogin->_getUid();
+        if(!empty($uid)) {
+            $User =& ClassRegistry::init('User');
+            $User->contain();
+            $userdata = $User->find('first',array('conditions' => array('uid' => $uid)));
+            //uidが存在する場合、自動ログイン実行
+            if(!empty($userdata)){
+                //取得したユーザー情報でログイン
+                if($this->Auth->login($userdata)) {
+                    //ユーザー情報設定
+                    unset ($userdata['User']['uid']);
+                    unset ($userdata['User']['created']);
+                    unset ($userdata['User']['modified']);
+                    $this->set('login_user_data',$userdata);
+                    //$this->redirect('/children/');
+                    $this->_getChilddata();
+                    $this->render('index');
+                    return;
+                }
+            }
+        }
+
+        //ニュース取得
+        $news =& ClassRegistry::init('news');
+        $newslist = $news->find('all',array('conditions' =>
+            array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' )));
+
+        $this->set(compact('newslist'));
+    }
+
+    function index($id = null) {
+        $this->redirect("/");
+
+        $this->_getChilddata($id);
+    }
+
+    function _getChilddata($id = null) {
         //子供データ一覧設定
         $childrenData = $this->_setChild();
 
@@ -78,22 +80,22 @@ class ChildrenController extends AppController {
         if ($id !== null &&
             $id >= 0 && $id < count($childrenData)) {
 
-            $updateId = $childrenData[$id]['Child']['id'];
-            $this->_saveLastChild($updateId);
-        }
+                $updateId = $childrenData[$id]['Child']['id'];
+                $this->_saveLastChild($updateId);
+            }
 
         //最終子供ID設定
         $lastChildId = $this->Tk->_getLastChild();
         if ($lastChildId == 0) {
-                if (count($childrenData)) {
-                        $lastChildId = $childrenData[0]['Child']['id'];
-                        $updateId = $lastChildId;
-                        $this->_saveLastChild($updateId);
-                }
+            if (count($childrenData)) {
+                $lastChildId = $childrenData[0]['Child']['id'];
+                $updateId = $lastChildId;
+                $this->_saveLastChild($updateId);
+            }
         }
-		//最終子供情報取得
-		$Child =& ClassRegistry::init('Child');
-		
+        //最終子供情報取得
+        $Child =& ClassRegistry::init('Child');
+
         $currentChild = $Child->findById($lastChildId);
 
         //月号データ取得
@@ -106,11 +108,11 @@ class ChildrenController extends AppController {
         }
 
         $conditions = array(
-                'conditions' => array(
-                    'Content.line_id' => $currentChild['Child']['line_id'],
-                ),
-                'order'=>array('Content.release_date '.$sortStr)
-            );
+            'conditions' => array(
+                'Content.line_id' => $currentChild['Child']['line_id'],
+            ),
+            'order'=>array('Content.release_date '.$sortStr)
+        );
         $content->contain('Issue');
         $contents = $content->find('all', $conditions);
 
@@ -142,33 +144,33 @@ class ChildrenController extends AppController {
             //表示データ一覧取得
             $diary =& ClassRegistry::init('diary');
             $diaries = $diary->find('all', $conditions);
-		}
+        }
 
-		$conditions = array(
-			'conditions' => array(
-				'Diary.child_id' => $this->Tk->_getLastChild(),
-				'Diary.has_image' => 1,
-				'Diary.error_code' => null
-			),
+        $conditions = array(
+            'conditions' => array(
+                'Diary.child_id' => $this->Tk->_getLastChild(),
+                'Diary.has_image' => 1,
+                'Diary.error_code' => null
+            ),
             'order'=>array('Diary.created DESC')
-		);
-		$prof_diary = $diary->find('first', $conditions);
+        );
+        $prof_diary = $diary->find('first', $conditions);
 
         //ニュース取得
         $news =& ClassRegistry::init('news');
-		$newslist = $news->find('all',array(
-			'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
-			'order' => array('start_at DESC'),
-		));
+        $newslist = $news->find('all',array(
+            'conditions' => array('start_at <= "'.date('Y-m-d H:i:s').'"','finish_at >= "'.date('Y-m-d H:i:s').'"' ),
+            'order' => array('start_at DESC'),
+        ));
 
         $this->set(compact('user','childrenData','lastChildId','currentChild','contents','months','lines','currentLine','diaries','prof_diary', 'newslist'));
-        
+
         //子供０人画面へ遷移
         if (count($childrenData) == 0) {
             $this->redirect('/children/index_nochild');
         }
     }
-    
+
     function index_nochild(){
         //子供データ一覧設定
         $childrenData = $this->_setChild();
@@ -204,36 +206,40 @@ class ChildrenController extends AppController {
         $simaItem[1] = 'しま(青)';
     }
 
-	function _check_code() {
-		if (isset($this->data['Child']['nickname'])) {
-			$this->data['Child']['nickname'] = $this->check_invalid_code($this->data['Child']['nickname']);
-		}
-		if (isset($this->data['Child']['sex'])) {
-			$this->data['Child']['sex'] = $this->check_invalid_code($this->data['Child']['sex']);
-		}
-		if (isset($this->data['Child']['birth_year'])) {
-			$this->data['Child']['birth_year'] = $this->check_invalid_code($this->data['Child']['birth_year']);
-		}
-		if (isset($this->data['Child']['birth_month'])) {
-			$this->data['Child']['birth_month'] = $this->check_invalid_code($this->data['Child']['birth_month']);
-		}
-		if (isset($this->data['Child']['line_id'])) {
-			$this->data['Child']['line_id'] = $this->check_invalid_code($this->data['Child']['line_id']);
-		}
-		if (isset($this->data['Child']['benesse_user'])) {
-			$this->data['Child']['benesse_user'] = $this->check_invalid_code($this->data['Child']['benesse_user']);
-		}
-	}
+    function _check_code() {
+        if (isset($this->data['Child']['nickname'])) {
+            $this->data['Child']['nickname'] = $this->check_invalid_code($this->data['Child']['nickname']);
+        }
+        if (isset($this->data['Child']['sex'])) {
+            $this->data['Child']['sex'] = $this->check_invalid_code($this->data['Child']['sex']);
+        }
+        if (isset($this->data['Child']['birth_year'])) {
+            $this->data['Child']['birth_year'] = $this->check_invalid_code($this->data['Child']['birth_year']);
+        }
+        if (isset($this->data['Child']['birth_month'])) {
+            $this->data['Child']['birth_month'] = $this->check_invalid_code($this->data['Child']['birth_month']);
+        }
+        if (isset($this->data['Child']['line_id'])) {
+            $this->data['Child']['line_id'] = $this->check_invalid_code($this->data['Child']['line_id']);
+        }
+        if (isset($this->data['Child']['benesse_user'])) {
+            $this->data['Child']['benesse_user'] = $this->check_invalid_code($this->data['Child']['benesse_user']);
+        }
+    }
 
     function register() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //子供数チェック
         $this->_checkChildrenCount();
 
-		if (!empty($this->data)) {
+        if (!empty($this->data)) {
 
-			$this->_check_code();
-			
-			$request = array();
+            $this->_check_code();
+
+            $request = array();
             $request = $this->data;
             if(empty($request['Child']['sex'])){
                 $request['Child']['sex'] = null;
@@ -263,6 +269,10 @@ class ChildrenController extends AppController {
     }
 
     function register_confirm(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収
         $this->data = $this->Session->read('childRegisterData');
 
@@ -278,9 +288,13 @@ class ChildrenController extends AppController {
     }
 
     function register_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //子供数チェック
         $this->_checkChildrenCount();
-        
+
         //セッション情報回収、削除
         $this->data = $this->Session->read('childRegisterData');
         $this->Session->delete('childRegisterData');
@@ -288,18 +302,18 @@ class ChildrenController extends AppController {
         //子供登録処理
         if (!empty($this->data)) {
             TransactionManager::begin();
-			$this->_check_code();
+            $this->_check_code();
 
-			try {
+            try {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
                     //最終子供IDを更新
                     $this->_saveLastChild($this->Child->getLastInsertId());
                     //初回登録プレゼント
-					$this->_initialRegistrationPresents($this->Child->getLastInsertId());
+                    $this->_initialRegistrationPresents($this->Child->getLastInsertId());
 
-					//メール投稿用のハッシュコードを追加
-					$this->Child->save_hashcode($this->Child->getLastInsertId());
+                    //メール投稿用のハッシュコードを追加
+                    $this->Child->save_hashcode($this->Child->getLastInsertId());
 
                     TransactionManager::commit();
                 } else {
@@ -344,6 +358,10 @@ class ChildrenController extends AppController {
 
     //子供の情報を編集する
     function edit() {
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収、削除
         $childEditData = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');
@@ -363,6 +381,7 @@ class ChildrenController extends AppController {
             //最終子供ID設定
             $lastChildId = $this->Tk->_getLastChild();
 
+
             //子供情報取得
             $this->data = $this->Child->read(null, $lastChildId);
 
@@ -373,18 +392,21 @@ class ChildrenController extends AppController {
 
             $lines = $this->Child->Line->find('list');
         }
-        
+
         $lines = $this->Child->Line->find('list');
         $this->set(compact('lines'));
     }
 
     function edit_confirm(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
 
         if (!empty($this->data)) {
 
-			$this->_check_code();
+            $this->_check_code();
 
-			$request = array();
+            $request = array();
             $request = $this->data;
             $userData = $this->Auth->user();
             $request['Child']['id'] = $this->Tk->_getLastChild();
@@ -407,6 +429,10 @@ class ChildrenController extends AppController {
     }
 
     function edit_complete(){
+	
+	/* uidﾁｪｯｸ */
+	$this->Tk->uidCheck();
+	
         //セッション情報回収、削除
         $this->data = $this->Session->read('childEditData');
         $this->Session->delete('childEditData');
@@ -415,9 +441,9 @@ class ChildrenController extends AppController {
         if (!empty($this->data)) {
             TransactionManager::begin();
 
-			$this->_check_code();
+            $this->_check_code();
 
-			try {
+            try {
                 $this->Child->create();
                 if ($this->Child->save($this->data)) {
                     TransactionManager::commit();
@@ -441,16 +467,6 @@ class ChildrenController extends AppController {
         }
     }
 
-    function edit_menu(){
-        //子供数取得（リンク表示有無情報）
-        $userData = $this->Auth->user();
-        $childData = $this->Child->find('all',array('conditions'=>array('user_id'=>$userData['User']['id'])));
-        $this->set(compact('childData'));
-    }
-
-    function user_menu(){
-    }
-    
     function delete() {
 
         if(!empty($this->data)){
@@ -466,6 +482,7 @@ class ChildrenController extends AppController {
         }
         //最終子供ID設定
         $lastChildId = $this->Tk->_getLastChild();
+
         //最終子供IDの子供がいなければ不正操作
         if (empty($lastChildId)){
             $this->cakeError('error404');
@@ -490,7 +507,7 @@ class ChildrenController extends AppController {
         $userData = $this->Auth->user();
         $conditions['Child.id'] = $check['Child']['check'];
         $conditions['Child.user_id'] = $userData['User']['id'];
-        
+
         $this->Child->contain('Diary','ChildPresent');
         $childData = $this->Child->find('first', array('conditions' => $conditions));
 
@@ -514,10 +531,10 @@ class ChildrenController extends AppController {
                 return;
             }
         } catch(Exception $e) {
-          TransactionManager::rollback();
-          $this->log('子供削除に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
-          $this->cakeError('error404');
-          return;
+            TransactionManager::rollback();
+            $this->log('子供削除に失敗02:'.date('Y-m-d h:n:s'),LOG_DEBUG);
+            $this->cakeError('error404');
+            return;
         }
 
         //思い出に紐付く画像を削除
@@ -554,5 +571,23 @@ class ChildrenController extends AppController {
         $this->redirect('/children/');
 
     }
+    
+    function uidCheck(){
+	if (isset($_SERVER['HTTPS'])) {
+	    $uid = $this->Session->read('sslUid');
+	    if(empty($uid) || !isset($uid)) {
+		$result = $this->_getCareer();
+		if( $result == 0 or $result == 1 or $result == 2 ){
+		    $urlItem = split('\/',$_SERVER["SCRIPT_NAME"]);
+
+		    $this->log('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');
+
+		    $this->redirect('http://'.$_SERVER["SERVER_NAME"].'/'.$urlItem[1].'/pages/errorMobileId/');	
+		    return;
+		}
+	    }
+	}
+    }
+    
 }
 ?>

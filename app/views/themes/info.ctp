@@ -25,21 +25,53 @@
 </table>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>
 
-<div align="center" style="background:#ffff99; text-align:center;">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
+<tr>
+<td colspan="3" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<?php
-if($this->Ktai->is_imode()): ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo $mailTitle;?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
-<?php elseif($this->Ktai->is_softbank()): ?>
-<a href="mailto:<?php echo $mailStr ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8"));?>" style="color:#339900;"><span style="color:#339900;font-size:medium">①思い出を記録に残す</span></a>
-<?php else: ?>
-<span style="color:#339900;font-size:medium"><?php $this->Ktai->mailto("①思い出を記録に残す",$mailStr,$mailTitle); ?></span>
-<?php endif; ?><?php $this->Ktai->emoji(0xE6D3); ?><br />
+<span style="color:#333333;font-size:medium">①思い出を記録に残す</span><span style="font-size:small;"><?php $this->Ktai->emoji(0xE6D3); ?></span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /></td>
+</tr>
+<tr>
+<td colspan="3" align="left">
+<?php if($this->Ktai->is_imode()): ?>
+<!-- start: imodeの場合-->
+<span style="color:#006600; font-size:x-small;">⇒</span><a href="mailto:<?php echo $mailPublicStr; ?>?subject=<?php echo $mailTitle; ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">わが子をみんなに大自慢!!</span></a><br />
+<span style="font-size:x-small;">(他の会員に公開する)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#006600; font-size:x-small;">⇒</span><a href="mailto:<?php echo $mailStr; ?>?subject=<?php echo $mailTitle; ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">わが子を自分で自画自賛!!</span></a><br />
+<span style="font-size:x-small;">(他の会員には見せない)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+<!-- end: imodeの場合-->
 
+<?php elseif($this->Ktai->is_softbank()): ?>
+<!-- start: sbの場合-->
+<span style="color:#006600; font-size:x-small;">⇒</span><a href="mailto:<?php echo $mailPublicStr; ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8")); ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">わが子をみんなに大自慢!!</span></a><br />
+<span style="font-size:x-small;">(他の会員に公開する)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#006600; font-size:x-small;">⇒</span><a href="mailto:<?php echo $mailStr; ?>?subject=<?php echo rawurlencode(mb_convert_encoding($mailTitle, "utf8")); ?>" style="color:#339900;"><span style="color:#339900; font-size:x-small;">わが子を自分で自画自賛!!</span></a><br />
+<span style="font-size:x-small;">(他の会員には見せない)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+<!-- end: sbの場合-->
+
+<?php else: ?>
+<!-- start: その他の場合-->
+<span style="color:#006600; font-size:x-small;">⇒</span><span style="color:#339900; font-size:x-small;"><?php $this->Ktai->mailto("わが子をみんなに大自慢!!", $mailPublicStr, $mailTitle); ?></span><br />
+<span style="font-size:x-small;">(他の会員に公開する)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#006600; font-size:x-small;">⇒</span><span style="color:#339900; font-size:x-small;"><?php $this->Ktai->mailto("わが子を自分で自画自賛!!", $mailStr, $mailTitle); ?></span></a><br />
+<span style="font-size:x-small;">(他の会員には見せない)</span><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+<!-- end: その他の場合-->
+<?php endif; ?>
+</td>
+</tr>
+</table>
+
+<div align="right" style="text-align:right;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<a href="<?php echo $this->Html->url('/diaries/publish/'); ?>" style="color:#ff0000;"><span style="color:#ff0000;font-size:x-small;">※公開に関する注意事項</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-</div>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#ff3333"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000">
 ※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡<br /></span>
 <span style="color:#666666"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
@@ -53,7 +85,7 @@ if($this->Ktai->is_imode()): ?>
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<a href="<?php echo $this->Html->url('/diaries/checkPost/'.$nexthash); ?>" style="color:#339900;"><span style="color:#339900;font-size:medium">②思い出記録を確認する</span></a><br />
+<span style="color:#339900; font-size:medium"><span style="color:#006600;">②</span><a href="<?php echo $this->Html->url('/diaries/checkPost/'.$nexthash); ?>" style="color:#339900;"><span style="color:#339900;">思い出記録を確認する</span></a></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 </div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

@@ -7,6 +7,3 @@
 [submodule "plugins/secured"]
 	path = plugins/secured
 	url = https://github.com/plank/secured.git
-[submodule "plugins/wikiformat"]
-	path = plugins/wikiformat
-	url = git@github.com:hidetoshing/wikiformat.git
