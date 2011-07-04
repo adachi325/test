@@ -158,3 +158,9 @@ $config['GoogleAnalytics'] = array ('TrackingCode' => array(
             'dctry.jp' => 'MO-22726420-7',	      //本番
 	)
     );
+
+//ｻﾑﾈｲﾙ作成API用設定値(step3)
+$config['ApiThumbnail'] = array(
+    'inPutFileExtension' => '.jpg',
+    'outPutPath' => 'present/output/api/postcard/%s_thumb.jpg',
+);

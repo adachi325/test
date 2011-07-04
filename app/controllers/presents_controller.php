@@ -301,5 +301,55 @@ class PresentsController extends AppController {
 			$this->render('print_postcard_error');
 		}
 	}
+    /** 
+     * 待受けまたはポストカードを作成する。
+     * 作成結果とトークンを返す。
+     * リサイズしたファイルのパスを返す。
+     * 
+     * @param  int      $present_id     : プレゼントID
+     * @param  int      $child_id       : 子供ID
+     * @param  int      $type           : インセンティブタイプ
+     * @param  int      $diary1～4      : ダイアリーID
+     * @return string   $result         : 結果
+     * @return string   $path           : 作成されたインセンティブパス
+    **/
+    function api_create_incentive (
+            $present_id = null, $child_id = null, $type = null, 
+            $diary1 = null, $diary2 = null, $diary3 = null, $diary4 = null){
+
+        //ｵｰﾄﾚﾝﾀﾞｰ解除
+        $this->autoRender = false;
+
+        //特殊文字をHTMLエンティティに変換
+	$urlPrames = array();
+        $urlPrames['present_id'] = h($this->params['url']['present_id']);
+        $urlPrames['child_id'] = h($this->params['url']['child_id']);
+        $urlPrames['type'] = h($this->params['url']['type']);
+        $urlPrames['diary1'] = h($this->params['url']['diary1']);
+        $urlPrames['diary2'] = h($this->params['url']['diary2']);
+        $urlPrames['diary3'] = h($this->params['url']['diary3']);
+	$urlPrames['diary4'] = h($this->params['url']['diary4']);
+	
+	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
+	foreach($urlPrames as $key => $value){
+	    //引数ﾁｪｯｸ
+	    if(empty($value)){
+		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false",""';
+	    }
+	    //ﾇﾙ文字対策
+	    if (isset($value)) {
+		    $urlPrames[$key] = $this->check_invalid_code($value);
+	    } else {
+		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
+		$this->log($urlPrames,LOG_DEBUG);
+		return '"false",""';
+	    }
+	}
+	
+	
+	
+    }
 }
 ?>
