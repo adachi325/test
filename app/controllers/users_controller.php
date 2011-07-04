@@ -670,44 +670,52 @@ class UsersController extends AppController {
      * @return	String	$uid	    認証用hashｺｰﾄﾞ
      */
     function api_login() {
-	
-        //ｵｰﾄﾚﾝﾀﾞｰ解除
-        $this->autoRender = false;
 
-        //特殊文字をHTMLエンティティに変換
-	$urlPrames = array();
-        $urlPrames['User.loginid'] = h($this->params['url']['id']);
-        $urlPrames['User.password'] = h($this->params['url']['pass']);
-	
-	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
-	foreach($urlPrames as $key => $value){
-	    //引数ﾁｪｯｸ
-	    if(empty($value)){
-		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false",""';
-	    }
-	    //ﾇﾙ文字対策
-	    if (isset($value)) {
-		    $urlPrames[$key] = $this->check_invalid_code($value);
-	    } else {
-		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false",""';
-	    }
+		//ｵｰﾄﾚﾝﾀﾞｰ解除
+		$this->autoRender = false;
+
+		//制御文字対策
+		$user_attrs = array('id', 'password');
+		foreach ($user_attrs as $attr){
+			if (isset($this->params['url'][$attr])) {
+				$this->params['url'][$attr] = $this->check_invalid_code($this->params['url'][$attr]);
+			}
+		}
+		//特殊文字をHTMLエンティティに変換
+		$urlParams = array();
+		$urlParams['User.loginid'] = h($this->params['url']['id']);
+		$urlParams['User.password'] = h($this->params['url']['pass']);
+
+		//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
+		foreach($urlParams as $key => $value){
+			//引数ﾁｪｯｸ
+			if(empty($value)){
+				$this->log("paramsException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key.'='.$value,LOG_DEBUG);
+				return '"false",""';
+			}
+			//length check
+			if(100 < strlen($value)){
+				$this->log("入力値長ｴﾗｰ:".$key.'='.$value,LOG_DEBUG);
+				return '"false",""';
+			}
+			// numalpha check
+			if(!preg_match("/^[a-zA-Z0-9]+$/", $value)){
+				$this->log("不正な入力文字:".$key.'='.$value,LOG_DEBUG);
+				return '"false",""';
+			}
+		}
+
+		//存在ﾁｪｯｸ
+		$urlParams['User.password'] = AuthComponent::password( $urlParams['User.password'] );
+		$this->User->contain();
+		$users = $this->User->find('first',array('conditions' => $urlParams));
+		if(empty($users) || count($users) != 1){
+			return '"false",""';
+		}
+
+		//hash値をﾘﾀｰﾝ
+		return '"true,"."'.$users['User']['hash'].'"';
+
 	}
-
-        //存在ﾁｪｯｸ
-        $checkData['User.password'] = AuthComponent::password( $checkData['User.password'] );
-        $this->User->contain();
-        $users = $this->User->find('first',array('conditions' => $checkData));        
-        if(empty($users) || count($users) != 1){
-            return '"false",""';
-        }
-
-        //hash値をﾘﾀｰﾝ
-        return '"true,"."'.$users['User']['hash'].'"';
-   
-    }
 }
 ?>
