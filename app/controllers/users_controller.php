@@ -675,24 +675,24 @@ class UsersController extends AppController {
         $this->autoRender = false;
 
         //特殊文字をHTMLエンティティに変換
-	$urlPrames = array();
-        $urlPrames['User.loginid'] = h($this->params['url']['id']);
-        $urlPrames['User.password'] = h($this->params['url']['pass']);
+	$urlParams = array();
+        $urlParams['User.loginid'] = h($this->params['url']['id']);
+        $urlParams['User.password'] = h($this->params['url']['pass']);
 	
 	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
-	foreach($urlPrames as $key => $value){
+	foreach($urlParams as $key => $value){
 	    //引数ﾁｪｯｸ
 	    if(empty($value)){
 		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
+		$this->log($urlParams,LOG_DEBUG);
 		return '"false",""';
 	    }
 	    //ﾇﾙ文字対策
 	    if (isset($value)) {
-		    $urlPrames[$key] = $this->check_invalid_code($value);
+		    $urlParams[$key] = $this->check_invalid_code($value);
 	    } else {
 		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
+		$this->log($urlParams,LOG_DEBUG);
 		return '"false",""';
 	    }
 	}
