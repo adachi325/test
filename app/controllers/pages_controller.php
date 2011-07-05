@@ -154,5 +154,15 @@ class PagesController extends AppController {
             $this->set('messege',Configure::read('Error.nothingUid.'.$career));
             return;
         }
+	
+	/*
+	 * Release: 2011/7/15 
+	 * Editor : takashi tadokoro
+	 * outline: 水族館キャンペーンにて追加。
+	 * QRコードからの直接アクセス専用のランディングページです。
+	 */
+	function aquarium(){ 
+	    $this->layout = 'aquarium';
+	}
 }
 ?>
