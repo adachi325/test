@@ -162,7 +162,7 @@ class PagesController extends AppController {
 	 * QRコードからの直接アクセス専用のランディングページです。
 	 */
 	function aquarium(){ 
-	    $this->layout = 'aquarium';
+	    $this->layout = 'aquarium_base';
 	}
 }
 ?>
