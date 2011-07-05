@@ -51,8 +51,20 @@ NTTﾄﾞｺﾓの共同で提供しています</span></div>
 <div align="center" style="background:#663300; text-align:center;">
 <span style="color:#ffffff;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<?php $this->Ktai->emoji(0xE731); ?> <a href="http://c.benesse.co.jp/co/" style="color:#ffffff;"><span style="color:#ffffff;">Benesse Corporation</span></a><br />
-&amp;<?php $this->Ktai->emoji(0xE731); ?> NTT DOCOMO</span><br />
+<?php
+    if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
+        echo '<img localsrc="81" />';
+    } else {
+        echo $this->Ktai->emoji(0xE731, false); 
+    }
+?> <a href="http://c.benesse.co.jp/co/" style="color:#ffffff;"><span style="color:#ffffff;">Benesse Corporation</span></a><br />
+&amp;<?php 
+    if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
+        echo '<img localsrc="81" />';
+    } else {
+        echo $this->Ktai->emoji(0xE731, false); 
+    }
+?> NTT DOCOMO</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?>
 </div>
 </div>
