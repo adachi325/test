@@ -664,8 +664,8 @@ class UsersController extends AppController {
      * 外部認証用API(step3)
      * 処理結果と認証用のhashコードを返す。
      * 
-     * @param	int	$loginid    ﾛｸﾞｲﾝ用ID
-     * @param	int	$password   ﾛｸﾞｲﾝ用ﾊﾟｽﾜｰﾄﾞ
+     * @param	int	$id    ﾛｸﾞｲﾝ用ID
+     * @param	int	$pass   ﾛｸﾞｲﾝ用ﾊﾟｽﾜｰﾄﾞ
      * @return	String	$result	    処理結果
      * @return	String	$uid	    認証用hashｺｰﾄﾞ
      */
@@ -674,47 +674,38 @@ class UsersController extends AppController {
 		//ｵｰﾄﾚﾝﾀﾞｰ解除
 		$this->autoRender = false;
 
-		//制御文字対策
-		$user_attrs = array('id', 'password');
+		$user_attrs = array('id', 'pass');
 		foreach ($user_attrs as $attr){
+			//制御文字対策
 			if (isset($this->params['url'][$attr])) {
 				$this->params['url'][$attr] = $this->check_invalid_code($this->params['url'][$attr]);
 			}
-		}
-		//特殊文字をHTMLエンティティに変換
-		$urlParams = array();
-		$urlParams['User.loginid'] = h($this->params['url']['id']);
-		$urlParams['User.password'] = h($this->params['url']['pass']);
-
-		//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
-		foreach($urlParams as $key => $value){
-			//引数ﾁｪｯｸ
-			if(empty($value)){
-				$this->log("paramsException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key.'='.$value,LOG_DEBUG);
-				return '"false",""';
-			}
+			$value = $this->params['url'][$attr];
 			//length check
-			if(100 < strlen($value)){
-				$this->log("入力値長ｴﾗｰ:".$key.'='.$value,LOG_DEBUG);
+			if(strlen($value) < 3 || 100 < strlen($value)){
+				$this->log("入力値長ｴﾗｰ:".$attr.'='.$value,LOG_DEBUG);
 				return '"false",""';
 			}
 			// numalpha check
 			if(!preg_match("/^[a-zA-Z0-9]+$/", $value)){
-				$this->log("不正な入力文字:".$key.'='.$value,LOG_DEBUG);
+				$this->log("不正な入力値:".$attr.'='.$value,LOG_DEBUG);
 				return '"false",""';
 			}
 		}
 
 		//存在ﾁｪｯｸ
-		$urlParams['User.password'] = AuthComponent::password( $urlParams['User.password'] );
+		$checkData = array();
+		$checkData['User.loginid'] = $this->params['url']['id'];
+		$checkData['User.password'] = $this->params['url']['pass'];
+		$checkData['User.password'] = AuthComponent::password( $checkData['User.password'] );
 		$this->User->contain();
-		$users = $this->User->find('first',array('conditions' => $urlParams));
+		$users = $this->User->find('first',array('conditions' => $checkData));
 		if(empty($users) || count($users) != 1){
 			return '"false",""';
 		}
 
 		//hash値をﾘﾀｰﾝ
-		return '"true,"."'.$users['User']['hash'].'"';
+		return '"true","'.$users['User']['hash'].'"';
 
 	}
 }
