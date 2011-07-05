@@ -53,14 +53,14 @@ NTTﾄﾞｺﾓの共同で提供しています</span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <?php
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
-        echo '<img localsrc="81" />'
+        echo '<img localsrc="81" />';
     } else {
         echo $this->Ktai->emoji(0xE731, false); 
     }
 ?> <a href="http://c.benesse.co.jp/co/" style="color:#ffffff;"><span style="color:#ffffff;">Benesse Corporation</span></a><br />
 &amp;<?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
-        echo '<img localsrc="81" />'
+        echo '<img localsrc="81" />';
     } else {
         echo $this->Ktai->emoji(0xE731, false); 
     }
