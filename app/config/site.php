@@ -162,5 +162,5 @@ $config['GoogleAnalytics'] = array ('TrackingCode' => array(
 //ｻﾑﾈｲﾙ作成API用設定値(step3)
 $config['ApiThumbnail'] = array(
     'inPutFileExtension' => '.jpg',
-    'outPutPath' => 'present/smartphone/thumbnail/%s/%s_thumb.jpg',
+    'outPutPath' => 'img/present/smartphone/thumbnail/%s/',
 );
