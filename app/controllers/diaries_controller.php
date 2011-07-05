@@ -11,7 +11,7 @@ class DiariesController extends AppController {
     function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('top', 'register', 'get_news_count', 'post_info');
+        $this->Auth->allow('top', 'register', 'get_news_count', 'post_info', 'api_create_thumbnail');
     }
 
     function top($index = null) {
@@ -929,41 +929,43 @@ $list[6] ='--5000000000--
       
         //ｵｰﾄﾚﾝﾀﾞｰ解除
         $this->autoRender = false;
-
-        //特殊文字をHTMLエンティティに変換
-	$urlPrames = array();
-        $urlPrames['inputfile'] = h($this->params['url']['inputfile']);
-        $urlPrames['inputfilepath'] = h($this->params['url']['inputfilepath']);
-        $urlPrames['size'] = h($this->params['url']['size']);
-        $urlPrames['mainline'] = h($this->params['url']['mainline']);
-	
-	$this->log($this->params,LOG_DEBUG);
-	
-	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
-	foreach($urlPrames as $key => $value){
-	    //引数ﾁｪｯｸ
-	    if(empty($value)){
-		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false"';
-	    }
-	    //ﾇﾙ文字対策
-	    if (isset($value)) {
-		    $urlPrames[$key] = $this->check_invalid_code($value);
-	    } else {
-		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false"';
-	    }
-	}
+       
+		$urlParams = array();
+        $url_params = array('inputfile', 'inputfilepath', 'size', 'mainline');
+        foreach ($url_params as $attr){
+        	$value = $this->params['url'][$attr];
+        	//null文字対策
+        	if(isset($value)){
+        		$value = $this->check_invalid_code($value);
+        	}
+        	//urldecode
+        	$value = urldecode($value);
+        	//文字列長check
+        	$vallen = strlen($value);
+        	if($vallen < 1 || 1024 < $vallen)
+        	{
+        		$this->log('不正な文字列長:len of '.$attr.'='.$vallen, LOG_DEBUG);
+        		return '"false"';
+        	}
+			$urlParams[$attr] = $value;
+        }
+        //個別チェック
+        if(!preg_match("/^[0-9]+$/", $urlParams['size'])){
+        		$this->log('不正なパラメータ:size='.$urlParams['size'], LOG_DEBUG);
+        		return "false";
+        }
+        if(!preg_match("/^[1|2]{1}$/", $urlParams['mainline'])){
+			$this->log('不正なパラメータ:mainline='.$urlParams['mainline'], LOG_DEBUG);
+       		return '"false"';
+		}
         
         //ｻﾑﾈｲﾙ作成
         $result = $this->CreatePresent->imageReSize(
-                $urlPrames['inputfilepath'].$urlPrames['inputfile'],
+                $urlParams['inputfilepath'].$urlParams['inputfile'],
                 WWW_ROOT.sprintf(Configure::read('ApiThumbnail.outPutPath'), 
-                     str_replace(Configure::read('ApiThumbnail.inPutFileExtension'), "", $urlPrames['inputfile'] )),
-                $urlPrames['size'],
-                $urlPrames['mainline']
+                     str_replace(Configure::read('ApiThumbnail.inPutFileExtension'), "", $urlParams['inputfile'] )),
+                $urlParams['size'],
+                $urlParams['mainline']
         );
 	
 	if(!$result) {
