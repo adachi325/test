@@ -72,8 +72,12 @@ class ThemesController extends AppController {
 
     function _monthsDataFind($options){
         $month =& ClassRegistry::init('Month');
+        // 動的に条件を指定します sugimoto
+        $month->hasMany['Theme']['conditions'] = 'Theme.release_date <= "'.date("Y-m-d H:i:s").'"';
         $months = $month->find('all',array('conditions' => $options));
-
+        // 他に影響が出ないように元に戻しておきます 
+		$month->hasMany['Theme']['conditions'] = null;
+		
         //テーマ要素作成日順に入れ替える
         $result = array_reverse($months['0']['Theme']);
         $months['0']['Theme'] = $result;

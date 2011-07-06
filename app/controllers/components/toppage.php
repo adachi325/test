@@ -141,7 +141,9 @@ class ToppageComponent extends Object {
         $options = array();
         $options['year'] = date('Y');
         $options['month'] = date('m') + 0;
+        $Month->hasMany['Theme']['conditions'] = 'Theme.release_date <= "'.date("Y-m-d H:i:s").'"';
         $months = $Month->find('all', array('conditions' => $options));
+		$Month->hasMany['Theme']['conditions'] = null;
 
         //テーマ要素作成日順に入れ替える
         $result = array_reverse($months['0']['Theme']);

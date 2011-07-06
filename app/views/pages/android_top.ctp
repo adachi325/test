@@ -2,98 +2,29 @@
 <body id="top">
 <div id="wrap" data-role="page" data-theme="d">
 <div id="header">
-  <?php echo $this->Html->image("logo.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "320", "height" => "83")); ?>
+	<?php echo $this->Html->image("logo.gif", array("alt" => "ケータイしまじろうひろば×ドコモコミュニティ", "width" => "320", "height" => "83")); ?>
 </div>
 
 <div id="main">
-  <p>
-   Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
-  <dl id="contents">
-    <dt>
-    	<?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby/ぷちファースト")); ?><br /><span class="baby">0～1歳向けコース</span>
-    </dt>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1007/');?>" data-role="button" data-theme="e" rel="external">【動画】特別教材・おでかけストラップの取りつけ方
-</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1010/');?>" data-role="button" data-theme="e" rel="external">【動画】「おにぎり たべちゃうぞ」の曲に合わせた遊び方 </a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
-    </dd>
-    
-    <dt>
-    	<?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span>
-    </dt>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_8/');?>" data-role="button" data-theme="e" rel="external">【Flash】たべものおしゃべりパズルであそぼう！</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_9/');?>" data-role="button" data-theme="e" rel="external">【Flash】しまじろうといっぱいたべよう！</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_10/');?>" data-role="button" data-theme="e" rel="external">【動画】スプーンでぱっくんかみかみ</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_11/');?>" data-role="button" data-theme="e" rel="external">【Flash】いっしょにたべようおさそいボイス</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_12/');?>" data-role="button" data-theme="e" rel="external">【Flash】トントントイレ</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_13/');?>" data-role="button" data-theme="e" rel="external">【Flash】しまじろうとトイレに行こう！</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_14/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレでおしっこ</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_15/');?>" data-role="button" data-theme="e" rel="external">【動画】みんなでトイレ</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_16/');?>" data-role="button" data-theme="e" rel="external">【動画】トイレでおしっこできるかな</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
-    </dd>
-    
-    <dt>
-    	<?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span>
-    </dt>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】どれをたべるのかな？はっけんゲーム</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1106/');?>" data-role="button" data-theme="e" rel="external">【Flash】はたらく くるま わかった！ クイズ</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
-    </dd>
-    
-    <dt>
-    	<?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span>
-    </dt>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1106/');?>" data-role="button" data-theme="e" rel="external">【着うた】かずのドーナツやさんの歌</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの いきもの ずかん</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】どんな かげかな？</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに のるとき おりるときの やくそく</a>
-    </dd>
-    
-    <dt>
-    	<?php echo $this->Html->image("icn_step.gif", array()); ?><?php echo $this->Html->image("txt_step.gif", array("alt" => "こどもちゃれんじ すてっぷ")); ?><br /><span class="step">4～5歳向けコース</span>
-    </dt>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おてつだいたいに ほうこくしよう！＜NEW＞</a>
-    </dd>
-  </dl>
-  <hr id="orangeDot">
-  <p>なお、Android向けサービスは今後バージョンアップを予定しております。ご期待ください。</p>
+	<p>	Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
+	<dl id="contents">
+		<?php foreach ( $lineData as $lineKey => $line  ) : ?>
+		    <dt>
+				<?php echo $this->Html->image( "icn_" . $line['Line']['category_name'] . ".gif", array() ); ?>
+				<?php echo $this->Html->image( "txt_" . $line['Line']['category_name'] . ".gif", array( "alt" => "こどもちゃれんじ " . $line['Line']['category_name'] . "/ぷちファースト" ) ); ?><br />
+				<span class="<?php echo $line['Line']['category_name']; ?>"><?php echo substr( $line['Line']['title'] , 0 , 14 ); ?> コース</span>
+				<?php foreach ( $contentData as $contentKey => $content ) : ?>
+					<?php if ( $content['Content']['line_id'] == $lineKey + 1 ): ?>
+						<dd>
+							<a href="<?php echo $this->Html->url( '/' . $content['Content']['path'] . '/' );?>" data-role="button" data-theme="e" rel="external">
+								<?php echo $content['Content']['title']; ?>
+							</a>
+					    </dd>
+				    <?php endif; ?>
+			    <?php endforeach; ?>
+		    </dt>
+		<?php endforeach; ?>
+	</dl>
+	<hr id="orangeDot">
+	<p>なお、Android向けサービスは今後バージョンアップを予定しております。ご期待ください。</p>
 </div>
-
