@@ -7,7 +7,7 @@ class PresentsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('print_postcard');
+		$this->Auth->allow('print_postcard', 'api_create_incentive');
 	}
 
 	function index($year = null, $month = null) {
@@ -314,42 +314,79 @@ class PresentsController extends AppController {
      * @return string   $path           : 作成されたインセンティブパス
     **/
     function api_create_incentive (
-            $present_id = null, $child_id = null, $type = null, 
-            $diary1 = null, $diary2 = null, $diary3 = null, $diary4 = null){
+        $present_id = null, $child_id = null, $type = null, 
+        $diary1 = null, $diary2 = null, $diary3 = null, $diary4 = null){
 
         //ｵｰﾄﾚﾝﾀﾞｰ解除
         $this->autoRender = false;
 
-        //特殊文字をHTMLエンティティに変換
-	$urlPrames = array();
-        $urlPrames['present_id'] = h($this->params['url']['present_id']);
-        $urlPrames['child_id'] = h($this->params['url']['child_id']);
-        $urlPrames['type'] = h($this->params['url']['type']);
-        $urlPrames['diary1'] = h($this->params['url']['diary1']);
-        $urlPrames['diary2'] = h($this->params['url']['diary2']);
-        $urlPrames['diary3'] = h($this->params['url']['diary3']);
-	$urlPrames['diary4'] = h($this->params['url']['diary4']);
+        //
+        $retval_false = '"false",""';
+        //
+        $url_params = array('present_id', 'child_id', 'type', 'diary1', 'diary2', 'diary3', 'diary4');
+        $api_args = array();
 	
 	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
-	foreach($urlPrames as $key => $value){
-	    //引数ﾁｪｯｸ
+        foreach($url_params as $param){
+            //引数ﾁｪｯｸ
+	    if(!isset($this->params['url'][$param])){
+                if(strcmp($param,'diary4') === 0){
+                    continue;
+                }else{
+                    $this->log("[api_create_incentive]必須パラメータがありません:".$param, LOG_DEBUG);
+                    return $retval_false;
+                }
+            }
+	    $value = $this->params['url'][$param];
+	    
 	    if(empty($value)){
-		$this->log("pramesException：ﾊﾟﾗﾒｰﾀｰｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false",""';
+                $this->log("[api_create_incentive]値がありません:".$param, LOG_DEBUG);
+                return $retval_false;
 	    }
 	    //ﾇﾙ文字対策
 	    if (isset($value)) {
-		    $urlPrames[$key] = $this->check_invalid_code($value);
-	    } else {
-		$this->log("nullStrException：ﾇﾙ文字ｴﾗｰ:".$key,LOG_DEBUG);
-		$this->log($urlPrames,LOG_DEBUG);
-		return '"false",""';
+                $value = $this->check_invalid_code($value);
 	    }
-	}
-	
-	
-	
+            //文字列長
+            if(50 < strlen($value)){
+                $this->log("[api_create_incentive]不正な文字列長値.len of ".$param.'='.strlen($value), LOG_DEBUG);
+                return $retval_false;
+            }
+            //数値のみ
+            if(!preg_match('/^[0-9]+$/', $value)){
+                $this->log("[api_create_incentive]不正なパラメータ値:".$param.'='.$value, LOG_DEBUG);
+                return $retval_false;
+            }
+            
+            //api args
+            if(strcmp($param,'diary1')===0)
+                $api_args['diary_id'][0] = $value;
+            if(strcmp($param,'diary2')===0)
+                $api_args['diary_id'][1] = $value;
+            if(strcmp($param,'diary3')===0)
+                $api_args['diary_id'][2] = $value;
+            if(strcmp($param,'diary4')===0)
+                $api_args['diary_id'][3] = $value;
+            else
+                $api_args[$param] = $value;
+        }
+        
+        // incentive作成
+        $result = false;
+        if($api_args['type'] == 1)
+            $result = $this->CreatePresent->createFlash($api_args);
+        else if($api_args['type'] == 2)
+            $result = $this->CreatePresent->createPostCard($api_args);
+        else{
+                $this->log("[api_create_incentive]不正なパラメータ値:type=".$api_args['type'], LOG_DEBUG);
+                return $retval_false;            
+        }
+            
+        if($result === false){
+                return $retval_false;                                    
+        }else{
+                return '"true","'.$result.'"';                        
+        }
     }
 }
 ?>
