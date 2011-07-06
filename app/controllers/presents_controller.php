@@ -373,11 +373,13 @@ class PresentsController extends AppController {
         
         // incentive作成
         $result = false;
-        if($api_args['type'] == 1)
+        if($api_args['type'] == 1){
+            //スマホ用待受け。TODO
             $result = $this->CreatePresent->createFlash($api_args);
-        else if($api_args['type'] == 2)
+        }else if($api_args['type'] == 2){
+            //ポストカードは携帯とスマホ共通
             $result = $this->CreatePresent->createPostCard($api_args);
-        else{
+        }else{
                 $this->log("[api_create_incentive]不正なパラメータ値:type=".$api_args['type'], LOG_DEBUG);
                 return $retval_false;            
         }
