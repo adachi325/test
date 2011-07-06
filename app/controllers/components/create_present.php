@@ -37,10 +37,12 @@ class CreatePresentComponent extends Object {
         $almeida->load($template);
 
         // ファイルへ出力する場合
-        $almeida->generateToFile(WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+        $outfile = WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf';
+        $almeida->generateToFile($outfile);
 
-        system("chmod 777 ".WWW_ROOT.'img/photo/'.$args['child_id'].'/'.$args['child_id'].'.swf');
+        system("chmod 777 ".$outfile);
 
+        return $outfile;
     }
 
 
