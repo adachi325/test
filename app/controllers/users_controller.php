@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
+        $this->Auth->allow('api_login', register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
     }
 
     function beforeRender() {
