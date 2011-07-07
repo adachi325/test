@@ -115,6 +115,6 @@ $sampleMonth = (mb_strlen($month)==1) ? '0'.$month : $month ;
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/3');?>" style="color:#339900;"><span style="color:#339900;">ﾎﾟｽﾄｶｰﾄﾞ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/-1');?>" style="color:#339900;"><span style="color:#339900;">入会ﾌﾟﾚｾﾞﾝﾄ</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/presents/present_list/-1');?>" style="color:#339900;"><span style="color:#339900;">登録ﾌﾟﾚｾﾞﾝﾄ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 

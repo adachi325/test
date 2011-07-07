@@ -2,6 +2,7 @@
 <?php echo $this->Html->image("ttl_fun.gif", array("alt" => "このサイトの楽しみ方", "width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます。</span><br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 まずはお子さんの思い出を記録してみよう!
 ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
@@ -31,7 +32,7 @@
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#ff6600;">&nbsp;･</span><span style="color:#339933">思い出記録</span>とは<br />
-思い出記録は､他の会員に思い出を公開することができます｡<span style="color:#ff6600;">｢他の会員に公開して投稿する｣</span>を選択すると､約1-2週間後｢育児なう｣に掲載されます｡<br />
+思い出記録は､他の会員に思い出を公開することができます｡<span style="color:#ff6600;">｢他の会員に公開して投稿する｣</span>を選択すると､約1週間後｢育児なう｣に掲載されます｡<br />
 <span style="color:#cc0000;">※公開する｢思い出記録｣については､ﾍﾞﾈｯｾにて選定を行います｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
@@ -98,7 +99,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
-今は送信しないで<a href="<?php echo $this->Html->url('/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
+今は送信しないで<a href="<?php echo $this->Html->url('/');?>">育児なうﾄｯﾌﾟ</a>へ進む<br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます。</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
