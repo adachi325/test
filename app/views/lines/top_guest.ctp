@@ -83,6 +83,14 @@
 
 <?php echo $this->element('default/room'); ?>
 
+<!-- メルマガバナー -->
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<div align="center" style="text-align:center;">
+<?php echo $this->Html->image('bnr_melmaga.gif', array('alt'=>'', 'url' => 'http://shimajiromobile.benesse.jp/ap1/mail/?guid=ON')); ?>
+</div>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+
+
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_pink.gif", array("alt" => "")); ?></div>
 
 <span style="color:#ff8100;"><?php $this->Ktai->emoji(0xE683); ?></span><a href="http://www.jadm.jp/cp/ad.php?sid=800000&ac=in00107&medium=06" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">&lt;こどもちゃれんじ&gt;入会･<br />資料請求</span></a><br />
