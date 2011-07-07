@@ -52,7 +52,7 @@
 <span style="color:#339933">思い出を記録</span>していくと<span style="color:#FF6699">ﾎﾟｽﾄｶｰﾄﾞﾃﾝﾌﾟﾚｰﾄや待受Flashなどのﾌﾟﾚｾﾞﾝﾄ</span>がGETできるよ☆<br />
 日々の思い出をかわいく残そう!<br /><br />
 その他､毎月の<span style="color:#FF0000">こどもちゃれんじ教材</span>と連動したｺﾝﾃﾝﾂや楽しいｺﾝﾃﾝﾂがいっぱい♪<br />
-<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます。</span><br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "15")); ?><br />
 
 <div align="center" style="text-align:center;"><a href="<?php echo $this->Html->url('/'); ?>"><span style="font-size:medium">育児なうﾄｯﾌﾟへ</span></a></div>

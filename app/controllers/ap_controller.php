@@ -11,7 +11,10 @@ class ApController extends AppController {
 	{
 		$this->Auth->allow('*');
 		parent::beforeFilter();
-		$this->_getUser();
+        $user = $this->_getUser();
+        if ($user) {
+            //$url = '/lines/top/0/'.$this->params['action'].'/';
+        }
 	}
 
 	function _getUser() {
@@ -19,15 +22,16 @@ class ApController extends AppController {
 		$has_account = false;
 		$uid = $this->_getUid();
 		if(!empty($uid)) {
-			$user =& ClassRegistry::init('User');
-			$user->contain();
-			$users = $user->find('first',array('conditions' => array('uid' => $uid)));
+			$User =& ClassRegistry::init('User');
+			$User->contain();
+			$user = $User->find('first',array('conditions' => array('uid' => $uid)));
 			//uidが存在する場合、フラグを立てる
-			if(!empty($users)){
+			if(!empty($user)){
 				$has_account = true;
 			}
 		}
-		$this->set(compact('has_account'));
+        $this->set(compact('has_account'));
+        return $user;
 	}
 
 	/**
