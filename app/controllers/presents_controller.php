@@ -387,7 +387,7 @@ class PresentsController extends AppController {
         if($result === false){
                 return $retval_false;                                    
         }else{
-                return '"true","'.$result.'"';                        
+                return '"true","'.WWW_ROOT.Configure::read('Present.postcard.output_dir').$result.'"';                        
         }
     }
 }
