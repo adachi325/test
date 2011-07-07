@@ -100,6 +100,7 @@
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
 今は送信しないで<a href="<?php echo $this->Html->url('/');?>">育児なうﾄｯﾌﾟ</a>へ進む<br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます。</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
 
