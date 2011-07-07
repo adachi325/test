@@ -915,17 +915,15 @@ $list[6] ='--5000000000--
     }
     
  /**
-   * ｻｲﾑﾈｲﾙ作成API(step3)
+   * ｽﾏｰﾄﾌｫﾝ用ｻｲﾑﾈｲﾙ作成API(step3)
    * 引数の条件でｻﾑﾈｲﾙを作成する
-   * 作成結果とサムネイルのパスを返す。
+   * 作成結果を返す。
    *
-   * @param     string  $child_id       対象Child
+   * @param     int  $child_id       対象Child
+   * @param     int  $diary_id       対象Child
    * @param     string  $inputfile      縮小対象ﾌｧｲﾙ
    * @param     string  $inputfilepath  縮小対象ﾌｧｲﾙﾊﾟｽ
-   * @param     int     $size           縮小ｻｲｽﾞ
-   * @param     int     $mainline       縮小主軸
    * @return    String  $result            処理結果:true=成功、false=失敗
-   * @return    String  $outputfilepath         作成ﾌｧｲﾙﾊﾟｽ
   */
 	function api_create_thumbnail(){
 
@@ -966,12 +964,6 @@ $list[6] ='--5000000000--
 			$this->log('不正なパラメータ:size='.$urlParams['diary_id'], LOG_DEBUG);
 			return $retval_false;
 		}
-                /*
-		if(!preg_match("/^[1|2]{1}$/", $urlParams['mainline'])){
-			$this->log('不正なパラメータ:mainline='.$urlParams['mainline'], LOG_DEBUG);
-			return $retval_false;
-		}
-		*/
 		//元ファイル
 		$in_file_path = $urlParams['inputfilepath'];
 		if(strstr($in_file_path, WWW_ROOT) == false){
@@ -985,9 +977,6 @@ $list[6] ='--5000000000--
 		$image = fread($fp, filesize($in_file_path));
 		fclose( $fp );
                 
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
-
 		//画像保存(オリジナル)
 		$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $urlParams['child_id'], $urlParams['diary_id']);
 		$this->Diary->__mkdir($image_path_original);
@@ -1028,33 +1017,6 @@ $list[6] ='--5000000000--
                     chmod($image_path_postcard_sp, 0777);//ポストカード用は777
                      */
 		}
-                ///////////////////////////////////////////////
-                ///////////////////////////////////////////////
-                /*
-		//出力ファイル
-		$out_file_path = WWW_ROOT.sprintf(Configure::read('ApiThumbnail.outPutPath'), $urlParams['child_id']);
-		$out_file_path = str_replace(DS.DS, DS, $out_file_path);
-		//make directory
-		if(!file_exists($out_file_path)){
-			if(!mkdir($out_file_path, 0777)){
-				$this->log('mkdir error.'.$out_file_path, LOG_DEBUG);
-				return $retval_false;
-			}
-			chmod($out_file_path,0777);//権限付与
-		}
-		$path_parts = pathinfo($urlParams['inputfile'],PATHINFO_DIRNAME+PATHINFO_BASENAME+PATHINFO_EXTENSION);
-		$fname = str_replace('.'.$path_parts['extension'],Configure::read('ApiThumbnail.outPutFileExtension'),$path_parts['basename']);
-		$out_file_path .= DS.$fname;
-		$out_file_path = str_replace(DS.DS, DS, $out_file_path);
-
-		//サムネイル作成
-		$result = $this->CreatePresent->imageReSize(
-											$in_file_path,
-											$out_file_path,
-											$urlParams['size'],
-											$urlParams['mainline']
-		);
-                */
                 
 		return '"true"';
                 
