@@ -14,7 +14,7 @@ if (!empty($uidErrorStr)) {
 <?php if($this->Session->read('Auth.User.created') > date("Y-m-d H:i:s", strtotime("-7 day"))): ?>
 <tr>
 <td width="25%" align="left" valign="top" nowrap="nowrap" style="white-space:nowrap"><span style="font-size:x-small; color:#FF0000;">&nbsp;<?php $this->Ktai->emoji(0xE6DD); ?><?php echo $this->Time->format('n/j', $this->Session->read('Auth.User.created')); ?></span></td>
-<td align="left" width="70%"><span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->link('入会ﾌﾟﾚｾﾞﾝﾄはこちら', '/presents/present_list/-1/'); ?></span></td>
+<td align="left" width="70%"><span style="font-size:x-small; color:#FF0000;"><?php echo $this->Html->link('登録ﾌﾟﾚｾﾞﾝﾄはこちら', '/presents/present_list/-1/'); ?></span></td>
 </tr>
 <?php endif; ?>
 
