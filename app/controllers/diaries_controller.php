@@ -972,6 +972,10 @@ $list[6] ='--5000000000--
 		}
 		$in_file_path .= DS.$urlParams['inputfile'];
 		$in_file_path = str_replace(DS.DS, DS, $in_file_path);
+                if(!file_exists($in_file_path)){
+			$this->log('不正なinputfile='.$in_file_path, LOG_DEBUG);
+			return $retval_false;                    
+                }
                 //データ読み込み
 		$fp = fopen( $in_file_path, "r" );
 		$image = fread($fp, filesize($in_file_path));
