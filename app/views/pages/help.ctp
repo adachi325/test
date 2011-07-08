@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td width="35" valign="top"><span style="font-size:x-small; white-space:nowrap;">Q10.</span></td>
-<td><a href="<?php echo $this->Html->url('/pages/help2#Q10'); ?>" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;">入会ﾌﾟﾚｾﾞﾝﾄはどうするともらえるのですか?どこのﾍﾟｰｼﾞでもらえるのですか?</span></a></td>
+<td><a href="<?php echo $this->Html->url('/pages/help2#Q10'); ?>" style="color:#cc6600;"><span style="font-size:x-small; color:#cc6600;">登録ﾌﾟﾚｾﾞﾝﾄはどうするともらえるのですか?どこのﾍﾟｰｼﾞでもらえるのですか?</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10", "alt" => "")); ?><br />

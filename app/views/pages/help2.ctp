@@ -18,7 +18,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q1" id="Q1"></a><span style="font-size:x-small; white-space:nowrap;">Q1.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">Q1. ｻｰﾋﾞｽ提供期間はいつからいつまでですか?</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">ｻｰﾋﾞｽ提供期間はいつからいつまでですか?</span></td>
 </tr>
 <tr>
 
@@ -150,7 +150,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="35" valign="top" bgcolor="#fff0dd"><a name="Q10" id="Q10"></a><span style="font-size:x-small; white-space:nowrap;">Q10.</span></td>
-<td bgcolor="#fff0dd"><span style="font-size:x-small;">入会ﾌﾟﾚｾﾞﾝﾄはどうするともらえるのですか?どこのﾍﾟｰｼﾞでもらえるのですか?</span></td>
+<td bgcolor="#fff0dd"><span style="font-size:x-small;">登録ﾌﾟﾚｾﾞﾝﾄはどうするともらえるのですか?どこのﾍﾟｰｼﾞでもらえるのですか?</span></td>
 
 </tr>
 <tr>
