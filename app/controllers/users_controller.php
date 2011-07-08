@@ -679,7 +679,10 @@ class UsersController extends AppController {
 			//制御文字対策
 			if (isset($this->params['url'][$attr])) {
 				$this->params['url'][$attr] = $this->check_invalid_code($this->params['url'][$attr]);
-			}
+			}else{
+				$this->log("必須ﾊﾟﾗﾒｰﾀなし:".$attr,LOG_DEBUG);
+				return '"false",""';                            
+                        }
 			$value = $this->params['url'][$attr];
 			//length check
 			if(strlen($value) < 3 || 100 < strlen($value)){
