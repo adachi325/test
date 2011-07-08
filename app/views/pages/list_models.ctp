@@ -27,12 +27,12 @@
 <div align="center" style="text-align:center"><?php echo $this->Html->image("line_obj04.gif"); ?></div>
 
 ●各種ｺﾝﾃﾝﾂが利用できない端末<br />
-&nbsp;<span style="color:#996633;">･</span>入会ﾌﾟﾚｾﾞﾝﾄ<br />
+&nbsp;<span style="color:#996633;">･</span>登録ﾌﾟﾚｾﾞﾝﾄ<br />
 　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000;">※音なし</span><br />
 　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000;">※音あり</span><br />
 &nbsp;<span style="color:#996633;">･</span>思い出記録<br />
 　<a href="#decome" style="color:#cc6600;"><span style="color:#cc6600;">ﾃﾞｺﾒ</span></a><br />
-　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash</span></a> <span style="color:#cc0000;">(Flash※音あり)</span><br />
+　<a href="#screen" style="color:#cc6600;"><span style="color:#cc6600;">待受Flash</span></a> <span style="color:#cc0000;">※音なし</span><br />
 &nbsp;<span style="color:#996633;">･</span>教材ｺﾝﾃﾝﾂ<br />
 　<a href="#flash" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000">※音なし</span><br />
 　<a href="#flash_sound" style="color:#cc6600;"><span style="color:#cc6600;">Flash</span></a><span style="color:#cc0000">※音あり</span><br />
