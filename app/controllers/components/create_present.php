@@ -228,33 +228,66 @@ class CreatePresentComponent extends Object {
         /******** ポストカード作成 ********/
 
         //下地画像生成（はがきサイズ）
-	$new_image = ImageCreateTrueColor(566, 840);
+	$new_image = ImageCreateTrueColor(650, 650);
 
         //思い出画像読み込み
-	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][0]));
-	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][1]));
-	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard'), $args['child_id'], $args['diary_id'][2]));
+        $dir_img = WWW_ROOT.'img'.DS;
+	$diaryImgA = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][0]));
+	if($diaryImgA === FALSE){
+	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][0]),LOG_DEBUG);
+            return false;            
+        }
+        $diaryImgB = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][1]));
+	if($diaryImgB === FALSE){
+	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][1]),LOG_DEBUG);
+            return false;            
+        }
+	$diaryImgC = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][2]));
+	if($diaryImgC === FALSE){
+	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][2]),LOG_DEBUG);
+            return false;            
+        }
 
         //テンプレート画像読み込み
-        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.postcard'), $args['present_id']));
+        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper'), $args['present_id']));
+	if($template === FALSE){
+	    $this->log('テンプレート画像読み込み failed.'.WWW_ROOT.'img/'.sprintf(Configure::read('Present.path.wallpaper'), $args['present_id']),LOG_DEBUG);
+            return false;            
+        }
 
 	//下地画像へ、思い出画像を合成
-	ImageCopy($new_image, $diaryImgA, 70, 350, 0, 0, 210, 210); //左下
-        ImageCopy($new_image, $diaryImgB, 280, 180, 0, 0, 210, 210); //中上
-        ImageCopy($new_image, $diaryImgC, 490, 350, 0, 0, 210, 210); //右上
+        //左下
+	if(!ImageCopy($new_image, $diaryImgA, 20, 350, 0, 0, 210, 210)){
+	    $this->log('diaryImgAの合成に失敗',LOG_DEBUG);
+            return false;
+        }
+         //中上
+        if(!ImageCopy($new_image, $diaryImgB, 220, 180, 0, 0, 210, 210)){
+	    $this->log('diaryImgBの合成に失敗',LOG_DEBUG);
+            return false;
+        };
+        //右上
+        if(!ImageCopy($new_image, $diaryImgC, 420, 350, 0, 0, 210, 210)){
+	    $this->log('diaryImgCの合成に失敗',LOG_DEBUG);
+            return false;
+        }
 
         //下地画像へ、テンプレート画像を合成
-        ImageCopy($new_image, $template, 0, 0,  0, 0, 650, 650);
+        if(!ImageCopy($new_image, $template, 0, 0,  0, 0, 650, 650)){
+	    $this->log('テンプレートの合成に失敗',LOG_DEBUG);
+            return false;
+        }
 
         //画像名生成
-        $new_file_name = md5($args['child_id'].time());
+        $new_file_name = '00000000111111';
+        //$new_file_name = md5($args['child_id'].time());
 	if (mb_strlen ($new_file_name) > 20) {
 	    $new_file_name = substr($new_file_name,0,20);
 	}
 
 	//画像保存
-	//$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name)), 100);
-	$result = ImageJPEG($new_image, WWW_ROOT.'/img/present/smartphone/thumbnail/384/'. $new_file_name, 100);
+	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name)), 100);
+	//$result = ImageJPEG($new_image, WWW_ROOT.'/img/present/smartphone/thumbnail/384/'. $new_file_name, 100);
 	if(!$result){
 	    $this->log("スマホ用待受け作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
@@ -304,7 +337,7 @@ class CreatePresentComponent extends Object {
 
         $postcard_url =& ClassRegistry::init('postcardUrl');
         $options = array(
-            'child_id' => 2,
+            'child_id' => $args['child_id'],
             'token' => $new_file_name
             );
         $postcard_url->create();
