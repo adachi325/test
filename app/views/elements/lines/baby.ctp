@@ -133,6 +133,14 @@
 </div></td>
 </tr>
 
+<tr>
+<td bgcolor="#ffffff"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">●1歳5ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1017/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【WEB】あなたの家は大丈夫? 事故予防ﾁｪｯｸ!</span></a><br />
+</div></td>
+</tr>
+
 </table>
 
 

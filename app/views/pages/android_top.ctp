@@ -56,12 +56,6 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
     </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】あてっこクイズ</a>
-    </dd>
-    <dd>
-	<a href="<?php echo $this->Html->url('/ap/petit/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おでかけ　できるかな？</a>
-    </dd>
     
     <dt>
     	<?php echo $this->Html->image("icn_pocket.gif", array()); ?><?php echo $this->Html->image("txt_pocket.gif", array("alt" => "こどもちゃれんじ ぽけっと")); ?><br /><span class="pocket">2～3歳向けコース</span>
@@ -74,9 +68,6 @@
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつのむし　みつけた！ゲーム</a>
     </dd>
     
     <dt>
@@ -93,12 +84,6 @@
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに　のるとき　おりるときの　やくそく</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつに　あそぶ　ときの　やくそく</a>
-    </dd>
-    <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてキット</a>
     </dd>
     
     <dt>
