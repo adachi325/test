@@ -116,7 +116,7 @@ class CreatePresentComponent extends Object {
 	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
 	}
-
+       
         //メモリを開放します
         imagedestroy($new_image);
         imagedestroy($new_thumbnail);
@@ -234,7 +234,7 @@ class CreatePresentComponent extends Object {
         //思い出画像読み込み
         $diaries_in_template = array();
         for($i = 0 ; $i < 3 ; $i++){
-            $diary_img_path = WWW_ROOT.'img'.DS.sprintf(Configure::read('Diary.image_path_rect_wallpaper'), $args['child_id'], $args['diary_id'][$i]);
+            $diary_img_path = WWW_ROOT.'img'.DS.sprintf(Configure::read('Diary.image_path_wallpaper_for_smartphone'), $args['child_id'], $args['diary_id'][$i]);
             $diaryImg = ImageCreateFromJpeg($diary_img_path);
             if($diaryImg === FALSE){
                 $this->log('Create DiaryImage failed.'.$diary_img_path,LOG_DEBUG);
@@ -244,9 +244,9 @@ class CreatePresentComponent extends Object {
         }
 
         //テンプレート画像読み込み
-        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper'), $args['present_id']));
+        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $args['present_id']));
 	if($template === FALSE){
-	    $this->log('テンプレート画像読み込み failed.'.WWW_ROOT.'img/'.sprintf(Configure::read('Present.path.wallpaper'), $args['present_id']),LOG_DEBUG);
+	    $this->log('テンプレート画像読み込み failed.'.WWW_ROOT.'img/'.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $args['present_id']),LOG_DEBUG);
             return false;            
         }
 
@@ -257,7 +257,7 @@ class CreatePresentComponent extends Object {
                                     array('x'=>504, 'y'=>299),     //中央
                                     array('x'=>972, 'y'=>516),     //右
                             );
-        $diary_size = Configure::read('Diary.image_size_rect_wallpaper');
+        $diary_size = Configure::read('Diary.image_size_wallpaper_for_smartphone');
         for($i = 0; $i < 3; $i++){
             if(!ImageCopy($new_image, $diaries_in_template[$i], 
                             $positions_in_template[$i]['x'], $positions_in_template[$i]['y'], 
@@ -281,32 +281,24 @@ class CreatePresentComponent extends Object {
 	}
 
 	//画像保存
-	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name)), 100);
+        $new_wallpaper_path = WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_for_smartphone'), $new_file_name);
+	$result = ImageJPEG($new_image, $new_wallpaper_path, 100);
 	if(!$result){
 	    $this->log("スマホ用待受け作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
 	}
         
-        ///とりあえずここまで。2011-07-12
-        //メモリを開放します
-        imagedestroy($new_image);
-        imagedestroy($template);
-        ImageDestroy($diaries_in_template[0]);
-        ImageDestroy($diaries_in_template[1]);
-        ImageDestroy($diaries_in_template[2]);
-        return $new_file_name;
-
         /******** サムネイル作成 ********/
 
         //サムネイル元画像読み込み
-        $image = imagecreatefromjpeg(WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name));
+        $image = imagecreatefromjpeg($new_wallpaper_path);
 
         //画像のサイズを取得
         $width = ImageSX($image); //横幅（ピクセル）
         $height = ImageSY($image); //縦幅（ピクセル）
 
         //サイズ指定
-        $new_width = 150;
+        $new_width = Configure::read('Diary.image_size_thumb_wallpaper_for_smartphone');
 
         //リサイズの圧縮比
         $rate = $new_width / $width;
@@ -319,7 +311,7 @@ class CreatePresentComponent extends Object {
         ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
 
 	//画像保存
-	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb'), $new_file_name)), 100);
+	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb_for_smartphone'), $new_file_name)), 100);
 	if(!$result2){
 	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
@@ -328,9 +320,9 @@ class CreatePresentComponent extends Object {
         //メモリを開放します
         imagedestroy($new_image);
         imagedestroy($new_thumbnail);
-        ImageDestroy($diaryImgA);
-        ImageDestroy($diaryImgB);
-        ImageDestroy($diaryImgC);
+        ImageDestroy($diaries_in_template[0]);
+        ImageDestroy($diaries_in_template[1]);
+        ImageDestroy($diaries_in_template[2]);
         ImageDestroy($image);
         
         /******** ワンタイムURL登録 ********/
@@ -345,13 +337,118 @@ class CreatePresentComponent extends Object {
 	    $this->log("ワンタイムURL登録に失敗しました。",LOG_DEBUG);
 	    $this->log($options,LOG_DEBUG);
             //データ登録に失敗した場合、ファイルを消す。
-            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name) );
-            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_for_smartphone'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb_for_smartphone'), $new_file_name) );
             return false;
         }
 
         return $new_file_name;
 
    }
+
+    /*
+     * スマートフォン用ポストカード作成
+     */
+    function createPostCard4SmartPhone($args){
+        //引数確認
+        if(empty($args)){
+            return false;
+        }
+
+        /******** ポストカード作成 ********/
+        $wallpaper_size = array('x'=>566, 'y'=>840);
+        //下地画像生成
+	$new_image = ImageCreateTrueColor($wallpaper_size['x'], $wallpaper_size['y']);
+
+        //思い出画像読み込み
+	$diaryImgA = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard_for_smartphone'), $args['child_id'], $args['diary_id'][0]));
+	$diaryImgB = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard_for_smartphone'), $args['child_id'], $args['diary_id'][1]));
+	$diaryImgC = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard_for_smartphone'), $args['child_id'], $args['diary_id'][2]));
+        $diaryImgD = ImageCreateFromJpeg(WWW_ROOT.'img/'.sprintf(Configure::read('Diary.image_path_postcard_for_smartphone'), $args['child_id'], $args['diary_id'][3]));
+
+        //テンプレート画像読み込み
+        $template = imageCreateFromPng(WWW_ROOT.sprintf(Configure::read('Present.path.postcard_for_smartphone'), $args['present_id']));
+
+	//下地画像へ、思い出画像を合成
+	ImageCopy($new_image, $diaryImgA, 70, 88, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgB, 280, 88, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgC, 70, 300, 0, 0, 210, 210);
+        ImageCopy($new_image, $diaryImgD, 280, 300, 0, 0, 210, 210);
+
+        //下地画像へ、テンプレート画像を合成
+        ImageCopy($new_image, $template, 0, 0,  0, 0, 566, 840);
+
+        //画像名生成
+        $new_file_name = md5($args['child_id'].time());
+	if (mb_strlen ($new_file_name) > 20) {
+	    $new_file_name = substr($new_file_name,0,20);
+	}
+
+	//画像保存
+	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_for_smartphone'), $new_file_name)), 100);
+	if(!$result){
+	    $this->log("ポストカード作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
+	}
+
+        /******** サムネイル作成 ********/
+
+        //サムネイル元画像読み込み
+        $image = imagecreatefromjpeg(WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_for_smartphone'), $new_file_name));
+
+        //画像のサイズを取得
+        $width = ImageSX($image); //横幅（ピクセル）
+        $height = ImageSY($image); //縦幅（ピクセル）
+
+        //サイズ指定
+        $new_width = Configure::read('Diary.image_size_thumb_postcard_for_smartphone');
+
+        //リサイズの圧縮比
+        $rate = $new_width / $width;
+        $new_height = $rate * $height;
+
+        //空の画像用意
+        $new_thumbnail = ImageCreateTrueColor($new_width, $new_height);
+
+        //リサイズした画像を空の画像にコピー
+        ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
+
+	//画像保存
+	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thumb_for_smartphone'), $new_file_name)), 100);
+	if(!$result2){
+	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
+	    $this->log($result,LOG_DEBUG);
+	}
+       
+        //メモリを開放します
+        imagedestroy($new_image);
+        imagedestroy($new_thumbnail);
+        ImageDestroy($diaryImgA);
+        ImageDestroy($diaryImgB);
+        ImageDestroy($diaryImgC);
+        ImageDestroy($diaryImgD);
+        ImageDestroy($image);
+        
+        /******** ワンタイムURL登録 ********/
+
+        $postcard_url =& ClassRegistry::init('postcardUrl');
+        $options = array(
+            'child_id' => 2,
+            'token' => $new_file_name
+            );
+        $postcard_url->create();
+        if (!$postcard_url->save($options)) {
+	    $this->log("ワンタイムURL登録に失敗しました。",LOG_DEBUG);
+	    $this->log($options,LOG_DEBUG);
+            //データ登録に失敗した場合、ファイルを消す。
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_for_smartphone'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thumb_for_smartphone'), $new_file_name) );
+            return false;
+        }
+
+        return $new_file_name;
+
+    }
+
 }
 ?>
