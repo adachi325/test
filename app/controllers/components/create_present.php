@@ -226,9 +226,10 @@ class CreatePresentComponent extends Object {
         }
 
         /******** 待受け作成 ********/
-
+        $wallpaper_size = array('x'=>1440, 'y'=>1280);
+        
         //下地画像生成
-	$new_image = ImageCreateTrueColor(432, 432);
+	$new_image = ImageCreateTrueColor($wallpaper_size['x'], $wallpaper_size['y']);
 
         //思い出画像読み込み
         $diaries_in_template = array();
@@ -252,21 +253,22 @@ class CreatePresentComponent extends Object {
 	//下地画像へ、思い出画像を合成
         //各思い出の位置
         $positions_in_template = array(
-                                    array('x'=>10, 'y'=>324),     // 左
-                                    array('x'=>145, 'y'=>99),     //中央
-                                    array('x'=>280, 'y'=>324),     //右
+                                    array('x'=>36, 'y'=>516),     // 左
+                                    array('x'=>504, 'y'=>299),     //中央
+                                    array('x'=>972, 'y'=>516),     //右
                             );
+        $diary_size = Configure::read('Diary.image_size_rect_wallpaper');
         for($i = 0; $i < 3; $i++){
             if(!ImageCopy($new_image, $diaries_in_template[$i], 
                             $positions_in_template[$i]['x'], $positions_in_template[$i]['y'], 
-                            0, 0, 2, 210)){
+                            0, 0, $diary_size, $diary_size)){
                 $this->log('テンプレートへの合成に失敗。'.($i+1).'番目の画像。', LOG_DEBUG);
                 return false;
             }           
         }
 
         //下地画像へ、テンプレート画像を合成
-        if(!ImageCopy($new_image, $template, 0, 0,  0, 0, 432, 432)){
+        if(!ImageCopy($new_image, $template, 0, 0,  0, 0, $wallpaper_size['x'], $wallpaper_size['y'])){
 	    $this->log('テンプレートの合成に失敗',LOG_DEBUG);
             return false;
         }
@@ -297,7 +299,7 @@ class CreatePresentComponent extends Object {
         /******** サムネイル作成 ********/
 
         //サムネイル元画像読み込み
-        $image = imagecreatefromjpeg(WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name));
+        $image = imagecreatefromjpeg(WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name));
 
         //画像のサイズを取得
         $width = ImageSX($image); //横幅（ピクセル）
@@ -317,7 +319,7 @@ class CreatePresentComponent extends Object {
         ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height);
 
 	//画像保存
-	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name)), 100);
+	$result2 = ImageJPEG($new_thumbnail, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb'), $new_file_name)), 100);
 	if(!$result2){
 	    $this->log("ポストカードサムネイル作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
@@ -343,8 +345,8 @@ class CreatePresentComponent extends Object {
 	    $this->log("ワンタイムURL登録に失敗しました。",LOG_DEBUG);
 	    $this->log($options,LOG_DEBUG);
             //データ登録に失敗した場合、ファイルを消す。
-            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output'), $new_file_name) );
-            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name) );
+            unlink( WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb'), $new_file_name) );
             return false;
         }
 
