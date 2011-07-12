@@ -1007,19 +1007,19 @@ $list[6] ='--5000000000--
                     $this->Diary->__saveImageFile($image, $image_path_postcard);
                     $this->Diary->__resize_image($image_path_postcard, Configure::read('Diary.image_size_postcard'), true);
                     chmod($image_path_postcard, 0777);//ポストカード用は777
-                    /*
-                    //画像保存(スマホ・正方形)
-                    $image_path_rect_sp = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $urlParams['child_id'], $urlParams['diary_id']);
-                    $this->Diary->__saveImageFile($image, $image_path_rect_sp);
-                    $this->Diary->__resize_image($image_path_postcard, Configure::read('Diary.image_path_rect_sp'), true);
-                    chmod($image_path_rect_sp, 0644);
+                    
+                    //スマホ待受け静止画用・画像保存(比率保持)
+                    $image_path_thumb_wallpaper = sprintf(IMAGES . Configure::read('Diary.image_path_thumb_wallpaper'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_thumb_wallpaper);
+                    $this->Diary->__resize_image($image_path_thumb_wallpaper, Configure::read('Diary.image_size_thumb_wallpaper'), false);
+                    chmod($image_path_thumb_wallpaper, 0644);
 
-                    //画像保存(スマホ・ポストカード)
-                    $image_path_postcard_sp = sprintf(IMAGES . Configure::read('Diary.image_path_postcard'), $urlParams['child_id'], $urlParams['diary_id']);
-                    $this->Diary->__saveImageFile($image, $image_path_postcard_sp);
-                    $this->Diary->__resize_image($image_path_postcard, Configure::read('Diary.image_size_postcard_sp'), true);
-                    chmod($image_path_postcard_sp, 0777);//ポストカード用は777
-                     */
+                    //スマホ待受け静止画用画像保存(正方形)
+                    $image_path_rect_wallpapaer = sprintf(IMAGES . Configure::read('Diary.image_path_rect_wallpaper'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_rect_wallpapaer);
+                    $this->Diary->__resize_image($image_path_rect_wallpapaer, Configure::read('Diary.image_size_wallpaper'), true);
+                    chmod($image_path_rect_wallpapaer, 0644);
+                  
 		}
                 
 		return '"true"';
