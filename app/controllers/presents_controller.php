@@ -375,7 +375,7 @@ class PresentsController extends AppController {
         $result = false;
         if($api_args['type'] == 1){
             //スマホ用待受け。TODO
-            $result = $this->CreatePresent->createScreen4SmartPhone($api_args);
+            $result = $this->CreatePresent->createWallpaper4SmartPhone($api_args);
         }else if($api_args['type'] == 2){
             //ポストカードは携帯とスマホ共通
             $result = $this->CreatePresent->createPostCard($api_args);
