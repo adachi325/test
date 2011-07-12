@@ -217,35 +217,29 @@ class CreatePresentComponent extends Object {
     }
 
     /*
-     * スマートフォン用待受け画像作成
+     * スマートフォン用待受け静止画像作成
      */
-    function createScreen4SmartPhone($args){
+    function createWallpaper4SmartPhone($args){
          //引数確認
         if(empty($args)){
             return false;
         }
 
-        /******** ポストカード作成 ********/
+        /******** 待受け作成 ********/
 
-        //下地画像生成（はがきサイズ）
-	$new_image = ImageCreateTrueColor(650, 650);
+        //下地画像生成
+	$new_image = ImageCreateTrueColor(432, 432);
 
         //思い出画像読み込み
-        $dir_img = WWW_ROOT.'img'.DS;
-	$diaryImgA = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][0]));
-	if($diaryImgA === FALSE){
-	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][0]),LOG_DEBUG);
-            return false;            
-        }
-        $diaryImgB = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][1]));
-	if($diaryImgB === FALSE){
-	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][1]),LOG_DEBUG);
-            return false;            
-        }
-	$diaryImgC = ImageCreateFromJpeg($dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][2]));
-	if($diaryImgC === FALSE){
-	    $this->log('diaryImgA failed.'.$dir_img.sprintf(Configure::read('Diary.image_path_wallpaper'), $args['child_id'], $args['diary_id'][2]),LOG_DEBUG);
-            return false;            
+        $diaries_in_template = array();
+        for($i = 0 ; $i < 3 ; $i++){
+            $diary_img_path = WWW_ROOT.'img'.DS.sprintf(Configure::read('Diary.image_path_rect_wallpaper'), $args['child_id'], $args['diary_id'][$i]);
+            $diaryImg = ImageCreateFromJpeg($diary_img_path);
+            if($diaryImg === FALSE){
+                $this->log('Create DiaryImage failed.'.$diary_img_path,LOG_DEBUG);
+                return false;            
+            }
+            $diaries_in_template[$i] = $diaryImg;
         }
 
         //テンプレート画像読み込み
@@ -256,24 +250,23 @@ class CreatePresentComponent extends Object {
         }
 
 	//下地画像へ、思い出画像を合成
-        //左下
-	if(!ImageCopy($new_image, $diaryImgA, 20, 350, 0, 0, 210, 210)){
-	    $this->log('diaryImgAの合成に失敗',LOG_DEBUG);
-            return false;
-        }
-         //中上
-        if(!ImageCopy($new_image, $diaryImgB, 220, 180, 0, 0, 210, 210)){
-	    $this->log('diaryImgBの合成に失敗',LOG_DEBUG);
-            return false;
-        };
-        //右上
-        if(!ImageCopy($new_image, $diaryImgC, 420, 350, 0, 0, 210, 210)){
-	    $this->log('diaryImgCの合成に失敗',LOG_DEBUG);
-            return false;
+        //各思い出の位置
+        $positions_in_template = array(
+                                    array('x'=>10, 'y'=>324),     // 左
+                                    array('x'=>145, 'y'=>99),     //中央
+                                    array('x'=>280, 'y'=>324),     //右
+                            );
+        for($i = 0; $i < 3; $i++){
+            if(!ImageCopy($new_image, $diaries_in_template[$i], 
+                            $positions_in_template[$i]['x'], $positions_in_template[$i]['y'], 
+                            0, 0, 2, 210)){
+                $this->log('テンプレートへの合成に失敗。'.($i+1).'番目の画像。', LOG_DEBUG);
+                return false;
+            }           
         }
 
         //下地画像へ、テンプレート画像を合成
-        if(!ImageCopy($new_image, $template, 0, 0,  0, 0, 650, 650)){
+        if(!ImageCopy($new_image, $template, 0, 0,  0, 0, 432, 432)){
 	    $this->log('テンプレートの合成に失敗',LOG_DEBUG);
             return false;
         }
@@ -287,13 +280,18 @@ class CreatePresentComponent extends Object {
 
 	//画像保存
 	$result = ImageJPEG($new_image, (WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output'), $new_file_name)), 100);
-	//$result = ImageJPEG($new_image, WWW_ROOT.'/img/present/smartphone/thumbnail/384/'. $new_file_name, 100);
 	if(!$result){
 	    $this->log("スマホ用待受け作成に失敗しました。",LOG_DEBUG);
 	    $this->log($result,LOG_DEBUG);
 	}
         
-        ///とりあえずここまで。
+        ///とりあえずここまで。2011-07-12
+        //メモリを開放します
+        imagedestroy($new_image);
+        imagedestroy($template);
+        ImageDestroy($diaries_in_template[0]);
+        ImageDestroy($diaries_in_template[1]);
+        ImageDestroy($diaries_in_template[2]);
         return $new_file_name;
 
         /******** サムネイル作成 ********/
