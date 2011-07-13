@@ -80,6 +80,27 @@ $config['Present'] = array(
 		'2' => 'sample/%s%s/90pic_flash.gif',
 		'3' => 'sample/%s%s/90pic_card.gif',
 	),
+	'template' => array(
+		'postcard' =>  array(
+                    'size_smartphone' => array('width'=>566,'height'=>840) ,
+                ),
+		'wallpaper' =>  array(
+                    'size_smartphone' => array('width'=>1440,'height'=>1280) ,
+                ),
+	),
+	'incentive' => array(
+                    'position_in_postcard_smartphone' => array(
+                        array('x'=>70,'y'=>88),     // top_left
+                        array('x'=>280,'y'=>88),       //top_right
+                        array('x'=>70,'y'=>300),        //bottom_left
+                        array('x'=>280,'y'=>300),       //bottom_right
+                    ),
+                    'position_in_wallpaper_smartphone' => array(
+                        array('x'=>36,'y'=>516),        //left
+                        array('x'=>504,'y'=>299),       //middle
+                        array('x'=>972,'y'=>516),       //right
+                    ),
+	),
 );
 
 $config['Defaults'] = array(
