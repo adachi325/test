@@ -271,8 +271,7 @@ class CreatePresentComponent extends Object {
         }
 
         //画像名生成
-        $new_file_name = '00000000111111';
-        //$new_file_name = md5($args['child_id'].time());
+        $new_file_name = md5($args['child_id'].time());
 	if (mb_strlen ($new_file_name) > 20) {
 	    $new_file_name = substr($new_file_name,0,20);
 	}
