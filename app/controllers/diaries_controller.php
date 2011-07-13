@@ -1017,16 +1017,22 @@ $list[6] ='--5000000000--
                     chmod($image_path_thumb_4sp, 0644);
 
                     //サムネイル画像保存(正方形)
-                    $image_path_rect_wallpapaer = sprintf(IMAGES . Configure::read('Diary.image_path_rect_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
-                    $this->Diary->__saveImageFile($image, $image_path_rect_wallpapaer);
-                    $this->Diary->__resize_image($image_path_rect_wallpapaer, Configure::read('Diary.image_size_rect_for_smartphone'), true);
-                    chmod($image_path_rect_wallpapaer, 0644);
+                    $image_path_rect_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_rect_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_rect_wallpaper_4sp);
+                    $this->Diary->__resize_image($image_path_rect_wallpaper_4sp, Configure::read('Diary.image_size_rect_for_smartphone'), true);
+                    chmod($image_path_rect_wallpaper_4sp, 0644);
                   
+                    //ポストカード用埋め込み画像保存(正方形)
+                    $image_path_postcard_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_postcard_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_postcard_4sp);
+                    $this->Diary->__resize_image($image_path_postcard_4sp, Configure::read('Diary.image_size_postcard_for_smartphone'), true);
+                    chmod($image_path_postcard_4sp, 0777);//ポストカード用は777
+
                     //壁紙用埋め込み画像保存(正方形)
-                    $image_path_postcard = sprintf(IMAGES . Configure::read('Diary.image_path_wallpaper_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
-                    $this->Diary->__saveImageFile($image, $image_path_postcard);
-                    $this->Diary->__resize_image($image_path_postcard, Configure::read('Diary.image_size_wallpaper_for_smartphone'), true);
-                    chmod($image_path_postcard, 0777);//ポストカード用は777
+                    $image_path_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_wallpaper_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_wallpaper_4sp);
+                    $this->Diary->__resize_image($image_path_wallpaper_4sp, Configure::read('Diary.image_size_wallpaper_for_smartphone'), true);
+                    chmod($image_path_wallpaper_4sp, 0777);//ポストカード用は777
 		}
                 
 		return '"true"';
