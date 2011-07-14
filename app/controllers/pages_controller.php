@@ -32,10 +32,16 @@ class PagesController extends AppController {
 			$Content =& ClassRegistry::init('Content');
 			$Content->contain();
 			$contentData = $Content->find( 'all' , array( 'conditions' => array( 'Content.android_flag' => 1 ) ) );
+			if ( count( $contentData[0] ) > 0 ) {
+				$lineFlag = array();
+				foreach ( $contentData as $key => $value ) {
+					$lineFlag[$value['Content']['line_id']] = 1;
+				}
+			}
 			$Line =& ClassRegistry::init('Line');
 			$Line->contain();
 			$lineData = $Line->find( 'all' );
-			$this->set( compact( 'contentData' , 'lineData' ) );
+			$this->set( compact( 'contentData' , 'lineData' , 'lineFlag' ) );
 			$this->render( 'android_top' );
 			return;
 		} else {
