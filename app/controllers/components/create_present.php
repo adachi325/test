@@ -216,8 +216,12 @@ class CreatePresentComponent extends Object {
         return true;
     }
 
-    /*
-     * スマートフォン用待受け静止画像作成
+    /**
+     * スマートフォン用待受け静止画像および画像作成
+     * @param  string    args['child_id']   : child_id
+     * @param  string    args['present_id']   : テンプレートpresent_id
+     * @param  string    args['diary_id[0-2]']   : diary_id
+     * @return boolean   $result     : 結果
      */
     function createWallpaper4SmartPhone($args){
          //引数確認
@@ -347,6 +351,10 @@ class CreatePresentComponent extends Object {
 
     /*
      * スマートフォン用ポストカード作成
+     * @param  string    args['child_id']   : child_id
+     * @param  string    args['present_id']   : テンプレートpresent_id
+     * @param  string    args['diary_id[0-3]']   : diary_id
+     * @return boolean   $result     : 結果
      */
     function createPostCard4SmartPhone($args){
         //引数確認
