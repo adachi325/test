@@ -96,9 +96,9 @@ $config['Present'] = array(
                         array('x'=>280,'y'=>300),       //bottom_right
                     ),
                     'position_in_wallpaper_smartphone' => array(
-                        array('x'=>36,'y'=>516),        //left
-                        array('x'=>504,'y'=>299),       //middle
-                        array('x'=>972,'y'=>516),       //right
+                        array('x'=>34,'y'=>514),        //left
+                        array('x'=>502,'y'=>297),       //middle
+                        array('x'=>970,'y'=>514),       //right
                     ),
 	),
 );
@@ -150,7 +150,7 @@ $config['Diary'] = array(
 	'image_size_rect_for_smartphone' => 75,                 //スマホ用:正方形
 	'image_size_postcard' => 210,                           //ポストカードはめ込み画像サイズ：正方形
 	'image_size_postcard_for_smartphone' => 210,                           //ポストカードはめ込み画像サイズ：正方形
-	'image_size_wallpaper_for_smartphone' => 432,                          //待受け静止画用はめ込み画像サイズ:正方形
+	'image_size_wallpaper_for_smartphone' => 436,                          //待受け静止画用はめ込み画像サイズ:正方形
 	'image_path_original' => "photo/%s/%s_original.jpg",	//一時保存用
 	'image_path_thumb' => "photo/%s/%s_thumb.jpg",		//比率保持サムネイル
 	'image_path_thumb_for_smartphone' => "photo/%s/%s_thumb_sp.jpg",	//スマホ用比率保持サムネイル
