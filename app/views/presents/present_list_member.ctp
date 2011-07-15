@@ -1,3 +1,5 @@
+<a name="top" id="top"></a>
+<div style="width:100%; font-size:x-small; text-align:left; color:#333333;">
 
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -8,34 +10,79 @@
 <td width="85%"><?php echo $this->Html->image("txt_admission.gif", array("width" => "100%", "style" => "margin-bottom:5px;")); ?></td>
 </tr>
 </table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+ÌßÛÌ¨°Ù“o˜^‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·ô<br />…‘°ŠÙ·¬ÝÍß°ÝÌßÚ¾ÞÝÄ‚Æ¤‚»‚Ì‘¼“o˜^ÌßÚ¾ÞÝÄ‚ð‚³‚Á‚»‚­Žg‚Á‚Ä‚Ý‚Ä‚Ë<span style="color:#FF0000"><?php $this->Ktai->emoji(0xE685); ?></span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-ï¾Œï¾Ÿï¾›ï¾Œï½¨ï½°ï¾™ç™»éŒ²ã‚ã‚ŠãŒã¨ã†â™ª<br />
-å¥½ããªï½¹ï¾žï½°ï¾‘ã‚’ï¾€ï¾žï½³ï¾ï¾›ï½°ï¾„ï¾žã—ã¦éŠã‚“ã§ã­ï½¡<br />
-
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
-
-<span style="color:#ff6600;">&nbsp;ï½¥</span>å¯¾è±¡å¹´é½¢:0ï½ž3æ­³<br />
+<div style="background:#3399ff;">
+<div style="background:#3399ff;text-align:center;color:#ffffff" align="center">
+<?php echo $this->Html->image("present_suizokukan1.gif", array("width" => "100%", "alt" => "…‘°ŠÙ·¬ÝÍß°ÝÌßÚ¾ÞÝÄ")); ?><br /><?php echo $this->Html->image("present_suizokukan2.gif", array("width" => "100%")); ?>
+<span style="font-size:medium;"><a href="<?php echo $this->Html->url('/presents/present_list/2/'); ?>" style="color:#ffffff"><span style="color:#ffffff">y‘ÒŽóFlashz</span></a></span><br />
+<?php echo $this->Html->image("sample/first/suizokukan/150pic_flash.gif", array("width" => "62%", "style" => "margin-bottom:5px;")); ?><br />
+Žv‚¢o‚ÌŽÊ^‚ð<span style="font-size:medium; ">3–‡</span>“Še‚µ‚Äì‚ë‚¤!’‹<?php $this->Ktai->emoji(0xE63E); ?>–é<?php $this->Ktai->emoji(0xE6B3); ?>‚ÅŠG‚ª•Ï‚í‚é‚æ¡<br /><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="font-size:medium; "><a href="<?php echo $this->Html->url('/presents/present_list/3/'); ?>" style="color:#ffffff"><span style="color:#ffffff">yÎß½Ä¶°ÄÞz</span></a></span><br />
+<?php echo $this->Html->image("sample/first/suizokukan/150pic_card.gif", array("width" => "62%", "style" => "margin-bottom:5px;")); ?><br />
+Žv‚¢o‚ÌŽÊ^‚ð<span style="font-size:medium; ">4–‡</span>“Še‚µ‚Äì‚ë‚¤!Êß¿ºÝ‚©‚çˆóü‚µ‚Ä‚Ë¡<br />
+</div>
+<div style="background:#cfecff">
+<?php echo $this->Html->image("present_suizokukan3.gif", array("width" => "100%")); ?><br />
+<?php echo $this->Html->image("present_suizokukan4.gif", array("width" => "100%", "style" => "margin-bottom:5px;", "alt" => "…‘°ŠÙ~‚Ð‚ç‚ª‚ÈƒQ[ƒ€")); ?>
+<span style="color:#0099ff;">&nbsp;¥</span>‘ÎÛ”N—î:3`4Î<br />
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
-<td><?php echo $this->Html->image("sample/first/60pic_pingpong-hello.gif", array("style" => "margin:5px 0;width:100%")); ?></td>
-<td><a href="<?php echo $this->Html->url('/ap/member/0-3_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">ã€Flashã€‘ï¾‹ï¾Ÿï¾ï¾Žï¾Ÿï½°ï¾ã§ã“ã‚“ã«ã¡ã¯</span></a></td>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan1.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->url('/ap/member/aqua01/src/mob_STG01.swf')?>"><span style="font-size:x-small; ">yFlashz‚¤‚Ý‚Ì‚¢‚«‚à‚ÌƒR[ƒi[</span></a></td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<span style="color:#0099ff;">&nbsp;¥</span>‘ÎÛ”N—î:4`5Î<br />
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan2.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->url('/ap/member/aqua02/src/mob_STG02.swf')?>"><span style="font-size:x-small;">yFlashz‚¢‚ë‚¢‚ë‚¢‚«‚à‚ÌƒR[ƒi[</span></a></td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+<span style="color:#0099ff;">&nbsp;¥</span>‘ÎÛ”N—î:5`6Î<br />
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan3.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->url('/ap/member/aqua03/src/mob_STG03.swf')?>"><span style="font-size:x-small;">yFlashz‚¨‚¨‚ª‚½‚·‚¢‚»‚¤ƒR[ƒi[</span></a></td>
+</tr>
+</table>
+</div></div>
+
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
+<div style="text-align:center;color:#ff6600" align="center">
+<?php echo $this->Html->image("present5.gif", array("width" => "100%", "style" => "margin-bottom:5px;", "alt" => "‚»‚Ì‘¼‚Ì“o˜^ÌßÚ¾ÞÝÄ")); ?>
+<span style="font-size:medium;"><a href="<?php echo $this->Html->url('/presents/present_list/2/'); ?>" style="color:#ff6600;"><span style="color:#ff6600;">y‘ÒŽóFlashz</span></a></span><br />
+<?php echo $this->Html->image("sample/first/150pic_flash.gif", array("width" => "62%", "style" => "margin-bottom:10px;")); ?><br />
+<span style="font-size:medium;"><a href="<?php echo $this->Html->url('/presents/present_list/3/'); ?>" style="color:#ff6600;"><span style="color:#ff6600;">yÎß½Ä¶°ÄÞz</span></a></span><br />
+<?php echo $this->Html->image("sample/first/150pic_card.gif", array("width" => "62%", "style" => "margin-bottom:10px;")); ?><br />
+</div>
+<div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
+<span style="color:#ff6600;">&nbsp;¥</span>‘ÎÛ”N—î:0`3Î<br />
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_pingpong-hello.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/0-3_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">yFlashzËßÝÎß°Ý‚Å‚±‚ñ‚É‚¿‚Í</span></a></td>
 </tr>
 <tr>
-<td width="25%"><?php echo $this->Html->image("sample/first/60pic_one_button.gif", array("style" => "margin:5px 0;width:100%")); ?></td>
-<td><a href="<?php echo $this->Html->url('/ap/member/0-3_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">ã€Flashã€‘ï¾œï¾ï¾Žï¾žï¾€ï¾ï½¹ï¾žï½°ï¾‘</span></a></td>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_one_button.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/0-3_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">yFlashzÜÝÎÞÀÝ¹Þ°Ñ</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 
-<span style="color:#ff6600;">&nbsp;ï½¥</span>å¯¾è±¡å¹´é½¢:4ï½ž6æ­³<br />
+<span style="color:#ff6600;">&nbsp;¥</span>‘ÎÛ”N—î:4`6Î<br />
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
-<td width="25%"><?php echo $this->Html->image("sample/first/60pic_lunch.gif", array("style" => "margin:5px 0;width:100%")); ?></td>
-<td><a href="<?php echo $this->Html->url('/ap/member/4-6_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">ã€Flashã€‘ï¾—ï¾ï¾ã‚’ï½¹ï¾žï½¯ï¾„å¤§ä½œæˆ¦</span></a></td>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_lunch.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/4-6_1/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">yFlashz×ÝÁ‚ð¹Þ¯Ä‘åìí</span></a></td>
 </tr>
 <tr>
-<td width="25%"><?php echo $this->Html->image("sample/first/60pic_memorygame.gif", array("style" => "margin:5px 0;width:100%")); ?></td>
-<td><a href="<?php echo $this->Html->url('/ap/member/4-6_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">ã€Flashã€‘ï¾’ï¾“ï¾˜ï½°ï½¹ï¾žï½°ï¾‘</span></a></td>
+<td width="25%"><?php echo $this->Html->image("sample/first/60pic_memorygame.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/4-6_2/'); ?>" style="color:#ff6600;"><span style="font-size:x-small; color:#ff6600;">yFlashzÒÓØ°¹Þ°Ñ</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
