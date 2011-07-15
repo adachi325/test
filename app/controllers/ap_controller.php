@@ -11,7 +11,10 @@ class ApController extends AppController {
 	{
 		$this->Auth->allow('*');
 		parent::beforeFilter();
-		$this->_getUser();
+        $user = $this->_getUser();
+        if ($user) {
+            //$url = '/lines/top/0/'.$this->params['action'].'/';
+        }
 	}
 
 	function _getUser() {
@@ -19,15 +22,16 @@ class ApController extends AppController {
 		$has_account = false;
 		$uid = $this->_getUid();
 		if(!empty($uid)) {
-			$user =& ClassRegistry::init('User');
-			$user->contain();
-			$users = $user->find('first',array('conditions' => array('uid' => $uid)));
+			$User =& ClassRegistry::init('User');
+			$User->contain();
+			$user = $User->find('first',array('conditions' => array('uid' => $uid)));
 			//uidが存在する場合、フラグを立てる
-			if(!empty($users)){
+			if(!empty($user)){
 				$has_account = true;
 			}
 		}
-		$this->set(compact('has_account'));
+        $this->set(compact('has_account'));
+        return $user;
 	}
 
 	/**
@@ -224,40 +228,40 @@ class ApController extends AppController {
 
 		$release_date = $data['Content']['release_date'];
 
-		if ($release_date <= date('Y-m-d H:i:s')) {
-			$filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
+        if ($release_date <= date('Y-m-d H:i:s')) {
+            $filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
 
-			$this->layout = 'contents';
-			if ($this->Ktai->is_softbank()) {
-				$_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
-			} elseif ($this->Ktai->is_ezweb()) {
-				$_path = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
-			} elseif ($this->Ktai->is_android()) {
-				$_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
-				if (!file_exists($_path)) {
-					$this->layout = null;
-					$this->render('android');
-					return;
+            $this->layout = 'contents';
+            if ($this->Ktai->is_softbank()) {
+                $_path = WWW_ROOT."ap/{$line}/{$id}/index.softbank.html";
+            } elseif ($this->Ktai->is_ezweb()) {
+                $_path = WWW_ROOT."ap/{$line}/{$id}/index.au.html";
+            } elseif ($this->Ktai->is_android()) {
+                $_path = WWW_ROOT."ap/{$line}/{$id}/index.android.html";
+                if (!file_exists($_path)) {
+                    $this->layout = null;
+                    $this->render('android');
+                    return;
+                } else {
+                    $this->layout = 'contents_android';
+                }
+            }
+
+            if (isset($_path) && file_exists($_path)) {
+                $filepath = $_path;
+            }
+
+            $this->set(compact('release_date', 'filepath'));
+            $this->render("view");
         } else {
-			    $this->layout = 'contents_android';
+            $this->set(compact('release_date'));
+            if ($this->Ktai->is_android()) {
+                $this->layout = null;
+                $this->render("android_error");	
+            } else {
+                $this->render("error");	
+            }
         }
-			}
-
-			if (isset($_path) && file_exists($_path)) {
-				$filepath = $_path;
-			}
-			
-			$this->set(compact('release_date', 'filepath'));
-			$this->render("view");
-		} else {
-			$this->set(compact('release_date'));
-			if ($this->Ktai->is_android()) {
-				$this->layout = null;
-				$this->render("android_error");	
-			} else {
-				$this->render("error");	
-			}
-		}
 	}
 
 }

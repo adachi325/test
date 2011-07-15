@@ -71,16 +71,17 @@
 <div align="right" style="text-align:right;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <a href="<?php echo $this->Html->url('/diaries/publish/'); ?>" style="color:#ff0000;"><span style="color:#ff0000;font-size:x-small;">※公開に関する注意事項</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#cc0000">
-※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡<br /></span>
-<span style="color:#666666"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000">※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡(ﾀｲﾄﾙは自由に変更できます｡)<br /></span>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000">※絵文字･ﾃﾞｺﾒ絵文字･一部の記号は､文字化けするためご利用できません｡<br /></span>
+<span style="color:#666666">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※端末により､写真が回転する場合があります｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※絵文字･ﾃﾞｺﾒ絵文字･一部の記号はご利用できません｡<br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※ﾀｲﾄﾙは自由に変更できます｡<br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br /></span>
+※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br />
+</span>
 <br />
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">

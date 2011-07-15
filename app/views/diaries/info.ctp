@@ -57,7 +57,7 @@ if($diary['Month']['month'] < 10) {
 <td align="left"><span style="font-size:x-small; color:#333333;"><?php echo $this->DiaryCommon->publicStatus($diary['Diary']['wish_public'], $diary['Diary']['permit_status'], $diary['Article']['release_date']); ?></span></td>
 <td align="right">
 <?php if ($alreadyAddHanamaru) : ?>
-  <span style="font-size:x-small; color:#FF0000;"><?php echo $ktai->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "60", "height" => "21", "style" => "margin:0px 2px 0px 0;")); ?><?php echo $ktai->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "width" => "20", "height" => "18", "style" => "margin:0 4px 0 0;")); ?><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
+  <span style="font-size:x-small; color:#FF0000;"><?php echo $ktai->image("icn_hanamaru_btn_off.gif", array("alt" => "はなまる", "width" => "60", "height" => "21", "style" => "margin:0px 2px 0px 0;")); ?><?php //echo $ktai->image("icn_hanamaru.gif", array("alt" => "はなまる", "border" => "0", "width" => "20", "height" => "18", "style" => "margin:0 4px 0 0;")); ?><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php else : ?>
 <?php
 // 現在ページのフルパス(エンコード済み)を設定する
@@ -70,7 +70,7 @@ if (isset($_SERVER['HTTPS'])) {
 $url = $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 $encoded_url = urlencode($url);
 ?>
-      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$diary['Diary']['id']}&user_id={$user['User']['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $ktai->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "60", "height" => "21", "style" => "margin:0px 2px 0px 0;")); ?></a><span style="font-size:x-small; color:#FF0000;"><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
+      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$diary['Diary']['id']}&user_id={$user['User']['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $ktai->image("icn_hanamaru_btn_on.gif", array("alt" => "はなまる", "width" => "60", "height" => "21", "style" => "margin:0px 2px 0px 0;")); ?></a><span style="font-size:x-small; color:#FF0000;"><?php echo $diary['Diary']['hanamaru_count']; ?>ｺ</span>
 <?php endif; ?>
 
 </td>
@@ -90,9 +90,9 @@ $publish_time = strtotime($diary['Article']['release_date']);
 
 <div align="center" style="text-align:center"><a href="<?php echo $this->Html->url('/diaries/post/'.$diary['Diary']['id']) ;?>"><?php echo $this->Html->image('bt_kyouyu.gif', array('width' => "80%", 'border' => '0')); ?></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を編集する</span></a><br />
-<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit_public/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出の公開設定を変更する</span></a><br />
-<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">この思い出を削除する</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">編集する</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/edit_public/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">公開設定を変更する</span></a><br />
+<span style="color:#339933;">&nbsp;･</span><a href="<?php echo $this->Html->url('/diaries/delete/'.$diary['Diary']['id']); ?>" style="color:#339900;"><span style="color:#339900;">削除する</span></a><br />
 
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj01.gif", array("width" => "228", "height" => "35")); ?></div>
 

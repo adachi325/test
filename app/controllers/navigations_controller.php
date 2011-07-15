@@ -102,7 +102,8 @@ class NavigationsController extends AppController {
 
 		$this->set('mailStr',$mailStr);
 		$this->set('mailPublicStr',$mailPublicStr);
-		$this->set('mailTitle',$mailTitle);
+        $this->set('mailTitle',$mailTitle);
+        $this->set('with_conversion', true);
 	}
 
 	function after2($hash = null) {

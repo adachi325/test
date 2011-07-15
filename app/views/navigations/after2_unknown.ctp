@@ -1,8 +1,8 @@
 
 <?php echo $this->Html->image("ttl_fun.gif", array("width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-まだ送信が完了していません。<br />
-以下の原因が考えられます。<br /><br />
+まだ送信が完了していません｡<br />
+以下の原因が考えられます｡<br /><br />
 <ol>
 <li>ﾒｰﾙが送信されていません｡</li>
 <li>ﾒｰﾙの送信が完了しておりません｡</li>

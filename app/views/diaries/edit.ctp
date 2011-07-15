@@ -52,7 +52,7 @@
 <tr>
 <td align="left">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#666666;font-size:x-small">※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡</span><br />
+<span style="color:#cc0000;font-size:x-small">※絵文字･ﾃﾞｺﾒ絵文字･一部の記号は､文字化けするためご利用できません｡<br /></span>
 <?php if($ktai->is_ezweb()) { ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#666666;font-size:x-small">※auをご利用の方は､全角512文字しか編集できません｡<br />

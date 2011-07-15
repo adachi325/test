@@ -20,5 +20,12 @@ echo $this->element('default/meta');
 <?php echo $this->element('default/footer'); ?>
 <?php echo $this->element('google/analytics'); ?>
 </div>
+
+<?php
+if (isset($with_conversion) && $with_conversion) {
+    echo $this->element('default/conversion');
+}
+?>
+
 </body>
 </html>
