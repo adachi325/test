@@ -98,7 +98,7 @@
     <a href="<?php echo $this->Html->url('/ap/hop/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつに　あそぶ　ときの　やくそく</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてキット</a>
+    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてゲーム</a>
     </dd>
     
     <dt>
