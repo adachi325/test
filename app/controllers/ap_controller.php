@@ -13,7 +13,8 @@ class ApController extends AppController {
 		parent::beforeFilter();
         $user = $this->_getUser();
         if ($user) {
-            //$url = '/lines/top/0/'.$this->params['action'].'/';
+            $url = '/lines/top/0/'.$this->params['action'].'/';
+            $this->redirect($url);
         }
 	}
 
@@ -165,16 +166,16 @@ class ApController extends AppController {
             ));
             $contents = Set::extract('/Content', $issues);
 
-		//Issue.titleの追加
-		$ii = 0;
-		foreach($contents as $content){
-			foreach($issues as $issue){
-				if ($content['Content']['issue_id'] == $issue['Issue']['id']) {
-					$contents[$ii++]['Issue']['title'] = $issue['Issue']['title'];
-					break;
-				}	
-			}
-		}	
+            //Issue.titleの追加
+            $ii = 0;
+            foreach($contents as $content){
+                foreach($issues as $issue){
+                    if ($content['Content']['issue_id'] == $issue['Issue']['id']) {
+                        $contents[$ii++]['Issue']['title'] = $issue['Issue']['title'];
+                        break;
+                    }	
+                }
+            }	
         }
 
 		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
