@@ -37,7 +37,7 @@ extract($this->data['User']);
     <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></p>
 </div></td>
 </tr>
-<tr>
+<?php /*<tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■ﾊﾟｽﾜｰﾄﾞ確認</span><br />
@@ -57,7 +57,7 @@ if($this->Ktai->is_ezweb()){
 ?><br /><span style="color:#ff0000"><?php echo $form->error('row_password', null, array('wrap' => false)); ?></span>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
-</tr>
+</tr> */ ?>
 
 <tr>
 <td align="center">
