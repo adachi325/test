@@ -31,7 +31,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan1.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
-<td><a href="<?php echo $this->url('/ap/member/aqua01/src/mob_STG01.swf')?>"><span style="font-size:x-small; ">【Flash】うみのいきものコーナー</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/aqua01/src/mob_STG01.swf'); ?>"><span style="font-size:x-small; ">【Flash】うみのいきものコーナー</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -39,7 +39,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan2.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
-<td><a href="<?php echo $this->url('/ap/member/aqua02/src/mob_STG02.swf')?>"><span style="font-size:x-small;">【Flash】いろいろいきものコーナー</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/aqua02/src/mob_STG02.swf'); ?>"><span style="font-size:x-small;">【Flash】いろいろいきものコーナー</span></a></td>
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
@@ -47,7 +47,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td width="25%"><?php echo $this->Html->image("sample/first/60pic_suizokukan3.gif", array("style" => "margin:5px 0;", "width" => "100%")); ?></td>
-<td><a href="<?php echo $this->url('/ap/member/aqua03/src/mob_STG03.swf')?>"><span style="font-size:x-small;">【Flash】おおがたすいそうコーナー</span></a></td>
+<td><a href="<?php echo $this->Html->url('/ap/member/aqua03/src/mob_STG03.swf'); ?>"><span style="font-size:x-small;">【Flash】おおがたすいそうコーナー</span></a></td>
 </tr>
 </table>
 </div></div>
