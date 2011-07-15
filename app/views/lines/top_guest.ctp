@@ -62,7 +62,10 @@
 
 <?php echo $this->Html->image("icn_twitter.gif", array("style" => "margin:0 3px 0 0")); ?><a href="http://twitter.com/kodomochallenge" style="color:#ff3333;"><span style="color:#ff3333; font-size:x-small;">twitterでﾍﾞﾈｯｾの情報配信中</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<div align="center" style="text-align:center;"><?php echo $this->Html->image("bnr_melmaga.gif", array("alt" => "", "width" => "83%")); ?></div>
+
+<div align="center" style="text-align:center;">
+<?php echo $this->Html->image('bnr_melmaga.gif', array('alt'=>'', 'url' => 'http://shimajiromobile.benesse.ne.jp/ap1/mail/?guid=ON')); ?>
+</div>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("line_obj02.gif", array("alt" => "")); ?></div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
