@@ -44,7 +44,7 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<div align="center" style="text-align:left; margin-left:5px; margin-right: 5px;">
+<div align="center" style="text-align:left;">
 <span style="font-size:xx-small; color:#ffffff;">このｻｰﾋﾞｽはﾍﾞﾈｯｾｺｰﾎﾟﾚｰｼｮﾝと<br />
 NTTﾄﾞｺﾓの共同で提供しています</span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
