@@ -11,11 +11,6 @@ class ApController extends AppController {
 	{
 		$this->Auth->allow('*');
 		parent::beforeFilter();
-        $user = $this->_getUser();
-        if ($user) {
-            $url = '/lines/top/0/'.$this->params['action'].'/';
-            $this->redirect($url);
-        }
 	}
 
 	function _getUser() {
@@ -69,7 +64,8 @@ class ApController extends AppController {
 	}
 
 
-	function baby($id = null) {
+    function baby($id = null) {
+
 		if ($id) {
 			$this->__view($this->params['action'], $id);
 		} else {
@@ -114,7 +110,8 @@ class ApController extends AppController {
 	}
 	
 	function jump($id = null) {
-		if ($id) {
+
+        if ($id) {
 			$this->__view($this->params['action'], $id);
 		} else {
 			$this->__index($this->params['action']);
@@ -176,6 +173,13 @@ class ApController extends AppController {
                     }	
                 }
             }	
+        }
+
+        $user = $this->_getUser();
+        if ($user) {
+            $this->log($this->params, LOG_DEBUG);
+            $url = '/lines/top/0/'.$this->params['action'].'/';
+            $this->redirect($url);
         }
 
 		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
