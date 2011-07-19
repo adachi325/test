@@ -144,7 +144,10 @@ $config['Diary'] = array(
 	'image_size_thumb' => 220,                              //このサイズ内に元の比率で収まるようにリサイズ
 	'image_size_thumb_for_smartphone' => 220,               //SmartPhone用サイズ:このサイズ内に元の比率で収まるようにリサイズ
 	'image_size_thumb_postcard' => 150,                     //ポストカード用サムネイルのサイズ
-	'image_size_thumb_postcard_for_smartphone' => 150,	//ポストカード用サムネイル（スマホ用）のサイズ
+	'image_size_thumb_postcard_width_for_smartphone' => 404,	//ポストカード用サムネイル（スマホ用）のサイズ
+	'image_size_thumb_postcard_height_for_smartphone' => 600,	//ポストカード用サムネイル（スマホ用）のサイズ
+	'image_size_thumb_wallpaper_width_for_smartphone' => 518,                    //待受け静止画像のサムネイルのサイズ
+	'image_size_thumb_wallpaper_height_for_smartphone' => 460,                    //待受け静止画像のサムネイルのサイズ
 	'image_size_thumb_wallpaper_for_smartphone' => 150,                    //待受け静止画像のサムネイルのサイズ
 	'image_size_rect' => 75,                                //正方形
 	'image_size_rect_for_smartphone' => 75,                 //スマホ用:正方形
@@ -196,9 +199,3 @@ $config['GoogleAnalytics'] = array ('TrackingCode' => array(
             'dctry.jp' => 'MO-22726420-7',	      //本番
 	)
     );
-
-//ｻﾑﾈｲﾙ作成API用設定値(step3)
-$config['ApiThumbnail'] = array(
-    'outPutFileExtension' => '.jpg',
-    'outPutPath' => 'img/present/smartphone/thumbnail/%s/',
-);
