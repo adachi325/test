@@ -85,9 +85,9 @@ if($this->Ktai->is_ezweb()){
 </div></td>
 </tr>
 -->
-s
+
 <tr>
-<td><div style="font-size:x-small;">
+<td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どものﾆｯｸﾈｰﾑ</span><span style="color:#ff0000;">(必須)</span><br />
 <span style="color:#ff6600;">全角6文字以内</span><br />
@@ -96,8 +96,9 @@ s
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
+
 <tr>
-<td bgcolor="#ffecd9"><div style="font-size:x-small;">
+<td ><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの性別</span><span style="color:#ff0000;">(必須)</span><br />
 
@@ -116,7 +117,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 </tr>
 
 <tr>
-<td><div style="font-size:x-small;">
+<td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの生年月</span><span style="color:#ff0000;">(必須)</span><br />
 <?php echo $this->Form->input('Child.0.birth_year', array(
@@ -161,7 +162,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 </tr>
 
 <tr>
-<td bgcolor="#ffecd9"><div style="font-size:x-small;">
+<td ><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■子どもの年齢<span style="color:#ff0000;">(必須)</span><br />
 お子さんの年齢に合ったｺｰｽをお選びください｡</span><br />
@@ -172,7 +173,7 @@ $value2 = ($this->data['Child'][0]['sex'] == 2) ? '2' : 'none';
 </tr>
 
 <tr>
-<td><div style="font-size:x-small;">
+<td bgcolor="#ffecd9"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">■下記の会員の場合は､それぞれﾁｪｯｸを入れてください｡</span><br /><span style="color:#666666">※会員でなくても､このｻｰﾋﾞｽはご利用いただけます｡</span><br />
 <?php echo $this->Form->input("Child.0.benesse_user", array("type" => "checkbox", 'div' => false, 'label' => false)); ?>こどもちゃれんじ<br />

@@ -232,6 +232,7 @@ class ApController extends AppController {
 		}
 
 		$release_date = $data['Content']['release_date'];
+        $user = $this->_getUser();
 
         if ($release_date <= date('Y-m-d H:i:s')) {
             $filepath = WWW_ROOT."ap/{$line}/{$id}/index.html";
