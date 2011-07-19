@@ -524,9 +524,8 @@ class CreatePresentComponent extends Object {
             unlink($params['thumbnail_file_path']);
             return false;
         }
-        
+        // returns token
         return $result;
-        
     }
     
     /*
@@ -574,6 +573,8 @@ class CreatePresentComponent extends Object {
             unlink($params['thumbnail_file_path']);
             return false;
         }
+        // returns token
+        return $result;
     }
     
     /*
