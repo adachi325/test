@@ -72,9 +72,9 @@ class Step3AddChildPresentsShell extends AppShell {
     $child_presents = $ChildPresent->find('all', array('conditions' => $conditions_cp));
     echo 'Child_presents中のpresernt_id='.$present_id.'のレコード数:'.count($child_presents) . PHP_EOL;
     if($cnt_all === count($child_presents)){
-        echo '全Childにpresent_id:'.$present_id.'が割り当てられました。';
+        echo '全Childにpresent_id:'.$present_id.'が割り当てられました。'.PHP_EOL;
     }else{
-        echo '一部のChildにpresent_id:'.$present_id.'が割り当てられていません。failed child_idを参照してください。';
+        echo '一部のChildにpresent_id:'.$present_id.'が割り当てられていません。failed child_idを参照してください。'.PHP_EOL;
     }
     echo '-----'.PHP_EOL;    
   }
