@@ -378,7 +378,7 @@ class PresentsController extends AppController {
             $result = $this->CreatePresent->createWallpaper4SmartPhone($api_args);
         }else if($api_args['type'] == 2){
             //スマホ用ポストカード
-            $result = $this->CreatePresent->createPostCard4SmartPhone($api_args);
+            $result = $this->CreatePresent->createPostCard($api_args);
         }else{
                 $this->log("[api_create_incentive]不正なパラメータ値:type=".$api_args['type'], LOG_DEBUG);
                 return $retval_false;            
