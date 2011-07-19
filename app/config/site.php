@@ -179,6 +179,8 @@ $config['Child'] = array(
         'Initial_registration_presents' => array(
             0 => '1',
             1 => '2',
+            2 => '31',
+            3 => '32',
 		),
         'birthday_years' => 8,
 );
@@ -199,3 +201,9 @@ $config['GoogleAnalytics'] = array ('TrackingCode' => array(
             'dctry.jp' => 'MO-22726420-7',	      //本番
 	)
     );
+
+//ｻﾑﾈｲﾙ作成API用設定値(step3)
+$config['ApiThumbnail'] = array(
+    'inPutFileExtension' => '.jpg',
+    'outPutPath' => 'present/output/api/postcard/%s_thumb.jpg',
+);

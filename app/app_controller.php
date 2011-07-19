@@ -298,6 +298,7 @@ class AppController extends Controller {
 	    parent::afterFilter();
 	    if (isset($_SERVER['HTTPS'])) {
 		if ($this->Ktai->is_ezweb()) {
+			mb_substitute_character(0x3013);	//絵文字をゲタへ返還するように指定
 		    $this->output = mb_convert_encoding($this->output, 'SJIS-win', 'UTF-8');
 		    header("Content-Type: text/html;charset=sjis-win");
 		}
