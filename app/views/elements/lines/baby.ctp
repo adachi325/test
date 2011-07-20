@@ -1,5 +1,14 @@
 
-
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじぷちファースト", "width" => "100%")); ?></td>
+</tr>
+<tr>
+<td width="85%"><span style="font-size:x-small; color:#e61953;">1歳前後向けｺｰｽ</span></td>
+<td width="10%">&nbsp;</td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="85%"><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじbaby", "width" => "100%")); ?></td>
@@ -7,16 +16,6 @@
 </tr>
 <tr>
 <td width="85%"><span style="font-size:x-small; color:#ee86b4;">0～1歳向けｺｰｽ</span></td>
-<td width="10%">&nbsp;</td>
-</tr>
-</table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじぷちファースト", "width" => "100%")); ?></td>
-</tr>
-<tr>
-<td width="85%"><span style="font-size:x-small; color:#e61953;">1歳前後向けｺｰｽ</span></td>
 <td width="10%">&nbsp;</td>
 </tr>
 </table>
