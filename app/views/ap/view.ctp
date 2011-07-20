@@ -18,7 +18,7 @@ if (!(isset($has_account) && $has_account)) {
 
 <!-- ページトップへ -->
 <img src="img/spacer.gif" width="1" height="10" /><br />
-<div align="right" style="text-align:right;"><span style="font-size:x-small;"><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
+<div align="right" style="text-align:right;"><span style="font-size:x-small;"><?php echo $this->Ktai->emoji(0xE6E0, false);?><a href="#top" accesskey="#">ﾍﾟｰｼﾞ上へ</a></span></div>
 <br />
 
 <?php 
