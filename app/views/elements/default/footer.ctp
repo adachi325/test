@@ -9,7 +9,7 @@
 <?php if (!($this->params['controller'] == 'articles' && $this->params['action'] == 'top')): ?>
 <?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
-	    echo '<span style="color:#ffcc33;">&#F98F;</span>';
+	    echo '<span style="color:#ffcc33;">&#xF98F;</span>';
     } else {
 	    echo '<span style="color:#ffcc33;">'.$this->Ktai->emoji(0xE6EA,false).'</span>';
     }
@@ -54,7 +54,7 @@ NTTﾄﾞｺﾓの共同で提供しています</span></div>
 <?php
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
         //echo '<img localsrc="81" />';
-        echo '&#F9D6;';
+        echo '&#xF9D6;';
     } else {
         echo $this->Ktai->emoji(0xE731, false); 
     }
@@ -62,7 +62,7 @@ NTTﾄﾞｺﾓの共同で提供しています</span></div>
 &amp;<?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
         //echo '<img localsrc="81" />';
-        echo '&#F9D6;';
+        echo '&#xF9D6;';
     } else {
         echo $this->Ktai->emoji(0xE731, false); 
     }
