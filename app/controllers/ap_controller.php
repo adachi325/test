@@ -63,6 +63,10 @@ class ApController extends AppController {
 		}
 	}
 
+    function _redirect2members() {
+        $url = '/lines/top/0/'.$this->params['action'].'/';
+        $this->redirect($url);
+    }
 
     function baby($id = null) {
 
@@ -81,7 +85,12 @@ class ApController extends AppController {
 				$this->__view($this->params['action'], $id);
 			}
 		} else {
-			$this->render("petit");
+            $user = $this->_getUser();
+            if ($user) {
+                $this->_redirect2members();
+            }
+
+            $this->render("petit");
 		}
 	}
 
@@ -177,9 +186,7 @@ class ApController extends AppController {
 
         $user = $this->_getUser();
         if ($user) {
-            $this->log($this->params, LOG_DEBUG);
-            $url = '/lines/top/0/'.$this->params['action'].'/';
-            $this->redirect($url);
+            $this->_redirect2members();
         }
 
 		$this->set(compact('issues', 'title', 'lines', 'line', 'contents'));
