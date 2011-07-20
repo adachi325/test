@@ -204,6 +204,7 @@ class ApController extends AppController {
 		}
 
 		$this->ktai['enable_ktai_session'] = false;
+        $user = $this->_getUser();
 
 	  $filepath = WWW_ROOT."ap/member/{$id}/index.html";
 		if ($this->Ktai->is_softbank()) {
