@@ -65,6 +65,8 @@ class ApController extends AppController {
 
     function _redirect2members() {
         $url = '/lines/top/0/'.$this->params['action'].'/';
+        $url = Router::url($url, true);
+        //pr (Router::url($url, true));
         $this->redirect($url);
     }
 

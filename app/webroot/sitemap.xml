@@ -2,3775 +2,721 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/</loc>
+  <loc>http://st-dctry.com/shimajiro/</loc>
   <priority>1.0</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/navigations/prev/2?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/navigations/prev/2</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/navigations/prev/1?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/navigations/prev/1</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/diaries/top?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/diaries/top</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/lines/top?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/lines/top</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/diaries/top/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/articles/top/</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/lines/top/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/articles/timeline/</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/diaries/post_info?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/lines/top/</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/pages/list_models?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/diaries/post_info</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/pages/charges?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/diaries/checkPost</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/pages/help?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/pages/list_models</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/pages/rules?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/pages/charges</loc>
   <priority>0.8</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/pages/rules/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/pages/help</loc>
+  <priority>0.8</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/pages/rules</loc>
+  <priority>0.8</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/hanamarus/recieved/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/hanamarus/gave/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/diaries/info/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+    <loc>http://st-dctry.com/shimajiro/presents/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+    <loc>http://st-dctry.com/shimajiro/themes/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+    <loc>http://st-dctry.com/shimajiro/themes/info/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/jump/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/navigations/prev2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/</loc>
   <priority>0.7</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/step/</loc>
+  <priority>0.7</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/ap/jump/</loc>
+  <priority>0.7</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104/</loc>
+  <priority>0.7</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/navigations/prev2/</loc>
+  <priority>0.7</priority>
+  <changefreq>daily</changefreq>
+  <mobile:mobile />
+</url>
+<url>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1006/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1007/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1007/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1008/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1009/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1009/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1010/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1010/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1011/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1011/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012_1/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1013/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1014/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1015/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1016/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1016/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/index/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/index/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1107/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1105/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1104/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1108_1/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1108/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1105/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1104_1/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1104/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/step/1105_1/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/jump/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/jump/1108/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/jump/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/jump/1105/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/jump/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/jump/1104/</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104//src/brushteeth_docomo.swf</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104//src/brushteeth_docomoN903.swf</loc>
   <priority>0.6</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/navigations/prev/2?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../diaries/top/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../lines/top/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../pages/list_models?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../pages/charges?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../pages/help?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/../pages/rules?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.6</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_3/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/dcm_kichinto.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1006/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/dcm.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/sound_tool_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1008/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/sound_tool_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/birthday.dmt?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
-  <priority>0.5</priority>
-  <changefreq>daily</changefreq>
-  <mobile:mobile />
-</url>
-<url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1006//src/dcm_kichinto.dmt</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1006//src/dcm.dmt</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1008//src/sound_tool_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1008//src/sound_tool_n.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012_1//src/birthday.dmt</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012//src/baby12month_ff.ifm</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012/1012_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1013//src/sound_tool_2_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1013//src/sound_tool_2_n.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1014//src/mogu_docomo.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1014//src/mogu_docomoN903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1015//src/guzuri_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1015//src/guzuri_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1108_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_12/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_11/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_10/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_9/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_8/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_7/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_6/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/baby12month_ff.ifm?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_5/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1012/1012_1/1012_1/1012_1/1012_1/1012_1/1012_1/1012_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_4/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/sound_tool_2_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_3/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1013/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/sound_tool_2_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_2/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/mogu_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1014/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/mogu_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1107//src/pocket_1107_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/guzuri_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1107//src/pocket_1107_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/baby/1015/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/guzuri_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1105//src/esayari.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/petit_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/pocket/1104//src/sweets.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/petit_1108_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1108_1//src/hop_1108_1_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tonton_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1108//src/hop_1108_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_12/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tonton_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1105//src/playground.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voice_shimajiro_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1104_1//src/donut_shop2_mobile.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voice_shimajiro_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/hop/1104//src/road_rule.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voice_wanwan_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/step/1105_1//src/step_1105_1_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_11/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voice_wanwan_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/step/1105_1//src/step_1105_1_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_10/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/kamikami_docomo.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012//1012_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tabeyo_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012/1012_1//src/baby12month_ff.ifm</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_9/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tabeyo_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012/1012_1/1012_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tabemono_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1108_1//src/petit_1108_1_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_8/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/tabemono_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1108_1//src/petit_1108_1_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/hamigaki_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_12//src/tonton_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_7/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/hamigaki_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_12//src/tonton_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voicesima_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_11//src/voice_shimajiro_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voicesima_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_11//src/voice_shimajiro_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voicewan_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_11//src/voice_wanwan_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_6/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/voicewan_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_11//src/voice_wanwan_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/musibaikin_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_10//src/kamikami_docomo.3gp</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_5/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/musibaikin_n.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_9//src/tabeyo_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_4/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/mushibaikin_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_9//src/tabeyo_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104_2/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/wanwan_docomo_sb.3gp?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_8//src/tabemono_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/pocket_1107_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_8//src/tabemono_N.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1107/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/pocket_1107_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_7//src/hamigaki_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/esayari.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_7//src/hamigaki_n.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/pocket/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/sweets.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_6//src/voicesima_docomo.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/hop_1108_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_6//src/voicesima_docomoN903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1108/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/hop_1108_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_6//src/voicewan_docomo.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1105/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/playground.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_6//src/voicewan_docomoN903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/donut_shop2_mobile.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_5//src/musibaikin_903.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/hop/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/road_rule.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_5//src/musibaikin_n.swf</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/step_1105_1_903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_4//src/mushibaikin_docomo_sb.3gp</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/step/1105_1/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/step_1105_1_N.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/petit/1104_2//src/wanwan_docomo_sb.3gp</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/src/brushteeth_docomo.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012//src/1012_1/</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
 </url>
 <url>
-  <loc>http://shimajiro-dev.com/dev.test.shimajiro/ap/petit/1104/?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON/src/src/src/src/src/src/src/src/brushteeth_docomoN903.swf?csid=6r2402n7l7g434fdojrdpfas31&amp;guid=ON</loc>
+  <loc>http://st-dctry.com/shimajiro/ap/baby/1012//1012_1//src/baby12month_ff.ifm</loc>
   <priority>0.5</priority>
   <changefreq>daily</changefreq>
   <mobile:mobile />
