@@ -96,9 +96,9 @@ $config['Present'] = array(
                         array('x'=>280,'y'=>300),       //bottom_right
                     ),
                     'position_in_wallpaper_smartphone' => array(
-                        array('x'=>34,'y'=>514),        //left
-                        array('x'=>502,'y'=>297),       //middle
-                        array('x'=>970,'y'=>514),       //right
+                        array('x'=>34,'y'=>469),        //left
+                        array('x'=>502,'y'=>252),       //middle
+                        array('x'=>972,'y'=>469),       //right
                     ),
 	),
 );
