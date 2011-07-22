@@ -245,8 +245,8 @@ class CreatePresentComponent extends Object {
        //thumbnail作成
         $params = array();
         $params['compositeimage_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_for_smartphone'), $result); 
-        $params['thumbnail_size']['width'] =Configure::read('Diary.image_size_thumb_wallpaper_for_smartphone'); 
-        $params['thumbnail_size']['height'] =Configure::read('Diary.image_size_thumb_wallpaper_for_smartphone'); 
+        $params['thumbnail_size']['width'] =Configure::read('Diary.image_size_thumb_wallpaper_width_for_smartphone'); 
+        $params['thumbnail_size']['height'] =Configure::read('Diary.image_size_thumb_wallpaper_height_for_smartphone'); 
         $params['thumbnail_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_output_thumb_for_smartphone'), $result); 
         if(!$this->_createThumbnailOf($params)){
             //データ登録に失敗した場合、ファイルを消す。
@@ -291,12 +291,23 @@ class CreatePresentComponent extends Object {
             return FALSE;
         }
         
-       //thumbnail作成
+       //thumbnail_4sp作成
         $params = array();
         $params['compositeimage_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_for_smartphone'), $result); 
-        $params['thumbnail_size']['width'] =Configure::read('Diary.image_size_thumb_postcard_for_smartphone'); 
-        $params['thumbnail_size']['height'] =Configure::read('Diary.image_size_thumb_postcard_for_smartphone'); 
+        $params['thumbnail_size']['width'] =Configure::read('Diary.image_size_thumb_postcard_width_for_smartphone'); 
+        $params['thumbnail_size']['height'] =Configure::read('Diary.image_size_thumb_postcard_height_for_smartphone'); 
         $params['thumbnail_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thumb_for_smartphone'), $result); 
+        if(!$this->_createThumbnailOf($params)){
+            //データ登録に失敗した場合、ファイルを消す。
+            unlink( $params['compositeimage_file_path'] );
+            return FALSE;
+        }
+       //thumbnail_4web作成
+        $params = array();
+        $params['compositeimage_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_for_smartphone'), $result); 
+        $params['thumbnail_size']['width'] =150; 
+        $params['thumbnail_size']['height'] =0; 
+        $params['thumbnail_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_output_thum'), $result); 
         if(!$this->_createThumbnailOf($params)){
             //データ登録に失敗した場合、ファイルを消す。
             unlink( $params['compositeimage_file_path'] );
@@ -412,7 +423,8 @@ class CreatePresentComponent extends Object {
         //サムネイル元画像読み込み
         $image = imagecreatefromjpeg($args['compositeimage_file_path']);
 	if($image===FALSE){
-	    $this->log("[createPostcard4SmartPhone][imagecreatefromjpeg]サムネイル作成失敗.",LOG_DEBUG);
+	    $this->log("[_createThumbnailOf][imagecreatefromjpeg]サムネイル作成失敗.",LOG_DEBUG);
+            $this->log($args, LOG_DEBUG);
             return false;
 	}
 
@@ -426,7 +438,7 @@ class CreatePresentComponent extends Object {
 
         //リサイズの圧縮比
         if($new_height < 1){
-            $new_height = $new_height * ($new_width / $width);
+            $new_height = $height * ($new_width / $width);
         }else if($new_width < 1){
             $new_width = $width * ($new_height / $height);
         }
@@ -434,19 +446,22 @@ class CreatePresentComponent extends Object {
         //空の画像用意
         $new_thumbnail = ImageCreateTrueColor($new_width, $new_height);
 	if($new_thumbnail===FALSE){
-	    $this->log("[createPostcard4SmartPhone][ImageCreateTrueColor]サムネイル作成失敗.",LOG_DEBUG);
+	    $this->log("[_createThumbnailOf][ImageCreateTrueColor]サムネイル作成失敗.",LOG_DEBUG);
+            $this->log($args, LOG_DEBUG);
             return false;
 	}
 
         //リサイズした画像を空の画像にコピー
 	if(!ImageCopyResized($new_thumbnail,$image,0,0,0,0,$new_width,$new_height,$width,$height)){
-	    $this->log("[createPostcard4SmartPhone][ImageCopyResized]サムネイル作成失敗.画像の保存失敗。",LOG_DEBUG);
+	    $this->log("[_createThumbnailOf][ImageCopyResized]サムネイル作成失敗.画像の保存失敗。",LOG_DEBUG);
+            $this->log($args, LOG_DEBUG);
             return false;
 	}
 
 	//画像保存
 	if(!ImageJPEG($new_thumbnail, $args['thumbnail_file_path'], 100)){
-	    $this->log("[createPostcard4SmartPhone][ImageJPEG]サムネイル作成失敗.画像の保存失敗。",LOG_DEBUG);
+	    $this->log("[_createThumbnailOf][ImageJPEG]サムネイル作成失敗.画像の保存失敗。",LOG_DEBUG);
+            $this->log($args, LOG_DEBUG);
             return false;
 	}
        
