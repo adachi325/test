@@ -86,7 +86,7 @@
 <a name="1year" id="1year"><span style="color:#333333;">●1歳号</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("ap/baby/1012.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012_1/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】1歳のﾊﾞｰｽﾃﾞｰﾒｰﾙﾃﾝﾌﾟﾚｰﾄ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】1歳おめでとうﾌｫﾄﾌﾚｰﾑ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
@@ -94,7 +94,7 @@
 <td bgcolor="#ffffff"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【待受】1歳おめでとうﾌｫﾄﾌﾚｰﾑ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1012_1/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【ﾃﾞｺﾒ】1歳のﾊﾞｰｽﾃﾞｰﾒｰﾙﾃﾝﾌﾟﾚｰﾄ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
 </tr>
 
