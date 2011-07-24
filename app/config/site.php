@@ -50,8 +50,14 @@ $config['Present'] = array(
                 'screen' => 'present/template/screen/%s.swf',
                 'screen_output' => 'img/photo/%s/%s.swf',
                 'postcard' => 'present/template/postcard/%s.png',
+                'postcard_for_smartphone' => 'present/template/postcard/%s.png',
                 'postcard_output' => 'present/output/postcard/%s.jpg',
+                'postcard_output_for_smartphone' => 'present/output/postcard/%s.jpg',
                 'postcard_output_thum' => 'present/output/postcard/%s_thumb.jpg',
+                'postcard_output_thumb_for_smartphone' => 'present/output/postcard/%s_thumb_sp.jpg',
+                'wallpaper_for_smartphone' => 'present/template/wallpaper/%s.png', //待受け静止画用待受け画面
+                'wallpaper_output_for_smartphone' => 'present/output/postcard/%s_sp.jpg', //待受け静止画用待受け画面
+                'wallpaper_output_thumb_for_smartphone' => 'present/output/postcard/%s_thumb_sp.jpg',  //待受け静止画用待受け画面
                 'member_flash' => 'present/template/member_flash/%s.swf',
                 'member_flash_thum' => 'present/template/member_flash/%s_thumb.jpg',
 	),
@@ -73,6 +79,27 @@ $config['Present'] = array(
 	'thumb' => array(
 		'2' => 'sample/%s%s/90pic_flash.gif',
 		'3' => 'sample/%s%s/90pic_card.gif',
+	),
+	'template' => array(
+		'postcard' =>  array(
+                    'size_smartphone' => array('width'=>566,'height'=>840) ,
+                ),
+		'wallpaper' =>  array(
+                    'size_smartphone' => array('width'=>1440,'height'=>1280) ,
+                ),
+	),
+	'incentive' => array(
+                    'position_in_postcard_smartphone' => array(
+                        array('x'=>70,'y'=>88),     // top_left
+                        array('x'=>280,'y'=>88),       //top_right
+                        array('x'=>70,'y'=>300),        //bottom_left
+                        array('x'=>280,'y'=>300),       //bottom_right
+                    ),
+                    'position_in_wallpaper_smartphone' => array(
+                        array('x'=>34,'y'=>469),        //left
+                        array('x'=>502,'y'=>252),       //middle
+                        array('x'=>972,'y'=>469),       //right
+                    ),
 	),
 );
 
@@ -114,13 +141,27 @@ $config['ReceiveMail'] = array(
 $config['Diary'] = array(
 	'hash_length' => 4,
 	'image_filesize_max' => 2000000,
-	'image_size_thumb' => 220,		//このサイズ内に元の比率で収まるようにリサイズ
-	'image_size_rect' => 75,		//正方形
-	'image_size_postcard' => 210,	//正方形
+	'image_size_thumb' => 220,                              //このサイズ内に元の比率で収まるようにリサイズ
+	'image_size_thumb_for_smartphone' => 220,               //SmartPhone用サイズ:このサイズ内に元の比率で収まるようにリサイズ
+	'image_size_thumb_postcard' => 150,                     //ポストカード用サムネイルのサイズ
+	'image_size_thumb_postcard_width_for_smartphone' => 404,	//ポストカード用サムネイル（スマホ用）のサイズ
+	'image_size_thumb_postcard_height_for_smartphone' => 600,	//ポストカード用サムネイル（スマホ用）のサイズ
+	'image_size_thumb_wallpaper_width_for_smartphone' => 518,                    //待受け静止画像のサムネイルのサイズ
+	'image_size_thumb_wallpaper_height_for_smartphone' => 460,                    //待受け静止画像のサムネイルのサイズ
+	'image_size_thumb_wallpaper_for_smartphone' => 150,                    //待受け静止画像のサムネイルのサイズ
+	'image_size_rect' => 75,                                //正方形
+	'image_size_rect_for_smartphone' => 75,                 //スマホ用:正方形
+	'image_size_postcard' => 210,                           //ポストカードはめ込み画像サイズ：正方形
+	'image_size_postcard_for_smartphone' => 210,                           //ポストカードはめ込み画像サイズ：正方形
+	'image_size_wallpaper_for_smartphone' => 436,                          //待受け静止画用はめ込み画像サイズ:正方形
 	'image_path_original' => "photo/%s/%s_original.jpg",	//一時保存用
-	'image_path_thumb' => "photo/%s/%s_thumb.jpg",			//比率保持サムネイル
-	'image_path_rect' => "photo/%s/%s_rect.jpg",			//正方形サムネイル
-	'image_path_postcard' => "photo/%s/%s_postcard.jpg",	//ポストカード用
+	'image_path_thumb' => "photo/%s/%s_thumb.jpg",		//比率保持サムネイル
+	'image_path_thumb_for_smartphone' => "photo/%s/%s_thumb_sp.jpg",	//スマホ用比率保持サムネイル
+	'image_path_rect' => "photo/%s/%s_rect.jpg",		//正方形サムネイル
+	'image_path_rect_for_smartphone' => "photo/%s/%s_rect_sp.jpg",		//スマホ用正方形サムネイル
+	'image_path_postcard' => "photo/%s/%s_postcard.jpg",	//ポストカード嵌め込み画像
+	'image_path_postcard_for_smartphone' => "photo/%s/%s_postcard_sp.jpg",	//ポストカード嵌め込み画像
+	'image_path_wallpaper_for_smartphone' => "photo/%s/%s_wallpaper_sp.jpg",	//待受け静止画嵌め込み画像
 	'title_len_max' => 20,
 	'body_len_max' => 5000,
 	'error_filesize_over' => 'E001',
@@ -160,3 +201,9 @@ $config['GoogleAnalytics'] = array ('TrackingCode' => array(
             'dctry.jp' => 'MO-22726420-7',	      //本番
 	)
     );
+
+//ｻﾑﾈｲﾙ作成API用設定値(step3)
+$config['ApiThumbnail'] = array(
+    'inPutFileExtension' => '.jpg',
+    'outPutPath' => 'present/output/api/postcard/%s_thumb.jpg',
+);

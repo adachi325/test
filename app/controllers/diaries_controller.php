@@ -11,7 +11,7 @@ class DiariesController extends AppController {
     function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('top', 'register', 'get_news_count', 'post_info');
+        $this->Auth->allow('top', 'register', 'get_news_count', 'post_info', 'api_create_thumbnail');
     }
 
     function top($index = null) {
@@ -156,7 +156,23 @@ class DiariesController extends AppController {
             $this->set('getStr',$typelist[$diary['Present']['present_type']]);
         }
     }
-
+    
+    //postデータからの制御コード除去
+	function _check_code() {
+		$diary_attrs = array(
+							'title',
+							'body',
+							'wish_public',
+							'id',
+							'check',
+		);
+		foreach ($diary_attrs as $attr){
+			if (isset($this->data['Diary'][$attr])) {
+				$this->data['Diary'][$attr] = $this->check_invalid_code($this->data['Diary'][$attr]);
+			}
+		}
+	}
+    
     function edit($id=null){
 	
 	/* uidﾁｪｯｸ */
@@ -222,6 +238,9 @@ class DiariesController extends AppController {
           $this->redirect('/');
         }
 
+        //postデータチェック
+        $this->_check_code();
+        
         $request = array();
 
         // DBより取得したデータに、POSTされたデータで上書きする
@@ -329,6 +348,10 @@ class DiariesController extends AppController {
                  $this->redirect('/');
 
             }
+            
+            //制御文字対策
+            $this->_check_code();
+            
             $id = $this->data['Diary']['check'];
 
             $child_ids = $this->Tk->_getChildIds();
@@ -790,7 +813,10 @@ $list[6] ='--5000000000--
           $this->Session->setFlash(__('エラー', true));
           $this->redirect('/');
         }
-
+        
+        //postデータチェック
+        $this->_check_code();
+        
         $request = array();
 
         $request = $diary;
@@ -887,6 +913,132 @@ $list[6] ='--5000000000--
     function publish() {
    
     }
-    }
+    
+ /**
+   * ｽﾏｰﾄﾌｫﾝ用ｻｲﾑﾈｲﾙ作成API(step3)
+   * 引数の条件でｻﾑﾈｲﾙを作成する
+   * 作成結果を返す。
+   *
+   * @param     int  $child_id       対象Child
+   * @param     int  $diary_id       対象Child
+   * @param     string  $inputfile      縮小対象ﾌｧｲﾙ
+   * @param     string  $inputfilepath  縮小対象ﾌｧｲﾙﾊﾟｽ
+   * @return    String  $result            処理結果:true=成功、false=失敗
+  */
+	function api_create_thumbnail(){
+
+		//ｵｰﾄﾚﾝﾀﾞｰ解除
+		$this->autoRender = false;
+
+		$retval_false = '"false"';
+		$urlParams = array();
+		$url_params = array('child_id', 'diary_id', 'inputfile', 'inputfilepath');
+		foreach ($url_params as $attr){
+			if(!isset($this->params['url'][$attr])){
+				$this->log('必須パラメータがありません。'.$attr, LOG_DEBUG);
+				return $retval_false;
+			}
+			$value = $this->params['url'][$attr];
+			//null文字対策
+			if(isset($value)){
+				$value = $this->check_invalid_code($value);
+			}
+			//urldecode
+			$value = urldecode($value);
+			//文字列長check
+			$vallen = strlen($value);
+			if($vallen < 1 || 512 < $vallen)
+			{
+				$this->log('不正な文字列長:len of '.$attr.'='.$vallen, LOG_DEBUG);
+				return $retval_false;
+			}
+			$urlParams[$attr] = $value;
+		}
+		//個別チェック
+		if(!preg_match("/^[0-9]+$/", $urlParams['child_id'])){
+			$this->log('不正なパラメータ:child_id='.$urlParams['child_id'], LOG_DEBUG);
+			return $retval_false;
+		}
+                
+		if(!preg_match("/^[0-9]+$/", $urlParams['diary_id'])){
+			$this->log('不正なパラメータ:size='.$urlParams['diary_id'], LOG_DEBUG);
+			return $retval_false;
+		}
+		//元ファイル
+		$in_file_path = $urlParams['inputfilepath'];
+		if(strstr($in_file_path, WWW_ROOT) == false){
+			$in_file_path = WWW_ROOT.DS.$in_file_path;
+			$in_file_path = str_replace(DS.DS, DS, $in_file_path);
+		}
+		$in_file_path .= DS.$urlParams['inputfile'];
+		$in_file_path = str_replace(DS.DS, DS, $in_file_path);
+                if(!file_exists($in_file_path)){
+			$this->log('不正なinputfile='.$in_file_path, LOG_DEBUG);
+			return $retval_false;                    
+                }
+                //データ読み込み
+		$fp = fopen( $in_file_path, "r" );
+		$image = fread($fp, filesize($in_file_path));
+		fclose( $fp );
+                
+		//画像保存(オリジナル)
+		$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $urlParams['child_id'], $urlParams['diary_id']);
+		$this->Diary->__mkdir($image_path_original);
+		$fp = fopen( $image_path_original, "w" );
+		fwrite( $fp, $image, strlen($image) );
+		fclose( $fp );
+		$info = getimagesize($image_path_original);
+
+		if (!empty($info) && $info[2] == IMAGETYPE_JPEG) {
+                    /**************　携帯用画像　***************/
+                    //サムネイル画像保存(比率保持)
+                    $image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_thumb);
+                    $this->Diary->__resize_image($image_path_thumb, Configure::read('Diary.image_size_thumb'), false);
+                    chmod($image_path_thumb, 0644);
+
+                    //サムネイル画像保存(正方形)
+                    $image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_rect);
+                    $this->Diary->__resize_image($image_path_rect, Configure::read('Diary.image_size_rect'), true);
+                    chmod($image_path_rect, 0644);
+
+                    //ポストカード用埋め込み画像保存(正方形)
+                    $image_path_postcard = sprintf(IMAGES . Configure::read('Diary.image_path_postcard'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_postcard);
+                    $this->Diary->__resize_image($image_path_postcard, Configure::read('Diary.image_size_postcard'), true);
+                    chmod($image_path_postcard, 0777);//ポストカード用は777
+                    
+                    /**************　スマホ用画像　***************/
+                    //サムネイル画像保存(比率保持)
+                    $image_path_thumb_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_thumb_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_thumb_4sp);
+                    $this->Diary->__resize_image($image_path_thumb_4sp, Configure::read('Diary.image_size_thumb_for_smartphone'), false);
+                    chmod($image_path_thumb_4sp, 0644);
+
+                    //サムネイル画像保存(正方形)
+                    $image_path_rect_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_rect_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_rect_wallpaper_4sp);
+                    $this->Diary->__resize_image($image_path_rect_wallpaper_4sp, Configure::read('Diary.image_size_rect_for_smartphone'), true);
+                    chmod($image_path_rect_wallpaper_4sp, 0644);
+                  
+                    //ポストカード用埋め込み画像保存(正方形)
+                    $image_path_postcard_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_postcard_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_postcard_4sp);
+                    $this->Diary->__resize_image($image_path_postcard_4sp, Configure::read('Diary.image_size_postcard_for_smartphone'), true);
+                    chmod($image_path_postcard_4sp, 0777);//ポストカード用は777
+
+                    //壁紙用埋め込み画像保存(正方形)
+                    $image_path_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_wallpaper_for_smartphone'), $urlParams['child_id'], $urlParams['diary_id']);
+                    $this->Diary->__saveImageFile($image, $image_path_wallpaper_4sp);
+                    $this->Diary->__resize_image($image_path_wallpaper_4sp, Configure::read('Diary.image_size_wallpaper_for_smartphone'), true);
+                    chmod($image_path_wallpaper_4sp, 0777);//ポストカード用は777
+		}
+                
+		return '"true"';
+                
+	}
+    
+}
 
 ?>

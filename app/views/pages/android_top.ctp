@@ -73,7 +73,7 @@
     <a href="<?php echo $this->Html->url('/ap/pocket/1106/');?>" data-role="button" data-theme="e" rel="external">【Flash】はたらく　くるま　わかった！　クイズ</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけん　ゲーム</a>
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつのむし　みつけた！ゲーム</a>
@@ -98,7 +98,7 @@
     <a href="<?php echo $this->Html->url('/ap/hop/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつに　あそぶ　ときの　やくそく</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてキット</a>
+    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてゲーム</a>
     </dd>
     
     <dt>

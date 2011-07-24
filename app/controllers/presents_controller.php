@@ -7,7 +7,7 @@ class PresentsController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('print_postcard');
+		$this->Auth->allow('print_postcard', 'api_create_incentive');
 	}
 
 	function index($year = null, $month = null) {
@@ -301,5 +301,94 @@ class PresentsController extends AppController {
 			$this->render('print_postcard_error');
 		}
 	}
+    /** 
+     * 待受けまたはポストカードを作成する。
+     * 作成結果とトークンを返す。
+     * リサイズしたファイルのパスを返す。
+     * 
+     * @param  int      $present_id     : プレゼントID
+     * @param  int      $child_id       : 子供ID
+     * @param  int      $type           : インセンティブタイプ
+     * @param  int      $diary1～4      : ダイアリーID
+     * @return string   $result         : 結果
+     * @return string   $path           : 作成されたインセンティブパス
+    **/
+    function api_create_incentive (
+        $present_id = null, $child_id = null, $type = null, 
+        $diary1 = null, $diary2 = null, $diary3 = null, $diary4 = null){
+
+        //ｵｰﾄﾚﾝﾀﾞｰ解除
+        $this->autoRender = false;
+
+        //
+        $retval_false = '"false",""';
+        //
+        $url_params = array('present_id', 'child_id', 'type', 'diary1', 'diary2', 'diary3', 'diary4');
+        $api_args = array();
+	
+	//ﾊﾟﾗﾒｰﾀ不正ﾁｪｯｸ
+        foreach($url_params as $param){
+            //引数ﾁｪｯｸ
+	    if(!isset($this->params['url'][$param])){
+                if(strcmp($param,'diary4') === 0){
+                    continue;
+                }else{
+                    $this->log("[api_create_incentive]必須パラメータがありません:".$param, LOG_DEBUG);
+                    return $retval_false;
+                }
+            }
+	    $value = $this->params['url'][$param];
+	    
+	    if(empty($value)){
+                $this->log("[api_create_incentive]値がありません:".$param, LOG_DEBUG);
+                return $retval_false;
+	    }
+	    //ﾇﾙ文字対策
+	    if (isset($value)) {
+                $value = $this->check_invalid_code($value);
+	    }
+            //文字列長
+            if(50 < strlen($value)){
+                $this->log("[api_create_incentive]不正な文字列長値.len of ".$param.'='.strlen($value), LOG_DEBUG);
+                return $retval_false;
+            }
+            //数値のみ
+            if(!preg_match('/^[0-9]+$/', $value)){
+                $this->log("[api_create_incentive]不正なパラメータ値:".$param.'='.$value, LOG_DEBUG);
+                return $retval_false;
+            }
+            
+            //api args
+            if(strcmp($param,'diary1')===0)
+                $api_args['diary_id'][0] = $value;
+            if(strcmp($param,'diary2')===0)
+                $api_args['diary_id'][1] = $value;
+            if(strcmp($param,'diary3')===0)
+                $api_args['diary_id'][2] = $value;
+            if(strcmp($param,'diary4')===0)
+                $api_args['diary_id'][3] = $value;
+            else
+                $api_args[$param] = $value;
+        }
+        
+        // incentive作成
+        $result = false;
+        if($api_args['type'] == 1){
+            //スマホ用待受け。
+            $result = $this->CreatePresent->createWallpaper4SmartPhone($api_args);
+        }else if($api_args['type'] == 2){
+            //スマホ用ポストカード
+            $result = $this->CreatePresent->createPostCard4SmartPhone($api_args);
+        }else{
+                $this->log("[api_create_incentive]不正なパラメータ値:type=".$api_args['type'], LOG_DEBUG);
+                return $retval_false;            
+        }
+            
+        if($result === false){
+                return $retval_false;                                    
+        }else{
+                return '"true","'.$result.'"';                        
+        }
+    }
 }
 ?>

@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
+        $this->Auth->allow('api_login', 'register','register_confirm','register_complete','remind','remindCheck','remind_password','remind_complete');
     }
 
     function beforeRender() {
@@ -69,6 +69,20 @@ class UsersController extends AppController {
 	    return;
 	}
 
+		//制御文字対策
+		$user_attrs = array('loginid', 'new_password', 'row_password', 'dc_user');
+		foreach ($user_attrs as $attr){
+			if (isset($this->data['User'][$attr])) {
+				$this->data['User'][$attr] = $this->check_invalid_code($this->data['User'][$attr]);
+			}
+		}
+		$child_attrs = array('nickname', 'sex', 'birth_year', 'birth_month', 'line_id', 'benesse_user');
+		foreach ($child_attrs as $attr){
+			if (isset($this->data['Child'][0][$attr])) {
+				$this->data['Child'][0][$attr] = $this->check_invalid_code($this->data['Child'][0][$attr]);
+			}
+		}
+		
         if (!empty($this->data)) {
             $request = array();
             $request = $this->data;
@@ -645,5 +659,57 @@ class UsersController extends AppController {
         //セッション全削除
         $this->Session->destroy();
     }
+
+    /** 
+     * 外部認証用API(step3)
+     * 処理結果と認証用のhashコードを返す。
+     * 
+     * @param	int	$id    ﾛｸﾞｲﾝ用ID
+     * @param	int	$pass   ﾛｸﾞｲﾝ用ﾊﾟｽﾜｰﾄﾞ
+     * @return	String	$result	    処理結果
+     * @return	String	$uid	    認証用hashｺｰﾄﾞ
+     */
+    function api_login() {
+
+		//ｵｰﾄﾚﾝﾀﾞｰ解除
+		$this->autoRender = false;
+
+		$user_attrs = array('id', 'pass');
+		foreach ($user_attrs as $attr){
+			//制御文字対策
+			if (isset($this->params['url'][$attr])) {
+				$this->params['url'][$attr] = $this->check_invalid_code($this->params['url'][$attr]);
+			}else{
+				$this->log("必須ﾊﾟﾗﾒｰﾀなし:".$attr,LOG_DEBUG);
+				return '"false",""';                            
+                        }
+			$value = $this->params['url'][$attr];
+			//length check
+			if(strlen($value) < 3 || 100 < strlen($value)){
+				$this->log("入力値長ｴﾗｰ:".$attr.'='.$value,LOG_DEBUG);
+				return '"false",""';
+			}
+			// numalpha check
+			if(!preg_match("/^[a-zA-Z0-9]+$/", $value)){
+				$this->log("不正な入力値:".$attr.'='.$value,LOG_DEBUG);
+				return '"false",""';
+			}
+		}
+
+		//存在ﾁｪｯｸ
+		$checkData = array();
+		$checkData['User.loginid'] = $this->params['url']['id'];
+		$checkData['User.password'] = $this->params['url']['pass'];
+		$checkData['User.password'] = AuthComponent::password( $checkData['User.password'] );
+		$this->User->contain();
+		$users = $this->User->find('first',array('conditions' => $checkData));
+		if(empty($users) || count($users) != 1){
+			return '"false",""';
+		}
+
+		//hash値をﾘﾀｰﾝ
+		return '"true","'.$users['User']['hash'].'"';
+
+	}
 }
 ?>
