@@ -702,13 +702,18 @@ class UsersController extends AppController {
 		$checkData['User.password'] = $this->params['url']['pass'];
 		$checkData['User.password'] = AuthComponent::password( $checkData['User.password'] );
 		$this->User->contain();
-		$users = $this->User->find('first',array('conditions' => $checkData));
-		if(empty($users) || count($users) != 1){
+		$user = $this->User->find('first',array('conditions' => $checkData));
+		if(empty($user) || count($user) != 1){
 			return '"false",""';
 		}
 
+        // uid値を作成する
+        $savedata['User']['id'] = $user['User']['id'];
+        $savedata['User']['uid'] = substr(md5($user['user']['hash']), 0, 16);
+        $this->User->save($savedata);
+        
 		//hash値をﾘﾀｰﾝ
-		return '"true","'.$users['User']['hash'].'"';
+		return '"true","'.$savedata['User']['uid'].'"';
 
 	}
 }
