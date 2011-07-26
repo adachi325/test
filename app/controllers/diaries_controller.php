@@ -735,6 +735,51 @@ $list[6] ='--5000000000--
 
     }
 
+    function edit_picture($id = null, $angle = 0) {
+        if (empty($id) || ($id == null)) {
+            $this->Session->setFlash(__('不正操作です', true));
+            $this->redirect('/');
+        }
+        //データ取得
+        $this->Diary->contain();
+        $diary = $this->Diary->findById($id);
+
+        if(empty($diary)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/');
+        }
+
+        $diary['Diary']['temppath'] = $this->Diary->_getTemppath($id, $diary);
+
+        if ($angle == 0) {
+            $this->Diary->createTempPicture($id);
+        } else {
+            $this->Diary->rotate($id, $angle);
+        }
+        $this->data = $diary;
+        $this->set('diary', $diary);
+    }
+
+    function edit_picture_confirm($id = null) {
+        //データ取得
+        $this->Diary->contain();
+        $diary = $this->Diary->findById($id);
+
+        if(empty($diary)){
+            $this->Session->setFlash(__('エラー', true));
+            $this->redirect('/');
+        }
+        $diary['Diary']['temppath'] = $this->Diary->_getTemppath($id, $diary);
+        $this->data = $diary;
+        $this->set('diary', $diary);
+    }
+
+    function edit_picture_complete($id = null) {
+        $this->Diary->saveTempfile($id);
+        $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
+        $this->redirect('/diaries/info');
+    }
+
     function edit_public($id=null){
 
         //セッション情報回収、削除
@@ -913,7 +958,7 @@ $list[6] ='--5000000000--
     function publish() {
    
     }
-    
+
  /**
    * ｽﾏｰﾄﾌｫﾝ用ｻｲﾑﾈｲﾙ作成API(step3)
    * 引数の条件でｻﾑﾈｲﾙを作成する

@@ -332,7 +332,79 @@ class Diary extends AppModel {
 		}
 
 		return true;
-	}
+    }
+
+    function _getTemppath($id, $diary = null) {
+        if ($diary == null) {
+            $diary = $this->findById($id);
+        }
+
+        return sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], 'tmp_'.$diary['Diary']['id']);
+    }
+
+    function _getFilepath($id, $diary = null) {
+        if ($diary == null) {
+            $diary = $this->findById($id);
+        }
+
+        return sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']);
+    }
+
+    function createTempPicture($id) {
+        $diary = $this->findById($id);
+        if (!$diary['Diary']['has_image']) {
+            return false;
+        }
+        $path = $this->_getFilepath($id, $diary);
+
+        if (!file_exists(IMAGES.$path)) {
+            return false;
+        }
+
+        $tmppath = $this->_getTemppath($id, $diary);
+
+        copy(IMAGES.$path, IMAGES.$tmppath);
+        chmod(IMAGES.$tmppath, 0777);
+
+        return $tmppath;
+    }
+
+	function rotate($id, $angle) {
+		if (($angle > 1) || ($angle < -1)) {
+			return false;
+		}
+
+		$diary = $this->findById($id);
+		if (empty($diary)) {
+			return false;
+		}
+
+        $path = $this->_getTemppath($id, $diary);
+        if (!file_exists(IMAGES.$path)) {
+            return false;
+        }
+        $img = ImageCreateFromJPEG(IMAGES.$path);
+        
+        $newimg = ImageRotate($img, $angle * 90, 0);
+        $this->__saveImageFile($newimg, IMAGES.$path);
+		return $path;
+	} 
+
+    function saveTempfile($id) {
+		$diary = $this->findById($id);
+		if (empty($diary)) {
+			return false;
+		}
+        $path = $this->_getFilepath($id, $diary);
+        $tmppath = $this->_getTemppath($id, $diary);
+
+        if (file_exists(IMAGES.$tmppath)) {
+            unlink(IMAGES.$path);
+            copy(IMAGES.$tmppath, IMAGES.$path);
+            chmod(IMAGES.$path, 0777);
+            unlink(IAMGES.$tmppath);
+        }
+    }
 
 	function __getNextPresentId($child_id, $year, $month) {
 
