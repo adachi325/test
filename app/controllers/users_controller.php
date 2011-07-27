@@ -709,7 +709,8 @@ class UsersController extends AppController {
 
         // uid値を作成する
         $savedata['User']['id'] = $user['User']['id'];
-        $savedata['User']['uid'] = substr(md5($user['user']['hash']), 0, 16);
+        $savedata['User']['uid'] = substr(md5($user['user']['id']).date('YmdHis'), 0, 16);
+        $this->User->create();
         $this->User->save($savedata);
         
 		//hash値をﾘﾀｰﾝ
