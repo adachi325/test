@@ -15,7 +15,7 @@ $id = $diary['Diary']['id'];
 <td colspan="2" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php if ($this->data['Diary']['has_image']) : ?>
-  <?php echo $this->Html->image($this->data['Diary']['temppath']); ?>
+  <?php echo $this->Html->image($this->data['Diary']['temppath']['image_path_thumb']); ?>
 <?php endif; ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></td>
 </tr>
@@ -26,13 +26,13 @@ $id = $diary['Diary']['id'];
 
 <tr>
 <td align="center">
-<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_picture/{$id}/-1/?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_picture/{$id}/1/?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("左に90度"); ?>
 <?php echo $this->Form->end(); ?>
 </td>
 <td align="center">
-<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_picture/{$id}/1/?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
+<?php echo $this->Form->create('Diary', array("url" => "/diaries/edit_picture/{$id}/-1/?guid=ON", "inputDefaults" => array("div" => false, "label" => false))); ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Form->submit("右に90度"); ?>
 <?php echo $this->Form->end(); ?>

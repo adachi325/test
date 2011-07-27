@@ -334,20 +334,30 @@ class Diary extends AppModel {
 		return true;
     }
 
-    function _getTemppath($id, $diary = null) {
+    function _getpath($id, $diary = null, $prefix = '') {
         if ($diary == null) {
             $diary = $this->findById($id);
         }
 
-        return sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], 'tmp_'.$diary['Diary']['id']);
+        $paths = array();
+
+        $config = Configure::read('Diary');
+
+        foreach($config as $key => $value) {
+            if (strstr($key, 'path')) {
+                $paths[$key] = sprintf($value, $diary['Diary']['child_id'], $prefix.$diary['Diary']['id']);
+            }
+        }
+
+        return $paths;
+    }
+
+    function _getTemppath($id, $diary = null) {
+        return $this->_getpath($id, $diary, 'tmp_');
     }
 
     function _getFilepath($id, $diary = null) {
-        if ($diary == null) {
-            $diary = $this->findById($id);
-        }
-
-        return sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id']);
+        return $this->_getpath($id, $diary);
     }
 
     function createTempPicture($id) {
@@ -355,18 +365,22 @@ class Diary extends AppModel {
         if (!$diary['Diary']['has_image']) {
             return false;
         }
-        $path = $this->_getFilepath($id, $diary);
+        $paths = $this->_getFilepath($id, $diary);
 
-        if (!file_exists(IMAGES.$path)) {
+        if (!file_exists(IMAGES.$paths['image_path_thumb'])) {
             return false;
         }
 
-        $tmppath = $this->_getTemppath($id, $diary);
+        $tmppaths = $this->_getTemppath($id, $diary);
 
-        copy(IMAGES.$path, IMAGES.$tmppath);
-        chmod(IMAGES.$tmppath, 0777);
-
-        return $tmppath;
+        foreach($tmppaths as $key => $value) {
+            if (file_exists(IMAGES.$paths[$key])) {
+                copy(IMAGES.$paths[$key], IMAGES.$tmppaths[$key]);
+                chmod(IMAGES.$tmppaths[$key], 0777);
+            }
+        }
+    
+        return $tmppaths['image_path_thumb'];
     }
 
 	function rotate($id, $angle) {
@@ -379,15 +393,22 @@ class Diary extends AppModel {
 			return false;
 		}
 
-        $path = $this->_getTemppath($id, $diary);
-        if (!file_exists(IMAGES.$path)) {
-            return false;
+        $paths = $this->_getTemppath($id, $diary);
+
+        foreach($paths as $path) {
+            if (!file_exists(IMAGES.$path)) {
+                continue;
+            }
+            $img = ImageCreateFromJPEG(IMAGES.$path);
+
+            $newimg = ImageRotate($img, $angle * 90, 0);
+
+            ImageJpeg($newimg, IMAGES.$path);
+            ImageDestroy($newimg);
+            ImageDestroy($img);
         }
-        $img = ImageCreateFromJPEG(IMAGES.$path);
         
-        $newimg = ImageRotate($img, $angle * 90, 0);
-        $this->__saveImageFile($newimg, IMAGES.$path);
-		return $path;
+		return $paths['image_path_thumb'];
 	} 
 
     function saveTempfile($id) {
@@ -395,14 +416,19 @@ class Diary extends AppModel {
 		if (empty($diary)) {
 			return false;
 		}
-        $path = $this->_getFilepath($id, $diary);
-        $tmppath = $this->_getTemppath($id, $diary);
+        $paths = $this->_getFilepath($id, $diary);
+        $tmppaths = $this->_getTemppath($id, $diary);
 
-        if (file_exists(IMAGES.$tmppath)) {
-            unlink(IMAGES.$path);
-            copy(IMAGES.$tmppath, IMAGES.$path);
-            chmod(IMAGES.$path, 0777);
-            unlink(IAMGES.$tmppath);
+        foreach($tmppaths as $key => $value) {
+            if (!file_exists(IMAGES.$tmppaths[$key])) {
+                continue;
+            }
+            if (file_exists(IMAGES.$paths[$key])) {
+                unlink(IMAGES.$paths[$key]);
+            }
+            copy(IMAGES.$tmppaths[$key], IMAGES.$paths[$key]);
+            chmod(IMAGES.$paths[$key], 0777);
+            unlink(IMAGES.$tmppaths[$key]);
         }
     }
 

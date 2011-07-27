@@ -752,7 +752,9 @@ $list[6] ='--5000000000--
         $diary['Diary']['temppath'] = $this->Diary->_getTemppath($id, $diary);
 
         if ($angle == 0) {
-            $this->Diary->createTempPicture($id);
+            if (!file_exists($diary['Diary']['temppath']['image_path_thumb'])) {
+                $this->Diary->createTempPicture($id);
+            }
         } else {
             $this->Diary->rotate($id, $angle);
         }
@@ -776,7 +778,7 @@ $list[6] ='--5000000000--
 
     function edit_picture_complete($id = null) {
         $this->Diary->saveTempfile($id);
-        $this->Session->write('diaryEditCompleteId', $this->data['Diary']['id']);
+        $this->Session->write('diaryEditCompleteId', $id);
         $this->redirect('/diaries/info');
     }
 
