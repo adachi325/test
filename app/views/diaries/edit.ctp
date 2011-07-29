@@ -18,8 +18,8 @@
 <?php } ?>
 <tr>
 <td align="left">
-<span style="color:#666666;font-size:x-small">※写真の変更はできません｡<br />
-写真を変更する場合は､記録を一度削除し､再送信してください｡</span><br />
+<span style="color:#666666;font-size:x-small">※写真の変更は､向きの変更以外できません｡<br />
+別の写真等に変更する場合は､記録を一度削除し､再送信してください｡</span><br />
 </td>
 </tr>
 <tr>
