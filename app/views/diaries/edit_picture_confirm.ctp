@@ -17,7 +17,7 @@ $id = $this->data['Diary']['id'];
 <td colspan="2" align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php if ($this->data['Diary']['has_image']) : ?>
-  <?php echo $this->Html->image($this->data['Diary']['temppath']['image_path_thumb']); ?>
+  <?php echo $this->DiaryCommon->image($this->data['Diary']['temppath']['image_path_thumb']); ?>
 <?php endif; ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?></td>
 </tr>
