@@ -65,7 +65,7 @@
 
 class AppController extends Controller {
 
-	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga','FormHidden');
+	public $helpers = array('Ktai', 'Xml', 'Html', 'Time', 'Form','Session','SelectOptions','tk','ga','FormHidden', 'DiaryCommon');
 	public $components = array(
 		'Ktai',
                 'Tk',
@@ -306,7 +306,8 @@ class AppController extends Controller {
 	}
 	
 	function check_invalid_code($data) {
-		$data = preg_replace('/[\x00-\x1f\x7f]/', '', $data);
+		$data = preg_replace('/[\x00-\x0c]/', '', $data);
+		$data = preg_replace('/[\x0e-\x1f\x7f]/', '', $data);
 		return $data;
 	}
 }
