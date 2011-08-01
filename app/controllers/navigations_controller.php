@@ -19,7 +19,36 @@ class NavigationsController extends AppController {
             if (!empty($previd)){
                     $id = $previd;
             }
+	    
+	    /*
+	     * Release: 2011/7/15 
+	     * Editor : takashi tadokoro
+	     * outline: 水族館キャンペーンにて追加。
+	     */
+	    if($id == 2){
+		//ログイン済みならマイページへ遷移
+		if($this->Auth->user()) {
+		    $this->redirect('/children/');
+		    return;
+		}
 
+		//ログイン済みじゃない場合、uidを取得
+		$uid = $this->EasyLogin->_getUid();
+		if(!empty($uid)) {
+		    $User =& ClassRegistry::init('User');
+		    $User->contain();
+		    $userdata = $User->find('first',array('conditions' => array('uid' => $uid)));
+		    //uidが存在する場合、自動ログイン実行
+		    if(!empty($userdata)){
+			//取得したユーザー情報でログイン
+			if($this->Auth->login($userdata)) {
+			    $this->redirect('/children/');
+			}
+		    }
+		}
+	    }
+	    /* end 2011/7/15  */
+	    
             //利用規約未同意エラー表示切り分け処理
             $errorStr = $this->Session->read('prev2_error_flg');
             if(!isset($errorStr)){
@@ -73,7 +102,8 @@ class NavigationsController extends AppController {
 
 		$this->set('mailStr',$mailStr);
 		$this->set('mailPublicStr',$mailPublicStr);
-		$this->set('mailTitle',$mailTitle);
+        $this->set('mailTitle',$mailTitle);
+        $this->set('with_conversion', true);
 	}
 
 	function after2($hash = null) {

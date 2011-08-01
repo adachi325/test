@@ -11,8 +11,12 @@
     }
 ?>
 
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT" />
 
+<!-- SEO -->
+
+<meta keyword="しまじろう,ひろば,ゲーム,こどもちゃれんじ,こどもチャレンジ,思い出,記録,成長,赤ちゃん,アルバム,育児,日記" />
+<meta description="“しまじろうひろば”はこどもちゃれんじ公式サイト。知育ゲームや思い出記録など盛りだくさん！" />
 

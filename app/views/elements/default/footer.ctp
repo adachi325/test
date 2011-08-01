@@ -9,7 +9,7 @@
 <?php if (!($this->params['controller'] == 'articles' && $this->params['action'] == 'top')): ?>
 <?php 
     if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
-	    echo '<span style="color:#ffcc33;"><img localsrc="188" /></span>';
+	    echo '<span style="color:#ffcc33;">&#xF98F;</span>';
     } else {
 	    echo '<span style="color:#ffcc33;">'.$this->Ktai->emoji(0xE6EA,false).'</span>';
     }
@@ -44,15 +44,29 @@
 </tr>
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<div align="center" style="text-align:left; margin-left:5px; margin-right: 5px;">
+<div align="center" style="text-align:left;">
 <span style="font-size:xx-small; color:#ffffff;">このｻｰﾋﾞｽはﾍﾞﾈｯｾｺｰﾎﾟﾚｰｼｮﾝと<br />
 NTTﾄﾞｺﾓの共同で提供しています</span></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
 <div align="center" style="background:#663300; text-align:center;">
 <span style="color:#ffffff;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<?php $this->Ktai->emoji(0xE731); ?> <a href="http://c.benesse.co.jp/co/" style="color:#ffffff;"><span style="color:#ffffff;">Benesse Corporation</span></a><br />
-&amp;<?php $this->Ktai->emoji(0xE731); ?> NTT DOCOMO</span><br />
+<?php
+    if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
+        //echo '<img localsrc="81" />';
+        echo '&#xF9D6;';
+    } else {
+        echo $this->Ktai->emoji(0xE731, false); 
+    }
+?> <a href="http://c.benesse.co.jp/co/" style="color:#ffffff;"><span style="color:#ffffff;">Benesse Corporation</span></a><br />
+&amp;<?php 
+    if (isset($_SERVER['HTTPS']) && $this->Ktai->is_ezweb()) {
+        //echo '<img localsrc="81" />';
+        echo '&#xF9D6;';
+    } else {
+        echo $this->Ktai->emoji(0xE731, false); 
+    }
+?> NTT DOCOMO</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?>
 </div>
 </div>

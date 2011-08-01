@@ -72,9 +72,9 @@ $i = !$i;
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
     <?php if ($article['Article']['alreadyAddHanamaru']) : ?>
-      <?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
+      <?php echo $this->Html->image("icn_hanamaru_btn_off.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
     <?php else : ?>
-      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+      <a href="<?php echo $this->Html->url("/hanamarus/add_hanamaru?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_hanamaru_btn_on.gif", array("alt" => "はなまる", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
     <?php endif ; ?>
   </td>
   <td align="left" valign="middle" width="20%">
@@ -133,13 +133,13 @@ $i = !$i;
   <td valign="middle" nowrap="nowrap" style="white-space:nowrap;">&nbsp;</td>
   <td align="left" valign="middle" width="25%">
     <?php if ($article['Article']['alreadyAddAttention']) : ?>
-      <?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
+      <?php echo $this->Html->image("icn_attention_btn_off.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?>
     <?php else : ?>
-      <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
+      <a href="<?php echo $this->Html->url("/attentions/attention?id={$article['Article']['external_id']}&user_id={$login_user['hash']}&returnPath={$encoded_url}"); ?>"><?php echo $this->Html->image("icn_attention_btn_on.gif", array("alt" => "注目", "width" => "100%", "style" => "margin:4px 2px 4px 0;")); ?></a>
     <?php endif; ?>
   </td>
   <td align="left" valign="middle" width="20%">
-    <span style="font-size:x-small; color:#FF0000;"><?php echo $article['Article']['attention_count']; ?>ｺ</span>
+    <span style="font-size:x-small; color:#0099FF;"><?php echo $article['Article']['attention_count']; ?>ｺ</span>
   </td>
   <td align="right" valign="middle" width="30%">
     <span style="font-size:x-small; color:#666666;"><?php echo $this->Time->format('n月j日', $article['Article']['release_date']); ?></span>

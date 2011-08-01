@@ -1,0 +1,17 @@
+AddType application/xhtml+xml .html
+AddType application/x-smaf    .mmf
+AddType application/x-mpeg    .amc
+
+AddType application/x-decomail-template .dmt
+AddType application/x-kddi-htmlmail     .khm
+AddType application/x-htmlmail-template .hmt
+
+AddType video/3gpp2 .3g2
+AddType video/3gpp  .3gp
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /shimajiro/
+	RewriteRule ^$ app/webroot/ [L]
+	RewriteRule (.*) app/webroot/$1 [L]
+</IfModule>

@@ -28,8 +28,12 @@ class AppError extends ErrorHandler {
 		parent::error($params);
 	}
 	function error404($params) {
-		$this->controller->helper[] = 'Ktai';
-		parent::error404($params);
+        $this->controller->helper[] = 'Ktai';
+
+        if ($this->controller->Ktai->is_android()) {
+            $this->controller->layout = 'android_error';
+        }
+        parent::error404($params);
 	}
 	function error500($params) {
 		$this->controller->helper[] = 'Ktai';
@@ -40,7 +44,7 @@ class AppError extends ErrorHandler {
 		parent::missingController($params);
 	}
 	function missingAction($params) {
-		$this->controller->helper[] = 'Ktai';
+        $this->controller->helper[] = 'Ktai';
 		parent::missingAction($params);
 	}
 	function privateAction($params) {

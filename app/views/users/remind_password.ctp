@@ -26,6 +26,7 @@ if($this->Ktai->is_ezweb()){
 </div></td>
 </tr>
 
+<!--
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
@@ -44,7 +45,7 @@ if($this->Ktai->is_ezweb()){
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 </div></td>
 </tr>
-
+-->
 <tr>
 <td align="center">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />

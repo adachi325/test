@@ -105,7 +105,7 @@ class ToppageComponent extends Object {
             'conditions' => array(
                 'Content.line_id' => $currentLine['Line']['id'],
             ),
-            'order'=>array('Content.release_date '.$sortStr)
+            'order'=>array('Content.release_date '.$sortStr, 'Content.id DESC')
         );
         $Content->contain('Issue');
         $contents = $Content->find('all', $conditions);

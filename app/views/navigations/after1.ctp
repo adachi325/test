@@ -2,6 +2,7 @@
 <?php echo $this->Html->image("ttl_fun.gif", array("alt" => "このサイトの楽しみ方", "width" => "100%")); ?><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 ﾌﾟﾛﾌｨｰﾙ登録が完了いたしました｡次回からは自動ﾛｸﾞｲﾝとなります｡<br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます｡</span><br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 まずはお子さんの思い出を記録してみよう!
 ｹｰﾀｲに入っているお子さんのﾍﾞｽﾄｼｮｯﾄにｺﾒﾝﾄをつけてﾒｰﾙ<?php $this->Ktai->emoji(0xE6D3); ?>送信してみてね!<br />
@@ -31,7 +32,7 @@
 </table>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <span style="color:#ff6600;">&nbsp;･</span><span style="color:#339933">思い出記録</span>とは<br />
-思い出記録は､他の会員に思い出を公開することができます｡<span style="color:#ff6600;">｢他の会員に公開して投稿する｣</span>を選択すると､約1-2週間後｢育児なう｣に掲載されます｡<br />
+思い出記録は､他の会員に思い出を公開することができます｡<span style="color:#ff6600;">｢他の会員に公開して投稿する｣</span>を選択すると､約1週間後｢育児なう｣に掲載されます｡<br />
 <span style="color:#cc0000;">※公開する｢思い出記録｣については､ﾍﾞﾈｯｾにて選定を行います｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffff99">
@@ -77,14 +78,17 @@
 <div align="right" style="text-align:right;"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <a href="<?php echo $this->Html->url('/diaries/publish/'); ?>" style="color:#ff0000;"><span style="color:#ff0000;font-size:x-small;">※公開に関する注意事項</span></a></div>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
-<span style="color:#cc0000">
-※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡<br /></span>
-<span style="color:#666666"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000">※写真を添付して､本文にｺﾒﾝﾄを書いて送信してください｡(ﾀｲﾄﾙは自由に変更できます｡)<br /></span>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000">※絵文字･ﾃﾞｺﾒ絵文字･一部の記号は､文字化けするためご利用できません｡<br /></span>
+<span style="color:#666666">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+※端末により､写真が回転する場合があります｡<br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 ※写真はJPG形式で容量が2MB以内､1枚のみとなります｡<br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※絵文字･ﾃﾞｺﾒ絵文字はご利用できません｡<br />
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-※ﾀｲﾄﾙは自由に変更できます｡</span><br />
+※送信した写真ﾃﾞｰﾀはNTTﾄﾞｺﾓのｻｰﾊﾞで管理します｡<br />
+
 <br />
 <div align="center" style="text-align:center;">↓送信後は､こちらで確認↓</div>
 <div align="center" style="background:#ffff99; text-align:center;">
@@ -95,6 +99,8 @@
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_orrange.gif", array()); ?></div>
 
-今は送信しないで<a href="<?php echo $this->Html->url('/');?>">ﾄｯﾌﾟﾍﾟｰｼﾞ</a>へ進む<br />
+今は送信しないで<a href="<?php echo $this->Html->url('/');?>">育児なうﾄｯﾌﾟ</a>へ進む<br />
+<span style="color:#cc0000">※登録ﾌﾟﾚｾﾞﾝﾄは育児なうﾄｯﾌﾟからﾀﾞｳﾝﾛｰﾄﾞできます｡</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
+
 

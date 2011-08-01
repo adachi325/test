@@ -6,7 +6,7 @@
 <div align="left" style="color:#CC0000;text-align:left;">
 ※思い出の掲載申請を受け付けました｡<br />
 掲載申請をいただいた思い出はベネッセによる選定の上､しまじろうひろばに掲載されます｡<br />
-※掲載設定が反映されるまでには最大で2週間程お時間がかかります｡ご了承ください｡<br />
+※掲載設定が反映されるまでには最大で1週間程お時間がかかります｡ご了承ください｡<br />
 </div><!-- 公開希望の場合 -->
 <?php endif; ?>
 <div align="center" style="text-align:center;"><?php echo $this->Html->image("dot_line_green.gif", array()); ?></div>

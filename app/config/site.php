@@ -104,7 +104,7 @@ $config['Present'] = array(
 );
 
 $config['Defaults'] = array(
-	'domain' => 'shimajiro-dev.com',
+	'domain' => 'test.dctry.jp',
 	'receive_mail_prefix' => 'diary_',
         'docomo_community' => 'diary@docomo-community.com',
         'shimajiro_square' => 'https://kodomo.benesse.ne.jp/login/index.shtml',
@@ -179,8 +179,8 @@ $config['Child'] = array(
         'Initial_registration_presents' => array(
             0 => '1',
             1 => '2',
-            2 => '31',
-            3 => '32',
+            2 => '3',
+            3 => '4',
 		),
         'birthday_years' => 8,
 );

@@ -26,7 +26,7 @@
 <?php if ($this->data['Diary']['wish_public'] == 1) : ?>
 <tr>
 <td colspan="2" align="left"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?><br />
-<span style="font-size:x-small; color:#cc0000;">※公開中の思い出を編集した場合､一度非公開にされた上で再度審査が行われます</span><br />
+<span style="font-size:x-small; color:#cc0000;">※思い出を編集した場合､すでに公開中であった場合も一度非公開にされた上で再度審査が行われます</span><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "7")); ?></td>
 </tr>
 <?php endif; ?>
