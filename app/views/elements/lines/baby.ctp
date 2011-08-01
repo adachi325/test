@@ -1,5 +1,28 @@
 
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじぷちファースト", "width" => "100%")); ?></td>
+</tr>
+<tr>
+<td width="85%"><span style="font-size:x-small; color:#e61953;">1歳前後向けｺｰｽ</span></td>
+<td width="10%">&nbsp;</td>
+</tr>
+</table>
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("/img/ap/petit_f/1103.jpg", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?>
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('http://shimajiromobile.benesse.ne.jp/petit_f/1103/')?>" style="color:#ff3333;"><span style="color:#ff3333;">ﾊﾟﾍﾟｯﾄで使えるしまじろう生活ﾎﾞｲｽ</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+</table>
+<br />
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td width="85%"><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじbaby", "width" => "100%")); ?></td>
@@ -7,16 +30,6 @@
 </tr>
 <tr>
 <td width="85%"><span style="font-size:x-small; color:#ee86b4;">0～1歳向けｺｰｽ</span></td>
-<td width="10%">&nbsp;</td>
-</tr>
-</table>
-<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじぷちファースト", "width" => "100%")); ?></td>
-</tr>
-<tr>
-<td width="85%"><span style="font-size:x-small; color:#e61953;">1歳前後向けｺｰｽ</span></td>
 <td width="10%">&nbsp;</td>
 </tr>
 </table>
@@ -137,7 +150,7 @@
 <td bgcolor="#ffefef"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳5ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;</span><a href="<?echo $this->Html->url('/ap/baby/1017/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【WEB】あなたの家は大丈夫? 事故予防ﾁｪｯｸ!</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1017/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【WEB】あなたの家は大丈夫? 事故予防ﾁｪｯｸ!</span></a><br />
 </div></td>
 </tr>
 
