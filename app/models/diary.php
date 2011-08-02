@@ -58,30 +58,6 @@ class Diary extends AppModel {
   }
 
 	var $validate = array(
-		'child_id' => array(
-			array(
-				'rule' => 'notEmpty',
-				'last' => true,
-			),
-		),
-		'month_id' => array(
-			array(
-				'rule' => 'notEmpty',
-				'last' => true,
-			),
-		),
-		'theme_id' => array(
-			array(
-				'rule' => 'notEmpty',
-				'last' => true,
-			),
-		),
-		'hash' => array(
-			array(
-				'rule' => 'notEmpty',
-				'last' => true,
-			),
-		),
 		'title' => array(
 			array(
 				'rule' => array('maxLength', 20),
@@ -93,12 +69,6 @@ class Diary extends AppModel {
 			array(
 				'rule' => array('maxLength', 5000),
 				'message' => '5000文字以内で入力してください',
-				'last' => true,
-			),
-		),
-		'has_image' => array(
-			'boolean' => array(
-				'rule' => array('boolean'),
 				'last' => true,
 			),
 		),
