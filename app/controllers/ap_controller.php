@@ -16,7 +16,8 @@ class ApController extends AppController {
 	function _getUser() {
 		//ログイン済みじゃない場合、uidを取得
 		$has_account = false;
-		$uid = $this->_getUid();
+        $uid = $this->_getUid();
+        $user = false;
 		if(!empty($uid)) {
 			$User =& ClassRegistry::init('User');
 			$User->contain();
