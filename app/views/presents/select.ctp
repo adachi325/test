@@ -46,7 +46,7 @@ $pageCount = isset($this->params['paging']['Diary']['pageCount']) ? $this->param
 <?php extract($items[$i]['Diary']); ?>
 <td width="5%"><?php echo $this->Form->input("select_photo.{$id}", array("type" => "checkbox")); ?></td>
 <td width="45%" align="center">
-<?php echo $this->Html->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
+<?php echo $this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_rect'), $items[$i]['Diary']['child_id'], $items[$i]['Diary']['id']), array("style" => "margin:5px 0;")); ?>
 </td>
 <?php else: ?>
 <td width="5%"></td>
