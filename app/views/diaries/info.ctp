@@ -28,7 +28,7 @@ if(!empty($diary['Diary']['title']) and $diary['Diary']['title'] != '') {
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />
 <?php 
 if ($diary['Diary']['has_image']) {
-	echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id'])) . '<br />';
+	echo $this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_thumb'), $diary['Diary']['child_id'], $diary['Diary']['id'])) . '<br />';
 } 
 ?>
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "10")); ?><br />

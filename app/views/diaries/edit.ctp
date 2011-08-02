@@ -9,7 +9,7 @@
 <tr>
 <td align="center">
 <?php
-	echo $html->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']),
+	echo $this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']),
 		 array("style" => "margin:10px 0;"));
 ?>
 <br />

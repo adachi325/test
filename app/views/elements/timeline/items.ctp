@@ -36,7 +36,7 @@ $i = !$i;
   // 子供の画像パス
   $album_pic_path;
   if (!empty($article['Article']['photo']) && file_exists(IMAGES.$article['Article']['photo'])) {
-    $album_pic_path = $article['Article']['photo']; 
+    $album_pic_path = $article['Article']['photo'].'?param='.md5(date('YmdHis')); 
   } else {
     $album_pic_path = 'omoide_nophoto.gif';
   } 

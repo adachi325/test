@@ -16,7 +16,7 @@
 	if(empty($prof_diary)) {
 		$img = $this->Html->image('profile.gif', $opt);
 	} else {
-		$img = $html->image(
+		$img = $this->DiaryCommon->image(
 			sprintf(Configure::read('Diary.image_path_rect'), $prof_diary['Diary']['child_id'], $prof_diary['Diary']['id']),
 			array_merge($opt, array('url'=>'/diaries/info/'.$prof_diary['Diary']['id'].'/' )) );
 	}

@@ -10,7 +10,7 @@ if ($hanamaru['Diary']['has_image']) {
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo $bgcolor; ?>">
 <tr>
 <td width="25%" rowspan="2" align="left" valign="top">
-<?php echo $this->Html->image($image_path, array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
+<?php echo $this->DiaryCommon->image($image_path, array("alt" => "子ども画像", "width" => "100%", "style" => "margin:5px 2px 5px 0;")); ?></td>
 <td colspan="2" align="left" valign="top"><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br /><span style="font-size:x-small;"><span style="color:#339900;"><?php echo $html->link(h($hanamaru['Diary']['title']), '/diaries/info/' . $hanamaru['Diary']['id'], array('style' => "color:#339900;")); ?></span></a></span></td>
 </tr>
 <tr>

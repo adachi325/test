@@ -14,7 +14,7 @@
 <td align="center">
 <?php 
 if ($this->data['Diary']['has_image']) {
-	echo $this->Html->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']), array("style" => "margin:10px 0;"));
+	echo $this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_thumb'), $this->data['Diary']['child_id'], $this->data['Diary']['id']), array("style" => "margin:10px 0;"));
 }
 ?><br />
 </td>
