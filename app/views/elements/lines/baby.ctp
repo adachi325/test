@@ -23,7 +23,7 @@
 <tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<?php echo $this->Html->image("/img/ap/petit_f/1108_1.jpg", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?>
+<?php echo $this->Html->image("/img/ap/petit_f/1108_1.gif", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?>
 <span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/petit_f/1108_1/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【動画】しまじろう3WAYﾎﾙﾀﾞｰの取り付け方</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
