@@ -97,6 +97,11 @@ class HanamarusController extends AppController {
     $user_id = $this->params['url']['user_id'];
     $returnPath = $this->params['url']['returnPath'];
 
+    if (strpos(Configure::read('Api.domain'), $returnPath) === false) { 
+        //return false;
+        $this->redirect('/');
+    }
+
     // 渡されたハッシュ(user_id)からユーザーを特定します。
     $conditions = array(
       'hash' => $user_id,
