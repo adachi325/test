@@ -64,6 +64,14 @@ class ApController extends AppController {
 	}
 
 
+	function petit_f($id = null) {
+		if ($id) {
+			$this->__view($this->params['action'], $id);
+		} else {
+			$this->__index($this->params['action']);
+		}
+	}
+
 	function baby($id = null) {
 		if ($id) {
 			$this->__view($this->params['action'], $id);
