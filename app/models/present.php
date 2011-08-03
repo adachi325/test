@@ -56,7 +56,7 @@ class Present extends AppModel {
         if ($id) {
             $this->contain('Month');
             $present = $this->findById($id);
-            return $present['Month']['month'];
+            return substr('0'.$present['Month']['month'], -2);
         } 
         return '';
     }
