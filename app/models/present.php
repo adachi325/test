@@ -50,7 +50,16 @@ class Present extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		)
-	);
+    );
+
+    function getMonth($id = null) {
+        if ($id) {
+            $this->contain('Month');
+            $present = $this->findById($id);
+            return $present['Month']['month'];
+        } 
+        return '';
+    }
 
 	function find($type, $options = array()) {
 		$m = $this->alias;

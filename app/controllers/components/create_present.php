@@ -225,6 +225,10 @@ class CreatePresentComponent extends Object {
      */
     function createWallpaper4SmartPhone($args){
         //ﾊﾟﾗﾒｰﾀ設定
+
+        $Present =& ClassRegistry::init('Present');  
+        $month = $Present->getMonth($args['present_id']);
+
         $params = array();
         $params['child_id'] =$args['child_id']; 
         $params['diary_num'] =3; 
@@ -233,7 +237,7 @@ class CreatePresentComponent extends Object {
         $params['diary_size']['height'] = Configure::read('Diary.image_size_wallpaper_for_smartphone');; 
         $params['positions_in_template'] = Configure::read('Present.incentive.position_in_wallpaper_smartphone');
         $params['template_size'] =Configure::read('Present.template.wallpaper.size_smartphone');
-        $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $args['present_id']);
+        $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $month);
         $params['diary_path'] =Configure::read('Diary.image_path_wallpaper_for_smartphone');
         $params['output_dir'] =Configure::read('Present.path.wallpaper_output_for_smartphone');
         // 待受け画像作成
@@ -273,6 +277,10 @@ class CreatePresentComponent extends Object {
      * @return boolean   $result     : 結果
      */
     function createPostCard4SmartPhone($args){
+
+        $Present =& ClassRegistry::init('Present');  
+        $month = $Present->getMonth($args['present_id']);
+
         //ﾊﾟﾗﾒｰﾀ設定
         $params = array();
         $params['child_id'] =$args['child_id']; 
@@ -282,7 +290,7 @@ class CreatePresentComponent extends Object {
         $params['diary_size']['height'] = Configure::read('Diary.image_size_postcard_for_smartphone');; 
         $params['positions_in_template'] = Configure::read('Present.incentive.position_in_postcard_smartphone');
         $params['template_size'] =Configure::read('Present.template.postcard.size_smartphone');
-        $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_for_smartphone'), $args['present_id']);
+        $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_for_smartphone'), $month);
         $params['diary_path'] =Configure::read('Diary.image_path_postcard_for_smartphone'); 
         $params['output_dir'] =Configure::read('Present.path.postcard_output_for_smartphone');
         // postcard画像作成
