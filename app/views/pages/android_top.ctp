@@ -9,8 +9,9 @@
   <p>
    Android端末では、&lt;こどもちゃれんじ&gt;教材との連動コンテンツの一部がお楽しみいただけます。</p>
   <dl id="contents">
+    
     <dt>
-    	<?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby/ぷちファースト")); ?><br /><span class="baby">0～1歳向けコース</span>
+    	<?php echo $this->Html->image("icn_baby.gif", array()); ?><?php echo $this->Html->image("txt_baby.gif", array("alt" => "こどもちゃれんじ baby")); ?><br /><span class="baby">0～1歳向けコース</span>
     </dt>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/baby/1007/');?>" data-role="button" data-theme="e" rel="external">【動画】特別教材・おでかけストラップの取りつけ方
@@ -22,7 +23,17 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
     </dd>
-    
+   
+    <dt>
+    	<?php echo $this->Html->image("icn_first.gif", array()); ?><?php echo $this->Html->image("txt_first.gif", array("alt" => "こどもちゃれんじ ぷちファースト")); ?><br /><span class="baby">1歳前後向けコース</span>
+    </dt>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit_f/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】しまじろうのはげましボイス</a>
+    </dd>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit_f/1108_1/');?>" data-role="button" data-theme="e" rel="external">【動画】しまじろう3WAYホルダーの取り付け方</a>
+    </dd>
+     
     <dt>
     	<?php echo $this->Html->image("icn_petit.gif", array()); ?><?php echo $this->Html->image("txt_petit.gif", array("alt" => "こどもちゃれんじ ぷち")); ?><br /><span class="petit">1～2歳向けコース</span>
     </dt>
