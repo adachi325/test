@@ -244,7 +244,7 @@ class Diary extends AppModel {
 			if (strlen($image) > Configure::read('Diary.image_filesize_max')) {
 				$error_code = Configure::read('Diary.error_filesize_over');
 				break;
-			}
+            }
 
 			//画像保存(オリジナル)
 			$image_path_original = sprintf(IMAGES . Configure::read('Diary.image_path_original'), $data['child_id'], $diary_id);
@@ -254,8 +254,7 @@ class Diary extends AppModel {
 			fclose( $fp );
 			$info = getimagesize($image_path_original);
 
-			if (!empty($info)
-				&& $info[2] == IMAGETYPE_JPEG) {
+			if (!empty($info) && $info[2] == IMAGETYPE_JPEG) {
 
 					//画像保存(比率保持)
 					$image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
@@ -282,7 +281,6 @@ class Diary extends AppModel {
 
 			//画像削除(オリジナル)
 			unlink($image_path_original);
-
 		}
 
 		if ($error_code === null
@@ -438,7 +436,10 @@ class Diary extends AppModel {
 	}
 
 	function __saveImageFile($image_data, $image_path) {
-		$this->__mkdir($image_path);
+        if (file_exists($iamge_path)) {
+            unlink($image_path);
+        }
+        $this->__mkdir($image_path);
 		$fp = fopen( $image_path, "w" );
 		fwrite( $fp, $image_data, strlen($image_data) );
 		fclose( $fp );
