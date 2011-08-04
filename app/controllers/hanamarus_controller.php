@@ -97,8 +97,7 @@ class HanamarusController extends AppController {
     $user_id = $this->params['url']['user_id'];
     $returnPath = $this->params['url']['returnPath'];
 
-    if (strpos(Configure::read('Api.domain'), $returnPath) === false) { 
-        //return false;
+    if (strpos($returnPath, Configure::read('Api.domain')) === false) { 
         $this->redirect('/');
     }
 
