@@ -6,7 +6,16 @@ class tkHelper extends Helper {
 
     //入力モード設定補助
     function beforeRender() {
-        //  DoCoMo 用
+        //  UAが取得できない場合はDoCoMo用セッティングを使用
+        if (!isset($_SERVER["HTTP_USER_AGENT"])) {
+            $this->tk_style = "istyle";
+            $this->tk_mode['1'] = 1;
+            $this->tk_mode['2'] = 2;
+            $this->tk_mode['3'] = 3;
+            $this->tk_mode['4'] = 4;
+            return;            
+        }
+
         if (ereg( "DoCoMo", $_SERVER["HTTP_USER_AGENT"] )) {
             $this->tk_style = "istyle";
             $this->tk_mode['1'] = 1;
@@ -39,7 +48,7 @@ class tkHelper extends Helper {
      */
     function is_imode_browser(){
 
-        $ua = $_SERVER['HTTP_USER_AGENT'];
+        $ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
 
         if(ereg('DoCoMo/1.0/',$ua)){
             return true;
@@ -50,6 +59,22 @@ class tkHelper extends Helper {
         }
         return false;
     }
+
+    /*
+     * USER_AGENTからドコモのブラウザバージョンを返す。
+     * ver1.0 : true
+     * ver2.0 : false
+     */
+    function is_appli(){
+
+        $ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
+
+        if(ereg('dctry\/shimajiro',$ua)){
+            return true;
+        }
+        return false;
+    }
+
 }
 
 ?>

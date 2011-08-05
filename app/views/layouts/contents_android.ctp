@@ -18,6 +18,7 @@
 <?php echo $this->Html->image('sp_img/kochare_shimajiro.png', array('alt'=>'しまじろう', 'class' => 'chara')); ?></div>
 <?php echo $this->Html->image('sp_img/header_kochare_shadow.png', array('width'=>'100%', 'class' => 'shadow')); ?>
 
+<?php if (!$this->tk->is_appli()): ?>
 <!-- #promo -->
 <div id="promo">   
 <div id="top_promobtn">
@@ -25,15 +26,13 @@
 <div class="tape"><?php echo $this->Html->image('sp_img/bgpink_tape.png', array('width'=>'100%', 'class' => 'bottom')); ?></div>  
 </div>
 <!-- /#promo -->  
+<?php endif; ?>
 
+<?php echo $content_for_layout; ?>
 
-<?php
-echo $content_for_layout;
-?>
-
-<?php
-echo $this->element('footer_android');
-?>
+<?php if (!$this->tk->is_appli()): ?>
+<?php echo $this->element('footer_android'); ?>
+<?php endif; ?>
 
 <?php echo $this->element('google/analytics'); ?>
 
