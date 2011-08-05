@@ -15,10 +15,13 @@
 <body id="challenge">
 <div id="wrap" data-role="page" data-theme="d">
 <h2><img src="../../../img/ttl_kodomo.png" alt="こどもちゃれんじ" width="108" height="20" /></h2>
+
 <?php
 echo $content_for_layout;
 ?>
+
 <?php echo $this->element('google/analytics'); ?>
+
 </div>
 </body> 
 </html> 
