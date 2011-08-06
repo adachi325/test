@@ -803,12 +803,12 @@ $list[6] ='--5000000000--
                 $this->redirect('/');
             }
 
-            $owner = $this->Diary->getOwner($id) {
-                if (!$this->check_owner($owner)) {
-                    $this->Session->setFlash(__('不正操作です', true));
-                    $this->redirect('/');
-                }
+            $owner = $this->Diary->getOwner($id); 
+            if (!$this->check_owner($owner)) {
+                $this->Session->setFlash(__('不正操作です', true));
+                $this->redirect('/');
             }
+            
 
             $conditions = array(
                 'conditions' => array(
@@ -904,7 +904,7 @@ $list[6] ='--5000000000--
 		        $this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
-                $this->Diary->whitelist = array('wish_public');
+                $this->Diary->whitelist = array('wish_public', 'permit_status', 'modified');
                 if ($this->Diary->save($this->data)) {
 
                     $this->delete_relative_data($this->data['Diary']['id']);

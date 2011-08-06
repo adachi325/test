@@ -316,7 +316,7 @@ class AppController extends Controller {
         return $auth_user['User']['loginid'] == $user['loginid'];
     }
 
-    function check_userhash($hash) {
+    function check_hash($hash) {
         $auth_user = $this->Auth->user();
         return $auth_user['User']['hash'] == $hash;
     }
