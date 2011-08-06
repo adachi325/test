@@ -1016,11 +1016,13 @@ $list[6] ='--5000000000--
 			return $retval_false;
 		}
 		//元ファイル
-		$in_file_path = $urlParams['inputfilepath'];
+        $in_file_path = $urlParams['inputfilepath'];
+        /*
 		if(strstr($in_file_path, WWW_ROOT) == false){
 			$in_file_path = WWW_ROOT.DS.$in_file_path;
 			$in_file_path = str_replace(DS.DS, DS, $in_file_path);
-		}
+        }
+         */
 		$in_file_path .= DS.$urlParams['inputfile'];
 		$in_file_path = str_replace(DS.DS, DS, $in_file_path);
                 if(!file_exists($in_file_path)){
