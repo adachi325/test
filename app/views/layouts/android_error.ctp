@@ -3,17 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>しまじろうひろば×ドコモコミュニティ</title>
 
-<?php
-echo $this->Html->css('android_reset.css');
-echo $this->Html->css('android_style.css');
-echo $this->Html->css('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css');
+<?php echo $this->element('default/jquery_mobile'); ?>
 
-echo $this->Html->Script('http://code.jquery.com/jquery-1.4.3.min.js');
-echo $this->Html->Script('http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js');
-?>
-
-<title>こどもちゃれんじ｜ケータイしまじろうひろば&times;ドコモコミュニティ</title>
 </head>
 
 <body id="challenge">
