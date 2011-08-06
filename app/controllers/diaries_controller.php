@@ -797,11 +797,17 @@ $list[6] ='--5000000000--
             $this->Diary->validates();
         }
 
-
         if (empty($this->data)){
-            if(empty($id)){
+            if (empty($id)) {
                 $this->Session->setFlash(__('不正操作です', true));
                 $this->redirect('/');
+            }
+
+            $owner = $this->Diary->getOwner($id) {
+                if (!$this->check_owner($owner)) {
+                    $this->Session->setFlash(__('不正操作です', true));
+                    $this->redirect('/');
+                }
             }
 
             $conditions = array(

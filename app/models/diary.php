@@ -106,6 +106,16 @@ class Diary extends AppModel {
         )
     );
 
+    function getOwner($id) { 
+        $this->contain();
+        $diary = $this->findById($id);
+
+        $this->Child->contain(array('User'));
+        $child = $this->Child->findById($diary['Diary']['child_id']);
+
+        return $child['User'];
+    }
+
     //メールから登録
     function importMail($data) {
 
