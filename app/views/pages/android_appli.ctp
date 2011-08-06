@@ -11,7 +11,7 @@
     <p><こどもちゃれんじ>の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリです♪</p>
   </div>
   <div class="headintrobtn">
-    <div class="green_btn"><a href="#" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
+    <div class="green_btn"><a href="<?php echo $this->Html->url('/pages/appli/'); ?>" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
   </div>
   <div class="tape"><?php echo $this->Html->image("sp_img/bgltgreen_tape.png", array("width" => "100%", "class" => "bottom")); ?></div>  
 </div>
