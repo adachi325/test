@@ -1,5 +1,3 @@
-<body id="faq">
-<div id="wrap" data-role="page" data-theme="d">
 <div id="header">
   <h2>よくある質問・問い合わせ</h2>
 </div>

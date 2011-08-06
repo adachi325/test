@@ -140,7 +140,12 @@ class PagesController extends AppController {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}
 	function maintenance() { 
-	}
+    }
+
+    function appli() {
+		$this->render($this->view_prefix.$this->params['action']);   
+    }
+
 	function rules() {
 		$this->render($this->view_prefix.$this->params['action']);   
    	}

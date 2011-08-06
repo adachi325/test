@@ -1,5 +1,3 @@
-<body id="contact">
-<div id="wrap" data-role="page" data-theme="d">
 <div id="header">
   <h2>お問い合わせ</h2>
 </div>

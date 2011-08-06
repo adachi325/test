@@ -1,5 +1,3 @@
-<body id="model">
-<div id="wrap" data-role="page" data-theme="d">
 <div id="header">
   <h2>対応機種</h2>
 </div>
