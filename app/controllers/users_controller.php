@@ -581,8 +581,8 @@ class UsersController extends AppController {
 
     function other_setting() {
 	
-	/* uidﾁｪｯｸ(SSL通信時のみ) */
-	$this->Tk->uidCheck();
+        /* uidﾁｪｯｸ(SSL通信時のみ) */
+        $this->Tk->uidCheck();
 
         // POSTデータが存在する場合 
         if (!empty($this->data)) {
