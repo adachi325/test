@@ -9,32 +9,73 @@
 	color:#333;
 	line-height:1em;
 	text-shadow:none;
+	background: url(../img/sp_img/background.png) repeat-x top #cbd365;
 }
 
 #orangeDot {
-	background:url(../img/dot_line_orrange.gif) repeat-x;
+	background:url(../img/sp_img/dot_line_orrange.gif) repeat-x;
 	height:20px;
 }
 
 #brownDot {
-	background:url(../img/dot_line_brown.gif) repeat-x;
+	background:url(../img/sp_img/dot_line_brown.gif) repeat-x;
 	height:20px;
 }
 
-h1, h2, h3 {
-	margin:0 0 10px 0 !important;
-}
 
 /* 表示領域を超える文言の場合、改行する */
 .ui-btn-inner {
   white-space: normal;
 }
 
+.tape{
+		margin:0;
+		vertical-align:bottom;
+}
 
+
+.tx_gray { color: #666666; }
+
+span.red{
+	color:#e60012;
+}
+
+span.green{
+	color:#339933;
+}
+
+span.yellow{
+	color:#F90;
+}
+p.center{
+	text-align:center !important; 
+}
+p.red{
+	color:#e60012;
+}
 /*----------------------------------------------------
-	footer
+	footer/Webのみ
 ----------------------------------------------------*/
+
+#footWrap div.white_btn a:link,#footWrap div.white_btn a:visited{
+	display:inline-block;
+	background:url(../img/sp_img/bt_white.png) no-repeat left top;
+	width:280px;
+	height:44px;
+}
+
+#footWrap div.white_btn a:hover{
+	display:inline-block;
+	background:url(../img/sp_img/bt_white.png) no-repeat left -44px;
+	width:280px;
+	height:44px;
+	
+}
+
+
+
 #copy {
+	margin:0;
 	font-size:small;
 	color:#FFF;
 	padding:10px 0;
@@ -42,30 +83,38 @@ h1, h2, h3 {
 	text-shadow:none;
 }
 
-#copy a:link {
+#copy a:link,#copy a:visited {
 	color:#FFF;
 }
 
-#copy a:visited {
-	color:#FFF;
-}
 
 #footWrap {
 	text-align:center;
 	background:#996633;
 	text-shadow:none;
+	margin-top:0;
+	margin-right:7px;
+	margin-bottom:-3px;
+	margin-left:7px;
 }
+
+#footWrap img{
+	margin:0;
+	padding:0;
+}
+
 
 #footText{
 	text-shadow:none;
 	color:#FFF;
 	text-align:center;
-	padding:10px 0 10px 0;
+	padding:10px;
 	margin:-3px 0 0 0;
 }
 
 #footText p {
 	text-align:left;
+	font-size:small;
 }
 
 #footText ul {
@@ -112,15 +161,134 @@ h1, h2, h3 {
 	padding:0 10px;
 }
 
+/*----------------------------------------------------
+	promo/Webのみ
+----------------------------------------------------*/
+
+#top_promo {
+	margin:0 7px;
+	padding:5px 0 0 0;
+	line-height:1.3em;
+/*	background:#66b02c;*/
+	background:#cbd365;
+	font-size:small;
+	color:#fff;
+		
+}
+
+#top_intro{
+	margin:5px 7px;
+	font-size:medium;
+
+
+}
+
+#top_intro p{
+	background:#fff;
+	line-height:1.3em;
+	padding:10px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	color:#333;
+}
+
+
+.intro{
+	margin:3px;
+	background:#FCF;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	padding:7px;
+
+}
+
+
+#top_promobtn{
+	margin:0 2px;
+	padding:5px;
+	
+}
+
+#top_promobtn img{
+	float:left;
+	padding:5px;
+}
+
+
+#top_promobtn p{
+	float:left;
+	width:65%;
+	padding:0 5px 5px 2px;
+	margin:0;
+	color:#333;
+	font-size:medium;
+	line-height:1.1em;
+
+}
+
+#top_promobtn h1{
+	color:#F33;
+	font-size:large;
+	padding:5px 0 3px 10px;
+	margin:0;
+}
+
+
+#top_promobtn a:link,#top_promobtn a:visited{
+	display:inline-block;
+	background:#fff url(../img/sp_img/yajirushi_green.png) no-repeat right center ;
+	width:100%;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	
+}
+
+#top_promobtn a:hover{
+	display:inline-block;
+	background:#ff9 url(../img/sp_img/yajirushi_green.png) no-repeat right center ;
+	width:100%;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	
+}
+
+div.enjoy{
+	color:#e60012;
+	text-align:center;
+}
+
+div.enjoy2{
+	color:#339933;
+	text-align:center;
+}
+/*----------------------------------------------------
+	promo/Webのみ
+----------------------------------------------------*/
+
+#promo {
+	margin:0 7px;
+	padding:5px 0 0 0;
+	line-height:1.3em;
+	background:#ef9ac5;
+	font-size:small;
+	color:#fff;
+		
+}
 
 /*----------------------------------------------------
 	main
 ----------------------------------------------------*/
 
 #main {
-	padding:10px 10px 42px 10px;
+	margin:0 7px;
+	padding:10px 10px;
 	line-height:1.5em;
-	background: url(../img/footer_android_pic.gif) repeat-x bottom;
+	background:#fff;
+/*	background: url(../img/sp_img/footer_android_pic.gif) no-repeat bottom;*/
+
 }
 
 #contents dl {
@@ -135,7 +303,11 @@ h1, h2, h3 {
 
 #contents dt span {
 	font-size:small;
-	padding-left:30px;
+	padding-left:5px;
+}
+
+#contents dt span.baby {
+	color:#ee86b4;
 }
 
 #contents dt span.petit {
@@ -159,37 +331,72 @@ h1, h2, h3 {
 	line-height:1.0em;
 }
 
-#challenge h2 {
-	background:url(../img/ttl_pink.gif) repeat-x;
-	padding:2px 0 0 10px;
-	height:29px;
+
+ div#ttl{	
+	background:url(../img/sp_img/header_kochare.png) repeat-x;
+	vertical-align:middle;
+	text-align:center;
+	height:42px;
+	width:100%;	
 }
 
+
+ div#ttl h2 {
+	font-size:large;
+	text-shadow:1px 1px 3px #666;
+	color:#fff;
+	width:75%;
+	padding-top:13px;
+	padding-left:30px;
+	float:left;
+}
+
+img.bottom{
+	vertical-align:bottom;
+}
+
+img.shadow{	
+	position:absolute;
+	margin-top:0px;
+}
+img.chara{
+	float:right;	
+	x-index:100;
+	position:absolute;
+}
+
+
 #main h2 {
-	background:url(../img/ttl_orange.gif) repeat-x;
+	background:url(../img/sp_img/ttl_orange.gif) repeat-x;
 	padding:5px 0 0 10px;
 }
 
+#main p.ep{
+	font-size:medium;
+	text-align:center;
+	margin:0 auto;
+}
+
 #kodomoChallenge h3 {
-	background:url(../img/icn_mobile.gif) no-repeat left top;
+	background:url(../img/sp_img/icn_mobile.gif) no-repeat left top;
 	text-shadow:none;
 	padding-left:30px;
 }
 
 #memory h3 {
-	background:url(../img/icn_album.gif) no-repeat left top;
+	background:url(../img/sp_img/icn_album.gif) no-repeat left top;
 	height:30px;
 	padding-left:30px;
 }
 
 #faq h3.question {
-	background:url(../img/icn_faq.gif) no-repeat left top;
+	background:url(../img/sp_img/icn_faq.gif) no-repeat left top;
 	height:30px;
 	padding-left:30px;
 }
 
 #faq h3.inquiry {
-	background:url(../img/icn_inquiry.gif) no-repeat left top;
+	background:url(../img/sp_img/icn_inquiry.gif) no-repeat left top;
 	height:30px;
 	padding-left:30px;
 }
@@ -207,12 +414,47 @@ h1, h2, h3 {
 	padding-right:10px;
 }
 
+
 #kyouzai {
-	width:90%;
 	text-align:center;
 	margin:0 auto;
 }
 
+#kyouzai .block{
+	width:96%;
+	text-align:center;
+	margin:15px auto;
+}
+
+
+#main #kyouzai h3{
+	font-size:large;
+	color:#ff3366;
+	padding-bottom:10px;
+}
+
+
+#kyouzai div.red_btn{
+    text-align: center;
+	padding:15px 0 30px 0;
+	width:100%;
+}
+
+
+#kyouzai div.red_btn a:link,#kyouzai div.red_btn a:visited{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red.png) no-repeat left top;
+	width:280px;
+	height:44px;
+}
+
+#kyouzai div.red_btn a:hover{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red.png) no-repeat left -44px;
+	width:280px;
+	height:44px;
+	
+}
 #kyouzai p{
 	text-align:left;
 	margin:0;
@@ -306,4 +548,110 @@ h1, h2, h3 {
 #faq div.inq {
 	padding-top:20px;
 }
+
+
+/*----------------------------------------------------
+	アプリ紹介
+----------------------------------------------------*/
+dl#intro{
+	overflow:hidden;
+	margin:10px 0;
+}
+
+dl#intro dt{
+	width:95px;
+	margin:5px 5px 0 0;
+	float:left;
+	clear:both;
+}
+
+dl#intro dd{
+	float:left;
+
+}
+
+
+dl#intro dd.content{
+	float:left;
+	margin:2px 0 0 0;
+	width:185px;
+	line-height:1.3em;
+}
+
+dl#intro dd.kodomocharenge{
+	background:#e60012;
+	color:#fff;
+	padding:3px 10px 1px 10px;
+	font-size:large;
+	margin:8px 0 2px 0;
+	-webkit-border-radius:6px;
+	-moz-border-radius:4px;
+}
+
+dl#intro dd.omoidekiroku{
+	background:#339933;
+	color:#fff;
+	padding:3px 10px 1px 10px;
+	font-size:large;
+	margin-top:8px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:4px;
+}
+
+dl#intro dd.ikujinow{
+	background:#ff9900;
+	color:#fff;
+	padding:3px 10px 1px 10px;
+	font-size:large;
+	margin-top:8px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:4px;
+}
+
+.introbtn {
+	text-align:center;
+	margin:0 auto 20px;
+}
+
+
+
+.introbtn {
+	text-align:center;
+	margin:0 auto 20px;
+}
+
+.headintrobtn {
+	text-align:center;
+	margin:0 auto 0;
+}
+
+
+div.green_btn{
+	padding:5px 0;
+	width:100%;
+}
+
+
+div.green_btn a:link,div.green_btn a:visited{
+	display:inline-block;
+	background:url(../img/sp_img/bt_green.png) no-repeat left top;
+	width:280px;
+	height:44px;
+}
+
+div.green_btn a:hover{
+	display:inline-block;
+	background:url(../img/sp_img/bt_green.png) no-repeat left -44px;
+	width:280px;
+	height:44px;
 	
+}
+
+.aqua{
+	color:#39C;
+	line-height:1.3em;
+	margin:0 auto;
+	padding:0 10px;
+	text-align:center;
+}
+
