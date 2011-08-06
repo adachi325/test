@@ -848,6 +848,8 @@ $list[6] ='--5000000000--
              $this->redirect('/');
         }
 
+        $this->data['Diary']['wish_public'] = $this->check_invalid_code($this->data['Diary']['wish_public']);
+
         // DBよりデータを取得
         $conditions = array(
             'conditions' => array(
@@ -886,6 +888,9 @@ $list[6] ='--5000000000--
         $this->Session->delete('diaryEditPublicData');
 
         if (!empty($this->data)) {
+            
+            $this->data['Diary']['wish_public'] = $this->check_invalid_code($this->data['Diary']['wish_public']);
+
             TransactionManager::begin();
             try {
                 // パラメータの初期化(審査のやり直し)
@@ -893,16 +898,9 @@ $list[6] ='--5000000000--
 		        $this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
+                $this->Diary->whitelist = array('wish_public');
                 if ($this->Diary->save($this->data)) {
 
-                    // articlesテーブルからのレコード削除
-                    /*
-                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
-                    $article = $this->Article->find('first', array('conditions' => $conditions));
-                    if ($article) {
-                        $this->Article->delete($article['Article']['id']);
-                    }
-                     */
                     $this->delete_relative_data($this->data['Diary']['id']);
 
                     TransactionManager::commit();

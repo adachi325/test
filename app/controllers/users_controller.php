@@ -615,6 +615,8 @@ class UsersController extends AppController {
         /* uidﾁｪｯｸ(SSL通信時のみ) */
         $this->Tk->uidCheck();
 
+        $this->data['User']['dc_user'] = $this->check_invalid_code($this->data['User']['dc_user']);
+
         //セッション情報回収
         $this->data = $this->Session->read('userOtherSettingData');
         if (empty($this->data)) {
@@ -628,6 +630,8 @@ class UsersController extends AppController {
 
         /* uidﾁｪｯｸ */
         $this->Tk->uidCheck();
+
+        $this->data['User']['dc_user'] = $this->check_invalid_code($this->data['User']['dc_user']);
 
         //セッション情報回収、削除
         $this->data = $this->Session->read('userOtherSettingData');
