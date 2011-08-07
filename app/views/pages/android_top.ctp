@@ -1,15 +1,17 @@
 <?php echo $this->Html->image("sp_img/newheader.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "bottom")); ?>
 <?php echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?>
 
+<?php if (!$this->tk->is_appli()): ?>
 <!-- #promo -->
-  <div id="top_promo">   
-   <div id="top_promobtn">
+<div id="top_promo">   
+<div id="top_promobtn">
    
 <a href="<?php $this->Html->url('/pages/appli/')?>" data-transition="slide"><h1>Androidアプリ リリース！</h1><?php echo $this->Html->image("sp_img/kochare_appli.png", array("alt" => "", "width" => "80", "height" => "80", "align" => "middle")); ?><p><こどもちゃれんじ>
 の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリ♪</p></a></div>
- <div class="tape"><?php echo $this->Html->image("sp_img/bgltgreen_tape.png", array("width" => "100%", "class" => "bottom")); ?></div>  
-  </div>
+<div class="tape"><?php echo $this->Html->image("sp_img/bgltgreen_tape.png", array("width" => "100%", "class" => "bottom")); ?></div>  
+</div>
 <!-- /#promo -->  
+<?php endif; ?>
   
 <!-- 教材#main -->
 <div id="main">

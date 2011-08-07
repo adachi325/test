@@ -69,7 +69,7 @@ class tkHelper extends Helper {
 
         $ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
 
-        if(ereg('dctry\/shimajiro',$ua)){
+        if(ereg('colors',$ua)){
             return true;
         }
         return false;

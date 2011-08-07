@@ -13,10 +13,11 @@
 <div id="wrap" data-role="page" data-theme="d">
 
 <div style="position: fixed; width: 100%;">
+<?php if ($this->tk->is_appli()): ?>
 <div class="kochare_btn">
 <a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('alt'=>'戻る')); ?></a>
 </div>
-
+<?php endif; ?>
 <div id="ttl">
 <h2>教材説明</h2>
 <?php echo $this->Html->image('sp_img/kochare_shimajiro.png', array('alt'=>'しまじろう', 'class' => 'chara')); ?></div>
