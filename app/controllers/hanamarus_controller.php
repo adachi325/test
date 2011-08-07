@@ -101,6 +101,10 @@ class HanamarusController extends AppController {
         $this->redirect('/');
     }
 
+    if (!$this->check_hash($user_id)) {
+        $this->redirect('/');
+    }
+
     // 渡されたハッシュ(user_id)からユーザーを特定します。
     $conditions = array(
       'hash' => $user_id,

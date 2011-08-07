@@ -797,12 +797,18 @@ $list[6] ='--5000000000--
             $this->Diary->validates();
         }
 
-
         if (empty($this->data)){
-            if(empty($id)){
+            if (empty($id)) {
                 $this->Session->setFlash(__('不正操作です', true));
                 $this->redirect('/');
             }
+
+            $owner = $this->Diary->getOwner($id); 
+            if (!$this->check_owner($owner)) {
+                $this->Session->setFlash(__('不正操作です', true));
+                $this->redirect('/');
+            }
+            
 
             $conditions = array(
                 'conditions' => array(
@@ -848,6 +854,8 @@ $list[6] ='--5000000000--
              $this->redirect('/');
         }
 
+        $this->data['Diary']['wish_public'] = $this->check_invalid_code($this->data['Diary']['wish_public']);
+
         // DBよりデータを取得
         $conditions = array(
             'conditions' => array(
@@ -886,6 +894,9 @@ $list[6] ='--5000000000--
         $this->Session->delete('diaryEditPublicData');
 
         if (!empty($this->data)) {
+            
+            $this->data['Diary']['wish_public'] = $this->check_invalid_code($this->data['Diary']['wish_public']);
+
             TransactionManager::begin();
             try {
                 // パラメータの初期化(審査のやり直し)
@@ -893,16 +904,9 @@ $list[6] ='--5000000000--
 		        $this->data['Diary']['modified'] = null;	//modified自動更新のための処理
 
                 $this->Diary->create();
+                $this->Diary->whitelist = array('wish_public', 'permit_status', 'modified');
                 if ($this->Diary->save($this->data)) {
 
-                    // articlesテーブルからのレコード削除
-                    /*
-                    $conditions = array('type' => 1, 'external_id' => $this->data['Diary']['id']);
-                    $article = $this->Article->find('first', array('conditions' => $conditions));
-                    if ($article) {
-                        $this->Article->delete($article['Article']['id']);
-                    }
-                     */
                     $this->delete_relative_data($this->data['Diary']['id']);
 
                     TransactionManager::commit();
@@ -1012,11 +1016,13 @@ $list[6] ='--5000000000--
 			return $retval_false;
 		}
 		//元ファイル
-		$in_file_path = $urlParams['inputfilepath'];
+        $in_file_path = $urlParams['inputfilepath'];
+        /*
 		if(strstr($in_file_path, WWW_ROOT) == false){
 			$in_file_path = WWW_ROOT.DS.$in_file_path;
 			$in_file_path = str_replace(DS.DS, DS, $in_file_path);
-		}
+        }
+         */
 		$in_file_path .= DS.$urlParams['inputfile'];
 		$in_file_path = str_replace(DS.DS, DS, $in_file_path);
                 if(!file_exists($in_file_path)){

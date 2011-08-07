@@ -309,5 +309,16 @@ class AppController extends Controller {
 		$data = preg_replace('/[\x00-\x0c]/', '', $data);
 		$data = preg_replace('/[\x0e-\x1f\x7f]/', '', $data);
 		return $data;
-	}
+    }
+
+    function check_owner($user) {
+        $auth_user = $this->Auth->user();
+        return $auth_user['User']['loginid'] == $user['loginid'];
+    }
+
+    function check_hash($hash) {
+        $auth_user = $this->Auth->user();
+        return $auth_user['User']['hash'] == $hash;
+    }
+
 }

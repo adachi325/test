@@ -1,5 +1,4 @@
 
-
 <?php echo $this->Html->image("sp_img/newheader.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "bottom")); ?>
 <?php echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?><!-- #promo -->
 
@@ -79,4 +78,3 @@
 <!-- /#main -->
 
 <?php endif; ?>
-

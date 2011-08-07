@@ -59,47 +59,48 @@ class EasyLoginComponent extends Object {
 	/**
 	 * 簡単ログインを実行する.
 	 */
-	function login() {
+    function login() {
 
-	    //ログイン済みなら終了
-            if($this->controller->Auth->user()) {
+        //ログイン済みなら終了
+        if($this->controller->Auth->user()) {
 
-                //ログイン成功時にuid更新
-                $setUidReturn = $this->_saveUid($this->controller->Session->read('Auth.User.id'));
+            //ログイン成功時にuid更新
+            $setUidReturn = $this->_saveUid($this->controller->Session->read('Auth.User.id'));
 
-                //成功したらユーザー情報を設定
-                if($setUidReturn){
-                    $this->_setUserData();
-                }
-                return;
+            //成功したらユーザー情報を設定
+            if($setUidReturn){
+                $this->controller->Session->renew();
+                $this->_setUserData();
             }
+            return;
+        }
 
-            //userモデル取得
-            $User = ClassRegistry::init('User');
+        //userモデル取得
+        $User = ClassRegistry::init('User');
 
-            //個体識別番号取得
-	    if (isset($_SERVER['HTTPS'])) {
-		$this->mobuid = $this->controller->Session->read('sslUid');
-	    } else {
-		$this->mobuid = $this->_getUid();
-	    }
+        //個体識別番号取得
+        if (isset($_SERVER['HTTPS'])) {
+            $this->mobuid = $this->controller->Session->read('sslUid');
+        } else {
+            $this->mobuid = $this->_getUid();
+        }
 
-            //簡単ログイン個体番号が設定されている場合
-            if($this->mobuid!='') {
-                    //簡単ログイン個体番号からユーザー情報を取得
-                    $user = $User->find('first', array(
-                            'conditions' => array($User->name.'.'.$this->field => $this->mobuid)
-                    ));
+        //簡単ログイン個体番号が設定されている場合
+        if($this->mobuid!='') {
+            //簡単ログイン個体番号からユーザー情報を取得
+            $user = $User->find('first', array(
+                'conditions' => array($User->name.'.'.$this->field => $this->mobuid)
+            ));
 
-                    //取得したユーザー情報でログイン
-                    if($this->controller->Auth->login($user[$User->name])) {
-                		//セッションIDの再割り当て
-                		$this->controller->Session->renew();
-                    	//ユーザー情報設定
-                        $this->_setUserData();
-                    }
+            //取得したユーザー情報でログイン
+            if($this->controller->Auth->login($user[$User->name])) {
+                //セッションIDの再割り当て
+                $this->controller->Session->renew();
+                //ユーザー情報設定
+                $this->_setUserData();
             }
-	}
+        }
+    }
 
         //uidを更新する。
         function _saveUid($selectId){
