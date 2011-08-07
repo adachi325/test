@@ -36,7 +36,6 @@
 <dd class="content">お友達の様子や育児に関するニュース、心理テストなどを随時配信中！</dd>
 </dl>
 
-<div class="aqua">今なら水族館バージョンのポストカードテンプレートプレゼント♪</div>
 <div class="introbtn">
  <div class="green_btn"><?php echo $this->Html->image("sp_img/appliwo.png", array("alt" => "しまじろうひろば×ドコモコミュニティアプリを", "width" => "100%")); ?><a href="#" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
 </div>

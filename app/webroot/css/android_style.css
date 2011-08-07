@@ -269,7 +269,7 @@ div.enjoy2{
 ----------------------------------------------------*/
 
 #promo {
-	margin:0 7px;
+	margin:42px 7px 0 7px;
 	padding:5px 0 0 0;
 	line-height:1.3em;
 	background:#ef9ac5;
@@ -345,7 +345,8 @@ div.enjoy2{
 	font-size:large;
 	text-shadow:1px 1px 3px #666;
 	color:#fff;
-	width:75%;
+    width:50%;
+
 	padding-top:13px;
 	padding-left:30px;
 	float:left;
@@ -362,7 +363,23 @@ img.shadow{
 img.chara{
 	float:right;	
 	x-index:100;
-	position:absolute;
+}
+
+
+div.kochare_btn a:link,div.kochare_btn a:visited{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red_back.png) no-repeat left top;
+	width:102px;
+	height:42px;
+	float:left;
+}
+
+div.kochare_btn a:hover{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red_back.png) no-repeat left -42px;
+	width:102px;
+	height:42px;
+	float:left;
 }
 
 
@@ -469,6 +486,7 @@ img.chara{
 #main h4 span{
 	color:#996633;
 }
+
 
 
 /*----------------------------------------------------
