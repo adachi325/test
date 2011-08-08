@@ -116,6 +116,15 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おてつだいたいに ほうこくしよう！＜NEW＞</a>
     </dd>
+    
+    <dt>
+    	<?php echo $this->Html->image("sp_img/txt_jump.png", array("alt" => "こどもちゃれんじ じゃんぷ", " width" => "100%")); ?><br /><span class="jump">5～6歳向けコース</span>
+    </dt>
+    <dd>
+    ＜こどもちゃれんじじゃんぷ＞の教材連動コンテンツは、ＰＣサイトをご利用ください。
+    <div style="text-align:right;">ＰＣサイトは<a href="https://kodomo.benesse.ne.jp/jump/index.html">こちら</a></div>
+    </dd>
+
   </dl>
 </div>
 <!-- /#main -->
