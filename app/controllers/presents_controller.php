@@ -6,8 +6,9 @@ class PresentsController extends AppController {
 	var $components = array('Qdmail');
 
 	function beforeFilter() {
+        $this->Auth->allow('print_postcard', 'api_create_incentive');
+        $this->allow_android = array('wallpaper');
 		parent::beforeFilter();
-		$this->Auth->allow('print_postcard', 'api_create_incentive');
 	}
 
 	function index($year = null, $month = null) {
@@ -300,7 +301,18 @@ class PresentsController extends AppController {
 		if (!$PostcardUrl->isValiable($token)) {
 			$this->render('print_postcard_error');
 		}
-	}
+    }
+
+    function wallpaper($token = null) {
+        if ($token === null) {
+			$this->cakeError('error404');
+			return;
+        }
+        $this->layout = 'android';
+
+        $this->set(compact('token'));
+    }
+
     /** 
      * 待受けまたはポストカードを作成する。
      * 作成結果とトークンを返す。
