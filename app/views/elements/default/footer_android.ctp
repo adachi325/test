@@ -3,8 +3,8 @@
 
 <div id="footWrap">
 
+<?php if (!$this->tk->is_appli()): ?>
 <div id="footText">
-
 <?php if (! (($this->params['controller'] == 'pages') && ($this->params['action'] == 'display')) ) : ?>
 <div class="white_btn"><a href="<?php echo $this->Html->url('/'); ?>" ><?php echo $this->Html->image("sp_img/bt_white_top.png", array("alt" => "トップページへもどる")); ?></a></div>
 <?php endif; ?>
@@ -20,6 +20,8 @@
 (C)<a href="http://www.benesse.co.jp/">Benesse Corporation</a><br>
 &amp;(C) NTT DOCOMO
 </div>
+<?php endif; ?>
+
 <?php echo $this->Html->image("sp_img/main_bg_under.png", array("width" => "100%", "class" => "bottom")); ?></div><!--
 --><?php echo $this->Html->image("sp_img/footer.png", array("width" => "100%")); ?>
 <!-- /#footer -->

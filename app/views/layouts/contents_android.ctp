@@ -36,9 +36,7 @@
 
 <?php echo $content_for_layout; ?>
 
-<?php if (!$this->tk->is_appli()): ?>
 <?php echo $this->element('footer_android'); ?>
-<?php endif; ?>
 
 <?php echo $this->element('google/analytics'); ?>
 
