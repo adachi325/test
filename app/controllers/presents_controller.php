@@ -6,7 +6,7 @@ class PresentsController extends AppController {
 	var $components = array('Qdmail');
 
 	function beforeFilter() {
-        $this->Auth->allow('print_postcard', 'api_create_incentive');
+        $this->Auth->allow('print_postcard', 'wallpaper', 'api_create_incentive');
         $this->allow_android = array('wallpaper');
 		parent::beforeFilter();
 	}
