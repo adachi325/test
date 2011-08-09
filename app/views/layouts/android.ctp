@@ -13,9 +13,7 @@
 <div id="wrap" data-role="page" data-theme="d">
 
 <?php echo $content_for_layout; ?>
-
 <?php echo $this->element('default/footer_android'); ?>
-
 </div>
 <?php echo $this->element('google/analytics'); ?>
 </body>

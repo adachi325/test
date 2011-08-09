@@ -13,10 +13,11 @@
 <div id="wrap" data-role="page" data-theme="d">
 
 <div style="position: fixed; width: 100%;">
+<?php if ($this->tk->is_appli()): ?>
 <div class="kochare_btn">
 <a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
 </div>
-
+<?php endif; ?>
 <div id="ttl">
 <h2>教材説明</h2>
 <?php echo $this->Html->image('sp_img/kochare_shimajiro.png', array('width'=>'49','alt'=>'しまじろう', 'class' => 'chara')); ?></div>
@@ -35,9 +36,7 @@
 
 <?php echo $content_for_layout; ?>
 
-<?php if (!$this->tk->is_appli()): ?>
 <?php echo $this->element('footer_android'); ?>
-<?php endif; ?>
 
 <?php echo $this->element('google/analytics'); ?>
 

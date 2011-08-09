@@ -265,24 +265,49 @@ class Diary extends AppModel {
             $info = getimagesize($image_path_original);
 
             if (!empty($info) && $info[2] == IMAGETYPE_JPEG) {
-
-                //画像保存(比率保持)
+                /**************　携帯用画像　***************/
+                //サムネイル画像保存(比率保持)
                 $image_path_thumb = sprintf(IMAGES . Configure::read('Diary.image_path_thumb'), $data['child_id'], $diary_id);
                 $this->__saveImageFile($image, $image_path_thumb);
                 $this->__resize_image($image_path_thumb, Configure::read('Diary.image_size_thumb'), false);
                 chmod($image_path_thumb, 0644);
 
-                //画像保存(正方形)
+                //サムネイル画像保存(正方形)
                 $image_path_rect = sprintf(IMAGES . Configure::read('Diary.image_path_rect'), $data['child_id'], $diary_id);
                 $this->__saveImageFile($image, $image_path_rect);
                 $this->__resize_image($image_path_rect, Configure::read('Diary.image_size_rect'), true);
                 chmod($image_path_rect, 0644);
 
-                //画像保存(ポストカード)
+                //ポストカード用埋め込み画像保存(正方形)
                 $image_path_postcard = sprintf(IMAGES . Configure::read('Diary.image_path_postcard'), $data['child_id'], $diary_id);
                 $this->__saveImageFile($image, $image_path_postcard);
                 $this->__resize_image($image_path_postcard, Configure::read('Diary.image_size_postcard'), true);
                 chmod($image_path_postcard, 0777);//ポストカード用は777
+
+                /**************　スマホ用画像　***************/
+                //サムネイル画像保存(比率保持)
+                $image_path_thumb_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_thumb_for_smartphone'), $data['child_id'], $diary_id);
+                $this->__saveImageFile($image, $image_path_thumb_4sp);
+                $this->__resize_image($image_path_thumb_4sp, Configure::read('Diary.image_size_thumb_for_smartphone'), false);
+                chmod($image_path_thumb_4sp, 0644);
+
+                //サムネイル画像保存(正方形)
+                $image_path_rect_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_rect_for_smartphone'), $data['child_id'], $diary_id);
+                $this->__saveImageFile($image, $image_path_rect_wallpaper_4sp);
+                $this->__resize_image($image_path_rect_wallpaper_4sp, Configure::read('Diary.image_size_rect_for_smartphone'), true);
+                chmod($image_path_rect_wallpaper_4sp, 0644);
+
+                //ポストカード用埋め込み画像保存(正方形)
+                $image_path_postcard_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_postcard_for_smartphone'), $data['child_id'], $diary_id);
+                $this->__saveImageFile($image, $image_path_postcard_4sp);
+                $this->__resize_image($image_path_postcard_4sp, Configure::read('Diary.image_size_postcard_for_smartphone'), true);
+                chmod($image_path_postcard_4sp, 0777);//ポストカード用は777
+
+                //壁紙用埋め込み画像保存(正方形)
+                $image_path_wallpaper_4sp = sprintf(IMAGES . Configure::read('Diary.image_path_wallpaper_for_smartphone'), $data['child_id'], $diary_id);
+                $this->__saveImageFile($image, $image_path_wallpaper_4sp);
+                $this->__resize_image($image_path_wallpaper_4sp, Configure::read('Diary.image_size_wallpaper_for_smartphone'), true);
+                chmod($image_path_wallpaper_4sp, 0777);//ポストカード用は777
 
                 $has_image = true;
                 unlink($image_path_original);
