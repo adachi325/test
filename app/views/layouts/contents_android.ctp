@@ -24,15 +24,15 @@
 <?php echo $this->Html->image('sp_img/header_kochare_shadow.png', array('width'=>'100%', 'class' => 'shadow')); ?>
 </div>
 
-<?php if (!$this->tk->is_appli()): ?>
 <!-- #promo -->
 <div id="promo">   
+<?php if (!$this->tk->is_appli()): ?>
 <div id="top_promobtn">
 <a href="<?php echo $this->Html->url('/pages/appli')?>" data-transition="slide"><h1>Androidアプリ リリース！</h1><?php echo $this->Html->image('sp_img/kochare_appli.png', array('alt'=>'', 'width' => '80', 'height' => '80', 'align' => 'middle')); ?><p><こどもちゃれんじ>の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリ♪</p></a></div>
 <div class="tape"><?php echo $this->Html->image('sp_img/bgpink_tape.png', array('width'=>'100%', 'class' => 'bottom')); ?></div>  
+<?php endif; ?>
 </div>
 <!-- /#promo -->  
-<?php endif; ?>
 
 <?php echo $content_for_layout; ?>
 

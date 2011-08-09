@@ -1,7 +1,20 @@
+
+<?php if ($this->tk->is_appli()): ?>
+<div style="position: fixed; width: 100%;">
+<div class="kochare_btn">
+<a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
+</div>
+<div id="ttl">
+<h2>教材一覧</h2>
+<?php echo $this->Html->image('sp_img/kochare_shimajiro.png', array('width'=>'49','alt'=>'しまじろう', 'class' => 'chara')); ?></div>
+<?php echo $this->Html->image('sp_img/header_kochare_shadow.png', array('width'=>'100%', 'class' => 'shadow')); ?>
+</div>
+
+<?php else: ?>
+
 <?php echo $this->Html->image("sp_img/newheader.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "bottom")); ?>
 <?php echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?>
 
-<?php if (!$this->tk->is_appli()): ?>
 <!-- #promo -->
 <div id="top_promo">   
 <div id="top_promobtn">
