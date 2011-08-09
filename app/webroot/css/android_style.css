@@ -148,8 +148,12 @@ p.red{
 	header
 ----------------------------------------------------*/
 #header {
-	margin:0;
-	text-align:left;
+	background:url(../img/sp_img/header_brown.png) repeat-x;
+	vertical-align:middle;
+	text-align:center;
+	height:42px;
+	width:100%;
+	color:#fff;
 }
 
 #top #header {
@@ -158,7 +162,8 @@ p.red{
 }
 
 #header h2{
-	padding:0 10px;
+	padding:13px 10px 0;
+	padding-top:13px;
 }
 
 /*----------------------------------------------------

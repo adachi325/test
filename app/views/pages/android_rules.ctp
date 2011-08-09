@@ -5,9 +5,9 @@
 <!-- main -->
 <div id="main">
 
-「ケータイしまじろうひろば×ドコモコミュニティ」共同サイト利用規約<br />
+「しまじろうひろば×ドコモコミュニティ」共同サイト利用規約<br />
 
-<div data-role="collapsible-set" class="model">
+<div data-role="collapsible-set" class="model" id="rule">
 
 <!-- 第1条 利用規約の適用 -->
 <div data-role="collapsible" data-collapsed="true" data-theme="e"> 
