@@ -1,6 +1,6 @@
 
 <?php if ($this->tk->is_appli()): ?>
-<div style="position: fixed; width: 100%;" data-role="header" data-position="fixed">
+<div style="position: fixed; width: 100%; z-index:9999;">
 <div class="kochare_btn">
 <a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
 </div>
