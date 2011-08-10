@@ -34,6 +34,10 @@ foreach($contents as $content):
 
 <?php 
 $url = $content['Content']['path'];
+// ココはリストには表示しない
+if ($url == 'ap/jump/1109_1') { continue; }
+if ($url == 'ap/jump/1109_2') { continue; }
+
 if ((strlen($url) > 4) && (substr($url, 0, 4) == "http")) {
 } else {
 	$url = $this->Html->url(DS.$url.DS);
