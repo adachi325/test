@@ -69,9 +69,13 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_9/');?>" data-role="button" data-theme="e" rel="external">【Flash】しまじろうといっぱいたべよう！</a>
     </dd>
+
+<?php if (!$this->tk->is_appli()): ?>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_10/');?>" data-role="button" data-theme="e" rel="external">【動画】スプーンでぱっくんかみかみ</a>
     </dd>
+<?php endif; ?>
+
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_11/');?>" data-role="button" data-theme="e" rel="external">【Flash】いっしょにたべようおさそいボイス</a>
     </dd>
@@ -84,12 +88,16 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_14/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレでおしっこ</a>
     </dd>
+<?php if (!$this->tk->is_appli()): ?>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_15/');?>" data-role="button" data-theme="e" rel="external">【動画】みんなでトイレ</a>
     </dd>
+<?php endif; ?>
+<?php if (!$this->tk->is_appli()): ?>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_16/');?>" data-role="button" data-theme="e" rel="external">【動画】トイレでおしっこできるかな</a>
     </dd>
+<?php endif; ?>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
     </dd>
@@ -110,9 +118,11 @@
     <dt>
     	<a name="hop"><?php echo $this->Html->image("sp_img/txt_hop.png", array("alt" => "こどもちゃれんじ ほっぷ", " width" => "100%")); ?></a><br /><span class="hop">3～4歳向けコース</span>
     </dt>
+<?php if (!$this->tk->is_appli()): ?>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1106/');?>" data-role="button" data-theme="e" rel="external">【着うた】かずのドーナツやさんの歌</a>
     </dd>
+<?php endif; ?>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1106_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつの いきもの ずかん</a>
     </dd>

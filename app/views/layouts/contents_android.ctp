@@ -12,7 +12,7 @@
 <body>
 <div id="wrap" data-role="page" data-theme="d">
 
-<div style="position: fixed; width: 100%;">
+<div style="position: fixed; width: 100%; z-index: 9999;">
 <?php if ($this->tk->is_appli()): ?>
 <div class="kochare_btn">
 <a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
