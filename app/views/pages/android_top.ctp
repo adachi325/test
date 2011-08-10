@@ -89,6 +89,9 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつのむし　みつけた！ゲーム</a>
     </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】すきな　たべもの　わかるかな？　どうぶつクイズ</a>
+    </dd>
     
     <dt>
     	<?php echo $this->Html->image("icn_hop.gif", array()); ?><?php echo $this->Html->image("txt_hop.gif", array("alt" => "こどもちゃれんじ ほっぷ")); ?><br /><span class="hop">3～4歳向けコース</span>
@@ -110,6 +113,9 @@
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてゲーム</a>
+    </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/hop/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】でんしゃの　やくそく</a>
     </dd>
     
     <dt>
