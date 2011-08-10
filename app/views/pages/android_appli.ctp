@@ -45,7 +45,7 @@
 
   <div id="top_promo">
   <div id="top_intro">
-  <?php echo $this->Html->image("sp_img/release.png", array("width" => "100%", "alt" => "Androidアプリリリース！")); ?>
+  <?php echo $this->Html->image("sp_img/release0.png", array("width" => "100%", "alt" => "Androidアプリについて！")); ?>
 
     <p><こどもちゃれんじ>の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリです♪</p>
     </div>
@@ -72,7 +72,7 @@
 </dl>
 
 <div class="introbtn">
-<?php echo $this->Html->image("sp_img/dlstart.png", array("alt" => "しまじろうひろば×ドコモコミュニティアプリ8月12日公開予定！", "width" => "100%")); ?>
+<?php echo $this->Html->image("sp_img/dlstart0.png", array("alt" => "しまじろうひろば×ドコモコミュニティアプリ近日リリース予定！", "width" => "100%")); ?>
 </div>
 </div>
 <!-- /#main -->
