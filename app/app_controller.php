@@ -194,14 +194,14 @@ class AppController extends Controller {
 			$this->__checkImodeId();
 		} elseif ($this->Ktai->is_android()) {
 			$action = $this->params['action'];
-			
+
 			if (empty($this->allow_android)) {
 				if ($action != 'display') {
 					$this->redirect('/pages/display/');
 				}
 			} else {
 				if ($this->allow_android !== true) {
-					if (!array_search($action, $this->allow_android)) {
+					if (array_search($action, $this->allow_android) === false) {
                         $this->redirect('/pages/display/');
 					}
 				}
@@ -267,9 +267,12 @@ class AppController extends Controller {
 				}
 				if (!isset($url['?'][session_name()])) {
 				    if ($this->Ktai->is_imode()) {
-					$url['?'][session_name()] = session_id();
-				    } else {
-					$url['?']['csid'] = session_id(); // session_idを不可
+					    $url['?'][session_name()] = session_id();
+                    } else {
+                        $csid = session_id();
+                        if (!empty($csid)) {
+                            $url['?']['csid'] = $csid; // session_idを付加
+                        }
 				    }
 				}
 			}

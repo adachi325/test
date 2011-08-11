@@ -309,8 +309,8 @@ class PresentsController extends AppController {
 			return;
         }
         $this->layout = 'android';
-
-        $this->set(compact('token'));
+        $hide_footer = true;
+        $this->set(compact('token', 'hide_footer'));
     }
 
     /** 
