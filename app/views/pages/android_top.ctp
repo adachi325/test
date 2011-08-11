@@ -2,7 +2,7 @@
 <?php if ($this->tk->is_appli()): ?>
 <div style="position: fixed; width: 100%; z-index:9999;">
 <div class="kochare_btn">
-<a href="<?php echo $this->Html->url('/')?>"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
+<a href="*back://*"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
 </div>
 <div id="ttl">
 <h2>教材一覧</h2>
@@ -19,7 +19,7 @@
 <div id="top_promo">   
 <div id="top_promobtn">
    
-<a href="<?php echo $this->Html->url('/pages/appli/')?>" data-transition="slide"><h1>Androidアプリ リリース！</h1><?php echo $this->Html->image("sp_img/kochare_appli.png", array("alt" => "", "width" => "80", "height" => "80", "align" => "middle")); ?><p><こどもちゃれんじ>
+<a href="<?php echo $this->Html->url('/pages/appli/')?>" data-transition="slide"><h1>Androidアプリ 近日公開</h1><?php echo $this->Html->image("sp_img/kochare_appli.png", array("alt" => "", "width" => "80", "height" => "80", "align" => "middle")); ?><p><こどもちゃれんじ>
 の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリ♪</p></a></div>
 <div class="tape"><?php echo $this->Html->image("sp_img/bgltgreen_tape.png", array("width" => "100%", "class" => "bottom")); ?></div>  
 </div>
@@ -58,6 +58,19 @@
     </dd>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
+    </dd>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/baby/1018/');?>" data-role="button" data-theme="e" rel="external">【動画】病気予防に効果大の手の洗い方動画＆手洗い歌</a>
+    </dd>
+
+    <dt>
+    	<a name="first"><?php echo $this->Html->image("sp_img/txt_petitfirst.png", array("alt" => "こどもちゃれんじ ぷちファースト", "width" => "100%")); ?></a><br /><span class="baby">1歳前後向けコース</span>
+    </dt>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit_f/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】しまじろうのはげましボイス</a>
+    </dd>
+    <dd>
+	<a href="<?php echo $this->Html->url('/ap/petit_f/1108_1/');?>" data-role="button" data-theme="e" rel="external">【動画】しまじろう3WAYホルダーの取り付け方</a>
     </dd>
     
     <dt>
@@ -114,6 +127,10 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
     </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】すきな　たべもの　わかるかな？　どうぶつクイズ</a>
+    </dd>
+    
     
     <dt>
     	<a name="hop"><?php echo $this->Html->image("sp_img/txt_hop.png", array("alt" => "こどもちゃれんじ ほっぷ", " width" => "100%")); ?></a><br /><span class="hop">3～4歳向けコース</span>
@@ -132,6 +149,9 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに のるとき おりるときの やくそく</a>
     </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/hop/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】でんしゃの　やくそく</a>
+    </dd>
     
     <dt>
     	<a name="step"><?php echo $this->Html->image("sp_img/txt_step.png", array("alt" => "こどもちゃれんじ すてっぷ", " width" => "100%")); ?></a><br /><span class="step">4～5歳向けコース</span>
@@ -145,10 +165,16 @@
     </dt>
     <dd>
     ＜こどもちゃれんじじゃんぷ＞の教材連動コンテンツは、ＰＣサイトをご利用ください。
-    <div class="jumplink">ＰＣサイトは<a href="https://kodomo.benesse.ne.jp/jump/index.html">こちら</a></div>
+<?php
+$url = "https://kodomo.benesse.ne.jp/jump/index.html";
+if ($this->tk->is_appli()) {
+    $url = "external://".$url;
+}
+
+?>
+    <div class="jumplink">ＰＣサイトは<a href="<?php echo $url; ?>">こちら</a></div>
     </dd>
 
   </dl>
 </div>
 <!-- /#main -->
-
