@@ -59,10 +59,11 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
     </dd>
+<?php if (date('Y-m-d H:i:s') >= '2011-08-19'): ?>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/baby/1018/');?>" data-role="button" data-theme="e" rel="external">【動画】病気予防に効果大の手の洗い方動画＆手洗い歌</a>
     </dd>
-
+<?php endif; ?>
     <dt>
     	<a id="first"><?php echo $this->Html->image("sp_img/txt_petitfirst.png", array("alt" => "こどもちゃれんじ ぷちファースト", "width" => "100%")); ?></a><br /><span class="baby">1歳前後向けコース</span>
     </dt>
@@ -127,10 +128,11 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" data-role="button" data-theme="e" rel="external">【Flash】まちたんけんゲーム</a>
     </dd>
+<?php if (date('Y-m-d H:i:s') >= '2011-08-24'): ?>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】すきな　たべもの　わかるかな？　どうぶつクイズ</a>
     </dd>
-    
+<?php endif; ?>
     
     <dt>
     	<a id="hop"><?php echo $this->Html->image("sp_img/txt_hop.png", array("alt" => "こどもちゃれんじ ほっぷ", " width" => "100%")); ?></a><br /><span class="hop">3～4歳向けコース</span>
@@ -149,10 +151,11 @@
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに のるとき おりるときの やくそく</a>
     </dd>
+<?php if (date('Y-m-d H:i:s') >= '2011-08-24'): ?>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1109/');?>" data-role="button" data-theme="e" rel="external">【Flash】でんしゃの　やくそく</a>
     </dd>
-    
+<?php endif; ?>
     <dt>
     	<a id="step"><?php echo $this->Html->image("sp_img/txt_step.png", array("alt" => "こどもちゃれんじ すてっぷ", " width" => "100%")); ?></a><br /><span class="step">4～5歳向けコース</span>
     </dt>
