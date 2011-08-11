@@ -60,7 +60,7 @@
 	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
     </dd>
     <dd>
-	<a href="<?php echo $this->Html->url('/ap/baby/1016/');?>" data-role="button" data-theme="e" rel="external">【動画】おうちでできるカンタンからだあそび動画</a>
+	<a href="<?php echo $this->Html->url('/ap/baby/1018/');?>" data-role="button" data-theme="e" rel="external">【動画】病気予防に効果大の手の洗い方動画＆手洗い歌</a>
     </dd>
 
     <dt>
