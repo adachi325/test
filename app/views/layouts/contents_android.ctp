@@ -15,7 +15,7 @@
 <div style="position: fixed; width: 100%; z-index: 9999;">
 <?php if ($this->tk->is_appli()): ?>
 <div class="kochare_btn">
-<a href="*back://*"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
+<a href="back://"><?php echo $this->Html->image('sp_img/bt_kochare.png', array('width'=>'102','alt'=>'戻る')); ?></a>
 </div>
 <?php endif; ?>
 <div id="ttl">

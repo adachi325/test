@@ -7,7 +7,7 @@
 
 <div id="main">
 <h2>待受画像ダウンロード</h2>
-<div style="text-align:center;"><?php echo $this->Html->image('/'.$path, array("alt" => "待受画像")); ?></div>
+<div style="text-align:center;"><?php echo $this->Html->image('/'.$path, array("alt" => "待受画像", "width" => "100%")); ?></div>
 <p>
 1.上の画像を長押し、「画像を保存」を選択<br />
 2.ホームボタンを押し、ホーム画面に戻る<br />
