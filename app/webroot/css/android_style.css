@@ -491,6 +491,12 @@ div.kochare_btn a:hover{
 	width:100%;
 }
 
+#kyouzai div.red_btn_dl{
+    text-align: center;
+	padding:15px 0 30px 0;
+	width:100%;
+}
+
 
 #kyouzai div.red_btn a:link,#kyouzai div.red_btn a:visited{
 	display:inline-block;
@@ -500,6 +506,21 @@ div.kochare_btn a:hover{
 }
 
 #kyouzai div.red_btn a:hover{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red.png) no-repeat left -44px;
+	width:280px;
+	height:44px;
+	
+}
+
+#kyouzai div.red_btn_dl a:link,#kyouzai div.red_btn_dl a:visited{
+	display:inline-block;
+	background:url(../img/sp_img/bt_red.png) no-repeat left top;
+	width:280px;
+	height:44px;
+}
+
+#kyouzai div.red_btn_dl a:hover{
 	display:inline-block;
 	background:url(../img/sp_img/bt_red.png) no-repeat left -44px;
 	width:280px;
