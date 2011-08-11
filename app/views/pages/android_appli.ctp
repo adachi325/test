@@ -2,7 +2,7 @@
 <?php echo $this->Html->image("sp_img/newheader.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "bottom")); ?>
 <?php echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?><!-- #promo -->
 
-<?php if (strtotime(date('Y-m-d H:i:s')) >= strtotime('2011-08-12 00:00:00')): ?>
+<?php if (strtotime(date('Y-m-d H:i:s')) >= strtotime('2011-08-12 17:00:00')): ?>
 
 <div id="top_promo">
   <div id="top_intro">
