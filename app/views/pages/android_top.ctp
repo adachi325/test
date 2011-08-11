@@ -75,7 +75,7 @@
     </dd>
     
     <dt>
-    	<a id="petit"><?php echo $this->Html->image("sp_img/txt_petit.png", array("alt" => "こどもちゃれんじ ぷち", "width" => "100%")); ?></a><br /><span class="petit">1～2歳向けコース</span>
+    	<a id="petit" name="petit"><?php echo $this->Html->image("sp_img/txt_petit.png", array("alt" => "こどもちゃれんじ ぷち", "width" => "100%")); ?></a><br /><span class="petit">1～2歳向けコース</span>
     </dt>
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_8/');?>" data-role="button" data-theme="e" rel="external">【Flash】たべものおしゃべりパズルであそぼう！</a>
@@ -115,9 +115,15 @@
     <dd>
 	<a href="<?php echo $this->Html->url('/ap/petit/1104_17/');?>" data-role="button" data-theme="e" rel="external">【Flash】トイレおさそいボイス</a>
     </dd>
-    
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/petit/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】あてっこクイズ</a>
+    </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/petit/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】おでかけ できるかな？</a>
+    </dd>
+     
     <dt>
-    	<a id="pocket"><?php echo $this->Html->image("sp_img/txt_pocket.png", array("alt" => "こどもちゃれんじ ぽけっと", "width" => "100%")); ?></a><br /><span class="pocket">2～3歳向けコース</span>
+    	<a id="pocket" name="pocket"><?php echo $this->Html->image("sp_img/txt_pocket.png", array("alt" => "こどもちゃれんじ ぽけっと", "width" => "100%")); ?></a><br /><span class="pocket">2～3歳向けコース</span>
     </dt>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/pocket/1105/');?>" data-role="button" data-theme="e" rel="external">【Flash】どれをたべるのかな？はっけんゲーム</a>
@@ -137,6 +143,7 @@
     </dd>
 <?php endif; ?>
     
+    
     <dt>
     	<a id="hop" name="hop"><?php echo $this->Html->image("sp_img/txt_hop.png", array("alt" => "こどもちゃれんじ ほっぷ", " width" => "100%")); ?></a><br /><span class="hop">3～4歳向けコース</span>
     </dt>
@@ -153,6 +160,12 @@
     </dd>
     <dd>
     <a href="<?php echo $this->Html->url('/ap/hop/1107_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりものに のるとき おりるときの やくそく</a>
+    </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/hop/1108/');?>" data-role="button" data-theme="e" rel="external">【Flash】なつに　あそぶ　ときの　やくそく</a>
+    </dd>
+    <dd>
+    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" data-role="button" data-theme="e" rel="external">【Flash】のりもの　いきもの　くみたてキット</a>
     </dd>
 <?php if (date('Y-m-d H:i:s') >= '2011-08-24'): ?>
     <dd>
