@@ -145,7 +145,7 @@
     </dt>
     <dd>
     ＜こどもちゃれんじじゃんぷ＞の教材連動コンテンツは、ＰＣサイトをご利用ください。
-    <div style="text-align:right;">ＰＣサイトは<a href="https://kodomo.benesse.ne.jp/jump/index.html">こちら</a></div>
+    <div class="jumplink">ＰＣサイトは<a href="https://kodomo.benesse.ne.jp/jump/index.html">こちら</a></div>
     </dd>
 
   </dl>

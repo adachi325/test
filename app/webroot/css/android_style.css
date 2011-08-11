@@ -339,6 +339,32 @@ div.enjoy2{
 	line-height:1.0em;
 }
 
+.jumplink{
+	text-align:right;
+	margin:0 10px 20px 0;
+}
+
+.jumplink a:link,.jumplink a:visited{
+	background:#006ebc;
+	padding:6px 8px;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.jumplink a:hover,.jumplink a:active{
+	background:#09F;
+	padding:6px 8px;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.jumplink a{
+	-webkit-tap-highlight-color:rgba(200,0,0,0.4);
+}
+
+
 
  div#ttl{	
 	background:url(../img/sp_img/header_kochare.png) repeat-x;
