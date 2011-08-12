@@ -110,6 +110,23 @@ class AppController extends Controller {
 
 	function beforeFilter(){
 
+        // Androidアクセスの制御
+        if ($this->Ktai->is_android()) {
+			$action = $this->params['action'];
+
+			if (empty($this->allow_android)) {
+				if ($action != 'display') {
+					$this->redirect('/pages/display/');
+				}
+			} else {
+				if ($this->allow_android !== true) {
+					if (array_search($action, $this->allow_android) === false) {
+                        $this->redirect('/pages/display/');
+					}
+				}
+			}
+		}
+        
 		/* iphone端末からのアクセスはPCしまじろう広場へリダイレクト */
 		if ($this->Ktai->is_iphone()) {
 		    $this->redirect(Configure::read('Defaults.shimajiro_square'));
@@ -192,21 +209,7 @@ class AppController extends Controller {
 			header('Content-Type: application/xhtml+xml');
 			$this->__formActionGuidOn();
 			$this->__checkImodeId();
-		} elseif ($this->Ktai->is_android()) {
-			$action = $this->params['action'];
-
-			if (empty($this->allow_android)) {
-				if ($action != 'display') {
-					$this->redirect('/pages/display/');
-				}
-			} else {
-				if ($this->allow_android !== true) {
-					if (array_search($action, $this->allow_android) === false) {
-                        $this->redirect('/pages/display/');
-					}
-				}
-			}
-		}
+        } 
 	}
 
 	function __formActionGuidOn(){
@@ -245,8 +248,11 @@ class AppController extends Controller {
 	// adding session id to url param.
 	//----------------------------------------------------------
 	function __redirect_url($url){
-
 		if(isset($this->Ktai)){
+            if($this->Ktai->is_android()) {
+                return $url;
+            }
+
 			if($this->Ktai->_options['enable_ktai_session'] &&
 				($this->Ktai->_options['use_redirect_session_id'] || $this->Ktai->is_imode())){
 				if(!is_array($url)){
