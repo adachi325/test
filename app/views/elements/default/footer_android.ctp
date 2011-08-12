@@ -6,7 +6,7 @@
 <?php if (!$this->tk->is_appli()): ?>
 <div id="footText">
 <?php if (! (($this->params['controller'] == 'pages') && ($this->params['action'] == 'display')) ) : ?>
-<div class="white_btn"><a href="<?php echo $this->Html->url('/'); ?>" ><?php echo $this->Html->image("sp_img/bt_white_top.png", array("alt" => "トップページへもどる")); ?></a></div>
+<div class="white_btn"><a href="<?php echo $this->Html->url('/pages/display/'); ?>" ><?php echo $this->Html->image("sp_img/bt_white_top.png", array("alt" => "トップページへもどる")); ?></a></div>
 <?php endif; ?>
 
 <ul>
