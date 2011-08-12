@@ -303,6 +303,7 @@ div.enjoy2{
 #contents dt {
 	margin-top:20px;
 	line-height:1;
+
 }
 
 
@@ -335,8 +336,34 @@ div.enjoy2{
     color:#006ebc;
 }
 
-#contents  dd a {
+#contents dd {
+  width:100%;
+　background:#39FF6B;
+  margin:0 auto 5px;
+}
+
+#contents dd a:link,#contents dd a:visited{
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
 	line-height:1.0em;
+	background: url(../img/sp_img/bt_top.png) no-repeat center 0;
+	height:48px;
+    color:#333;
+	padding:15px 5px 0 5px;
+	width:100%;
+}
+
+#contents dd a:hover{
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+	line-height:1.0em;
+	background: url(../img/sp_img/bt_top.png) no-repeat center -63px;
+	height:48px;
+    color:#333;
+	padding:15px 5px 0 5px;
+	width:100%;
 }
 
 .jumplink{
