@@ -34,7 +34,14 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
+
+    $agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+    if (!empty($agent) && (preg_match("Android", $agent))) {
+        Router::connect('/', array('controller' => 'pages', 'action' => 'display'));
+    } else {
         Router::connect('/', array('controller' => 'articles', 'action' => 'top'));
+    }
+
 	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Router::connect('/ap/*/:id', array('controller' => 'contents', 'action' => '"index"' ));
