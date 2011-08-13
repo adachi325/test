@@ -71,8 +71,8 @@
 	<a href="<?php echo $this->Html->url('/ap/petit_f/1108/');?>" rel="external">【Flash】しまじろうの<br />はげましボイス</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/petit_f/1108_1/');?>" rel="external">【動画】しまじろう3WAYホルダー<br />の取り付け方</a>
     <a id="petit" name="petit"></a>
+    <a href="<?php echo $this->Html->url('/ap/petit_f/1108_1/');?>" rel="external">【動画】しまじろう3WAYホルダー<br />の取り付け方</a>
     </dd>
     
     <dt>
@@ -120,8 +120,8 @@
     <a href="<?php echo $this->Html->url('/ap/petit/1108/');?>" rel="external">【Flash】あてっこクイズ</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/petit/1108_1/');?>" rel="external">【Flash】おでかけ できるかな？</a>
     <a id="pocket" name="pocket"></a>
+    <a href="<?php echo $this->Html->url('/ap/petit/1108_1/');?>" rel="external">【Flash】おでかけ できるかな？</a>
     </dd>
      
     <dt>
@@ -137,15 +137,15 @@
     <a href="<?php echo $this->Html->url('/ap/pocket/1107/');?>" rel="external">【Flash】まちたんけんゲーム</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1108/');?>" rel="external">【Flash】なつのむし みつけた!ゲーム</a>
 <?php if (date('Y-m-d H:i:s') < '2011-08-24 10:00:00'): ?>
-    <a id="hop" name="hop"><a/>
+    <a id="hop" name="hop"></a>
 <?php endif; ?>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1108/');?>" rel="external">【Flash】なつのむし みつけた!ゲーム</a>
     </dd>
 <?php if (date('Y-m-d H:i:s') >= '2011-08-24 10:00:00'): ?>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/pocket/1109/');?>" rel="external">【Flash】すきな たべもの わかるかな？<br />どうぶつクイズ</a>
     <a id="hop" name="hop"></a>
+    <a href="<?php echo $this->Html->url('/ap/pocket/1109/');?>" rel="external">【Flash】すきな たべもの わかるかな？<br />どうぶつクイズ</a>
     </dd>
 <?php endif; ?>
     
@@ -171,15 +171,15 @@
     <a href="<?php echo $this->Html->url('/ap/hop/1108/');?>" rel="external">【Flash】なつに あそぶ ときの<br />やくそく</a>
     </dd>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" rel="external">【Flash】のりもの いきもの<br />くみたてゲーム</a>
 <?php if (date('Y-m-d H:i:s') < '2011-08-24 10:00:00'): ?>
     <a id="step" name="step"></a>
 <?php endif; ?>
+    <a href="<?php echo $this->Html->url('/ap/hop/1108_1/');?>" rel="external">【Flash】のりもの いきもの<br />くみたてゲーム</a>
     </dd>
 <?php if (date('Y-m-d H:i:s') >= '2011-08-24 10:00:00'): ?>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/hop/1109/');?>" rel="external">【Flash】でんしゃの　やくそく</a>
     <a id="step" name="step"></a>
+    <a href="<?php echo $this->Html->url('/ap/hop/1109/');?>" rel="external">【Flash】でんしゃの　やくそく</a>
     </dd>
 <?php endif; ?>
 
@@ -187,8 +187,8 @@
     	<?php echo $this->Html->image("sp_img/txt_step.png", array("alt" => "こどもちゃれんじ すてっぷ", " width" => "100%")); ?><br /><span class="step">4～5歳向けコース</span>
     </dt>
     <dd>
-    <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" rel="external">【Flash】おてつだいたいに<br />ほうこくしよう！＜NEW＞</a>
     <a id="jump" name="jump"></a>
+    <a href="<?php echo $this->Html->url('/ap/step/1105_1/');?>" rel="external">【Flash】おてつだいたいに<br />ほうこくしよう！＜NEW＞</a>
     </dd>
     
     <dt>
