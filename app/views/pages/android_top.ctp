@@ -67,6 +67,7 @@
     <dt>
         <a id="first" name="first"></a>
         &nbsp;<br />
+        &nbsp;<br />
     </dt>
     <dt>
         <?php echo $this->Html->image("sp_img/txt_petitfirst.png", array("alt" => "こどもちゃれんじ ぷちファースト", "width" => "100%")); ?><br /><span class="baby">1歳前後向けコース</span>
@@ -79,6 +80,7 @@
     </dd>
     <dd>
         <a id="petit" name="petit"></a>
+        &nbsp;<br />
         &nbsp;<br />
     </dd> 
     <dt>
@@ -132,6 +134,7 @@
     <dd>
         <a id="pocket" name="pocket"></a>
         &nbsp;<br />
+        &nbsp;<br />
     </dd> 
     <dt>
         <?php echo $this->Html->image("sp_img/txt_pocket.png", array("alt" => "こどもちゃれんじ ぽけっと", "width" => "100%")); ?><br /><span class="pocket">2～3歳向けコース</span>
@@ -156,6 +159,7 @@
 
     <dd>
         <a id="hop" name="hop"></a>
+        &nbsp;<br />
         &nbsp;<br />
     </dd> 
     <dt>
@@ -190,6 +194,7 @@
     <dd>
         <a id="step" name="step"></a>
         &nbsp;<br />
+        &nbsp;<br />
     </dd>
     <dt>
         <?php echo $this->Html->image("sp_img/txt_step.png", array("alt" => "こどもちゃれんじ すてっぷ", " width" => "100%")); ?><br /><span class="step">4～5歳向けコース</span>
@@ -200,6 +205,7 @@
 
     <dd>
         <a id="jump" name="jump"></a>
+        &nbsp;<br />
         &nbsp;<br />
     </dd>    
     <dt>
