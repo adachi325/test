@@ -1,8 +1,4 @@
 
-<script>
-//alert(location.hash);
-</script>
-
 <?php if ($this->tk->is_appli()): ?>
 <div style="position: fixed; width: 100%; z-index:9999;">
 <div class="kochare_btn">
