@@ -375,19 +375,20 @@ class CreatePresentComponent extends Object {
             //思い出画像読み込み
             $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['diary_path'], $args['child_id'], $args['diary_ids'][$i]);
 
+            $src_w = $args['diary_size']['width'];
+            $src_h = $args['diary_size']['height'];
+            $dst_w = $args['diary_size']['width'];
+            $dst_h = $args['diary_size']['height'];
+
             //ファイルが作成されていない場合の対策
             if (!file_exists($diary_img_path)) {
-                
-                $alt_diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['alt_diary_path'], $args['child_id'], $args['diary_ids'][$i]);
-                if (!file_exists($alt_diary_img_path)) {
+                $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['alt_diary_path'], $args['child_id'], $args['diary_ids'][$i]);
+                if (!file_exists($diary_img_path)) {
                     ImageDestroy($new_image);
                     return false;
                 }
-
-                $image = ImageCreateFromJpeg($alt_diary_img_path);
-                $Diary->__saveImageFile($image, $diary_img_path);
-                $Diary->__resize_image($diary_img_path, $args['diary_size']['width'], false);
-                chmod($diary_img_path, 0777);
+                $src_w = $args['alt_diary_size']['width'];
+                $src_h = $args['alt_diary_size']['height'];
             }
 
             $diaryImg = ImageCreateFromJpeg($diary_img_path);
@@ -396,10 +397,11 @@ class CreatePresentComponent extends Object {
                 $this->log('[_createCompositeImage][ImageCreateFromJpeg]ポストカード／待受け作成失敗.'.$diary_img_path,LOG_DEBUG);
                 return false;            
             }
+
             //下地画像へ、思い出画像を合成
-            if(!ImageCopy($new_image, $diaryImg, 
+            if(!ImageCopyResized($new_image, $diaryImg, 
                 $args['positions_in_template'][$i]['x'], $args['positions_in_template'][$i]['y'], 
-                0, 0, $args['diary_size']['width'], $args['diary_size']['height'])){
+                0, 0, $dst_w, $dst_h, $src_w, $src_h)){
                     ImageDestroy($new_image);
                     $this->log('[_createCompositeImage][ImageCopy]ポストカード／待受け作成失敗.思い出画像の合成に失敗。'.($i+1).'番目の画像。', LOG_DEBUG);
                     return false;
