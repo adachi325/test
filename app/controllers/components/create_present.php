@@ -239,7 +239,9 @@ class CreatePresentComponent extends Object {
         $params['template_size'] =Configure::read('Present.template.wallpaper.size_smartphone');
         $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $args['present_id']);
         $params['diary_path'] =Configure::read('Diary.image_path_wallpaper_for_smartphone');
+        $params['alt_diary_path'] =Configure::read('Diary.image_path_postcard');
         $params['output_dir'] =Configure::read('Present.path.wallpaper_output_for_smartphone');
+        
         // 待受け画像作成
         $result = $this->_createCompositeImage($params);
         if($result === FALSE){
@@ -292,6 +294,7 @@ class CreatePresentComponent extends Object {
         $params['template_size'] =Configure::read('Present.template.postcard.size_smartphone');
         $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_for_smartphone'), $args['present_id']);
         $params['diary_path'] =Configure::read('Diary.image_path_postcard_for_smartphone'); 
+        $params['alt_diary_path'] =Configure::read('Diary.image_path_postcard'); 
         $params['output_dir'] =Configure::read('Present.path.postcard_output_for_smartphone');
         // postcard画像作成
         $result = $this->_createCompositeImage($params);
@@ -364,8 +367,16 @@ class CreatePresentComponent extends Object {
         for($i = 0 ; $i < $args['diary_num'] ; $i++){
             //思い出画像読み込み
             $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['diary_path'], $args['child_id'], $args['diary_ids'][$i]);
+            if (!file_exists($diary_img_path)) {
+                $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['alt_diary_path'], $args['child_id'], $args['diary_ids'][$i]);
+                if (!file_exists($diary_img_path)) {
+                    ImageDestroy($new_image);
+                    return false;
+                }
+            }
             $diaryImg = ImageCreateFromJpeg($diary_img_path);
             if($diaryImg === FALSE){
+                ImageDestroy($new_image);
                 $this->log('[_createCompositeImage][ImageCreateFromJpeg]ポストカード／待受け作成失敗.'.$diary_img_path,LOG_DEBUG);
                 return false;            
             }
@@ -373,6 +384,7 @@ class CreatePresentComponent extends Object {
             if(!ImageCopy($new_image, $diaryImg, 
                 $args['positions_in_template'][$i]['x'], $args['positions_in_template'][$i]['y'], 
                 0, 0, $args['diary_size']['width'], $args['diary_size']['height'])){
+                    ImageDestroy($new_image);
                     $this->log('[_createCompositeImage][ImageCopy]ポストカード／待受け作成失敗.思い出画像の合成に失敗。'.($i+1).'番目の画像。', LOG_DEBUG);
                     return false;
                 }           
@@ -383,6 +395,7 @@ class CreatePresentComponent extends Object {
         $template = imageCreateFromPng($args['template_file_path']);
         //下地画像へ、テンプレート画像を合成
         if(!ImageCopy($new_image, $template, 0, 0,  0, 0, $args['template_size']['width'], $args['template_size']['height'])){
+            ImageDestroy($new_image);
             $this->log('[_createCompositeImage][ImageCopy]ポストカード／待受け作成失敗.テンプレートの合成に失敗',LOG_DEBUG);
             return false;
         }
@@ -396,6 +409,7 @@ class CreatePresentComponent extends Object {
         //画像保存
         $result = ImageJPEG($new_image, (WWW_ROOT.sprintf($args['output_dir'], $new_file_name)), 100);
         if($result===FALSE){
+            ImageDestroy($new_image);
             $this->log("[_createCompositeImage][ImageJPEG]ポストカード作成失敗.",LOG_DEBUG);
             return false;
         }
