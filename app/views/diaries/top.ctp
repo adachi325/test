@@ -115,7 +115,7 @@ if (count($childrenData) < 3) :
 	if (isset($diaries[$i])) {
         $diary = $diaries[$i];
         if ($diary['Diary']['has_image']) {
-            echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+            echo $html->link($this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         } else {
             echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         }
@@ -130,7 +130,7 @@ if (count($childrenData) < 3) :
 		$diary = $diaries[$i];
 		//echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         if ($diary['Diary']['has_image']) {
-            echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+            echo $html->link($this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         } else {
             echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         }
@@ -156,7 +156,7 @@ if (count($childrenData) < 3) :
 		$diary = $diaries[$i];
 		//echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         if ($diary['Diary']['has_image']) {
-            echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+            echo $html->link($this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         } else {
             echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         }
@@ -171,7 +171,7 @@ if (count($childrenData) < 3) :
 		$diary = $diaries[$i];
 		//echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         if ($diary['Diary']['has_image']) {
-            echo $html->link($html->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
+            echo $html->link($this->DiaryCommon->image(sprintf(Configure::read('Diary.image_path_rect'), $diary['Diary']['child_id'], $diary['Diary']['id']), array('width' => '100%')), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         } else {
             echo $html->link($html->image('omoide_nophoto.gif', array("width" => "100%")), '/diaries/info/'.$diary['Diary']['id'], array('escape' => false));
         }
