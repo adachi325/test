@@ -233,8 +233,10 @@ class CreatePresentComponent extends Object {
         $params['child_id'] =$args['child_id']; 
         $params['diary_num'] =3; 
         $params['diary_ids'] =$args['diary_id']; 
-        $params['diary_size']['width'] = Configure::read('Diary.image_size_wallpaper_for_smartphone');; 
-        $params['diary_size']['height'] = Configure::read('Diary.image_size_wallpaper_for_smartphone');; 
+        $params['diary_size']['width'] = Configure::read('Diary.image_size_wallpaper_for_smartphone');
+        $params['diary_size']['height'] = Configure::read('Diary.image_size_wallpaper_for_smartphone');
+        $params['alt_diary_size']['width'] = Configure::read('Diary.image_size_postcard');
+        $params['alt_diary_size']['height'] = Configure::read('Diary.image_size_postcard');
         $params['positions_in_template'] = Configure::read('Present.incentive.position_in_wallpaper_smartphone');
         $params['template_size'] =Configure::read('Present.template.wallpaper.size_smartphone');
         $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.wallpaper_for_smartphone'), $args['present_id']);
@@ -288,8 +290,10 @@ class CreatePresentComponent extends Object {
         $params['child_id'] =$args['child_id']; 
         $params['diary_num'] =4; 
         $params['diary_ids'] =$args['diary_id']; 
-        $params['diary_size']['width'] = Configure::read('Diary.image_size_postcard_for_smartphone');; 
-        $params['diary_size']['height'] = Configure::read('Diary.image_size_postcard_for_smartphone');; 
+        $params['diary_size']['width'] = Configure::read('Diary.image_size_postcard_for_smartphone');
+        $params['diary_size']['height'] = Configure::read('Diary.image_size_postcard_for_smartphone');
+        $params['alt_diary_size']['width'] = Configure::read('Diary.image_size_postcard');
+        $params['alt_diary_size']['height'] = Configure::read('Diary.image_size_postcard');
         $params['positions_in_template'] = Configure::read('Present.incentive.position_in_postcard_smartphone');
         $params['template_size'] =Configure::read('Present.template.postcard.size_smartphone');
         $params['template_file_path'] =WWW_ROOT.sprintf(Configure::read('Present.path.postcard_for_smartphone'), $args['present_id']);
@@ -373,6 +377,7 @@ class CreatePresentComponent extends Object {
                     ImageDestroy($new_image);
                     return false;
                 }
+                $args['diary_size'] = $args['alt_diary_size'];
             }
             $diaryImg = ImageCreateFromJpeg($diary_img_path);
             if($diaryImg === FALSE){
