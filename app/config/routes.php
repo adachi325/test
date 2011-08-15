@@ -36,7 +36,7 @@
  */
 
     $agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
-    if (!empty($agent) && (preg_match("Android", $agent))) {
+    if (!empty($agent) && (preg_match("/Android/", $agent))) {
         Router::connect('/', array('controller' => 'pages', 'action' => 'display'));
     } else {
         Router::connect('/', array('controller' => 'articles', 'action' => 'top'));
