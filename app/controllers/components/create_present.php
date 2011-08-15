@@ -368,17 +368,25 @@ class CreatePresentComponent extends Object {
         //下地画像生成
         $new_image = ImageCreateTrueColor($args['template_size']['width'], $args['template_size']['height']);
 
-        for($i = 0 ; $i < $args['diary_num'] ; $i++){
+        for ($i = 0 ; $i < $args['diary_num'] ; $i++) {
             //思い出画像読み込み
             $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['diary_path'], $args['child_id'], $args['diary_ids'][$i]);
+
+            //ファイルが作成されていない場合の対策
             if (!file_exists($diary_img_path)) {
-                $diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['alt_diary_path'], $args['child_id'], $args['diary_ids'][$i]);
-                if (!file_exists($diary_img_path)) {
+                
+                $alt_diary_img_path = WWW_ROOT.'img'.DS.sprintf($args['alt_diary_path'], $args['child_id'], $args['diary_ids'][$i]);
+                if (!file_exists($alt_diary_img_path)) {
                     ImageDestroy($new_image);
                     return false;
                 }
-                $args['diary_size'] = $args['alt_diary_size'];
+
+                $image = ImageCreateFromJpeg($alt_diary_img_path);
+                $this->__saveImageFile($image, $diary_img_path);
+                $this->__resize_image($diary_img_path, $args['diary_size']['width'], false);
+                chmod($diary_img_path, 0777);
             }
+
             $diaryImg = ImageCreateFromJpeg($diary_img_path);
             if($diaryImg === FALSE){
                 ImageDestroy($new_image);
