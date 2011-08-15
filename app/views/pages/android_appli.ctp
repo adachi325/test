@@ -1,6 +1,6 @@
 
 <?php echo $this->Html->image("sp_img/newheader.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "bottom")); ?>
-<?php echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?><!-- #promo -->
+<?php //echo $this->Html->image("sp_img/newheader_shadow.png", array("width" => "100%", "alt" => "しまじろうひろば×ドコモコミュニティ", "class" => "shadow")); ?><!-- #promo -->
 
 <?php if (strtotime(date('Y-m-d H:i:s')) >= strtotime('2011-08-15 20:00:00')): ?>
 
