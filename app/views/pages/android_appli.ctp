@@ -10,7 +10,7 @@
     <p><こどもちゃれんじ>の年齢別コンテンツやお子さんの成長を素敵に残せる思い出記録など、親子で楽しめる<span class="red">無料</span>のアプリです♪</p>
   </div>
   <div class="headintrobtn">
-    <div class="green_btn"><a href="market://search?q=pname:com.nakedtech.app.dev.sample" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
+    <div class="green_btn"><a href="market://search?q=pname:jp.dctry.shimajiro" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
   </div>
   <div class="tape"><?php echo $this->Html->image("sp_img/bgltgreen_tape.png", array("width" => "100%", "class" => "bottom")); ?></div>  
 </div>
@@ -36,7 +36,7 @@
 </dl>
 
 <div class="introbtn">
- <div class="green_btn"><?php echo $this->Html->image("sp_img/appliwo.png", array("alt" => "しまじろうひろば×ドコモコミュニティアプリを", "width" => "100%")); ?><a href="market://search?q=pname:com.nakedtech.app.dev.sample" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
+ <div class="green_btn"><?php echo $this->Html->image("sp_img/appliwo.png", array("alt" => "しまじろうひろば×ドコモコミュニティアプリを", "width" => "100%")); ?><a href="market://search?q=pname:jp.dctry.shimajiro" ><?php echo $this->Html->image("sp_img/bt_green_download2.png", array("alt" => "ダウンロード")); ?></a></div>
 </div>
 </div>
 <!-- /#main -->
