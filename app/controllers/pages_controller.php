@@ -182,6 +182,14 @@ class PagesController extends AppController {
 	 */
 	function aquarium(){ 
 	    $this->layout = 'aquarium_base';
-	}
+    }
+
+    function release0812() {
+		$this->render($this->view_prefix.$this->params['action']);   
+    }
+
+    function release0812_2() {
+		$this->render($this->view_prefix.$this->params['action']);   
+    }
 }
 ?>
