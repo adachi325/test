@@ -96,14 +96,18 @@ class ApController extends AppController {
 			} else {
 				$this->__view($this->params['action'], $id);
 			}
-		} else {
+        } else {
+            if ($this->Ktai->is_android()) {
+                $this->redirect('/');
+            }
+
             $user = $this->_getUser();
             if ($user) {
                 $this->_redirect2members();
             }
 
             $this->render("petit");
-		}
+        }
 	}
 
 	function pocket($id = null) {
