@@ -69,7 +69,7 @@ class EasyLoginComponent extends Object {
 
             //成功したらユーザー情報を設定
             if($setUidReturn){
-                $this->controller->Session->renew();
+                //$this->controller->Session->renew();
                 $this->_setUserData();
             }
             return;
