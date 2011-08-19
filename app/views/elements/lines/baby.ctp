@@ -171,6 +171,14 @@
 </div></td>
 </tr>
 
+<tr>
+<td bgcolor="#ffefef"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">●1歳6ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1018/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【動画】病気予防に効果大の手の洗い方動画&手洗い歌</span></a><br />
+</div></td>
+</tr>
+
 </table>
 
 
