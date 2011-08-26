@@ -188,14 +188,14 @@ class ArticlesController extends AppController {
         // 非会員の判定
         if (empty($user)) {
             //月データ取得
-            $Month =& ClassRegistry::init('Month');
-            $options = array();
-            $options['year'] = date('Y');
-            $options['month'] = date('m') + 0;
-            $months = $Month->find('all', array('conditions' => $options));
+            //$Month =& ClassRegistry::init('Month');
+            //$options = array();
+            //$options['year'] = date('Y');
+            //$options['month'] = date('m') + 0;
+            //$months = $Month->find('all', array('conditions' => $options));
             //テーマ要素作成日順に入れ替える
-            $themes = array_reverse($months['0']['Theme']);
-	    $themes = $themes[0];	//追加　ｂｙ　飯塚
+            //$themes = array_reverse($months['0']['Theme']);
+	        //$themes = $themes[0];	//追加　ｂｙ　飯塚
        } else {
             $Hanamaru =& ClassRegistry::init('Hanamaru');
 

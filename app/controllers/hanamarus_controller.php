@@ -38,7 +38,8 @@ class HanamarusController extends AppController {
                 'limit' => 5,
                 'conditions' => array('Hanamaru.owner_id' => $user_id),
                 'group' => array('Diary.id'),
-                'order' => array('Diary.hanamaru_last_updated' =>  'desc'),
+                //'order' => array('Diary.hanamaru_last_updated' =>  'desc'),
+                'order' => array('Diary.created' =>  'desc'),
             )
         );
         $this->Diary->recursive = -1;

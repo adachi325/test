@@ -8,7 +8,7 @@ class Diary extends AppModel {
      */
     var $virtualFields = array(
         'hanamaru_count' => 'SELECT COUNT(*) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id AND Hanamaru.type = 1',
-        'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id AND Hanamaru.type = 1',
+        //'hanamaru_last_updated' => 'SELECT MAX(Hanamaru.created) FROM hanamarus AS Hanamaru WHERE Hanamaru.external_id = Diary.id AND Hanamaru.type = 1',
     );
 
     var $hasOne = array(
