@@ -141,7 +141,9 @@ class ToppageComponent extends Object {
         $options = array();
         $options['year'] = date('Y');
         $options['month'] = date('m') + 0;
+
         // 動的に条件を指定します sugimoto
+        $Month->contain('Theme');
         $Month->hasMany['Theme']['conditions'] = 'Theme.release_date <= "'.date("Y-m-d H:i:s").'"';
         $months = $Month->find('all', array('conditions' => $options));
         // 他に影響が出ないように元に戻しておきます 
@@ -164,6 +166,7 @@ class ToppageComponent extends Object {
             );
             //表示データ一覧取得
             $Diary =& ClassRegistry::init('diary');
+
             $diaries = $Diary->find('all', $conditions);
         }
         $this->controller->set(compact('months','diaries'));

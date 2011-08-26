@@ -92,9 +92,10 @@ class DiariesController extends AppController {
             $conditions = array(
                 'conditions' => array(
                     'Diary.child_id' => $this->Tk->_getLastChild(),
-                    'Diary.month_id' => $months['0']['Month']['id']
+                    'Diary.month_id' => $months['0']['Month']['id'],
                 ),
-                'order'=>array('Diary.created DESC')
+                'order' => array('Diary.created DESC'),
+                'limit' => 4,
             );
             $this->Diary->contain('Article');
             $diaries = $this->Diary->find('all', $conditions);
