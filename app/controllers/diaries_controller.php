@@ -83,7 +83,7 @@ class DiariesController extends AppController {
                     // 'Diary.has_image' => 1,
                     // 'Diary.error_code' => null
                 ),
-                'order'=>array('Diary.created DESC')
+                'order'=>array('Diary.created DESC'),
               );
             $diariesTop = $this->Diary->find('all', $conditions);
             $this->set(compact('diariesTop'));
@@ -95,7 +95,6 @@ class DiariesController extends AppController {
                     'Diary.month_id' => $months['0']['Month']['id'],
                 ),
                 'order' => array('Diary.created DESC'),
-                'limit' => 4,
             );
             $this->Diary->contain('Article');
             $diaries = $this->Diary->find('all', $conditions);

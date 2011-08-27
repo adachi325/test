@@ -159,14 +159,13 @@ class ToppageComponent extends Object {
                 'conditions' => array(
                     'Diary.child_id' => $lastChildId,
                     'Diary.month_id' => $months['0']['Month']['id'],
-                    'Diary.has_image' => 1,
-                    'Diary.error_code' => null
+                    //'Diary.has_image' => 1,
+                    //'Diary.error_code' => null
                 ),
                 'order'=>array('Diary.created DESC')
             );
-            //表示データ一覧取得
+            //アルバム部分取得
             $Diary =& ClassRegistry::init('diary');
-
             $diaries = $Diary->find('all', $conditions);
         }
         $this->controller->set(compact('months','diaries'));
