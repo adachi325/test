@@ -67,7 +67,7 @@ class GetContentShell extends AppShell {
 	function getNews() {
         
         //$url = "http://".$_SERVER["HTTP_HOST"]."/-apis/get_news.php?guid=ON&id=";
-        $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_news.php?&id=";
+        $url = "http://".Configure::read('Api.ip')."/shimajiro/-apis/get_news.php?&id=";
         $type = 2;
 
         $this->__getCSV($url, $type);
@@ -75,7 +75,7 @@ class GetContentShell extends AppShell {
 
 	function getWeather() {
         
-        $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_weathers.php?&id=";
+        $url = "http://".Configure::read('Api.ip')."/shimajiro/-apis/get_weathers.php?&id=";
         $type = 2;
 
         $this->__getCSV($url, $type);
@@ -83,7 +83,7 @@ class GetContentShell extends AppShell {
 
 	function getPsychologicalTest() {
         
-        $url = "http://".Configure::read('Api.domain')."/shimajiro/-apis/get_psychological_tests.php?&id=";
+        $url = "http://".Configure::read('Api.ip')."/shimajiro/-apis/get_psychological_tests.php?&id=";
         $type = 4;
 
         $this->__getCSV($url, $type);

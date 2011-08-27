@@ -104,14 +104,15 @@ $config['Present'] = array(
 );
 
 $config['Defaults'] = array(
-	'domain' => 'test.dctry.jp',
+	'domain' => 'dctry.jp',
 	'receive_mail_prefix' => 'diary_',
         'docomo_community' => 'diary@docomo-community.com',
         'shimajiro_square' => 'https://kodomo.benesse.ne.jp/login/index.shtml',
 );
 
 $config['Api'] = array(
-    'domain' => 'st-dctry.com',
+    'domain' => 'dctry.jp',
+    'ip' => '10.5.39.1',
 );
 
 $config['Mail'] = array(
