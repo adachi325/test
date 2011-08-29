@@ -72,7 +72,6 @@ class ApController extends AppController {
     }
 
     function baby($id = null) {
-
 		if ($id) {
 			$this->__view($this->params['action'], $id);
 		} else {
@@ -80,8 +79,7 @@ class ApController extends AppController {
 		}
 	}
 
-    function petit_f($id = null) {
-
+	function petit_f($id = null) {
 		if ($id) {
 			$this->__view($this->params['action'], $id);
 		} else {
