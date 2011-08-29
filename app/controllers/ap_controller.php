@@ -70,8 +70,16 @@ class ApController extends AppController {
         $this->redirect($url);
     }
 
-    function baby($id = null) {
+	function baby($id = null) {
+		if ($id) {
+			$this->__view($this->params['action'], $id);
+		} else {
+			$this->__index($this->params['action']);
+		}
+	}
 
+
+	function petit_f($id = null) {
 		if ($id) {
 			$this->__view($this->params['action'], $id);
 		} else {

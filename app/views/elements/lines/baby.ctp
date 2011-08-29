@@ -13,10 +13,27 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 
 <tr>
+<td bgcolor="#ffefef"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("/img/ap/petit_f/1108.gif", array("width" => "20%", "alt" => "", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?><span style="color:#cc0000;">
+<a href="<?echo $this->Html->url('/ap/petit_f/1108/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【Flash】しまじろうのはげましﾎﾞｲｽ</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?></div></td>
+</tr>
+
+<tr>
+<td><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<?php echo $this->Html->image("/img/ap/petit_f/1108_1.jpg", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?>
+<a href="<?echo $this->Html->url('/ap/petit_f/1108_1/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【動画】しまじろう3WAYﾎﾙﾀﾞｰの取り付け方</span></a><br />
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
+</div></td>
+</tr>
+
+<tr>
 <td><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <?php echo $this->Html->image("/img/ap/petit_f/1103.jpg", array("width" => "20%", "align" => "top", "style" => "float:left; margin:0 3px 0 0;")); ?>
-<span style="color:#cc0000;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?></span><a href="<?echo $this->Html->url('http://shimajiromobile.benesse.ne.jp/petit_f/1103/')?>" style="color:#ff3333;"><span style="color:#ff3333;">ﾊﾟﾍﾟｯﾄで使えるしまじろう生活ﾎﾞｲｽ</span></a><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('http://shimajiromobile.benesse.ne.jp/petit_f/1103/')?>" style="color:#ff3333;"><span style="color:#ff3333;">ﾊﾟﾍﾟｯﾄで使えるしまじろう生活ﾎﾞｲｽ</span></a><br />
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?>
 </div></td>
 </tr>
@@ -150,8 +167,15 @@
 <td bgcolor="#ffefef"><div style="font-size:x-small;">
 <?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
 <span style="color:#333333;">●1歳5ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
-<span style="color:#cc0000;">&nbsp;</span><a href="<?echo $this->Html->url('/ap/baby/1017/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【WEB】あなたの家は大丈夫? 事故予防ﾁｪｯｸ!</span></a><br />
 <span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1017/')?>" style="color:#ff3333;"><span style="color:#ff3333;">【WEB】あなたの家は大丈夫? 事故予防ﾁｪｯｸ!</span></a><br />
+</div></td>
+</tr>
+
+<tr>
+<td bgcolor="#ffefef"><div style="font-size:x-small;">
+<?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#333333;">●1歳6ｶ月号</span><br /><?php echo $this->Html->image("spacer.gif", array("width" => "1", "height" => "5")); ?><br />
+<span style="color:#cc0000;">&nbsp;･</span><a href="<?echo $this->Html->url('/ap/baby/1018/')?>" style="color:#ff3333;"><span style="color:#ff3333;"><?php echo $this->Ktai->emoji(0xE6DD, false); ?>【動画】病気予防に効果大の手の洗い方動画&手洗い歌</span></a><br />
 </div></td>
 </tr>
 
